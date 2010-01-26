@@ -1,0 +1,45 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+//The use of this file has been depreciated.
+//This file will not be maintained and/or supported in the future.
+
+#include ".\6to4\group\bld.inf"
+#include ".\anvltest\group\bld.inf"
+#include ".\cgi\group\bld.inf"
+#include ".\dnd\group\bld.inf"
+#include ".\dnd\Test\group\bld.inf"
+#include ".\guqos\group\bld.inf"
+#include ".\inhook6\group\bld.inf"
+#include ".\inhook6example\group\bld.inf"
+#include ".\ipadm\group\bld.inf" 
+#include ".\iprotor\group\bld.inf"
+#include ".\mscomp\group\bld.inf"  
+#include ".\pfqoslib\group\bld.inf"
+#include ".\ping\group\bld.inf" 
+#include ".\probe\group\bld.inf"
+#include ".\qos\group\bld.inf"
+#include ".\qoslib\group\bld.inf"
+#include ".\qostesting\group\bld.inf"
+#include ".\scheduler\group\bld.inf"
+#include ".\staccomp\group\bld.inf" 
+#include ".\tcpip6\group\bld.inf"
+#include ".\udpecho\group\bld.inf" 
+#include ".\udpsend\group\bld.inf" 
+#include ".\umtsapi\group\bld.inf"
+#include ".\umtsif\group\bld.inf"
+#include ".\webserver\group\bld.inf"
+#include ".\nslookup\group\bld.inf"

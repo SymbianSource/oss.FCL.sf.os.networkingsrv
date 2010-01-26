@@ -1,0 +1,43 @@
+// Copyright (c) 2001-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+// using relative paths for sourcepath and user includes
+TARGET        	TS_QoSAPI.dll
+TARGETTYPE    	dll
+UID           	0x1000008d 0x101F529E
+VENDORID 0x70000001
+
+SOURCEPATH    ..\src
+SOURCE        TS_QoSSuite.cpp
+SOURCE        TS_QoSStep.cpp
+SOURCE        TS_QoSSocketServer.cpp
+SOURCE        TS_QoSSocketSection.cpp
+SOURCE        TS_QoSOperationSection.cpp
+SOURCE        CMultipleArray.cpp
+
+USERINCLUDE     ..\inc
+SYSTEMINCLUDE   ..\..\..\..\..\networkingtestandutils\networkingintegrationtest\inc
+SYSTEMINCLUDE   \Epoc32\include
+SYSTEMINCLUDE   \Epoc32\include\networking
+
+DEFFILE	      TS_QoSAPI.def
+
+LIBRARY       euser.lib esock.lib insock.lib qoslib.lib commdb.lib c32root.lib
+LIBRARY	      IntegrationTestUtils.lib
+
+
+CAPABILITY ALL -Tcb
+
+SMPSAFE

@@ -1,0 +1,1268 @@
+// Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// iprotor.rss - protocol analyzer resource file
+//
+
+NAME IKH2
+
+#include <techview/eikon.rh>
+#include <eikcoctl.rsg>
+
+#include "iprotor.hrh"
+
+RESOURCE RSS_SIGNATURE { }
+
+RESOURCE TBUF { buf=""; }
+
+RESOURCE EIK_APP_INFO
+	{
+	menubar=r_rotor_menubar;
+	hotkeys=r_rotor_hotkeys;
+	toolbar=r_rotor_toolbar;
+//	cba=r_rotor_cba;  // Not in Hurricane
+	}
+
+RESOURCE TOOLBAR r_rotor_toolbar
+    {
+    controls=
+		{
+		TBAR_CTRL 
+			{ 
+			id=ERotorCmdFileName;
+			type=EEikCtFileNameLabel; 
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdFileNameLabelHeight;
+			},
+		TBAR_BUTTON
+			{
+			id=ERotorStart;
+			txt="Start";
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdToolBarButtonHeight;
+			},
+		TBAR_BUTTON
+			{
+			id=ERotorStop;
+			txt="Stop";
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdToolBarButtonHeight;
+			},
+		TBAR_BUTTON
+			{
+			id=ERotorOptions;
+			txt="Options";
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdToolBarButtonHeight;
+			},
+		TBAR_BUTTON
+			{
+			id=EEikCmdExit;
+			txt="Exit";
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdToolBarButtonHeight;
+			},
+		TBAR_CTRL
+			{
+			type=EEikCtSpacer;
+			flags=EEikToolBarCtrlHasSetMinLength|EEikToolBarCtrlIsStretchable;
+			length=0;
+			control=SPACER;
+			}
+/*		TBAR_CTRL
+			{
+			type=EEikCtClock;
+			control=CLOCK { digitalresourceid=R_EIK_DIGITAL_CLOCK; analogresourceid=R_EIK_ANALOG_CLOCK; };
+			},
+		TBAR_CTRL
+			{
+			type=EEikCtSpacer;
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdGapBelowClock;
+			control=SPACER;
+			}
+*/		};
+    }
+#if 0  // Not in Hurricane
+RESOURCE CBA r_rotor_cba
+{
+   	buttons = 
+	{
+		CBA_BUTTON
+		{
+			id=ERotorStart;
+			txt="Start";
+		},
+		CBA_BUTTON
+		{
+			id=ERotorStop;
+			txt="Stop";
+		},
+		CBA_BUTTON
+		{
+			id=ERotorOptions;
+			txt="Options";
+		},
+		CBA_BUTTON
+		{
+			id=EEikCmdExit;
+			txt="Exit";
+		}
+	};
+}
+#endif
+
+RESOURCE HOTKEYS r_rotor_hotkeys
+    {
+    control=
+        {
+        HOTKEY { command=EEikCmdExit; key='e'; },
+		HOTKEY { command=ERotorStart; key='s'; },
+		HOTKEY { command=ERotorStop; key='c'; },
+		HOTKEY { command=ERotorIPv4View; key='v'; },
+		HOTKEY { command=ERotorIPv6View; key='w'; },
+		HOTKEY { command=ERotorNoRotor; key='r'; },
+		HOTKEY { command=ERotorOptions; key='o'; },
+		HOTKEY { command=ERotorFontDialog; key='f'; },
+		HOTKEY { command=ERotorClearScreen; key='l'; },
+		HOTKEY { command=ERotorHistory; key='t'; },
+		HOTKEY { command=ERotorAbout; key='a'; }
+        };
+
+	shift_control=
+		{
+			HOTKEY { command=ERotorHelp; key='h'; }
+		};
+
+    }
+
+RESOURCE MENU_BAR r_rotor_menubar
+    {
+    titles=
+        {
+        MENU_TITLE { menu_pane=r_rotor_file_menu; txt="File"; },
+        MENU_TITLE { menu_pane=r_rotor_tools_menu; txt="Tools"; },
+		MENU_TITLE { menu_pane=r_rotor_view_menu; txt="View"; },
+		MENU_TITLE { menu_pane=r_rotor_console_menu; txt="Console"; },
+		MENU_TITLE { menu_pane=r_rotor_help_menu; txt="Help"; }
+		};
+    }
+
+RESOURCE MENU_PANE r_rotor_file_menu
+	{
+	items=
+		{
+		MENU_ITEM { command=EEikCmdExit; txt="Close"; }
+        };
+    }
+
+RESOURCE MENU_PANE r_rotor_tools_menu
+	{
+	items=
+		{
+		MENU_ITEM { command=ERotorStart; txt="Start"; },
+		MENU_ITEM { command=ERotorStop; txt="Stop"; }		
+        };
+    }
+
+RESOURCE MENU_PANE r_rotor_view_menu
+	{
+	items=
+		{
+		MENU_ITEM { command=ERotorIPv4View; txt="IPv4 Monitoring";},
+		MENU_ITEM { command=ERotorIPv6View; txt="IPv6 Monitoring";},
+		MENU_ITEM { command=ERotorIPv6ExtView; txt="IPv6 Extensions Monitoring";flags=EEikMenuItemSeparatorAfter;},
+		MENU_ITEM { command=ERotorOptions; txt="Options"; }
+		};
+	}
+
+RESOURCE MENU_PANE r_rotor_console_menu
+	{
+	items=
+        {
+		MENU_ITEM
+            {
+            command=ERotorClearScreen;
+            txt="ClearScreen";
+            },
+        MENU_ITEM
+            {
+            command=ERotorFontDialog;
+            txt="Set font…";
+            },
+		MENU_ITEM
+            {
+            command=ERotorHistory;
+            txt="History size…";
+			},
+		MENU_ITEM 
+			{ 
+			command=ERotorNoRotor; 
+			txt="Full Screen"; 
+			flags=EEikMenuItemCheckBox;
+			},
+		MENU_ITEM
+            {
+            cascade=r_rotor_toolbars_menu;
+           	txt="Toolbars";
+            }
+		};
+	}
+
+RESOURCE MENU_PANE r_rotor_help_menu
+	{
+	items=
+        {
+        MENU_ITEM
+            {
+            command=ERotorAbout;
+            txt="About IPRotor…";
+            }
+		};
+	}
+
+
+RESOURCE MENU_PANE r_rotor_toolbars_menu
+    {
+    items=
+        {
+        MENU_ITEM
+            {
+            command=ERotorScrollNone;
+            txt="None";
+            },
+        MENU_ITEM
+            {
+            command=ERotorScrollHor;
+            txt="Horiz only";
+            },
+        MENU_ITEM
+            {
+            command=ERotorScrollVert;
+            txt="Vert only";
+            },
+        MENU_ITEM
+            {
+            command=ERotorScrollBoth;
+            txt="Both scrollbars";
+            }
+        };
+    }
+
+
+RESOURCE DIALOG r_rotor_ipv4_view_dialog
+	{
+	title="IPv4 Monitoring Preferences";
+	buttons=r_eik_buttons_set_clear_cancel_ok;
+	flags=EEikDialogFlagWait|EEikDialogFlagDensePacking|EEikDialogFlagButtonsRight|EEikDialogFlagNotifyEsc; 
+	pages=r_rotor_ipv4_view_pages;
+	}
+
+
+RESOURCE ARRAY r_rotor_ipv4_view_pages
+	{
+	items=
+		{
+		PAGE { text="IP"; id=ERotorIPPage; lines=r_rotor_ipv4_ip_view_page; },
+		PAGE { text="IP (2)"; id=ERotorIPPage2; lines=r_rotor_ipv4_ip_view_page2; },
+		PAGE { text="ICMP"; id=ERotorICMPPage; lines=r_rotor_ipv4_icmp_view_page; },
+		PAGE { text="TCP"; id=ERotorTCPPage; lines=r_rotor_ipv4_tcp_view_page; },
+		PAGE { text="TCP (2)"; id=ERotorTCPPage2; lines=r_rotor_ipv4_tcp_view_page2; },
+		PAGE { text="UDP"; id=ERotorUDPPage; lines=r_rotor_ipv4_udp_view_page; },
+		PAGE { text="AH"; id=ERotorAHPage; lines=r_rotor_ipv4_ah_view_dialog; },
+		PAGE { text="ESP"; id=ERotorESPPage; lines=r_rotor_ipv4_esp_view_dialog; }
+
+		};
+	}
+
+RESOURCE ARRAY r_rotor_ipv4_ip_view_page
+	{
+	items=
+		{
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Version";
+            id=ERotorIPVersion;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Header Length";
+            id=ERotorIPHdrLen;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Type Of Service";
+            id=ERotorIPTOS;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Total Length";
+            id=ERotorIPTotalLen;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Id";
+            id=ERotorIPId;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Flags (MF & DF)";
+            id=ERotorIPFlags;
+			}
+		};
+	}
+
+
+RESOURCE ARRAY r_rotor_ipv4_ip_view_page2
+	{
+	items=
+		{
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Offset";
+            id=ERotorIPOffset;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Time-To-Live";
+            id=ERotorIPTTL;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Protocol";
+            id=ERotorIPProtocol;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Checksum";
+            id=ERotorIPChksum;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Source Address";
+            id=ERotorIPSrcAddr;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Destination Address";
+            id=ERotorIPDstAddr;
+			}
+		};
+	}
+
+
+RESOURCE ARRAY r_rotor_ipv4_icmp_view_page
+	{
+	items=
+		{
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Type";
+            id=ERotorICMPType;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Code";
+            id=ERotorICMPCode;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Checksum";
+            id=ERotorICMPChksum;
+			}
+		};
+	}
+
+
+RESOURCE ARRAY r_rotor_ipv4_tcp_view_page
+	{
+	items=
+		{
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Source Port";
+            id=ERotorTCPSrcPort;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Destination Port";
+            id=ERotorTCPDstPort;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Sequence Number";
+            id=ERotorTCPSeq;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="ACK Num";
+            id=ERotorTCPAckNum;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Header Length";
+            id=ERotorTCPHdrLen;
+			}
+		};
+	}
+
+RESOURCE ARRAY r_rotor_ipv4_tcp_view_page2
+	{
+	items=
+		{
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Flags";
+            id=ERotorTCPFlags;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Window Size";
+            id=ERotorTCPHdrWinSize;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Checksum";
+            id=ERotorTCPChksum;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Urgent Pointer";
+            id=ERotorTCPHdrUrgPtr;
+			}
+		};
+	}
+
+
+RESOURCE ARRAY r_rotor_ipv4_udp_view_page
+	{
+	items=
+		{
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Source Port";
+            id=ERotorUDPSrcPort;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Destination Port";
+            id=ERotorUDPDstPort;
+			},
+
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Length";
+            id=ERotorUDPLen;
+			},
+
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Checksum";
+            id=ERotorUDPChksum;
+			}
+			/*
+		DLG_LINE
+			{
+			type=EEikCtNumberEditor;
+			prompt="Data bytes";
+			id=ERotorHistory;
+			control=NUMBER_EDITOR
+				{
+					min= 0;
+					max= 65535;
+				};
+			},
+*/
+		};
+	}
+
+/*
+RESOURCE DIALOG r_rotor_packet_ah_view_dialog
+	{
+	title="AH Monitoring";
+	buttons=R_EIK_BUTTONS_CANCEL_OK;
+	flags=EEikDialogFlagWait|EEikDialogFlagButtonsRight; //|EEikDialogFlagDensePacking
+	}
+*/
+
+RESOURCE ARRAY r_rotor_ipv4_ah_view_dialog
+	{
+	items=
+		{
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Next Header";
+            id=ERotorAHProtocol;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Header Length";
+            id=ERotorAHHdrLen;
+			},
+
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="SPI";
+            id=ERotorAHSPI;
+			},
+
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Sequence";
+            id=ERotorAHSeq;
+			}
+		};
+	}
+
+
+RESOURCE ARRAY r_rotor_ipv4_esp_view_dialog
+	{
+	items=
+		{
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="SPI";
+            id=ERotorESPSPI;
+			},
+
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Sequence";
+            id=ERotorESPSeq;
+			}
+		};
+	}
+
+
+
+RESOURCE DIALOG r_rotor_ipv6_view_dialog
+	{
+	title="IPv6 Monitoring Preferences";
+	buttons=r_eik_buttons_set_clear_cancel_ok;
+	flags=EEikDialogFlagWait|EEikDialogFlagDensePacking|EEikDialogFlagButtonsRight|EEikDialogFlagNotifyEsc;
+	pages=r_rotor_ipv6_view_pages;
+	}
+
+
+RESOURCE ARRAY r_rotor_ipv6_view_pages
+	{
+	items=
+		{
+		PAGE { text="IP"; id=ERotorIPPage; lines=r_rotor_ipv6_ip_view_page; },
+		PAGE { text="IP (2)"; id=ERotorIPPage2; lines=r_rotor_ipv6_ip_view_page2; },
+		PAGE { text="ICMP"; id=ERotorICMPPage; lines=r_rotor_ipv6_icmp_view_page; },
+		PAGE { text="TCP"; id=ERotorTCPPage; lines=r_rotor_ipv6_tcp_view_page; },
+		PAGE { text="TCP (2)"; id=ERotorTCPPage2; lines=r_rotor_ipv6_tcp_view_page2; },
+		PAGE { text="UDP"; id=ERotorUDPPage; lines=r_rotor_ipv6_udp_view_page; }
+		};
+	}
+
+RESOURCE ARRAY r_rotor_ipv6_ip_view_page
+	{
+	items=
+		{
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Version";
+            id=ERotorIPVersion;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Traffic Class";
+            id=ERotorIPTraffic;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="FlowLabel";
+            id=ERotorIPFlowLabel;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="PayLoad Length";
+            id=ERotorIPPayloadLen;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Next Header";
+            id=ERotorIPNextHdr;
+			}
+		};
+	}
+
+
+RESOURCE ARRAY r_rotor_ipv6_ip_view_page2
+	{
+	items=
+		{
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Hop Limit";
+            id=ERotorIPHopLimit;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Source Address";
+            id=ERotorIPSrcAddr;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Destination Address";
+            id=ERotorIPDstAddr;
+			}
+		};
+	}
+
+
+RESOURCE ARRAY r_rotor_ipv6_icmp_view_page
+	{
+	items=
+		{
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Type";
+            id=ERotorICMPType;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Code";
+            id=ERotorICMPCode;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Checksum";
+            id=ERotorICMPChksum;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Parameter";
+            id=ERotorICMPParameter;
+			}
+		};
+	}
+
+
+RESOURCE ARRAY r_rotor_ipv6_tcp_view_page
+	{
+	items=
+		{
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Source Port";
+            id=ERotorTCPSrcPort;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Destination Port";
+            id=ERotorTCPDstPort;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Sequence Number";
+            id=ERotorTCPSeq;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="ACK Num";
+            id=ERotorTCPAckNum;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Header Length";
+            id=ERotorTCPHdrLen;
+			}
+		};
+	}
+
+RESOURCE ARRAY r_rotor_ipv6_tcp_view_page2
+	{
+	items=
+		{
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Flags";
+            id=ERotorTCPFlags;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Window Size";
+            id=ERotorTCPHdrWinSize;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Checksum";
+            id=ERotorTCPChksum;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Urgent Pointer";
+            id=ERotorTCPHdrUrgPtr;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Options";
+            id=ERotorTCPOptions;
+			}
+		};
+	}
+
+
+RESOURCE ARRAY r_rotor_ipv6_udp_view_page
+	{
+	items=
+		{
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Source Port";
+            id=ERotorUDPSrcPort;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Destination Port";
+            id=ERotorUDPDstPort;
+			},
+
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Length";
+            id=ERotorUDPLen;
+			},
+
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Checksum";
+            id=ERotorUDPChksum;
+			}
+		};
+	}
+
+RESOURCE DIALOG r_rotor_ipv6ext_view_dialog
+	{
+	title="IPv6 Extensions Monitoring Preferences";
+	buttons=r_eik_buttons_set_clear_cancel_ok;
+	flags=EEikDialogFlagWait|EEikDialogFlagDensePacking|EEikDialogFlagButtonsRight|EEikDialogFlagNotifyEsc; 
+	pages=r_rotor_ipv6ext_view_pages;
+	}
+
+
+RESOURCE ARRAY r_rotor_ipv6ext_view_pages
+	{
+	items=
+		{
+		PAGE { text="HopByHop"; id=ERotorHOPPage; lines=r_rotor_ipv6_HopByHop_view_page; },
+		PAGE { text="DestOpt"; id=ERotorDSTPage; lines=r_rotor_ipv6_DestOpt_view_page; },
+		PAGE { text="Routing"; id=ERotorRTPage; lines=r_rotor_ipv6_Routing_view_page; },
+		PAGE { text="Fragment"; id=ERotorFRAGPage; lines=r_rotor_ipv6_Fragment_view_page; },
+		PAGE { text="AH"; id=ERotorAHPage; lines=r_rotor_ipv6_ah_view_page; },
+		PAGE { text="ESP"; id=ERotorESPPage; lines=r_rotor_ipv6_esp_view_page; }
+		};
+	}
+
+
+RESOURCE ARRAY r_rotor_ipv6_HopByHop_view_page
+	{
+	items=
+		{
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Next Header";
+            id=ERotorHOPNextHdr;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Header Ext Length";
+            id=ERotorHOPHdrExtLen;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Option Type";
+            id=ERotorHOPOptionType;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Option Length";
+            id=ERotorHOPOptionLen;
+			}
+		};
+	}
+
+RESOURCE ARRAY r_rotor_ipv6_DestOpt_view_page
+	{
+	items=
+		{
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Next Header";
+            id=ERotorDSTNextHdr;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Header Ext Length";
+            id=ERotorDSTHdrExtLen;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Home Address Option";
+            id=ERotorDSTHomeAddr;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Binding Update";
+            id=ERotorDSTBindingUpdate;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Binding Request";
+            id=ERotorDSTBindingRequest;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Binding Acknowledgement";
+            id=ERotorDSTBindingAck;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Padding options";
+            id=ERotorDSTPad;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Unknown Options";
+            id=ERotorDSTUnknown;
+			}
+		};
+	}
+
+RESOURCE ARRAY r_rotor_ipv6_Routing_view_page
+	{
+	items=
+		{
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Next Header";
+            id=ERotorRTNextHdr;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Header Ext Length";
+            id=ERotorRTHdrExtLen;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Routing Type";
+            id=ERotorRTRoutingType;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Segments Left";
+            id=ERotorRTSegLeft;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Strict/Loose Bit Map";
+            id=ERotorRTSLBitMap;
+			},
+		DLG_LINE
+			{
+			type=EEikCtCheckBox;
+			prompt="Addresses";
+			id=ERotorRTAddresses;
+			}
+		};
+	}
+
+RESOURCE ARRAY r_rotor_ipv6_Fragment_view_page
+	{
+	items=
+		{
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Next Header";
+            id=ERotorFRAGNextHdr;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Fragment Offset";
+            id=ERotorFRAGFragOffset;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="M Flag";
+            id=ERotorFRAGMFlag;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Identification";
+            id=ERotorFRAGId;
+			}
+		};
+	}
+
+
+RESOURCE ARRAY r_rotor_ipv6_ah_view_page
+	{
+	items=
+		{
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Next Header";
+            id=ERotorAHProtocol;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Header Length";
+            id=ERotorAHHdrLen;
+			},
+
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="SPI";
+            id=ERotorAHSPI;
+			},
+
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Sequence";
+            id=ERotorAHSeq;
+			}
+		};
+	}
+
+
+RESOURCE ARRAY r_rotor_ipv6_esp_view_page
+	{
+	items=
+		{
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="SPI";
+            id=ERotorESPSPI;
+			},
+
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Sequence";
+            id=ERotorESPSeq;
+			}
+		};
+	}
+
+RESOURCE DIALOG r_rotor_history_dialog	//About Dialog
+	{
+	title="Set History";
+	buttons=R_EIK_BUTTONS_CANCEL_OK;
+	flags=EEikDialogFlagWait|EEikDialogFlagButtonsBelow;
+	items=
+		{
+		DLG_LINE
+			{
+			type=EEikCtNumberEditor;
+			prompt="Size";
+			id=ERotorHistory;
+			control=NUMBER_EDITOR
+				{
+					min= 0;
+					max= 2000;
+				};
+			}
+		};
+	}
+
+
+RESOURCE DLG_BUTTONS r_eik_buttons_help_cancel_ok
+    {
+    buttons=
+        {
+		DLG_BUTTON { id=EHelpButton; button=CMBUT {txt="Help";}; hotkey='H';},
+        DLG_BUTTON { id=EEikBidCancel; button=CMBUT {txt="Cancel";}; hotkey=EEikBidCancel; flags=0; },
+        DLG_BUTTON { id=EEikBidOk; button=CMBUT {txt="OK";}; hotkey=EEikBidOk; flags=0; }
+        };
+    }
+
+RESOURCE DLG_BUTTONS r_eik_buttons_set_clear_cancel_ok
+    {
+    buttons=
+        {
+		DLG_BUTTON { id=ESetButton; button=CMBUT {txt="Set all";}; hotkey='S';},
+		DLG_BUTTON { id=EClearButton; button=CMBUT {txt="Clear all";}; hotkey='C';},
+        DLG_BUTTON { id=EEikBidCancel; button=CMBUT {txt="Cancel";}; hotkey=EEikBidCancel; flags=0; },
+        DLG_BUTTON { id=EEikBidOk; button=CMBUT {txt="OK";}; hotkey=EEikBidOk; flags=0; }
+        };
+    }
+/*
+RESOURCE DLG_BUTTONS r_eik_buttons_view_cancel_ok
+    {
+    buttons=
+        {
+		//DLG_BUTTON { id=EHelpButton; button=CMBUT {txt="Help";}; hotkey='H';},
+		DLG_BUTTON { id=EMonitoringButton; button=CMBUT {txt="Packet\nMonitoring";}; hotkey='V';},
+        DLG_BUTTON { id=EEikBidCancel; button=CMBUT {txt="Cancel";}; hotkey=EEikBidCancel; flags=0; },
+        DLG_BUTTON { id=EEikBidOk; button=CMBUT {txt="OK";}; hotkey=EEikBidOk; flags=0; }
+        };
+    }
+*/
+
+RESOURCE DIALOG r_rotor_options_dialog
+	{
+	title="EPOC32 Rotor Options";
+	buttons=R_EIK_BUTTONS_CANCEL_OK;	//r_eik_buttons_help_cancel_ok;
+	flags=EEikDialogFlagWait|EEikDialogFlagDensePacking|EEikDialogFlagNotifyEsc;	//;|EEikDialogFlagButtonsRight
+	items=
+		{
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Dump IPv4 packets";
+            id=ERotorDumpIPv4;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Dump IPv6 packets";
+            id=ERotorDumpIPv6;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Dump Dropped IPSEC packets";
+			itemflags=EEikDlgItemSeparatorAfter;
+            id=ERotorDumpIPSEC;
+			},
+	/*
+		DLG_LINE
+			{
+            type=EEikCtChoiceList;
+            prompt="Scanning mode";
+            id=ERotorMode;
+			control=CHOICELIST
+				{
+				array_id=r_rotor_scanning_modes_list;
+				};
+			},
+	*/
+		DLG_LINE
+			{
+            type=EEikCtChoiceList;
+            prompt="Header type";
+            id=ERotorProtocolChoiceList;
+			control=CHOICELIST
+				{
+				array_id=0;	//r_rotor_ipv4_hdr_list;
+				};
+			},
+		DLG_LINE
+			{
+			type=EEikCtNumberEditor;
+			prompt="Port";
+			id=ERotorPortNumEd;
+			control=NUMBER_EDITOR
+				{
+					min= 0;
+					max= 65535;
+				};
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="View IP Header";
+			//itemflags=EEikDlgItemSeparatorAfter;
+            id=ERotorViewIPHdr;
+			},
+		DLG_LINE
+			{
+			type=EEikCtNumberEditor;
+			prompt="Rotor Blades";
+			id=ERotorBladesNumEd;
+			trailer="blades";
+			control=NUMBER_EDITOR
+				{
+					min= 1;
+					max= 10;
+				};
+			}
+		};
+	}
+
+RESOURCE ARRAY r_rotor_ipv4_hdr_list
+	{
+	items=
+		{
+		LBUF { txt="IP (all)"; },
+		LBUF { txt="ICMP only"; },	//Constants to list items reference in .hrh
+		LBUF { txt="TCP only"; },
+		LBUF { txt="UDP only"; },
+		LBUF { txt="ESP only"; },
+		LBUF { txt="AH only"; }
+		};
+	}
+
+RESOURCE ARRAY r_rotor_ipv6_hdr_list
+	{
+	items=
+		{
+		LBUF { txt="IP (all)"; },
+		LBUF { txt="ICMP only"; },	//Constants to list items reference in .hrh
+		LBUF { txt="TCP only"; },
+		LBUF { txt="UDP only"; }
+		//LBUF { txt="ESP only"; },
+		//LBUF { txt="AH only"; }
+		};
+	}
+
+RESOURCE ARRAY r_rotor_scanning_modes_list
+	{
+	items=
+		{
+		LBUF { txt="IPv4"; },
+		LBUF { txt="IPv6"; }
+		//LBUF { txt="Both";}
+		};
+	}
+
+
+RESOURCE DIALOG r_rotor_about	//About Dialog
+	{
+	title="About IPRotor v1.0";
+	buttons=R_EIK_BUTTONS_CONTINUE;
+	flags=EEikDialogFlagButtonsBelow;
+	items=
+		{
+		DLG_LINE
+			{
+			type=EEikCtLabel;
+			prompt="";
+			control=LABEL
+				{
+				txt="EPOC32 Packet Sniffer ";
+				};				
+			},
+		DLG_LINE
+			{
+			type=EEikCtLabel;
+			prompt="";
+			control=LABEL
+				{
+				txt="By Toni Barrera Arboix (NRC Helsinki)";
+				};				
+			},
+		DLG_LINE
+			{
+			type=EEikCtLabel;
+			prompt="";
+			control=LABEL
+				{
+				txt="April 1999";
+				};				
+			}	
+		};
+	}
+
+
+
+RESOURCE TBUF r_rotor_net_open_error { buf="Error opening Network"; }
+RESOURCE TBUF r_rotor_net_disable_error { buf="Error disabling network timers"; }
+RESOURCE TBUF r_not_implemented { buf="Not available yet"; }
+RESOURCE TBUF r_show_rotor { buf="Show Rotor"; }
+RESOURCE TBUF r_busy { buf="Busy…"; }
+
+RESOURCE TBUF r_ipsec_policy_open { buf="Opening Policy socket failed"; }
+RESOURCE TBUF r_ipsec_policy_bind { buf="Binding Policy socket failed"; }
+
+
+RESOURCE TBUF r_cons_pointer_event { buf=" [Pointer event %d at %d,%d] "; }

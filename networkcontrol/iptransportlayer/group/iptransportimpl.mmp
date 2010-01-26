@@ -1,0 +1,107 @@
+// Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// iptransport.mmp
+// iptransport.mmp TCP/UDP Connection Provider ECOM plugin
+// 
+//
+
+/**
+ @file
+*/
+
+#define SYMBIAN_NETWORKING_UPS
+
+#include <cflog.mmh>
+
+TARGET          iptransportimpl.dll
+TARGETTYPE      DLL
+UID             0x10009D8D 0x102866C2
+VENDORID        0x70000001
+
+USERINCLUDE     ../inc
+USERINCLUDE     ../ipaddrinfoparams/inc
+USERINCLUDE     ../../qoslib/include
+USERINCLUDE     ../../qosfwconfig/qos/inc
+
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+
+SOURCEPATH      ../src
+SOURCE		    IPCprFactory.cpp 
+SOURCE		    IPCpr.cpp
+SOURCE          ipdeftscprfactory.cpp 
+SOURCE			ipcpr_activities.cpp
+SOURCE			ipcpr_states.cpp
+SOURCE          ipscpr.cpp
+SOURCE          IPSCPRFactory.cpp
+SOURCE			ipscprstates.cpp
+SOURCE			netmcpr.cpp
+SOURCE			netmcprfactory.cpp
+SOURCE			netmcprstates.cpp
+SOURCE			netmcpractivities.cpp
+SOURCE			iptiermanager.cpp
+SOURCE			iptiermanagerfactory.cpp
+SOURCE			iptiermanagerselector.cpp
+SOURCE			policyrequest.cpp
+SOURCE			policyrequeststates.cpp
+SOURCE			IPMessages.cpp
+
+SOURCE			ipscprlog.cpp
+SOURCE          ipdeftbasescpr.cpp
+SOURCE			ipdeftscpr.cpp
+
+#ifdef SYMBIAN_NETWORKING_UPS
+SOURCE			ipcprups_activities.cpp ipcprups_states.cpp
+SOURCE			netmcprups.cpp netmcprups_activities.cpp netmcprups_states.cpp
+#endif
+
+LIBRARY	euser.lib
+LIBRARY esocksvr.lib
+LIBRARY serverden.lib
+LIBRARY esock.lib
+LIBRARY netmeta.lib
+LIBRARY netsm.lib
+LIBRARY commsfw.lib
+LIBRARY coreproviders.lib
+LIBRARY mobilitycoreproviders.lib
+LIBRARY esock_api_ext.lib
+LIBRARY commsdat.lib
+LIBRARY simpleselectorbase.lib
+LIBRARY insock.lib
+LIBRARY nodemessages.lib
+LIBRARY meshmachine.lib
+LIBRARY netinterfaces.lib
+LIBRARY virtualconstructors.lib
+LIBRARY factories.lib
+#ifdef SYMBIAN_NETWORKING_UPS
+LIBRARY upscoreproviders.lib
+LIBRARY netups.lib
+#endif
+
+#ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
+deffile			iptransportimpl.def
+#else
+deffile			iptransportimpl_v1.def
+#endif // SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
+
+
+//MI support
+#include <elements/sd_mintercept.mmh>
+
+#include	<comms-infras/commsdebugutility.mmh>
+
+
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+
+SMPSAFE

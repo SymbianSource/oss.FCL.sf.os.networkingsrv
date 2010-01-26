@@ -1,0 +1,77 @@
+// Copyright (c) 2005-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// bld.inf - http server
+// http server
+//
+
+
+
+/**
+ @file
+*/
+
+PRJ_PLATFORMS
+// specify the platforms your component needs to be built for here
+// defaults to WINS MARM so you can ignore this if you just build these
+
+PRJ_EXPORTS
+// Specify the source file followed by its destination here
+// copy will be used to copy the source file to its destination
+// If there's no destination then the source file will be copied
+// to the same name in epoc32include
+
+PRJ_TESTEXPORTS
+
+../group/webserver.iby    /epoc32/rom/include/webserver.iby
+
+
+../data/ws.cfg             /epoc32/data/z/private/10000884/ws.cfg
+../data/wstypes.cfg        /epoc32/data/z/private/10000884/wstypes.cfg
+
+../data/ws.cfg             /epoc32/winscw/c/private/10000884/ws.cfg
+../data/wstypes.cfg        /epoc32/winscw/c/private/10000884/wstypes.cfg
+
+
+../data/index.html         /epoc32/data/z/documents/webserver/index.html
+../data/index.html         /epoc32/wins/c/documents/webserver/index.html
+../data/index.html         /epoc32/winscw/c/documents/webserver/index.html
+
+
+PRJ_MMPFILES
+// Specify the .mmp files required for building the important component
+// releasables. Note that you should specify any .mmp files for test
+// programs further down the file.
+//
+// Specify "tidy" if the component you need to build doesn't need to be
+// released to the rest of the company
+// specify "ignore" if the MMP file exists but should be
+// ignored.
+
+
+PRJ_TESTMMPFILES
+// specify the .mmp files required for building any test programs here
+//
+// You can specify "manual" to denote that a test should be listed in a
+// generated batch file for running a group of tests
+// which require user input during testing.
+// You can specify "support" to denote that a file is a test support file
+// and shouldn't be listed in a batch file for running a group of tests
+// By default, each test will be listed in a batch file for running a group
+// of tests which can be left to run without requiring watching over
+// by the person running the tests, i.e. tests where no user
+// input is required.  The default will apply if neither "manual"
+// or "support" is specified.
+
+webserver.mmp
+

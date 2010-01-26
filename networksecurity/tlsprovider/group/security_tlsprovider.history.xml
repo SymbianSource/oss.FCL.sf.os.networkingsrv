@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relnotes name="TLS">
+  <purpose>
+    Implements SSL3.0 and TLS1.0 ptotocols, comprising ssl, adaptor, and secsock DLLs. Depends on certman and crypto.
+  </purpose>
+
+  <deliverystep number="" name="PREQ2193 SMP-Safe Crypto Services Components" osproject="Diran" revision="024">
+	  <milestone project="GT0433" number="MS3.7"/>
+	  <preq number="2193" title="SMP-Safe Crypto Services Components">
+		  Add SMPSAFE keyword in SDP mmp files
+	  </preq>
+  </deliverystep>
+
+  <defect number="DEF128977" title="TTLSCipherSuite::CipherDetails return NULL" revision="023">
+    The pointer value returned by TTLSCipherSuite::CipherDetails() is checked for NULL before being used.
+  </defect>
+
+  <defect number="DEF124558" title="[coverity] - tlsprovider - FORWARD_NULL" revision="022">
+    Remove FORWARD NULL coverity warning in function CTlsEncrypt::ComputeMacL
+  </defect>
+
+  <defect number="PDEF123581" title="EAP-TLS should not start if client certificate expired" revision="021">
+    Expired certificates are NOT superfluously sent to the server for validation.
+  </defect>
+
+  <defect number="PDEF122428" title="Memory leak in tlsprovider" revision="020">
+    Removed problematic __UHEAP_MARK/MARKEND in tlsprovider
+  </defect>
+
+  <defect number="PDEF121710" title="Certificate chaining doesn't work" revision="019">
+    Use server root certificate's subject and issuer name as ServerDN if server doesn't provide it in CertificateRequest message. A new overloaded ClientCertificate function is added to allow us return an array of HBufC which contains a client certificate in each element
+  </defect>
+ 
+  <deliverystep number="1009" name="TLS PRE-Shared Key Ciphersuites" osproject="Sphinx" revision="018">
+	  <milestone project="GT0379" number="MS3.22"/>
+	  <preq number="1294" title="TLS Pre-Shared Key Ciphersuites">
+		  TLS Pre-Shared Key Ciphersuites.
+	  </preq>
+  </deliverystep>  
+  
+ <defect number="DEF116261" title="st_http_cryptography fails with error code Code = -7540" revision="017">
+    Fix SetAvailableCipherSuites and AvailableCipherSuites  functions to treat NULL ciphersuites as unsupported unless they have been explicitly enabled.
+ </defect>  
+  
+ <defect number="DEF115011" title="TLS Cache server crashes on incorrectly constructed input" revision="016">
+    Check pointers before use to prevent IPC attack crashes the server in CTlsCacheSession::ServiceL().
+ </defect>  
+  
+  <defect number="DEF114941" title="TLS NULL ciphersuites rejected" revision="015">
+    The Symbian TLS implementation is now able to negotiate a TLS connection to a server which requires the TLS_RSA_WITH_NULL_SHA ciphersuite to be used.
+ </defect>
+  
+  <defect number="PDEF111983" title="TLS connection with client authentication doesn't succed if certificate request" revision="014">
+    TLSProvider displays a list of client certificates to the user during client authentication if the "certificate request" message sent by the server does not include any distinguised names.
+  </defect>
+  
+  <deliverystep number="496" name="EC073: Security: Crypto Services Header File Refactoring" osproject="Oghma" revision="013">
+	  <milestone project="GT0313" number="MS3.7"/>
+	  <ec number="73" title="Crypto Services Header File Refactoring (to simplify the SDK creation process)">
+		  Some classes made publishedPartner from internal because it was referenced from a publishedPartner interface.
+	  </ec>
+  </deliverystep>
+  
+  <deliverystep number="708" name="Security - Alignment of CBR and System Model components" osproject="Oghma" revision="012">
+    <milestone project="GT0313" number="MS3.7"/>
+    <preq number="775" title="Alignment of CBR and System Model components">
+      Modified IPR category of ttlscertcache and hwtlstokentypeplugin.
+    </preq>
+  </deliverystep>
+
+  <defect number="DEF107276" title="Lint errors in security code should be fixed (production and test)" revision="011">
+    Minor changes to remove lint errors
+  </defect>
+
+  <defect number="DEF105863" title="Remove/Ratify TODO comments from security's TLS component" revision="010">
+    Minor code changes and source tidy up to improve quality and maintenance
+  </defect>
+
+  <defect number="PDEF105644" title="TLS Cllient Authentication: Crash occurs in TlsProvider code before returning cl" revision="009">
+    Fixed code which handles certificate chains in client authentication.
+  </defect>
+
+  <preq number="1182" title="GNU Make-based build system" revision="008">
+    TOOLS2 macro is added with TOOLS.
+  </preq>
+
+  <defect number="DEF103295" title="Test perl script certstorePlugins should be moved" revision="007">
+    From V9.4 onwards the certstorePlugins file is moved from //PR/share/DABSRelease/buildscripts/projects/security/zephyr to //EPOC/DV3/team/2006/security/master/defectsA/security/certman/twtlscert/scripts/batchfiles. The older version of the file is kept untouched for the reference of earlyer OS versions(Till 9.3). Corresponding ONB test files are updated towards the new location of the certstorePlugins.
+  </defect>
+
+  <ec number="075" title="Triage and address Coverity Errors in Security Subsystem" revision="006">
+    1. Added checking whether a requested cipher has been found in the CTlsEncrypt::CreateEncryptorL() method in the CTlsEncrypt.cpp file. Added a test case covering this scenario. Moreover, replaced iCiphAlg with ciphAlg in order to follow the Symbian Coding Standards.
+    2. Modified the while condition in the TTLSCipherSuite::CipherDetails() method in the tlstypedef.h file in order not to read off the table. Moreover, iCipherIndex was replaced with cipherIndex in this method in order to follow the Symbian Coding Standards.
+  </ec>
+
+  <preq number="1182" title="GNU Make-based build system" revision="005">
+    Changed according to filename policy to support the building of Symbian OS on both Windows and Linux for the test code.
+  </preq>
+
+  <minorchange revision="004">
+    Naiad Quality plan to improve the test coverage and to reduce the defect level in the production code
+  </minorchange>
+
+  <defect number="DEF102043" title="Makesis &amp; SWI assumes system drive is c:" revision="003">
+    Removed hardcoded references to C drive and replaced with system drive.
+  </defect>
+
+  <defect number="DEF100063" title="Minor change required in TLSProvider. Change EXPORT_C to IMPORT_C" revision="002">
+    Modified EXPORT_C to IMPORT_C in CTlsEncrypt.h
+  </defect>
+
+  <defect number="DEF094716" title="CTLSSession::ClientCertificate should return the chain of client certs" revision="001">
+    CTLSSession::ClientCertificate should return the chain of client certs
+    1. All intermediate certificates are stored in new RPointerArray member variable of CTlsProvider. A pointer to this array is passed as an additional parameter in CTlsClntAuthenticate::DoClientAuthenticate function and further to CTlsSessionImpl.
+    Imtermediate certs listing is performed regardless iClientAuthenticationDlgEnabled flag in CTlsClntAuthenticate.
+    
+    2. After End User certificate is selected, CTlsSessionImpl::RunL for EReturnCert state examines the content of above array and tries to go backward according to the following algorithm:
+    
+    - start from EU certificate (current)
+    - look for all IM certs with IM.Subject == current.Issuer
+    - using PublicKey of found IM cert verify current.VerifySignature()
+    - if matches then add it to temp array and set current = IM
+    - if found cert is self-signed then stop
+    - continue from second step
+    
+    as a result we have a sequentual array of IM certificates for selected EU certificate
+    
+    3. Concatenate all obtained certificates into single buffer in 2 phases:
+    
+    - interate through all relevant IM certs to determine final size of the buffer
+    - reallocate the output buffer for new size
+    - iterate through all relevant IM certs and append its Decoding() to the output buffer
+  </defect>
+</relnotes>

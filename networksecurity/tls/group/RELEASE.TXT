@@ -1,0 +1,450 @@
+===================================================================================================================
+==================================================Release Notes================================================
+===================================================================================================================
+Symbian OS SSLv3.0/TLSv1.0 Implementation
+
+
+Currently releases: All (Zephyr TLS Release)
+(Updated by Nicky Mpamugo - 29/11/03)
+
+Released components: 
+		SSL.DLL (Symbian OS SSLv3.0/TLSv1.0 implementation)
+		SECURESOCKET.DLL (although this will soon be updated to an ECOM Plugin).
+
+Notes:
+1). The SSL.DLL uses 2 DLLs provided by the Security subsystem (TLSPROVIDER.DLL and 
+    SWTLSTOKENTYPEPLUGIN (ECOM plugin)). These DLLs provide an interface to the Security
+    subsystem which provides cryptographic functionality for the protocol.
+2). The pre-Zephyr release of the SSL/TLS component currently resides in the 
+    \Networking\TLS\Version1 directory.
+3). Dialog functionality (and hence the dialog subcomponent) has been removed from TLS.
+    This functionality is now provided by the Security subsytem.
+4). The Zephyr release of TLS provides Client Authentication (in addition to support for
+    Handshake Re-negotiation).
+5). The Adaptor subcomponent has been removed from the Zephyr release of TLS. All protocol 
+    functionality is now implemented directly by the SSL DLL.
+
+
+
+===================================================================================================================
+Released components: 
+		ssl.dll (EPOC SSLv3.0/TLSv1.0 implementation)
+		secdlgsv.dll (ssl dialog server)
+Note:
+secdlgsv is a test version, only built until a proper one is released.
+
+21/03/2003
+
+Deleted source for regsecprot utility which was used to manage ssl adaptor
+entries in commdb, as ced should be used to make these changes.
+
+
+07/03/2000
+
+Fixed Lint warnings and errors
+
+06/03/2000
+Known limitations:
+
+Bug in crypto stops us from testing:
+-RSA signature
+-RC4 encryption
+-RC2 encryption
+-DES encryption
+Only the following crypto suites have been tested.
+SSL_RSA_EXPORT_WITH_DES40_CBC_SHA
+SSL_RSA_WITH_3DES_EDE_CBC_SHA
+
+Diffie Hellman not tested yet.
+
+
+===================================================================================================================
+==================================================ER5 Release Notes================================================
+===================================================================================================================
+EPOC32 SSL Implementation
+Release notes
+
+Currently releases: WINS - DEB, REL, UDEB, UREL
+                    MARM - DEB, REL, UDEB, UREL 
+                    (WARNING!: the unicode is untested)
+Released components: 
+                libeay32.dll (SSLeay crypto algorithms)
+                crypto.dll (EPOC wrapper on libeay32.dll)
+                certman.dll (EPOC certificate management module)
+                secdlgsv.dll (EPOC Security Dialog Server)
+                ssl.dll (EPOC SSLv3.0 implementation)
+                tcpip.prt (Enhanced EPOC TCPIP for SSL)
+                wtlhttps.dll (EPOC Web browser module to support HTTPS).
+
+RUNNING IN WINS:
+================
+1) Install WINS ROM on fresh subst'd drive by running
+r:\protea\release\install on that drive's root directory.
+2) Get the WINS message suite (msgsw029.zip) from the 
+MSGSUITE Defects Notes database (in the software releases 
+section).  Unzip this into \epoc32\.
+3) Cannot build the HTTPS module - have to pull that down via
+an "mnt getrel".
+4) To build security releaseables, do "mnt getcomps" followed 
+by a "mnt bldall".
+5) Now you should be able to use the WINS browser securely.
+To do so, remember that HTTPS URLS must have explicit port 443 
+put into them. eg. "https://tls.cryptsoft.com:443".  The Lloyds 
+online site thus requires the following URL:
+"https://online.lloydsbank.co.uk:443/Customer.ibc"
+
+RUNNING IN MARM:
+================
+1) On MARM, you need build and then copy the following files 
+from \epoc32\release\marm\rel to \system\libs:
+estlib.dll, libeay32.dll, cryptalg.dll, certman.dll, ssl.dll, 
+secdlgsv.dll, tcpip.prt, wtlhttps.dll
+2) The wtlhttps.dll for MARM is obtained by doing a "mnt getrel".
+
+The EPOC Security Team
+======================
+Overall responsibility for design/releases - Mal Minhas (MM)
+SSL enhancements/bug fixes and test code - Artem Simonian (AS)
+Certificate Storage and management work - Will Bamberg (WB)
+Crypto test code and certman work - Neil Hopcroft (NH)
+
+KNOWN PROBLEMS/OMISSIONS IN THIS RELEASE:
+=========================================
+1) Certificate management and storage design and implementation. (WB)
+2) Need to check out UNICODE security and rombuilding. (MM)
+3) SSL socket closure via the SetOpt after opening. (AS)
+4) bug in dialog server when it is called twice panics
+on the line 203 of ..sv.cpp file
+5) problemms with unicode build (possibly in the dialog server)
+6) the actual ssl connection is not complete on the socket connect, 
+but before the first read or write to the socket.
+(the relevent code is in tcpip)
+7) our stdlib replacement has a couple of issues with file accesses.
+
+Also dont forget:
+#################
+5) Bogus libeay32 random number generation in libeay32 rand
+directory.  Also constrained to 32-bit quantities at present. (Base)
+
+KNOWN PROBLEMS with server sites
+1) when connecting to www.conductor.com with 0x0A cipher suite the server 
+sends improper MAC and finished message.  The problem is server side 
+(no problems with lloyds site with the same 0x0A suite) (25.09.98)
+
+Testing Software
+=================
+In tsrc loopback test allows us to see what happens when exchanged 
+messages are modified.  The "test.txt" scrypt file allow to do these 
+modifications. Massages are exchanged between two 
+ssl providers. One emulates the server and another works as the client.
+
+Version 1.00(519)
+=================
+(By Neil Hopcroft - 8-10-99)
+Candidate-2 release for ER5 SWeb supplimentary project.
+- updated test code and included test data for year 2000 testing
+
+Version 1.00(518)
+=================
+(By Neil Hopcroft - 1-10-99)
+Candidate-1 release for ER5 SWeb supplimentary project.
+- updated libeay32 date handling code to y2k code reviewed version.
+- removed potential access violation in big number library.
+- improved sslweb and sslcer test code.
+- rationalised released headers.
+
+Version 1.00(517)
+=================
+(By Neil Hopcroft - 23-9-99)
+Beta-7 release for ER5 SWeb supplimentary project.
+- Fixed kludge in signature verification function to deal with explicit 
+error return values (0/-1) and not just negative pointers, the assumption
+that all pointers would be in the first half of the memory address space
+was an incorrect assumption when running within the socket server thread
+as that uses fixed system address space in the top half of memory when 
+running on MARM. This caused the test results to appear correct but when 
+the module was actually installed in the web browser no certificates 
+verified.
+- Fixed bug in state transition table which was masking the extent of 
+the above bug by ignoring the certificate validation result under certain 
+circumstances.
+- Properly clean up new heap used in libeay.
+
+Version 1.00(516)
+=================
+(By Neil Hopcroft - 17-9-99)
+Beta-6 release for ER5 SWeb supplimentary project.
+- CSSLFactory will now limit the number of open secure sockets to six 
+to reduce the likelihood of hitting problematic out-of-memory situations
+where the socket server heap fills with secure socket information. We 
+cannot replace the socket server in ROM due (I believe) to its constantly
+loaded state so we have to live within the heap limits the released 
+version defines.
+- SSLweb tests improved
+
+Version 1.00(515)
+=================
+(By Neil Hopcroft - 14-9-99)
+Beta-5 release for ER5 SWeb supplimentary project.
+- Together with updated TCPIP fixes problems with reference counting
+on the CSSLFactory object which were causing panics when there was
+still sockets open and active when one socket was closed.
+- A new local heap has been introduced in the libeay library, this
+has eased some of the socket server memory problems which were causing
+many things to not work. This has thrown out some of the out of memory
+test code, which I shall attempt to rejig for the next release.
+- SSLWeb test changed around to be multithreaded to test multiple open
+secure sockets. The socket server appears to run out of memory at 
+around 16 secure sockets open, at which point all currently open 
+sockets experience failures. 
+- Fixed niggly bug where names weren't coming out right if the 
+requested part wasn't present, previous simple minded fix wasn't a fix.
+
+Version 1.00(514)
+=================
+(By Neil Hopcroft - 7-9-99)
+Beta-4 release for ER5 SWeb supplimentary project.
+- Fixes problem with orphaned file server connections in our baby 
+stdlib.
+- A few other oddities and access violations fixed.
+- Test code nearly set to perform coverage testing.
+
+Version 1.00(513)
+=================
+(By Neil Hopcroft - 2-9-99)
+Beta-3 release for ER5 supplimentary project.
+- This release fixes most of the worst out-of-memory problems of the 
+previous release, there are still a couple of issues that need to be 
+addressed (the most severe being the implementation of fopen() in our
+baby stdlib orphans connections to the file server).
+- Small fix on the returning of names from the Cert->GetInfo() and 
+CertIndex->CertList() functions, now clears descriptor if returned 
+length is zero.
+
+Version 1.00(512)
+=================
+(By Neil Hopcroft - 24-8-99)
+Beta-2 release for ER5 supplimentary project.
+- Done most of the OOM testing on Cryptalg and Certman dlls. The fixes for
+some of the problems discovered has lead to some 'evil hackery' going on 
+in the Libeay32 dll. I have added -1 as a valid return value from a number
+of 'constructor' functions to allow differentiation between an end of list
+and memory allocation failure, this has lead to a massive number of 
+warnings being reported by both the MARM and WINS compilers but everything
+is actually fairly consistent and everything that might actually be used
+that can return a -1 will have it checked before it has the opportunity
+to do any damage.
+- SSL module has had no OOM testing yet, waiting for stability in Certman
+and Cryptalg before starting.
+- This release also fixes some oddities on the information returned by 
+the Cert::GetInfo() call, mainly in the validity times.
+- Also it should now disconnect when the user says dont connect in response
+to an untrusted certificate.
+
+Version 1.00(511)
+=================
+(By Neil Hopcroft - 3-8-99)
+Beta-1 release for ER5 supplimentary project
+- Put in some out of memory testing and handling, theres still some work to do.
+
+Version 1.00(510)
+=================
+(By Neil Hopcroft - 27-7-99)
+Alpha 2 release for ER5 supplimentary project
+- fixed problems seen with many disconnects and timeouts, caused by defaulting to use TLSv1 not SSLv3.
+- fixed memory leak in cryptalg/certman factory destruction, cryptalg factory was freeing up libeay memory when it hadn't allocated it, but when certman came to free it up later it had already been done.
+- added secdlgcl.h and cryptalg.h to incc
+- MNT BLDTEST now builds T_SSLPRT and T_RANDOM
+- updated versions of dependancies.
+- fixed problem with non-anonymous ephemeral Diffie-Hellman protocol negotiation, navigation through the action table for construction of block was flawed, although I suspect this won't have caused much more than the test code to fail.
+- made dialog server .def files their own releasable, and added to putrel and delrel.
+
+Version 1.00(509)
+=================
+(By Neil Hopcroft - 16-7-99)
+Alpha release for ER5 supplimentary project.
+- fixed empty certificate passed to dialog box
+- build against .DEF files
+- most compile time warnings (theres still a few - non-return function returning and a couple of longjmp will clobber... warnings and the browse info isn't building properly for T_SSLWEB.EXE)
+- moved directory for trusted certificates to c:\system\data
+- removed ssldata.h, everything that was in it is now in ssl.h
+- added CCertIndex::CertList() to return an array of certificate information
+- tidied up test code a bit
+
+Version 1.00(506)
+================
+random number generator related stuff is in libeay.dll
+search in files with #ifdef NEILRANDOM 
+(tsl.h, md_rand.c)
+ 
+Version 1.00(505)
+================
+
+Version 1.00(504)
+================
+Marm build testcode fix
+
+Version 1.00(503)
+================
+Added certificate parsing code (based on ssleay and wrapped under certman.dll)
+t_sslweb test connects to few https sites now.
+Added md2 message digest to libeay.
+
+Version 1.00(502)
+================
+10 November 1998
+Getopt certificat return now TCertInfo object. New testcode t_sslweb which
+ connects to https enabled web site. Mnt.cmd file bug fixes.
+
+Version 1.00(501)
+================
+3 November 1998
+Adding Unicode Uids.Upgrading components.
+
+Version 1.00(500) == first official release
+================
+adding buildtest verb in the mnt.cmd file
+
+Version 1.00(018)
+:-(:-(:-(:-(:-(:-(
+upgrading to vc5,remouving "ssl own tcpip" dependancies. 
+
+Version 1.00(017)
+:-):-):-):-):-):-)
+14/10/98
+Released by Artem
+still changing tcpip subproject : added a little state machine to handle 
+better SetOpts and GetOpts, complience with the new tcpip 504 with commdb.
+Ssl now can renegociate crypto parameters when user does Setopt cipherSuite.
+Added new testcode. Changed mnt.cmd file to get new components.
+
+Version 1.00(016)
+=================
+02/10/98
+Released by MalM
+Removed unnecessary dependency on SSL from TCPIP which makes SSL.DLL
+a DLL with a single exported gate function that creates a factory. 
+Changes to TCPIP to handle this.  Removed dependency on EFSRV in SSL
+too.  First attempt at building unicode security.  Changes to mnt.cmd
+to handle unicode building.
+
+Version 1.00(015)
+-.-.-.-.-.-.-.-.-
+Released by Artem
+Added Rom directory (MM). Removed estlib.lib dependency for linking with 
+libeay32. Various bug fixes. All components now compile for unicode (AS).
+
+Version 1.00(014)
+++++++++++++++++
+Released by Artem
+Also some fixes to mnt.cmd file (MM). Fixed bug in libeay when going twice on 
+a secure web page and unloading SSL between these two actions. In tcpip added 
+opening ssl provider when doing setopt with cahging cipher suites. Some SSL 
+state machine enhancements.(AS)
+
+Version 1.00(013)
+=================
+22/09/98
+Released by MalM
+Various fixes to mnt.cmd file.  Checked that "mnt getcomps" and 
+"mnt bldall" work.  Implemented an "mnt valid".  Added design and 
+API docs to the \security\docs directory.  Added the t_crypt test 
+code to the release.
+
+Version 1.00(012)
+=================
+22/09/98
+Released by Artem
+Migrated session variables from thread local storage to a separate 
+CSSLSessionStore class which is created for each separate instance of
+the tuple <appId,IP address>.  Also added changes to TCPIP code for 
+test software to work in SSL server mode (listening).
+
+Version 1.00(011)
+=================
+10/09/98
+Released by Artem
+to make work the loopback test one needs to put all the .txt files 
+found in tsrc directory in /epoc32/wins/c 
+(these tests are avalable only for wins)
+
+Version 1.00(010)
+=================
+25/08/98
+Released by MalM
+SSL/CERTMAN/CRYPTALG and LIBEAY32 code checked for memory leaks.  Tls
+in libeay32.dll now freeing properly and WINS web browser using https 
+working within UHEAP_MARK/UHEAP_MARKEND on esock thread.  Can now
+load/unload SSL-enabled browser in WINS :-).  Full UID2 checking
+added to crypto,cert,ssl dlls.
+
+Version 1.00(009)
+=================
+14/08/98
+Released by MalM
+SSL state machine fully implemented by Artem.  Active object added to
+handle requests to dialog server to prevent esock thread hanging. 
+Added heap checking code to dialog server thread and ensured it is
+freeing all alloc'd cells.  Enhanced certman module to handle
+certificate DN parsing etc.
+
+Version 1.00(008)
+=================
+17/07/98
+Released by MalM
+Handshake message parser process HS messages cut in several records 
+by the record protocol layer.  Alert code added.
+No longer mbuf to TPtr8 byte by byte copying.
+RSA signature verification for key exchange.
+Ephemeral DH key exchange.
+
+Version 1.00(007)
+=================
+05/06/98
+Released by MalM
+Added a rudimentary SSL dialog server (in \security\dialog). 
+Enhanced certificate management API to support this 
+From ArtemS: Added support for the following SSL cipher suites:
+RSA_RC2_MD5, RSA_RC4_128_MD5, RSA_RC4_128_SHA, RSA_DES_CBC_40_SHA,
+RSA_DES_CBC_SHA, RSA_DES_EDE3_CBC_SHA.  Improved stream cipher
+MAC checking.
+
+Version 1.00(006)
+=================
+08/05/98
+Released by MalM
+Fixed ServerKeyExchange - can now connect to tls.cryptsoft.com :-)
+which is great because this site contains an experimental TLS server.
+Now implementing all the factory code within SSL.DLL and not through
+CNifFactory.  Fixed problems with loading https without doing http
+first.  Added TSRC test code directory specific to EPOC32 SSL -
+t_sock contains basic factory test code.
+
+Version 1.00(005)
+=================
+29/04/98
+Released by MalM
+WINS DEB and MARM builds now in place.  Added a load of exports to
+libeay32 code to handle MARM build.  Set 32 bit rand generator. 
+Added code to SSL to handle ServerKeyExch.  Sorted out TLS - no more
+static globals in libeay32.  Checked stack usage after which a couple 
+of stack structs (>2k!) were moved into heap.
+        e32     126     stdlib  014      esock 070
+
+Version 1.00(004)
+================
+22/4/96
+Released by MalM
+FIRST INTERIM RELEASE of EPOC32 SSL implementation.
+WINS build only and with no UI components.  Works with the web
+browser release 1.01(108). The release consists of these modules:
+* LIBEAY32.DLL - EPOC32 DLL containing SSLeay crypto/cert code
+* CRYPTALG.DLL - EPOC32 wrapper over libeay32 crypto functions
+* CERTMAN.DLL - EPOC32 wrapper over libeay32 certificate functions
+* SSL.DLL - EPOC32 implementation of SSLv3.0 protocol
+* TCPIP.DLL - Extended to handle the loading of SSL.DLL etc  
+* WTLHTTPS.DLL - Allows web browser to parse "https://" Urls
+Release allows for all the above except Wtlhttps.dll to be built
+using the following components: 
+        e32     126     stdlib  014      tcpip   064
+

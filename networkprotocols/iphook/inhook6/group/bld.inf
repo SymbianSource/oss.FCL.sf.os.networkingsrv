@@ -1,0 +1,56 @@
+// Copyright (c) 2005-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// bld.inf - Hook API for TCP/IP stack
+// Hook API for TCP/IP stack.
+//
+
+
+
+/**
+ @file
+*/
+
+PRJ_EXPORTS
+../group/inhook6.iby    /epoc32/rom/include/inhook6.iby
+../include/flow.h 			SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(flow.h)
+../include/in_bind.h 			SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(in_bind.h)
+../include/ip6_hook.h 			SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(ip6_hook.h)
+../include/in_pkt.h 			SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(in_pkt.h)
+../include/ip6_hdr.h 			SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(ip6_hdr.h)
+../include/in_hdr.h 			SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(in_hdr.h)
+../include/ip4_hdr.h 			SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(ip4_hdr.h)
+../include/ip6_iprt.h 			SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(ip6_iprt.h)
+../include/apibase.h 			SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(apibase.h)
+../include/in6_event.h 			SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(in6_event.h)
+../include/in6_dstcache.h 		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(in6_dstcache.h)
+../include/in6_dstcache_internal.h	SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(in6_dstcache_internal.h)
+
+../include/arp_hdr.h 			SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(arp_hdr.h)
+../include/ext_hdr.h 			SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(ext_hdr.h)
+../include/icmp6_hdr.h 			SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(icmp6_hdr.h)
+../include/in_chk.h 			SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(in_chk.h)
+../include/posthook.h 			SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(posthook.h)
+../include/sbque.h 			SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(sbque.h)
+../include/tcp_hdr.h 			SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(tcp_hdr.h)
+../include/tcpseq.h 			SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(tcpseq.h)
+../include/timeout.h 			SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(timeout.h)
+../include/udp_hdr.h 			SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(udp_hdr.h)
+
+../include/dnd_err.h			SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(networking/dnd_err.h)
+
+../data/tcpip6err.ra			SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(errors/generic/tcpip6err.ra)
+../data/tcpip6err.rls			SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(errors/generic/tcpip6err.rls)
+
+PRJ_MMPFILES
+inhook6.mmp

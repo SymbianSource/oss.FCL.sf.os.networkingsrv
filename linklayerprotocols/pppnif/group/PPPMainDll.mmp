@@ -1,0 +1,72 @@
+// Copyright (c) 2005-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// PPPMAIN.DLL
+// 
+//
+
+/**
+ @file
+*/
+
+
+MACRO           EPOC_SDK=0x07000000
+
+TARGET          pppmain.dll
+TARGETTYPE      DLL
+
+
+UID             0x10009D8D 0x10281C51
+VENDORID        0x70000001
+
+
+// The use of the LAN Manager compatible challenge response has been
+// deprecated according to RFC2433 (Microsoft PPP CHAP Extensions).
+// However you can uncomment the following macro statement in order to
+// build Symbian PPP with support for LAN Manager compatible challenge
+// response.  LAN Manager authentication has been deprecated
+// (RFC2433).
+MACRO __MS_CHAP_WITH_LAN_MANAGER__
+
+USERINCLUDE     ../INC
+USERINCLUDE     ../SPPP
+USERINCLUDE		../../../linklayercontrol/networkinterfacemgr/agentprcore/inc
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+SOURCEPATH      ../SPPP
+
+SOURCE  NCPIP.CPP ncpip6.cpp PPPLCP.CPP
+//SOURCE  pppumts.cpp
+SOURCE  PPPHDLC.CPP      
+SOURCE  CCPINI.CPP       MSCBCP.CPP       PPPFSM.CPP
+SOURCE  PPPADDR.CPP      PPPAUTH.CPP   
+SOURCE  PPPCCP.CPP       PPPCFG.CPP       PPPCHAP.CPP   
+SOURCE  PPPFCS.CPP       PPPPAP.CPP    
+SOURCE  PPPLINK.CPP      PPPLOG.CPP       PPPMISC.CPP   
+SOURCE  PPPOPT.CPP       PPPLRD.CPP
+SOURCE  chapmd5.cpp      MSCHAP.CPP       mschap2.cpp MD4.CPP
+SOURCE  pppconfig.cpp
+
+LIBRARY   commsfw.lib esocksvr.lib mbufmgr.lib 
+LIBRARY   euser.lib esock.lib nifman.lib
+LIBRARY   efsrv.lib insock.lib
+LIBRARY   hash.lib random.lib netmeta.lib netinterfaces.lib coreproviders.lib
+LIBRARY nodemessages.lib
+LIBRARY meshmachine.lib
+
+LIBRARY cryptography.lib 
+
+LIBRARY comsdbgutil.lib
+
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+
+SMPSAFE

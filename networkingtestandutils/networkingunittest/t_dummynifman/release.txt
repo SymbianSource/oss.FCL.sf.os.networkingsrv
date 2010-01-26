@@ -1,0 +1,11 @@
+DummyNif - 7/12/01
+
+The DummyNif project was created for CSD.AGX, Genconn.AGT and PSD.AGX unit test cases. It's main purpose is to drive Genconn without the need to use ESock. It really just creates a CAgentController and uses that to drive Genconn and the AGX's.
+
+All the legacy Nifman code is only there for type purposes. All the relevant source code is in TDummyNif.cpp, all the other source code can be mostly ignored.
+
+Test Harnesses that use DummyNif
+
+\networking\csdagx\ts_csdagx
+\networking\genconn\ts_utgenconn
+\networking\psdagx\ts_psdagx

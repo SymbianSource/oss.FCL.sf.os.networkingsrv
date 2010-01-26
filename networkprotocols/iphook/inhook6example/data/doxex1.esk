@@ -1,0 +1,7 @@
+[sockman]
+protocols= docex1
+
+[docex1]
+filename= docex1.prt
+bindfrom= ip6
+index= 1

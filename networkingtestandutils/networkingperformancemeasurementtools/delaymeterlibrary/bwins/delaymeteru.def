@@ -1,0 +1,16 @@
+EXPORTS
+	??0CReceiveTimestamper@DelayMeter@@QAE@XZ @ 1 NONAME ; DelayMeter::CReceiveTimestamper::CReceiveTimestamper(void)
+	??0CSendRecorder@DelayMeter@@QAE@XZ @ 2 NONAME ; DelayMeter::CSendRecorder::CSendRecorder(void)
+	?DefinePubSubKeysL@DelayMeter@@YAXXZ @ 3 NONAME ; void DelayMeter::DefinePubSubKeysL(void)
+	?GetResultsL@CSendTimestamper@DelayMeter@@QAEXAAHAAPAUTDelaySampleSet@2@@Z @ 4 NONAME ; void DelayMeter::CSendTimestamper::GetResultsL(int &, struct DelayMeter::TDelaySampleSet * &)
+	?GetTimeValues@TDelaySampleSet@DelayMeter@@QBEXMAAN00@Z @ 5 NONAME ; void DelayMeter::TDelaySampleSet::GetTimeValues(float, double &, double &, double &) const
+	?NewL@CReceiveRecorder@DelayMeter@@SAPAV12@ABUTDelayMeterPrefs@2@@Z @ 6 NONAME ; class DelayMeter::CReceiveRecorder * DelayMeter::CReceiveRecorder::NewL(struct DelayMeter::TDelayMeterPrefs const &)
+	?NewL@CSendTimestamper@DelayMeter@@SAPAV12@AAVRSocket@@ABUTDelayMeterPrefs@2@@Z @ 7 NONAME ; class DelayMeter::CSendTimestamper * DelayMeter::CSendTimestamper::NewL(class RSocket &, struct DelayMeter::TDelayMeterPrefs const &)
+	?RecordDelay@CReceiveRecorder@DelayMeter@@QAEXAAVTDesC8@@@Z @ 8 NONAME ; void DelayMeter::CReceiveRecorder::RecordDelay(class TDesC8 &)
+	?RecordDelay@CSendRecorder@DelayMeter@@QAEXAAVRMBufChain@@H@Z @ 9 NONAME ; void DelayMeter::CSendRecorder::RecordDelay(class RMBufChain &, int)
+	?SetupL@CSendTimestamper@DelayMeter@@QAEXXZ @ 10 NONAME ; void DelayMeter::CSendTimestamper::SetupL(void)
+	?StoreDelay@CRecorder@DelayMeter@@QAEXH@Z @ 11 NONAME ; void DelayMeter::CRecorder::StoreDelay(int)
+	?Timestamp@CReceiveTimestamper@DelayMeter@@QAEXAAVRMBufChain@@H@Z @ 12 NONAME ; void DelayMeter::CReceiveTimestamper::Timestamp(class RMBufChain &, int)
+	?Timestamp@CSendTimestamper@DelayMeter@@QAEXAAVTDes8@@@Z @ 13 NONAME ; void DelayMeter::CSendTimestamper::Timestamp(class TDes8 &)
+	?UndefinePubSubKeys@DelayMeter@@YAXXZ @ 14 NONAME ; void DelayMeter::UndefinePubSubKeys(void)
+

@@ -1,0 +1,63 @@
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+MACRO           EPOC_SDK=0x07010000
+//MACRO           CRYSTAL=1
+
+TARGET          tppp.nif
+TARGETTYPE      dll
+
+UID      0x10003D3A 0x1000022c
+VENDORID 0x70000001
+
+// The following directives are required by the Symbian Security
+// cryptalg & crypto components in order to be able to include the
+// Symbian Security header files that are currently not allowed to be
+// exported to a public include directory.
+
+SYSTEMINCLUDE ../../../../../security/crypto/weakcrypto/inc
+
+
+SOURCEPATH	../../SPPP
+SOURCE          CCPINI.CPP    MSCBCP.CPP    ncpip6.cpp
+SOURCE          NCPIP.CPP     PPPADDR.CPP   PPPAUTH.CPP   
+SOURCE          PPPCCP.CPP    PPPCFG.CPP    PPPCHAP.CPP   
+SOURCE          PPPDLL.CPP    PPPFCS.CPP    PPPPAP.CPP    
+SOURCE          PPPFSM.CPP    PPPHDLC.CPP   PPPLCP.CPP    
+SOURCE          PPPLINK.CPP   PPPLOG.CPP    PPPMISC.CPP   
+SOURCE          PPPOPT.CPP    PPPLRD.CPP    PppUmts.cpp
+SOURCE chapmd5.cpp MSCHAP.CPP mschap2.cpp MD4.CPP
+
+USERINCLUDE     ../../SPPP
+USERINCLUDE     ../../INC
+SYSTEMINCLUDE   /epoc32/include
+
+LIBRARY         euser.lib t_esock.lib t_dummynifman.lib
+LIBRARY         efsrv.lib insock.lib
+LIBRARY         mbufmgr.lib
+LIBRARY hash.lib random.lib
+
+
+LIBRARY cryptography.lib
+
+
+#include	"comms-infras/commsdebugutility.mmh"
+
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+
+
+UNPAGED
+
+SMPSAFE

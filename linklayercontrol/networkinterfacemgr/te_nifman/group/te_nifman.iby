@@ -1,0 +1,31 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+#ifndef __TE_NIFMAN_IBY__
+#define __TE_NIFMAN_IBY__
+
+#include <testexecute.iby>
+
+file=ABI_DIR\DEBUG_DIR\TE_NIFMAN.exe		System\libs\TE_NIFMAN.exe
+
+data=EPOCROOT##epoc32\data\z\TestData\Scripts\TE_NIFMAN.script    TestData\Scripts\TE_NIFMAN.script
+
+file=ABI_DIR\DEBUG_DIR\idummy.nif               System\Libs\idummy.nif
+file=ABI_DIR\DEBUG_DIR\adummy.agt               System\Libs\adummy.agt
+
+#endif
+

@@ -1,0 +1,75 @@
+// Copyright (c) 2005-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+MACRO 	   __HIDE_IPC_V1__
+
+MACRO       EPOC_SDK=0x08000000
+
+#ifdef EKA2
+TARGET		anvltest.exe
+TARGETTYPE  	exe
+MACRO	   	MAKE_EXE_APPLICATION
+UID         	0x100039CE 0x10000883
+#else
+TARGET      	anvltest.app
+TARGETTYPE	app
+UID         	0x100039CE 0x10000883
+#endif
+
+#ifdef __UI_FRAMEWORKS_V2__
+EPOCSTACKSIZE	0x5000
+TARGETPATH	   /sys/bin
+#else
+TARGETPATH     /system/apps/anvltest
+#endif
+
+SOURCEPATH     ../src
+SOURCE         anvltest.cpp engine.cpp mntcpapp.cpp mntcpep1.c mntcpep2.cpp
+SOURCE         listener.cpp anvlglob.cpp anvllog.cpp server.cpp
+
+START RESOURCE       ../data/anvltest.rss
+HEADER
+#ifdef __UI_FRAMEWORKS_V2__
+TARGETPATH /resource/apps
+#endif
+END
+
+#ifdef __UI_FRAMEWORKS_V2__
+START RESOURCE	../data/anvltest_reg.rss
+TARGETPATH /private/10003a3f/apps
+END
+#endif
+
+USERINCLUDE    ../inc
+
+SYSTEMINCLUDE  ../../../../networkprotocols/tcpipv4v6prt/inc ../../../../esockapiextensions/internetsockets/inc
+
+SYSTEMINCLUDE   /epoc32/include
+SYSTEMINCLUDE   /epoc32/include/libc
+SYSTEMINCLUDE	 /epoc32/include/networking
+SYSTEMINCLUDE	 /epoc32/include/techview
+
+DEBUGLIBRARY     flogger.lib
+LIBRARY     euser.lib apparc.lib cone.lib eikcore.lib eikcoctl.lib
+LIBRARY     eikcdlg.lib etext.lib estlib.lib efsrv.lib esock.lib 
+LIBRARY     insock.lib
+
+#ifdef EKA2
+CAPABILITY ALL -Tcb
+#endif
+
+VENDORID	0x70000001
+
+SMPSAFE

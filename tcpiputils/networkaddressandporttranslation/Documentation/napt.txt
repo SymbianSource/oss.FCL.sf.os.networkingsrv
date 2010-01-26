@@ -1,0 +1,23 @@
+
+/***********************************************************************************************************************/
+
+					WEEK 7 code drop
+
+/***********************************************************************************************************************/
+
+Steps to load protocol.
+
+1. build napt
+
+2. on any application do 
+
+RSocketServer sock_server;
+
+RSOcket socket;
+socket.Open(sock_server ,_L("napt"));
+
+
+*** napt will be loaded. Currently there is no support for ondemand Downlink information. IP for translating napt is hard
+coded in CProtocolNapt::OpenL function
+
+Change this IP to the static IP you are assigning to your laptop.

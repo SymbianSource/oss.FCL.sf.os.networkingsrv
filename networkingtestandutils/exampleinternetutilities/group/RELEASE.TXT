@@ -1,0 +1,71 @@
+
+InetUtil - E32 Internet Utilities
+
+
+Release Notes
+-------------
+Version 1.0(012) 25/2/98
+=========================
+- Updated to VC5 and built unicode versions.
+- TODO: These utilities need to be tested for unicode and narrow variants
+
+Version 1.0(012) 25/2/98
+=========================
+-Added trace route program
+
+Version 1.0(011) 12/2/98
+=========================
+-Added ICMP message parsing to ping
+
+Version 1.0(010) 7/11/97
+=========================
+-Added statistics to ping
+-Fixed bug in PingEng which stopped DNS adddresses with a leading
+number being parsed
+
+Version 1.0(009) 24/10/97
+=========================
+-Route.exe and IpConfig.exe now print the TCPIP version number in their header
+
+Version 1.0(008) 21/10/97
+=========================
+-Upgrade to binary incompatible version of TCPIP
+
+
+Version 1.0(007) 1/10/97
+=========================
+-Various bug fixes in pingeng.dll
+
+
+Version 1.0(006) 1/10/97
+=========================
+-All programs recompiled to be compatible with rebasing of 
+ipoption, this release is only compatible with TCPIP 032 and above
+
+
+Version 1.0(004) 19/09/97
+=========================
+-Fixed record route option on ping
+-Ping will fail if a send times out
+
+Version 1.0(003) 02/09/97
+=========================
+-Removed duplicate T_INET test code
+-Updated utilities to use Nifman::CheckIniConfig() function
+
+Version 1.0(002) 21/08/97
+=========================
+
+Released components
+
+PINGENG.DLL
+PING.EXE
+IPCONFIG.EXE
+TFTPENG.DLL
+TFPT.EXE
+
+
+Ping is useaful a a general tool to see if TCPIP is working properly
+
+IpConfig is useful for debugging PPP when you're not sure what the real
+IP confugration is.

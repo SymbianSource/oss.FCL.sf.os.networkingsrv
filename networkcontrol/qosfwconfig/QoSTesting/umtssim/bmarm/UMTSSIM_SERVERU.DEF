@@ -1,0 +1,4 @@
+EXPORTS
+	StartThread__Fv @ 1 NONAME R3UNUSED ; StartThread(void)
+	ThreadFunction__18CUmtsSimServServerPv @ 2 NONAME R3UNUSED ; CUmtsSimServServer::ThreadFunction(void *)
+

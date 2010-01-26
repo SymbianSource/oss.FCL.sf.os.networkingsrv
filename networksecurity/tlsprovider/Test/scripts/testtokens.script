@@ -1,0 +1,64 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//
+// Test that different ECOM-pluggable TLS tokens work correctly
+//
+// For this test, there is the default swtlstokentypeplugin, and
+// a test hwtlstokentypeplugin, which is "hardware", and should
+// be selected in preference to the swtoken. The hwtoken only
+// supports a limited range of ciphers.
+//
+
+LOAD_SUITE tlstest2
+
+RUN_UTILS MkDir c:\private\101f72a6\
+RUN_UTILS DeleteFile c:\private\101f72a6\CACerts.dat
+RUN_UTILS DeleteFile c:\private\101f72a6\certclients.dat
+RUN_UTILS DeleteFile c:\private\101f72a6\keys.dat
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\KeyAndCertStore\cacerts.dat c:\private\101f72a6\CACerts.dat
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\KeyAndCertStore\certclients.dat c:\private\101f72a6\certclients.dat
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\KeyAndCertStore\keys.dat c:\private\101f72a6\keys.dat
+
+RUN_UTILS MkDir c:\tlstest2
+
+//
+// Hardware token supports RSA cipher; check that our hardware token is called
+//
+
+//! @SYMTestCaseID 	SEC-TLSP-TOKENS-0001
+//! @SYMTestCaseDesc 	Hardware token supports RSA cipher; check that our hardware token is called
+
+START_TESTCASE SEC-TLSP-TOKENS-0001
+RUN_UTILS DeleteFile c:\tlstest2\hwtest.log
+RUN_TEST_STEP 100 tlstest2 EncryptStep z:\testdata\testtokens\testtokens.ini TLS_RSA_WITH_AES_256_CBC_SHA
+RUN_TEST_STEP 100 tlstest2 CheckFilesStep z:\testdata\testtokens\testtokens.ini testhwtokencalled
+END_TESTCASE SEC-TLSP-TOKENS-0001
+
+//
+// Hardware token doesn't support DH cipher; check hardware token not called
+//
+
+//! @SYMTestCaseID 	SEC-TLSP-TOKENS-0002
+//! @SYMTestCaseDesc 	Hardware token doesn't support DH cipher; check hardware token not called
+
+START_TESTCASE SEC-TLSP-TOKENS-0002
+RUN_UTILS DeleteFile c:\tlstest2\hwtest.log
+RUN_TEST_STEP 100 tlstest2 EncryptStep z:\testdata\testtokens\testtokens.ini TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA
+RUN_TEST_STEP 100 tlstest2 CheckFilesStep z:\testdata\testtokens\testtokens.ini testswtokencalled
+END_TESTCASE SEC-TLSP-TOKENS-0002
+
+RUN_UTILS DeleteFile c:\tlstest2\hwtest.log
+RUN_UTILS DeleteDir c:\tlstest2

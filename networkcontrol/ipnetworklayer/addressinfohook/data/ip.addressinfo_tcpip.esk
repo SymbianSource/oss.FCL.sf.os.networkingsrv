@@ -1,0 +1,7 @@
+[sockman]
+protocols= addressinfo
+
+[addressinfo]
+filename= addressinfo.prt
+bindfrom= ip6
+index= 1

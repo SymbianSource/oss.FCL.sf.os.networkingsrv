@@ -1,0 +1,59 @@
+/*
+* Copyright (c) 2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+
+TARGET		  echodaemon.dll
+TARGETTYPE	  dll
+UID		 0x1000008D 0x1028300F
+VENDORID 0x70000001
+
+USERINCLUDE	 ../inc
+
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+SYSTEMINCLUDE   /epoc32/include
+#else
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+SYSTEMINCLUDE   /epoc32/include/platform
+#endif
+
+SOURCEPATH	  ../src
+
+SOURCE		  client.cpp
+SOURCE 		  daemon.cpp main.cpp server.cpp session.cpp
+
+
+//The following commented out code shows how the build system uses the implicit
+// location for defiles. To create the DEF files Choose Project > Freeze Exports from Carbide
+// or run 'abld freeze' from the command-line
+//#if defined (WINS)
+//  DEFFILE ..\bwins\echodaemon.def
+//#elif defined (GCC32)
+//  DEFFILE ..\bmarm\echodaemon.def
+//#else 
+//  DEFFILE ..\eabi\echodaemon.def
+//#endif
+
+nostrictdef
+
+LIBRARY		 euser.lib
+LIBRARY		 esock.lib
+LIBRARY		 commdb.lib
+LIBRARY		 insock.lib
+
+
+CAPABILITY None
+SMPSAFE

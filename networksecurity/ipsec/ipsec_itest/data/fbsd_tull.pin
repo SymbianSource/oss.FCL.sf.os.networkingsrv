@@ -1,0 +1,12 @@
+[TYPE]
+0
+[POLICYNAME]
+fbsd_tunnel
+[POLICYVERSION]
+1.0
+[POLICYDESCRIPTION]
+freebsd tunnel mode
+[ISSUERNAME]
+test.intra
+[CONTACTINFO]
+ipsec@symbian.com

@@ -1,0 +1,67 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRINT Integration test 4.03 - CDMA outgoing with ipv4 and ipv6 
+
+LOAD_SUITE TE_Esock
+LOAD_SUITE te_esockutil
+
+
+
+// open socket server 
+RUN_TEST_STEP 100 TE_Esock OpenServer   
+
+
+START_TESTCASE			NET-Integration-Cdma-0301
+//! @SYMTestCaseID		NET-Integration-Cdma-0301
+
+
+// open Ipv4 socket
+RUN_TEST_STEP 100 TE_Esock Test1.2 z:\testdata\configs\integration\itest_s4\itest.ini
+
+// do test
+RUN_TEST_STEP 1000 TE_Esock SendData z:\testdata\configs\integration\itest_s4\ipv4.ini
+
+// close socket
+RUN_TEST_STEP 100 TE_Esock Test1.15 z:\testdata\configs\integration\itest_s4\itest.ini
+
+// open Ipv6 socket
+RUN_TEST_STEP 100 TE_Esock Test1.2 z:\testdata\configs\integration\itest_s4\itest.ini
+
+// do test
+RUN_TEST_STEP 1000 TE_Esock SendData z:\testdata\configs\integration\itest_s4\ipv6.ini
+
+// close socket
+RUN_TEST_STEP 100 TE_Esock Test1.15 z:\testdata\configs\integration\itest_s4\itest.ini
+
+// close socket server 
+RUN_TEST_STEP 100 TE_Esock CloseServer   
+
+// wait for more than Commdb AgentClientTimeout
+print wait for more than Commdb AgentClientTimeout
+run_test_step -1 te_esockutil TE_ESockUtilDelay z:\testdata\configs\integration\itest_s4\client_timeout.ini
+
+
+// check the network is NOT active
+RUN_TEST_STEP 100 te_esockutil TE_ESockUtilIsNetworkNotActive
+
+// log result
+PRINT Result for Integration test 4.03 - CDMA outgoing with ipv4 and ipv6
+TEST_COMPLETE GPRS_test_4_03
+
+
+END_TESTCASE			NET-Integration-Cdma-0301
+

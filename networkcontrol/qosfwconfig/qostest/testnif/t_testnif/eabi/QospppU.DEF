@@ -1,0 +1,32 @@
+EXPORTS
+	Install @ 1 NONAME ; Install
+	_ZN8TPppAddrC1Ev @ 2 NONAME ; TPppAddr::TPppAddr(void)
+	_ZN8TPppAddraSERK9TSockAddr @ 3 NONAME ; TPppAddr::operator=(TSockAddr const&)
+	_ZN8TPppAddrC2Ev @ 4 NONAME ; TPppAddr::TPppAddr[not-in-charge](void)
+	_ZTI11CDigestBase @ 5 NONAME ; #<TI>#
+	_ZTI15CNifEventIfBase @ 6 NONAME ; #<TI>#
+	_ZTI17CNifPDPContextTsy @ 7 NONAME ; #<TI>#
+	_ZTI17CNifPDPMonitorTsy @ 8 NONAME ; #<TI>#
+	_ZTI17CNifQosMonitorTsy @ 9 NONAME ; #<TI>#
+	_ZTI18CNifPDPContextBase @ 10 NONAME ; #<TI>#
+	_ZTI18CNifPDPContextTNif @ 11 NONAME ; #<TI>#
+	_ZTI21CNifNetworkMonitorTsy @ 12 NONAME ; #<TI>#
+	_ZTI4CMd5 @ 13 NONAME ; #<TI>#
+	_ZTI7CNifNcp @ 14 NONAME ; #<TI>#
+	_ZTI7MPppFsm @ 15 NONAME ; #<TI>#
+	_ZTI9MPppRecvr @ 16 NONAME ; #<TI>#
+	_ZTV11CDigestBase @ 17 NONAME ; #<VT>#
+	_ZTV15CNifEventIfBase @ 18 NONAME ; #<VT>#
+	_ZTV17CNifPDPContextTsy @ 19 NONAME ; #<VT>#
+	_ZTV17CNifPDPMonitorTsy @ 20 NONAME ; #<VT>#
+	_ZTV17CNifQosMonitorTsy @ 21 NONAME ; #<VT>#
+	_ZTV18CNifPDPContextBase @ 22 NONAME ; #<VT>#
+	_ZTV18CNifPDPContextTNif @ 23 NONAME ; #<VT>#
+	_ZTV21CNifNetworkMonitorTsy @ 24 NONAME ; #<VT>#
+	_ZTV4CMd5 @ 25 NONAME ; #<VT>#
+	_ZTV7CNifNcp @ 26 NONAME ; #<VT>#
+	_ZTV7MPppFsm @ 27 NONAME ; #<VT>#
+	_ZTV9MPppRecvr @ 28 NONAME ; #<VT>#
+	_ZTI18CNifQosMonitorBase @ 29 NONAME ; #<TI>#
+	_ZTV18CNifQosMonitorBase @ 30 NONAME ; #<VT>#
+

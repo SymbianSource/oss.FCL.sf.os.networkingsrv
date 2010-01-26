@@ -1,0 +1,293 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRINT Integration test scripts RSconnection
+
+pause_at_end
+LOAD_SUITE TS_Esock.dll
+LOAD_SUITE TS_genconn.dll
+LOAD_SUITE TS_RConnection.dll
+
+#--------------------------------------------------------------------------------------
+# Tests from rconnectionudptests_nonconnection.script
+
+run_script z:\TestData\scripts\esock_test_unloadesockForced.script
+ced z:\TestData\configs\rconnectionudp.xml
+run_script z:\TestData\scripts\esock_test_loadesock.script
+
+
+START_TESTCASE			NET-Integration-Csd-1501
+//! @SYMTestCaseID		NET-Integration-Csd-1501
+
+heap_mark
+run_test_step 1000, TS_RConnection, Test40
+heap_markend
+test_complete
+END_TESTCASE			NET-Integration-Csd-1501
+
+
+START_TESTCASE			NET-Integration-Csd-1502
+//! @SYMTestCaseID		NET-Integration-Csd-1502
+
+heap_mark
+run_test_step 1000, TS_RConnection, Test41
+heap_markend
+test_complete
+END_TESTCASE			NET-Integration-Csd-1502
+
+
+#--------------------------------------------------------------------------------------
+
+# Tests from rconnectionudptests_connection.script
+
+# necessary database has already been loaded above
+
+
+START_TESTCASE			NET-Integration-Csd-1503
+//! @SYMTestCaseID		NET-Integration-Csd-1503
+
+heap_mark
+run_test_step 1000, TS_RConnection, Test42
+heap_markend
+test_complete
+END_TESTCASE			NET-Integration-Csd-1503
+#--------------------------------------------------------------------------------------
+
+# Tests from rconnectiontcptests_connection.script
+
+# need to close esock before running ced
+run_script z:\TestData\scripts\esock_test_unloadesockForced.script
+
+ced z:\TestData\configs\rconnectionntras.xml
+
+run_script z:\TestData\scripts\esock_test_loadesock.script
+
+
+START_TESTCASE			NET-Integration-Csd-1504
+//! @SYMTestCaseID		NET-Integration-Csd-1504
+
+heap_mark
+run_test_step 1000, TS_RConnection, Test101
+heap_markend
+test_complete
+END_TESTCASE			NET-Integration-Csd-1504
+
+
+START_TESTCASE			NET-Integration-Csd-1505
+//! @SYMTestCaseID		NET-Integration-Csd-1505
+
+heap_mark
+run_test_step 1000, TS_RConnection, Test102
+heap_markend
+test_complete
+END_TESTCASE			NET-Integration-Csd-1505
+
+
+START_TESTCASE			NET-Integration-Csd-1506
+//! @SYMTestCaseID		NET-Integration-Csd-1506
+
+heap_mark
+run_test_step 1000, TS_RConnection, Test103
+heap_markend
+test_complete
+END_TESTCASE			NET-Integration-Csd-1506
+
+
+START_TESTCASE			NET-Integration-Csd-1507
+//! @SYMTestCaseID		NET-Integration-Csd-1507
+
+heap_mark
+run_test_step 1000, TS_RConnection, Test105
+heap_markend
+test_complete
+END_TESTCASE			NET-Integration-Csd-1507
+
+
+START_TESTCASE			NET-Integration-Csd-1508
+//! @SYMTestCaseID		NET-Integration-Csd-1508
+
+heap_mark
+run_test_step 1000, TS_RConnection, Test109
+heap_markend
+test_complete
+END_TESTCASE			NET-Integration-Csd-1508
+
+
+//START_TESTCASE			NET-Integration-Csd-1509
+///! @SYMTestCaseID		NET-Integration-Csd-1509
+
+#heap_mark
+#run_test_step 1000, TS_RConnection, Test111
+#heap_markend
+#test_complete
+//END_TESTCASE			NET-Integration-Csd-1509
+
+
+START_TESTCASE			NET-Integration-Csd-1510
+//! @SYMTestCaseID		NET-Integration-Csd-1510
+
+heap_mark
+run_test_step 1000, TS_RConnection, Test112
+heap_markend
+test_complete
+END_TESTCASE			NET-Integration-Csd-1510
+
+
+START_TESTCASE			NET-Integration-Csd-1511
+//! @SYMTestCaseID		NET-Integration-Csd-1511
+
+heap_mark
+run_test_step 1000, TS_RConnection, Test113
+heap_markend
+test_complete
+END_TESTCASE			NET-Integration-Csd-1511
+
+
+START_TESTCASE			NET-Integration-Csd-1512
+//! @SYMTestCaseID		NET-Integration-Csd-1512
+
+heap_mark
+run_test_step 1000, TS_RConnection, Test115
+heap_markend
+test_complete
+END_TESTCASE			NET-Integration-Csd-1512
+
+
+#--------------------------------------------------------------------------------------
+
+# Tests from rconnectionallinterfacenotificationtests_nonconnection.script
+
+run_script z:\TestData\scripts\esock_test_unloadesockForced.script
+ced z:\TestData\configs\ainudp.xml
+run_script z:\TestData\scripts\esock_test_loadesock.script
+
+
+START_TESTCASE			NET-Integration-Csd-1513
+//! @SYMTestCaseID		NET-Integration-Csd-1513
+
+heap_mark
+run_test_step 1000, TS_RConnection, Test300
+heap_markend
+test_complete
+END_TESTCASE			NET-Integration-Csd-1513
+
+
+START_TESTCASE			NET-Integration-Csd-1514
+//! @SYMTestCaseID		NET-Integration-Csd-1514
+
+heap_mark
+run_test_step 1000, TS_RConnection, Test301
+heap_markend
+test_complete
+END_TESTCASE			NET-Integration-Csd-1514
+
+
+START_TESTCASE			NET-Integration-Csd-1515
+//! @SYMTestCaseID		NET-Integration-Csd-1515
+
+heap_mark
+run_test_step 1000, TS_RConnection, Test303
+heap_markend
+test_complete
+END_TESTCASE			NET-Integration-Csd-1515
+
+
+START_TESTCASE			NET-Integration-Csd-1516
+//! @SYMTestCaseID		NET-Integration-Csd-1516
+
+heap_mark
+run_test_step 1000, TS_RConnection, Test304
+heap_markend
+test_complete
+END_TESTCASE			NET-Integration-Csd-1516
+
+
+START_TESTCASE			NET-Integration-Csd-1517
+//! @SYMTestCaseID		NET-Integration-Csd-1517
+
+heap_mark
+run_test_step 1000, TS_RConnection, Test305
+heap_markend
+test_complete
+END_TESTCASE			NET-Integration-Csd-1517
+
+# need to close esock before using ced
+run_script z:\TestData\scripts\esock_test_unloadesockForced.script
+
+ced z:\TestData\configs\ainntras.xml
+
+run_script z:\TestData\scripts\esock_test_loadesock.script
+
+
+START_TESTCASE			NET-Integration-Csd-1518
+//! @SYMTestCaseID		NET-Integration-Csd-1518
+
+heap_mark
+run_test_step 1000, TS_RConnection, Test312
+heap_markend
+test_complete
+END_TESTCASE			NET-Integration-Csd-1518
+
+
+#--------------------------------------------------------------------------------------
+
+# Tests from rconnectionallinterfacenotificationtests_connection.script
+
+
+START_TESTCASE			NET-Integration-Csd-1519
+//! @SYMTestCaseID		NET-Integration-Csd-1519
+
+heap_mark
+run_test_step 1000, TS_RConnection, Test306
+heap_markend
+test_complete
+END_TESTCASE			NET-Integration-Csd-1519
+
+
+START_TESTCASE			NET-Integration-Csd-1520
+//! @SYMTestCaseID		NET-Integration-Csd-1520
+
+heap_mark
+run_test_step 1000, TS_RConnection, Test307
+heap_markend
+test_complete
+END_TESTCASE			NET-Integration-Csd-1520
+
+
+START_TESTCASE			NET-Integration-Csd-1521
+//! @SYMTestCaseID		NET-Integration-Csd-1521
+
+heap_mark
+run_test_step 1000, TS_RConnection, Test314
+heap_markend
+test_complete
+END_TESTCASE			NET-Integration-Csd-1521
+
+
+START_TESTCASE			NET-Integration-Csd-1522
+//! @SYMTestCaseID		NET-Integration-Csd-1522
+
+heap_mark
+run_test_step 1000, TS_RConnection, Test315
+heap_markend
+test_complete
+END_TESTCASE			NET-Integration-Csd-1522
+#--------------------------------------------------------------------------------------
+
+# kill the esock thread so that when the next tests try to use ced they will succeed
+run_script z:\TestData\scripts\esock_test_unloadesockforced.script
+
+

@@ -1,0 +1,39 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+MACRO         _LOG=1 
+
+TARGET        umtssim_server.dll
+TARGETTYPE    dll
+UID           0x1000008d 0x101f6cf3
+VENDORID      0x70000001
+
+SOURCEPATH    ..\src
+SOURCE        usse_server.cpp usse_session.cpp usse_simulator.cpp
+SOURCE        usse_packetservice.cpp usse_packetcontext.cpp
+SOURCE        usse_pservice_wrapper.cpp usse_pcontext_wrapper.cpp
+SOURCE        usse_control_wrapper.cpp
+SOURCE        usse_qos.cpp usse_qos_wrapper.cpp
+
+USERINCLUDE   ..\inc
+SYSTEMINCLUDE \Epoc32\include
+
+LIBRARY       euser.lib efsrv.lib flogger.lib
+
+DEFFILE		umtssim_server.def
+
+CAPABILITY ALL -Tcb
+
+SMPSAFE

@@ -1,0 +1,31 @@
+#
+# Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+# All rights reserved.
+# This component and the accompanying materials are made available
+# under the terms of "Eclipse Public License v1.0"
+# which accompanies this distribution, and is available
+# at the URL "http://www.eclipse.org/legal/epl-v10.html".
+#
+# Initial Contributors:
+# Nokia Corporation - initial contribution.
+#
+# Contributors:
+#
+# Description: 
+#
+
+component		networking_netups
+source			\sf\os\networkingsrv\networkcontrol\commsuserpromptmgr\bwins
+source			\sf\os\networkingsrv\networkcontrol\commsuserpromptmgr\database
+source			\sf\os\networkingsrv\networkcontrol\commsuserpromptmgr\eabi
+source			\sf\os\networkingsrv\networkcontrol\commsuserpromptmgr\group
+source			\sf\os\networkingsrv\networkcontrol\commsuserpromptmgr\interface
+source			\sf\os\networkingsrv\networkcontrol\commsuserpromptmgr\state
+source			\sf\os\networkingsrv\networkcontrol\commsuserpromptmgr\utils
+source			\sf\os\networkingsrv\networkcontrol\commsuserpromptmgr\test
+binary			\sf\os\networkingsrv\networkcontrol\commsuserpromptmgr\group all
+exports			\sf\os\networkingsrv\networkcontrol\commsuserpromptmgr\group
+notes_source	\component_defs\release.src
+
+ipr D
+ipr T 			\sf\os\networkingsrv\networkcontrol\commsuserpromptmgr\test

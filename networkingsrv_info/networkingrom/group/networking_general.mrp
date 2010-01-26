@@ -1,0 +1,32 @@
+#
+# Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+# All rights reserved.
+# This component and the accompanying materials are made available
+# under the terms of "Eclipse Public License v1.0"
+# which accompanies this distribution, and is available
+# at the URL "http://www.eclipse.org/legal/epl-v10.html".
+#
+# Initial Contributors:
+# Nokia Corporation - initial contribution.
+#
+# Contributors:
+#
+# Description: 
+#
+
+component	networking_general
+source	\sf\os\networkingsrv\networkingsrv_info\networkingrom
+# source	\sf\os\unref\orphan\comgen\networking\test\te_Anvl
+# source	\sf\os\unref\orphan\comgen\networking\test\te_TahiClient
+exports	\sf\os\networkingsrv\networkingsrv_info\networkingrom\group
+
+# IainW: These files are not from networking\general, but are in the networking subsystem yet belong to no other component
+source	\sf\os\networkingsrv\networkingsrv_info\networkingrom\additional.inf
+
+notes_source	\component_defs\release.src
+
+
+ipr D
+# ipr T \sf\os\unref\orphan\comgen\networking\test\te_Anvl
+# ipr T \sf\os\unref\orphan\comgen\networking\test\te_TahiClient
+

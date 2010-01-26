@@ -1,0 +1,56 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+TARGET        cryptography.dll
+CAPABILITY All
+TARGETTYPE    dll
+
+//If the following macro is defined, a version of the crypto library with no
+//restrictions on strength of the cryptography will be built.  If it is not
+//defined, a 'weak' build will be made.
+MACRO		CRYPTO_STRONG_BUILD
+
+UID			0x1000008d 0x101FD20B
+VENDORID 0x70000001
+
+SOURCEPATH		..\..\..\..\..\security\crypto\weakcrypto\source\symmetric
+SOURCE			des.cpp 3des.cpp rijndael.cpp rc2.cpp arc4.cpp nullcipher.cpp
+SOURCE			cbcmode.cpp
+SOURCE			bufferedtransformation.cpp mstreamcipher.cpp
+
+SOURCEPATH		..\..\..\..\..\security\crypto\weakcrypto\source\common
+SOURCE			cryptostrength.cpp keyidentifierutil.cpp
+
+SOURCEPATH		..\..\..\..\..\security\crypto\weakcrypto\source\padding
+SOURCE			padding.cpp pkcs7.cpp
+
+SOURCEPATH 		..\..\..\..\..\security\crypto\weakcrypto\source\asymmetric
+SOURCE			rsakeys.cpp rsaencryptor.cpp rsadecryptor.cpp asymmetric.cpp
+SOURCE			rsafunction.cpp rsasigner.cpp rsaverifier.cpp
+SOURCE			dsasigner.cpp dsaverifier.cpp dsakeys.cpp
+SOURCE			dhkeys.cpp dh.cpp
+
+SOURCEPATH		..\..\..\..\..\security\crypto\weakcrypto\source\common
+SOURCE			cryptoentry.cpp
+
+USERINCLUDE		..\..\..\..\..\security\crypto\weakcrypto\inc
+SYSTEMINCLUDE	\epoc32\include 
+USERINCLUDE	..\..\..\..\..\security\crypto\weakcrypto\source\bigint
+
+LIBRARY			euser.lib random.lib hash.lib
+STATICLIBRARY	bigint.lib
+
+SMPSAFE

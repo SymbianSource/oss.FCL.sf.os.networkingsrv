@@ -1,0 +1,90 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+LOAD_SUITE tlstest2
+LOAD_SUITE TlsProvServer
+
+//! @SYMTestCaseID 	SEC-TLSP-TEST-0003
+//! @SYMTestCaseDesc 	copy in the certstore needed for the cert validation tests
+
+START_TESTCASE SEC-TLSP-TEST-0003
+
+RUN_UTILS DeleteFile c:\private\101f72a6\CACerts.dat 
+RUN_UTILS DeleteFile c:\private\101f72a6\certclients.dat
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\KeyAndCertStore\cacerts.dat c:\private\101f72a6\CACerts.dat
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\KeyAndCertStore\certclients.dat    c:\private\101f72a6\certclients.dat 
+
+RUN_TEST_STEP 10 TlsProvServer ServerCertStep z:\testdata\scripts\te_tlsprov.ini commonname_pass
+RUN_TEST_STEP 10 TlsProvServer ServerCertStep z:\testdata\scripts\te_tlsprov.ini commonname_fail
+
+RUN_TEST_STEP 10 TlsProvServer ServerCertStep z:\testdata\scripts\te_tlsprov.ini altname_pass
+RUN_TEST_STEP 10 TlsProvServer ServerCertStep z:\testdata\scripts\te_tlsprov.ini altname_fail
+
+RUN_TEST_STEP 10 TlsProvServer ServerCertStep z:\testdata\scripts\te_tlsprov.ini altname_matchone
+RUN_TEST_STEP 10 TlsProvServer ServerCertStep z:\testdata\scripts\te_tlsprov.ini altname_matchnone
+
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\testdata\scripts\te_tlsprov.ini encrypt_fail
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\testdata\scripts\te_tlsprov.ini encrypt_RC4
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\testdata\scripts\te_tlsprov.ini encrypt_Des40
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\testdata\scripts\te_tlsprov.ini encrypt_Des
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\testdata\scripts\te_tlsprov.ini encrypt_3Des
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\testdata\scripts\te_tlsprov.ini encrypt_Aes128
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\testdata\scripts\te_tlsprov.ini encrypt_Aes256
+// NOT SUPPORTED 
+// RUN_TEST_STEP_RESULT -11106 10 tlstest2 EncryptStep z:\testdata\scripts\te_tlsprov.ini encrypt_RC2
+// RUN_TEST_STEP_RESULT -11106 10 tlstest2 EncryptStep z:\testdata\scripts\te_tlsprov.ini encrypt_Idea
+
+
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\testdata\scripts\te_tlsprov.ini encryptSSL_RC4
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\testdata\scripts\te_tlsprov.ini encryptSSL_Des40
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\testdata\scripts\te_tlsprov.ini encryptSSL_Des
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\testdata\scripts\te_tlsprov.ini encryptSSL_3Des
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\testdata\scripts\te_tlsprov.ini encryptSSL_Aes128
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\testdata\scripts\te_tlsprov.ini encryptSSL_Aes256
+// NOT SUPPORTED
+// RUN_TEST_STEP_RESULT -11106 10 tlstest2 EncryptStep z:\testdata\scripts\te_tlsprov.ini encryptSSL_RC2
+// RUN_TEST_STEP_RESULT -11106 10 tlstest2 EncryptStep z:\testdata\scripts\te_tlsprov.ini encryptSSL_Idea
+
+END_TESTCASE SEC-TLSP-TEST-0003
+
+
+//! @SYMTestCaseID 	SEC-TLSP-TEST-0001
+//! @SYMTestCaseDesc 	Tests the end-entity certificate based on the EKU field.
+//!			(EXTENDEDKEYUSAGE)
+//! @SYMTestPriority 	Critical
+//! @SYMTestActions 	Verifies the Server certificate through TLS provider.
+//! @SYMTestExpectedResults All steps should suceed
+
+START_TESTCASE SEC-TLSP-TEST-0001
+
+RUN_TEST_STEP 	20 tlstest2 VerifyServerCertStep z:\testdata\scripts\te_tlsprov.ini tls_eku_success_1
+RUN_TEST_STEP 	20 tlstest2 VerifyServerCertStep z:\testdata\scripts\te_tlsprov.ini tls_eku_success_2
+RUN_TEST_STEP 	20 tlstest2 VerifyServerCertStep z:\testdata\scripts\te_tlsprov.ini tls_eku_failure_1
+
+END_TESTCASE SEC-TLSP-TEST-0001
+
+//! @SYMTestCaseID 	SEC-TLSP-TEST-0002
+//! @SYMTestCaseDesc 	Tries to build client certificate chain for requested DN
+//!			(CERT-CLIENTCERT)
+//! @SYMTestPriority 	Medium
+//! @SYMTestActions 	Tests ClientCertificate method of the TLS Provider API
+//! @SYMTestExpectedResults The first step should succeed, the second one should fail
+//! @SYMDevelopedForRelease Argus
+START_TESTCASE SEC-TLSP-TEST-0002
+RUN_TEST_STEP 20 tlstest2 ClientCertificateStep z:\testdata\scripts\te_tlsprov.ini tls-rsa-chain
+RUN_TEST_STEP 20 tlstest2 ClientCertificateStep z:\testdata\scripts\te_tlsprov.ini tls-rsa-chain-missing
+END_TESTCASE SEC-TLSP-TEST-0002
+

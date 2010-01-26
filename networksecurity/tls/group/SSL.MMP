@@ -1,0 +1,76 @@
+// Copyright (c) 2002-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// ssl.dll SSL 3.0 and TLS 1.0
+// 
+//
+
+/**
+ @file
+*/
+
+
+TARGET        ssl.dll
+CAPABILITY ALL -Tcb
+TARGETTYPE    DLL
+UID    0x1000183d 0x10001842
+VENDORID 0x70000001
+
+NOEXPORTLIBRARY  /* Ensures that DEF file can be safely shared 
+                    for RVCT builds */  
+
+#include <comms-infras/commsdebugutility.mmh> 
+SOURCEPATH	../protocol      // SSL source code
+SOURCE        AlertProtocolEvents.cpp
+SOURCE        applicationdata.cpp
+SOURCE        changecipherevents.cpp
+SOURCE        handshakereceiveevents.cpp
+SOURCE        handshaketransmitevents.cpp
+SOURCE        hellorequest.cpp
+SOURCE        recordprotocolevents.cpp
+SOURCE        tlsconnection.cpp
+SOURCE        tlsevent.cpp
+SOURCE        tlshandshake.cpp
+SOURCE        tlshandshakeitem.cpp
+SOURCE        LOGFILE.CPP
+SOURCE	      tlsutil.cpp
+
+USERINCLUDE	../protocol
+USERINCLUDE 	../inc
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+LIBRARY		euser.lib
+LIBRARY		esock.lib
+LIBRARY		insock.lib
+LIBRARY       	hash.lib
+LIBRARY		tlsprovider.lib
+LIBRARY		netsm.lib
+LIBRARY		netmsg.lib
+LIBRARY		crypto.lib
+
+
+START WINS
+    BASEADDRESS 0x54540000
+END
+
+// The resource file containing SSL error messages, generated for the system error resolver.
+
+SOURCEPATH 		../group
+START	RESOURCE	SslErr.rss
+TARGETPATH		/resource/errors
+LANG			01
+END
+
+UNPAGED
+
+SMPSAFE

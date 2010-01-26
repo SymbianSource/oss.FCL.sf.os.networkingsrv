@@ -1,0 +1,227 @@
+// Copyright (c) 2002-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRJ_EXPORTS
+
+PRJ_TESTEXPORTS
+
+// CED
+../configs/tcpip6adapwnd.ced.cfg		z:/testdata/configs/tcpip6adapwnd.ced.cfg
+
+
+../configs/tcpip6adapwnd_gprs.ced.cfg		z:/testdata/configs/tcpip6adapwnd_gprs.ced.cfg
+
+
+../configs/tcpip6adapwnd_vpn.ced.cfg		z:/testdata/configs/tcpip6adapwnd_vpn.ced.cfg
+
+
+
+//INI files
+../configs/te_tcpip6adapwnd.ini	z:/testdata/configs/te_tcpip6adapwnd.ini
+
+
+../configs/te_tcpip6adapwnd_expsocket_02.ini	z:/testdata/configs/te_tcpip6adapwnd_expsocket_02.ini
+
+
+
+//config.txt file for simtsy
+../configs/te_tcpip6adapwnd_modulation_umts_gprs_config.txt	z:/testdata/configs/te_tcpip6adapwnd_modulation_umts_gprs_config.txt
+
+
+../configs/te_tcpip6adapwnd_modulation_edge_gprs_config.txt	z:/testdata/configs/te_tcpip6adapwnd_modulation_edge_gprs_config.txt
+
+
+../configs/te_tcpip6adapwnd_modulation_gprs_umts_config.txt	z:/testdata/configs/te_tcpip6adapwnd_modulation_gprs_umts_config.txt
+
+
+../configs/te_tcpip6adapwnd_modulation_hsdpa_umts_config.txt	z:/testdata/configs/te_tcpip6adapwnd_modulation_hsdpa_umts_config.txt
+
+
+../configs/te_tcpip6adapwnd_modulation_umts_hsdpa_config.txt	z:/testdata/configs/te_tcpip6adapwnd_modulation_umts_hsdpa_config.txt
+
+
+../configs/te_tcpip6adapwnd_modulation_edge_umts_config.txt	z:/testdata/configs/te_tcpip6adapwnd_modulation_edge_umts_config.txt
+
+
+../configs/te_tcpip6adapwnd_modulation_gprs_hsdpa_config.txt	z:/testdata/configs/te_tcpip6adapwnd_modulation_gprs_hsdpa_config.txt
+
+
+../configs/te_tcpip6adapwnd_modulation_hsdpa_gprs_config.txt	z:/testdata/configs/te_tcpip6adapwnd_modulation_hsdpa_gprs_config.txt
+
+
+../configs/te_tcpip6adapwnd_modulation_hsdpa_edge_config.txt	z:/testdata/configs/te_tcpip6adapwnd_modulation_hsdpa_edge_config.txt
+
+
+../configs/te_tcpip6adapwnd_modulation_gprs_edge_config.txt	z:/testdata/configs/te_tcpip6adapwnd_modulation_gprs_edge_config.txt
+
+
+../configs/te_tcpip6adapwnd_modulation_umts_edge_config.txt	z:/testdata/configs/te_tcpip6adapwnd_modulation_umts_edge_config.txt
+
+
+../configs/te_tcpip6adapwnd_modulation_edge_hsdpa_config.txt	z:/testdata/configs/te_tcpip6adapwnd_modulation_edge_hsdpa_config.txt
+
+
+
+../configs/tcpip6adapwnd_config_gprs.txt			z:/testdata/configs/tcpip6adapwnd_config_gprs.txt
+
+
+../configs/tcpip6adapwnd_config_edge.txt					z:/testdata/configs/tcpip6adapwnd_config_edge.txt
+
+
+../configs/tcpip6adapwnd_config_umts.txt					z:/testdata/configs/tcpip6adapwnd_config_umts.txt
+
+
+../configs/tcpip6adapwnd_config_hsdpa.txt					z:/testdata/configs/tcpip6adapwnd_config_hsdpa.txt
+
+
+
+../configs/tcpip6adapwnd_loopbackcsy.ini					z:/testdata/configs/tcpip6adapwnd_loopbackcsy.ini
+
+
+//Parent Script
+../scripts/te_tcpip6adapwnd.script		z:/testdata/scripts/te_tcpip6adapwnd.script
+
+
+
+
+//Explicit Socket tests
+../scripts/te_tcpip6adapwnd_expsocket_gprs1.script		z:/testdata/scripts/te_tcpip6adapwnd_expsocket_gprs1.script
+
+
+../scripts/te_tcpip6adapwnd_expsocket_gprs2.script		z:/testdata/scripts/te_tcpip6adapwnd_expsocket_gprs2.script
+
+
+../scripts/te_tcpip6adapwnd_expsocket_gprs3.script		z:/testdata/scripts/te_tcpip6adapwnd_expsocket_gprs3.script
+
+
+../scripts/te_tcpip6adapwnd_expsocket_edge1.script		z:/testdata/scripts/te_tcpip6adapwnd_expsocket_edge1.script
+
+../scripts/te_tcpip6adapwnd_expsocket_edge1_user.script		z:/testdata/scripts/te_tcpip6adapwnd_expsocket_edge1_user.script
+
+
+../scripts/te_tcpip6adapwnd_expsocket_edge2.script		z:/testdata/scripts/te_tcpip6adapwnd_expsocket_edge2.script
+
+../scripts/te_tcpip6adapwnd_expsocket_edge3.script		z:/testdata/scripts/te_tcpip6adapwnd_expsocket_edge3.script
+
+
+../scripts/te_tcpip6adapwnd_expsocket_umts1.script		z:/testdata/scripts/te_tcpip6adapwnd_expsocket_umts1.script
+
+
+../scripts/te_tcpip6adapwnd_expsocket_umts2.script		z:/testdata/scripts/te_tcpip6adapwnd_expsocket_umts2.script
+
+
+../scripts/te_tcpip6adapwnd_expsocket_umts3.script		z:/testdata/scripts/te_tcpip6adapwnd_expsocket_umts3.script
+
+
+../scripts/te_tcpip6adapwnd_expsocket_hsdpa1.script		z:/testdata/scripts/te_tcpip6adapwnd_expsocket_hsdpa1.script
+
+../scripts/te_tcpip6adapwnd_expsocket_hsdpa2.script		z:/testdata/scripts/te_tcpip6adapwnd_expsocket_hsdpa2.script
+
+
+../scripts/te_tcpip6adapwnd_expsocket_hsdpa3.script		z:/testdata/scripts/te_tcpip6adapwnd_expsocket_hsdpa3.script
+
+
+../scripts/te_tcpip6adapwnd_expsocket_ethernet1.script		z:/testdata/scripts/te_tcpip6adapwnd_expsocket_ethernet1.script
+
+
+../scripts/te_tcpip6adapwnd_expsocket_ethernet2.script		z:/testdata/scripts/te_tcpip6adapwnd_expsocket_ethernet2.script
+
+
+../scripts/te_tcpip6adapwnd_expsocket_ethernet3.script		z:/testdata/scripts/te_tcpip6adapwnd_expsocket_ethernet3.script
+
+
+
+//modulation Tests
+../scripts/te_tcpip6adapwnd_modulation_umts_gprs.script	z:/testdata/scripts/te_tcpip6adapwnd_modulation_umts_gprs.script
+
+
+../scripts/te_tcpip6adapwnd_modulation_gprs_umts.script	z:/testdata/scripts/te_tcpip6adapwnd_modulation_gprs_umts.script
+
+
+../scripts/te_tcpip6adapwnd_modulation_edge_gprs.script	z:/testdata/scripts/te_tcpip6adapwnd_modulation_edge_gprs.script
+
+../scripts/te_tcpip6adapwnd_modulation_edge_gprs_user_set.script z:/testdata/scripts/te_tcpip6adapwnd_modulation_edge_gprs_user_set.script
+
+
+../scripts/te_tcpip6adapwnd_modulation_edge_umts.script	z:/testdata/scripts/te_tcpip6adapwnd_modulation_edge_umts.script
+
+
+../scripts/te_tcpip6adapwnd_modulation_umts_edge.script	z:/testdata/scripts/te_tcpip6adapwnd_modulation_umts_edge.script
+
+
+../scripts/te_tcpip6adapwnd_modulation_gprs_edge.script	z:/testdata/scripts/te_tcpip6adapwnd_modulation_gprs_edge.script
+
+
+../scripts/te_tcpip6adapwnd_modulation_hsdpa_gprs.script	z:/testdata/scripts/te_tcpip6adapwnd_modulation_hsdpa_gprs.script
+
+
+../scripts/te_tcpip6adapwnd_modulation_edge_hsdpa.script	z:/testdata/scripts/te_tcpip6adapwnd_modulation_edge_hsdpa.script
+
+
+../scripts/te_tcpip6adapwnd_modulation_hsdpa_umts.script	z:/testdata/scripts/te_tcpip6adapwnd_modulation_hsdpa_umts.script
+
+
+../scripts/te_tcpip6adapwnd_modulation_umts_hsdpa.script	z:/testdata/scripts/te_tcpip6adapwnd_modulation_umts_hsdpa.script
+
+
+../scripts/te_tcpip6adapwnd_modulation_gprs_hsdpa.script	z:/testdata/scripts/te_tcpip6adapwnd_modulation_gprs_hsdpa.script
+
+
+../scripts/te_tcpip6adapwnd_modulation_hsdpa_edge.script	z:/testdata/scripts/te_tcpip6adapwnd_modulation_hsdpa_edge.script
+
+
+//vpn modulation Tests
+../scripts/te_tcpip6adapwnd_vpnmodulation_edge_gprs.script	z:/testdata/scripts/te_tcpip6adapwnd_vpnmodulation_edge_gprs.script
+
+
+../scripts/te_tcpip6adapwnd_vpnmodulation_edge_umts.script	z:/testdata/scripts/te_tcpip6adapwnd_vpnmodulation_edge_umts.script
+
+
+../scripts/te_tcpip6adapwnd_vpnmodulation_gprs_edge.script	z:/testdata/scripts/te_tcpip6adapwnd_vpnmodulation_gprs_edge.script
+
+
+../scripts/te_tcpip6adapwnd_vpnmodulation_gprs_umts.script	z:/testdata/scripts/te_tcpip6adapwnd_vpnmodulation_gprs_umts.script
+
+
+../scripts/te_tcpip6adapwnd_vpnmodulation_umts_edge.script	z:/testdata/scripts/te_tcpip6adapwnd_vpnmodulation_umts_edge.script
+
+
+../scripts/te_tcpip6adapwnd_vpnmodulation_umts_gprs.script	z:/testdata/scripts/te_tcpip6adapwnd_vpnmodulation_umts_gprs.script
+
+
+../scripts/te_tcpip6adapwnd_vpnmodulation_edge_hsdpa.script	z:/testdata/scripts/te_tcpip6adapwnd_vpnmodulation_edge_hsdpa.script
+
+
+../scripts/te_tcpip6adapwnd_vpnmodulation_gprs_hsdpa.script	z:/testdata/scripts/te_tcpip6adapwnd_vpnmodulation_gprs_hsdpa.script
+
+
+../scripts/te_tcpip6adapwnd_vpnmodulation_hsdpa_edge.script	z:/testdata/scripts/te_tcpip6adapwnd_vpnmodulation_hsdpa_edge.script
+
+
+../scripts/te_tcpip6adapwnd_vpnmodulation_hsdpa_gprs.script	z:/testdata/scripts/te_tcpip6adapwnd_vpnmodulation_hsdpa_gprs.script
+
+
+../scripts/te_tcpip6adapwnd_vpnmodulation_hsdpa_umts.script	z:/testdata/scripts/te_tcpip6adapwnd_vpnmodulation_hsdpa_umts.script
+
+
+../scripts/te_tcpip6adapwnd_vpnmodulation_umts_hsdpa.script	z:/testdata/scripts/te_tcpip6adapwnd_vpnmodulation_umts_hsdpa.script
+
+
+
+./te_tcpip6suite.iby   		/epoc32/rom/include/te_tcpip6suite.iby
+
+PRJ_MMPFILES
+
+PRJ_TESTMMPFILES

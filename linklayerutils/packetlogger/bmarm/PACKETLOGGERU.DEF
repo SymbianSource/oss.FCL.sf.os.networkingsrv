@@ -1,0 +1,7 @@
+EXPORTS
+	NewL__13CPacketLoggerRC6TDesC8T1Q213CPacketLogger9TDumpTypei @ 1 NONAME ; CPacketLogger::NewL(TDesC8 const &, TDesC8 const &, CPacketLogger::TDumpType, int)
+	WritePacket__13CPacketLoggerRC10RMBufChainUc @ 2 NONAME R3UNUSED ; CPacketLogger::WritePacket(RMBufChain const &, unsigned char)
+	WritePacket__13CPacketLoggerRC6TDesC8Uc @ 3 NONAME R3UNUSED ; CPacketLogger::WritePacket(TDesC8 const &, unsigned char)
+	"_._13CPacketLogger" @ 4 NONAME R3UNUSED ; CPacketLogger::~CPacketLogger(void)
+	WriteText__13CPacketLoggerRC6TDesC8 @ 5 NONAME R3UNUSED ; CPacketLogger::WriteText(TDesC8 const &)
+

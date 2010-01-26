@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relnotes name="PPP Compression Plugins">
+  <purpose>
+    Plugins to PPP NIF implementing Predictor, Stac, and Microsoft compression algorithms.
+  </purpose>
+</relnotes>

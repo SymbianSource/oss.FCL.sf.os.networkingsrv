@@ -1,0 +1,84 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+#
+#	Script file for DHCP testing on IPv4
+#
+#   ORDER IS IMPORTANT! SetIAPToUse and SetAddressMode lines affect the operation of the subsequent commands
+
+load_suite DhcpTestServer
+
+# Load esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+START_TESTCASE          NET-Dhcp-0201
+//! @SYMTestCaseID      NET-Dhcp-0201
+run_test_step 5 DhcpTestServer SetAddressMode z:\TestData\configs\DHCP\dhcptest.ini IPv4
+END_TESTCASE            NET-Dhcp-0201
+
+START_TESTCASE          NET-Dhcp-0202
+//! @SYMTestCaseID      NET-Dhcp-0202
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini PublicEtherWithDaemonNet1
+run_test_step 50 DhcpTestServer 1_1	z:\TestData\configs\DHCP\dhcptest.ini
+DELAY 1000 // To avoid locking on commsdat
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet1
+run_test_step 50 DhcpTestServer 1_1	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-0202
+
+START_TESTCASE          NET-Dhcp-0203
+//! @SYMTestCaseID      NET-Dhcp-0203
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini PublicEtherWithBadDaemonName
+run_test_step 50 DhcpTestServer 1_2	z:\TestData\configs\DHCP\dhcptest.ini
+DELAY 1000 // To avoid locking on commsdat
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithBadDaemonName
+run_test_step 50 DhcpTestServer 1_2	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-0203
+
+START_TESTCASE          NET-Dhcp-0204
+//! @SYMTestCaseID      NET-Dhcp-0204
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini PublicEtherWithNoDaemon
+run_test_step 50 DhcpTestServer 1_3	z:\TestData\configs\DHCP\dhcptest.ini
+run_test_step 50 DhcpTestServer 1_4	z:\TestData\configs\DHCP\dhcptest.ini
+run_test_step 50 DhcpTestServer 1_5	z:\TestData\configs\DHCP\dhcptest.ini
+run_test_step 50 DhcpTestServer 1_6	z:\TestData\configs\DHCP\dhcptest.ini
+run_test_step 50 DhcpTestServer 1_7	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-0204
+
+START_TESTCASE          NET-Dhcp-0205
+//! @SYMTestCaseID      NET-Dhcp-0205
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithNoDaemon
+run_test_step 50 DhcpTestServer 1_3	z:\TestData\configs\DHCP\dhcptest.ini
+run_test_step 50 DhcpTestServer 1_4	z:\TestData\configs\DHCP\dhcptest.ini
+run_test_step 50 DhcpTestServer 1_5	z:\TestData\configs\DHCP\dhcptest.ini
+run_test_step 50 DhcpTestServer 1_6	z:\TestData\configs\DHCP\dhcptest.ini
+run_test_step 50 DhcpTestServer 1_7	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-0205
+
+START_TESTCASE          NET-Dhcp-0206
+//! @SYMTestCaseID      NET-Dhcp-0206
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet1
+run_test_step 130 DhcpTestServer 1_8	z:\TestData\configs\DHCP\dhcptest.ini
+DELAY 1000 // To avoid locking on commsdat
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithNoDaemon
+run_test_step 130 DhcpTestServer 1_8	z:\TestData\configs\DHCP\dhcptest.ini
+DELAY 1000 // To avoid locking on commsdat
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemon_StaticAddr_NoMask
+run_test_step 130 DhcpTestServer 1_8	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-0206
+
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_stopallinterfaces.script
+# Stop all interfaces and unload esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_stopallinterfaces.script
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script

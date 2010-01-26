@@ -1,0 +1,56 @@
+// Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// dndapp.mmp - name resolver MMP file
+//
+
+MACRO		EPOC_SDK=0x08000000
+MACRO           LLMNR_ENABLED
+MACRO           RCONNECTION_NOTIFY
+
+TARGET		dndapp.app
+TARGETTYPE	app
+TARGETPATH	\system\apps\dndapp
+
+UID		0x100039CE 0x10000882
+
+SOURCEPATH	..\src
+
+SOURCE		dnd.cpp engine.cpp listener.cpp resolver.cpp hosts.cpp
+SOURCE		dns.cpp llmnrconf.cpp llmnrresponder.cpp hostname.cpp  
+SOURCE		llmnrnotifyhandler.cpp message.cpp cache.cpp node.cpp  
+SOURCE		record.cpp serverconf.cpp dns_sock.cpp servers.cpp
+
+RESOURCE	..\data\dndapp.rss
+
+USERINCLUDE	..\inc
+SYSTEMINCLUDE	..\..\..\networkprotocols\iphook\inhook6\inc 
+
+SYSTEMINCLUDE	\epoc32\include\techview
+SYSTEMINCLUDE	\epoc32\include
+SYSTEMINCLUDE	\epoc32\include\networking	// dns_qry.*
+
+LIBRARY		euser.lib apparc.lib
+LIBRARY		cone.lib eikcore.lib eikcoctl.lib
+LIBRARY		efsrv.lib eikcdlg.lib etext.lib
+LIBRARY		esock.lib insock.lib inhook6.lib
+
+DEBUGLIBRARY	flogger.lib
+
+#ifdef EKA2
+CAPABILITY ALL -Tcb
+#endif
+
+VENDORID	0x70000001
+
+SMPSAFE

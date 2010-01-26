@@ -1,0 +1,260 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+#ifndef __TLSPROVSERVER_IBY__
+#define __TLSPROVSERVER_IBY__
+
+#include <testexecute.iby>
+#include <certman.iby>
+// DEF139848 fix - Forward Propogation from Symtb9.1 - Illegal dependency from OCSP to HTTP.
+#include <ocsp.iby>
+
+file=ABI_DIR\DEBUG_DIR\TlsProvServer.exe	System\bin\TlsProvServer.exe
+file=ABI_DIR\DEBUG_DIR\ttlscertcache.exe	Sys\bin\ttlscertcache.exe
+file=ABI_DIR\DEBUG_DIR\tlstest2.exe	Sys\bin\tlstest2.exe
+
+#ifndef __TS_TLS_IBY__
+   #if defined(TEXT_ONLY_ROM)
+        file=ABI_DIR\BUILD_DIR\tsecdlg_text.dll        System\tNotifiers\tsecdlg_text.dll 
+   #else
+// tsecdlg is included by filetokens.
+//      file=ABI_DIR\BUILD_DIR\tsecdlg.dll        System\Notifiers\tsecdlg.dll
+   #endif   
+#endif
+
+// ECOM_PLUGIN(token2.dll ,10201967.rsc)
+// data=MULTI_LINGUIFY(RSC ZSYSTEM\data\Token2 system\data\Token2)
+
+ECOM_PLUGIN(hwtlstokentypeplugin.dll, 102827D1)
+data=MULTI_LINGUIFY(RSC ZRESOURCE\hwtlstokentype resource\hwtlstokentype)
+
+data=\epoc32\release\winscw\udeb\z\testdata\scripts\te_tlswildcard.script  TestData\scripts\te_tlswildcard.script
+data=\epoc32\release\winscw\udeb\z\testdata\scripts\te_tlsprov.script  TestData\scripts\te_tlsprov.script
+data=\epoc32\release\winscw\udeb\z\testdata\scripts\te_tlsprovider.script  TestData\scripts\te_tlsprovider.script
+data=\epoc32\release\winscw\udeb\z\testdata\scripts\te_tlsprov.ini  TestData\scripts\te_tlsprov.ini
+data=\epoc32\release\winscw\udeb\z\tlstest2\scripts\tlstest2.script tlstest2\scripts\tlstest2.script
+data=\epoc32\release\winscw\udeb\z\tlstest2\scripts\tlstest2.ini tlstest2\scripts\tlstest2.ini
+data=\epoc32\release\winscw\udeb\z\tlstest2\scripts\tls_smoke.script tlstest2\scripts\tls_smoke.script
+data=\epoc32\release\winscw\udeb\z\tlstest2\scripts\tls_smoke.ini tlstest2\scripts\tls_smoke.ini
+data=\epoc32\winscw\z\testdata\configs\tlsprovtestdata\tlsprov_ethernetced.xml testdata\configs\tlsprovtestdata\tlsprov_ethernetced.xml
+
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\KeyAndCertStore\keys.dat	TestData\configs\tlsprovtestdata\KeyAndCertStore\keys.dat	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\KeyAndCertStore\certclients.dat	TestData\configs\tlsprovtestdata\KeyAndCertStore\certclients.dat
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\KeyAndCertStore\cacerts.dat	TestData\configs\tlsprovtestdata\KeyAndCertStore\cacerts.dat
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ClientAuthentication\KeyStoreGeneration\rsacert1.cer	TestData\configs\tlsprovtestdata\ClientAuthentication\KeyStoreGeneration\rsacert1.cer
+
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ClientAuthentication\keys.dat	TestData\configs\tlsprovtestdata\ClientAuthentication\keys.dat	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ClientAuthentication\certclients.dat	TestData\configs\tlsprovtestdata\ClientAuthentication\certclients.dat	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ClientAuthentication\CACerts.dat	TestData\configs\tlsprovtestdata\ClientAuthentication\CACerts.dat
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ClientAuthentication\ServerCertInValid.bin	TestData\configs\tlsprovtestdata\ClientAuthentication\ServerCertInValid.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ClientAuthentication\ServerCertValid.bin	TestData\configs\tlsprovtestdata\ClientAuthentication\ServerCertValid.bin
+
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\KeyDerivation128.bin	TestData\configs\tlsprovtestdata\ciphersuite03_TLS\KeyDerivation128.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\KeyDerivation64.bin	TestData\configs\tlsprovtestdata\ciphersuite03_TLS\KeyDerivation64.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\ClientRnd.bin	TestData\configs\tlsprovtestdata\ciphersuite03_TLS\ClientRnd.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\Master.bin		TestData\configs\tlsprovtestdata\ciphersuite03_TLS\Master.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\Premaster.bin	TestData\configs\tlsprovtestdata\ciphersuite03_TLS\Premaster.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\KeyParam1.bin	TestData\configs\tlsprovtestdata\ciphersuite03_TLS\KeyParam1.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\KeyParam2.bin	TestData\configs\tlsprovtestdata\ciphersuite03_TLS\KeyParam2.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\ServerCertChain.bin	TestData\configs\tlsprovtestdata\ciphersuite03_TLS\ServerCertChain.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\ServerRnd.bin	TestData\configs\tlsprovtestdata\ciphersuite03_TLS\ServerRnd.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\HandshakeMsgsClient.bin	TestData\configs\tlsprovtestdata\ciphersuite03_TLS\HandshakeMsgsClient.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\HandshakeMsgsServer.bin	TestData\configs\tlsprovtestdata\ciphersuite03_TLS\HandshakeMsgsServer.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\ClntFinishedCheckOutput.bin	TestData\configs\tlsprovtestdata\ciphersuite03_TLS\ClntFinishedCheckOutput.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\SrvFinishedCheckOutput.bin	TestData\configs\tlsprovtestdata\ciphersuite03_TLS\SrvFinishedCheckOutput.bin		
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\ClientKeyExchangeRSA.bin	TestData\configs\tlsprovtestdata\ciphersuite03_TLS\ClientKeyExchangeRSA.bin
+
+  
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_SSL\ClientRnd.bin	TestData\configs\tlsprovtestdata\ciphersuite03_SSL\ClientRnd.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_SSL\Master.bin		TestData\configs\tlsprovtestdata\ciphersuite03_SSL\Master.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_SSL\Premaster.bin	TestData\configs\tlsprovtestdata\ciphersuite03_SSL\Premaster.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_SSL\KeyParam1.bin	TestData\configs\tlsprovtestdata\ciphersuite03_SSL\KeyParam1.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_SSL\KeyParam2.bin	TestData\configs\tlsprovtestdata\ciphersuite03_SSL\KeyParam2.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_SSL\ServerCertChain.bin	TestData\configs\tlsprovtestdata\ciphersuite03_SSL\ServerCertChain.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_SSL\ServerRnd.bin	TestData\configs\tlsprovtestdata\ciphersuite03_SSL\ServerRnd.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_SSL\HandshakeMsgsClient.bin	TestData\configs\tlsprovtestdata\ciphersuite03_SSL\HandshakeMsgsClient.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_SSL\HandshakeMsgsServer.bin	TestData\configs\tlsprovtestdata\ciphersuite03_SSL\HandshakeMsgsServer.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_SSL\ClntFinishedCheckOutput.bin	TestData\configs\tlsprovtestdata\ciphersuite03_SSL\ClntFinishedCheckOutput.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_SSL\SrvrFinishedCheckOutput.bin	TestData\configs\tlsprovtestdata\ciphersuite03_SSL\SrvrFinishedCheckOutput.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_SSL\SrvFinishedCheckOutput.bin	TestData\configs\tlsprovtestdata\ciphersuite03_SSL\SrvFinishedCheckOutput.bin		
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite03_SSL\ClientKeyExchangeRSA.bin	TestData\configs\tlsprovtestdata\ciphersuite03_SSL\ClientKeyExchangeRSA.bin
+
+
+
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite05_TLS\ClientRnd.bin	TestData\configs\tlsprovtestdata\ciphersuite05_TLS\ClientRnd.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite05_TLS\Master.bin		TestData\configs\tlsprovtestdata\ciphersuite05_TLS\Master.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite05_TLS\Premaster.bin	TestData\configs\tlsprovtestdata\ciphersuite05_TLS\Premaster.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite05_TLS\ServerCertChain.bin	TestData\configs\tlsprovtestdata\ciphersuite05_TLS\ServerCertChain.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite05_TLS\ServerRnd.bin	TestData\configs\tlsprovtestdata\ciphersuite05_TLS\ServerRnd.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite05_TLS\HandshakeMsgsClient.bin	TestData\configs\tlsprovtestdata\ciphersuite05_TLS\HandshakeMsgsClient.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite05_TLS\HandshakeMsgsServer.bin	TestData\configs\tlsprovtestdata\ciphersuite05_TLS\HandshakeMsgsServer.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite05_TLS\ClntFinishedCheckOutput.bin	TestData\configs\tlsprovtestdata\ciphersuite05_TLS\ClntFinishedCheckOutput.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite05_TLS\SrvFinishedCheckOutput.bin	TestData\configs\tlsprovtestdata\ciphersuite05_TLS\SrvFinishedCheckOutput.bin		
+
+
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite0x16_TLS\ClientRnd.bin	TestData\configs\tlsprovtestdata\ciphersuite0x16_TLS\ClientRnd.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite0x16_TLS\DHRandom.bin	TestData\configs\tlsprovtestdata\ciphersuite0x16_TLS\DHRandom.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite0x16_TLS\ServerCertChain.bin	TestData\configs\tlsprovtestdata\ciphersuite0x16_TLS\ServerCertChain.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite0x16_TLS\ServerRnd.bin	TestData\configs\tlsprovtestdata\ciphersuite0x16_TLS\ServerRnd.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite0x16_TLS\KeyParam1.bin	TestData\configs\tlsprovtestdata\ciphersuite0x16_TLS\KeyParam1.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite0x16_TLS\KeyParam2.bin	TestData\configs\tlsprovtestdata\ciphersuite0x16_TLS\KeyParam2.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite0x16_TLS\KeyParam3.bin	TestData\configs\tlsprovtestdata\ciphersuite0x16_TLS\KeyParam3.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite0x16_TLS\ClientKeyExchangeDH.bin	TestData\configs\tlsprovtestdata\ciphersuite0x16_TLS\ClientKeyExchangeDH.bin		
+
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite0x13_TLS\ClientRnd.bin	TestData\configs\tlsprovtestdata\ciphersuite0x13_TLS\ClientRnd.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite0x13_TLS\DHPrivateValue.bin	TestData\configs\tlsprovtestdata\ciphersuite0x13_TLS\DHPrivateValue.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite0x13_TLS\ServerCertChain.bin	TestData\configs\tlsprovtestdata\ciphersuite0x13_TLS\ServerCertChain.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite0x13_TLS\ServerRnd.bin	TestData\configs\tlsprovtestdata\ciphersuite0x13_TLS\ServerRnd.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite0x13_TLS\KeyParam1.bin	TestData\configs\tlsprovtestdata\ciphersuite0x13_TLS\KeyParam1.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite0x13_TLS\KeyParam2.bin	TestData\configs\tlsprovtestdata\ciphersuite0x13_TLS\KeyParam2.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite0x13_TLS\KeyParam3.bin	TestData\configs\tlsprovtestdata\ciphersuite0x13_TLS\KeyParam3.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite0x13_TLS\ClientKeyExchangeDH.bin	TestData\configs\tlsprovtestdata\ciphersuite0x13_TLS\ClientKeyExchangeDH.bin		
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite0x13_TLS\HandshakeMsgsServer.bin	TestData\configs\tlsprovtestdata\ciphersuite0x13_TLS\HandshakeMsgsServer.bin	
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\ciphersuite0x13_TLS\SrvFinishedCheckOutput.bin	TestData\configs\tlsprovtestdata\ciphersuite0x13_TLS\SrvFinishedCheckOutput.bin		
+
+
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\EncryptionDataTLS_Export\ServerRandom.bin	TestData\configs\tlsprovtestdata\EncryptionDataTLS_Export\ServerRandom.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\EncryptionDataTLS_Export\ClientRandom.bin	TestData\configs\tlsprovtestdata\EncryptionDataTLS_Export\ClientRandom.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\EncryptionDataTLS_Export\KeyMaterial.bin	TestData\configs\tlsprovtestdata\EncryptionDataTLS_Export\KeyMaterial.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\EncryptionDataTLS_Export\ActualAppData.bin	TestData\configs\tlsprovtestdata\EncryptionDataTLS_Export\ActualAppData.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\EncryptionDataTLS_Export\EncryptOutput.bin     	TestData\configs\tlsprovtestdata\EncryptionDataTLS_Export\EncryptOutput.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\EncryptionDataTLS_Export\DecryptionInput.bin	TestData\configs\tlsprovtestdata\EncryptionDataTLS_Export\DecryptionInput.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\EncryptionDataTLS_Export\DecryptionOutputNoMac.bin	TestData\configs\tlsprovtestdata\EncryptionDataTLS_Export\DecryptionOutputNoMac.bin
+
+
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\EncryptionDataSSL_Export\ServerRandom.bin	TestData\configs\tlsprovtestdata\EncryptionDataSSL_Export\ServerRandom.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\EncryptionDataSSL_Export\ClientRandom.bin	TestData\configs\tlsprovtestdata\EncryptionDataSSL_Export\ClientRandom.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\EncryptionDataSSL_Export\KeyMaterial.bin	TestData\configs\tlsprovtestdata\EncryptionDataSSL_Export\KeyMaterial.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\EncryptionDataSSL_Export\ActualAppData.bin	TestData\configs\tlsprovtestdata\EncryptionDataSSL_Export\ActualAppData.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\EncryptionDataSSL_Export\EncryptOutput.bin     	TestData\configs\tlsprovtestdata\EncryptionDataSSL_Export\EncryptOutput.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\EncryptionDataSSL_Export\DecryptionInput.bin	TestData\configs\tlsprovtestdata\EncryptionDataSSL_Export\DecryptionInput.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\EncryptionDataSSL_Export\DecryptionOutputNoMac.bin	TestData\configs\tlsprovtestdata\EncryptionDataSSL_Export\DecryptionOutputNoMac.bin
+
+
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\EncryptionDataDES_SSL\KeyMaterial.bin	        TestData\configs\tlsprovtestdata\EncryptionDataDES_SSL\KeyMaterial.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\EncryptionDataDES_SSL\ActualAppData.bin	        TestData\configs\tlsprovtestdata\EncryptionDataDES_SSL\ActualAppData.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\EncryptionDataDES_SSL\EncryptOutput.bin     	TestData\configs\tlsprovtestdata\EncryptionDataDES_SSL\EncryptOutput.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\EncryptionDataDES_SSL\DecryptionInput.bin	TestData\configs\tlsprovtestdata\EncryptionDataDES_SSL\DecryptionInput.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\EncryptionDataDES_SSL\DecryptionOutputNoMac.bin	TestData\configs\tlsprovtestdata\EncryptionDataDES_SSL\DecryptionOutputNoMac.bin
+
+
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\EncryptionDataDES_TLS\KeyMaterial.bin	        TestData\configs\tlsprovtestdata\EncryptionDataDES_TLS\KeyMaterial.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\EncryptionDataDES_TLS\ActualAppData.bin	        TestData\configs\tlsprovtestdata\EncryptionDataDES_TLS\ActualAppData.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\EncryptionDataDES_TLS\EncryptOutput.bin     	TestData\configs\tlsprovtestdata\EncryptionDataDES_TLS\EncryptOutput.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\EncryptionDataDES_TLS\DecryptionInput.bin	TestData\configs\tlsprovtestdata\EncryptionDataDES_TLS\DecryptionInput.bin
+data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\EncryptionDataDES_TLS\DecryptionOutputNoMac.bin	TestData\configs\tlsprovtestdata\EncryptionDataDES_TLS\DecryptionOutputNoMac.bin
+
+data=\epoc32\winscw\c\ttlscertcache\data\tlscertone.cer	ttlscertcache\data\tlscertone.cer
+data=\epoc32\winscw\c\ttlscertcache\data\tlscerttwo.cer	ttlscertcache\data\tlscerttwo.cer
+data=\epoc32\winscw\c\ttlscertcache\data\tlscertthree.cer	ttlscertcache\data\tlscertthree.cer
+
+data=\epoc32\winscw\c\ttlscertcache\scripts\ttlscache.script	ttlscertcache\scripts\ttlscache.script
+data=\epoc32\winscw\c\ttlscertcache\scripts\ttlscache.ini	ttlscertcache\scripts\ttlscache.ini
+
+data=\epoc32\winscw\c\ttlsprovider\tsecuretlsdialog\data\CACerts.dat	ttlsprovider\tsecuretlsdialog\data\CACerts.dat
+data=\epoc32\winscw\c\ttlsprovider\tsecuretlsdialog\data\keys.dat	ttlsprovider\tsecuretlsdialog\data\keys.dat
+data=\epoc32\winscw\c\ttlsprovider\tsecuretlsdialog\data\certclients.dat	ttlsprovider\tsecuretlsdialog\data\certclients.dat
+ 
+data=\epoc32\winscw\c\ttlsprovider\tsecuretlsdialog\scripts\tnoclientauthdialog.script	ttlsprovider\tsecuretlsdialog\scripts\tnoclientauthdialog.script
+data=\epoc32\winscw\c\ttlsprovider\tsecuretlsdialog\scripts\tnoclientauthdialog.ini	ttlsprovider\tsecuretlsdialog\scripts\tnoclientauthdialog.ini
+
+data=\epoc32\release\winscw\urel\z\tlstest2\certificates\commonname.der	tlstest2\certificates\commonname.der
+data=\epoc32\release\winscw\urel\z\tlstest2\certificates\commonname.key	tlstest2\certificates\commonname.key
+data=\epoc32\release\winscw\urel\z\tlstest2\certificates\altsubjectonename.der	tlstest2\certificates\altsubjectonename.der
+data=\epoc32\release\winscw\urel\z\tlstest2\certificates\altsubjectmanynames.der	tlstest2\certificates\altsubjectmanynames.der
+data=\epoc32\release\winscw\urel\z\tlstest2\certificates\altsubjectwildcard.der	tlstest2\certificates\altsubjectwildcard.der
+
+data=\epoc32\release\winscw\udeb\z\testdata\testtokens\testtokens.ini       testdata\testtokens\testtokens.ini
+data=\epoc32\release\winscw\udeb\z\testdata\testtokens\testtokens.script    testdata\testtokens\testtokens.script
+data=\epoc32\release\winscw\udeb\z\testdata\testtokens\commonname.cer       testdata\testtokens\commonname.cer
+data=\epoc32\release\winscw\udeb\z\testdata\testtokens\commonname.pk8        testdata\testtokens\commonname.pk8
+data=\epoc32\release\winscw\udeb\z\testdata\testtokens\server.rand          testdata\testtokens\server.rand
+data=\epoc32\release\winscw\udeb\z\testdata\testtokens\client.rand          testdata\testtokens\client.rand
+data=\epoc32\release\winscw\udeb\z\testdata\testtokens\dhparam.file         testdata\testtokens\dhparam.file
+
+data=\epoc32\release\winscw\urel\z\tlstest2\data\serverrand.bin tlstest2\data\serverrand.bin
+data=\epoc32\release\winscw\urel\z\tlstest2\data\clientrand.bin tlstest2\data\clientrand.bin
+
+data=\epoc32\release\winscw\urel\z\tlstest2\data\tlsextendedkeyusage\ValidEKUPresent.der 		tlstest2\data\tlsextendedkeyusage\ValidEKUPresent.der
+data=\epoc32\release\winscw\urel\z\tlstest2\data\tlsextendedkeyusage\InvalidEKUPresent.der 	tlstest2\data\tlsextendedkeyusage\InvalidEKUPresent.der
+data=\epoc32\release\winscw\urel\z\tlstest2\data\tlsextendedkeyusage\EKUAbsent.der 			tlstest2\data\tlsextendedkeyusage\EKUAbsent.der
+
+data=\epoc32\release\winscw\udeb\z\tlstest2\data\tlsclientauthrsachain\root-cert.der       tlstest2\data\tlsclientauthrsachain\root-cert.der
+data=\epoc32\release\winscw\udeb\z\tlstest2\data\tlsclientauthrsachain\im-22-cert.der       tlstest2\data\tlsclientauthrsachain\im-22-cert.der
+data=\epoc32\release\winscw\udeb\z\tlstest2\data\tlsclientauthrsachain\server.rnd          tlstest2\data\tlsclientauthrsachain\server.rnd
+data=\epoc32\release\winscw\udeb\z\tlstest2\data\tlsclientauthrsachain\client.rnd          tlstest2\data\tlsclientauthrsachain\client.rnd
+
+// TLS Test 2 data files
+
+data=\epoc32\release\winscw\udeb\z\tlstest2\data\altsubjectmanynames\altsubjectmanynames.der	tlstest2\data\altsubjectmanynames\altsubjectmanynames.der
+data=\epoc32\release\winscw\urel\z\tlstest2\data\altsubjectonename\altsubjectonename.der	tlstest2\data\altsubjectonename\altsubjectonename.der
+data=\epoc32\release\winscw\urel\z\tlstest2\data\altsubjectwildcard\altsubjectwildcard.der	tlstest2\data\altsubjectwildcard\altsubjectwildcard.der
+data=\epoc32\release\winscw\urel\z\tlstest2\data\commonname\commonname.der			tlstest2\data\commonname\commonname.der
+data=\epoc32\release\winscw\urel\z\tlstest2\data\commonnamewildcard\commonnamewildcard.der	tlstest2\data\commonnamewildcard\commonnamewildcard.der
+
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rsa-rc4-md5-1\commonname.der			tlstest2\data\rsa-rc4-md5-1\commonname.der
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rsa-rc4-md5-1\commonname.pk8			tlstest2\data\rsa-rc4-md5-1\commonname.pk8
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rsa-rc4-md5-1\client.rnd			tlstest2\data\rsa-rc4-md5-1\client.rnd
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rsa-rc4-md5-1\server.rnd			tlstest2\data\rsa-rc4-md5-1\server.rnd
+
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rsa-rc4-sha-1\commonname.der			tlstest2\data\rsa-rc4-sha-1\commonname.der
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rsa-rc4-sha-1\commonname.pk8			tlstest2\data\rsa-rc4-sha-1\commonname.pk8
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rsa-rc4-sha-1\client.rnd			tlstest2\data\rsa-rc4-sha-1\client.rnd
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rsa-rc4-sha-1\server.rnd			tlstest2\data\rsa-rc4-sha-1\server.rnd
+
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rsa-des-sha-1\commonname.der			tlstest2\data\rsa-des-sha-1\commonname.der
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rsa-des-sha-1\commonname.pk8			tlstest2\data\rsa-des-sha-1\commonname.pk8
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rsa-des-sha-1\client.rnd			tlstest2\data\rsa-des-sha-1\client.rnd
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rsa-des-sha-1\server.rnd			tlstest2\data\rsa-des-sha-1\server.rnd
+
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rsa-3des-sha-1\commonname.der			tlstest2\data\rsa-3des-sha-1\commonname.der
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rsa-3des-sha-1\commonname.pk8			tlstest2\data\rsa-3des-sha-1\commonname.pk8
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rsa-3des-sha-1\client.rnd			tlstest2\data\rsa-3des-sha-1\client.rnd
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rsa-3des-sha-1\server.rnd			tlstest2\data\rsa-3des-sha-1\server.rnd
+
+data=\epoc32\release\winscw\urel\z\tlstest2\data\dhe-des-sha-1\commonnamedsa.der		tlstest2\data\dhe-des-sha-1\commonnamedsa.der
+data=\epoc32\release\winscw\urel\z\tlstest2\data\dhe-des-sha-1\commonnamedsa.pk8		tlstest2\data\dhe-des-sha-1\commonnamedsa.pk8
+data=\epoc32\release\winscw\urel\z\tlstest2\data\dhe-des-sha-1\client.rnd			tlstest2\data\dhe-des-sha-1\client.rnd
+data=\epoc32\release\winscw\urel\z\tlstest2\data\dhe-des-sha-1\server.rnd			tlstest2\data\dhe-des-sha-1\server.rnd
+data=\epoc32\release\winscw\urel\z\tlstest2\data\dhe-des-sha-1\dh.params			tlstest2\data\dhe-des-sha-1\dh.params
+
+data=\epoc32\release\winscw\urel\z\tlstest2\data\dhe-3des-sha-1\commonnamedsa.der		tlstest2\data\dhe-3des-sha-1\commonnamedsa.der
+data=\epoc32\release\winscw\urel\z\tlstest2\data\dhe-3des-sha-1\commonnamedsa.pk8		tlstest2\data\dhe-3des-sha-1\commonnamedsa.pk8
+data=\epoc32\release\winscw\urel\z\tlstest2\data\dhe-3des-sha-1\client.rnd			tlstest2\data\dhe-3des-sha-1\client.rnd
+data=\epoc32\release\winscw\urel\z\tlstest2\data\dhe-3des-sha-1\server.rnd			tlstest2\data\dhe-3des-sha-1\server.rnd
+data=\epoc32\release\winscw\urel\z\tlstest2\data\dhe-3des-sha-1\dh.params			tlstest2\data\dhe-3des-sha-1\dh.params
+
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rdhe-3des-sha-1\commonname.der			tlstest2\data\rdhe-3des-sha-1\commonname.der
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rdhe-3des-sha-1\commonname.pk8			tlstest2\data\rdhe-3des-sha-1\commonname.pk8
+data=\epoc32\release\winscw\udeb\z\tlstest2\data\rdhe-3des-sha-1\client.rnd			tlstest2\data\rdhe-3des-sha-1\client.rnd
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rdhe-3des-sha-1\server.rnd			tlstest2\data\rdhe-3des-sha-1\server.rnd
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rdhe-3des-sha-1\dh.params			tlstest2\data\rdhe-3des-sha-1\dh.params
+
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rsa-aes128-sha-1\commonname.der		tlstest2\data\rsa-aes128-sha-1\commonname.der
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rsa-aes128-sha-1\commonname.pk8		tlstest2\data\rsa-aes128-sha-1\commonname.pk8
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rsa-aes128-sha-1\client.rnd			tlstest2\data\rsa-aes128-sha-1\client.rnd
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rsa-aes128-sha-1\server.rnd			tlstest2\data\rsa-aes128-sha-1\server.rnd
+
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rsa-aes256-sha-1\commonname.der		tlstest2\data\rsa-aes256-sha-1\commonname.der
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rsa-aes256-sha-1\commonname.pk8		tlstest2\data\rsa-aes256-sha-1\commonname.pk8
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rsa-aes256-sha-1\client.rnd			tlstest2\data\rsa-aes256-sha-1\client.rnd
+data=\epoc32\release\winscw\urel\z\tlstest2\data\rsa-aes256-sha-1\server.rnd			tlstest2\data\rsa-aes256-sha-1\server.rnd
+
+data=\epoc32\release\winscw\urel\z\tlstest2\data\corrupted_certs\cert_corrupted.der		tlstest2\data\corrupted_certs\cert_corrupted.der
+data=\epoc32\release\winscw\urel\z\tlstest2\data\corrupted_certs\cert_corrupted1.der		tlstest2\data\corrupted_certs\cert_corrupted1.der
+data=\epoc32\release\winscw\urel\z\tlstest2\data\corrupted_certs\cert_corrupted2.der		tlstest2\data\corrupted_certs\cert_corrupted2.der
+
+#endif

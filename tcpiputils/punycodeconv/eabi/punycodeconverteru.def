@@ -1,0 +1,4 @@
+EXPORTS
+	_ZN16TPunyCodeDndName13IdnToPunycodeERK4TBufILi256EE @ 1 NONAME
+	_ZN16TPunyCodeDndName13PunycodeToIdnER6TDes16i @ 2 NONAME
+

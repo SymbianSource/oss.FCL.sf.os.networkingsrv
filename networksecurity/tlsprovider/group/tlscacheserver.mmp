@@ -1,0 +1,43 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+TARGET tlscacheserver.exe
+CAPABILITY ProtServ
+TARGETTYPE exe
+
+UID 0x1000007a 0x200008D1
+VENDORID 0x70000001
+
+SOURCEPATH ../source/tlscertcache/server
+SOURCE main.cpp
+SOURCE tlscacheserver.cpp
+SOURCE tlscachesession.cpp
+SOURCE tlscache.cpp
+SOURCE tlscachesegment.cpp
+SOURCE tlscacheitem.cpp
+SOURCE tlscacheutils.cpp
+
+USERINCLUDE ../inc
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+LIBRARY euser.lib
+LIBRARY estor.lib
+LIBRARY x509.lib
+LIBRARY efsrv.lib
+LIBRARY bafl.lib 
+LIBRARY sectcbutil.lib
+SMPSAFE

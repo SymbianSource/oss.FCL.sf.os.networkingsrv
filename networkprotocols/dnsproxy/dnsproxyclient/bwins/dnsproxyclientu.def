@@ -1,0 +1,8 @@
+EXPORTS
+	?Connect@RDNSClient@@QAEHXZ @ 1 NONAME ; int RDNSClient::Connect(void)
+	?ConfigureDnsProxyServer@RDNSClient@@QAEXABVTDes8@@AAVTRequestStatus@@@Z @ 2 NONAME ; void RDNSClient::ConfigureDnsProxyServer(class TDes8 const &, class TRequestStatus &)
+	?UpdateDomainName@RDNSClient@@QAEXABVTDes8@@AAVTRequestStatus@@@Z @ 3 NONAME ; void RDNSClient::UpdateDomainName(class TDes8 const &, class TRequestStatus &)
+	?AddDbEntry@RDNSClient@@QAEXABVTDes8@@ABVTDes16@@AAVTRequestStatus@@@Z @ 4 NONAME ; void RDNSClient::AddDbEntry(class TDes8 const &, class TDes16 const &, class TRequestStatus &)
+	?RemoveDbEntry@RDNSClient@@QAEXABVTDes16@@AAVTRequestStatus@@@Z @ 5 NONAME ; void RDNSClient::RemoveDbEntry(class TDes16 const &, class TRequestStatus &)
+	?ConfigureUplinkInfo@RDNSClient@@QAEXABVTDes8@@AAVTRequestStatus@@@Z @ 6 NONAME ; void RDNSClient::ConfigureUplinkInfo(class TDes8 const &, class TRequestStatus &)
+

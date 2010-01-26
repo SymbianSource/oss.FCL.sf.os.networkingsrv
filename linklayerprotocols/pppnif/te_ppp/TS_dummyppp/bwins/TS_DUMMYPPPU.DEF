@@ -1,0 +1,3 @@
+EXPORTS
+	?NewTS_DummyPPPSuite@@YAPAVTS_DummyPPPSuite@@XZ @ 1 NONAME ; class TS_DummyPPPSuite * __cdecl NewTS_DummyPPPSuite(void)
+

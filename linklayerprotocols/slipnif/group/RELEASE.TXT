@@ -1,0 +1,34 @@
+EPOC SLIP Release Notes
+
+Release
+=======
+Made by AnnW, 5th July 2000
+
+Stubbed new API functions from NifMan.  No implementation should be required.
+
+
+Release
+=======
+Made by AnnW, 18th April 2000
+
+Changed #include's to specify private header files in \epoc32\include\networking 
+where necessary.
+
+Release 010
+===========
+Made by AnnW, 11th August 1999
+
+Released to mainline share. Release based on 002 on ER5u share. 
+
+1.	Updated to use new COMMDB.
+
+Release 001
+===========
+Made by AnnW, 22nd April 1999
+
+1.	Split SLIP from TCPIP 521.
+
+2.	Removed all narrow-specific stuff from MNT.CMD and EBLD.BAT.
+
+3.	Removed narrow def files and database from source directories.
+

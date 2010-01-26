@@ -1,0 +1,72 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+#
+#	Script file for DHCP testing on IPv4
+#
+#   ORDER IS IMPORTANT! SetIAPToUse and SetAddressMode lines affect the operation of the subsequent commands
+
+load_suite DhcpTestServer
+
+# Load esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+START_TESTCASE          NET-Dhcp-0501
+//! @SYMTestCaseID      NET-Dhcp-0501
+run_test_step 5 DhcpTestServer SetAddressMode z:\TestData\configs\DHCP\dhcptest.ini IPv4
+END_TESTCASE            NET-Dhcp-0501
+
+START_TESTCASE          NET-Dhcp-0502
+//! @SYMTestCaseID      NET-Dhcp-0502
+////////////////////////
+// SET IAP TO DYNAMIC //
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet1
+////////////////////////
+END_TESTCASE            NET-Dhcp-0502
+
+START_TESTCASE          NET-Dhcp-0503
+//! @SYMTestCaseID      NET-Dhcp-0503
+run_test_step 50 DhcpTestServer 2_1	z:\TestData\configs\DHCP\dhcptest.ini
+run_test_step 50 DhcpTestServer 2_2	z:\TestData\configs\DHCP\dhcptest.ini
+run_test_step 50 DhcpTestServer 2_3	z:\TestData\configs\DHCP\dhcptest.ini
+run_test_step 50 DhcpTestServer 2_4	z:\TestData\configs\DHCP\dhcptest.ini
+run_test_step 50 DhcpTestServer 2_5	z:\TestData\configs\DHCP\dhcptest.ini
+delay 500
+run_test_step 50 DhcpTestServer 2_6	z:\TestData\configs\DHCP\dhcptest.ini
+delay 500
+run_test_step 50 DhcpTestServer 2_7	z:\TestData\configs\DHCP\dhcptest.ini
+delay 500
+run_test_step 50 DhcpTestServer 2_8	z:\TestData\configs\DHCP\dhcptest.ini
+run_test_step 50 DhcpTestServer 2_9	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-0503
+
+
+START_TESTCASE          NET-Dhcp-0504
+//! @SYMTestCaseID      NET-Dhcp-0504
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet1
+run_test_step 50 DhcpTestServer 2_GetRaw	z:\TestData\configs\DHCP\dhcptest.ini ExpectDHCPResponseBeforeCompletion
+END_TESTCASE            NET-Dhcp-0504
+
+START_TESTCASE          NET-Dhcp-0505
+//! @SYMTestCaseID      NET-Dhcp-0505
+run_test_step 50 DhcpTestServer 2_11	z:\TestData\configs\DHCP\dhcptest.ini
+run_test_step 50 DhcpTestServer 2_12	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-0505
+
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_stopallinterfaces.script
+
+# Stop all interfaces and unload esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_stopallinterfaces.script
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script

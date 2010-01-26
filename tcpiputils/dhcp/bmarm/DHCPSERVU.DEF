@@ -1,0 +1,3 @@
+EXPORTS
+	E32Main__Fv @ 1 NONAME R3UNUSED ; E32Main(void)
+

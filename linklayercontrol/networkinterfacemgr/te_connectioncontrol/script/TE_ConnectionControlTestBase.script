@@ -1,0 +1,329 @@
+// Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// Test the Nifman configuration daemon extensions for progress notifications. 
+// 
+//
+
+//! @file
+
+//! Standard prefix.
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+//! Load the test suite.
+PRINT Loading Nifman connection control suite...
+LOAD_SUITE TE_ConnectionControl
+CONSECUTIVE
+
+//! Get sim.tsy configured.
+PRINT Copying SIM.TSY configuration file...
+RUN_UTILS MakeReadWrite c:\config.txt
+RUN_UTILS CopyFile  z:\TestData\Configs\TE_ConnectionControlTest.txt c:\config.txt
+
+//! Load the commdb configuration.
+PRINT Loading Commdb configuration...
+CED -i z:\TestData\Configs\TE_ConnectionControlTest.cfg
+
+//! Standard prefix.
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0101
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0101
+//! @SymTestCaseDesc Tests case when neither the configuration daemon manager nor the configuration daemon records are in CommDb.
+//! @SymFssId CDMA/Networking/ConnScheduling/Handover
+//! @SymTestActions Refer to T_NifmanConnectionControl_0001 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults We get to link-up regardless.
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlNullDaemonTest z:\TestData\Configs\TE_ConnectionControlTest.ini RegisterOKInvalidConfig1
+END_TESTCASE			COMINF-nifman-ConnectionControl-0101
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0102
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0102
+//! @SymTestCaseDesc Tests case when the configuration daemon record is missing in CommDb.
+//! @SymFssId CDMA/Networking/ConnScheduling/Handover
+//! @SymTestActions Refer to T_NifmanConnectionControl_0002 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults The connection fails to start with error KErrNotFound.
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlNullDaemonTest z:\TestData\Configs\TE_ConnectionControlTest.ini RegisterOKInvalidConfig2
+END_TESTCASE			COMINF-nifman-ConnectionControl-0102
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0103
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0103
+//! @SymTestCaseDesc Tests case when the configuration daemon manager record is invalid in CommDb.
+//! @SymFssId CDMA/Networking/ConnScheduling/Handover
+//! @SymTestActions Refer to T_NifmanConnectionControl_0003 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults The connection fails to start with error KErrNotFound.
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlNullDaemonTest z:\TestData\Configs\TE_ConnectionControlTest.ini RegisterOKInvalidConfig3
+END_TESTCASE			COMINF-nifman-ConnectionControl-0103
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0104
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0104
+//! @SymTestCaseDesc Tests case when the configuration daemon record is invalid in CommDb.
+//! @SymFssId CDMA/Networking/ConnScheduling/Handover
+//! @SymTestActions Refer to T_NifmanConnectionControl_0004 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults The connection fails to start with error KErrNotFound.
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlNullDaemonTest z:\TestData\Configs\TE_ConnectionControlTest.ini RegisterOKInvalidConfig4
+END_TESTCASE			COMINF-nifman-ConnectionControl-0104
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0105
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0105
+//! @SymTestCaseDesc Test successful registration.
+//! @SymFssId CDMA/Networking/ConnScheduling/Handover
+//! @SymTestActions Refer to T_NifmanConnectionControl_0005 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults KLinkLayerOpen/KErrNone and interface IP address matches the configured IP address.
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlRegOKStep z:\TestData\Configs\TE_ConnectionControlTest.ini RegisterOK
+END_TESTCASE			COMINF-nifman-ConnectionControl-0105
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0106
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0106
+//! @SymTestCaseDesc Test unsuccessful registration.
+//! @SymFssId CDMA/Networking/ConnScheduling/Handover
+//! @SymTestActions Refer to T_NifmanConnectionControl_0006 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults Connection fails to start with KErrCouldNotConnect.
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlRegErrorStep z:\TestData\Configs\TE_ConnectionControlTest.ini RegisterError
+END_TESTCASE			COMINF-nifman-ConnectionControl-0106
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0107
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0107
+//! @SymTestCaseDesc Test killing the server during registration.
+//! @SymFssId CDMA/Networking/ConnScheduling/Handover
+//! @SymTestActions Refer to T_NifmanConnectionControl_0007 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults Connection fails to start with KErrServerTerminated.
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlRegErrorStep z:\TestData\Configs\TE_ConnectionControlTest.ini RegisterServerDied
+END_TESTCASE			COMINF-nifman-ConnectionControl-0107
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0108
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0108
+//! @SymTestCaseDesc Test successful deregistration.
+//! @SymFssId CDMA/Networking/ConnScheduling/Termination
+//! @SymTestActions Refer to T_NifmanConnectionControl_0009 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults KConfigDaemonFinishedDeregistrationStop/KErrNone and KLinkLayerClosed/KErrTimedOut.
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlDeregisterOKStep z:\TestData\Configs\TE_ConnectionControlTest.ini RegisterOK
+END_TESTCASE			COMINF-nifman-ConnectionControl-0108
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0109
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0109
+//! @SymTestCaseDesc Test unsuccessful deregistration.
+//! @SymFssId CDMA/Networking/ConnScheduling/Termination
+//! @SymTestActions Refer to T_NifmanConnectionControl_0010 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults KConfigDaemonFinishedDeregistrationStop/KErrCouldNotConnect and KLinkLayerClosed/KErrTimedOut.
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlDeregisterErrorStep z:\TestData\Configs\TE_ConnectionControlTest.ini DeregisterError
+END_TESTCASE			COMINF-nifman-ConnectionControl-0109
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0110
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0110
+//! @SymTestCaseDesc Test the deregistration when the daemon dies during deregistration.
+//! @SymFssId CDMA/Networking/ConnScheduling/Termination
+//! @SymTestActions Refer to T_NifmanConnectionControl_0011 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults KConfigDaemonFinishedDeregistrationStop/KErrServerTerminated and KLinkLayerClosed/KErrTimedOut.
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlDeregisterErrorStep z:\TestData\Configs\TE_ConnectionControlTest.ini DeregisterServerDied
+END_TESTCASE			COMINF-nifman-ConnectionControl-0110
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0111
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0111
+//! @SymTestCaseDesc Test creating a socket while the deregistration is in progress. 
+//! @SymFssId CDMA/Networking/ConnScheduling/Termination
+//! @SymTestActions Refer to T_NifmanConnectionControl_0013 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults KConfigDaemonFinishedDeregistrationStop/KErrNone and KLinkLayerClosed/KErrTimedOut.
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlDeregisterConnectionStep z:\TestData\Configs\TE_ConnectionControlTest.ini RegisterOK
+END_TESTCASE			COMINF-nifman-ConnectionControl-0111
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0112
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0112
+//! @SymTestCaseDesc Test calling RConnection::Stop(EStopAuthoritative) while the deregistration is in progress. 
+//! @SymFssId CDMA/Networking/ConnScheduling/Termination
+//! @SymTestActions Refer to T_NifmanConnectionControl_0014 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults KConfigDaemonFinishedDeregistrationStop/KErrCancel and KLinkLayerClosed/KErrTimedOut.
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlDeregisterStopAuthoritativeStep z:\TestData\Configs\TE_ConnectionControlTest.ini RegisterOK
+END_TESTCASE			COMINF-nifman-ConnectionControl-0112
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0113
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0113
+//! @SymTestCaseDesc Test calling RConnection::Stop(EStopNormal) while the deregistration is in progress. 
+//! @SymFssId CDMA/Networking/ConnScheduling/Termination
+//! @SymTestActions Refer to T_NifmanConnectionControl_0015 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults KConfigDaemonFinishedDeregistrationStop/KErrNone and KLinkLayerClosed/KErrTimedOut.
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlDeregisterStopNormalStep z:\TestData\Configs\TE_ConnectionControlTest.ini RegisterOK
+END_TESTCASE			COMINF-nifman-ConnectionControl-0113
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0114
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0114
+//! @SymTestCaseDesc Test the dormant mode processing.
+//! @SymFssId CDMA/Networking/ConnScheduling/Handover
+//! @SymTestActions Refer to T_NifmanConnectionControl_0016 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults The dormant mode is entered and exited as expected
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlDeregisterDormantStep z:\TestData\Configs\TE_ConnectionControlTest.ini RegisterOK
+END_TESTCASE			COMINF-nifman-ConnectionControl-0114
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0115
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0115
+//! @SymTestCaseDesc Test the progress notifications.
+//! @SymFssId CDMA/Networking/ConnScheduling/ProgressNotif
+//! @SymTestActions Refer to T_NifmanConnectionControl_0017 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults The expected progress notifications are received in sequence.
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlCsDaemonProgressStep z:\TestData\Configs\TE_ConnectionControlTest.ini RegisterOK
+END_TESTCASE			COMINF-nifman-ConnectionControl-0115
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0116
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0116
+//! @SymTestCaseDesc Test the "user" progress notification mechanism.
+//! @SymFssId CDMA/Networking/ConnScheduling/ProgressNotif
+//! @SymTestActions Refer to T_NifmanConnectionControl_0018 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults The user-defined progress notification is received before KLinkLayerOpen.
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlProgressStep z:\TestData\Configs\TE_ConnectionControlTest.ini RegisterOK
+END_TESTCASE			COMINF-nifman-ConnectionControl-0116
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0117
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0117
+//! @SymTestCaseDesc Test issuing an RConnection::Stop(EStopNormal) while in link up state. 
+//! @SymFssId CDMA/Networking/ConnScheduling/Handover
+//! @SymTestActions Refer to T_NifmanConnectionControl_0020 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults The notification KConfigDaemonFinishedDeregistrationStop is received indicating that the daemon deregistered.
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlLinkUpStopNormalStep z:\TestData\Configs\TE_ConnectionControlTest.ini RegisterOK 
+END_TESTCASE			COMINF-nifman-ConnectionControl-0117
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0118
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0118
+//! @SymTestCaseDesc Test user-defined Ioctl requests.
+//! @SymFssId CDMA/Networking/ConnScheduling/Handover
+//! @SymTestActions Refer to T_NifmanConnectionControl_0021 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults The daemon handles the Ioctl request as specified in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlIoctlStep z:\TestData\Configs\TE_ConnectionControlTest.ini RegisterOK
+END_TESTCASE			COMINF-nifman-ConnectionControl-0118
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0119
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0119
+//! @SymTestCaseDesc Test an idle timeout during registration.
+//! @SymFssId CDMA/Networking/ConnScheduling/Handover
+//! @SymTestActions Refer to T_NifmanConnectionControl_0022 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults Registration is aborted and the connection failes to start with error KErrTimedOut.
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionTimeoutDuringRegistration z:\TestData\Configs\TE_ConnectionControlTest.ini RegIdleTimeout
+END_TESTCASE			COMINF-nifman-ConnectionControl-0119
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0120
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0120
+//! @SymTestCaseDesc Test an idle timeout during deregistration.
+//! @SymFssId CDMA/Networking/ConnScheduling/Handover
+//! @SymTestActions Refer to T_NifmanConnectionControl_0023 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults Deregistration is aborted and we get KLinkLayerClosed/KErrTimedOut,
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionTimeoutDuringDeregistration z:\TestData\Configs\TE_ConnectionControlTest.ini DeregIdleTimeout
+END_TESTCASE			COMINF-nifman-ConnectionControl-0120
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0121
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0121
+//! @SymTestCaseDesc Test Nifman Deregistration cause parameter passing to the Daemon on Short Idle Timeout
+//! @SymFssId CDMA/Networking/ConnScheduling/ProgressNotif
+//! @SymTestActions Refer to T_NifmanConnectionControl_0030 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults The KConfigDaemonStartingDeregistrationTimerShort progress notification is received
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP 300 TE_ConnectionControl CConnectionControlDeregisterCauseTimerShortStep z:\TestData\Configs\TE_ConnectionControlTest.ini DeregisterCauseTimerShort
+END_TESTCASE			COMINF-nifman-ConnectionControl-0121
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0122
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0122
+//! @SymTestCaseDesc Test Nifman Deregistration cause parameter passing to the Daemon on Medium Idle Timeout
+//! @SymFssId CDMA/Networking/ConnScheduling/ProgressNotif
+//! @SymTestActions Refer to T_NifmanConnectionControl_0031 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults The KConfigDaemonStartingDeregistrationTimerMedium progress notification is received
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP 300 TE_ConnectionControl CConnectionControlDeregisterCauseTimerMediumStep z:\TestData\Configs\TE_ConnectionControlTest.ini DeregisterCauseTimerMedium
+END_TESTCASE			COMINF-nifman-ConnectionControl-0122
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0123
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0123
+//! @SymTestCaseDesc Test Nifman Deregistration cause parameter passing to the Daemon on Long Idle Timeout
+//! @SymFssId CDMA/Networking/ConnScheduling/ProgressNotif
+//! @SymTestActions Refer to T_NifmanConnectionControl_0032 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults The KConfigDaemonStartingDeregistrationTimerLong progress notification is received
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP 300 TE_ConnectionControl CConnectionControlDeregisterCauseTimerLongStep z:\TestData\Configs\TE_ConnectionControlTest.ini DeregisterCauseTimerLong
+END_TESTCASE			COMINF-nifman-ConnectionControl-0123
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0124
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0124
+//! @SymTestCaseDesc Test issuing an RConnection::Stop(EStopAuthoritative) while in link up state. 
+//! @SymFssId CDMA/Networking/ConnScheduling/Handover
+//! @SymTestActions Refer to T_NifmanConnectionControl_0019 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults The notification KLinkLayerClosed/KErrConnectionTerminated is received indicating that the daemon did not deregister.
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlLinkUpStopAuthoritativeStep z:\TestData\Configs\TE_ConnectionControlTest.ini RegisterOK 
+END_TESTCASE			COMINF-nifman-ConnectionControl-0124
+
+
+//! Standard suffix.
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+

@@ -1,0 +1,10 @@
+EXPORTS
+	NewInterfaceFactoryL @ 1 NONAME
+	_ZTI13CSimpleIfLink @ 2 NONAME ; #<TI>#
+	_ZTI16CSimpleIfFactory @ 3 NONAME ; #<TI>#
+	_ZTI9CSimpleIf @ 4 NONAME ; #<TI>#
+	_ZTV13CSimpleIfLink @ 5 NONAME ; #<VT>#
+	_ZTV16CSimpleIfFactory @ 6 NONAME ; #<VT>#
+	_ZTV9CSimpleIf @ 7 NONAME ; #<VT>#
+
+

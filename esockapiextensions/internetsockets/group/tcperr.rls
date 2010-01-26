@@ -1,0 +1,28 @@
+// Copyright (c) 1997-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+/**
+ @file tcperr.rls
+*/
+
+rls_string STRING_r_error_res_tcp_authentication_fail		"Internet username or password is incorrect (see \"Internet\" control panel)" 
+rls_string STRING_r_error_res_tcp_authentication_not_secure	"Internet service server only allows plain text authentication. This is currently disabled. (See \"Internet\" Control panel)" 
+rls_string STRING_r_error_res_tcp_disabled_account		"Could not connect to Internet service. Your account has been disabled" 
+rls_string STRING_r_error_res_tcp_logon_hours			"Could not connect to Internet service. Your account is only active during restricted hours" 
+rls_string STRING_r_error_res_tcp_password_expired		"Could not connect to Internet service. Your Internet password has expired" 
+rls_string STRING_r_error_res_tcp_dial_in_permission		"Could not connect to Internet service. You do not have dial-in permission" 
+rls_string STRING_r_error_res_tcp_no_call_back			"Could not connect to Internet service. Callback is not supported" 
+rls_string STRING_r_error_res_tcp_no_server			"Could not find specified Internet server" 
+rls_string STRING_r_error_res_tcp_bad_line			"Bad line to Internet service dropped" 

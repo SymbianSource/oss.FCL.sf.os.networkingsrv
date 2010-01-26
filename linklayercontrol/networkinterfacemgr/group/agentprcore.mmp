@@ -1,0 +1,84 @@
+// Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// Core Agent Provider State/Transition/Class Library
+// 
+//
+
+/**
+ @file 
+*/
+
+
+#include <cflog.mmh>
+
+
+TARGET                      agentprcore.dll
+TARGETTYPE                  DLL
+UID                         0x1000008D 0x10281DE6
+VENDORID                    0x70000001
+
+
+SOURCEPATH                  ../agentprcore/src
+SOURCE                      agentmcpr.cpp
+SOURCE                      agentmcpractivities.cpp
+SOURCE                      agentmcpravailabilitytesting.cpp
+SOURCE                      agentcpr.cpp
+SOURCE                      agentcprstates.cpp
+SOURCE                      agentscpr.cpp
+SOURCE                      agentscprstates.cpp
+SOURCE                      agentscpractivities.cpp
+SOURCE                      CAgentAdapter.cpp
+SOURCE                      agentmessages.cpp
+SOURCE						agentqueryconnsettingsimpl.cpp
+SOURCE                      LinkProvision.cpp
+SOURCE                      tunnelagentcpr.cpp
+SOURCE                      tunnelagentcprstates.cpp
+
+USERINCLUDE                 ../inc
+USERINCLUDE                 ../agentprcore/inc
+USERINCLUDE                 ../../../../commsfw/datacommsserver/esockserver/inc
+
+
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+LIBRARY                     euser.lib
+LIBRARY                     esock.lib
+LIBRARY                     esocksvr.lib
+LIBRARY                     serverden.lib 
+LIBRARY                     commsdat.lib
+LIBRARY                     netmeta.lib
+LIBRARY                     netsm.lib
+LIBRARY                     nifman.lib
+LIBRARY                     commsfw.lib
+LIBRARY                     coreproviders.lib
+LIBRARY                     insock.lib
+LIBRARY                     efsrv.lib
+LIBRARY						esock_api_ext.lib
+LIBRARY                     responsemsg.lib
+LIBRARY						nodemessages.lib
+LIBRARY						meshmachine.lib
+LIBRARY						netinterfaces.lib
+LIBRARY						factories.lib
+
+// commdb.lib needed due to use of CStoreableOverrideSettings
+LIBRARY					   commdb.lib
+
+CAPABILITY                 CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+
+//MI support
+#include <elements/sd_mintercept.mmh>
+
+
+SMPSAFE
+

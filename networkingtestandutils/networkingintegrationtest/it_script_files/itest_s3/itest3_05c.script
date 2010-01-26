@@ -1,0 +1,66 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+
+PRINT integration test 3.05c - GPRS outgoing with ipv4 and route timeout after socket close
+
+
+LOAD_SUITE TE_Esock
+LOAD_SUITE te_esockutil
+
+
+
+
+
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+CED z:\testdata\configs\te_esock.xml
+
+
+
+
+
+// open socket server 
+RUN_TEST_STEP 100 TE_Esock OpenServer   
+
+
+START_TESTCASE			NET-Integration-Gprs-0701
+//! @SYMTestCaseID		NET-Integration-Gprs-0701
+
+// open socket
+RUN_TEST_STEP 100 TE_Esock Test1.2 z:\testdata\configs\integration\itest_s3\itest.ini
+
+// send Tcp Data (only)
+RUN_TEST_STEP 100 TE_Esock SendTcpData z:\testdata\configs\integration\itest_s3\ipv4.ini
+
+// close socket
+RUN_TEST_STEP 100 TE_Esock Test1.15 z:\testdata\configs\integration\itest_s3\itest.ini
+
+// wait more than routetimout
+print wait for more than Commdb AgentRouteTimeout
+run_test_step -1 te_esockutil TE_ESockUtilDelay z:\testdata\configs\integration\itest_s3\route_timeout.ini
+
+
+// check the connection has been disconnected
+RUN_TEST_STEP 100 te_esockutil TE_ESockUtilIsNetworkNotActive
+TEST_COMPLETE GPRS_test3_05c
+END_TESTCASE			NET-Integration-Gprs-0701
+
+// close socket server 
+RUN_TEST_STEP 100 TE_Esock CloseServer
+// log result
+PRINT Result for Integration test 3.05c - GPRS Outgoing terminated By route timeout
+
+

@@ -1,0 +1,51 @@
+
+E:\networking\ppp\te_ppp\te_vjcomp\src>c:\apps\lint\lint-nt  +v  -ic:\apps\lint\  std.lnt  TE_VJComp.cpp         
+
+--- Module:   TE_VJComp.cpp 
+                      _
+	server->StartL(KServerName);
+TE_VJComp.cpp(38) : Error 1013: Symbol 'StartL' not a member of class 'CTE_VJComp'
+TE_VJComp.cpp(38) : Error 1055: Symbol 'StartL' undeclared, assumed to return int
+TE_VJComp.cpp(38) : Info 746: call to function 'StartL()' not made in the presence of a prototype
+         _
+CTestStep* CTE_VJComp::CreateTestStep(const TDesC& aStepName)
+TE_VJComp.cpp(180) : Error 129: declaration expected, identifier 'CTestStep' ignored
+TE_VJComp.cpp(180) : Error 1039: Symbol 'CTE_VJComp::CreateTestStep' is not a member of class 'CTE_VJComp'
+        _
+	{
+TE_VJComp.cpp(185) : Error 1039: Symbol 'CTE_VJComp::CreateTestStep(const TDesC8 &)' is not a member of class 'CTE_VJComp'
+TE_VJComp.cpp(185) : Info 745: function 'CTE_VJComp::CreateTestStep(const TDesC8 &)' has no explicit type or class, int assumed
+TE_VJComp.cpp(185) : Error 18: Symbol 'CTE_VJComp::CreateTestStep(const TDesC8 &)' redeclared (basic) conflicts with location unknown
+                 _
+	CTestStep* testStep = NULL;
+TE_VJComp.cpp(186) : Error 1046: Member 'CTE_VJComp::CTestStep', referenced in a static function, requires an object
+TE_VJComp.cpp(186) : Error 40: Undeclared identifier 'testStep'
+TE_VJComp.cpp(186) : Error 63: Expected an lvalue
+                _
+		testStep = new CVJCompressTCPTest();
+TE_VJComp.cpp(191) : Error 40: Undeclared identifier 'testStep'
+TE_VJComp.cpp(191) : Error 63: Expected an lvalue
+                _
+		testStep = new CVJRefCompressDecompressTest();
+TE_VJComp.cpp(193) : Error 40: Undeclared identifier 'testStep'
+TE_VJComp.cpp(193) : Error 63: Expected an lvalue
+                _
+		testStep = new CVJPreCompressDecompressTest();
+TE_VJComp.cpp(195) : Error 40: Undeclared identifier 'testStep'
+TE_VJComp.cpp(195) : Error 63: Expected an lvalue
+                _
+		testStep = new CVJRefCompressDecompressNoResultTest();
+TE_VJComp.cpp(197) : Error 40: Undeclared identifier 'testStep'
+TE_VJComp.cpp(197) : Error 63: Expected an lvalue
+                _
+		testStep = new CVJRefCompressRefandVJDecompressTest();
+TE_VJComp.cpp(199) : Error 40: Undeclared identifier 'testStep'
+TE_VJComp.cpp(199) : Error 63: Expected an lvalue
+               _
+	return testStep;
+TE_VJComp.cpp(200) : Error 40: Undeclared identifier 'testStep'
+
+--- Global Wrap-up
+
+Info 714: Symbol 'E32Main(void)' (line 116, file TE_VJComp.cpp) not referenced
+Warning 628: no argument information provided for function 'StartL()' (line 38, file TE_VJComp.cpp)

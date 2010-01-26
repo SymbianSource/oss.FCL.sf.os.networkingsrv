@@ -1,0 +1,38 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//
+PRINT Run all Tls provider tests
+//
+LOAD_SUITE TlsProvServer
+//
+#
+
+//! @SYMTestCaseID 	SEC-TLSP-CLIENT-AUTHDLG-0002
+//! @SYMTestCaseDesc 	start a secure connection to the test server which needs client authentication but no dialog
+//!			(NoClientAuthDlg)
+//! @SYMREQ 		DEF074672 
+//! @SYMTestPriority 	High
+//! @SYMTestActions  	Test client authentication dialog
+//! @SYMTestExpectedResults the client authentication successfully 
+//! @SYMDevelopedForRelease Mike
+
+START_TESTCASE SEC-TLSP-CLIENT-AUTHDLG-0002
+
+RUN_UTILS DeleteFile c:\private\200008d1\101f52c4.cce
+
+RUN_TEST_STEP 180 TlsProvServer TSecureConnection C:\ttlsprovider\tsecuretlsdialog\scripts\tnoclientauthdialog.ini SecureDialog_1
+
+END_TESTCASE SEC-TLSP-CLIENT-AUTHDLG-0002

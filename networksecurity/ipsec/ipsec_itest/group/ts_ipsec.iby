@@ -1,0 +1,95 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+#ifndef __TS_IPSEC_IBY__
+#define __TS_IPSEC_IBY__
+
+#include <ipsec.iby>
+#include <vpn.iby>
+#include <integrationtest.iby>
+
+file=ABI_DIR\DEBUG_DIR\ts_ipsec.dll             System\Libs\ts_ipsec.dll
+
+data=EPOCROOT##epoc32\data\Z\TestData\configs\ts_ipsec\ipsec_start.bat ipsec_start.bat
+data=EPOCROOT##epoc32\data\Z\TestData\configs\ts_ipsec\ipsec_end.bat ipsec_end.bat
+data=EPOCROOT##epoc32\data\Z\TestData\configs\ts_ipsec\comsdbg.ini testdata\configs\ts_ipsec\comsdbg.ini
+
+data=EPOCROOT##epoc32\data\Z\TestData\configs\ts_ipsec.ini    testdata\configs\ts_ipsec.ini
+data=EPOCROOT##epoc32\data\Z\TestData\configs\ts_ipsec2.ini    testdata\configs\ts_ipsec2.ini
+data=EPOCROOT##epoc32\data\Z\TestData\configs\ts_ipsec3.ini    testdata\configs\ts_ipsec3.ini
+data=EPOCROOT##epoc32\data\Z\TestData\configs\ts_ipsec4.ini    testdata\configs\ts_ipsec4.ini
+data=EPOCROOT##epoc32\data\Z\TestData\configs\ts_ipsec_mh1.ini    testdata\configs\ts_ipsec_mh1.ini
+data=EPOCROOT##epoc32\data\Z\TestData\configs\ts_ipsec_mh2.ini    testdata\configs\ts_ipsec_mh2.ini
+data=EPOCROOT##epoc32\data\Z\TestData\configs\ts_ipsec_mh3.ini    testdata\configs\ts_ipsec_mh3.ini
+data=EPOCROOT##epoc32\data\Z\TestData\configs\ts_ipsec_mh4.ini    testdata\configs\ts_ipsec_mh4.ini
+
+#ifdef SYMBIAN_EXCLUDE_IPSEC
+REM Feature IPSEC not included in this rom
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ts_ipsec_removed.script testdata\scripts\ts_ipsec_removed.script
+#else
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ts_ipsec_lubbock.script testdata\scripts\ts_ipsec.script
+#endif
+
+data=EPOCROOT##epoc32\data\Z\TestData\configs\ipsec_ced.cfg	  testdata\configs\ipsec_ced.cfg
+
+REM Sample policies and certificate etc
+
+
+
+data=EPOCROOT##epoc32\data\Z\TestData\configs\algorithms.conf	  testdata\configs\algorithms.conf
+
+
+data=EPOCROOT##epoc32\data\Z\TestData\configs\cisco_all.pol	  testdata\configs\cisco_all.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\cisco_all.pin	  testdata\configs\cisco_all.pin
+
+data=EPOCROOT##epoc32\data\Z\TestData\configs\fbsd_tull.pol	  testdata\configs\fbsd_tull.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\fbsd_tull.pin	  testdata\configs\fbsd_tull.pin
+data=EPOCROOT##epoc32\data\Z\TestData\configs\fbsd_tull_v6.pol	testdata\configs\fbsd_tull_v6.pol
+
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_trans.pol	  testdata\configs\linux_trans.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_trans.pin	  testdata\configs\linux_trans.pin
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_trans_gw.pol	  testdata\configs\linux_trans_gw.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tull.pol	  testdata\configs\linux_tull.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tull.pin	  testdata\configs\linux_tull.pin
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_trans-peer.cer	  testdata\configs\linux_trans-peer.cer
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_trans-user.cer	  testdata\configs\linux_trans-user.cer
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_trans-user.key	  testdata\configs\linux_trans-user.key
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_trans-ca.cer	  testdata\configs\linux_trans-ca.cer
+
+
+REM Sample Ipsec only policies
+
+data=EPOCROOT##epoc32\data\Z\TestData\configs\1ipsec_onlypol	  testdata\configs\1ipsec_onlypol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\2ipsec_onlypol	  testdata\configs\2ipsec_onlypol
+
+REM Fake Ipsec notifier - taken out for now
+
+#ifdef __KEYSTORE_API_V2__
+REM file=ABI_DIR\DEBUG_DIR\FAKE_SECDLGNOTIF.DLL		System\TNotifiers\FAKE_SECDLGNOTIF.DLL
+#else 
+REM file=ABI_DIR\DEBUG_DIR\FAKE_IPSECNOTIF.DLL		System\TNotifiers\FAKE_IPSECNOTIF.DLL
+#endif 
+
+#ifdef SYMBIAN_EXCLUDE_IPSEC
+REM Feature IPSEC not included in this rom so below apis added for tests to link
+file=ABI_DIR\DEBUG_DIR\ipsecpolapi.dll		System\Libs\ipsecpolapi.dll
+file=ABI_DIR\DEBUG_DIR\vpnapi.dll			SYSTEM_BINDIR\vpnapi.dll
+#else
+
+#endif
+
+#endif

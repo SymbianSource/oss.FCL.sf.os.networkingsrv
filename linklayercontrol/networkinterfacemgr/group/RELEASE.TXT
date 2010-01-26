@@ -1,0 +1,97 @@
+Nifman E32 Network interface Manager
+
+5. Dec 2001 (alfredh)
+======================
+
+Defect fixes:
+
+WOS-54GM6D "Unit Test code logs need to be amended"
+
+Problem fixed in tnifman.cpp. Also updated tlog.[h|cpp] after running Lint.
+Name of esock file changed from esock.ini to tnifman.esk - this fil must
+be copied to \epoc32\wins\c\system\data\ directory before testing.
+
+
+Version 1.0 (Perforce changelist 05/07/00)
+==========================================
+
+Added in some API functions for v6.1 for GPRS usage.
+
+Version 1.0 (Perforce changelist 18/04/00)
+==========================================
+
+Split out header files into private and public.  Private ones are now exported to
+\epoc32\include\comms-infras where they may be used by other components "in the know".
+
+Changed CNifAgentBase::TConnectType to TAgentConnectType as the enum needs to be public,
+but the class does not.
+
+Changed #include's where necessary to specify new path for private headers.
+
+
+Version 1.0 (Perforce changelist 1/12/99)
+=========================================
+
+Fixed defect in NI_CFG.cpp where it refered directly to the ESOCK.INI file without going
+through the CESOCKINIFILE class in ESock.DLL.
+Note: There may still be a defect that hinders the availability of a new protocol loaded
+into the system that should be loaded when a CheckIniConfig is called.  This is still
+under investigation.
+
+Version 1.0 (Perforce changelist 30/11/99)
+==========================================
+
+Added documentation and exported to EPOC32 tree.
+
+
+Version 1.0(014)
+================
+
+Fixed bug where database reads and writes were using TInt rather than TUint32.
+This means changing timers so that KMaxTUint32 rather than negative number means forever. 
+(This should not break anything as number being read has always been non-negative!)
+
+Version 1.0(013)
+================
+
+- Merged in changes to the TNIFMAN test code.
+
+
+Version 1.0(012)
+================
+
+- Merged in changes from ER5u share up to release 003.
+- Tidied up MNT.CMD, etc.
+
+
+Version 1.0(011)
+================
+
+Changed build number of NifMan to 68 to fix bug where ESOCK is expecting 
+build number of at least this value.
+
+Version 1.0(010)
+================
+
+Released on to the mainline share.  Source identical to ER5u release 002.
+
+
+Version 1.0(003)
+================
+- Changed build number of Nifman to 68 to fix bug EDNAWIR-47CCWS.
+- Removed .PRJ files for making releasables.
+- Removed UID lines from MMP file. 
+
+Version 1.0(002)
+================
+ER5u baseline release.  Added BLD.INF.
+
+Version 1.0(001)
+================
+
+- Split from version 510 of ESOCK
+- Removed all narrow-specific stuff from MNT.CMD and EBLD.BAT.
+- Removed narrow def files and database from source directories.
+
+ 
+[see esock Release.txt for information on Nifman before this version]

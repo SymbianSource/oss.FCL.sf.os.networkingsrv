@@ -1,0 +1,56 @@
+// Copyright (c) 2002-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+MACRO       EPOC_SDK=0x07010000
+MACRO		MM_ETEL_API=0
+//MACRO           CRYSTAL=1
+
+TARGET          qosppp.nif
+TARGETTYPE      dll
+
+UID      0x10003D3A 0x1000022c
+VENDORID 0x70000001
+
+SOURCEPATH	../../SPPP
+SOURCE          CCPINI.CPP    MD4.CPP       ncpip6.cpp
+SOURCE          MD5.CPP       MSCBCP.CPP    MSCHAP.CPP    
+SOURCE          NCPIP.CPP     PPPADDR.CPP   PPPAUTH.CPP   
+SOURCE          PPPCCP.CPP    PPPCFG.CPP    PPPCHAP.CPP   
+SOURCE          PPPDLL.CPP    PPPFCS.CPP    PPPPAP.CPP    
+SOURCE          PPPFSM.CPP    PPPHDLC.CPP   Ppplcp.cpp    
+SOURCE          PPPLINK.CPP   PPPLOG.CPP    PPPMISC.CPP   
+SOURCE          PPPOPT.CPP    PPPLRD.CPP    PppUmts.cpp
+SOURCE		CNifEventIfBase.cpp CNifNcp.cpp
+SOURCE		NifPdpBase.cpp NifPdpNif.cpp NifPdpTsy.cpp
+SOURCE		mschap2.cpp chapmd5.cpp
+
+USERINCLUDE     . ../../SPPP
+USERINCLUDE	../../INC
+SYSTEMINCLUDE   /epoc32/include /epoc32/include/networking /epoc32/include/comms-infras
+
+LIBRARY         euser.lib esock.lib nifman.lib
+LIBRARY         efsrv.lib insock.lib c32.lib 
+LIBRARY		random.lib esocksvr.lib mbufmgr.lib
+LIBRARY		etelpckt.lib umtsif.lib 
+LIBRARY		etel.lib testconfigfileparser.lib
+LIBRARY 	cryptography.lib 
+LIBRARY		hash.lib
+DEBUGLIBRARY	comsdbgutil.lib
+
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+
+UNPAGED
+
+SMPSAFE

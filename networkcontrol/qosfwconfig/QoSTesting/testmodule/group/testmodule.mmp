@@ -1,0 +1,55 @@
+// Copyright (c) 2005-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// testmodule.mmp - Dummy QoS plug-in for QoS testing
+//
+
+
+#include "..\..\..\..\..\..\cellularsrv\telephonyprotocols\gprsumtsqosinterface\group\qostesting.mmp"
+
+#ifdef  QOS_TESTING
+MACRO       MM_ETEL_API=1
+#else
+MACRO       MM_ETEL_API=0
+#endif
+
+TARGET      testmodule.prt
+TARGETTYPE  dll
+
+UID         0x10003d38 0x101F6D07
+VENDORID    0x70000001
+
+SOURCEPATH  ..\src
+
+SOURCE      async_request.cpp testmodule.cpp prot.cpp iface.cpp tc.cpp channel.cpp
+
+USERINCLUDE     ..\inc  
+SYSTEMINCLUDE   ..\..\testnif\inc ..\..\..\qos\inc
+SYSTEMINCLUDE   \epoc32\include ..\..\..\..\pfqoslib\inc 
+SYSTEMINCLUDE   ..\..\umtssim\inc \epoc32\include\networking
+
+LIBRARY        euser.lib mbufmgr.lib esocksvr.lib inhook6.lib
+LIBRARY        pfqoslib.lib 
+
+DEBUGLIBRARY   flogger.lib
+
+LIBRARY        efsrv.lib
+
+DEFFILE        testmodule.def
+
+
+CAPABILITY ALL -Tcb -MultimediaDD -DRM -DiskAdmin -AllFiles -SwEvent -Location -SurroundingsDD -UserEnvironment
+
+UNPAGED
+
+SMPSAFE

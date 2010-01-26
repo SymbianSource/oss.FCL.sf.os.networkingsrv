@@ -1,0 +1,82 @@
+// Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// ETHINT.MMP
+// ethint.nif - DLL containing main body of Ethernet CFProtocol
+// 
+//
+
+/**
+ @file
+*/
+
+TARGET          ethint.nif
+TARGETTYPE      DLL
+UID             0x1000008d 0x10281DDD
+VENDORID 0x70000001
+
+
+#if defined(WINS)
+DEFFILE         EthProto.DEF
+#elif defined(GCC32)
+DEFFILE         EthProto.DEF
+#else
+DEFFILE         ethproto.def
+#endif
+
+#include	<comms-infras/commsdebugutility.mmh>
+
+SOURCEPATH      ../EthInt
+SOURCE          Ethbase.cpp 
+SOURCE          CLanxBearer.cpp 
+SOURCE          CLanIp4Bearer.cpp 
+SOURCE          CLanIp6Bearer.cpp 
+SOURCE          Pktdrv.cpp
+SOURCE			ethmcpr.cpp
+SOURCE			EthConfig.cpp
+
+SOURCEPATH      ../log
+SOURCE          eth_log.cpp
+
+USERINCLUDE     ../EthInt
+USERINCLUDE		../INC
+USERINCLUDE		../../../linklayercontrol/networkinterfacemgr/agentprcore/inc
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+LIBRARY         euser.lib
+LIBRARY         esock.lib
+LIBRARY         esocksvr.lib
+LIBRARY         serverden.lib
+LIBRARY         insock.lib
+LIBRARY         efsrv.lib
+LIBRARY         mbufmgr.lib
+LIBRARY         netmeta.lib
+LIBRARY		    commsfw.lib
+LIBRARY         commsdat.lib
+LIBRARY         coreproviders.lib
+LIBRARY 		agentprcore.lib
+LIBRARY 		nodemessages.lib
+LIBRARY 		meshmachine.lib
+LIBRARY 		netinterfaces.lib
+LIBRARY			factories.lib
+
+START WINS
+    BASEADDRESS 0x7ff40000
+END
+
+//MI support
+#include <elements/sd_mintercept.mmh>
+
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+
+SMPSAFE

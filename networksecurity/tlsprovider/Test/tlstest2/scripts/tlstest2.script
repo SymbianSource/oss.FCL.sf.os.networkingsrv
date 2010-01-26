@@ -1,0 +1,807 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+LOAD_SUITE tlstest2
+
+RUN_UTILS MkDir c:\private\101f72a6
+RUN_UTILS MakeReadWrite c:\private\101f72a6
+RUN_UTILS MakeReadWrite c:\private\101f72a6\CACerts.dat
+RUN_UTILS DeleteFile c:\private\101f72a6\CACerts.dat 
+RUN_UTILS MakeReadWrite c:\private\101f72a6\certclients.dat
+RUN_UTILS DeleteFile c:\private\101f72a6\certclients.dat
+RUN_UTILS MakeReadWrite c:\private\101f72a6\keys.dat
+RUN_UTILS DeleteFile c:\private\101f72a6\keys.dat
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\KeyAndCertStore\cacerts.dat c:\private\101f72a6\CACerts.dat
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\KeyAndCertStore\certclients.dat    c:\private\101f72a6\certclients.dat
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\KeyAndCertStore\keys.dat c:\private\101f72a6\keys.dat
+
+
+//! @SYMTestCaseID 	SEC-TLSP-TEST2-RANDOM-0001
+//! @SYMTestCaseDesc 	Tests the GetRandom interface on TLSProvider
+//! @SYMTestPriority 	Low
+//! @SYMTestActions  	Extracts three blocks of random data, and checks their randomness
+//! @SYMTestExpectedResults Data is appropriately random and has correct timestamps prepended
+//! @SYMDevelopedForRelease Argus
+
+START_TESTCASE SEC-TLSP-TEST2-RANDOM-0001
+RUN_TEST_STEP 20 tlstest2 GetRandomStep z:\tlstest2\scripts\tlstest2.ini maxrandinterval
+END_TESTCASE SEC-TLSP-TEST2-RANDOM-0001
+
+//! @SYMTestCaseID 	SEC-TLSP-TEST2-CIPHER-0001
+//! @SYMTestCaseDesc 	Tests that TLSProvider returns an expected list of supported ciphers, in appropriate order
+//! @SYMTestPriority 	Critical
+//! @SYMTestActions  	Calls the TLS Provider supported ciphers method, and compares with the list of ciphers we expect
+//! @SYMTestExpectedResults Ciphers are all present, correct and appropriately prioritised
+//! @SYMDevelopedForRelease Argus
+
+START_TESTCASE SEC-TLSP-TEST2-CIPHER-0001
+RUN_TEST_STEP 20 tlstest2 CipherSuitesStep z:\tlstest2\scripts\tlstest2.ini supportedsuites_default
+RUN_TEST_STEP 20 tlstest2 CipherSuitesStep z:\tlstest2\scripts\tlstest2.ini supportedsuites_with_nulls
+RUN_TEST_STEP 20 tlstest2 CipherSuitesStep z:\tlstest2\scripts\tlstest2.ini supportedsuites_with_psks
+RUN_TEST_STEP 20 tlstest2 CipherSuitesStep z:\tlstest2\scripts\tlstest2.ini supportedsuites_all
+END_TESTCASE SEC-TLSP-TEST2-CIPHER-0001
+
+
+
+
+//! @SYMTestCaseID 	SEC-TLSP-TEST2-CERT-0001
+//! @SYMTestCaseDesc 	Tests that TLS Provider verifies the most common type of server certificate, with the domain in the CN field
+//!			(COMMONNAME)
+//! @SYMTestPriority 	Critical
+//! @SYMTestActions 	Supplies a certificate with a domain in the common name, and various domain names to verify
+//! @SYMTestExpectedResults Correct domain should verify, incorrect should fail
+//! @SYMDevelopedForRelease Argus
+
+START_TESTCASE SEC-TLSP-TEST2-CERT-0001
+RUN_TEST_STEP 20 tlstest2 VerifyServerCertStep z:\tlstest2\scripts\tlstest2.ini commonnamepass
+RUN_TEST_STEP 20 tlstest2 VerifyServerCertStep z:\tlstest2\scripts\tlstest2.ini commonnamefail
+END_TESTCASE SEC-TLSP-TEST2-CERT-0001
+
+//! @SYMTestCaseID 	SEC-TLSP-TEST2-CERT-0002
+//! @SYMTestCaseDesc 	Tests that TLS Provider verifies wildcard domain names in common names
+//!			(COMMONNAMEWILD)
+//! @SYMTestPriority 	High
+//! @SYMTestActions 	Supplies a certificate with a wildcard domain in the common name, and various domain names to verify
+//! @SYMTestExpectedResults Correct domain should verify, incorrect should fail
+//! @SYMDevelopedForRelease Argus
+
+START_TESTCASE SEC-TLSP-TEST2-CERT-0002
+RUN_TEST_STEP 20 tlstest2 VerifyServerCertStep z:\tlstest2\scripts\tlstest2.ini commonnamewildpass1
+RUN_TEST_STEP 20 tlstest2 VerifyServerCertStep z:\tlstest2\scripts\tlstest2.ini commonnamewildpass2
+RUN_TEST_STEP 20 tlstest2 VerifyServerCertStep z:\tlstest2\scripts\tlstest2.ini commonnamewildfail1
+RUN_TEST_STEP 20 tlstest2 VerifyServerCertStep z:\tlstest2\scripts\tlstest2.ini commonnamewildfail2
+END_TESTCASE SEC-TLSP-TEST2-CERT-0002
+
+//! @SYMTestCaseID 	SEC-TLSP-TEST2-CERT-0003
+//! @SYMTestCaseDesc 	Tests that TLS Provider verifies domain names in alt. subject name fields correctly
+//!			(ALTSUBJECTNAME)
+//! @SYMTestPriority 	High
+//! @SYMTestActions 	Supplies a certificates with various alt. subject names, and various domain names to verify
+//! @SYMTestExpectedResults Correct domain should verify, incorrect should fail
+//! @SYMDevelopedForRelease Argus
+
+START_TESTCASE SEC-TLSP-TEST2-CERT-0003
+RUN_TEST_STEP 20 tlstest2 VerifyServerCertStep z:\tlstest2\scripts\tlstest2.ini altsubjectonepass
+RUN_TEST_STEP 20 tlstest2 VerifyServerCertStep z:\tlstest2\scripts\tlstest2.ini altsubjectonefail
+RUN_TEST_STEP 20 tlstest2 VerifyServerCertStep z:\tlstest2\scripts\tlstest2.ini altsubjectmanypass1
+RUN_TEST_STEP 20 tlstest2 VerifyServerCertStep z:\tlstest2\scripts\tlstest2.ini altsubjectmanypass2
+RUN_TEST_STEP 20 tlstest2 VerifyServerCertStep z:\tlstest2\scripts\tlstest2.ini altsubjectmanyfail1
+RUN_TEST_STEP 20 tlstest2 VerifyServerCertStep z:\tlstest2\scripts\tlstest2.ini altsubjectmanyfail2
+END_TESTCASE SEC-TLSP-TEST2-CERT-0003
+
+//! @SYMTestCaseID 	SEC-TLSP-TEST2-CERT-0004
+//! @SYMTestCaseDesc 	Tests that TLS Provider verifies wildcard domain names in alt. subject name fields correctly
+//!			(ALTSUBJECTNAMEWILD)
+//! @SYMTestPriority 	High
+//! @SYMTestActions 	Supplies a certificate with wildcard domains in the alt subject name, and various domain names to verify
+//! @SYMTestExpectedResults Correct domain should verify, incorrect should fail
+//! @SYMDevelopedForRelease Argus
+
+START_TESTCASE SEC-TLSP-TEST2-CERT-0004
+RUN_TEST_STEP 20 tlstest2 VerifyServerCertStep z:\tlstest2\scripts\tlstest2.ini altnamewildpass1
+RUN_TEST_STEP 20 tlstest2 VerifyServerCertStep z:\tlstest2\scripts\tlstest2.ini altnamewildpass2
+RUN_TEST_STEP 20 tlstest2 VerifyServerCertStep z:\tlstest2\scripts\tlstest2.ini altnamewildfail1
+RUN_TEST_STEP 20 tlstest2 VerifyServerCertStep z:\tlstest2\scripts\tlstest2.ini altnamewildfail2
+END_TESTCASE SEC-TLSP-TEST2-CERT-0004
+
+//! @SYMTestCaseID 	SEC-TLSP-TEST2-CIPHER-0002
+//! @SYMTestCaseDesc 	Runs the cipher (0, 4) RSA-RC4-MD5 through the standard battery of tests
+//!			(RSA-RC4-MD5)
+//! @SYMTestPriority 	Critical
+//! @SYMTestActions 	Tests every method of the TLS Provider API
+//! @SYMTestExpectedResults All steps should suceed
+//! @SYMDevelopedForRelease Argus
+
+START_TESTCASE SEC-TLSP-TEST2-CIPHER-0002
+// TLSv1 Steps
+RUN_TEST_STEP 20 tlstest2 VerifySignature z:\tlstest2\scripts\tlstest2.ini rsa-rc4-md5-tls-1
+RUN_TEST_STEP 20 tlstest2 ClientKeyExchangeStep z:\tlstest2\scripts\tlstest2.ini rsa-rc4-md5-tls-1
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini rsa-rc4-md5-tls-1
+RUN_TEST_STEP 20 tlstest2 ServerFinishedStep z:\tlstest2\scripts\tlstest2.ini rsa-rc4-md5-tls-1
+RUN_TEST_STEP 20 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini rsa-rc4-md5-tls-1
+RUN_TEST_STEP 20 tlstest2 DecryptStep z:\tlstest2\scripts\tlstest2.ini rsa-rc4-md5-tls-1
+RUN_TEST_STEP 20 tlstest2 KeyDerivationStep z:\tlstest2\scripts\tlstest2.ini rsa-rc4-md5-tls-1
+// SSLv3 Steps
+RUN_TEST_STEP 20 tlstest2 VerifySignature z:\tlstest2\scripts\tlstest2.ini rsa-rc4-md5-ssl-1
+RUN_TEST_STEP 20 tlstest2 ClientKeyExchangeStep z:\tlstest2\scripts\tlstest2.ini rsa-rc4-md5-ssl-1
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini rsa-rc4-md5-ssl-1
+RUN_TEST_STEP 20 tlstest2 ServerFinishedStep z:\tlstest2\scripts\tlstest2.ini rsa-rc4-md5-ssl-1
+RUN_TEST_STEP 20 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini rsa-rc4-md5-ssl-1
+RUN_TEST_STEP 20 tlstest2 DecryptStep z:\tlstest2\scripts\tlstest2.ini rsa-rc4-md5-ssl-1
+END_TESTCASE SEC-TLSP-TEST2-CIPHER-0002
+
+//! @SYMTestCaseID 	SEC-TLSP-TEST2-CIPHER-0003
+//! @SYMTestCaseDesc 	Runs the cipher (0, 5) RSA-RC4-SHA1 through the standard battery of tests
+//!			(RSA-RC4-SHA1)
+//! @SYMTestPriority 	Critical
+//! @SYMTestActions 	Tests every method of the TLS Provider API
+//! @SYMTestExpectedResults All steps should suceed
+//! @SYMDevelopedForRelease Argus
+
+START_TESTCASE SEC-TLSP-TEST2-CIPHER-0003
+// TLSv1 Steps
+RUN_TEST_STEP 20 tlstest2 VerifySignature z:\tlstest2\scripts\tlstest2.ini rsa-rc4-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 ClientKeyExchangeStep z:\tlstest2\scripts\tlstest2.ini rsa-rc4-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini rsa-rc4-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 ServerFinishedStep z:\tlstest2\scripts\tlstest2.ini rsa-rc4-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini rsa-rc4-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 DecryptStep z:\tlstest2\scripts\tlstest2.ini rsa-rc4-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 KeyDerivationStep z:\tlstest2\scripts\tlstest2.ini rsa-rc4-sha-tls-1
+// SSLv3 Steps
+RUN_TEST_STEP 20 tlstest2 VerifySignature z:\tlstest2\scripts\tlstest2.ini rsa-rc4-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 ClientKeyExchangeStep z:\tlstest2\scripts\tlstest2.ini rsa-rc4-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini rsa-rc4-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 ServerFinishedStep z:\tlstest2\scripts\tlstest2.ini rsa-rc4-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini rsa-rc4-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 DecryptStep z:\tlstest2\scripts\tlstest2.ini rsa-rc4-sha-ssl-1
+END_TESTCASE SEC-TLSP-TEST2-CIPHER-0003
+
+//! @SYMTestCaseID 	SEC-TLSP-TEST2-CIPHER-0004
+//! @SYMTestCaseDesc 	Runs the cipher (0, 9) RSA-DES-SHA1 through the standard battery of tests
+//!			(RSA-DES-SHA1)
+//! @SYMTestPriority 	Critical
+//! @SYMTestActions 	Tests every method of the TLS Provider API
+//! @SYMTestExpectedResults All steps should suceed
+//! @SYMDevelopedForRelease Argus
+
+START_TESTCASE SEC-TLSP-TEST2-CIPHER-0004
+// TLSv1 Steps
+RUN_TEST_STEP 20 tlstest2 VerifySignature z:\tlstest2\scripts\tlstest2.ini rsa-des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 ClientKeyExchangeStep z:\tlstest2\scripts\tlstest2.ini rsa-des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini rsa-des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 ServerFinishedStep z:\tlstest2\scripts\tlstest2.ini rsa-des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini rsa-des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 DecryptStep z:\tlstest2\scripts\tlstest2.ini rsa-des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 KeyDerivationStep z:\tlstest2\scripts\tlstest2.ini rsa-des-sha-tls-1
+// SSLv3 Steps
+RUN_TEST_STEP 20 tlstest2 VerifySignature z:\tlstest2\scripts\tlstest2.ini rsa-des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 ClientKeyExchangeStep z:\tlstest2\scripts\tlstest2.ini rsa-des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini rsa-des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 ServerFinishedStep z:\tlstest2\scripts\tlstest2.ini rsa-des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini rsa-des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 DecryptStep z:\tlstest2\scripts\tlstest2.ini rsa-des-sha-ssl-1
+END_TESTCASE SEC-TLSP-TEST2-CIPHER-0004
+
+//! @SYMTestCaseID 	SEC-TLSP-TEST2-CIPHER-0005
+//! @SYMTestCaseDesc 	Runs the cipher (0, 10) RSA-3DES-SHA1 through the standard battery of tests
+//!			(RSA-3DES-SHA1)
+//! @SYMTestPriority 	Critical
+//! @SYMTestActions 	Tests every method of the TLS Provider API
+//! @SYMTestExpectedResults All steps should suceed
+//! @SYMDevelopedForRelease Argus
+
+START_TESTCASE SEC-TLSP-TEST2-CIPHER-0005
+// TLSv1 Steps
+RUN_TEST_STEP 20 tlstest2 VerifySignature z:\tlstest2\scripts\tlstest2.ini rsa-3des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 ClientKeyExchangeStep z:\tlstest2\scripts\tlstest2.ini rsa-3des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini rsa-3des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 ServerFinishedStep z:\tlstest2\scripts\tlstest2.ini rsa-3des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini rsa-3des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 DecryptStep z:\tlstest2\scripts\tlstest2.ini rsa-3des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 KeyDerivationStep z:\tlstest2\scripts\tlstest2.ini rsa-3des-sha-tls-1
+// SSLv3 Steps
+RUN_TEST_STEP 20 tlstest2 VerifySignature z:\tlstest2\scripts\tlstest2.ini rsa-3des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 ClientKeyExchangeStep z:\tlstest2\scripts\tlstest2.ini rsa-3des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini rsa-3des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 ServerFinishedStep z:\tlstest2\scripts\tlstest2.ini rsa-3des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini rsa-3des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 DecryptStep z:\tlstest2\scripts\tlstest2.ini rsa-3des-sha-ssl-1
+END_TESTCASE SEC-TLSP-TEST2-CIPHER-0005
+
+//! @SYMTestCaseID 	SEC-TLSP-TEST2-CIPHER-0006
+//! @SYMTestCaseDesc 	Runs the cipher (0, 18) DHE-DES-SHA1 through the standard battery of tests
+//!			(DHE-DES-SHA1)
+//! @SYMTestPriority 	Critical
+//! @SYMTestActions 	Tests every method of the TLS Provider API
+//! @SYMTestExpectedResults All steps should suceed
+//! @SYMDevelopedForRelease Argus
+
+START_TESTCASE SEC-TLSP-TEST2-CIPHER-0006
+// TLSv1 Steps
+RUN_TEST_STEP 20 tlstest2 VerifySignature z:\tlstest2\scripts\tlstest2.ini dhe-des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 ClientKeyExchangeStep z:\tlstest2\scripts\tlstest2.ini dhe-des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini dhe-des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 ServerFinishedStep z:\tlstest2\scripts\tlstest2.ini dhe-des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini dhe-des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 DecryptStep z:\tlstest2\scripts\tlstest2.ini dhe-des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 KeyDerivationStep z:\tlstest2\scripts\tlstest2.ini dhe-des-sha-tls-1
+// SSLv3 Steps
+RUN_TEST_STEP 20 tlstest2 VerifySignature z:\tlstest2\scripts\tlstest2.ini dhe-des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 ClientKeyExchangeStep z:\tlstest2\scripts\tlstest2.ini dhe-des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini dhe-des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 ServerFinishedStep z:\tlstest2\scripts\tlstest2.ini dhe-des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini dhe-des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 DecryptStep z:\tlstest2\scripts\tlstest2.ini dhe-des-sha-ssl-1
+END_TESTCASE SEC-TLSP-TEST2-CIPHER-0006
+
+//! @SYMTestCaseID 	SEC-TLSP-TEST2-CIPHER-0007
+//! @SYMTestCaseDesc 	Runs the cipher (0, 19) DHE-3DES-SHA1 through the standard battery of tests
+//!			(DHE-3DES-SHA1)
+//! @SYMTestPriority 	Critical
+//! @SYMTestActions 	Tests every method of the TLS Provider API
+//! @SYMTestExpectedResults All steps should suceed
+//! @SYMDevelopedForRelease Argus
+
+START_TESTCASE SEC-TLSP-TEST2-CIPHER-0007
+// TLSv1 Steps
+RUN_TEST_STEP 20 tlstest2 VerifySignature z:\tlstest2\scripts\tlstest2.ini dhe-3des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 ClientKeyExchangeStep z:\tlstest2\scripts\tlstest2.ini dhe-3des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini dhe-3des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 ServerFinishedStep z:\tlstest2\scripts\tlstest2.ini dhe-3des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini dhe-3des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 DecryptStep z:\tlstest2\scripts\tlstest2.ini dhe-3des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 KeyDerivationStep z:\tlstest2\scripts\tlstest2.ini dhe-3des-sha-tls-1
+// SSLv3 Steps
+RUN_TEST_STEP 20 tlstest2 VerifySignature z:\tlstest2\scripts\tlstest2.ini dhe-3des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 ClientKeyExchangeStep z:\tlstest2\scripts\tlstest2.ini dhe-3des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini dhe-3des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 ServerFinishedStep z:\tlstest2\scripts\tlstest2.ini dhe-3des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini dhe-3des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 DecryptStep z:\tlstest2\scripts\tlstest2.ini dhe-3des-sha-ssl-1
+END_TESTCASE SEC-TLSP-TEST2-CIPHER-0007
+
+//! @SYMTestCaseID 	SEC-TLSP-TEST2-CIPHER-0008
+//! @SYMTestCaseDesc 	Runs the cipher (0, 22) RDHE-3DES-SHA1 through the standard battery of tests
+//!			(RDHE-3DES-SHA1)
+//! @SYMTestPriority 	Critical
+//! @SYMTestActions 	Tests every method of the TLS Provider API
+//! @SYMTestExpectedResults All steps should suceed
+//! @SYMDevelopedForRelease Argus
+
+START_TESTCASE SEC-TLSP-TEST2-CIPHER-0008
+// TLSv1 Steps
+RUN_TEST_STEP 20 tlstest2 VerifySignature z:\tlstest2\scripts\tlstest2.ini rdhe-3des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 ClientKeyExchangeStep z:\tlstest2\scripts\tlstest2.ini rdhe-3des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini rdhe-3des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 ServerFinishedStep z:\tlstest2\scripts\tlstest2.ini rdhe-3des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini rdhe-3des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 DecryptStep z:\tlstest2\scripts\tlstest2.ini rdhe-3des-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 KeyDerivationStep z:\tlstest2\scripts\tlstest2.ini rdhe-3des-sha-tls-1
+// SSLv3 Steps
+RUN_TEST_STEP 20 tlstest2 VerifySignature z:\tlstest2\scripts\tlstest2.ini rdhe-3des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 ClientKeyExchangeStep z:\tlstest2\scripts\tlstest2.ini rdhe-3des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini rdhe-3des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 ServerFinishedStep z:\tlstest2\scripts\tlstest2.ini rdhe-3des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini rdhe-3des-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 DecryptStep z:\tlstest2\scripts\tlstest2.ini rdhe-3des-sha-ssl-1
+END_TESTCASE SEC-TLSP-TEST2-CIPHER-0008
+
+//! @SYMTestCaseID 	SEC-TLSP-TEST2-CIPHER-0009
+//! @SYMTestCaseDesc 	Runs the cipher (0, 47) RSA-AES128-SHA1 through the standard battery of tests
+//!			(RSA-AES128-SHA1)
+//! @SYMTestPriority 	Critical
+//! @SYMTestActions 	Tests every method of the TLS Provider API
+//! @SYMTestExpectedResults All steps should suceed
+//! @SYMDevelopedForRelease Argus
+
+START_TESTCASE SEC-TLSP-TEST2-CIPHER-0009
+// TLSv1 Steps
+RUN_TEST_STEP 20 tlstest2 VerifySignature z:\tlstest2\scripts\tlstest2.ini rsa-aes128-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 ClientKeyExchangeStep z:\tlstest2\scripts\tlstest2.ini rsa-aes128-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini rsa-aes128-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 ServerFinishedStep z:\tlstest2\scripts\tlstest2.ini rsa-aes128-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini rsa-aes128-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 DecryptStep z:\tlstest2\scripts\tlstest2.ini rsa-aes128-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 KeyDerivationStep z:\tlstest2\scripts\tlstest2.ini rsa-aes128-sha-tls-1
+// SSLv3 Steps
+RUN_TEST_STEP 20 tlstest2 VerifySignature z:\tlstest2\scripts\tlstest2.ini rsa-aes128-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 ClientKeyExchangeStep z:\tlstest2\scripts\tlstest2.ini rsa-aes128-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini rsa-aes128-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 ServerFinishedStep z:\tlstest2\scripts\tlstest2.ini rsa-aes128-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini rsa-aes128-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 DecryptStep z:\tlstest2\scripts\tlstest2.ini rsa-aes128-sha-ssl-1
+END_TESTCASE SEC-TLSP-TEST2-CIPHER-0009
+
+//! @SYMTestCaseID 	SEC-TLSP-TEST2-CIPHER-0010
+//! @SYMTestCaseDesc 	Runs the cipher (0, 53) RSA-AES256-SHA1 through the standard battery of tests
+//!			(RSA-AES256-SHA1)
+//! @SYMTestPriority 	Critical
+//! @SYMTestActions 	Tests every method of the TLS Provider API
+//! @SYMTestExpectedResults All steps should suceed
+//! @SYMDevelopedForRelease Argus
+
+START_TESTCASE SEC-TLSP-TEST2-CIPHER-0010
+// TLSv1 Steps
+RUN_TEST_STEP 20 tlstest2 VerifySignature z:\tlstest2\scripts\tlstest2.ini rsa-aes256-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 ClientKeyExchangeStep z:\tlstest2\scripts\tlstest2.ini rsa-aes256-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini rsa-aes256-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 ServerFinishedStep z:\tlstest2\scripts\tlstest2.ini rsa-aes256-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini rsa-aes256-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 DecryptStep z:\tlstest2\scripts\tlstest2.ini rsa-aes256-sha-tls-1
+RUN_TEST_STEP 20 tlstest2 KeyDerivationStep z:\tlstest2\scripts\tlstest2.ini rsa-aes256-sha-tls-1
+// SSLv3 Steps
+RUN_TEST_STEP 20 tlstest2 VerifySignature z:\tlstest2\scripts\tlstest2.ini rsa-aes256-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 ClientKeyExchangeStep z:\tlstest2\scripts\tlstest2.ini rsa-aes256-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini rsa-aes256-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 ServerFinishedStep z:\tlstest2\scripts\tlstest2.ini rsa-aes256-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini rsa-aes256-sha-ssl-1
+RUN_TEST_STEP 20 tlstest2 DecryptStep z:\tlstest2\scripts\tlstest2.ini rsa-aes256-sha-ssl-1
+END_TESTCASE SEC-TLSP-TEST2-CIPHER-0010
+
+//! @SYMTestCaseID 	SEC-TLSP-TEST2-CERT-0005
+//! @SYMTestCaseDesc 	Tries to build client certificate chain for requested DN
+//!			(CLIENTCERT)
+//! @SYMTestPriority 	Medium
+//! @SYMTestActions 	Tests ClientCertificate method of the TLS Provider API
+//! @SYMTestExpectedResults The first step should succeed, the second one should fail, third should pass
+//! @SYMDevelopedForRelease Argus
+
+START_TESTCASE SEC-TLSP-TEST2-CERT-0005
+RUN_TEST_STEP 20 tlstest2 ClientCertificateStep z:\tlstest2\scripts\tlstest2.ini tls-rsa-chain
+RUN_TEST_STEP 20 tlstest2 ClientCertificateStep z:\tlstest2\scripts\tlstest2.ini tls-rsa-chain-missing
+RUN_TEST_STEP 20 tlstest2 ClientCertificateStep z:\tlstest2\scripts\tlstest2.ini tls-rsa-chain-serverdn-missing
+END_TESTCASE SEC-TLSP-TEST2-CERT-0005
+
+//! @SYMTestCaseID 	SEC-TLSP-TEST2-0001
+//! @SYMTestCaseDesc 	Tests the GetSession and Cancellation API's
+//! @SYMTestPriority 	High
+//! @SYMTestActions 	Tests method of the TLS Provider API
+//! @SYMTestExpectedResults All steps should suceed
+//! @SYMDevelopedForRelease Naiad
+
+START_TESTCASE SEC-TLSP-TEST2-0001
+RUN_TEST_STEP 100 tlstest2 VerifyGetSessionStep z:\tlstest2\scripts\tlstest2.ini rsa-aes256-sha-ssl-1
+RUN_TEST_STEP 100 tlstest2 VerifyGetSessionStep z:\tlstest2\scripts\tlstest2.ini rsa-aes256-sha-tls-1
+RUN_TEST_STEP 100 tlstest2 VerifyGetSessionStep z:\tlstest2\scripts\tlstest2.ini rsa-aes128-sha-ssl-1
+RUN_TEST_STEP 100 tlstest2 VerifyGetSessionStep z:\tlstest2\scripts\tlstest2.ini rsa-aes128-sha-tls-1
+
+RUN_TEST_STEP 100 tlstest2 VerifyCancellationStep z:\tlstest2\scripts\tlstest2.ini rsa-aes256-sha-ssl-1
+RUN_TEST_STEP 100 tlstest2 VerifyCancellationStep z:\tlstest2\scripts\tlstest2.ini rsa-aes256-sha-tls-1
+RUN_TEST_STEP 100 tlstest2 VerifyCancellationStep z:\tlstest2\scripts\tlstest2.ini rsa-aes128-sha-ssl-1
+RUN_TEST_STEP 100 tlstest2 VerifyCancellationStep z:\tlstest2\scripts\tlstest2.ini rsa-aes128-sha-tls-1
+
+RUN_TEST_STEP 100 tlstest2 CreateMethodStep z:\tlstest2\scripts\tlstest2.ini rsa-aes256-sha-tls-1
+RUN_TEST_STEP 100 tlstest2 CreateMethodStep z:\tlstest2\scripts\tlstest2.ini rsa-aes256-sha-tls-1
+RUN_TEST_STEP 100 tlstest2 CreateMethodStep z:\tlstest2\scripts\tlstest2.ini rsa-aes128-sha-ssl-1
+RUN_TEST_STEP 100 tlstest2 CreateMethodStep z:\tlstest2\scripts\tlstest2.ini rsa-aes128-sha-tls-1
+END_TESTCASE SEC-TLSP-TEST2-0001 
+
+//! @SYMTestCaseID 	SEC-TLSP-TEST2-CIPHER-0011
+//! @SYMTestCaseDesc 	basic test for new null cipher suites added
+//!			(NULL_CIPHER_DEFECT)
+//! @SYMTestPriority 	High
+//! @SYMTestActions 	Tests method of the TLS Provider API
+//! @SYMTestExpectedResults All steps should succeed
+
+START_TESTCASE SEC-TLSP-TEST2-CIPHER-0011
+RUN_TEST_STEP 20 tlstest2 ClientKeyExchangeStep z:\tlstest2\scripts\tlstest2.ini RSA_WITH_NULL_MD5
+RUN_TEST_STEP 20 tlstest2 ClientKeyExchangeStep z:\tlstest2\scripts\tlstest2.ini RSA_WITH_NULL_SHA
+RUN_TEST_STEP 20 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini RSA_WITH_NULL_MD5
+RUN_TEST_STEP 20 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini RSA_WITH_NULL_SHA
+RUN_TEST_STEP 20 tlstest2 DecryptStep z:\tlstest2\scripts\tlstest2.ini RSA_WITH_NULL_MD5
+RUN_TEST_STEP 20 tlstest2 DecryptStep z:\tlstest2\scripts\tlstest2.ini RSA_WITH_NULL_SHA
+RUN_TEST_STEP 20 tlstest2 ServerFinishedStep z:\tlstest2\scripts\tlstest2.ini RSA_WITH_NULL_MD5
+RUN_TEST_STEP 20 tlstest2 ServerFinishedStep z:\tlstest2\scripts\tlstest2.ini RSA_WITH_NULL_SHA
+RUN_TEST_STEP 20 tlstest2 KeyDerivationStep z:\tlstest2\scripts\tlstest2.ini RSA_WITH_NULL_MD5
+RUN_TEST_STEP 20 tlstest2 KeyDerivationStep z:\tlstest2\scripts\tlstest2.ini RSA_WITH_NULL_SHA
+END_TESTCASE SEC-TLSP-TEST2-CIPHER-0011
+
+
+
+//! @SYMTestCaseID 	SEC-TLSP-PSK-B001
+//! @SYMTestCaseDesc 	Usage of EncryptL method with PSK sets.
+//!			(Encrypt)
+//! @SYMScriptPurpose  	To ensure that the CTLSSession::EncryptL method can work 
+//!		       	correctly when  using PSKs
+//!		
+//! @SYMPREQ 		PREQ1294
+//! @SYMREQ  		REQ8632 REQ8637 REQ8638 REQ8639
+//! @SYMTestPriority 	Critical
+//! @SYMTestStatus   	Implemented
+//! @SYMTestActions 	Preconditions:
+//!	•  CTLSProvider had been set into the correct state before invoking method to be tested.   
+//!	Test Actions:
+//!     •  Repeat process below using the following TLS cipher suits.
+//! 		- TLS_PSK_WITH_AES_128_CBC_SHA 
+//!		- TLS_PSK_WITH_3DES_EDE_CBC_SHA
+//!		- TLS_PSK_WITH_RC4_128_SHA
+//!		- TLS_PSK_WITH_AES_256_CBC_SHA
+//!	•  Use instance of CTLSProvider to create a CTLSSession.
+//!	•  Use CTLSSession::EncryptL to generate an encrypted output buffer within correct 
+//!        initialisation sequence.
+//!	•  Verify the correctness of the output buffer.
+//!
+//! @SYMTestExpectedResults  • No error is produced and encrypted output buffer  
+//!			       conforms to expected format.
+//!
+//! @SYMTestType 	CIT
+
+START_TESTCASE SEC-TLSP-PSK-B001 
+RUN_TEST_STEP 20 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini TLS_PSK_WITH_AES_128_CBC_SHA
+RUN_TEST_STEP 20 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini TLS_PSK_WITH_3DES_EDE_CBC_SHA
+RUN_TEST_STEP 20 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini TLS_PSK_WITH_RC4_128_SHA
+RUN_TEST_STEP 20 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini TLS_PSK_WITH_AES_256_CBC_SHA
+END_TESTCASE SEC-TLSP-PSK-B001 
+
+
+//! @SYMTestCaseID 	SEC-TLSP-PSK-B004
+//! @SYMTestCaseDesc 	Usage of ClientKeyExchange method with PSK sets.
+//!			(ClientKeyExchange)
+//! @SYMScriptPurpose  	To ensure that the CTLSSession::ClientKeyExchange method  can work 
+//!		       	correctly when  using PSKs
+//!		
+//! @SYMPREQ 		PREQ1294
+//! @SYMREQ  		REQ8632 REQ8637 REQ8638 REQ8639
+//! @SYMTestPriority 	Critical
+//! @SYMTestStatus   	Implemented
+//! @SYMTestActions 	Preconditions:
+//!	•  CTLSProvider had been set into the correct state before invoking method to be tested.   
+//!	Test Actions:
+//!     •  Repeat process below using the following TLS cipher suits.
+//! 		- TLS_PSK_WITH_AES_128_CBC_SHA 
+//!		- TLS_PSK_WITH_3DES_EDE_CBC_SHA
+//!		- TLS_PSK_WITH_RC4_128_SHA
+//!		- TLS_PSK_WITH_AES_256_CBC_SHA
+//!	•  Use instance of CTLSProvider to create a CTLSSession.
+//!	•  Use CTLSSession:: ClientKeyExchange to generate a client key exchange message within 
+//!	   correct initialisation sequence.
+//!	•  Verify the correctness of the generated client key exchange message.
+//!
+//! @SYMTestExpectedResults  • No error is produced and client key exchange message 
+//!			       conforms to expected format.
+//!
+//! @SYMTestType 	CIT
+
+START_TESTCASE SEC-TLSP-PSK-B004 
+RUN_TEST_STEP 20 tlstest2 ClientKeyExchangeStep z:\tlstest2\scripts\tlstest2.ini TLS_PSK_WITH_AES_128_CBC_SHA
+RUN_TEST_STEP 20 tlstest2 ClientKeyExchangeStep z:\tlstest2\scripts\tlstest2.ini TLS_PSK_WITH_3DES_EDE_CBC_SHA
+RUN_TEST_STEP 20 tlstest2 ClientKeyExchangeStep z:\tlstest2\scripts\tlstest2.ini TLS_PSK_WITH_RC4_128_SHA
+RUN_TEST_STEP 20 tlstest2 ClientKeyExchangeStep z:\tlstest2\scripts\tlstest2.ini TLS_PSK_WITH_AES_256_CBC_SHA
+END_TESTCASE SEC-TLSP-PSK-B004 
+
+
+//! @SYMTestCaseID 	SEC-TLSP-PSK-B005
+//! @SYMTestCaseDesc 	Usage of ClientFinishedMsgL method with PSK sets.
+//!			(ClientFinished)
+//! @SYMScriptPurpose  	To ensure that the CTLSSession::ClientFinishedMsgL  method  can work 
+//!		       	correctly when  using PSKs
+//!		
+//! @SYMPREQ 		PREQ1294
+//! @SYMREQ  		REQ8632 REQ8637 REQ8638 REQ8639
+//! @SYMTestPriority 	Critical
+//! @SYMTestStatus   	Implemented
+//! @SYMTestActions 	Preconditions:
+//!	•  CTLSProvider had been set into the correct state before invoking method to be tested.   
+//!	Test Actions:
+//!     •  Repeat process below using the following TLS cipher suits.
+//! 		- TLS_PSK_WITH_AES_128_CBC_SHA 
+//!		- TLS_PSK_WITH_3DES_EDE_CBC_SHA
+//!		- TLS_PSK_WITH_RC4_128_SHA
+//!		- TLS_PSK_WITH_AES_256_CBC_SHA
+//!	•  Use instance of CTLSProvider to create a CTLSSession.
+//!	•  Use CTLSSession::ClientFinishedMsgL to generate a client finished message within correct 
+//!        initialisation sequence.
+//!	•  Verify the correctness of the generated client finished message.
+//!
+//! @SYMTestExpectedResults  • No error is produced and client finished message 
+//!			       conforms to expected format.
+//!
+//! @SYMTestType 	CIT
+
+START_TESTCASE SEC-TLSP-PSK-B005 
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini TLS_PSK_WITH_AES_128_CBC_SHA
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini TLS_PSK_WITH_3DES_EDE_CBC_SHA
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini TLS_PSK_WITH_RC4_128_SHA
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini TLS_PSK_WITH_AES_256_CBC_SHA
+END_TESTCASE SEC-TLSP-PSK-B005 
+
+
+//! @SYMTestCaseID 	SEC-TLSP-PSK-B006
+//! @SYMTestCaseDesc 	Usage of VerifyServerFinishedMsgL method with PSK sets.
+//!			(ServerFinished)
+//! @SYMScriptPurpose  	To ensure that the CTLSSession::VerifyServerFinishedMsgL   method  can work 
+//!		       	correctly when  using PSKs
+//!		
+//! @SYMPREQ 		PREQ1294
+//! @SYMREQ  		REQ8632 REQ8637 REQ8638 REQ8639
+//! @SYMTestPriority 	Critical
+//! @SYMTestStatus   	Implemented
+//! @SYMTestActions 	Preconditions:
+//!	•  CTLSProvider had been set into the correct state before invoking method to be tested.   
+//!	Test Actions:
+//!     •  Repeat process below using the following TLS cipher suits.
+//! 		- TLS_PSK_WITH_AES_128_CBC_SHA 
+//!		- TLS_PSK_WITH_3DES_EDE_CBC_SHA
+//!		- TLS_PSK_WITH_RC4_128_SHA
+//!		- TLS_PSK_WITH_AES_256_CBC_SHA
+//!	•  Use instance of CTLSProvider to create a CTLSSession.
+//!	•  Use CTLSSession::VerifyServerFinishedMsgL to generate a server finished message within correct 
+//!        initialisation sequence.
+//!	•  Verify the correctness of the generated VerifyServerFinishedMsgL finished message.
+//!
+//! @SYMTestExpectedResults  • No error is produced and server finished message 
+//!			       conforms to expected format.
+//!
+//! @SYMTestType 	CIT
+
+START_TESTCASE SEC-TLSP-PSK-B006 
+RUN_TEST_STEP 20 tlstest2 ServerFinishedStep z:\tlstest2\scripts\tlstest2.ini TLS_PSK_WITH_AES_128_CBC_SHA
+RUN_TEST_STEP 20 tlstest2 ServerFinishedStep z:\tlstest2\scripts\tlstest2.ini TLS_PSK_WITH_3DES_EDE_CBC_SHA
+RUN_TEST_STEP 20 tlstest2 ServerFinishedStep z:\tlstest2\scripts\tlstest2.ini TLS_PSK_WITH_RC4_128_SHA
+RUN_TEST_STEP 20 tlstest2 ServerFinishedStep z:\tlstest2\scripts\tlstest2.ini TLS_PSK_WITH_AES_256_CBC_SHA
+END_TESTCASE SEC-TLSP-PSK-B006 
+
+
+//! @SYMTestCaseID 	SEC-TLSP-PSK-B007
+//! @SYMTestCaseDesc 	Usage of DecryptAndVerifyL method with PSK sets.
+//!			(DecriptAndVerify)
+//! @SYMScriptPurpose  	To ensure that the CTLSSession::DecryptAndVerifyL method can work 
+//!		      	 correctly when  using PSKs
+//!		
+//! @SYMPREQ		 PREQ1294
+//! @SYMREQ  		REQ8632 REQ8637 REQ8638 REQ8639
+//! @SYMTestPriority 	Critical
+//! @SYMTestStatus  	Implemented
+//! @SYMTestActions 	Preconditions:
+//!	•  CTLSProvider had been set into the correct state before invoking method to be tested.   
+//!	Test Actions:
+//!     •  Repeat process below using the following TLS cipher suits.
+//! 		- TLS_PSK_WITH_AES_128_CBC_SHA 
+//!		- TLS_PSK_WITH_3DES_EDE_CBC_SHA
+//!		- TLS_PSK_WITH_RC4_128_SHA
+//!		- TLS_PSK_WITH_AES_256_CBC_SHA
+//!	•  Use instance of CTLSProvider to create a CTLSSession.
+//!	•  Use CTLSSession::DecryptAndVerifyL to generate a decrypted message data within correct 
+//!        initialisation sequence.
+//!	•  Verify the correctness of decrypted message data.
+//!
+//! @SYMTestExpectedResults  • No error is produced and decrypted message data 
+//!			       conforms to expected format.
+//!
+//! @SYMTestType 	CIT
+
+START_TESTCASE SEC-TLSP-PSK-B007 
+RUN_TEST_STEP 20 tlstest2 DecryptStep z:\tlstest2\scripts\tlstest2.ini TLS_PSK_WITH_AES_128_CBC_SHA
+RUN_TEST_STEP 20 tlstest2 DecryptStep z:\tlstest2\scripts\tlstest2.ini TLS_PSK_WITH_3DES_EDE_CBC_SHA
+RUN_TEST_STEP 20 tlstest2 DecryptStep z:\tlstest2\scripts\tlstest2.ini TLS_PSK_WITH_RC4_128_SHA
+RUN_TEST_STEP 20 tlstest2 DecryptStep z:\tlstest2\scripts\tlstest2.ini TLS_PSK_WITH_AES_256_CBC_SHA
+END_TESTCASE SEC-TLSP-PSK-B007 
+
+
+
+//! @SYMTestCaseID 	SEC-TLSP-PSK-B008
+//! @SYMTestCaseDesc 	Usage of KeyDerivation method with PSK sets.
+//!			(KeyDerivation)
+//! @SYMScriptPurpose  	To ensure that the CTLSSession::KeyDerivation method can work 
+//!		       	correctly when  using PSKs
+//!		
+//! @SYMPREQ 		PREQ1294
+//! @SYMREQ  		REQ8632 REQ8637 REQ8638 REQ8639
+//! @SYMTestPriority 	Critical
+//! @SYMTestStatus   	Implemented
+//! @SYMTestActions 	Preconditions:
+//!	•  CTLSProvider had been set into the correct state before invoking method to be tested.   
+//!	Test Actions:
+//!     •  Repeat process below using the following TLS cipher suits.
+//! 		- TLS_PSK_WITH_AES_128_CBC_SHA 
+//!		- TLS_PSK_WITH_3DES_EDE_CBC_SHA
+//!		- TLS_PSK_WITH_RC4_128_SHA
+//!		- TLS_PSK_WITH_AES_256_CBC_SHA
+//!	•  Use instance of CTLSProvider to create a CTLSSession.
+//!	•  Use CTLSSession::KeyDerivation to generate an EAP string derived from master key within correct 
+//!        initialisation sequence.
+//!	•  Verify the correctness of the generated EAP string
+//!
+//! @SYMTestExpectedResults  • No error is produced and EAP string conforms to expected format
+//!			       
+//!
+//! @SYMTestType 	CIT
+
+START_TESTCASE SEC-TLSP-PSK-B008 
+RUN_TEST_STEP 20 tlstest2 KeyDerivationStep z:\tlstest2\scripts\tlstest2.ini TLS_PSK_WITH_AES_128_CBC_SHA
+RUN_TEST_STEP 20 tlstest2 KeyDerivationStep z:\tlstest2\scripts\tlstest2.ini TLS_PSK_WITH_3DES_EDE_CBC_SHA
+RUN_TEST_STEP 20 tlstest2 KeyDerivationStep z:\tlstest2\scripts\tlstest2.ini TLS_PSK_WITH_RC4_128_SHA
+RUN_TEST_STEP 20 tlstest2 KeyDerivationStep z:\tlstest2\scripts\tlstest2.ini TLS_PSK_WITH_AES_256_CBC_SHA
+END_TESTCASE SEC-TLSP-PSK-B008 
+
+
+//! @SYMTestCaseID 	SEC-TLSP-PSK-C001
+//! @SYMTestCaseDesc 	Usage of VerifyServerCertificate method with invalid certificate entry
+//!			(corrupted_server_cert)
+//! @SYMScriptPurpose  	Test that CTLSSession::VerifyServerCertificate method returns 
+//!		       	appropriate error code when used with corrupted server certificate.
+//!		
+//! @SYMPREQ 		PREQ1294
+//! @SYMREQ  		REQ0
+//! @SYMTestPriority 	Critical
+//! @SYMTestStatus   	Implemented
+//! @SYMTestActions 	Preconditions:
+//!	•  CTLSProvider had been set into the correct state before invoking method to be tested.   
+//!	Test Actions:
+//!     •  Use CTLSSession::VerifyServerCertificate using a corrupted server certificate within correct 
+//!
+//! @SYMTestExpectedResults  •	Use CTLSSession::VerifyServerCertificate using a corrupted server 
+//!                             certificate within correct initialisation sequence.
+//!			       
+//! @SYMTestType 	CIT
+
+START_TESTCASE SEC-TLSP-PSK-C001 
+RUN_TEST_STEP 20 tlstest2 VerifyServerCertStep z:\tlstest2\scripts\tlstest2.ini corrupted_cert
+RUN_TEST_STEP 20 tlstest2 VerifyServerCertStep z:\tlstest2\scripts\tlstest2.ini corrupted_cert1
+RUN_TEST_STEP 20 tlstest2 VerifyServerCertStep z:\tlstest2\scripts\tlstest2.ini corrupted_cert2
+END_TESTCASE SEC-TLSP-PSK-C001 
+
+
+//! @SYMTestCaseID 	SEC-TLSP-PSK-C002
+//! @SYMTestCaseDesc 	PSK identity length 
+//!			(identity_length)
+//! @SYMScriptPurpose  	To check that Symbian implementation complies with minimum requirements 
+//!                    	for PSK identities lengths as specified in RFC4279 (128 bytes) 
+//!		
+//! @SYMPREQ 		PREQ1294
+//! @SYMREQ  		REQ0
+//! @SYMTestPriority 	Critical
+//! @SYMTestStatus   	Implemented
+//! @SYMTestActions 	Preconditions:
+//!	•  CTLSProvider had been set into the correct state before invoking method to be tested.  
+//!	Test Actions:
+//!     • Repeat test with identity lengths of 0, 1, 128 and 129 bytes.
+//!     • Use instance of CTLSProvider to create a CTLSSession. 
+//!     • Invoke CTLSSession::ClientFinishedMsgL having previously set PSK identity with length 
+//!       required by test
+//!	
+//!
+//! @SYMTestExpectedResults  • No error code is returned, method CTLSSession::ClientFinishedMsgL 
+//!                            behave as normal.
+//!			       
+//! @SYMTestType 	CIT
+
+START_TESTCASE SEC-TLSP-PSK-C002 
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini length_128
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini length_129
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini length_1
+RUN_TEST_STEP 20 tlstest2 ClientFinishedStep z:\tlstest2\scripts\tlstest2.ini length_0
+END_TESTCASE SEC-TLSP-PSK-C002 
+
+
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini encrypt_fail
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini encrypt_RC4
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini encrypt_Des40
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini encrypt_Des
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini encrypt_3Des
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini encrypt_Aes128
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini encrypt_Aes256
+
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini encryptSSL_RC4
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini encryptSSL_Des40
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini encryptSSL_Des
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini encryptSSL_3Des
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini encryptSSL_Aes128
+RUN_TEST_STEP 10 tlstest2 EncryptStep z:\tlstest2\scripts\tlstest2.ini encryptSSL_Aes256
+
+//! @SYMTestCaseID TLSTEST-1-EXTENDEDKEYUSAGE
+//! @SYMTestCaseDesc 	Tests the end-entity certificate based on the EKU field.
+//! @SYMTestPriority Critical
+//! @SYMTestActions Verifies the Server certificate through TLS provider.
+//! @SYMTestExpectedResults All steps should suceed
+
+START_TESTCASE TLSTEST-1-EXTENDEDKEYUSAGE
+
+RUN_TEST_STEP 	20 tlstest2 VerifyServerCertStep z:\tlstest2\scripts\tlstest2.ini tls_eku_success_1
+RUN_TEST_STEP 	20 tlstest2 VerifyServerCertStep z:\tlstest2\scripts\tlstest2.ini tls_eku_success_2
+RUN_TEST_STEP 	20 tlstest2 VerifyServerCertStep z:\tlstest2\scripts\tlstest2.ini tls_eku_failure_1
+
+//! @SYMTestCaseID 	SEC-TLSP-PSK-D004
+//! @SYMTestCaseDesc 	OOM test for KeyDerivation method with PSKs
+//!			(OOM_KEY_DERIVATION)
+//! @SYMScriptPurpose  	To check that invocation of KeyDerivation method in OOM conditions 
+//!                    	using PSK does not cause memory leaks.
+//!		
+//! @SYMPREQ 		PREQ1294
+//! @SYMREQ  		REQ0
+//! @SYMTestPriority 	Critical
+//! @SYMTestStatus   	Implemented
+//! @SYMTestActions 	
+//!     • Repeat test SEC-TLS-PSK-B008 in out of memory conditions
+
+//!
+//! @SYMTestExpectedResults  • Usage of  KeyDerivation method in OOM conditions does not cause 
+//!                           memory leaks, any other method need to build-up test sequence does 
+//!                           not leak memory. 
+//!			       
+//! @SYMTestType 	CIT
+
+START_TESTCASE SEC-TLSP-PSK-D004 
+RUN_TEST_STEP 1500 tlstest2 NewKeyDerivationStep z:\tlstest2\scripts\tlstest2.ini OOM_TLS_PSK_WITH_3DES_EDE_CBC_SHA
+RUN_TEST_STEP 1500 tlstest2 NewKeyDerivationStep z:\tlstest2\scripts\tlstest2.ini OOM_TLS_PSK_WITH_RC4_128_SHA
+RUN_TEST_STEP 1500 tlstest2 NewKeyDerivationStep z:\tlstest2\scripts\tlstest2.ini OOM_TLS_PSK_WITH_AES_256_CBC_SHA
+END_TESTCASE SEC-TLSP-PSK-D004 
+
+
+//! @SYMTestCaseID TLSTEST-2-COVERAGE-INCREASE
+//! @SYMTestCaseDesc Collection of test cases to increase test code coverage
+//! @SYMTestPriority High
+
+START_TESTCASE TLSTEST_2_COVERAGE_INCREASE
+RUN_TEST_STEP 	20 tlstest2 CachedServCertStep z:\tlstest2\scripts\tlstest2.ini rsa-rc4-md5-tls-1
+RUN_TEST_STEP 	20 tlstest2 NegativeGetSessionStep z:\tlstest2\scripts\tlstest2.ini rsa-aes256-sha-tls-1
+RUN_TEST_STEP  350 tlstest2 DelayedGetSessionStep z:\tlstest2\scripts\tlstest2.ini get_session_with_delay
+RUN_TEST_STEP 	20 tlstest2 MultiCancelStep z:\tlstest2\scripts\tlstest2.ini rsa-aes128-sha-ssl-1 
+RUN_TEST_STEP 	20 tlstest2 MultiCancelStep z:\tlstest2\scripts\tlstest2.ini rsa-rc4-md5-tls-1
+RUN_TEST_STEP   20 tlstest2 NegativeCreatedStep 
+RUN_TEST_STEP 	20 tlstest2 ServCertWithDialogStep z:\tlstest2\scripts\tlstest2.ini validate_with_dialog_yes_option
+RUN_TEST_STEP   20 tlstest2 ServCertWithDialogStep z:\tlstest2\scripts\tlstest2.ini validate_with_dialog_no_option
+END_TESTCASE TLSTEST_2_COVERAGE_INCREASE
+
+// Test synchronous certificate approval/disapproval
+// (Single socket reconnect, or multiple sockets serially talking to the same server)
+
+START_TESTCASE SYNC_CERT_STATUS_UPDATE
+// just create a new entry, approve it and check it is approved
+
+RUN_TEST_STEP 100 tlstest2 UpdateEntry z:\tlstest2\scripts\tlstest2.ini ApproveCertOne
+RUN_TEST_STEP 100 tlstest2 EntryStatus z:\tlstest2\scripts\tlstest2.ini CertOneExistsApproved
+
+// Now slightly more complex, create two new entries approve one, deny the other and check all three.
+RUN_TEST_STEP 100 tlstest2 UpdateEntry z:\tlstest2\scripts\tlstest2.ini ApproveCertThree
+RUN_TEST_STEP 100 tlstest2 UpdateEntry z:\tlstest2\scripts\tlstest2.ini DenyCertTwo
+
+RUN_TEST_STEP 100 tlstest2 EntryStatus z:\tlstest2\scripts\tlstest2.ini CertOneExistsApproved
+RUN_TEST_STEP 100 tlstest2 EntryStatus z:\tlstest2\scripts\tlstest2.ini CertTwoExistsDenied
+RUN_TEST_STEP 100 tlstest2 EntryStatus z:\tlstest2\scripts\tlstest2.ini CertThreeExistsApproved
+
+// Pause 120 seconds while all the cache entries expire.
+DELAY 120000
+
+// Check that the entries are considered new.
+RUN_TEST_STEP 10 tlstest2 EntryStatus z:\tlstest2\scripts\tlstest2.ini CertOneNewEntry
+RUN_TEST_STEP 10 tlstest2 EntryStatus z:\tlstest2\scripts\tlstest2.ini CertTwoNewEntry
+RUN_TEST_STEP 10 tlstest2 EntryStatus z:\tlstest2\scripts\tlstest2.ini CertThreeNewEntry
+
+// Check again to prove that the entries are still considered new (for INC081226.)
+RUN_TEST_STEP 10 tlstest2 EntryStatus z:\tlstest2\scripts\tlstest2.ini CertOneNewEntry
+RUN_TEST_STEP 10 tlstest2 EntryStatus z:\tlstest2\scripts\tlstest2.ini CertTwoNewEntry
+RUN_TEST_STEP 10 tlstest2 EntryStatus z:\tlstest2\scripts\tlstest2.ini CertThreeNewEntry
+
+END_TESTCASE SYNC_CERT_STATUS_UPDATE
+
+// Now, test if we do the right thing if the user takes a very long time to respond
+
+START_TESTCASE SYNC_CERT_STATUS_DELAYED_RESPONSE
+// positive test
+RUN_TEST_STEP 160 tlstest2 UpdateEntry z:\tlstest2\scripts\tlstest2.ini ApproveCertOneSlowly
+RUN_TEST_STEP 10 tlstest2 EntryStatus z:\tlstest2\scripts\tlstest2.ini CertOneExistsApproved
+// negative test
+RUN_TEST_STEP 160 tlstest2 UpdateEntry z:\tlstest2\scripts\tlstest2.ini DenyCertTwoSlowly
+RUN_TEST_STEP 10 tlstest2 EntryStatus z:\tlstest2\scripts\tlstest2.ini CertTwoExistsDenied
+END_TESTCASE SYNC_CERT_STATUS_DELAYED_RESPONSE
+
+RUN_UTILS MakeReadWrite c:\private\101f72a6\CACerts.dat 
+RUN_UTILS DeleteFile c:\private\101f72a6\CACerts.dat 
+RUN_UTILS MakeReadWrite c:\private\101f72a6\certclients.dat
+RUN_UTILS DeleteFile c:\private\101f72a6\certclients.dat
+RUN_UTILS MakeReadWrite c:\private\101f72a6\keys.dat
+RUN_UTILS DeleteFile c:\private\101f72a6\keys.dat

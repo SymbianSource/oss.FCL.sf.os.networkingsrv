@@ -1,0 +1,183 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//! @file 
+//! @brief Run PPP server mode (a.k.a. pppd) tests.
+//!
+//! This script file runs the Incoming PPP tests to verify pppd operation using loopback CSY.
+//! This test runs using the TestExecute framework using the following test list entry:
+//!  TESTEXECUTE,logs\\testexecute\\te_ppploopback.htm
+
+PRINT Running Incoming PPP tests.
+LOAD_SUITE te_ppploopbacksvr 
+
+PRINT Saving existing ppp.ini and pppd.ini files:
+
+RUN_UTILS MakeReadWrite C:\System\data\ppp.ini
+RUN_UTILS MakeReadWrite C:\system\data\te_incoming_ppp_ppp.ini
+RUN_UTILS CopyFile  C:\System\data\ppp.ini C:\system\data\te_incoming_ppp_ppp.ini 
+
+RUN_UTILS MakeReadWrite C:\System\data\pppd.ini
+RUN_UTILS MakeReadWrite C:\system\data\te_incoming_ppp_pppd.ini
+RUN_UTILS CopyFile  C:\System\data\pppd.ini C:\system\data\te_incoming_ppp_pppd.ini 
+
+
+// Configure CommDB 
+run_script z:\TestData\scripts\te_esock_test_unloadesockForced.script
+CED -i z:\testdata\configs\te_incoming_ppp_scr.cfg
+run_script z:\TestData\scripts\te_esock_test_loadesock.script
+
+
+START_TESTCASE			NET-PPP-0501
+//! @SYMTestCaseID		NET-PPP-0501
+//! @SymTestCaseDesc 			Server initializes connection to the client immediately on startup.
+//! @SymFssId					CDMA/Networking/GATEWAY/NetworkLayer/PPPd
+//! @SymTestStatus 			Implemented
+//! @SymTestActions 			See SGL.GT0161.303 Incoming PPP Test Specification document.
+//! @SymTestExpectedResults 	See SGL.GT0161.303 Incoming PPP Test Specification document.
+RUN_TEST_STEP 200 te_ppploopbacksvr CSingleConnStep  z:\testdata\configs\te_incoming_ppp.ini ServerInit
+END_TESTCASE			NET-PPP-0501
+
+
+START_TESTCASE			NET-PPP-0502
+//! @SYMTestCaseID		NET-PPP-0502
+//! @SymTestCaseDesc 		 	Both the client and server attempt to initialize connection simultaneously.
+//! @SymFssId					CDMA/Networking/GATEWAY/NetworkLayer/PPPd
+//! @SymTestStatus 			Implemented
+//! @SymTestActions 			See SGL.GT0161.303 Incoming PPP Test Specification document.
+//! @SymTestExpectedResults 	See SGL.GT0161.303 Incoming PPP Test Specification document.
+RUN_TEST_STEP 200 te_ppploopbacksvr CSingleConnStep z:\testdata\configs\te_incoming_ppp.ini SimInit
+END_TESTCASE			NET-PPP-0502
+		
+
+START_TESTCASE			NET-PPP-0503
+//! @SYMTestCaseID		NET-PPP-0503
+//! @SymTestCaseDesc 		 	Client is launched after server, and opens the connection.
+//! @SymFssId					CDMA/Networking/GATEWAY/NetworkLayer/PPPd
+//! @SymTestStatus 			Implemented
+//! @SymTestActions 			See SGL.GT0161.303 Incoming PPP Test Specification document.
+//! @SymTestExpectedResults 	See SGL.GT0161.303 Incoming PPP Test Specification document.
+RUN_TEST_STEP 200 te_ppploopbacksvr CSingleConnStep  z:\testdata\configs\te_incoming_ppp.ini ClientInit
+END_TESTCASE			NET-PPP-0503
+
+
+START_TESTCASE			NET-PPP-0504
+//! @SYMTestCaseID		NET-PPP-0504
+//! @SymTestCaseDesc 		 	Pppd survives client closing the connection. 
+//! @SymFssId					CDMA/Networking/GATEWAY/NetworkLayer/PPPd
+//! @SymTestStatus 			Implemented
+//! @SymTestActions 			See SGL.GT0161.303 Incoming PPP Test Specification document.
+//! @SymTestExpectedResults 	See SGL.GT0161.303 Incoming PPP Test Specification document.
+RUN_TEST_STEP 200 te_ppploopbacksvr CConnOpenCloseStep  z:\testdata\configs\te_incoming_ppp.ini ConnOpenClose
+END_TESTCASE			NET-PPP-0504
+
+
+
+START_TESTCASE			NET-PPP-0505
+//! @SYMTestCaseID		NET-PPP-0505
+//! @SymTestCaseDesc 		 	Pppd survives client resets. Connection is reset by client. Pppd lives.
+//! @SymFssId					CDMA/Networking/GATEWAY/NetworkLayer/PPPd
+//! @SymTestStatus 			Implemented
+//! @SymTestActions 			See SGL.GT0161.303 Incoming PPP Test Specification document.
+//! @SymTestExpectedResults 	See SGL.GT0161.303 Incoming PPP Test Specification document.
+RUN_TEST_STEP 200 te_ppploopbacksvr CIdleServerStep  z:\testdata\configs\te_incoming_ppp.ini IdleServer
+END_TESTCASE			NET-PPP-0505
+ 
+START_TESTCASE			NET-PPP-0506
+//! @SYMTestCaseID		NET-PPP-0506
+//! @SymTestCaseDesc 			Server initializes connection to the client immediately on startup.
+//! @SymFssId					CDMA/Networking/GATEWAY/NetworkLayer/PPPd
+//! @SymTestStatus 			Implemented
+//! @SymTestActions 			See SGL.GT0161.303 Incoming PPP Test Specification document.
+//! @SymTestExpectedResults 	See SGL.GT0161.303 Incoming PPP Test Specification document.
+RUN_TEST_STEP 200 te_ppploopbacksvr CSingleConnStep  z:\testdata\configs\te_incoming_ppp.ini LoginScript
+END_TESTCASE			NET-PPP-0506
+
+START_TESTCASE			NET-PPP-0507
+//! @SYMTestCaseID		NET-PPP-0507
+//! @SymTestCaseDesc 			Server initializes connection to the client immediately on startup.
+//! @SymFssId					CDMA/Networking/GATEWAY/NetworkLayer/PPPd
+//! @SymTestStatus 			Implemented
+//! @SymTestActions 			See SGL.GT0161.303 Incoming PPP Test Specification document.
+//! @SymTestExpectedResults 	See SGL.GT0161.303 Incoming PPP Test Specification document.
+//! @SymTestExpectedResults 	Connection is established, data is exchanged (sent == received), IP addresses are checked, connection is closed: No errors.
+RUN_TEST_STEP 200 te_ppploopbacksvr  CIdleServerStep  z:\testdata\configs\te_incoming_ppp.ini IdleServerLoginScript
+END_TESTCASE			NET-PPP-0507
+
+
+
+START_TESTCASE			NET-PPP-0508
+//! @SYMTestCaseID		NET-PPP-0508
+//! @SymTestCaseDesc 			Stress testing: Server initializes connection to the client immediately on startup.
+//! @SymFssId					CDMA/Networking/GATEWAY/NetworkLayer/PPPd
+//! @SymTestStatus 			Implemented
+//! @SymTestActions 			See SGL.GT0161.303 Incoming PPP Test Specification document.
+//! @SymTestExpectedResults 	See SGL.GT0161.303 Incoming PPP Test Specification document.
+RUN_TEST_STEP 1000 te_ppploopbacksvr CPppStressTestStep  z:\testdata\configs\te_incoming_ppp.ini StressServerInit
+END_TESTCASE			NET-PPP-0508
+
+
+START_TESTCASE			NET-PPP-0509
+//! @SYMTestCaseID		NET-PPP-0509
+//! @SymTestCaseDesc 		 	Both the client and server attempt to initialize connection simultaneously.
+//! @SymFssId					CDMA/Networking/GATEWAY/NetworkLayer/PPPd
+//! @SymTestStatus 			Implemented
+//! @SymTestActions 			See SGL.GT0161.303 Incoming PPP Test Specification document.
+//! @SymTestExpectedResults 	See SGL.GT0161.303 Incoming PPP Test Specification document.
+RUN_TEST_STEP 1000 te_ppploopbacksvr CPppStressTestStep z:\testdata\configs\te_incoming_ppp.ini StressSimInit
+END_TESTCASE			NET-PPP-0509
+
+
+
+START_TESTCASE			NET-PPP-0510
+//! @SYMTestCaseID		NET-PPP-0510
+//! @SymTestCaseDesc 			Stress testing: Client initializes connection to the client immediately on startup.
+//! @SymFssId					CDMA/Networking/GATEWAY/NetworkLayer/PPPd
+//! @SymTestStatus 			Implemented
+//! @SymTestActions 			See SGL.GT0161.303 Incoming PPP Test Specification document.
+//! @SymTestExpectedResults 	See SGL.GT0161.303 Incoming PPP Test Specification document.
+RUN_TEST_STEP 1000 te_ppploopbacksvr CPppStressTestStep  z:\testdata\configs\te_incoming_ppp.ini StressClientInit
+END_TESTCASE			NET-PPP-0510
+
+
+
+START_TESTCASE			NET-PPP-0511
+//! @SYMTestCaseID		NET-PPP-0511
+//! @SymTestCaseDesc 		 	Pppd survives client resets. Connection is reset by client. Pppd lives.
+//! @SymFssId					CDMA/Networking/GATEWAY/NetworkLayer/PPPd
+//! @SymTestStatus 			Implemented
+//! @SymTestActions 			See SGL.GT0161.303 Incoming PPP Test Specification document.
+//! @SymTestExpectedResults 	See SGL.GT0161.303 Incoming PPP Test Specification document.
+RUN_TEST_STEP 1000 te_ppploopbacksvr CPppStressTestStep  z:\testdata\configs\te_incoming_ppp.ini StressIdleServer
+END_TESTCASE			NET-PPP-0511
+
+
+run_script z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+//
+// Restore ppp.ini and pppd.ini configuration files:
+//
+
+PRINT Restoring orignial ppp.ini and pppd.ini files:
+
+RUN_UTILS DeleteFile C:\System\data\ppp.ini
+RUN_UTILS CopyFile   C:\system\data\te_incoming_ppp_ppp.ini   C:\System\data\ppp.ini
+RUN_UTILS DeleteFile C:\system\data\te_incoming_ppp_ppp.ini
+
+RUN_UTILS DeleteFile C:\System\data\pppd.ini
+RUN_UTILS CopyFile   C:\system\data\te_incoming_ppp_pppd.ini  C:\System\data\pppd.ini
+RUN_UTILS DeleteFile C:\system\data\te_incoming_ppp_pppd.ini
+
+

@@ -1,0 +1,50 @@
+// Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// MMP file to compile only the resource files present in securityconfig component
+// Compilation of resource files present in securityconfig component
+// 
+//
+
+/**
+ @file
+*/
+
+OPTION CW -w off
+
+TARGETTYPE none
+
+SYSTEMINCLUDE /epoc32/include 
+
+
+USERINCLUDE ../config
+SOURCEPATH ../config
+
+START RESOURCE tlscachetimeouts.rss
+TARGETPATH /resource/tlscacheserver
+HEADER
+END
+
+START RESOURCE SWTLSTOKENTYPE.RSS
+TARGETPATH /resource
+HEADER
+LANG sc
+END
+
+#ifdef __SECURE_DATA__
+TARGETPATH /resource/errors
+#else
+TARGETPATH \System\Errors
+#endif
+
+SMPSAFE

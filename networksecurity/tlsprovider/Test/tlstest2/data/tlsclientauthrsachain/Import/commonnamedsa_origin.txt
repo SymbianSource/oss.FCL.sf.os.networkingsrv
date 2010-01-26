@@ -1,0 +1,7 @@
+commonnamedsa.key and commonnamedsa.der were copied form folder:
+
+...\security\tlsprovider\Test\tlstest2\data\commonnamedsa
+
+This certificate was added to the previous version of cacert.dat present in:
+
+...\security\tlsprovider\Test\data\KeyAndCertStore 

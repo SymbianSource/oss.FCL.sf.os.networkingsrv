@@ -1,0 +1,96 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+######################################################################
+#                                                                    #
+#dhcp server(preq 749) tests start		                     #
+#                                                                    #
+######################################################################
+
+//Cap test for the server
+LOAD_SUITE TEFPlatSec
+
+RUN_TEST_STEP 100 TEFPlatSec SetCapabilities c:\CapabilityPolicing.ini NetworkControl_CAP
+LOAD_SUITE DhcpTestServerCap
+
+START_TESTCASE          NET-Dhcp-1601
+//! @SYMTestCaseID      NET-Dhcp-1601
+run_test_step 5 DhcpTestServerCap SetAddressMode z:\TestData\configs\DHCP\dhcptest.ini IPv4
+run_test_step 5 DhcpTestServerCap SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet2
+run_test_step 50 DhcpTestServerCap 2_23	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-1601
+
+//Need to add these comms DB
+ced -i z:\TestData\configs\DHCP\dhcpservertest.cfg
+
+START_TESTCASE          NET-Dhcp-1602
+//! @SYMTestCaseID      NET-Dhcp-1602
+////////////////////////
+// SET IAP TO DYNAMIC //
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet2
+////////////////////////
+END_TESTCASE            NET-Dhcp-1602
+
+START_TESTCASE          NET-Dhcp-1603
+//! @SYMTestCaseID      NET-Dhcp-1603
+run_test_step 50 DhcpTestServer 2_24	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-1603
+
+START_TESTCASE          NET-Dhcp-1604
+//! @SYMTestCaseID      NET-Dhcp-1604
+run_test_step 2000 DhcpTestServer 2_25	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-1604
+
+//OOM test case for server
+
+# Stop all interfaces
+RUN_SCRIPT Z:\TestData\Scripts\te_esock_test_stopallinterfaces.script
+
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+# Configure commdb
+# This config file has explicit settings for IPv4
+
+ced -i z:\TestData\configs\DHCP\dhcpservertest.cfg
+
+load_suite DhcpTestServer
+
+# Load esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+START_TESTCASE          NET-Dhcp-1605
+//! @SYMTestCaseID      NET-Dhcp-1605
+run_test_step 5 DhcpTestServer SetAddressMode z:\TestData\configs\DHCP\dhcptest.ini IPv4
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet2
+run_test_step 1200 DhcpTestServer OOM_2 z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-1605
+
+# Stop all interfaces
+RUN_SCRIPT Z:\TestData\Scripts\te_esock_test_stopallinterfaces.script
+
+# Unload esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+
+
+#######################################################################
+
+
+######################################################################
+#                                                                    #
+# server tests(preq 749) end		                             #
+#                                                                    #
+######################################################################

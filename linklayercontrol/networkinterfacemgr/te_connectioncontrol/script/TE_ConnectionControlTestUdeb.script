@@ -1,0 +1,142 @@
+// Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// Test the Nifman configuration daemon extensions for Mobile IP.
+// This script includes the base tests and tests for inter-PDSN handoff that
+// that are noly expected to succeed in debug builds as the test hook in PPP 
+// to simulate inter-PDSN handoff is only compiled-in 
+// in debug builds.
+// Run the tests that are run in both debug and release.
+// 
+//
+
+//! @file
+RUN_SCRIPT z:\TestData\scripts\TE_ConnectionControlTestBase.script
+
+//!
+//! Additional tests that can only be run in debug.
+//!
+
+//! Standard prefix.
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+//! Load the test suite.
+PRINT Loading Nifman connection control suite...
+LOAD_SUITE TE_ConnectionControl
+CONSECUTIVE
+
+//! Get sim.tsy configured.
+PRINT Copying SIM.TSY configuration file...
+RUN_UTILS MakeReadWrite c:\config.txt
+RUN_UTILS CopyFile  z:\TestData\Configs\TE_ConnectionControlTest.txt c:\config.txt
+
+//! Load the commdb configuration.
+PRINT Loading Commdb configuration...
+CED -i z:\TestData\Configs\TE_ConnectionControlTest.cfg
+
+//! Standard prefix.
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0201
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0201
+//! @SymTestCaseDesc Tests a PPP renegotiation notification (= simulated inter-PDSN handoff). 
+//! Note: This test is expected to succeed only in debug builds as 
+//! the test hook in PPP to simulate inter-PDSN handoff is only compiled-in 
+//! in debug builds.
+//! @SymFssId CDMA/Networking/ConnScheduling/Handover
+//! @SymTestActions Refer to T_NifmanConnectionControl_0024 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults The daemon is notified of the start and end of renegotiation (we get the implementation specific notifications of these events).
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlSimulateInterPDSNHandoff z:\TestData\Configs\TE_ConnectionControlTest.ini RegisterOK
+END_TESTCASE			COMINF-nifman-ConnectionControl-0201
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0202
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0202
+//! @SymTestCaseDesc Tests a PPP renegotiation notification (= simulated inter-PDSN handoff) with the null daemon.
+//! Note: This test is expected to succeed only in debug builds as 
+//! the test hook in PPP to simulate inter-PDSN handoff is only compiled-in 
+//! in debug builds.
+//! @SymFssId CDMA/Networking/ConnScheduling/Handover
+//! @SymTestActions Refer to T_NifmanConnectionControl_0025 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults No leaves/errors.
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlSimulateInterPDSNHandoffNullDaemon z:\TestData\Configs\TE_ConnectionControlTest.ini RegisterOKInvalidConfig1
+END_TESTCASE			COMINF-nifman-ConnectionControl-0202
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0203
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0203
+//! @SymTestCaseDesc Tests a PPP renegotiation notification (= simulated inter-PDSN handoff) during registration.
+//! Note: This test is expected to succeed only in debug builds as 
+//! the test hook in PPP to simulate inter-PDSN handoff is only compiled-in 
+//! in debug builds.
+//! @SymFssId CDMA/Networking/ConnScheduling/Handover
+//! @SymTestActions Refer to T_NifmanConnectionControl_0026 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults The daemon gets the notification upon completing the registration request.
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlSimulateInterPDSNHandoffDuringRegistration z:\TestData\Configs\TE_ConnectionControlTest.ini HandoffDuringReg
+END_TESTCASE			COMINF-nifman-ConnectionControl-0203
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0204
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0204
+//! @SymTestCaseDesc Tests a PPP renegotiation notification (= simulated inter-PDSN handoff) during deregistration.
+//! Note: This test is expected to succeed only in debug builds as 
+//! the test hook in PPP to simulate inter-PDSN handoff is only compiled-in 
+//! in debug builds.
+//! @SymFssId CDMA/Networking/ConnScheduling/Handover
+//! @SymTestActions Refer to T_NifmanConnectionControl_0027 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults The daemon gets the notification upon completing the deregistration request.
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlSimulateInterPDSNHandoffDuringDeregistration z:\TestData\Configs\TE_ConnectionControlTest.ini RegisterOK
+END_TESTCASE			COMINF-nifman-ConnectionControl-0204
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0205
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0205
+//! @SymTestCaseDesc Tests a PPP renegotiation notification (= simulated inter-PDSN handoff) during deregistration/preserve.
+//! Note: This test is expected to succeed only in debug builds as 
+//! the test hook in PPP to simulate inter-PDSN handoff is only compiled-in 
+//! in debug builds.
+//! @SymFssId CDMA/Networking/ConnScheduling/Handover
+//! @SymTestActions Refer to T_NifmanConnectionControl_0027 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults The daemon gets the notification upon completing the deregistration request.
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlSimulateInterPDSNHandoffDuringDeregistration z:\TestData\Configs\TE_ConnectionControlTest.ini DeregisterOKPreserve
+END_TESTCASE			COMINF-nifman-ConnectionControl-0205
+
+
+START_TESTCASE			COMINF-nifman-ConnectionControl-0206
+//! @SYMTestCaseID		COMINF-nifman-ConnectionControl-0206
+//! @SymTestCaseDesc Tests a PPP renegotiation notification (= simulated inter-PDSN handoff) during an ioctl request.
+//! Note: This test is expected to succeed only in debug builds as 
+//! the test hook in PPP to simulate inter-PDSN handoff is only compiled-in 
+//! in debug builds.
+//! @SymFssId CDMA/Networking/ConnScheduling/Handover
+//! @SymTestActions Refer to T_NifmanConnectionControl_0028 in Nifman_Configuration_Design_Modifications_For_Mobile_IP_Test_Specification.doc.
+//! @SymTestExpectedResults The daemon gets the notification upon completing the ioctl request.
+//! @SymTestPriority Medium
+//! @SymTestStatus Implemented
+RUN_TEST_STEP -1 TE_ConnectionControl CConnectionControlSimulateInterPDSNHandoffDuringIoctlRequest z:\TestData\Configs\TE_ConnectionControlTest.ini RegisterOK
+END_TESTCASE			COMINF-nifman-ConnectionControl-0206
+
+
+//! Standard suffix.
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+

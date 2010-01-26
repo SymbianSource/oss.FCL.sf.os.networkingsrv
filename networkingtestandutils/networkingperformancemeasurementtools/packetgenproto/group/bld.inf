@@ -1,0 +1,32 @@
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//  Packet generator protocol for Netperf.
+//  Allows UDP traffic generation without involving TCP/IP stack.
+//
+
+PRJ_PLATFORMS
+
+DEFAULT
+
+PRJ_TESTMMPFILES
+packetgenproto.mmp
+
+PRJ_TESTEXPORTS
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+../inc/packetgenfactory.h				/epoc32/include/networking/packetgenfactory.h
+#endif
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+../inc/packetgen.h						/epoc32/include/networking/packetgen.h
+#endif
+../group/packetgenprotoplugin.iby		/epoc32/rom/include/packetgenprotoplugin.iby

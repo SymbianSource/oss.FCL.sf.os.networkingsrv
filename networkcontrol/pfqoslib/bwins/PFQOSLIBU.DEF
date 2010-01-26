@@ -1,0 +1,131 @@
+EXPORTS
+	??0CExtensionPolicy@@QAE@AAVTPfqosBase@@AAVTPfqosSelector@@AAVTPfqosAddress@@2H@Z @ 1 NONAME ; CExtensionPolicy::CExtensionPolicy(class TPfqosBase &, class TPfqosSelector &, class TPfqosAddress &, class TPfqosAddress &, int)
+	??0CExtensionPolicy@@QAE@XZ @ 2 NONAME ; CExtensionPolicy::CExtensionPolicy(void)
+	??0CPfqosPolicyData@@AAE@H@Z @ 3 NONAME ; CPfqosPolicyData::CPfqosPolicyData(int)
+	??0CPfqosStream@@IAE@XZ @ 4 NONAME ; CPfqosStream::CPfqosStream(void)
+	??0CSelectorBase@@QAE@AAV0@@Z @ 5 NONAME ; CSelectorBase::CSelectorBase(class CSelectorBase &)
+	??0CSelectorBase@@QAE@AAVTPfqosBase@@AAVTPfqosSelector@@AAVTPfqosAddress@@2I@Z @ 6 NONAME ; CSelectorBase::CSelectorBase(class TPfqosBase &, class TPfqosSelector &, class TPfqosAddress &, class TPfqosAddress &, unsigned int)
+	??0CSelectorBase@@QAE@I@Z @ 7 NONAME ; CSelectorBase::CSelectorBase(unsigned int)
+	??0TIntVariable@@QAE@ABVTDesC16@@H@Z @ 8 NONAME ; TIntVariable::TIntVariable(class TDesC16 const &, int)
+	??0TPfqosAddress@@QAE@XZ @ 9 NONAME ; TPfqosAddress::TPfqosAddress(void)
+	??0TPfqosBase@@QAE@XZ @ 10 NONAME ; TPfqosBase::TPfqosBase(void)
+	??0TPfqosChannel@@QAE@XZ @ 11 NONAME ; TPfqosChannel::TPfqosChannel(void)
+	??0TPfqosConfigFile@@QAE@XZ @ 12 NONAME ; TPfqosConfigFile::TPfqosConfigFile(void)
+	??0TPfqosConfigure@@QAE@XZ @ 13 NONAME ; TPfqosConfigure::TPfqosConfigure(void)
+	??0TPfqosEvent@@QAE@XZ @ 14 NONAME ; TPfqosEvent::TPfqosEvent(void)
+	??0TPfqosFlowSpec@@QAE@XZ @ 15 NONAME ; TPfqosFlowSpec::TPfqosFlowSpec(void)
+	??0TPfqosMessage@@QAE@ABVTDesC8@@@Z @ 16 NONAME ; TPfqosMessage::TPfqosMessage(class TDesC8 const &)
+	??0TPfqosMessage@@QAE@XZ @ 17 NONAME ; TPfqosMessage::TPfqosMessage(void)
+	??0TPfqosModule@@QAE@XZ @ 18 NONAME ; TPfqosModule::TPfqosModule(void)
+	??0TPfqosSelector@@QAE@XZ @ 19 NONAME ; TPfqosSelector::TPfqosSelector(void)
+	??0TPolicyParser@@QAE@ABVTDesC16@@@Z @ 20 NONAME ; TPolicyParser::TPolicyParser(class TDesC16 const &)
+	??0TQoSParameters@@QAE@XZ @ 21 NONAME ; TQoSParameters::TQoSParameters(void)
+	??0TRealVariable@@QAE@ABVTDesC16@@N@Z @ 22 NONAME ; TRealVariable::TRealVariable(class TDesC16 const &, double)
+	??0TStringVariable@@QAE@ABVTDesC16@@0@Z @ 23 NONAME ; TStringVariable::TStringVariable(class TDesC16 const &, class TDesC16 const &)
+	??0T_pfqos_address@@QAE@IG@Z @ 24 NONAME ; T_pfqos_address::T_pfqos_address(unsigned int, unsigned short)
+	??0T_pfqos_channel@@QAE@K@Z @ 25 NONAME ; T_pfqos_channel::T_pfqos_channel(unsigned long)
+	??0T_pfqos_configure@@QAE@G@Z @ 26 NONAME ; T_pfqos_configure::T_pfqos_configure(unsigned short)
+	??0T_pfqos_event@@QAE@EGG@Z @ 27 NONAME ; T_pfqos_event::T_pfqos_event(unsigned char, unsigned short, unsigned short)
+	??0T_pfqos_flowspec@@QAE@ABVTQoSParameters@@@Z @ 28 NONAME ; T_pfqos_flowspec::T_pfqos_flowspec(class TQoSParameters const &)
+	??0T_pfqos_module@@QAE@IKABVTDesC16@@0H@Z @ 29 NONAME ; T_pfqos_module::T_pfqos_module(unsigned int, unsigned long, class TDesC16 const &, class TDesC16 const &, int)
+	??0T_pfqos_msg@@QAE@EK@Z @ 30 NONAME ; T_pfqos_msg::T_pfqos_msg(unsigned char, unsigned long)
+	??0T_pfqos_selector@@QAE@PAVCSelectorBase@@@Z @ 31 NONAME ; T_pfqos_selector::T_pfqos_selector(class CSelectorBase *)
+	??1CExtension@@UAE@XZ @ 32 NONAME ; CExtension::~CExtension(void)
+	??1CExtensionPolicy@@UAE@XZ @ 33 NONAME ; CExtensionPolicy::~CExtensionPolicy(void)
+	??1CPfqosPolicyData@@UAE@XZ @ 34 NONAME ; CPfqosPolicyData::~CPfqosPolicyData(void)
+	??1CPfqosStream@@UAE@XZ @ 35 NONAME ; CPfqosStream::~CPfqosStream(void)
+	??1CSelectorBase@@UAE@XZ @ 36 NONAME ; CSelectorBase::~CSelectorBase(void)
+	??1TPfqosMessage@@QAE@XZ @ 37 NONAME ; TPfqosMessage::~TPfqosMessage(void)
+	??1TPolicyParser@@QAE@XZ @ 38 NONAME ; TPolicyParser::~TPolicyParser(void)
+	??1TVariableBase@@UAE@XZ @ 39 NONAME ; TVariableBase::~TVariableBase(void)
+	??4TQoSParameters@@QAEAAV0@ABV0@@Z @ 40 NONAME ; class TQoSParameters & TQoSParameters::operator=(class TQoSParameters const &)
+	??8TQoSParameters@@QBEHABV0@@Z @ 41 NONAME ; int TQoSParameters::operator==(class TQoSParameters const &) const
+	?AdaptMode@TQoSParameters@@QBEHXZ @ 42 NONAME ; int TQoSParameters::AdaptMode(void) const
+	?Add@TPfqosMessage@@QAEXAAVTPfqosModule@@@Z @ 43 NONAME ; void TPfqosMessage::Add(class TPfqosModule &)
+	?AddAddress@CPfqosStream@@IAEXABVTInetAddr@@0EG@Z @ 44 NONAME ; void CPfqosStream::AddAddress(class TInetAddr const &, class TInetAddr const &, unsigned char, unsigned short)
+	?AddChannel@CPfqosStream@@QAEXK@Z @ 45 NONAME ; void CPfqosStream::AddChannel(unsigned long)
+	?AddConfigFile@CPfqosStream@@QAEXABVTDesC16@@@Z @ 46 NONAME ; void CPfqosStream::AddConfigFile(class TDesC16 const &)
+	?AddDstAddress@CPfqosStream@@QAEXABVTInetAddr@@0G@Z @ 47 NONAME ; void CPfqosStream::AddDstAddress(class TInetAddr const &, class TInetAddr const &, unsigned short)
+	?AddExtension@TPfqosMessage@@QAEXAAVCPfqosPolicyData@@@Z @ 48 NONAME ; void TPfqosMessage::AddExtension(class CPfqosPolicyData &)
+	?AddExtensionHeader@CPfqosStream@@QAEXG@Z @ 49 NONAME ; void CPfqosStream::AddExtensionHeader(unsigned short)
+	?AddExtensionL@CExtensionPolicy@@QAEXAAVCExtension@@@Z @ 50 NONAME ; void CExtensionPolicy::AddExtensionL(class CExtension &)
+	?AddExtensionL@CExtensionPolicy@@QAEXABVTDesC8@@@Z @ 51 NONAME ; void CExtensionPolicy::AddExtensionL(class TDesC8 const &)
+	?AddExtensionL@TPfqosMessage@@QAEXABVTDesC8@@H@Z @ 52 NONAME ; void TPfqosMessage::AddExtensionL(class TDesC8 const &, int)
+	?AddExtensionPolicy@CPfqosStream@@QAEXAAVTDesC8@@@Z @ 53 NONAME ; void CPfqosStream::AddExtensionPolicy(class TDesC8 &)
+	?AddIntegerL@CExtension@@QAEHABVTDesC16@@H@Z @ 54 NONAME ; int CExtension::AddIntegerL(class TDesC16 const &, int)
+	?AddModuleL@TPfqosMessage@@QAEXAAVT_pfqos_module@@ABVTDesC8@@@Z @ 55 NONAME ; void TPfqosMessage::AddModuleL(class T_pfqos_module &, class TDesC8 const &)
+	?AddModulespec@CPfqosStream@@QAEXKKABVTDesC16@@0ABVTDesC8@@@Z @ 56 NONAME ; void CPfqosStream::AddModulespec(unsigned long, unsigned long, class TDesC16 const &, class TDesC16 const &, class TDesC8 const &)
+	?AddQoSParameters@CPfqosStream@@QAEXABVTQoSParameters@@@Z @ 57 NONAME ; void CPfqosStream::AddQoSParameters(class TQoSParameters const &)
+	?AddRealL@CExtension@@QAEHABVTDesC16@@N@Z @ 58 NONAME ; int CExtension::AddRealL(class TDesC16 const &, double)
+	?AddSelector@CPfqosStream@@QAEXEABVTUidType@@KKKABVTDesC16@@@Z @ 59 NONAME ; void CPfqosStream::AddSelector(unsigned char, class TUidType const &, unsigned long, unsigned long, unsigned long, class TDesC16 const &)
+	?AddSrcAddress@CPfqosStream@@QAEXABVTInetAddr@@0G@Z @ 60 NONAME ; void CPfqosStream::AddSrcAddress(class TInetAddr const &, class TInetAddr const &, unsigned short)
+	?AddStringL@CExtension@@QAEHABVTDesC16@@0@Z @ 61 NONAME ; int CExtension::AddStringL(class TDesC16 const &, class TDesC16 const &)
+	?ByteStream@CPfqosPolicyData@@QBEHAAVRMBufChain@@H@Z @ 62 NONAME ; int CPfqosPolicyData::ByteStream(class RMBufChain &, int) const
+	?ByteStream@TPfqosAddress@@QBEHAAVRMBufChain@@H@Z @ 63 NONAME ; int TPfqosAddress::ByteStream(class RMBufChain &, int) const
+	?ByteStream@TPfqosBase@@QBEHAAVRMBufChain@@H@Z @ 64 NONAME ; int TPfqosBase::ByteStream(class RMBufChain &, int) const
+	?ByteStream@TPfqosChannel@@QBEHAAVRMBufChain@@H@Z @ 65 NONAME ; int TPfqosChannel::ByteStream(class RMBufChain &, int) const
+	?ByteStream@TPfqosConfigFile@@QBEHAAVRMBufChain@@H@Z @ 66 NONAME ; int TPfqosConfigFile::ByteStream(class RMBufChain &, int) const
+	?ByteStream@TPfqosConfigure@@QBEHAAVRMBufChain@@H@Z @ 67 NONAME ; int TPfqosConfigure::ByteStream(class RMBufChain &, int) const
+	?ByteStream@TPfqosEvent@@QBEHAAVRMBufChain@@H@Z @ 68 NONAME ; int TPfqosEvent::ByteStream(class RMBufChain &, int) const
+	?ByteStream@TPfqosFlowSpec@@QBEHAAVRMBufChain@@H@Z @ 69 NONAME ; int TPfqosFlowSpec::ByteStream(class RMBufChain &, int) const
+	?ByteStream@TPfqosModule@@QBEHAAVRMBufChain@@H@Z @ 70 NONAME ; int TPfqosModule::ByteStream(class RMBufChain &, int) const
+	?ByteStream@TPfqosSelector@@QBEHAAVRMBufChain@@H@Z @ 71 NONAME ; int TPfqosSelector::ByteStream(class RMBufChain &, int) const
+	?ByteStreamL@TPfqosMessage@@QAEXAAVRMBufChain@@@Z @ 72 NONAME ; void TPfqosMessage::ByteStreamL(class RMBufChain &)
+	?ConstructL@CPfqosPolicyData@@AAEXXZ @ 73 NONAME ; void CPfqosPolicyData::ConstructL(void)
+	?ConstructL@CPfqosStream@@IAEXI@Z @ 74 NONAME ; void CPfqosStream::ConstructL(unsigned int)
+	?Copy@CExtension@@QAEHAAVTDes8@@@Z @ 75 NONAME ; int CExtension::Copy(class TDes8 &)
+	?Copy@TQoSParameters@@QAEXAAVCExtension@@@Z @ 76 NONAME ; void TQoSParameters::Copy(class CExtension &)
+	?CopyL@CExtension@@QAEHAAV1@@Z @ 77 NONAME ; int CExtension::CopyL(class CExtension &)
+	?CopyL@CExtension@@QAEHABVTDesC8@@@Z @ 78 NONAME ; int CExtension::CopyL(class TDesC8 const &)
+	?CopyL@CPfqosPolicyData@@QAEXPBEH@Z @ 79 NONAME ; void CPfqosPolicyData::CopyL(unsigned char const *, int)
+	?Data@CExtension@@QAE?BVTPtrC8@@XZ @ 80 NONAME ; class TPtrC8 const CExtension::Data(void)
+	?Data@CPfqosPolicyData@@QAEAAVTDesC8@@XZ @ 81 NONAME ; class TDesC8 & CPfqosPolicyData::Data(void)
+	?ExtensionLength@TPfqosMessage@@QAEIXZ @ 82 NONAME ; unsigned int TPfqosMessage::ExtensionLength(void)
+	?FindVariable@CExtension@@QAEPAVTVariableBase@@ABVTDesC16@@@Z @ 83 NONAME ; class TVariableBase * CExtension::FindVariable(class TDesC16 const &)
+	?GetHeaderMode@TQoSParameters@@QBEHXZ @ 84 NONAME ; int TQoSParameters::GetHeaderMode(void) const
+	?GetUid@TPfqosSelector@@QAEHAAVTCheckedUid@@@Z @ 85 NONAME ; int TPfqosSelector::GetUid(class TCheckedUid &)
+	?Init@CPfqosStream@@QAEXEK@Z @ 86 NONAME ; void CPfqosStream::Init(unsigned char, unsigned long)
+	?Length64@TPfqosMessage@@QAEGXZ @ 87 NONAME ; unsigned short TPfqosMessage::Length64(void)
+	?Length@CExtension@@QBEHXZ @ 88 NONAME ; int CExtension::Length(void) const
+	?Length@CPfqosPolicyData@@QBEIXZ @ 89 NONAME ; unsigned int CPfqosPolicyData::Length(void) const
+	?Length@TPfqosAddress@@QBEIXZ @ 90 NONAME ; unsigned int TPfqosAddress::Length(void) const
+	?Length@TPfqosBase@@QBEIXZ @ 91 NONAME ; unsigned int TPfqosBase::Length(void) const
+	?Length@TPfqosChannel@@QBEIXZ @ 92 NONAME ; unsigned int TPfqosChannel::Length(void) const
+	?Length@TPfqosConfigFile@@QBEIXZ @ 93 NONAME ; unsigned int TPfqosConfigFile::Length(void) const
+	?Length@TPfqosConfigure@@QBEIXZ @ 94 NONAME ; unsigned int TPfqosConfigure::Length(void) const
+	?Length@TPfqosEvent@@QBEIXZ @ 95 NONAME ; unsigned int TPfqosEvent::Length(void) const
+	?Length@TPfqosFlowSpec@@QBEIXZ @ 96 NONAME ; unsigned int TPfqosFlowSpec::Length(void) const
+	?Length@TPfqosModule@@QBEIXZ @ 97 NONAME ; unsigned int TPfqosModule::Length(void) const
+	?Length@TPfqosSelector@@QBEIXZ @ 98 NONAME ; unsigned int TPfqosSelector::Length(void) const
+	?ModuleLength@TPfqosMessage@@QAEIXZ @ 99 NONAME ; unsigned int TPfqosMessage::ModuleLength(void)
+	?NewL@CExtension@@SAPAV1@ABVTDesC8@@@Z @ 100 NONAME ; class CExtension * CExtension::NewL(class TDesC8 const &)
+	?NewL@CExtension@@SAPAV1@XZ @ 101 NONAME ; class CExtension * CExtension::NewL(void)
+	?NewL@CPfqosPolicyData@@SAPAV1@H@Z @ 102 NONAME ; class CPfqosPolicyData * CPfqosPolicyData::NewL(int)
+	?NewL@CPfqosPolicyData@@SAPAV1@HPBEH@Z @ 103 NONAME ; class CPfqosPolicyData * CPfqosPolicyData::NewL(int, unsigned char const *, int)
+	?NewL@CPfqosStream@@SAPAV1@I@Z @ 104 NONAME ; class CPfqosStream * CPfqosStream::NewL(unsigned int)
+	?ParseL@TPolicyParser@@QAEHXZ @ 105 NONAME ; int TPolicyParser::ParseL(void)
+	?RemovePolicyData@TPfqosMessage@@QAEXXZ @ 106 NONAME ; void TPfqosMessage::RemovePolicyData(void)
+	?Send@CPfqosStream@@QAEHAAVRInternalSocket@@@Z @ 107 NONAME ; int CPfqosStream::Send(class RInternalSocket &)
+	?Send@CPfqosStream@@QAEHAAVRSocket@@@Z @ 108 NONAME ; int CPfqosStream::Send(class RSocket &)
+	?Send@CPfqosStream@@QAEXAAVRInternalSocket@@AAVTRequestStatus@@@Z @ 109 NONAME ; void CPfqosStream::Send(class RInternalSocket &, class TRequestStatus &)
+	?Send@CPfqosStream@@QAEXAAVRSocket@@AAVTRequestStatus@@@Z @ 110 NONAME ; void CPfqosStream::Send(class RSocket &, class TRequestStatus &)
+	?SetAdaptMode@TQoSParameters@@QAEXH@Z @ 111 NONAME ; void TQoSParameters::SetAdaptMode(int)
+	?SetDownLinkAveragePacketSize@TQoSParameters@@QAEXH@Z @ 112 NONAME ; void TQoSParameters::SetDownLinkAveragePacketSize(int)
+	?SetDownLinkDelay@TQoSParameters@@QAEXH@Z @ 113 NONAME ; void TQoSParameters::SetDownLinkDelay(int)
+	?SetDownLinkMaximumBurstSize@TQoSParameters@@QAEXH@Z @ 114 NONAME ; void TQoSParameters::SetDownLinkMaximumBurstSize(int)
+	?SetDownLinkMaximumPacketSize@TQoSParameters@@QAEXH@Z @ 115 NONAME ; void TQoSParameters::SetDownLinkMaximumPacketSize(int)
+	?SetDownLinkPriority@TQoSParameters@@QAEXH@Z @ 116 NONAME ; void TQoSParameters::SetDownLinkPriority(int)
+	?SetDownlinkBandwidth@TQoSParameters@@QAEXH@Z @ 117 NONAME ; void TQoSParameters::SetDownlinkBandwidth(int)
+	?SetHeaderMode@TQoSParameters@@QAEXH@Z @ 118 NONAME ; void TQoSParameters::SetHeaderMode(int)
+	?SetName@CExtension@@QAEXABVTDesC16@@@Z @ 119 NONAME ; void CExtension::SetName(class TDesC16 const &)
+	?SetName@TQoSParameters@@QAEHABV?$TBuf@$0IA@@@@Z @ 120 NONAME ; int TQoSParameters::SetName(class TBuf<128> const &)
+	?SetQoSParameters@TPfqosMessage@@QBEHAAVTQoSParameters@@@Z @ 121 NONAME ; int TPfqosMessage::SetQoSParameters(class TQoSParameters &) const
+	?SetUpLinkAveragePacketSize@TQoSParameters@@QAEXH@Z @ 122 NONAME ; void TQoSParameters::SetUpLinkAveragePacketSize(int)
+	?SetUpLinkDelay@TQoSParameters@@QAEXH@Z @ 123 NONAME ; void TQoSParameters::SetUpLinkDelay(int)
+	?SetUpLinkMaximumBurstSize@TQoSParameters@@QAEXH@Z @ 124 NONAME ; void TQoSParameters::SetUpLinkMaximumBurstSize(int)
+	?SetUpLinkMaximumPacketSize@TQoSParameters@@QAEXH@Z @ 125 NONAME ; void TQoSParameters::SetUpLinkMaximumPacketSize(int)
+	?SetUpLinkPriority@TQoSParameters@@QAEXH@Z @ 126 NONAME ; void TQoSParameters::SetUpLinkPriority(int)
+	?SetUplinkBandwidth@TQoSParameters@@QAEXH@Z @ 127 NONAME ; void TQoSParameters::SetUplinkBandwidth(int)
+	?Size@CPfqosPolicyData@@QBEHXZ @ 128 NONAME ; int CPfqosPolicyData::Size(void) const
+	?Type@CPfqosPolicyData@@QAEHXZ @ 129 NONAME ; int CPfqosPolicyData::Type(void)
+

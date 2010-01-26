@@ -1,0 +1,400 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//! @file
+//! @SYMTestSuiteName       NET-TLS-tlsunittest-CIT
+//! @SYMScriptTestEnvironment TestExecuteFramework
+//
+//Unload esock forcefully
+RUN_SCRIPT z:\testdata\scripts\te_esock_test_unloadesockForced.script
+
+RUN_SCRIPT z:\testdata\scripts\te_esock_test_loadesock.script
+
+//Load the Server
+LOAD_SERVER te_tlsunittest
+
+RUN_UTILS MkDir c:\Private\101f72a6\temp\
+
+RUN_UTILS CopyFile c:\Private\101f72a6\CACerts.dat c:\private\101f72a6\temp\CACerts.dat
+RUN_UTILS CopyFile c:\Private\101f72a6\certclients.dat c:\private\101f72a6\temp\certclients.dat 
+RUN_UTILS CopyFile c:\Private\101f72a6\keys.dat c:\private\101f72a6\temp\keys.dat
+
+RUN_UTILS DeleteFile c:\Private\101f72a6\CACerts.dat
+RUN_UTILS DeleteFile c:\Private\101f72a6\certclients.dat
+RUN_UTILS DeleteFile c:\Private\101f72a6\keys.dat
+
+RUN_UTILS CopyFile z:\testdata\configs\CACerts_clientauth.dat c:\private\101f72a6\CACerts.dat
+RUN_UTILS CopyFile z:\testdata\configs\certclients_clientauth.dat c:\private\101f72a6\certclients.dat 
+RUN_UTILS CopyFile z:\testdata\configs\keys_clientauth.dat c:\private\101f72a6\keys.dat
+
+RUN_UTILS DeleteFile c:\t_secdlg_out.dat
+RUN_UTILS CopyFile z:\testdata\configs\t_secdlg_in.dat c:\t_secdlg_in.dat
+RUN_UTILS MakeReadWrite c:\t_secdlg_in.dat
+
+
+START_TESTCASE                	NET-TLS-tlsunittest-test1
+//! @SYMTestCaseID              NET-TLS-tlsunittest-test1
+//! @SYMTestCaseDesc            
+
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_tlsunittest test server
+//!                             Run the test cases by passing te_tlsunittest.ini, which consists the TLS server IP address.
+//! @SYMTestExpectedResults     Covering conditional coverage points uncovered before in GetOpt and SetOpt methods related to PSK config.
+//! @SYMTestType                
+//! @SYMCreationDate            14/07/2009
+//! @SYMAuthor                  Kumargaurav
+//! @SYMTestStatus              2. Review
+
+	START_TEST_BLOCK te_tlsunittest 100 z:\testdata\configs\te_tlsunittest.ini
+		CREATE_OBJECT TlsUnitTestWrapper tlsunittest_test1
+		COMMAND tlsunittest_test1 Initialize ServerIpAdd1
+		COMMAND !Error=-6 tlsunittest_test1 PskGetConfig ServerIpAdd1
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-TLS-tlsunittest-test1
+
+START_TESTCASE                	NET-TLS-tlsunittest-test2
+//! @SYMTestCaseID              NET-TLS-tlsunittest-test2
+//! @SYMTestCaseDesc            
+
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_tlsunittest test server
+//!                             Run the test cases by passing te_tlsunittest.ini, which consists the TLS server IP address..
+//! @SYMTestExpectedResults     Covering conditional coverage points uncovered before in GetOpt and SetOpt methods related to PSK config.
+//! @SYMTestType                
+//! @SYMCreationDate            14/07/2009
+//! @SYMAuthor                  Kumargaurav
+//! @SYMTestStatus              2. Review
+
+	START_TEST_BLOCK te_tlsunittest 100 z:\testdata\configs\te_tlsunittest.ini
+		CREATE_OBJECT TlsUnitTestWrapper tlsunittest_test1
+		COMMAND tlsunittest_test1 Initialize ServerIpAdd1
+		COMMAND !Error=-6 tlsunittest_test1 PskSetConfig ServerIpAdd1
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-TLS-tlsunittest-test2
+
+START_TESTCASE                	NET-TLS-tlsunittest-test3
+//! @SYMTestCaseID              NET-TLS-tlsunittest-test3
+//! @SYMTestCaseDesc            
+
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_tlsunittest test server
+//!                             Run the test cases by passing te_tlsunittest.ini, which consists the TLS server IP address..
+//! @SYMTestExpectedResults     Covering conditional coverage points uncovered before in GetOpt and SetOpt methods related to Sslv2Handshake.
+//! @SYMTestType                
+//! @SYMCreationDate            14/07/2009
+//! @SYMAuthor                  Kumargaurav
+//! @SYMTestStatus              2. Review
+
+	START_TEST_BLOCK te_tlsunittest 100 z:\testdata\configs\te_tlsunittest.ini
+		CREATE_OBJECT TlsUnitTestWrapper tlsunittest_test1
+		COMMAND tlsunittest_test1 Initialize ServerIpAdd1
+		COMMAND tlsunittest_test1 Sslv2Handshake ServerIpAdd1
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-TLS-tlsunittest-test3
+
+START_TESTCASE                	NET-TLS-tlsunittest-test4
+//! @SYMTestCaseID              NET-TLS-tlsunittest-test4
+//! @SYMTestCaseDesc            
+
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_tlsunittest test server
+//!                             Run the test cases by passing te_tlsunittest.ini, which consists the TLS server IP address..
+//! @SYMTestExpectedResults     Covering conditional coverage points uncovered before in GetOpt and SetOpt methods for checking NullCipher.
+//! @SYMTestType                
+//! @SYMCreationDate            14/07/2009
+//! @SYMAuthor                  Kumargaurav
+//! @SYMTestStatus              2. Review
+
+	START_TEST_BLOCK te_tlsunittest 100 z:\testdata\configs\te_tlsunittest.ini
+		CREATE_OBJECT TlsUnitTestWrapper tlsunittest_test1
+		COMMAND tlsunittest_test1 Initialize ServerIpAdd1
+		COMMAND tlsunittest_test1 EnableNullCipher ServerIpAdd1
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-TLS-tlsunittest-test4
+
+START_TESTCASE                	NET-TLS-tlsunittest-test5
+//! @SYMTestCaseID              NET-TLS-tlsunittest-test5
+//! @SYMTestCaseDesc            
+
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_tlsunittest test server
+//!                             Run the test cases by passing te_tlsunittest.ini, which consists the TLS server IP address..
+//! @SYMTestExpectedResults     Covering conditional coverage points uncovered before in GetOpt and SetOpt methods for the default cases.
+//! @SYMTestType                
+//! @SYMCreationDate            14/07/2009
+//! @SYMAuthor                  Kumargaurav
+//! @SYMTestStatus              2. Review
+
+	START_TEST_BLOCK te_tlsunittest 100 z:\testdata\configs\te_tlsunittest.ini
+		CREATE_OBJECT TlsUnitTestWrapper tlsunittest_test1
+		COMMAND tlsunittest_test1 Initialize ServerIpAdd1
+		COMMAND !Error=-5 tlsunittest_test1 CheckSetOptDefault ServerIpAdd1
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-TLS-tlsunittest-test5
+
+START_TESTCASE                	NET-TLS-tlsunittest-test6
+//! @SYMTestCaseID              NET-TLS-tlsunittest-test6
+//! @SYMTestCaseDesc            
+
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_tlsunittest test server
+//!                             Run the test cases by passing te_tlsunittest.ini, which consists the TLS server IP address..
+//! @SYMTestExpectedResults     Covering conditional coverage points uncovered before in GetOpt and SetOpt methods for the default cases.
+//! @SYMTestType                
+//! @SYMCreationDate            14/07/2009
+//! @SYMAuthor                  Kumargaurav
+//! @SYMTestStatus              2. Review
+
+	START_TEST_BLOCK te_tlsunittest 100 z:\testdata\configs\te_tlsunittest.ini
+		CREATE_OBJECT TlsUnitTestWrapper tlsunittest_test1
+		COMMAND tlsunittest_test1 Initialize ServerIpAdd1
+		COMMAND !Error=-5 tlsunittest_test1 CheckGetOptDefault ServerIpAdd1
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-TLS-tlsunittest-test6
+
+START_TESTCASE                	NET-TLS-tlsunittest-test7
+//! @SYMTestCaseID              NET-TLS-tlsunittest-test7
+//! @SYMTestCaseDesc            
+
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_tlsunittest test server
+//!                             Run the test cases by passing te_tlsunittest.ini, which consists the TLS server IP address..
+//! @SYMTestExpectedResults     Covering conditional coverage points uncovered before in GetOpt and SetOpt methods for KSoDialogMode option.
+//! @SYMTestType                
+//! @SYMCreationDate            14/07/2009
+//! @SYMAuthor                  Kumargaurav
+//! @SYMTestStatus              2. Review
+
+	START_TEST_BLOCK te_tlsunittest 100 z:\testdata\configs\te_tlsunittest.ini
+		CREATE_OBJECT TlsUnitTestWrapper tlsunittest_test1
+		COMMAND tlsunittest_test1 Initialize ServerIpAdd1
+		COMMAND !Error=-9 tlsunittest_test1 SetDialogMode ServerIpAdd1
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-TLS-tlsunittest-test7
+
+START_TESTCASE                	NET-TLS-tlsunittest-test8
+//! @SYMTestCaseID              NET-TLS-tlsunittest-test8
+//! @SYMTestCaseDesc            
+
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_tlsunittest test server
+//!                             Run the test cases by passing te_tlsunittest.ini, which consists the TLS server IP address..
+//! @SYMTestExpectedResults     Covering conditional coverage points uncovered before in GetOpt and SetOpt methods with KSoSSLServerCert option.
+//! @SYMTestType                
+//! @SYMCreationDate            14/07/2009
+//! @SYMAuthor                  Kumargaurav
+//! @SYMTestStatus              2. Review
+
+
+	START_TEST_BLOCK te_tlsunittest 100 z:\testdata\configs\te_tlsunittest.ini
+		CREATE_OBJECT TlsUnitTestWrapper tlsunittest_test1
+		COMMAND tlsunittest_test1 Connect ServerIpAdd1
+		COMMAND tlsunittest_test1 TLSHandshake ServerIpAdd1
+		COMMAND !Error=-9 tlsunittest_test1 ServerCertGetOpt ServerIpAdd1
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-TLS-tlsunittest-test8
+
+
+START_TESTCASE                	NET-TLS-tlsunittest-test9
+//! @SYMTestCaseID              NET-TLS-tlsunittest-test9
+//! @SYMTestCaseDesc            Close_notify sent by the server in application data stage. and client responds to it.
+
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_tlsunittest test server
+//!                             Run the test cases by passing te_tlsunittest.ini, which consists the TLS server IP address..
+//! @SYMTestExpectedResults     Covering conditional coverage points uncovered before related to close_notify scenario where the server sends the close_notify message.
+//! @SYMTestType                
+//! @SYMCreationDate            14/07/2009
+//! @SYMAuthor                  Kumargaurav
+//! @SYMTestStatus              2. Review
+
+
+	START_TEST_BLOCK te_tlsunittest 100 z:\testdata\configs\te_tlsunittest.ini
+		CREATE_OBJECT TlsUnitTestWrapper tlsunittest_test3
+		COMMAND tlsunittest_test3 Connect ServerIpAdd3
+		COMMAND tlsunittest_test3 TLSHandshake ServerIpAdd3
+		COMMAND tlsunittest_test3 MakePageRequest ServerIpAdd3
+		COMMAND tlsunittest_test3 GetServerResponse ServerIpAdd3
+		COMMAND tlsunittest_test3 ReadServerResponse ServerIpAdd3
+		COMMAND tlsunittest_test3 ConnectionClosed ServerIpAdd3
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-TLS-tlsunittest-test9
+
+
+START_TESTCASE                	NET-TLS-tlsunittest-test10
+//! @SYMTestCaseID              NET-TLS-tlsunittest-test10
+//! @SYMTestCaseDesc            for checking erroneous condition in CurrentCipherSuite
+
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_tlsunittest test server
+//!                             Run the test cases by passing te_tlsunittest.ini, which consists the TLS server IP address..
+//! @SYMTestExpectedResults     Covering conditional coverage points uncovered before by passing insufficient buffer size to hold the CurrentCipherSuite.
+//! @SYMTestType                
+//! @SYMCreationDate            14/07/2009
+//! @SYMAuthor                  Kumargaurav
+//! @SYMTestStatus              2. Review
+
+
+	START_TEST_BLOCK te_tlsunittest 100 z:\testdata\configs\te_tlsunittest.ini
+		CREATE_OBJECT TlsUnitTestWrapper tlsunittest_test2
+		COMMAND  tlsunittest_test2 Connect ServerIpAdd2
+		COMMAND  tlsunittest_test2 TLSHandshake ServerIpAdd2
+		COMMAND  !Error=-9 tlsunittest_test2 CurrentCipherSuite ServerIpAdd2
+		COMMAND  tlsunittest_test2 ConnectionClosed ServerIpAdd2
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-TLS-tlsunittest-test10
+
+
+
+
+
+START_TESTCASE                	NET-TLS-tlsunittest-test11
+//! @SYMTestCaseID              NET-TLS-tlsunittest-test11
+//! @SYMTestCaseDesc            for checking erroneous condition in Protocol.
+
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_tlsunittest test server
+//!                             Run the test cases by passing te_tlsunittest.ini, which consists the TLS server IP address..
+//! @SYMTestExpectedResults     Covering conditional coverage points uncovered before by passing insufficient buffer size to get and hold the protocol in use.
+//! @SYMTestType                
+//! @SYMCreationDate            14/07/2009
+//! @SYMAuthor                  Kumargaurav
+//! @SYMTestStatus              2. Review
+
+
+	START_TEST_BLOCK te_tlsunittest 100 z:\testdata\configs\te_tlsunittest.ini
+		CREATE_OBJECT TlsUnitTestWrapper tlsunittest_test2
+		COMMAND tlsunittest_test2 Connect ServerIpAdd2
+		COMMAND tlsunittest_test2 TLSHandshake ServerIpAdd2
+		COMMAND !Error=-9 tlsunittest_test2 SetProtocol ServerIpAdd2
+		COMMAND tlsunittest_test2 ConnectionClosed ServerIpAdd2
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-TLS-tlsunittest-test11
+
+
+
+
+START_TESTCASE                	NET-TLS-tlsunittest-test12
+//! @SYMTestCaseID              NET-TLS-tlsunittest-test12
+//! @SYMTestCaseDesc            For Sending renegotiate packet in succession
+
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_tlsunittest test server
+//!                             Run the test cases by passing te_tlsunittest.ini, which consists the TLS server IP address..
+//! @SYMTestExpectedResults     Covering conditional coverage points uncovered before by sending renegotiate packet in succession.
+//! @SYMTestType                
+//! @SYMCreationDate            14/07/2009
+//! @SYMAuthor                  Kumargaurav
+//! @SYMTestStatus              2. Review
+
+
+	START_TEST_BLOCK te_tlsunittest 100 z:\testdata\configs\te_tlsunittest.ini
+		CREATE_OBJECT TlsUnitTestWrapper tlsunittest_test2
+		COMMAND tlsunittest_test2 Connect ServerIpAdd2
+		COMMAND tlsunittest_test2 TLSHandshake ServerIpAdd2
+		COMMAND tlsunittest_test2 MakePageRequest ServerIpAdd2
+		COMMAND tlsunittest_test2 GetServerResponse ServerIpAdd2
+		COMMAND tlsunittest_test2 ReadServerResponse ServerIpAdd2
+		COMMAND !Error=-18 tlsunittest_test2 RenegotiateHandshake ServerIpAdd2
+		COMMAND tlsunittest_test2 ConnectionClosed ServerIpAdd2
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-TLS-tlsunittest-test12
+
+
+START_TESTCASE                	NET-TLS-tlsunittest-test13
+//! @SYMTestCaseID              NET-TLS-tlsunittest-test13
+//! @SYMTestCaseDesc            Calling ServerCert() twice in succession
+
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_tlsunittest test server
+//!                             Run the test cases by passing te_tlsunittest.ini, which consists the TLS server IP address..
+//! @SYMTestExpectedResults     Covering conditional coverage points uncovered before by Calling ServerCert() twice in succession.
+//! @SYMTestType                
+//! @SYMCreationDate            14/07/2009
+//! @SYMAuthor                  Kumargaurav
+//! @SYMTestStatus              2. Review
+
+
+	START_TEST_BLOCK te_tlsunittest 100 z:\testdata\configs\te_tlsunittest.ini
+		CREATE_OBJECT TlsUnitTestWrapper tlsunittest_test2
+		COMMAND tlsunittest_test2 Connect ServerIpAdd2
+		COMMAND tlsunittest_test2 TLSHandshake ServerIpAdd2		
+		COMMAND tlsunittest_test2 ServerCert ServerIpAdd2
+		COMMAND tlsunittest_test2 ConnectionClosed ServerIpAdd2
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-TLS-tlsunittest-test13
+
+
+
+START_TESTCASE                	NET-TLS-tlsunittest-test14
+//! @SYMTestCaseID              NET-TLS-tlsunittest-test14
+//! @SYMTestCaseDesc            SEt the protocol to some unsupported mode as TLS2.0
+
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_tlsunittest test server
+//!                             Run the test cases by passing te_tlsunittest.ini, which consists the TLS server IP address..
+//! @SYMTestExpectedResults     Covering conditional coverage points uncovered before by passing an unsupported protocol as TLS2.0.
+//! @SYMTestType                
+//! @SYMCreationDate            14/07/2009
+//! @SYMAuthor                  Kumargaurav
+//! @SYMTestStatus              2. Review
+
+
+	START_TEST_BLOCK te_tlsunittest 100 z:\testdata\configs\te_tlsunittest.ini
+		CREATE_OBJECT TlsUnitTestWrapper tlsunittest_test2
+		COMMAND tlsunittest_test2 Connect ServerIpAdd2
+		COMMAND tlsunittest_test2 TLSHandshake ServerIpAdd2		
+		COMMAND !Error=-5 tlsunittest_test2 SetUnsupportedProtocol ServerIpAdd2
+		COMMAND tlsunittest_test2 ConnectionClosed ServerIpAdd2
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-TLS-tlsunittest-test14
+
+START_TESTCASE                	NET-TLS-tlsunittest-test15
+//! @SYMTestCaseID              NET-TLS-tlsunittest-test15
+//! @SYMTestCaseDesc            TLS handshake with mandated client authentication by the server.
+
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_tlsunittest test server
+//!                             Run the test cases by passing te_tlsunittest.ini, which consists the TLS server IP address..
+//! @SYMTestExpectedResults     Covering conditional coverage points uncovered before in client authentication scenario.
+//! @SYMTestType                
+//! @SYMCreationDate            14/07/2009
+//! @SYMAuthor                  Kumargaurav
+//! @SYMTestStatus              2. Review
+
+
+	RUN_UTILS DeleteFile c:\t_secdlg_out.dat
+	START_TEST_BLOCK te_tlsunittest 100 z:\testdata\configs\te_tlsunittest.ini
+		CREATE_OBJECT TlsUnitTestWrapper tlsunittest_test4
+		COMMAND tlsunittest_test4 Connect ServerIpAdd4
+		COMMAND tlsunittest_test4 TLSHandshake ServerIpAdd4
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-TLS-tlsunittest-test15
+

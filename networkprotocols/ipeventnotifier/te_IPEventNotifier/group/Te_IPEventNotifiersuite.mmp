@@ -1,0 +1,72 @@
+// Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// The RC32Root::SendMessage is secure locked on DHCPServ.exe's UID for the time 
+// being since the granularity of capabilities is not fine enough at the 
+// moment.
+// 
+//
+
+/**
+ @file
+*/
+          TARGET      te_ipeventnotifiersuite.exe
+          TARGETTYPE  exe
+          UID             0x1000007A 0x102827DC
+
+SOURCEPATH  ../src
+
+SOURCE	            Te_IPEventNotifierSuiteServer.cpp
+SOURCE	            Te_IPEventNotifierSuiteStepBase.cpp
+SOURCE              IPEventNotifier1Step_ReceiveMFlag.cpp
+SOURCE              IPEventNotifier2Step_IPReady.cpp
+SOURCE              IPEventNotifier3Step_LinkLocalAddress.cpp
+SOURCE              IPEventNotifier4Step_ReceiveOFlag.cpp
+
+
+USERINCLUDE   ../src
+
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+SYSTEMINCLUDE /epoc32/include
+SYSTEMINCLUDE /epoc32/include/comms-infras
+SYSTEMINCLUDE /epoc32/include/networking
+SYSTEMINCLUDE /epoc32/include/test
+#else
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+SYSTEMINCLUDE /epoc32/include/platform/comms-infras
+SYSTEMINCLUDE /epoc32/include/platform/networking
+SYSTEMINCLUDE /epoc32/include/platform/test
+#endif
+
+LIBRARY     euser.lib
+LIBRARY	    testexecuteutils.lib 
+LIBRARY	    testexecutelogclient.lib 
+LIBRARY		insock.lib
+LIBRARY		esock.lib
+LIBRARY     netstsrv.lib
+LIBRARY     netmeta.lib
+LIBRARY		ecom.lib
+LIBRARY		c32root.lib
+LIBRARY		netsubscribe.lib
+LIBRARY		commdb.lib
+
+#ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+LIBRARY         netcfgext.lib
+LIBRARY		commsfw.lib
+#else
+LIBRARY         netcfgextnbase.lib
+#endif
+
+CAPABILITY ALL -Tcb
+
+SMPSAFE

@@ -1,0 +1,7 @@
+[sockman]
+protocols= tcpdumping
+
+[tcpdumping]
+bindfrom= ip6
+filename= tcpdumping.prt
+index= 1

@@ -1,0 +1,9 @@
+[sockman]
+protocols= ipen
+
+[ipen]
+filename= ipeventnotifier.prt
+bindfrom= ip6
+index= 1
+
+

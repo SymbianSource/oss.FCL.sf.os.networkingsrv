@@ -1,0 +1,87 @@
+// Copyright (c) 2001-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+NAME SSLE
+#include "SslErr.rls"
+#include <uikon.rh>
+
+
+RESOURCE RSS_SIGNATURE { }
+
+RESOURCE ERROR_SET r_error_res_ssl
+	{
+	errorarrays=
+		{
+		ERROR_ARRAY
+			{
+			startError=-7400;
+			errors=r_error_res_ssl_handshake_errors;
+			},
+		ERROR_ARRAY
+			{
+			startError=-7500;
+			errors=r_error_res_ssl_alert_errors;
+			},
+		ERROR_ARRAY
+			{
+			startError=-7510;
+			errors=r_error_res_ssl_alert_UnexpectedMessage ;
+			},
+		ERROR_ARRAY
+			{
+			startError=-7520;
+			errors=r_error_res_ssl_alert_mac;
+			},
+		ERROR_ARRAY
+			{
+			startError=-7530;
+			errors=r_error_res_ssl_alert_DecompressionFailure;
+			},
+		ERROR_ARRAY
+			{
+			startError=-7540;
+			errors=r_error_res_ssl_alert_handshake;
+			},
+		ERROR_ARRAY
+			{
+			startError=-7560;
+			errors=r_error_res_ssl_alert_ExportRestriction ;
+			},
+		ERROR_ARRAY
+			{
+			startError=-7570;
+			errors=r_error_res_ssl_alert_Security ;
+			},
+		ERROR_ARRAY
+			{
+			startError=-7580;
+			errors=r_error_res_ssl_alert_InternalError ;
+			},
+		ERROR_ARRAY
+			{
+			startError=-7590;
+			errors=r_error_res_ssl_alert_UserCanceled ;
+			},
+		ERROR_ARRAY
+			{
+			startError=-7600;
+			errors=r_error_res_ssl_alert_NoRenegotiation;
+			}
+		};
+	}
+
+
+
+#include "SslErr.ra"

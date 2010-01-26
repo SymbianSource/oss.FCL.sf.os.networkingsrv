@@ -1,0 +1,7 @@
+EXPORTS
+	?GetStateL@RTlsCacheClient@@QAE?AW4TCacheEntryState@@XZ @ 1 NONAME ; enum TCacheEntryState RTlsCacheClient::GetStateL(void)
+	?Open@RTlsCacheClient@@QAEHABVCX509Certificate@@@Z @ 2 NONAME ; int RTlsCacheClient::Open(class CX509Certificate const &)
+	?RequestNotify@RTlsCacheClient@@QAEXAAVTRequestStatus@@@Z @ 3 NONAME ; void RTlsCacheClient::RequestNotify(class TRequestStatus &)
+	?SetStateL@RTlsCacheClient@@QAEXW4TCacheEntryState@@@Z @ 4 NONAME ; void RTlsCacheClient::SetStateL(enum TCacheEntryState)
+	?Cancel@RTlsCacheClient@@QAEXXZ @ 5 NONAME ; void RTlsCacheClient::Cancel(void)
+

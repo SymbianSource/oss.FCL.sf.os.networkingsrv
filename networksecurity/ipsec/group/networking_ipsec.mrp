@@ -1,0 +1,29 @@
+#
+# Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+# All rights reserved.
+# This component and the accompanying materials are made available
+# under the terms of "Eclipse Public License v1.0"
+# which accompanies this distribution, and is available
+# at the URL "http://www.eclipse.org/legal/epl-v10.html".
+#
+# Initial Contributors:
+# Nokia Corporation - initial contribution.
+#
+# Contributors:
+#
+# Description: 
+#
+
+component	networking_ipsec
+source	\sf\os\networkingsrv\networksecurity\ipsec
+binary	\sf\os\networkingsrv\networksecurity\ipsec\group	all
+exports	\sf\os\networkingsrv\networksecurity\ipsec\group
+notes_source	\component_defs\release.src
+
+
+
+# ==   comments appear after the line they describe  ==
+ipr E
+ipr T \sf\os\networkingsrv\networksecurity\ipsec\ipsec_itest
+
+ipr T \sf\os\networkingsrv\networksecurity\ipsec\te_ipsec

@@ -1,0 +1,7 @@
+EXPORTS
+	??1CPacketLogger@@UAE@XZ @ 1 NONAME ; CPacketLogger::~CPacketLogger(void)
+	?NewL@CPacketLogger@@SAPAV1@ABVTDesC8@@0W4TDumpType@1@H@Z @ 2 NONAME ; class CPacketLogger * CPacketLogger::NewL(class TDesC8 const &, class TDesC8 const &, enum CPacketLogger::TDumpType, int)
+	?WritePacket@CPacketLogger@@QAEXABVRMBufChain@@E@Z @ 3 NONAME ; void CPacketLogger::WritePacket(class RMBufChain const &, unsigned char)
+	?WritePacket@CPacketLogger@@QAEXABVTDesC8@@E@Z @ 4 NONAME ; void CPacketLogger::WritePacket(class TDesC8 const &, unsigned char)
+	?WriteText@CPacketLogger@@QAEXABVTDesC8@@@Z @ 5 NONAME ; void CPacketLogger::WriteText(class TDesC8 const &)
+

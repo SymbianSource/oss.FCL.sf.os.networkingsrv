@@ -1,0 +1,3 @@
+EXPORTS
+	?CreateTestSuite@@YAPAVCTestSuiteNullAgt@@XZ @ 1 NONAME ; class CTestSuiteNullAgt * __cdecl CreateTestSuite(void)
+

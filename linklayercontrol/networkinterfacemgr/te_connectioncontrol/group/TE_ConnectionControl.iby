@@ -1,0 +1,35 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+#ifndef __TE_CONNECTIONCONTROL_IBY__
+#define __TE_CONNECTIONCONTROL_IBY__
+
+REM Comms Framework FLogger extension
+#include <commsdebugutility.iby>
+
+#include <testexecute.iby>
+
+file=ABI_DIR\DEBUG_DIR\TE_ConnectionControl.exe                           System\libs\TE_ConnectionControl.exe
+
+data=EPOCROOT##epoc32\data\z\TestData\Scripts\TE_ConnectionControlTest.script TestData\Scripts\TE_ConnectionControlTest.script 
+data=EPOCROOT##epoc32\data\z\TestData\Scripts\TE_ConnectionControlTestBase.script TestData\Scripts\TE_ConnectionControlTestBase.script 
+data=EPOCROOT##epoc32\data\z\TestData\configs\TE_ConnectionControlTest.ini    TestData\configs\TE_ConnectionControlTest.ini 
+data=EPOCROOT##epoc32\data\z\TestData\configs\TE_ConnectionControlTest.cfg    TestData\configs\TE_ConnectionControlTest.cfg
+data=EPOCROOT##epoc32\data\z\TestData\configs\TE_ConnectionControlTest.txt    TestData\configs\TE_ConnectionControlTest.txt
+
+#endif
+

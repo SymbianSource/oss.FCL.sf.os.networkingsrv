@@ -1,0 +1,31 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+#ifndef __TS_NIFMANBC_IBY__
+#define __TS_NIFMANBC_IBY__
+
+#include <nifman.iby>
+
+#include <ts_esockutil.iby>
+
+file=ABI_DIR\DEBUG_DIR\ts_nifmanbc.dll 		                System\Libs\ts_nifmanbc.dll
+data=EPOCROOT##epoc32\data\z\Test\nifman\ts_nifmanbc\c\nifmanbc.xml                TestData\configs\nifmanbc.xml 
+data=EPOCROOT##epoc32\data\z\Test\nifman\ts_nifmanbc\c\nifmanbc_badconnpref.xml    TestData\configs\nifmanbc_badconnpref.xml 
+data=EPOCROOT##epoc32\data\z\Test\nifman\ts_nifmanbc\c\nifmanbc.script             TestData\scripts\nifmanbc.script
+
+#endif
+

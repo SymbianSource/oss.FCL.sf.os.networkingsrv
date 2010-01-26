@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relnotes name="Ethernet NIF">
+  <purpose>
+    Ethernet protocol NIF plugin to Network Interface Manager supporting wired ethernet.
+  </purpose>
+
+  <defect number="DEF108296" title="[399] Wrong response sent from LANLinkCommon flow on TCancel" revision="003">
+    
+    DEF108296 [399] Wrong response sent from LANLinkCommon flow on TCancel
+    DEF108306 [399] LinkLayerDown calls from pkt driver can cause bad TDataClientGoneDown msg
+    DEF108314 [399] Ether802 can unload the packet driver prematurely when used with PAN
+    
+  </defect>
+
+  <defect number="DEF108306" title="[399] LinkLayerDown calls from pkt driver can cause bad TDataClientGoneDown msg" revision="002">
+    
+    DEF108296 [399] Wrong response sent from LANLinkCommon flow on TCancel
+    DEF108306 [399] LinkLayerDown calls from pkt driver can cause bad TDataClientGoneDown msg
+    DEF108314 [399] Ether802 can unload the packet driver prematurely when used with PAN
+    
+  </defect>
+
+  <defect number="DEF108314" title="[399] Ether802 can unload the packet driver prematurely when used with PAN" revision="001">
+    
+    DEF108296 [399] Wrong response sent from LANLinkCommon flow on TCancel
+    DEF108306 [399] LinkLayerDown calls from pkt driver can cause bad TDataClientGoneDown msg
+    DEF108314 [399] Ether802 can unload the packet driver prematurely when used with PAN
+    
+  </defect>
+</relnotes>

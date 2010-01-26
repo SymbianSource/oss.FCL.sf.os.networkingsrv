@@ -1,0 +1,45 @@
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// TlsProvtestServer.mmp
+// UID must be registered with security key store at the moment it's not unique but the
+// on already registered
+// 
+//
+
+TARGET			ttlsoom.exe
+TARGETTYPE		exe
+UID				0x1000007A 0x10204F0E
+VENDORID		0x70000001
+
+CAPABILITY		All -Tcb
+
+
+//Source files for TLS Provider tests
+SOURCE          ttlsoom.cpp tlsoomstepbase.cpp tlsoomconnectstep.cpp
+SOURCE		tlsoomcipherstep.cpp tlsoomstepwrapper.cpp
+SOURCE		tlsoomauthstep.cpp tlsoomkeyexchangestep.cpp
+
+	
+
+USERINCLUDE   .
+USERINCLUDE   ..\..\inc
+SYSTEMINCLUDE \epoc32\include
+SYSTEMINCLUDE \epoc32\include\test
+
+
+LIBRARY		euser.lib tlsprovider.lib
+LIBRARY		testexecuteutils.lib
+LIBRARY		testexecutelogclient.lib
+LIBRARY		efsrv.lib x509.lib
+SMPSAFE

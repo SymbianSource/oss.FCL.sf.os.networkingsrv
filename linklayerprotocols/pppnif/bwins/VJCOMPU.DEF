@@ -1,0 +1,4 @@
+EXPORTS
+; NEW:
+	NewVJCompFactoryL @ 1 NONAME
+

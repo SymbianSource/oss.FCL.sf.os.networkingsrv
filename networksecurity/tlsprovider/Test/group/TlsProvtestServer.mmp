@@ -1,0 +1,77 @@
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+//UID must be registered with security key store at the moment it's not unique but the
+//on already registered
+TARGET      tlsprovserver.exe
+TARGETTYPE  exe
+UID             0x1000007A 0x101f52c4
+VENDORID 0x70000001
+
+CAPABILITY ReadUserData WriteDeviceData NetworkServices
+
+SOURCEPATH  ../src
+SOURCE		TlsProvServer.cpp
+SOURCE		TlsProvTestStep.cpp   TlsProvTestSteps_N.cpp 
+SOURCE		TlsProvTestSteps2.cpp TlsProvTestSteps4.cpp 
+SOURCE		TlsProvTestSteps7.cpp TlsProvTestSteps5_8.cpp TlsProvTestSteps9.cpp     
+SOURCE		TSecureConnection.cpp
+SOURCE		tlstest2servercertstep.cpp
+
+//Source files for TLS Provider tests
+SOURCE          TlsProviderStep6.cpp     TlsProviderStep3.cpp	
+
+USERINCLUDE   ../src
+
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+SYSTEMINCLUDE 	/epoc32/include
+SYSTEMINCLUDE 	/epoc32/include/test
+SYSTEMINCLUDE	/epoc32/include/ct
+#else
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+SYSTEMINCLUDE 	/epoc32/include/platform/test
+SYSTEMINCLUDE 	/epoc32/include/platform/ct
+SYSTEMINCLUDE 	/epoc32/include/platform/mw
+SYSTEMINCLUDE 	/epoc32/include/mw
+#endif
+
+USERINCLUDE		../../../../../security/crypto/weakcrypto/inc
+
+
+LIBRARY     	euser.lib
+LIBRARY		testexecuteutils.lib
+LIBRARY		efsrv.lib
+LIBRARY		testexecutelogclient.lib
+//LIBRARY certstore.lib
+//LIBRARY cryptography.lib
+//LIBRARY x500.lib
+LIBRARY x509.lib
+LIBRARY hash.lib
+LIBRARY crypto.lib
+LIBRARY random.lib
+//LIBRARY asn1.lib
+LIBRARY		tlsprovider.lib
+library			estor.lib
+Library 		c32.lib http.lib bafl.lib inetprotutil.lib
+
+//start wins
+//#ifndef WINSCW
+//	win32_library chkstk.obj
+//#endif
+//end
+EPOCSTACKSIZE	0x8000
+
+SMPSAFE
+

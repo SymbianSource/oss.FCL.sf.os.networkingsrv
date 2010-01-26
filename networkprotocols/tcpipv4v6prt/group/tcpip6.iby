@@ -1,0 +1,30 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+#ifndef __TCPIP6_IBY__
+#define __TCPIP6_IBY__
+
+REM static dependencies
+#include <esock.iby>
+#include <insock.iby>
+#include <inhook6.iby>
+#include <nifman.iby>
+
+data=EPOCROOT##epoc32\data\z\private\101F7989\esock\tcpip.ini    private\101F7989\esock\tcpip.ini
+data=EPOCROOT##epoc32\data\z\private\101F7989\esock\ip.tcpip.esk	private\101F7989\esock\ip.tcpip.esk
+
+file=ABI_DIR\DEBUG_DIR\tcpip6.prt         system\libs\tcpip6.prt
+
+#endif // __TCPIP6_IBY__

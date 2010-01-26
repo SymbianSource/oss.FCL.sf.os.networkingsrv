@@ -1,0 +1,48 @@
+// Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+TARGET          netcfgextndhcp.dll
+TARGETTYPE	PLUGIN
+
+UID             0x10009D8D 0x102032C0
+VENDORID 	0x70000001
+
+#include	"comms-infras/commsdebugutility.mmh"
+
+SOURCEPATH      ../NetCfgExtnDhcp/src
+SOURCE          NetCfgExtnDhcp.cpp
+
+START RESOURCE 102032C0.rss
+#ifdef SYMBIAN_SECURE_ECOM
+TARGET		netcfgextndhcp.rsc
+#endif
+END
+
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+LIBRARY		euser.lib
+LIBRARY         netstsrv.lib
+LIBRARY		ecom.lib
+#ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+LIBRARY         netcfgext.lib
+LIBRARY		esocksvr.lib
+//LIBRARY 	nodemessages.lib
+#else
+LIBRARY		netcfgextnbase.lib
+#endif
+
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+
+SMPSAFE

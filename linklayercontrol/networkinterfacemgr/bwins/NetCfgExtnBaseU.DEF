@@ -1,0 +1,15 @@
+EXPORTS
+	??1CNetworkConfigExtensionBase@@UAE@XZ @ 1 NONAME ; CNetworkConfigExtensionBase::~CNetworkConfigExtensionBase(void)
+	?AsyncDelete@CNetworkConfigExtensionBase@@UAEXXZ @ 2 NONAME ; void CNetworkConfigExtensionBase::AsyncDelete(void)
+	?CancelControl@CNetworkConfigExtensionBase@@UAEXXZ @ 3 NONAME ; void CNetworkConfigExtensionBase::CancelControl(void)
+	?ConfigureNetworkL@CNetworkConfigExtensionBase@@UAEXXZ @ 4 NONAME ; void CNetworkConfigExtensionBase::ConfigureNetworkL(void)
+	?ConstructL@CNetworkConfigExtensionBase@@IAEXXZ @ 5 NONAME ; void CNetworkConfigExtensionBase::ConstructL(void)
+	?Deregister@CNetworkConfigExtensionBase@@UAEXH@Z @ 6 NONAME ; void CNetworkConfigExtensionBase::Deregister(int)
+	?DoCancel@CNetworkConfigExtensionBase@@MAEXXZ @ 7 NONAME ; void CNetworkConfigExtensionBase::DoCancel(void)
+	?LinkLayerDown@CNetworkConfigExtensionBase@@UAEXXZ @ 8 NONAME ; void CNetworkConfigExtensionBase::LinkLayerDown(void)
+	?LinkLayerUp@CNetworkConfigExtensionBase@@UAEXXZ @ 9 NONAME ; void CNetworkConfigExtensionBase::LinkLayerUp(void)
+	?RunError@CNetworkConfigExtensionBase@@MAEHH@Z @ 10 NONAME ; int CNetworkConfigExtensionBase::RunError(int)
+	?RunL@CNetworkConfigExtensionBase@@MAEXXZ @ 11 NONAME ; void CNetworkConfigExtensionBase::RunL(void)
+	?SendIoctlMessageL@CNetworkConfigExtensionBase@@UAEXABVRMessage2@@@Z @ 12 NONAME ; void CNetworkConfigExtensionBase::SendIoctlMessageL(class RMessage2 const &)
+	?EventNotification@CNetworkConfigExtensionBase@@UAEXW4TNetworkAdaptorEventType@@IABVTDesC8@@PAX@Z @ 13 NONAME ; void CNetworkConfigExtensionBase::EventNotification(enum TNetworkAdaptorEventType, unsigned int, class TDesC8 const &, void *)
+

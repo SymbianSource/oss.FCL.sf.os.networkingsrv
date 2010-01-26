@@ -1,0 +1,63 @@
+// Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// IPSecPol.MMP - IPSec Policy Manager Server
+// IPSec Policy Manager Server
+// ipsecpol.exe Responsible for IPSec policy merging
+//
+
+
+
+/**
+ @file
+*/
+
+//MACRO		TESTFLAG
+MACRO       EPOC_SDK=0x07000000
+
+TARGET          ipsecpol.exe
+TARGETTYPE      exe
+
+UID      0 0x01000000
+
+#include	<comms-infras/commsdebugutility.mmh>
+ 
+SOURCEPATH  ../src
+SOURCE          ipsecpolmanserver.cpp 
+SOURCE          ipsecpolmanconflict.cpp
+SOURCE          ipsecpolmanhandler.cpp
+SOURCE          ipsecpolmansession.cpp 
+SOURCE          secpolreader.cpp 
+SOURCE          ipsecpolmanutil.cpp 
+SOURCE          ipsecpolmanstarter.cpp
+SOURCE          autoloadlistitem.cpp
+
+SOURCEPATH      ../../cscommon/src
+SOURCE          srvstatic.cpp
+
+USERINCLUDE ../inc
+USERINCLUDE ../../ipsecpolparser/inc
+USERINCLUDE     ../../cscommon/inc
+
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+OS_LAYER_ESTLIB_SYSTEMINCLUDE
+
+LIBRARY         euser.lib efsrv.lib
+LIBRARY         ipsecpolparser.lib esock.lib insock.lib
+
+VENDORID 0x70000001
+CAPABILITY  ProtServ NetworkControl
+
+UNPAGED
+
+SMPSAFE

@@ -1,0 +1,27 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+#ifndef __TFTP_IBY__
+#define __TFTP_IBY__
+
+REM dependencies
+#include <esock.iby>
+#include <insock.iby>
+
+file=ABI_DIR\DEBUG_DIR\tftp.exe		System\Programs\tftp.exe
+file=ABI_DIR\DEBUG_DIR\tftpeng.dll	System\Libs\tftpeng.dll
+
+#endif // __TFTP_IBY__

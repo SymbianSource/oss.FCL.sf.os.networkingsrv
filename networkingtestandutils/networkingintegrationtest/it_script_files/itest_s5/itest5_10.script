@@ -1,0 +1,79 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRINT Integration test 5.10 - IR CSD Outgoing terminated By Rnif::Stop with Ipv4 and Ipsec
+
+LOAD_SUITE TE_Esock
+LOAD_SUITE te_esockutil
+
+
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+//below fails as '-i' confuses test tool, tried csd_ir.xml file, but test fails with it
+//CED z:\testdata\configs\integration\itest_s5\csd-ir.xml
+CED z:\testdata\configs\te_esock.xml
+//RUN_SCRIPT Z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+
+
+# ipsec dirs
+run_utils mkdir c:\system\data\security\
+run_utils mkdir c:\system\data\security\secfiles\
+
+# vpn test 1, the IAPs need to be configured for this in advance
+run_utils copyfile z:\TestData\configs\fbsd_tull.pol c:\system\data\security\secfiles\fbsd_tull.pol
+run_utils copyfile z:\TestData\configs\fbsd_tull.pin c:\system\data\security\secfiles\fbsd_tull.pin
+run_utils copyfile z:\TestData\configs\cisco_all.pol c:\system\data\security\secfiles\cisco_all.pol
+run_utils copyfile z:\TestData\configs\cisco_all.pin c:\system\data\security\secfiles\cisco_all.pin
+
+run_utils MakeReadWrite c:\system\data\security\secfiles\fbsd_tull.pin
+run_utils MakeReadWrite c:\system\data\security\secfiles\fbsd_tull.pol
+run_utils MakeReadWrite c:\system\data\security\secfiles\ciscol_all.pol
+run_utils MakeReadWrite c:\system\data\security\secfiles\cisco_all.pin
+
+run_utils copyfile z:\TestData\configs\algorithms.conf c:\system\data\security\secfiles\algorithms.conf
+run_utils MakeReadWrite c:\system\data\security\secfiles\algorithms.conf
+
+// open socket server 
+RUN_TEST_STEP 100 TE_Esock OpenServer   
+
+START_TESTCASE			NET-Integration-IrCsd-1201
+//! @SYMTestCaseID		NET-Integration-IrCsd-1201
+
+
+// open Ipv4 socket
+RUN_TEST_STEP 100 TE_Esock Test1.2 z:\testdata\configs\integration\itest_s5\itest.ini
+
+// use Ipv4 socket
+RUN_TEST_STEP 1000 TE_Esock SendData z:\testdata\configs\integration\itest_s5\ipv4.ini
+
+// close using rnif::stop 
+RUN_TEST_STEP 3000 te_esockutil TE_ESockUtilStopAllInterfaces
+
+// check the network is NOT active
+RUN_TEST_STEP 100 te_esockutil TE_ESockUtilIsNetworkNotActive
+
+// close socket
+RUN_TEST_STEP 100 TE_Esock Test1.15 z:\testdata\configs\integration\itest_s5\itest.ini
+TEST_COMPLETE IR_CSD_test5_10
+END_TESTCASE			NET-Integration-IrCsd-1201
+
+// close socket server 
+RUN_TEST_STEP 100 TE_Esock CloseServer   
+
+// log result
+PRINT Result for Integration test 5.10 - IR CSD Outgoing terminated By Rnif::Stop with Ipv4 and Ipsec
+
+

@@ -1,0 +1,166 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//
+PRINT Run all Tls provider tests
+//
+LOAD_SUITE TlsProvServer
+//
+#
+PAUSE 
+RUN_UTILS MkDir c:\logs\  
+RUN_UTILS MkDir c:\logs\tlsprovider\
+RUN_UTILS MkDir c:\logs\swtlstoken\
+RUN_UTILS MkDir c:\private\101f72a6\
+
+RUN_UTILS DeleteFile c:\t_secdlg_in.dat  //This will enable tsecdlg to take the default passphrase of PinkCloud
+RUN_UTILS DeleteFile c:\t_secdlg_out.dat
+
+RUN_UTILS DeleteFile c:\private\101f72a6\CACerts.dat //Delete Dat files if exists
+RUN_UTILS DeleteFile c:\private\101f72a6\keys.dat 
+RUN_UTILS DeleteFile c:\private\101f72a6\certclients.dat
+
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ClientAuthentication\CACerts.dat c:\System\data\CACerts.dat
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ClientAuthentication\keys.dat c:\System\data\keys.dat 
+
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ClientAuthentication\CACerts.dat c:\private\101f72a6\CACerts.dat
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ClientAuthentication\keys.dat    c:\private\101f72a6\keys.dat 
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ClientAuthentication\certclients.dat    c:\private\101f72a6\certclients.dat 
+
+PRINT *************************TLS Provider Tests Start***************************
+
+RUN_SCRIPT z:\testdata\scripts\te_tlsprovider.script
+PRINT Run all Tls provider tests
+
+PRINT *************************TLS Provider Tests End*****************************
+
+
+
+PRINT *************************TLS SW Token Tests Start***************************
+
+//! @SYMTestCaseID 	SEC-TLSP-PROV-0001
+//! @SYMTestCaseDesc 	TLS SW Token Tests
+
+START_TESTCASE SEC-TLSP-PROV-0001
+     
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\Premaster.bin c:\Premaster.bin 
+RUN_TEST_STEP 20 TlsProvServer TlsTestStep4.0 z:\testdata\scripts\te_tlsprov.ini TestSection4
+RUN_UTILS MakeReadWrite c:\Premaster.bin 
+RUN_UTILS DeleteFile c:\Premaster.bin 
+
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ciphersuite03_SSL\Premaster.bin c:\Premaster.bin 
+RUN_TEST_STEP 20 TlsProvServer TlsTestStep4.1 z:\testdata\scripts\te_tlsprov.ini TestSection4_1
+RUN_UTILS MakeReadWrite c:\Premaster.bin 
+RUN_UTILS DeleteFile c:\Premaster.bin 
+
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\Premaster.bin c:\Premaster.bin 
+RUN_UTILS MakeReadWrite c:\Premaster.bin 
+RUN_TEST_STEP 20 TlsProvServer TlsTestStep4.2 z:\testdata\scripts\te_tlsprov.ini TestSection4_2
+RUN_UTILS MakeReadWrite c:\Premaster.bin 
+RUN_UTILS DeleteFile c:\Premaster.bin 
+
+
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ciphersuite05_TLS\Premaster.bin c:\Premaster.bin 
+RUN_TEST_STEP 20 TlsProvServer TlsTestStep4.3 z:\testdata\scripts\te_tlsprov.ini TestSection4_3
+RUN_UTILS MakeReadWrite c:\Premaster.bin 
+RUN_UTILS DeleteFile c:\Premaster.bin 
+
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\Premaster.bin c:\Premaster.bin 
+RUN_UTILS MakeReadWrite c:\Premaster.bin 
+RUN_TEST_STEP 20 TlsProvServer TlsTestStep4.4 z:\testdata\scripts\te_tlsprov.ini TestSection4_4
+RUN_UTILS MakeReadWrite c:\Premaster.bin 
+RUN_UTILS DeleteFile c:\Premaster.bin 
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\Premaster.bin c:\Premaster.bin 
+RUN_TEST_STEP 20 TlsProvServer TlsTestStep4.5 z:\testdata\scripts\te_tlsprov.ini TestSection4
+RUN_UTILS MakeReadWrite c:\Premaster.bin 
+RUN_UTILS DeleteFile c:\Premaster.bin 
+
+
+
+//RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\Premaster.bin c:\Premaster.bin 
+//RUN_UTILS MakeReadWrite c:\Premaster.bin
+//RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ClientAuthentication\certclients.dat c:\System\data\certclients.dat 
+//RUN_TEST_STEP 40 TlsProvServer TlsTestStep5.2 z:\testdata\scripts\te_tlsprov.ini TestSection5_2
+//RUN_UTILS MakeReadWrite c:\Premaster.bin 
+//RUN_UTILS DeleteFile c:\Premaster.bin 
+
+
+//RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\Premaster.bin c:\Premaster.bin 
+//RUN_UTILS MakeReadWrite c:\Premaster.bin
+//RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ClientAuthentication\certclients.dat c:\System\data\certclients.dat 
+//RUN_TEST_STEP 40 TlsProvServer TlsTestStep5.3 z:\testdata\scripts\te_tlsprov.ini TestSection5_2
+//RUN_UTILS MakeReadWrite c:\Premaster.bin 
+//RUN_UTILS DeleteFile c:\Premaster.bin 
+
+//TestSteps 5.3 and 5.4 have been commented out for want of DSS keys and certs
+//RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ciphersuite0xd_TLS\DHPrivateValue.bin c:\DHPrivateValue.bin
+//RUN_TEST_STEP 30 TlsProvServer TlsTestStep5.4 z:\testdata\scripts\te_tlsprov.ini TestSection5_4
+//RUN_UTILS MakeReadWrite c:\DHPrivateValue.bin 
+//RUN_UTILS DeleteFile c:\DHPrivateValue.bin 
+      
+//RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ciphersuite0xd_TLS\DHPrivateValue.bin c:\DHPrivateValue.bin
+//RUN_TEST_STEP 30 TlsProvServer TlsTestStep5.5 z:\testdata\scripts\te_tlsprov.ini TestSection5_4
+//RUN_UTILS MakeReadWrite c:\DHPrivateValue.bin 
+//RUN_UTILS DeleteFile c:\DHPrivateValue.bin 
+
+//RUN_TEST_STEP 30 TlsProvServer TlsTestStep8.1 z:\testdata\scripts\te_tlsprov.ini TestSection8
+
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\Premaster.bin c:\Premaster.bin 
+RUN_TEST_STEP 100 TlsProvServer TlsTestStep9.0 z:\testdata\scripts\te_tlsprov.ini TestSection4
+RUN_UTILS MakeReadWrite c:\Premaster.bin 
+RUN_UTILS DeleteFile c:\Premaster.bin 
+
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\Premaster.bin c:\Premaster.bin 
+RUN_TEST_STEP 20 TlsProvServer TlsTestStep7.0 z:\testdata\scripts\te_tlsprov.ini TestSection4
+RUN_UTILS MakeReadWrite c:\Premaster.bin 
+RUN_UTILS DeleteFile c:\Premaster.bin 
+
+
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ciphersuite03_SSL\Premaster.bin c:\Premaster.bin 
+RUN_TEST_STEP 20 TlsProvServer TlsTestStep7.1 z:\testdata\scripts\te_tlsprov.ini TestSection4_1
+RUN_UTILS MakeReadWrite c:\Premaster.bin 
+RUN_UTILS DeleteFile c:\Premaster.bin 
+
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\Premaster.bin c:\Premaster.bin 
+RUN_TEST_STEP 20 TlsProvServer TlsTestStep7.2 z:\testdata\scripts\te_tlsprov.ini TestSection7_2
+RUN_UTILS MakeReadWrite c:\Premaster.bin 
+RUN_UTILS DeleteFile c:\Premaster.bin 
+
+
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ciphersuite03_SSL\Premaster.bin c:\Premaster.bin 
+RUN_TEST_STEP 20 TlsProvServer TlsTestStep7.3 z:\testdata\scripts\te_tlsprov.ini TestSection7_3
+RUN_UTILS MakeReadWrite c:\Premaster.bin 
+RUN_UTILS DeleteFile c:\Premaster.bin 
+
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\Premaster.bin c:\Premaster.bin 
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ciphersuite0x16_TLS\DHRandom.bin c:\DHRandom.bin
+RUN_TEST_STEP 350 TlsProvServer TlsTestStep4.6 z:\testdata\scripts\te_tlsprov.ini TestSection4_6
+RUN_UTILS MakeReadWrite c:\Premaster.bin 
+RUN_UTILS DeleteFile c:\Premaster.bin 
+RUN_UTILS MakeReadWrite c:\DHRandom.bin 
+RUN_UTILS DeleteFile c:\DHRandom.bin 
+
+
+RUN_TEST_STEP 50 TlsProvServer TlsTestStep10.0 z:\testdata\scripts\te_tlsprov.ini TestSection10_0
+
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\Premaster.bin c:\Premaster.bin 
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ciphersuite0x16_TLS\DHRandom.bin c:\DHRandom.bin
+RUN_TEST_STEP 50 TlsProvServer TlsTestStep10.1 z:\testdata\scripts\te_tlsprov.ini TestSection10_1
+RUN_UTILS MakeReadWrite c:\Premaster.bin 
+RUN_UTILS DeleteFile c:\Premaster.bin 
+RUN_UTILS MakeReadWrite c:\DHRandom.bin 
+RUN_UTILS DeleteFile c:\DHRandom.bin 
+
+END_TESTCASE SEC-TLSP-PROV-0001

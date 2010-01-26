@@ -1,0 +1,222 @@
+EXPORTS
+	??0CBlockChainingMode@@IAE@XZ @ 1 NONAME ; protected: __thiscall CBlockChainingMode::CBlockChainingMode(void)
+	??0CDH@@IAE@ABVCDHPrivateKey@@@Z @ 2 NONAME ; protected: __thiscall CDH::CDH(class CDHPrivateKey const &)
+	??0CDHKeyPair@@IAE@XZ @ 3 NONAME ; protected: __thiscall CDHKeyPair::CDHKeyPair(void)
+	??0CDHParameters@@IAE@AAVRInteger@@0@Z @ 4 NONAME ; protected: __thiscall CDHParameters::CDHParameters(class RInteger &,class RInteger &)
+	??0CDHParameters@@IAE@XZ @ 5 NONAME ; protected: __thiscall CDHParameters::CDHParameters(void)
+	??0CDHPrivateKey@@IAE@AAVRInteger@@00@Z @ 6 NONAME ; protected: __thiscall CDHPrivateKey::CDHPrivateKey(class RInteger &,class RInteger &,class RInteger &)
+	??0CDHPrivateKey@@IAE@XZ @ 7 NONAME ; protected: __thiscall CDHPrivateKey::CDHPrivateKey(void)
+	??0CDHPublicKey@@IAE@AAVRInteger@@00@Z @ 8 NONAME ; protected: __thiscall CDHPublicKey::CDHPublicKey(class RInteger &,class RInteger &,class RInteger &)
+	??0CDHPublicKey@@IAE@XZ @ 9 NONAME ; protected: __thiscall CDHPublicKey::CDHPublicKey(void)
+	??0CDSAKeyPair@@IAE@XZ @ 10 NONAME ; protected: __thiscall CDSAKeyPair::CDSAKeyPair(void)
+	??0CDSAParameters@@IAE@AAVRInteger@@00@Z @ 11 NONAME ; protected: __thiscall CDSAParameters::CDSAParameters(class RInteger &,class RInteger &,class RInteger &)
+	??0CDSAParameters@@IAE@XZ @ 12 NONAME ; protected: __thiscall CDSAParameters::CDSAParameters(void)
+	??0CDSAPrimeCertificate@@IAE@I@Z @ 13 NONAME ; protected: __thiscall CDSAPrimeCertificate::CDSAPrimeCertificate(unsigned int)
+	??0CDSAPrimeCertificate@@IAE@XZ @ 14 NONAME ; protected: __thiscall CDSAPrimeCertificate::CDSAPrimeCertificate(void)
+	??0CDSAPrivateKey@@IAE@AAVRInteger@@000@Z @ 15 NONAME ; protected: __thiscall CDSAPrivateKey::CDSAPrivateKey(class RInteger &,class RInteger &,class RInteger &,class RInteger &)
+	??0CDSAPrivateKey@@IAE@XZ @ 16 NONAME ; protected: __thiscall CDSAPrivateKey::CDSAPrivateKey(void)
+	??0CDSAPublicKey@@IAE@AAVRInteger@@000@Z @ 17 NONAME ; protected: __thiscall CDSAPublicKey::CDSAPublicKey(class RInteger &,class RInteger &,class RInteger &,class RInteger &)
+	??0CDSAPublicKey@@IAE@XZ @ 18 NONAME ; protected: __thiscall CDSAPublicKey::CDSAPublicKey(void)
+	??0CDSASignature@@IAE@AAVRInteger@@0@Z @ 19 NONAME ; protected: __thiscall CDSASignature::CDSASignature(class RInteger &,class RInteger &)
+	??0CDSASignature@@IAE@XZ @ 20 NONAME ; protected: __thiscall CDSASignature::CDSASignature(void)
+	??0CPadding@@IAE@H@Z @ 21 NONAME ; protected: __thiscall CPadding::CPadding(int)
+	??0CPaddingNone@@IAE@H@Z @ 22 NONAME ; protected: __thiscall CPaddingNone::CPaddingNone(int)
+	??0CPaddingPKCS1Encryption@@IAE@H@Z @ 23 NONAME ; protected: __thiscall CPaddingPKCS1Encryption::CPaddingPKCS1Encryption(int)
+	??0CPaddingPKCS1Signature@@IAE@H@Z @ 24 NONAME ; protected: __thiscall CPaddingPKCS1Signature::CPaddingPKCS1Signature(int)
+	??0CPaddingSSLv3@@IAE@H@Z @ 25 NONAME ; protected: __thiscall CPaddingSSLv3::CPaddingSSLv3(int)
+	??0CRSAKeyPair@@IAE@XZ @ 26 NONAME ; protected: __thiscall CRSAKeyPair::CRSAKeyPair(void)
+	??0CRSAParameters@@IAE@AAVRInteger@@@Z @ 27 NONAME ; protected: __thiscall CRSAParameters::CRSAParameters(class RInteger &)
+	??0CRSAParameters@@IAE@XZ @ 28 NONAME ; protected: __thiscall CRSAParameters::CRSAParameters(void)
+	??0CRSAPrivateKeyCRT@@IAE@AAVRInteger@@00000@Z @ 29 NONAME ; protected: __thiscall CRSAPrivateKeyCRT::CRSAPrivateKeyCRT(class RInteger &,class RInteger &,class RInteger &,class RInteger &,class RInteger &,class RInteger &)
+	??0CRSAPrivateKeyStandard@@IAE@AAVRInteger@@0@Z @ 30 NONAME ; protected: __thiscall CRSAPrivateKeyStandard::CRSAPrivateKeyStandard(class RInteger &,class RInteger &)
+	??0CRSAPublicKey@@IAE@AAVRInteger@@0@Z @ 31 NONAME ; protected: __thiscall CRSAPublicKey::CRSAPublicKey(class RInteger &,class RInteger &)
+	??0CRSAPublicKey@@IAE@XZ @ 32 NONAME ; protected: __thiscall CRSAPublicKey::CRSAPublicKey(void)
+	??0CRSASignature@@IAE@AAVRInteger@@@Z @ 33 NONAME ; protected: __thiscall CRSASignature::CRSASignature(class RInteger &)
+	??0CRijndael@@IAE@XZ @ 34 NONAME ; protected: __thiscall CRijndael::CRijndael(void)
+	??0MCryptoSystem@@IAE@XZ @ 35 NONAME ; protected: __thiscall MCryptoSystem::MCryptoSystem(void)
+	??0CDecryptor@@IAE@XZ @ 36 NONAME ; protected: __thiscall CDecryptor::CDecryptor(void)
+	??0CEncryptor@@IAE@XZ @ 37 NONAME ; protected: __thiscall CEncryptor::CEncryptor(void)
+	??0MSignatureSystem@@IAE@XZ @ 38 NONAME ; protected: __thiscall MSignatureSystem::MSignatureSystem(void)
+	??0RInteger@@QAE@XZ @ 39 NONAME ; public: __thiscall RInteger::RInteger(void)
+	??0TInteger@@IAE@XZ @ 40 NONAME ; protected: __thiscall TInteger::TInteger(void)
+	??1CBlockChainingMode@@MAE@XZ @ 41 NONAME ; protected: virtual __thiscall CBlockChainingMode::~CBlockChainingMode(void)
+	??1CBufferedTransformation@@UAE@XZ @ 42 NONAME ; public: virtual __thiscall CBufferedTransformation::~CBufferedTransformation(void)
+	??1CDHKeyPair@@UAE@XZ @ 43 NONAME ; public: virtual __thiscall CDHKeyPair::~CDHKeyPair(void)
+	??1CDHParameters@@UAE@XZ @ 44 NONAME ; public: virtual __thiscall CDHParameters::~CDHParameters(void)
+	??1CDHPrivateKey@@UAE@XZ @ 45 NONAME ; public: virtual __thiscall CDHPrivateKey::~CDHPrivateKey(void)
+	??1CDHPublicKey@@UAE@XZ @ 46 NONAME ; public: virtual __thiscall CDHPublicKey::~CDHPublicKey(void)
+	??1CDSAKeyPair@@UAE@XZ @ 47 NONAME ; public: virtual __thiscall CDSAKeyPair::~CDSAKeyPair(void)
+	??1CDSAParameters@@UAE@XZ @ 48 NONAME ; public: virtual __thiscall CDSAParameters::~CDSAParameters(void)
+	??1CDSAPrimeCertificate@@UAE@XZ @ 49 NONAME ; public: virtual __thiscall CDSAPrimeCertificate::~CDSAPrimeCertificate(void)
+	??1CDSAPrivateKey@@UAE@XZ @ 50 NONAME ; public: virtual __thiscall CDSAPrivateKey::~CDSAPrivateKey(void)
+	??1CDSAPublicKey@@UAE@XZ @ 51 NONAME ; public: virtual __thiscall CDSAPublicKey::~CDSAPublicKey(void)
+	??1CDSASignature@@UAE@XZ @ 52 NONAME ; public: virtual __thiscall CDSASignature::~CDSASignature(void)
+	??1CRSAKeyPair@@UAE@XZ @ 53 NONAME ; public: virtual __thiscall CRSAKeyPair::~CRSAKeyPair(void)
+	??1CRSAParameters@@UAE@XZ @ 54 NONAME ; public: virtual __thiscall CRSAParameters::~CRSAParameters(void)
+	??1CRSAPrivateKeyCRT@@UAE@XZ @ 55 NONAME ; public: virtual __thiscall CRSAPrivateKeyCRT::~CRSAPrivateKeyCRT(void)
+	??1CRSAPrivateKeyStandard@@UAE@XZ @ 56 NONAME ; public: virtual __thiscall CRSAPrivateKeyStandard::~CRSAPrivateKeyStandard(void)
+	??1CRSAPublicKey@@UAE@XZ @ 57 NONAME ; public: virtual __thiscall CRSAPublicKey::~CRSAPublicKey(void)
+	??1CRSASignature@@UAE@XZ @ 58 NONAME ; public: virtual __thiscall CRSASignature::~CRSASignature(void)
+	??1CRijndael@@UAE@XZ @ 59 NONAME ; public: virtual __thiscall CRijndael::~CRijndael(void)
+	??7TInteger@@QBEHXZ @ 60 NONAME ; public: int __thiscall TInteger::operator!(void)const 
+	??8CDSASignature@@QBEHABV0@@Z @ 61 NONAME ; public: int __thiscall CDSASignature::operator==(class CDSASignature const &)const 
+	??8CRSASignature@@QBEHABV0@@Z @ 62 NONAME ; public: int __thiscall CRSASignature::operator==(class CRSASignature const &)const 
+	??BRInteger@@QAE?AVTCleanupItem@@XZ @ 63 NONAME ; public: __thiscall RInteger::operator class TCleanupItem(void)
+	?AgreeL@CDH@@QBEPBVHBufC8@@ABVCDHPublicKey@@@Z @ 64 NONAME ; public: class HBufC8 const * __thiscall CDH::AgreeL(class CDHPublicKey const &)const 
+	?BitCount@TInteger@@QBEIXZ @ 65 NONAME ; public: unsigned int __thiscall TInteger::BitCount(void)const 
+	?BlockSize@CPadding@@QBEHXZ @ 66 NONAME ; public: int __thiscall CPadding::BlockSize(void)const 
+	?BlockSize@CStreamCipher@@UBEHXZ @ 67 NONAME ; public: virtual int __thiscall CStreamCipher::BlockSize(void)const 
+	?BlockTransformer@CBufferedTransformation@@QBEPAVCBlockTransformation@@XZ @ 68 NONAME ; public: class CBlockTransformation * __thiscall CBufferedTransformation::BlockTransformer(void)const 
+	?BufferLC@TInteger@@QBEPAVHBufC8@@XZ @ 69 NONAME ; public: class HBufC8 * __thiscall TInteger::BufferLC(void)const 
+	?ByteCount@TInteger@@QBEIXZ @ 70 NONAME ; public: unsigned int __thiscall TInteger::ByteCount(void)const 
+	?CallClose@RInteger@@SAXPAX@Z @ 71 NONAME ; public: static void __cdecl RInteger::CallClose(void *)
+	?Close@RInteger@@QAEXXZ @ 72 NONAME ; public: void __thiscall RInteger::Close(void)
+	?ConstructL@CBlockChainingMode@@IAEXPAVCBlockTransformation@@ABVTDesC8@@@Z @ 73 NONAME ; protected: void __thiscall CBlockChainingMode::ConstructL(class CBlockTransformation *,class TDesC8 const &)
+	?ConstructL@CDHKeyPair@@IAEXAAVRInteger@@00@Z @ 74 NONAME ; protected: void __thiscall CDHKeyPair::ConstructL(class RInteger &,class RInteger &,class RInteger &)
+	?ConstructL@CDHKeyPair@@IAEXAAVRInteger@@0@Z @ 75 NONAME ; protected: void __thiscall CDHKeyPair::ConstructL(class RInteger &,class RInteger &)
+	?Counter@CDSAPrimeCertificate@@QBEIXZ @ 76 NONAME ; public: unsigned int __thiscall CDSAPrimeCertificate::Counter(void)const 
+	?D@CRSAPrivateKeyStandard@@QBEABVTInteger@@XZ @ 77 NONAME ; public: class TInteger const & __thiscall CRSAPrivateKeyStandard::D(void)const 
+	?DP@CRSAPrivateKeyCRT@@QBEABVTInteger@@XZ @ 78 NONAME ; public: class TInteger const & __thiscall CRSAPrivateKeyCRT::DP(void)const 
+	?DQ@CRSAPrivateKeyCRT@@QBEABVTInteger@@XZ @ 79 NONAME ; public: class TInteger const & __thiscall CRSAPrivateKeyCRT::DQ(void)const 
+	?E@CRSAPublicKey@@QBEABVTInteger@@XZ @ 80 NONAME ; public: class TInteger const & __thiscall CRSAPublicKey::E(void)const 
+	?G@CDHParameters@@QBEABVTInteger@@XZ @ 81 NONAME ; public: class TInteger const & __thiscall CDHParameters::G(void)const 
+	?G@CDSAParameters@@QBEABVTInteger@@XZ @ 82 NONAME ; public: class TInteger const & __thiscall CDSAParameters::G(void)const 
+	??0CRSASigner@@IAE@XZ @ 83 NONAME ; protected: __thiscall CRSASigner::CRSASigner(void)
+	?MaxFinalOutputLength@CStreamCipher@@UBEHH@Z @ 84 NONAME ; public: virtual int __thiscall CStreamCipher::MaxFinalOutputLength(int)const 
+	??0CRSAVerifier@@IAE@XZ @ 85 NONAME ; protected: __thiscall CRSAVerifier::CRSAVerifier(void)
+	?VerifyL@CRSAVerifier@@UBEHABVTDesC8@@ABVCRSASignature@@@Z @ 86 NONAME ; public virtual int CRSAVerifer::VerifyL(class TDesC8 const &,class CRSASignature const &)const
+	?MaxOutputLength@CStreamCipher@@UBEHH@Z @ 87 NONAME ; public: virtual int __thiscall CStreamCipher::MaxOutputLength(int)const 
+	?MaxPaddedLength@CPadding@@UBEHH@Z @ 88 NONAME ; public: virtual int __thiscall CPadding::MaxPaddedLength(int)const 
+	?MaxUnPaddedLength@CPadding@@UBEHH@Z @ 89 NONAME ; public: virtual int __thiscall CPadding::MaxUnPaddedLength(int)const 
+	?ModularExponentiateL@TInteger@@SA?AVRInteger@@ABV1@00@Z @ 90 NONAME ; public: static class RInteger  __cdecl TInteger::ModularExponentiateL(class TInteger const &,class TInteger const &,class TInteger const &)
+	?N@CDHParameters@@QBEABVTInteger@@XZ @ 91 NONAME ; public: class TInteger const & __thiscall CDHParameters::N(void)const 
+	?N@CRSAParameters@@QBEABVTInteger@@XZ @ 92 NONAME ; public: class TInteger const & __thiscall CRSAParameters::N(void)const 
+	?NewEmptyL@RInteger@@SA?AV1@I@Z @ 93 NONAME ; public: static class RInteger  __cdecl RInteger::NewEmptyL(unsigned int)
+	?NewL@C3DESDecryptor@@SAPAV1@ABVTDesC8@@@Z @ 94 NONAME ; public: static class C3DESDecryptor * __cdecl C3DESDecryptor::NewL(class TDesC8 const &)
+	?NewL@C3DESEncryptor@@SAPAV1@ABVTDesC8@@@Z @ 95 NONAME ; public: static class C3DESEncryptor * __cdecl C3DESEncryptor::NewL(class TDesC8 const &)
+	?NewL@CAESDecryptor@@SAPAV1@ABVTDesC8@@@Z @ 96 NONAME ; public: static class CAESDecryptor * __cdecl CAESDecryptor::NewL(class TDesC8 const &)
+	?NewL@CAESEncryptor@@SAPAV1@ABVTDesC8@@@Z @ 97 NONAME ; public: static class CAESEncryptor * __cdecl CAESEncryptor::NewL(class TDesC8 const &)
+	?NewL@CARC4@@SAPAV1@ABVTDesC8@@I@Z @ 98 NONAME ; public: static class CARC4 * __cdecl CARC4::NewL(class TDesC8 const &,unsigned int)
+	?NewL@CBufferedDecryptor@@SAPAV1@PAVCBlockTransformation@@PAVCPadding@@@Z @ 99 NONAME ; public: static class CBufferedDecryptor * __cdecl CBufferedDecryptor::NewL(class CBlockTransformation *,class CPadding *)
+	?NewL@CBufferedEncryptor@@SAPAV1@PAVCBlockTransformation@@PAVCPadding@@@Z @ 100 NONAME ; public: static class CBufferedEncryptor * __cdecl CBufferedEncryptor::NewL(class CBlockTransformation *,class CPadding *)
+	?NewL@CDESDecryptor@@SAPAV1@ABVTDesC8@@H@Z @ 101 NONAME ; public: static class CDESDecryptor * __cdecl CDESDecryptor::NewL(class TDesC8 const &,int)
+	?NewL@CDESEncryptor@@SAPAV1@ABVTDesC8@@H@Z @ 102 NONAME ; public: static class CDESEncryptor * __cdecl CDESEncryptor::NewL(class TDesC8 const &,int)
+	?NewL@CDH@@SAPAV1@ABVCDHPrivateKey@@@Z @ 103 NONAME ; public: static class CDH * __cdecl CDH::NewL(class CDHPrivateKey const &)
+	?NewL@CDHKeyPair@@SAPAV1@AAVRInteger@@00@Z @ 104 NONAME ; public: static class CDHKeyPair * __cdecl CDHKeyPair::NewL(class RInteger &,class RInteger &,class RInteger &)
+	?NewL@CDHKeyPair@@SAPAV1@AAVRInteger@@0@Z @ 105 NONAME ; public: static class CDHKeyPair * __cdecl CDHKeyPair::NewL(class RInteger &,class RInteger &)
+	?NewL@CDHPrivateKey@@SAPAV1@AAVRInteger@@00@Z @ 106 NONAME ; public: static class CDHPrivateKey * __cdecl CDHPrivateKey::NewL(class RInteger &,class RInteger &,class RInteger &)
+	?NewL@CDHPublicKey@@SAPAV1@AAVRInteger@@00@Z @ 107 NONAME ; public: static class CDHPublicKey * __cdecl CDHPublicKey::NewL(class RInteger &,class RInteger &,class RInteger &)
+	?NewL@CDSAKeyPair@@SAPAV1@I@Z @ 108 NONAME ; public: static class CDSAKeyPair * __cdecl CDSAKeyPair::NewL(unsigned int)
+	?NewL@CDSAParameters@@SAPAV1@AAVRInteger@@00@Z @ 109 NONAME ; public: static class CDSAParameters * __cdecl CDSAParameters::NewL(class RInteger &,class RInteger &,class RInteger &)
+	?NewL@CDSAPrimeCertificate@@SAPAV1@ABVTDesC8@@I@Z @ 110 NONAME ; public: static class CDSAPrimeCertificate * __cdecl CDSAPrimeCertificate::NewL(class TDesC8 const &,unsigned int)
+	?NewL@CDSAPrivateKey@@SAPAV1@AAVRInteger@@000@Z @ 111 NONAME ; public: static class CDSAPrivateKey * __cdecl CDSAPrivateKey::NewL(class RInteger &,class RInteger &,class RInteger &,class RInteger &)
+	?NewL@CDSAPublicKey@@SAPAV1@AAVRInteger@@000@Z @ 112 NONAME ; public: static class CDSAPublicKey * __cdecl CDSAPublicKey::NewL(class RInteger &,class RInteger &,class RInteger &,class RInteger &)
+	?NewL@CDSASignature@@SAPAV1@AAVRInteger@@0@Z @ 113 NONAME ; public: static class CDSASignature * __cdecl CDSASignature::NewL(class RInteger &,class RInteger &)
+	?NewL@CDSASigner@@SAPAV1@ABVCDSAPrivateKey@@@Z @ 114 NONAME ; public: static class CDSASigner * __cdecl CDSASigner::NewL(class CDSAPrivateKey const &)
+	?NewL@CDSAVerifier@@SAPAV1@ABVCDSAPublicKey@@@Z @ 115 NONAME ; public: static class CDSAVerifier * __cdecl CDSAVerifier::NewL(class CDSAPublicKey const &)
+	?NewL@CModeCBCDecryptor@@SAPAV1@PAVCBlockTransformation@@ABVTDesC8@@@Z @ 116 NONAME ; public: static class CModeCBCDecryptor * __cdecl CModeCBCDecryptor::NewL(class CBlockTransformation *,class TDesC8 const &)
+	?NewL@CModeCBCEncryptor@@SAPAV1@PAVCBlockTransformation@@ABVTDesC8@@@Z @ 117 NONAME ; public: static class CModeCBCEncryptor * __cdecl CModeCBCEncryptor::NewL(class CBlockTransformation *,class TDesC8 const &)
+	?NewL@CNullCipher@@SAPAV1@XZ @ 118 NONAME ; public: static class CNullCipher * __cdecl CNullCipher::NewL(void)
+	?NewL@CPaddingNone@@SAPAV1@H@Z @ 119 NONAME ; public: static class CPaddingNone * __cdecl CPaddingNone::NewL(int)
+	?NewL@CPaddingPKCS1Encryption@@SAPAV1@H@Z @ 120 NONAME ; public: static class CPaddingPKCS1Encryption * __cdecl CPaddingPKCS1Encryption::NewL(int)
+	?NewL@CPaddingPKCS1Signature@@SAPAV1@H@Z @ 121 NONAME ; public: static class CPaddingPKCS1Signature * __cdecl CPaddingPKCS1Signature::NewL(int)
+	?NewL@CPaddingSSLv3@@SAPAV1@H@Z @ 122 NONAME ; public: static class CPaddingSSLv3 * __cdecl CPaddingSSLv3::NewL(int)
+	?NewL@CRC2Decryptor@@SAPAV1@ABVTDesC8@@H@Z @ 123 NONAME ; public: static class CRC2Decryptor * __cdecl CRC2Decryptor::NewL(class TDesC8 const &,int)
+	?NewL@CRC2Encryptor@@SAPAV1@ABVTDesC8@@H@Z @ 124 NONAME ; public: static class CRC2Encryptor * __cdecl CRC2Encryptor::NewL(class TDesC8 const &,int)
+	?NewL@CRSAKeyPair@@SAPAV1@IW4TRSAPrivateKeyType@@@Z @ 125 NONAME ; public: static class CRSAKeyPair * __cdecl CRSAKeyPair::NewL(unsigned int,enum TRSAPrivateKeyType)
+	?NewL@CRSAPKCS1v15Decryptor@@SAPAV1@ABVCRSAPrivateKey@@@Z @ 126 NONAME ; public: static class CRSAPKCS1v15Decryptor * __cdecl CRSAPKCS1v15Decryptor::NewL(class CRSAPrivateKey const &)
+	?NewL@CRSAPKCS1v15Encryptor@@SAPAV1@ABVCRSAPublicKey@@@Z @ 127 NONAME ; public: static class CRSAPKCS1v15Encryptor * __cdecl CRSAPKCS1v15Encryptor::NewL(class CRSAPublicKey const &)
+	?NewL@CRSAPKCS1v15Signer@@SAPAV1@ABVCRSAPrivateKey@@@Z @ 128 NONAME ; public: static class CRSAPKCS1v15Signer * __cdecl CRSAPKCS1v15Signer::NewL(class CRSAPrivateKey const &)
+	?NewL@CRSAPKCS1v15Verifier@@SAPAV1@ABVCRSAPublicKey@@@Z @ 129 NONAME ; public: static class CRSAPKCS1v15Verifier * __cdecl CRSAPKCS1v15Verifier::NewL(class CRSAPublicKey const &)
+	?NewL@CRSAPrivateKeyCRT@@SAPAV1@AAVRInteger@@00000@Z @ 130 NONAME ; public: static class CRSAPrivateKeyCRT * __cdecl CRSAPrivateKeyCRT::NewL(class RInteger &,class RInteger &,class RInteger &,class RInteger &,class RInteger &,class RInteger &)
+	?NewL@CRSAPrivateKeyStandard@@SAPAV1@AAVRInteger@@0@Z @ 131 NONAME ; public: static class CRSAPrivateKeyStandard * __cdecl CRSAPrivateKeyStandard::NewL(class RInteger &,class RInteger &)
+	?NewL@CRSAPublicKey@@SAPAV1@AAVRInteger@@0@Z @ 132 NONAME ; public: static class CRSAPublicKey * __cdecl CRSAPublicKey::NewL(class RInteger &,class RInteger &)
+	?NewL@CRSASignature@@SAPAV1@AAVRInteger@@@Z @ 133 NONAME ; public: static class CRSASignature * __cdecl CRSASignature::NewL(class RInteger &)
+	?NewL@RInteger@@SA?AV1@ABVTDesC8@@@Z @ 134 NONAME ; public: static class RInteger  __cdecl RInteger::NewL(class TDesC8 const &)
+	?NewL@RInteger@@SA?AV1@ABVTInteger@@@Z @ 135 NONAME ; public: static class RInteger  __cdecl RInteger::NewL(class TInteger const &)
+	?NewL@RInteger@@SA?AV1@H@Z @ 136 NONAME ; public: static class RInteger  __cdecl RInteger::NewL(int)
+	?NewL@RInteger@@SA?AV1@I@Z @ 137 NONAME ; public: static class RInteger  __cdecl RInteger::NewL(unsigned int)
+	?NewL@RInteger@@SA?AV1@XZ @ 138 NONAME ; public: static class RInteger  __cdecl RInteger::NewL(void)
+	?NewLC@C3DESDecryptor@@SAPAV1@ABVTDesC8@@@Z @ 139 NONAME ; public: static class C3DESDecryptor * __cdecl C3DESDecryptor::NewLC(class TDesC8 const &)
+	?NewLC@C3DESEncryptor@@SAPAV1@ABVTDesC8@@@Z @ 140 NONAME ; public: static class C3DESEncryptor * __cdecl C3DESEncryptor::NewLC(class TDesC8 const &)
+	?NewLC@CAESDecryptor@@SAPAV1@ABVTDesC8@@@Z @ 141 NONAME ; public: static class CAESDecryptor * __cdecl CAESDecryptor::NewLC(class TDesC8 const &)
+	?NewLC@CAESEncryptor@@SAPAV1@ABVTDesC8@@@Z @ 142 NONAME ; public: static class CAESEncryptor * __cdecl CAESEncryptor::NewLC(class TDesC8 const &)
+	?NewLC@CARC4@@SAPAV1@ABVTDesC8@@I@Z @ 143 NONAME ; public: static class CARC4 * __cdecl CARC4::NewLC(class TDesC8 const &,unsigned int)
+	?NewLC@CBufferedDecryptor@@SAPAV1@PAVCBlockTransformation@@PAVCPadding@@@Z @ 144 NONAME ; public: static class CBufferedDecryptor * __cdecl CBufferedDecryptor::NewLC(class CBlockTransformation *,class CPadding *)
+	?NewLC@CBufferedEncryptor@@SAPAV1@PAVCBlockTransformation@@PAVCPadding@@@Z @ 145 NONAME ; public: static class CBufferedEncryptor * __cdecl CBufferedEncryptor::NewLC(class CBlockTransformation *,class CPadding *)
+	?NewLC@CDESDecryptor@@SAPAV1@ABVTDesC8@@H@Z @ 146 NONAME ; public: static class CDESDecryptor * __cdecl CDESDecryptor::NewLC(class TDesC8 const &,int)
+	?NewLC@CDESEncryptor@@SAPAV1@ABVTDesC8@@H@Z @ 147 NONAME ; public: static class CDESEncryptor * __cdecl CDESEncryptor::NewLC(class TDesC8 const &,int)
+	?NewLC@CDH@@SAPAV1@ABVCDHPrivateKey@@@Z @ 148 NONAME ; public: static class CDH * __cdecl CDH::NewLC(class CDHPrivateKey const &)
+	?NewLC@CDHKeyPair@@SAPAV1@AAVRInteger@@00@Z @ 149 NONAME ; public: static class CDHKeyPair * __cdecl CDHKeyPair::NewLC(class RInteger &,class RInteger &,class RInteger &)
+	?NewLC@CDHKeyPair@@SAPAV1@AAVRInteger@@0@Z @ 150 NONAME ; public: static class CDHKeyPair * __cdecl CDHKeyPair::NewLC(class RInteger &,class RInteger &)
+	?NewLC@CDHPrivateKey@@SAPAV1@AAVRInteger@@00@Z @ 151 NONAME ; public: static class CDHPrivateKey * __cdecl CDHPrivateKey::NewLC(class RInteger &,class RInteger &,class RInteger &)
+	?NewLC@CDHPublicKey@@SAPAV1@AAVRInteger@@00@Z @ 152 NONAME ; public: static class CDHPublicKey * __cdecl CDHPublicKey::NewLC(class RInteger &,class RInteger &,class RInteger &)
+	?NewLC@CDSAKeyPair@@SAPAV1@I@Z @ 153 NONAME ; public: static class CDSAKeyPair * __cdecl CDSAKeyPair::NewLC(unsigned int)
+	?NewLC@CDSAPrimeCertificate@@SAPAV1@ABVTDesC8@@I@Z @ 154 NONAME ; public: static class CDSAPrimeCertificate * __cdecl CDSAPrimeCertificate::NewLC(class TDesC8 const &,unsigned int)
+	?NewLC@CDSAPrivateKey@@SAPAV1@AAVRInteger@@000@Z @ 155 NONAME ; public: static class CDSAPrivateKey * __cdecl CDSAPrivateKey::NewLC(class RInteger &,class RInteger &,class RInteger &,class RInteger &)
+	?NewLC@CDSAPublicKey@@SAPAV1@AAVRInteger@@000@Z @ 156 NONAME ; public: static class CDSAPublicKey * __cdecl CDSAPublicKey::NewLC(class RInteger &,class RInteger &,class RInteger &,class RInteger &)
+	?NewLC@CDSASignature@@SAPAV1@AAVRInteger@@0@Z @ 157 NONAME ; public: static class CDSASignature * __cdecl CDSASignature::NewLC(class RInteger &,class RInteger &)
+	?NewLC@CDSASigner@@SAPAV1@ABVCDSAPrivateKey@@@Z @ 158 NONAME ; public: static class CDSASigner * __cdecl CDSASigner::NewLC(class CDSAPrivateKey const &)
+	?NewLC@CDSAVerifier@@SAPAV1@ABVCDSAPublicKey@@@Z @ 159 NONAME ; public: static class CDSAVerifier * __cdecl CDSAVerifier::NewLC(class CDSAPublicKey const &)
+	?NewLC@CModeCBCDecryptor@@SAPAV1@PAVCBlockTransformation@@ABVTDesC8@@@Z @ 160 NONAME ; public: static class CModeCBCDecryptor * __cdecl CModeCBCDecryptor::NewLC(class CBlockTransformation *,class TDesC8 const &)
+	?NewLC@CModeCBCEncryptor@@SAPAV1@PAVCBlockTransformation@@ABVTDesC8@@@Z @ 161 NONAME ; public: static class CModeCBCEncryptor * __cdecl CModeCBCEncryptor::NewLC(class CBlockTransformation *,class TDesC8 const &)
+	?NewLC@CNullCipher@@SAPAV1@XZ @ 162 NONAME ; public: static class CNullCipher * __cdecl CNullCipher::NewLC(void)
+	?NewLC@CPaddingNone@@SAPAV1@H@Z @ 163 NONAME ; public: static class CPaddingNone * __cdecl CPaddingNone::NewLC(int)
+	?NewLC@CPaddingPKCS1Encryption@@SAPAV1@H@Z @ 164 NONAME ; public: static class CPaddingPKCS1Encryption * __cdecl CPaddingPKCS1Encryption::NewLC(int)
+	?NewLC@CPaddingPKCS1Signature@@SAPAV1@H@Z @ 165 NONAME ; public: static class CPaddingPKCS1Signature * __cdecl CPaddingPKCS1Signature::NewLC(int)
+	?NewLC@CPaddingSSLv3@@SAPAV1@H@Z @ 166 NONAME ; public: static class CPaddingSSLv3 * __cdecl CPaddingSSLv3::NewLC(int)
+	?NewLC@CRC2Decryptor@@SAPAV1@ABVTDesC8@@H@Z @ 167 NONAME ; public: static class CRC2Decryptor * __cdecl CRC2Decryptor::NewLC(class TDesC8 const &,int)
+	?NewLC@CRC2Encryptor@@SAPAV1@ABVTDesC8@@H@Z @ 168 NONAME ; public: static class CRC2Encryptor * __cdecl CRC2Encryptor::NewLC(class TDesC8 const &,int)
+	?NewLC@CRSAKeyPair@@SAPAV1@IW4TRSAPrivateKeyType@@@Z @ 169 NONAME ; public: static class CRSAKeyPair * __cdecl CRSAKeyPair::NewLC(unsigned int,enum TRSAPrivateKeyType)
+	?NewLC@CRSAPKCS1v15Decryptor@@SAPAV1@ABVCRSAPrivateKey@@@Z @ 170 NONAME ; public: static class CRSAPKCS1v15Decryptor * __cdecl CRSAPKCS1v15Decryptor::NewLC(class CRSAPrivateKey const &)
+	?NewLC@CRSAPKCS1v15Encryptor@@SAPAV1@ABVCRSAPublicKey@@@Z @ 171 NONAME ; public: static class CRSAPKCS1v15Encryptor * __cdecl CRSAPKCS1v15Encryptor::NewLC(class CRSAPublicKey const &)
+	?NewLC@CRSAPKCS1v15Signer@@SAPAV1@ABVCRSAPrivateKey@@@Z @ 172 NONAME ; public: static class CRSAPKCS1v15Signer * __cdecl CRSAPKCS1v15Signer::NewLC(class CRSAPrivateKey const &)
+	?NewLC@CRSAPKCS1v15Verifier@@SAPAV1@ABVCRSAPublicKey@@@Z @ 173 NONAME ; public: static class CRSAPKCS1v15Verifier * __cdecl CRSAPKCS1v15Verifier::NewLC(class CRSAPublicKey const &)
+	?NewLC@CRSAPrivateKeyCRT@@SAPAV1@AAVRInteger@@00000@Z @ 174 NONAME ; public: static class CRSAPrivateKeyCRT * __cdecl CRSAPrivateKeyCRT::NewLC(class RInteger &,class RInteger &,class RInteger &,class RInteger &,class RInteger &,class RInteger &)
+	?NewLC@CRSAPrivateKeyStandard@@SAPAV1@AAVRInteger@@0@Z @ 175 NONAME ; public: static class CRSAPrivateKeyStandard * __cdecl CRSAPrivateKeyStandard::NewLC(class RInteger &,class RInteger &)
+	?NewLC@CRSAPublicKey@@SAPAV1@AAVRInteger@@0@Z @ 176 NONAME ; public: static class CRSAPublicKey * __cdecl CRSAPublicKey::NewLC(class RInteger &,class RInteger &)
+	?NewLC@CRSASignature@@SAPAV1@AAVRInteger@@@Z @ 177 NONAME ; public: static class CRSASignature * __cdecl CRSASignature::NewLC(class RInteger &)
+	?NewPrimeL@RInteger@@SA?AV1@IW4TRandomAttribute@TInteger@@@Z @ 178 NONAME ; public: static class RInteger  __cdecl RInteger::NewPrimeL(unsigned int,int)
+	?NewRandomL@RInteger@@SA?AV1@ABVTInteger@@0@Z @ 179 NONAME ; public: static class RInteger  __cdecl RInteger::NewRandomL(class TInteger const &,class TInteger const &)
+	?NewRandomL@RInteger@@SA?AV1@IW4TRandomAttribute@TInteger@@@Z @ 180 NONAME ; public: static class RInteger  __cdecl RInteger::NewRandomL(unsigned int,int)
+	?P@CDSAParameters@@QBEABVTInteger@@XZ @ 181 NONAME ; public: class TInteger const & __thiscall CDSAParameters::P(void)const 
+	?P@CRSAPrivateKeyCRT@@QBEABVTInteger@@XZ @ 182 NONAME ; public: class TInteger const & __thiscall CRSAPrivateKeyCRT::P(void)const 
+	?PadL@CPadding@@QAEXABVTDesC8@@AAVTDes8@@@Z @ 183 NONAME ; public: void __thiscall CPadding::PadL(class TDesC8 const &,class TDes8 &)
+	?PrimeCertificate@CDSAKeyPair@@QBEABVCDSAPrimeCertificate@@XZ @ 184 NONAME ; public: class CDSAPrimeCertificate const & __thiscall CDSAKeyPair::PrimeCertificate(void)const 
+	?PrivateKey@CDHKeyPair@@QBEABVCDHPrivateKey@@XZ @ 185 NONAME ; public: class CDHPrivateKey const & __thiscall CDHKeyPair::PrivateKey(void)const 
+	?PrivateKey@CDSAKeyPair@@QBEABVCDSAPrivateKey@@XZ @ 186 NONAME ; public: class CDSAPrivateKey const & __thiscall CDSAKeyPair::PrivateKey(void)const 
+	?PrivateKey@CRSAKeyPair@@QBEABVCRSAPrivateKey@@XZ @ 187 NONAME ; public: class CRSAPrivateKey const & __thiscall CRSAKeyPair::PrivateKey(void)const 
+	?Process@CStreamCipher@@UAEXABVTDesC8@@AAVTDes8@@@Z @ 188 NONAME ; public: virtual void __thiscall CStreamCipher::Process(class TDesC8 const &,class TDes8 &)
+	?ProcessFinalL@CStreamCipher@@UAEXABVTDesC8@@AAVTDes8@@@Z @ 189 NONAME ; public: virtual void __thiscall CStreamCipher::ProcessFinalL(class TDesC8 const &,class TDes8 &)
+	?PublicKey@CDHKeyPair@@QBEABVCDHPublicKey@@XZ @ 190 NONAME ; public: class CDHPublicKey const & __thiscall CDHKeyPair::PublicKey(void)const 
+	?PublicKey@CDSAKeyPair@@QBEABVCDSAPublicKey@@XZ @ 191 NONAME ; public: class CDSAPublicKey const & __thiscall CDSAKeyPair::PublicKey(void)const 
+	?PublicKey@CRSAKeyPair@@QBEABVCRSAPublicKey@@XZ @ 192 NONAME ; public: class CRSAPublicKey const & __thiscall CRSAKeyPair::PublicKey(void)const 
+	?Q@CDSAParameters@@QBEABVTInteger@@XZ @ 193 NONAME ; public: class TInteger const & __thiscall CDSAParameters::Q(void)const 
+	?Q@CRSAPrivateKeyCRT@@QBEABVTInteger@@XZ @ 194 NONAME ; public: class TInteger const & __thiscall CRSAPrivateKeyCRT::Q(void)const 
+	?QInv@CRSAPrivateKeyCRT@@QBEABVTInteger@@XZ @ 195 NONAME ; public: class TInteger const & __thiscall CRSAPrivateKeyCRT::QInv(void)const 
+	?R@CDSASignature@@QBEABVTInteger@@XZ @ 196 NONAME ; public: class TInteger const & __thiscall CDSASignature::R(void)const 
+	?S@CDSASignature@@QBEABVTInteger@@XZ @ 197 NONAME ; public: class TInteger const & __thiscall CDSASignature::S(void)const 
+	?S@CRSASignature@@QBEABVTInteger@@XZ @ 198 NONAME ; public: class TInteger const & __thiscall CRSASignature::S(void)const 
+	?Seed@CDSAPrimeCertificate@@QBEABVTDesC8@@XZ @ 199 NONAME ; public: class TDesC8 const & __thiscall CDSAPrimeCertificate::Seed(void)const 
+	?SetBlockSize@CPadding@@QAEXH@Z @ 200 NONAME ; public: void __thiscall CPadding::SetBlockSize(int)
+	?Strength@TCrypto@@SA?AW4TStrength@1@XZ @ 201 NONAME ; public: static enum TCrypto::TStrength  __cdecl TCrypto::Strength(void)
+	?ValidPrimeLength@CDSAParameters@@SAHI@Z @ 202 NONAME ; public: static int __cdecl CDSAParameters::ValidPrimeLength(unsigned int)
+	?ValidatePrimesL@CDSAParameters@@QBEHABVCDSAPrimeCertificate@@@Z @ 203 NONAME ; public: int __thiscall CDSAParameters::ValidatePrimesL(class CDSAPrimeCertificate const &)const 
+	?WordCount@TInteger@@QBEIXZ @ 204 NONAME ; public: unsigned int __thiscall TInteger::WordCount(void)const 
+	?X@CDHPublicKey@@QBEABVTInteger@@XZ @ 205 NONAME ; public: class TInteger const & __thiscall CDHPublicKey::X(void)const 
+	?X@CDSAPrivateKey@@QBEABVTInteger@@XZ @ 206 NONAME ; public: class TInteger const & __thiscall CDSAPrivateKey::X(void)const 
+	?Y@CDSAPublicKey@@QBEABVTInteger@@XZ @ 207 NONAME ; public: class TInteger const & __thiscall CDSAPublicKey::Y(void)const 
+	?x@CDHPrivateKey@@QBEABVTInteger@@XZ @ 208 NONAME ; public: class TInteger const & __thiscall CDHPrivateKey::x(void)const 
+	?IsAsymmetricWeakEnoughL@TCrypto@@SAHH@Z @ 209 NONAME ; public: static int __cdecl TCrypto::IsAsymmetricWeakEnoughL(int)
+	?IsSymmetricWeakEnoughL@TCrypto@@SAHH@Z @ 210 NONAME ; public: static int __cdecl TCrypto::IsSymmetricWeakEnoughL(int)
+	??0CPaddingPKCS7@@IAE@H@Z @ 211 NONAME ; CPaddingPKCS7::CPaddingPKCS7(int)
+	?NewL@CPaddingPKCS7@@SAPAV1@H@Z @ 212 NONAME ; class CPaddingPKCS7 * CPaddingPKCS7::NewL(int)
+	?NewLC@CPaddingPKCS7@@SAPAV1@H@Z @ 213 NONAME ; class CPaddingPKCS7 * CPaddingPKCS7::NewLC(int)
+	?DHKeyIdentifierL@KeyIdentifierUtil@@SAXABVRInteger@@AAV?$TBuf8@$0BE@@@@Z @ 214 NONAME ; void KeyIdentifierUtil::DHKeyIdentifierL(class RInteger const &, class TBuf8<20> &)
+	?DSAKeyIdentifierL@KeyIdentifierUtil@@SAXABVCDSAPublicKey@@AAV?$TBuf8@$0BE@@@@Z @ 215 NONAME ; void KeyIdentifierUtil::DSAKeyIdentifierL(class CDSAPublicKey const &, class TBuf8<20> &)
+	?RSAKeyIdentifierL@KeyIdentifierUtil@@SAXABVCRSAPublicKey@@AAV?$TBuf8@$0BE@@@@Z @ 216 NONAME ; void KeyIdentifierUtil::RSAKeyIdentifierL(class CRSAPublicKey const &, class TBuf8<20> &)
+	??ETInteger@@QAEAAV0@XZ @ 217 NONAME ; class TInteger & TInteger::operator++(void)
+	??FTInteger@@QAEAAV0@XZ @ 218 NONAME ; class TInteger & TInteger::operator--(void)
+	?InverseModL@TInteger@@QBE?AVRInteger@@ABV1@@Z @ 219 NONAME ; class RInteger TInteger::InverseModL(class TInteger const &) const
+	?TimesL@TInteger@@QBE?AVRInteger@@ABV1@@Z @ 220 NONAME ; class RInteger TInteger::TimesL(class TInteger const &) const
+

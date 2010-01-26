@@ -1,0 +1,97 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+#ifndef __TE_VJCOMP_IBY__
+#define __TE_VJCOMP_IBY__
+
+#include <ppp.iby>
+#include <testexecute.iby>
+#include <stdlib.iby>
+
+file=ABI_DIR\DEBUG_DIR\te_vjcomp.exe		System\bin\te_vjcomp.exe
+
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\te_vjcomp.ini testdata\configs\ppp\te_ppp\te_vjcomp\te_vjcomp.ini
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\scripts\te_vjcomp.script testdata\scripts\te_vjcomp.Script
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\te_vjcomp.xml testdata\configs\ppp\te_ppp\te_vjcomp\te_vjcomp.xml
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_1.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_1.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_2.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_2.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_3.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_3.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_4.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_4.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_5.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_5.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_6.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_6.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_7.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_7.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_8.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_8.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_9.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_9.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_10.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_10.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_11.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_11.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_12.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_12.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_13.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_13.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_14.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_14.pcap
+
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_1.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_1.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_2.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_2.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_3.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_3.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_4.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_4.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_5.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_5.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_6.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_6.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_7.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_7.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_8.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_8.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_9.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_9.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_10.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_10.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_11.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_11.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_12.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_12.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_13.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_13.pcap
+
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_comp_1.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_comp_1.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_comp_2.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_comp_2.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_comp_14.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_comp_14.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_err_1.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_err_1.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_err_2.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_err_2.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_uncomp_1.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_uncomp_1.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_uncomp_2.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_uncomp_2.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_uncomp_3.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_uncomp_3.pcap
+
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjsearch_1.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjsearch_1.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjsearch_2.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjsearch_2.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjsearch_3.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjsearch_3.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjsearch_4.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjsearch_4.pcap
+
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_1.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_1.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_2.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_2.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_3.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_3.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_4.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_4.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_5.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_5.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_6.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_6.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_7.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_7.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_8.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_8.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_9.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_9.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_10.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_10.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_11.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_11.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_12.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_12.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_13.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_13.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_14.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_14.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_17.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_17.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_18.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_18.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_19.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_19.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_20.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_20.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_21.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_21.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_22.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_22.pcap
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_23.pcap testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_23.pcap
+#endif
+
+
+

@@ -1,0 +1,109 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+//Unload esock forcefully
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+//Configure commdb.This config file has explicit settings for IPv4
+ced -i z:\TestData\configs\DHCP\DHCPced_ip4.xml
+
+//Load the Server
+LOAD_SUITE DhcpTestServer
+
+RUN_UTILS  MkDir c:\private
+RUN_UTILS  MkDir c:\private\101f7989
+RUN_UTILS  MkDir c:\private\101f7989\esock
+RUN_UTILS  MakeReadWrite c:\private\101f7989\esock\tcpip.ini
+RUN_UTILS  DeleteFile c:\private\101f7989\esock\tcpip.ini
+RUN_UTILS  CopyFile z:\private\101f7989\esock\tcpip.ini c:\private\101f7989\esock\tcpip.ini
+RUN_UTILS  MakeReadWrite c:\private\101f7989\esock\tcpip.ini
+
+# Test the IPv4 DHCP client using the disabled linklocal option.
+RUN_TEST_STEP 1 DhcpTestServer SetIPv4LinkLocal z:\TestData\configs\DHCP\dhcptest.ini IPv4LinkLocalDisabled
+
+# Load esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+START_TESTCASE          NET-Dhcp-1600
+//! @SYMTestCaseID      NET-Dhcp-1600
+////////////////////////
+// SET IAP TO DYNAMIC //
+RUN_TEST_STEP 5 DhcpTestServer SetAddressMode z:\TestData\configs\DHCP\dhcptest.ini IPv4
+RUN_TEST_STEP 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet1
+////////////////////////
+DELAY 15000
+
+RUN_TEST_STEP 50 DhcpTestServer Serv_6	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-1600
+
+# Stop all interfaces and unload esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_stopallinterfaces.script
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+DELAY 15000
+
+# Load esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+//Need to add these comms DB
+ced -i z:\TestData\configs\DHCP\dhcpservertest.cfg
+
+START_TESTCASE          NET-Dhcp-1601
+//! @SYMTestCaseID      NET-Dhcp-1601
+////////////////////////
+// SET IAP TO DYNAMIC //
+RUN_TEST_STEP 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet2
+////////////////////////
+RUN_TEST_STEP 800 DhcpTestServer Serv_1	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-1601
+
+START_TESTCASE          NET-Dhcp-1602
+//! @SYMTestCaseID      NET-Dhcp-1602
+// SET IAP TO DYNAMIC //
+RUN_TEST_STEP 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet2
+////////////////////////
+RUN_TEST_STEP 800 DhcpTestServer Serv_2	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-1602
+
+START_TESTCASE          NET-Dhcp-1603
+//! @SYMTestCaseID      NET-Dhcp-1603
+// SET IAP TO DYNAMIC //
+RUN_TEST_STEP 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet2
+////////////////////////
+RUN_TEST_STEP 800 DhcpTestServer Serv_3	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-1603
+
+START_TESTCASE          NET-Dhcp-1604
+//! @SYMTestCaseID      NET-Dhcp-1604
+// SET IAP TO DYNAMIC //
+RUN_TEST_STEP 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet2
+////////////////////////
+RUN_TEST_STEP 800 DhcpTestServer Serv_4	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-1604
+
+START_TESTCASE          NET-Dhcp-1605
+//! @SYMTestCaseID      NET-Dhcp-1605
+// SET IAP TO DYNAMIC //
+RUN_TEST_STEP 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet2
+////////////////////////
+RUN_TEST_STEP !Error=-6 50 DhcpTestServer Serv_5	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-1605
+
+DELAY 10000
+
+# Stop all interfaces and unload esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_stopallinterfaces.script
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script

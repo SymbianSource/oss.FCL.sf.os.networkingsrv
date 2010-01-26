@@ -1,0 +1,43 @@
+EXPORTS
+	_ZN24RGenConAgentDialogServerC1Ev @ 1 NONAME ; RGenConAgentDialogServer::RGenConAgentDialogServer(void)
+	_ZN24RGenConAgentDialogServer18CancelAuthenticateEv @ 2 NONAME ; RGenConAgentDialogServer::CancelAuthenticate(void)
+	_ZN24RGenConAgentDialogServer28CancelDestroyPctNotificationEv @ 3 NONAME ; RGenConAgentDialogServer::CancelDestroyPctNotification(void)
+	_ZN24RGenConAgentDialogServer19CancelIapConnectionEv @ 4 NONAME ; RGenConAgentDialogServer::CancelIapConnection(void)
+	_ZN24RGenConAgentDialogServer11CancelLoginEv @ 5 NONAME ; RGenConAgentDialogServer::CancelLogin(void)
+	_ZN24RGenConAgentDialogServer31CancelModemAndLocationSelectionEv @ 6 NONAME ; RGenConAgentDialogServer::CancelModemAndLocationSelection(void)
+	_ZN24RGenConAgentDialogServer16CancelQoSWarningEv @ 7 NONAME ; RGenConAgentDialogServer::CancelQoSWarning(void)
+	_ZN24RGenConAgentDialogServer13CancelReadPctEv @ 8 NONAME ; RGenConAgentDialogServer::CancelReadPct(void)
+	_ZN24RGenConAgentDialogServer15CancelReconnectEv @ 9 NONAME ; RGenConAgentDialogServer::CancelReconnect(void)
+	_ZN24RGenConAgentDialogServer26CancelWarnNewIapConnectionEv @ 10 NONAME ; RGenConAgentDialogServer::CancelWarnNewIapConnection(void)
+	_ZN24RGenConAgentDialogServer8ClosePctEv @ 11 NONAME ; RGenConAgentDialogServer::ClosePct(void)
+	_ZN24RGenConAgentDialogServer5CloseEv @ 12 NONAME ; RGenConAgentDialogServer::Close(void)
+	_ZN24RGenConAgentDialogServer7ConnectEv @ 13 NONAME ; RGenConAgentDialogServer::Connect(void)
+	_ZN24RGenConAgentDialogServer22DestroyPctNotificationER14TRequestStatus @ 14 NONAME ; RGenConAgentDialogServer::DestroyPctNotification(TRequestStatus&)
+	_ZN24RGenConAgentDialogServer13IapConnectionERmRK16TConnectionPrefsR14TRequestStatus @ 15 NONAME ; RGenConAgentDialogServer::IapConnection(unsigned long&, TConnectionPrefs const&, TRequestStatus&)
+	_ZN24RGenConAgentDialogServer13IapConnectionERmRK16TConnectionPrefsiR14TRequestStatus @ 16 NONAME ; RGenConAgentDialogServer::IapConnection(unsigned long&, TConnectionPrefs const&, int, TRequestStatus&)
+	_ZN24RGenConAgentDialogServer5LoginER6TDes16S1_iR14TRequestStatus @ 17 NONAME ; RGenConAgentDialogServer::Login(TDes16&, TDes16&, int, TRequestStatus&)
+	_ZN24RGenConAgentDialogServer25ModemAndLocationSelectionERmS0_R14TRequestStatus @ 18 NONAME ; RGenConAgentDialogServer::ModemAndLocationSelection(unsigned long&, unsigned long&, TRequestStatus&)
+	_ZN24RGenConAgentDialogServer7OpenPctEv @ 19 NONAME ; RGenConAgentDialogServer::OpenPct(void)
+	_ZN24RGenConAgentDialogServer10QoSWarningERiR14TRequestStatus @ 20 NONAME ; RGenConAgentDialogServer::QoSWarning(int&, TRequestStatus&)
+	_ZN24RGenConAgentDialogServer7ReadPctER6TDes16R14TRequestStatus @ 21 NONAME ; RGenConAgentDialogServer::ReadPct(TDes16&, TRequestStatus&)
+	_ZN24RGenConAgentDialogServer9ReconnectERiR14TRequestStatus @ 22 NONAME ; RGenConAgentDialogServer::Reconnect(int&, TRequestStatus&)
+	_Z17StartDialogThreadv @ 23 NONAME ; StartDialogThread(void)
+	_ZNK24RGenConAgentDialogServer7VersionEv @ 24 NONAME ; RGenConAgentDialogServer::Version(void) const
+	_ZN24RGenConAgentDialogServer20WarnNewIapConnectionERK16TConnectionPrefsiRK7TDesC16RiR14TRequestStatus @ 25 NONAME ; RGenConAgentDialogServer::WarnNewIapConnection(TConnectionPrefs const&, int, TDesC16 const&, int&, TRequestStatus&)
+	_ZN24RGenConAgentDialogServer8WritePctERK7TDesC16 @ 26 NONAME ; RGenConAgentDialogServer::WritePct(TDesC16 const&)
+	_ZN24RGenConAgentDialogServerD1Ev @ 27 NONAME ; RGenConAgentDialogServer::~RGenConAgentDialogServer(void)
+	_ZN24RGenConAgentDialogServer12AuthenticateER6TDes16S1_iR14TRequestStatus @ 28 NONAME ; RGenConAgentDialogServer::Authenticate(TDes16&, TDes16&, int, TRequestStatus&)
+	_ZN24RGenConAgentDialogServer34CancelDialogAppearanceNotificationEv @ 29 NONAME ; RGenConAgentDialogServer::CancelDialogAppearanceNotification(void)
+	_ZN24RGenConAgentDialogServer35RequestDialogAppearanceNotificationER14TRequestStatus @ 30 NONAME ; RGenConAgentDialogServer::RequestDialogAppearanceNotification(TRequestStatus&)
+	_ZN24RGenConAgentDialogServer24SetQoSWarnDialogResponseEi @ 31 NONAME ; RGenConAgentDialogServer::SetQoSWarnDialogResponse(int)
+	_ZN24RGenConAgentDialogServer26SetReconnectDialogResponseEi @ 32 NONAME ; RGenConAgentDialogServer::SetReconnectDialogResponse(int)
+	_ZN24RGenConAgentDialogServer13SetTestNumberEi @ 33 NONAME ; RGenConAgentDialogServer::SetTestNumber(int)
+	_ZN24RGenConAgentDialogServerD2Ev @ 34 NONAME ; RGenConAgentDialogServer::~RGenConAgentDialogServer [not-in-charge](void)
+	_ZN24RGenConAgentDialogServerC2Ev @ 35 NONAME ; RGenConAgentDialogServer::RGenConAgentDialogServer[not-in-charge](void)
+	_ZTI18CDialogObserverReq @ 36 NONAME ; #<TI>#
+	_ZTI20CNetDialDialogServer @ 37 NONAME ; #<TI>#
+	_ZTI21CNetDialDialogSession @ 38 NONAME ; #<TI>#
+	_ZTV18CDialogObserverReq @ 39 NONAME ; #<VT>#
+	_ZTV20CNetDialDialogServer @ 40 NONAME ; #<VT>#
+	_ZTV21CNetDialDialogSession @ 41 NONAME ; #<VT>#
+

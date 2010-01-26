@@ -1,0 +1,57 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+#ifndef TE_DEDICATED_SIGNALLING_1RY_CTX_IBY__
+#define TE_DEDICATED_SIGNALLING_1RY_CTX_IBY__
+
+#include <testexecute.iby>
+#include <setcap.iby>
+
+data=EPOCROOT##epoc32\data\z\TestData\Configs\CIT_P635_Loopback.ini testdata\configs\CIT_P635_Loopback.ini
+data=EPOCROOT##epoc32\data\z\TestData\Configs\CIT_P635_qospolicies.ini testdata\configs\CIT_P635_qospolicies.ini
+data=EPOCROOT##epoc32\data\z\TestData\Configs\CIT_P635_simtsy_config1.txt testdata\configs\CIT_P635_simtsy_config1.txt
+data=EPOCROOT##epoc32\data\z\TestData\Configs\CIT_P635_simtsy_config2.txt testdata\configs\CIT_P635_simtsy_config2.txt
+data=EPOCROOT##epoc32\data\z\TestData\Configs\Te_DedicatedSignalling1ryCtx.ini testdata\configs\Te_DedicatedSignalling1ryCtx.ini
+data=EPOCROOT##epoc32\data\z\TestData\Configs\Te_DedicatedSignalling1ryCtx.xml testdata\configs\Te_DedicatedSignalling1ryCtx.xml
+data=EPOCROOT##epoc32\data\z\TestData\Configs\Te_DedicatedSignalling1ryCtx_Attach_Monitor.ini testdata\configs\Te_DedicatedSignalling1ryCtx_Attach_Monitor.ini
+data=EPOCROOT##epoc32\data\z\TestData\Configs\Te_DedicatedSignalling1ryCtx_Attach_Normal.ini testdata\configs\Te_DedicatedSignalling1ryCtx_Attach_Normal.ini
+data=EPOCROOT##epoc32\data\z\TestData\Configs\Te_DedicatedSignalling1ryCtx_ChangedSID.xml testdata\configs\Te_DedicatedSignalling1ryCtx_ChangedSID.xml
+data=EPOCROOT##epoc32\data\z\TestData\Configs\Te_DedicatedSignalling1ryCtx_DHCP_Open_Sock.ini testdata\configs\Te_DedicatedSignalling1ryCtx_DHCP_Open_Sock.ini
+data=EPOCROOT##epoc32\data\z\TestData\Configs\Te_DedicatedSignalling1ryCtx_DNS_Open_Sock.ini testdata\configs\Te_DedicatedSignalling1ryCtx_DNS_Open_Sock.ini
+data=EPOCROOT##epoc32\data\z\TestData\Configs\Te_DedicatedSignalling1ryCtx_IMSSI.xml testdata\configs\Te_DedicatedSignalling1ryCtx_IMSSI.xml
+data=EPOCROOT##epoc32\data\z\TestData\Configs\Te_DedicatedSignalling1ryCtx_NoSID.xml testdata\configs\Te_DedicatedSignalling1ryCtx_NoSID.xml
+data=EPOCROOT##epoc32\data\z\TestData\Configs\Te_DedicatedSignalling1ryCtx_SIP_Open_Sock.ini testdata\configs\Te_DedicatedSignalling1ryCtx_SIP_Open_Sock.ini
+data=EPOCROOT##epoc32\data\z\TestData\Configs\Te_DedicatedSignalling1ryCtx_Start_Conn_Fail.ini testdata\configs\Te_DedicatedSignalling1ryCtx_Start_Conn_Fail.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\Configs\te_dedicatedsignalling1ryctx.cfg testdata\configs\te_dedicatedsignalling1ryctx.cfg
+data=EPOCROOT##epoc32\data\z\TestData\Configs\te_dedicatedsignalling1ryctx_changedsid.cfg testdata\configs\te_dedicatedsignalling1ryctx_changedsid.cfg
+data=EPOCROOT##epoc32\data\z\TestData\Configs\te_dedicatedsignalling1ryctx_imssi.cfg testdata\configs\te_dedicatedsignalling1ryctx_imssi.cfg
+data=EPOCROOT##epoc32\data\z\TestData\Configs\te_dedicatedsignalling1ryctx_nosid.cfg testdata\configs\te_dedicatedsignalling1ryctx_nosid.cfg
+
+data=EPOCROOT##epoc32\data\z\TestData\Scripts\CIT_P635_Setup_QosPolicies1.script testdata\scripts\CIT_P635_Setup_QosPolicies1.script
+data=EPOCROOT##epoc32\data\z\TestData\Scripts\CIT_P635_Setup_QosPolicies2.script testdata\scripts\CIT_P635_Setup_QosPolicies2.script
+data=EPOCROOT##epoc32\data\z\TestData\Scripts\Restore_QosPolicies.script testdata\scripts\Restore_QosPolicies.script
+data=EPOCROOT##epoc32\data\z\TestData\Scripts\Te_DedicatedSignalling1ryCtx.script testdata\scripts\Te_DedicatedSignalling1ryCtx.script
+data=EPOCROOT##epoc32\data\z\TestData\Scripts\Te_DedicatedSignalling1ryCtx_Attach_Monitor.script testdata\scripts\Te_DedicatedSignalling1ryCtx_Attach_Monitor.script
+data=EPOCROOT##epoc32\data\z\TestData\Scripts\Te_DedicatedSignalling1ryCtx_Attach_Normal.script testdata\scripts\Te_DedicatedSignalling1ryCtx_Attach_Normal.script
+data=EPOCROOT##epoc32\data\z\TestData\Scripts\Te_DedicatedSignalling1ryCtx_DHCP_Open_Sock.script testdata\scripts\Te_DedicatedSignalling1ryCtx_DHCP_Open_Sock.script
+data=EPOCROOT##epoc32\data\z\TestData\Scripts\Te_DedicatedSignalling1ryCtx_DNS_Open_Sock.script testdata\scripts\Te_DedicatedSignalling1ryCtx_DNS_Open_Sock.script
+data=EPOCROOT##epoc32\data\z\TestData\Scripts\Te_DedicatedSignalling1ryCtx_SIP_Open_Sock.script testdata\scripts\Te_DedicatedSignalling1ryCtx_SIP_Open_Sock.script
+data=EPOCROOT##epoc32\data\z\TestData\Scripts\Te_DedicatedSignalling1ryCtx_Start_Conn_Fail.script testdata\scripts\Te_DedicatedSignalling1ryCtx_Start_Conn_Fail.script
+data=EPOCROOT##epoc32\data\z\TestData\Scripts\Te_DedicatedSignalling1ryCtx_Start_Modify_Stop.script testdata\scripts\Te_DedicatedSignalling1ryCtx_Start_Modify_Stop.script
+
+
+#endif //TE_DEDICATED_SIGNALLING_1RY_CTX_IBY__

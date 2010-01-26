@@ -1,0 +1,92 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+/**
+@file
+
+@SYMPurpose nifman.dll Network interface manager
+*/
+
+TARGET                  nifman.dll
+TARGETTYPE              DLL
+UID                     0x1000008D 0x10003d40
+VENDORID 0x70000001
+
+#include                "comms-infras/commsdebugutility.mmh"
+
+macro DETAILED_LOG
+
+SOURCEPATH              ../src
+SOURCE                  IF_DLL.CPP
+SOURCE                  IF_MAN.CPP
+SOURCE                  IF_INT.CPP
+SOURCE                  MCOMM.CPP
+SOURCE                  MTIMER.CPP
+SOURCE                  CAgentBase.cpp
+SOURCE                  cnifagentbase.cpp
+SOURCE                  CStateMachineAgentBase.cpp
+SOURCE                  CAgentSMBase.cpp
+SOURCE                  DbAccess.cpp
+SOURCE                  DefaultRecord.cpp
+SOURCE                  dialogprocessor.cpp
+SOURCE                  EventLogger.cpp
+SOURCE                  Ni_Log.cpp
+SOURCE                  RemovedExports.cpp
+SOURCE                  DbAccessImplv2.cpp
+SOURCE                  MDbAccess.cpp
+SOURCE                  MNifIfNotify.cpp
+SOURCE                  cagentdlgproc.cpp
+SOURCE                  if_api_stubs.cpp
+SOURCE			bcacontrol.cpp MCOMMV2.CPP
+
+USERINCLUDE             ../inc
+
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+LIBRARY                 euser.lib
+LIBRARY                 efsrv.lib
+LIBRARY                 esocksvr.lib esock.lib
+LIBRARY                 c32.lib
+LIBRARY                 commdb.lib
+LIBRARY                 commsdat.lib
+LIBRARY                 agentdialog.lib
+LIBRARY                 c32root.lib
+LIBRARY                 logwrap.lib
+LIBRARY                 ecom.lib
+LIBRARY                 netmeta.lib
+LIBRARY                 insock.lib 
+LIBRARY         nodemessages.lib
+
+
+#if !defined(WINS) && !defined(GCC32)
+LIBRARY					commsfw.lib
+#endif
+
+#ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW 
+DEFFILE					NIFMAN.DEF
+#else
+DEFFILE					NIFMAN_v1.DEF
+#endif //SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW 
+
+START WINS
+BASEADDRESS             0x44500000
+END
+
+MACRO                   DETAILED_LOG=1
+
+CAPABILITY ALL -Tcb
+
+SMPSAFE

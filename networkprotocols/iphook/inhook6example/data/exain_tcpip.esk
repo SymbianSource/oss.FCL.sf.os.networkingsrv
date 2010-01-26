@@ -1,0 +1,7 @@
+[sockman]
+protocols= exain
+
+[exain]
+filename= exain.prt
+bindfrom= ip6
+index= 1

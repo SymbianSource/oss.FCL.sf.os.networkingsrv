@@ -1,0 +1,158 @@
+// Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// dnd.rss - name resolver ui resource file
+//
+
+NAME DND
+
+#include <techview/eikon.rh>
+
+#include "dnd.hrh"
+
+RESOURCE RSS_SIGNATURE { }
+
+RESOURCE TBUF { buf=""; }
+
+RESOURCE EIK_APP_INFO
+	{
+	menubar=r_dnd_menubar;
+	hotkeys=r_dnd_hotkeys;
+	toolbar=r_dnd_toolbar;
+	}
+
+RESOURCE TOOLBAR r_dnd_toolbar
+	{
+	controls=
+		{
+		TBAR_CTRL 
+			{ 
+			id=EDndFilename;
+			type=EEikCtFileNameLabel; 
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdFileNameLabelHeight;
+			},
+		TBAR_BUTTON
+			{
+			flags=EEikToolBarCtrlIsStretchable;
+			id=EDndStart;
+			txt="Start";
+			},
+        TBAR_BUTTON
+			{
+			flags=EEikToolBarCtrlIsStretchable;
+			id=EDndStop;
+			txt="Stop";
+			},
+         TBAR_BUTTON
+			{
+			flags=EEikToolBarCtrlIsStretchable;
+			id=EDndDump;
+			txt="Dump";
+			},
+        TBAR_BUTTON
+			{
+			flags=EEikToolBarCtrlIsStretchable;
+			id=EDndFlush;
+			txt="Flush";
+			}
+  		};	
+	}  
+
+RESOURCE HOTKEYS r_dnd_hotkeys
+    {
+    control=
+        {
+        HOTKEY { command=EEikCmdExit; key='e'; }
+        };
+    }
+
+RESOURCE MENU_BAR r_dnd_menubar
+    {
+    titles=
+        {
+        MENU_TITLE { menu_pane=r_dnd_file_menu; txt="File"; },
+ 		MENU_TITLE { menu_pane=r_dnd_console_menu; txt="Console"; }
+		};
+    }
+
+RESOURCE MENU_PANE r_dnd_file_menu
+	{
+	items=
+		{
+		MENU_ITEM { command=EDndStart; txt="Start"; },
+		MENU_ITEM { command=EDndStop; txt="Stop"; },
+		MENU_ITEM { command=EEikCmdExit; txt="Exit"; }
+        };
+    }
+
+RESOURCE MENU_PANE r_dnd_console_menu
+	{
+	items=
+        {
+		MENU_ITEM
+            {
+            command=EDndClearScreen;
+            txt="ClearScreen";
+            },
+        MENU_ITEM
+            {
+            command=EConsolFontDialog;
+            txt="Set font…";
+            },
+		MENU_ITEM
+            {
+            command=EConsolHistoryDialog;
+            txt="History size…";
+			},
+		MENU_ITEM
+            {
+            cascade=r_dnd_toolbars_menu;
+           	txt="Toolbars";
+            }
+
+		};
+	}
+
+RESOURCE MENU_PANE r_dnd_toolbars_menu
+    {
+    items=
+        {
+        MENU_ITEM
+            {
+            command=EConsolScrollNone;
+            txt="None";
+            },
+        MENU_ITEM
+            {
+            command=EConsolScrollHor;
+            txt="Horiz only";
+            },
+        MENU_ITEM
+            {
+            command=EConsolScrollVert;
+            txt="Vert only";
+            },
+        MENU_ITEM
+            {
+            command=EConsolScrollBoth;
+            txt="Both scrollbars";
+            }
+        };
+    }
+
+RESOURCE TBUF r_busy { buf="Busy…"; }
+
+RESOURCE TBUF r_dnd_dumper_activated { buf="Dumping…"; }
+RESOURCE TBUF r_dnd_dumper_completed { buf="Dump completed"; }
+RESOURCE TBUF r_dnd_flush_start { buf="Flushing…"; }

@@ -1,0 +1,74 @@
+// Copyright (c) 2005-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// iprotor.mmp - protocol analyzer MMP file
+// protocol analyzer.
+//
+
+
+
+/**
+ @file
+*/
+
+MACRO		EPOC_SDK=0x08000000
+
+TARGET		iprotor.exe
+TARGETTYPE	exe
+MACRO		MAKE_EXE_APPLICATION
+UID		0 0x10000894
+
+EPOCSTACKSIZE 0x5000
+TARGETPATH	/sys/bin
+
+SOURCEPATH	../src
+
+SOURCE		iprotor.cpp engine.cpp
+
+START RESOURCE      ../data/iprotor.rss
+HEADER
+TARGETPATH /resource/apps
+END
+
+START RESOURCE	../data/iprotor_reg.rss
+TARGETPATH /private/10003a3f/apps
+END
+
+USERINCLUDE	../inc 
+SYSTEMINCLUDE	../../../networkprotocols/iphook/inhook6/inc 
+
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+SYSTEMINCLUDE	/epoc32/include/techview
+SYSTEMINCLUDE	/epoc32/include
+#else
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+MW_LAYER_SYSTEMINCLUDE_SYMBIAN
+SYSTEMINCLUDE	/epoc32/include/platform
+SYSTEMINCLUDE	/epoc32/include/platform/app
+SYSTEMINCLUDE	/epoc32/include/platform/app/techview
+#endif
+
+
+LIBRARY euser.lib apparc.lib cone.lib gdi.lib ws32.lib
+LIBRARY esock.lib insock.lib
+LIBRARY bafl.lib
+LIBRARY eikcore.lib eikcoctl.lib eikctl.lib eikdlg.lib
+LIBRARY apgrfx.lib efsrv.lib	//For the help
+
+LIBRARY estor.lib
+
+CAPABILITY ALL -Tcb
+
+VENDORID	0x70000001
+
+SMPSAFE

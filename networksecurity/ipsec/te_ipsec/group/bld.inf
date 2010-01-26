@@ -1,0 +1,159 @@
+/*
+* Copyright (c) 2008 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+
+
+
+PRJ_TESTMMPFILES
+//List mmp files here
+t_ipsec.mmp
+
+PRJ_TESTEXPORTS
+// PREQ 1853
+../scripts/te_ipsec-common.script       z:/testdata/scripts/te_ipsec-common.script
+
+../testdata/ns-ipsec-ikev2test-ops.ini     z:/testdata/scripts/ns-ipsec-ikev2test-ops.ini
+../scripts/ns-ipsec-ikev2-ops.script       z:/testdata/scripts/ns-ipsec-ikev2-ops.script
+
+../testdata/ns-ipsec-multiplesatest-ops.ini  z:/testdata/scripts/ns-ipsec-multiplesatest-ops.ini
+../scripts/ns-ipsec-multiple-sa-ops.script   z:/testdata/scripts/ns-ipsec-multiple-sa-ops.script
+
+//new script
+../scripts/ns-ipsec-ikev2-1.script 				z:/testdata/scripts/ns-ipsec-ikev2-1.script
+../scripts/ns-ipsec-ikev2-2.script 				z:/testdata/scripts/ns-ipsec-ikev2-2.script
+../scripts/ns-ipsec-ikev2-3.script 				z:/testdata/scripts/ns-ipsec-ikev2-3.script
+../scripts/ns-ipsec-ikev2-4.script 				z:/testdata/scripts/ns-ipsec-ikev2-4.script
+../scripts/ns-ipsec-ikev2-5.script 				z:/testdata/scripts/ns-ipsec-ikev2-5.script
+../scripts/ns-ipsec-ikev2-6.script 				z:/testdata/scripts/ns-ipsec-ikev2-6.script
+../scripts/ns-ipsec-ikev2-7.script 				z:/testdata/scripts/ns-ipsec-ikev2-7.script
+../scripts/ns-ipsec-ikev2-8.script 				z:/testdata/scripts/ns-ipsec-ikev2-8.script
+../scripts/ns-ipsec-ikev2-9.script 				z:/testdata/scripts/ns-ipsec-ikev2-9.script
+../scripts/ns-ipsec-ikev2-10.script 			z:/testdata/scripts/ns-ipsec-ikev2-10.script
+../scripts/ns-ipsec-ikev2-11.script 			z:/testdata/scripts/ns-ipsec-ikev2-11.script
+../scripts/ns-ipsec-ikev2-12.script 			z:/testdata/scripts/ns-ipsec-ikev2-12.script
+
+../scripts/ns-ipsec-multiple-sa-1.script 		z:/testdata/scripts/ns-ipsec-multiple-sa-1.script
+../scripts/ns-ipsec-multiple-sa-2.script 		z:/testdata/scripts/ns-ipsec-multiple-sa-2.script
+../scripts/ns-ipsec-multiple-sa-3.script 		z:/testdata/scripts/ns-ipsec-multiple-sa-3.script
+../scripts/ns-ipsec-multiple-sa-4.script 		z:/testdata/scripts/ns-ipsec-multiple-sa-4.script
+../scripts/ns-ipsec-multiple-sa-5.script 		z:/testdata/scripts/ns-ipsec-multiple-sa-5.script
+../scripts/ns-ipsec-multiple-sa-6.script 		z:/testdata/scripts/ns-ipsec-multiple-sa-6.script
+../scripts/ns-ipsec-multiple-sa-7.script 		z:/testdata/scripts/ns-ipsec-multiple-sa-7.script
+../scripts/ns-ipsec-multiple-sa-8.script 		z:/testdata/scripts/ns-ipsec-multiple-sa-8.script
+../scripts/ns-ipsec-multiple-sa-9.script 		z:/testdata/scripts/ns-ipsec-multiple-sa-9.script
+../scripts/ns-ipsec-multiple-sa-10.script 		z:/testdata/scripts/ns-ipsec-multiple-sa-10.script
+../scripts/ns-ipsec-multiple-sa-11.script 		z:/testdata/scripts/ns-ipsec-multiple-sa-11.script
+../scripts/ns-ipsec-multiple-sa-12.script 		z:/testdata/scripts/ns-ipsec-multiple-sa-12.script
+../scripts/ns-ipsec-multiple-sa-13.script 		z:/testdata/scripts/ns-ipsec-multiple-sa-13.script
+../scripts/ns-ipsec-multiple-sa-14.script 		z:/testdata/scripts/ns-ipsec-multiple-sa-14.script
+../scripts/ns-ipsec-multiple-sa-15.script 		z:/testdata/scripts/ns-ipsec-multiple-sa-15.script
+../scripts/ns-ipsec-multiple-sa-16.script 		z:/testdata/scripts/ns-ipsec-multiple-sa-16.script
+../scripts/ns-ipsec-multiple-sa-17.script 		z:/testdata/scripts/ns-ipsec-multiple-sa-17.script
+../scripts/ns-ipsec-multiple-sa-18.script 		z:/testdata/scripts/ns-ipsec-multiple-sa-18.script
+../scripts/ns-ipsec-multiple-sa-19.script 		z:/testdata/scripts/ns-ipsec-multiple-sa-19.script
+../scripts/ns-ipsec-multiple-sa-20.script 		z:/testdata/scripts/ns-ipsec-multiple-sa-20.script
+../scripts/ns-ipsec-multiple-sa-21.script 		z:/testdata/scripts/ns-ipsec-multiple-sa-21.script
+../scripts/ns-ipsec-multiple-sa-22.script 		z:/testdata/scripts/ns-ipsec-multiple-sa-22.script
+../scripts/ns-ipsec-multiple-sa-23.script 		z:/testdata/scripts/ns-ipsec-multiple-sa-23.script
+../scripts/ns-ipsec-multiple-sa-24.script 		z:/testdata/scripts/ns-ipsec-multiple-sa-24.script
+
+
+
+// test data
+../testdata/epoc2linux.xml                  z:/testdata/configs/epoc2linux.xml
+../testdata/ethernetced1853.xml             z:/testdata/configs/ethernetced1853.xml
+
+../testdata/linux_tunnel.pin                z:/testdata/configs/linux_tunnel.pin
+../testdata/linux_tunnel1.pol               z:/testdata/configs/linux_tunnel1.pol
+../testdata/linux_tunnel2.pol               z:/testdata/configs/linux_tunnel2.pol
+../testdata/linux_tunnel3.pol               z:/testdata/configs/linux_tunnel3.pol
+../testdata/linux_tunnel4.pol               z:/testdata/configs/linux_tunnel4.pol
+../testdata/linux_tunnel5.pol               z:/testdata/configs/linux_tunnel5.pol
+../testdata/linux_tunnel6.pol               z:/testdata/configs/linux_tunnel6.pol
+../testdata/linux_tunnel7.pol               z:/testdata/configs/linux_tunnel7.pol
+../testdata/linux_tunnel8.pol               z:/testdata/configs/linux_tunnel8.pol
+../testdata/linux_tunnel9.pol               z:/testdata/configs/linux_tunnel9.pol
+../testdata/linux_tunnel10.pol              z:/testdata/configs/linux_tunnel10.pol
+../testdata/linux_tunnel11.pol              z:/testdata/configs/linux_tunnel11.pol
+../testdata/linux_tunnel12.pol              z:/testdata/configs/linux_tunnel12.pol
+../testdata/linux_tunnel13.pol              z:/testdata/configs/linux_tunnel13.pol
+../testdata/linux_tunnel14.pol              z:/testdata/configs/linux_tunnel14.pol
+../testdata/linux_tunnel15.pol              z:/testdata/configs/linux_tunnel15.pol
+../testdata/linux_tunnel16.pol              z:/testdata/configs/linux_tunnel16.pol
+../testdata/linux_tunnel17.pol              z:/testdata/configs/linux_tunnel17.pol
+../testdata/linux_tunnel18.pol              z:/testdata/configs/linux_tunnel18.pol
+../testdata/linux_tunnel19.pol              z:/testdata/configs/linux_tunnel19.pol
+../testdata/linux_tunnel20.pol              z:/testdata/configs/linux_tunnel20.pol
+../testdata/linux_tunnel21.pol				z:/testdata/configs/linux_tunnel21.pol
+../testdata/linux_tunnel22.pol              z:/testdata/configs/linux_tunnel22.pol
+../testdata/linux_tunnel23.pol              z:/testdata/configs/linux_tunnel23.pol
+../testdata/linux_tunnel24.pol              z:/testdata/configs/linux_tunnel24.pol
+../testdata/linux_tunnel25.pol              z:/testdata/configs/linux_tunnel25.pol
+../testdata/linux_tunnel26.pol              z:/testdata/configs/linux_tunnel26.pol
+../testdata/linux_tunnel27.pol              z:/testdata/configs/linux_tunnel27.pol
+../testdata/linux_tunnel28.pol              z:/testdata/configs/linux_tunnel28.pol
+../testdata/linux_tunnel29.pol              z:/testdata/configs/linux_tunnel29.pol
+../testdata/linux_tunnel30.pol              z:/testdata/configs/linux_tunnel30.pol
+../testdata/linux_tunnel31.pol              z:/testdata/configs/linux_tunnel31.pol
+../testdata/linux_tunnel32.pol              z:/testdata/configs/linux_tunnel32.pol
+../testdata/linux_tunnel33.pol              z:/testdata/configs/linux_tunnel33.pol
+../testdata/linux_tunnel34.pol              z:/testdata/configs/linux_tunnel34.pol
+../testdata/linux_tunnel35.pol              z:/testdata/configs/linux_tunnel35.pol
+../testdata/linux_tunnel36.pol              z:/testdata/configs/linux_tunnel36.pol
+../testdata/linux_tunnel37.pol              z:/testdata/configs/linux_tunnel37.pol
+../testdata/linux_tunnel38.pol              z:/testdata/configs/linux_tunnel38.pol
+../testdata/linux_tunnel39.pol              z:/testdata/configs/linux_tunnel39.pol
+../testdata/linux_tunnel40.pol              z:/testdata/configs/linux_tunnel40.pol
+../testdata/linux_tunnel41.pol              z:/testdata/configs/linux_tunnel41.pol
+../testdata/linux_tunnel42.pol              z:/testdata/configs/linux_tunnel42.pol
+../testdata/linux_tunnel43.pol              z:/testdata/configs/linux_tunnel43.pol
+../testdata/linux_tunnel44.pol              z:/testdata/configs/linux_tunnel44.pol
+../testdata/linux_tunnel45.pol              z:/testdata/configs/linux_tunnel45.pol
+../testdata/linux_tunnel46.pol              z:/testdata/configs/linux_tunnel46.pol
+../testdata/linux_tunnel47.pol              z:/testdata/configs/linux_tunnel47.pol
+../testdata/linux_tunnel48.pol              z:/testdata/configs/linux_tunnel48.pol
+../testdata/linux_tunnel49.pol              z:/testdata/configs/linux_tunnel49.pol
+../testdata/linux_tunnel50.pol              z:/testdata/configs/linux_tunnel50.pol
+../testdata/linux_tunnel51.pol              z:/testdata/configs/linux_tunnel51.pol
+../testdata/linux_tunnel52.pol              z:/testdata/configs/linux_tunnel52.pol
+../testdata/linux_tunnel53.pol              z:/testdata/configs/linux_tunnel53.pol
+../testdata/linux_tunnel54.pol              z:/testdata/configs/linux_tunnel54.pol
+../testdata/linux_tunnel55.pol              z:/testdata/configs/linux_tunnel55.pol
+../testdata/linux_tunnel56.pol              z:/testdata/configs/linux_tunnel56.pol
+../testdata/linux_tunnel57.pol              z:/testdata/configs/linux_tunnel57.pol
+../testdata/linux_tunnel58.pol              z:/testdata/configs/linux_tunnel58.pol
+../testdata/linux_tunnel59.pol              z:/testdata/configs/linux_tunnel59.pol
+../testdata/linux_tunnel60.pol              z:/testdata/configs/linux_tunnel60.pol
+../testdata/linux_tunnel61.pol              z:/testdata/configs/linux_tunnel61.pol
+../testdata/linux_tunnel62.pol              z:/testdata/configs/linux_tunnel62.pol
+../testdata/linux_tunnel63.pol              z:/testdata/configs/linux_tunnel63.pol
+../testdata/linux_tunnel64.pol              z:/testdata/configs/linux_tunnel64.pol
+../testdata/linux_tunnel65.pol              z:/testdata/configs/linux_tunnel65.pol
+../testdata/linux_tunnel66.pol              z:/testdata/configs/linux_tunnel66.pol
+../testdata/linux_tunnel67.pol              z:/testdata/configs/linux_tunnel67.pol
+../testdata/linux_tunnel68.pol              z:/testdata/configs/linux_tunnel68.pol
+../testdata/linux_tunnel69.pol              z:/testdata/configs/linux_tunnel69.pol
+../testdata/linux_tunnel70.pol              z:/testdata/configs/linux_tunnel70.pol
+../testdata/linux_tunnel71.pol              z:/testdata/configs/linux_tunnel71.pol
+../testdata/linux_tunnel72.pol              z:/testdata/configs/linux_tunnel72.pol
+../testdata/linux_tunnel73.pol              z:/testdata/configs/linux_tunnel73.pol
+
+
+
+                                        
+//copy iby files
+t_ipsec.iby	/epoc32/rom/include/t_ipsec.iby

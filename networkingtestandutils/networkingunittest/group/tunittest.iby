@@ -1,0 +1,42 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+#ifndef __TUNITTEST_IBY__
+#define __TUNITTEST_IBY__
+
+REM Comms Framework FLogger extension
+#include <commsdebugutility.iby>
+#include <dummynif_params.iby>
+
+REM Generic connection agent test programs
+
+#include <integrationtest.iby>
+#ifdef _DEBUG
+ECOM_PLUGIN_UDEB(dummynifprotos.dll,10281C3A.rss)
+#else
+ECOM_PLUGIN(dummynifprotos.dll,10281C3A.rss)
+#endif
+file=ABI_DIR\DEBUG_DIR\dummyetel.dll		System\Libs\dummyetel.dll
+file=ABI_DIR\DEBUG_DIR\dummyagentdialog.dll	System\Libs\dummyagentdialog.dll
+
+#ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+file=ABI_DIR\DEBUG_DIR\echodaemon.dll		System\Libs\echodaemon.dll
+file=ABI_DIR\DEBUG_DIR\echodaemonsrv.exe		System\Libs\echodaemonsrv.exe
+file=ABI_DIR\DEBUG_DIR\te_echo.exe		System\Libs\te_echo.exe
+#endif
+
+#endif

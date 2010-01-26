@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<relnotes schema="1.0.0" name="DHCP" purpose="" type="component">
+  <revision major="3" functional="0" minor="0" date="20090602">
+    <ref name="1898" type="preq"/>
+    <description>IPV6 update</description>
+  </revision>
+  <revision major="2" functional="0" minor="1" date="20071122">
+    <ref name="PDEF112280" type="defect"/>
+    <description>Adding new tcpip.ini ipv4linklocal option 3 - EVLL4ConfigDaemonControlled.  The configuration daemon (e.g., DHCP) now automatically configures an IPv4 linklocal address on demand if address assignment or lease renewal fails.  This is enables us to avoid creating and announcing a linklocal during initial DHCP address assignment which otherwise seems to confuse some routers&#x2019; DAD detection logic and could cause assignment to fail.</description>
+  </revision>
+  <revision major="2" functional="0" minor="0" date="20070912" access="internalTechnology">
+    <ref name="1647-1648" type="preq"/>
+    <ref name="dhcpserv.exe" type="binary"/>
+    <description>PREQ 1647-Extraction of Message Headers
+PREQ 1648- Extraction of Data Options</description>
+  </revision>
+  <revision major="1" functional="0" minor="2" date="20070802">
+    <ref name="PDEF110097" type="defect"/>
+    <description>Enabling IAP commsdat records to be protected with the ECDPrivate attribute. This requires that the DHCP and DND components are assigned the ReadDeviceData privilege and that various changes are made to ensure hidden IAP records are visible to networking components which need to be able to read them.</description>
+  </revision>
+  <revision major="1" functional="0" minor="1" date="20070801">
+    <ref name="PDEF109168" type="defect"/>
+    <description>DHCP fallback is now only attempted for KConnGetSipServerAddr SIP address requests for index zero and may fail with any system error code.  Subsequent address index requests will either return KErrNone or KErrNotFound.</description>
+  </revision>
+  <revision major="1" functional="0" minor="0" date="20070801">
+    <ref name="PDEF109389" type="defect"/>
+    <description>Port from 9.2 of GPRS IPv6 can not be established.</description>
+  </revision>
+  <purpose>
+    Dynamic Host Configuration Protocol (DHCP) implementation used by PAN Profile and other networking components.
+  </purpose>
+  <defect number="DEF108733" title="[System Build] Compilation warnings in networking_dhcp in build M04267 v9.5" revision="006">
+    Compilation warnings in networking_dhcp in build M04267 v9.5
+  </defect>
+  <defect number="INC107665" title="Multimedia message cannot be sent when using AP with user name and password" revision="005">
+    Multimedia message cannot be sent when using AP with user name and password
+  </defect>
+  <defect number="DEF106036" title="[PAN NAP][NW] Cannot set DNS information in DHCP Server until after connection" revision="004">
+    Cannot set DNS information in DHCP Server until after connection
+  </defect>
+  <defect number="DEF105140" title="CProtocolInet6Base::LocateProvider doesn't check for scope before selecting sap" revision="003">
+    CProtocolInet6Base::LocateProvider doesn&#xE2;&#x20AC;&#x2122;t check for scope before selecting sap
+  </defect>
+  <preq number="749" title="Simplified Bluetooth PAN NAP Role" revision="002"/>
+  <defect number="DEF103227" title="DHCPRelease not being sent from the DHCPServer(Client)" revision="001">
+    Ensured that the IP Address is not removed from the TCP/IP stack until after the Release message has been sent.
+  </defect>
+</relnotes>

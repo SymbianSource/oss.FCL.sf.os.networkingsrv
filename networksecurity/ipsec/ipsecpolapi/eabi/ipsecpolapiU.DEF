@@ -1,0 +1,19 @@
+EXPORTS
+	_ZN16RIpsecPolicyServC1Ev @ 1 NONAME ; RIpsecPolicyServ::RIpsecPolicyServ(void)
+	_ZN16RIpsecPolicyServ14CancelActivateEv @ 2 NONAME ; RIpsecPolicyServ::CancelActivate(void)
+	_ZN16RIpsecPolicyServ10CancelLoadEv @ 3 NONAME ; RIpsecPolicyServ::CancelLoad(void)
+	_ZN16RIpsecPolicyServ11CancelMatchEv @ 4 NONAME ; RIpsecPolicyServ::CancelMatch(void)
+	_ZN16RIpsecPolicyServ12CancelUnloadEv @ 5 NONAME ; RIpsecPolicyServ::CancelUnload(void)
+	_ZN16RIpsecPolicyServ7ConnectEv @ 6 NONAME ; RIpsecPolicyServ::Connect(void)
+	_ZN16RIpsecPolicyServ12GetDebugInfoER6TDes16j @ 7 NONAME ; RIpsecPolicyServ::GetDebugInfo(TDes16&, unsigned int)
+	_ZN16RIpsecPolicyServ10LoadPolicyERK6TDesC8R8TPckgBufI13TPolicyHandleER14TRequestStatus @ 8 NONAME ; RIpsecPolicyServ::LoadPolicy(TDesC8 const&, TPckgBuf<TPolicyHandle>&, TRequestStatus&)
+	_ZN16RIpsecPolicyServ10LoadPolicyERK6TDesC8R8TPckgBufI13TPolicyHandleER14TRequestStatusRKS3_I12TZoneInfoSetEj @ 9 NONAME ; RIpsecPolicyServ::LoadPolicy(TDesC8 const&, TPckgBuf<TPolicyHandle>&, TRequestStatus&, TPckgBuf<TZoneInfoSet> const&, unsigned int)
+	_ZN16RIpsecPolicyServ13MatchSelectorERK6TDesC8R5TDes8R14TRequestStatus @ 10 NONAME ; RIpsecPolicyServ::MatchSelector(TDesC8 const&, TDes8&, TRequestStatus&)
+	_ZN16RIpsecPolicyServ12UnloadPolicyERK13TPolicyHandleR14TRequestStatus @ 11 NONAME ; RIpsecPolicyServ::UnloadPolicy(TPolicyHandle const&, TRequestStatus&)
+	_ZNK16RIpsecPolicyServ7VersionEv @ 12 NONAME ; RIpsecPolicyServ::Version(void) const
+	_ZN16RIpsecPolicyServD1Ev @ 13 NONAME ; RIpsecPolicyServ::~RIpsecPolicyServ(void)
+	_ZN16RIpsecPolicyServ14ActivatePolicyERK13TPolicyHandleR14TRequestStatus @ 14 NONAME ; RIpsecPolicyServ::ActivatePolicy(TPolicyHandle const&, TRequestStatus&)
+	_ZN16RIpsecPolicyServD2Ev @ 15 NONAME ; RIpsecPolicyServ::~RIpsecPolicyServ [not-in-charge](void)
+	_ZN16RIpsecPolicyServC2Ev @ 16 NONAME ; RIpsecPolicyServ::RIpsecPolicyServ[not-in-charge](void)
+	_ZN16RIpsecPolicyServ18AvailableSelectorsERK6TDesC8P13CArrayFixFlatI18TIpsecSelectorInfoER14TRequestStatus @ 17 NONAME
+

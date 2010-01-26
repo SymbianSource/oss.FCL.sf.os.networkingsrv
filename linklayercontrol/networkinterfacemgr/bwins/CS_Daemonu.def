@@ -1,0 +1,5 @@
+EXPORTS
+	?ImplementationGroupProxy@@YAPBUTImplementationProxy@@AAH@Z @ 1 NONAME ; struct TImplementationProxy const * __cdecl ImplementationGroupProxy(int &)
+	?EventNotification@CNifDaemonConfiguration@@UAEXW4TNetworkAdaptorEventType@@IABVTDesC8@@PAX@Z @ 2 NONAME ; public: virtual void __thiscall CNifDaemonConfiguration::EventNotification(enum TNetworkAdaptorEventType,unsigned int,class TDesC8 const &,void *)
+
+

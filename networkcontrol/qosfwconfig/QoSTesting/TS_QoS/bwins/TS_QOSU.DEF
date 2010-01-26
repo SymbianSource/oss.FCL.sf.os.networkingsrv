@@ -1,0 +1,3 @@
+EXPORTS
+	?NewTestSuiteQoSL@@YAPAVCTestSuiteQoS@@XZ @ 1 NONAME ; class CTestSuiteQoS * __cdecl NewTestSuiteQoSL(void)
+

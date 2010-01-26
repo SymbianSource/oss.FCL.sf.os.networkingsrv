@@ -1,0 +1,55 @@
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// te_tlsunittest.mmp for improving conditional coverage percentage by primarily testing the GetOpt and SetOpt options along with Client Authentication.
+//
+
+
+
+/**
+ @file 
+*/
+
+TARGET          te_tlsunittest.exe
+TARGETTYPE      exe
+
+USERINCLUDE	..\..\..\inc
+
+SOURCEPATH      ..\src
+SOURCE		te_tlsunittestblock.cpp te_tlsunittestserver.cpp te_tlsunittestwrapper.cpp
+
+
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+
+USERINCLUDE     ..\inc
+
+LIBRARY 	efsrv.lib 
+LIBRARY		euser.lib 
+LIBRARY 	estor.lib
+LIBRARY		esock.lib 
+LIBRARY		insock.lib 
+LIBRARY		securesocket.lib
+LIBRARY		testexecuteutils.lib
+
+
+VENDORID 0x70000001
+
+SECUREID 0x400008d1 
+CAPABILITY All -TCB
+
+UNPAGED
+
+SMPSAFE
+
+

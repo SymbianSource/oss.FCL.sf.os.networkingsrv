@@ -1,0 +1,45 @@
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+
+
+
+PRJ_PLATFORMS
+
+DEFAULT
+
+
+PRJ_EXPORTS
+../group/DHCPServ.iby                 		/epoc32/rom/include/dhcpserv.iby
+../NetCfgExtnDhcp/inc/NetCfgExtnDhcpMsg.h	SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/netcfgextndhcpmsg.h)
+../group/NetCfgExtnDhcp.iby                 /epoc32/rom/include/netcfgextndhcp.iby
+
+#ifdef SYMBIAN_NETWORKING_DHCP_MSG_HEADERS
+../include/DHCPConfig.h						SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/dhcpconfig.h)
+#endif // SYMBIAN_NETWORKING_DHCP_MSG_HEADERS
+
+PRJ_MMPFILES
+
+DHCPServ.mmp
+NetCfgExtnDhcp.mmp
+
+
+// TESTS
+
+#include "../te_dhcp/bld.inf"
+#ifdef SYMBIAN_NETWORKING_ADDRESS_PROVISION
+#include "../te_unittest/bld.inf"
+#endif //SYMBIAN_NETWORKING_ADDRESS_PROVISION
+

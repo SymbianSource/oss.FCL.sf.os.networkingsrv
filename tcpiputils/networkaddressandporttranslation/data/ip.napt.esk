@@ -1,0 +1,7 @@
+[sockman]
+protocols= napt
+
+[napt]
+filename= napt.prt
+index= 1
+bindto= ip6

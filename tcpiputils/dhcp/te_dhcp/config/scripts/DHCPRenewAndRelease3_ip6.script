@@ -1,0 +1,52 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+#
+#	Script file for DHCP testing on IPv6
+#
+#   ORDER IS IMPORTANT! SetIAPToUse and SetAddressMode lines affect the operation of the subsequent commands
+
+load_suite DhcpTestServer
+
+# Load esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+START_TESTCASE          NET-Dhcp-1501
+//! @SYMTestCaseID      NET-Dhcp-1501
+run_test_step 5 DhcpTestServer SetAddressMode z:\TestData\configs\DHCP\dhcptest.ini IPv6
+END_TESTCASE            NET-Dhcp-1501
+
+START_TESTCASE          NET-Dhcp-1502
+//! @SYMTestCaseID      NET-Dhcp-1502
+////////////////////////
+// SET IAP TO DYNAMIC //
+delay 1000 // To avoid locking on commsdat
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet1
+////////////////////////
+END_TESTCASE            NET-Dhcp-1502
+
+START_TESTCASE          NET-Dhcp-1503
+//! @SYMTestCaseID      NET-Dhcp-1503
+run_test_step 50 DhcpTestServer 3_1	z:\TestData\configs\DHCP\dhcptest.ini
+run_test_step 50 DhcpTestServer 3_2	z:\TestData\configs\DHCP\dhcptest.ini
+run_test_step 50 DhcpTestServer 3_3	z:\TestData\configs\DHCP\dhcptest.ini
+//run_test_step 50 DhcpTestServer 3_4	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-1503
+
+# Stop all interfaces
+RUN_SCRIPT Z:\TestData\Scripts\te_esock_test_stopallinterfaces.script
+
+# Unload esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script

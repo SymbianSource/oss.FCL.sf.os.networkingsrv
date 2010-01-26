@@ -1,0 +1,1003 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//! @file te_vjcomp.script
+//! @brief Run all Van Jacobson component tests on TE_VJCOMP.
+//!
+//! This script file runs the TE_VJCOMP component tests on
+//! all exported functions.
+//! This test runs using the TestExecute framework using the following test list entry:
+//!  TESTEXECUTE,logs\\testexecute\\te_vjcomp.htm,,z:\\testdata\\scripts\\te_vjcomp.script,
+//! It requires no exceptional software or network support and uses test data in the te_vjcomp.ini file.
+//! NOTE:
+//! TestExecute can't handle lines over 512 characters in length. The comments have been 
+//! reformatted to reduce them to under 512 characters.
+
+PRINT Running_VJCOMP_TestExecute
+LOAD_SUITE TE_VJCOMP
+
+RUN_UTILS MkDir C:\te_vjcomp\
+RUN_UTILS MakeReadWrite C:\te_vjcomp\te_vjcomp.script
+RUN_UTILS CopyFile Z:\testdata\scripts\te_vjcomp.script C:\te_vjcomp\te_vjcomp.script
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\te_vjcomp.ini
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\te_vjcomp.ini C:\te_vjcomp\te_vjcomp.ini
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjuncomp_1.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_1.pcap C:\te_vjcomp\t_vjuncomp_1.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjuncomp_2.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_2.pcap C:\te_vjcomp\t_vjuncomp_2.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjuncomp_3.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_3.pcap C:\te_vjcomp\t_vjuncomp_3.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjuncomp_4.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_4.pcap C:\te_vjcomp\t_vjuncomp_4.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjuncomp_5.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_5.pcap C:\te_vjcomp\t_vjuncomp_5.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjuncomp_6.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_6.pcap C:\te_vjcomp\t_vjuncomp_6.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjuncomp_7.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_7.pcap C:\te_vjcomp\t_vjuncomp_7.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjuncomp_8.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_8.pcap C:\te_vjcomp\t_vjuncomp_8.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjuncomp_9.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_9.pcap C:\te_vjcomp\t_vjuncomp_9.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjuncomp_10.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_10.pcap C:\te_vjcomp\t_vjuncomp_10.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjuncomp_11.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_11.pcap C:\te_vjcomp\t_vjuncomp_11.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjuncomp_12.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_12.pcap C:\te_vjcomp\t_vjuncomp_12.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjuncomp_13.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_13.pcap C:\te_vjcomp\t_vjuncomp_13.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjuncomp_14.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_14.pcap C:\te_vjcomp\t_vjuncomp_14.pcap
+
+//RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjuncomp_15.pcap
+//RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_15.pcap C:\te_vjcomp\t_vjuncomp_15.pcap
+
+//RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjuncomp_16.pcap
+//RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_16.pcap C:\te_vjcomp\t_vjuncomp_16.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjuncomp_17.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_17.pcap C:\te_vjcomp\t_vjuncomp_17.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjuncomp_18.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_18.pcap C:\te_vjcomp\t_vjuncomp_18.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjuncomp_19.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_19.pcap C:\te_vjcomp\t_vjuncomp_19.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjuncomp_20.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_20.pcap C:\te_vjcomp\t_vjuncomp_20.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjuncomp_21.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_21.pcap C:\te_vjcomp\t_vjuncomp_21.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjuncomp_22.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_22.pcap C:\te_vjcomp\t_vjuncomp_22.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjuncomp_23.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_22.pcap C:\te_vjcomp\t_vjuncomp_23.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjcomp_1.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_1.pcap C:\te_vjcomp\t_vjcomp_1.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjcomp_2.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_2.pcap C:\te_vjcomp\t_vjcomp_2.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjcomp_3.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_3.pcap C:\te_vjcomp\t_vjcomp_3.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjcomp_4.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_4.pcap C:\te_vjcomp\t_vjcomp_4.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjcomp_5.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_5.pcap C:\te_vjcomp\t_vjcomp_5.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjcomp_6.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_6.pcap C:\te_vjcomp\t_vjcomp_6.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjcomp_7.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_7.pcap C:\te_vjcomp\t_vjcomp_7.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjcomp_8.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_8.pcap C:\te_vjcomp\t_vjcomp_8.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjcomp_9.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_9.pcap C:\te_vjcomp\t_vjcomp_9.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjcomp_10.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_10.pcap C:\te_vjcomp\t_vjcomp_10.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjcomp_11.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_11.pcap C:\te_vjcomp\t_vjcomp_11.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjcomp_12.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_12.pcap C:\te_vjcomp\t_vjcomp_12.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjcomp_13.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjcomp_13.pcap C:\te_vjcomp\t_vjcomp_13.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjdecomp_err_1.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_err_1.pcap C:\te_vjcomp\t_vjdecomp_err_1.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjdecomp_err_2.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_err_2.pcap C:\te_vjcomp\t_vjdecomp_err_2.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjdecomp_uncomp_1.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_uncomp_1.pcap C:\te_vjcomp\t_vjdecomp_uncomp_1.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjdecomp_uncomp_2.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_uncomp_2.pcap C:\te_vjcomp\t_vjdecomp_uncomp_2.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjdecomp_uncomp_3.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_uncomp_3.pcap C:\te_vjcomp\t_vjdecomp_uncomp_3.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjdecomp_comp_1.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_comp_1.pcap C:\te_vjcomp\t_vjdecomp_comp_1.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjdecomp_comp_2.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_comp_2.pcap C:\te_vjcomp\t_vjdecomp_comp_2.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjdecomp_comp_3.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_comp_1.pcap C:\te_vjcomp\t_vjdecomp_comp_3.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjdecomp_comp_14.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjdecomp_comp_14.pcap C:\te_vjcomp\t_vjdecomp_comp_14.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjsearch_1.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjsearch_1.pcap C:\te_vjcomp\t_vjsearch_1.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjsearch_2.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjsearch_2.pcap C:\te_vjcomp\t_vjsearch_2.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjsearch_3.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjsearch_3.pcap C:\te_vjcomp\t_vjsearch_3.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjsearch_4.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjsearch_4.pcap C:\te_vjcomp\t_vjsearch_4.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjbound_1.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_1.pcap C:\te_vjcomp\t_vjbound_1.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjbound_2.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_2.pcap C:\te_vjcomp\t_vjbound_2.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjbound_3.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_3.pcap C:\te_vjcomp\t_vjbound_3.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjbound_4.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_4.pcap C:\te_vjcomp\t_vjbound_4.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjbound_5.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_5.pcap C:\te_vjcomp\t_vjbound_5.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjbound_6.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_6.pcap C:\te_vjcomp\t_vjbound_6.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjbound_7.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_7.pcap C:\te_vjcomp\t_vjbound_7.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjbound_8.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_8.pcap C:\te_vjcomp\t_vjbound_8.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjbound_9.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_9.pcap C:\te_vjcomp\t_vjbound_9.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjbound_10.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_10.pcap C:\te_vjcomp\t_vjbound_10.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjbound_11.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_11.pcap C:\te_vjcomp\t_vjbound_11.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjbound_12.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_12.pcap C:\te_vjcomp\t_vjbound_12.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjbound_13.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_13.pcap C:\te_vjcomp\t_vjbound_13.pcap
+
+RUN_UTILS MakeReadWrite C:\te_vjcomp\t_vjbound_14.pcap
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjbound_14.pcap C:\te_vjcomp\t_vjbound_14.pcap
+
+
+// COMPRESSION //////////////////////////////////////////////////////
+
+START_TESTCASE			NET-PPP-VJCOMP-0101
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0101
+//! @SymTestCaseDesc Packet is not of type TCP protocol
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Set the Protocol field in the IP header to a value other than '6' which represents TCP. The packet is passed to the compressor under test and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected. 
+//! @SymTestExpectedResults TCP and IP headers of the output packet generated by the compressor under test are of TYPE_IP and are the same as those generated by the reference compressor. 
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJUNCOMP_1
+END_TESTCASE			NET-PPP-VJCOMP-0101
+
+START_TESTCASE			NET-PPP-VJCOMP-0102
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0102
+//! @SymTestCaseDesc Packet is an IP fragment with a non-zero offset field
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Set the fragment offset field in the IP header to a non-zero value. The packet is passed to the compressor under test and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults TCP and IP headers of the output packet generated by the compressor under test are of TYPE_IP and are the same as those generated by the reference compressor. 
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJUNCOMP_2
+END_TESTCASE			NET-PPP-VJCOMP-0102
+
+START_TESTCASE			NET-PPP-VJCOMP-0103
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0103
+//! @SymTestCaseDesc Packet is an IP fragment with the more fragment bit set
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Set the more fragment bit in the IP header to 1. The packet is passed to the compressor under test and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults TCP and IP headers of the output packet generated by the compressor under test are of TYPE_IP and are the same as those generated by the reference compressor. 
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJUNCOMP_3
+END_TESTCASE			NET-PPP-VJCOMP-0103
+
+START_TESTCASE			NET-PPP-VJCOMP-0104
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0104
+//! @SymTestCaseDesc SYN bit in TCP header is set
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP
+//! @SymTestActions Set the SYN bit in the TCP header to 1. The packet is passed to the compressor under test and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults TCP and IP headers of the output packet generated by the compressor under test are of TYPE_IP and are the same as those generated by the reference compressor. 
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJUNCOMP_4
+END_TESTCASE			NET-PPP-VJCOMP-0104
+
+START_TESTCASE			NET-PPP-VJCOMP-0105
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0105
+//! @SymTestCaseDesc FIN bit in TCP header is set
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Set the FIN bit in the TCP header to 1. The packet is passed to the compressor under test and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults TCP and IP headers of the output packet generated by the compressor under test are of TYPE_IP and are the same as those generated by the reference compressor. 
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJUNCOMP_5
+END_TESTCASE			NET-PPP-VJCOMP-0105
+
+START_TESTCASE			NET-PPP-VJCOMP-0106
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0106
+//! @SymTestCaseDesc RST bit in TCP header is set
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Set the RST bit in the TCP header to 1. The packet is passed to the compressor under test and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults TCP and IP headers of the output packet generated by the compressor under test are of TYPE_IP and are the same as those generated by the reference compressor.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJUNCOMP_6
+END_TESTCASE			NET-PPP-VJCOMP-0106
+
+START_TESTCASE			NET-PPP-VJCOMP-0107
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0107
+//! @SymTestCaseDesc ACK bit in TCP header is clear
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP
+//! @SymTestActions Set the ACK bit in the TCP header to 0. The packet is passed to the compressor under test and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults TCP and IP headers of the output packet generated by the compressor under test are of TYPE_IP and are the same as those generated by the reference compressor. 
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJUNCOMP_7
+END_TESTCASE			NET-PPP-VJCOMP-0107
+
+START_TESTCASE			NET-PPP-VJCOMP-0108
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0108
+//! @SymTestCaseDesc No matching connection slot with the same source IP, destination IP and TCP ports
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions The packet is passed to the compressor under test and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The least recently used slot is reclaimed and the output packet is a UNCOMPRESSED_TCP packet. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJUNCOMP_8
+END_TESTCASE			NET-PPP-VJCOMP-0108
+
+START_TESTCASE			NET-PPP-VJCOMP-0109
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0109
+//! @SymTestCaseDesc Unexpected change in the type of service field in IP header
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Change the type of service field in the IP header. The packet is passed to the compressor under test and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a UNCOMPRESSED_TCP packet. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJUNCOMP_9
+END_TESTCASE			NET-PPP-VJCOMP-0109
+
+START_TESTCASE			NET-PPP-VJCOMP-0110
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0110
+//! @SymTestCaseDesc Unexpected change in the don't fragment field in IP header
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Change the don't fragment field in the IP header. The packet is passed to the compressor under test and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a UNCOMPRESSED_TCP packet. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJUNCOMP_10
+END_TESTCASE			NET-PPP-VJCOMP-0110
+
+START_TESTCASE			NET-PPP-VJCOMP-0111
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0111
+//! @SymTestCaseDesc Unexpected change in the time-to-live field in IP header
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Change the time-to-live field in the IP header. The packet is passed to the compressor under test and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a UNCOMPRESSED_TCP packet. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJUNCOMP_11
+END_TESTCASE			NET-PPP-VJCOMP-0111
+
+START_TESTCASE			NET-PPP-VJCOMP-0112
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0112
+//! @SymTestCaseDesc Unexpected change in the IP options field in IP header
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Change the IP options field in the IP header. The packet is passed to the compressor under test and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a UNCOMPRESSED_TCP packet. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJUNCOMP_12
+END_TESTCASE			NET-PPP-VJCOMP-0112
+
+START_TESTCASE			NET-PPP-VJCOMP-0113
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0113
+//! @SymTestCaseDesc Unexpected change in the TCP options field in TCP header
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Change the TCP options field in the TCP header. The packet is passed to the compressor under test and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a UNCOMPRESSED_TCP packet. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJUNCOMP_13
+END_TESTCASE			NET-PPP-VJCOMP-0113
+
+START_TESTCASE			NET-PPP-VJCOMP-0114
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0114
+//! @SymTestCaseDesc URG is not set, URG data field is changed
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Clear the URG bit and change the URG data field. The packet is passed to the compressor under test. The compressor should check the urgent data field against the previous packet. Then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a UNCOMPRESSED_TCP packet. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJUNCOMP_14
+END_TESTCASE			NET-PPP-VJCOMP-0114
+
+START_TESTCASE			NET-PPP-VJCOMP-0115
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0115
+//! @SymTestCaseDesc Changes in ack fields are less than zero or greater than 2^16 -1
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Set the most significant 16 bits of the difference between the current and previous packet's acknowledge number fields to be be non-zero. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a UNCOMPRESSED_TCP packet. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+//RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJUNCOMP_15
+END_TESTCASE			NET-PPP-VJCOMP-0115
+
+START_TESTCASE			NET-PPP-VJCOMP-0116
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0116
+//! @SymTestCaseDesc Changes in sequence number fields are less than zero or greater than 2^16 -1
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Set the most significant 16 bits of the difference between the current and previous packet's sequence number fields to be be non-zero. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a UNCOMPRESSED_TCP packet. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+//RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJUNCOMP_16
+END_TESTCASE			NET-PPP-VJCOMP-0116
+
+START_TESTCASE			NET-PPP-VJCOMP-0117
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0117
+//! @SymTestCaseDesc  current packet has changes in sequence number, URG flag and Windows field which match special case encoding
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Create a current packet with changes in sequence number, windows and URG flag. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a UNCOMPRESSED_TCP. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJUNCOMP_17
+END_TESTCASE			NET-PPP-VJCOMP-0117
+
+START_TESTCASE			NET-PPP-VJCOMP-0118
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0118
+//! @SymTestCaseDesc No user data in current packet: duplicate ack or window probe
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Create a packet that doesn't contain user data to simulate a duplicate ack or window probe. Thus, there are no changes in the sequence number, ack, windows or urg flags. 
+//! The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults  There are no changes in the sequence number, ack, windows or urg flags. The output packet is a UNCOMPRESSED_TCP packet. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJUNCOMP_18
+END_TESTCASE			NET-PPP-VJCOMP-0118
+
+START_TESTCASE			NET-PPP-VJCOMP-0119
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0119
+//! @SymTestCaseDesc Retransmission of previous packet
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Create a current packet that have no changes in the sequence number, ack, windows or URG flag compared to the previous packet sent. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a UNCOMPRESSED_TCP packet. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJUNCOMP_19
+END_TESTCASE			NET-PPP-VJCOMP-0119
+
+START_TESTCASE			NET-PPP-VJCOMP-0120
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0120
+//! @SymTestCaseDesc Reserved bits are set
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Set the reserved bits of the TCP header to 1. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a UNCOMPRESSED_TCP packet. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJUNCOMP_20
+END_TESTCASE			NET-PPP-VJCOMP-0120
+
+START_TESTCASE			NET-PPP-VJCOMP-0121
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0121
+//! @SymTestCaseDesc ECN bits in TCP header are set
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Set the ECN bits of the TCP header to 1. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a UNCOMPRESSED_TCP packet. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJUNCOMP_21
+END_TESTCASE			NET-PPP-VJCOMP-0121
+
+START_TESTCASE			NET-PPP-VJCOMP-0122
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0122
+//! @SymTestCaseDesc ECN bits in IP header are set
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Set the ECN bits of the IP header to 1. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a UNCOMPRESSED_TCP packet. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJUNCOMP_22
+END_TESTCASE			NET-PPP-VJCOMP-0122
+
+START_TESTCASE			NET-PPP-VJCOMP-0123
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0123
+//! @SymTestCaseDesc Unexpected change in the protocol version field in IP header
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Change the protocol version field in the IP header. The packet is passed to the compressor under test and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a UNCOMPRESSED_TCP packet. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJUNCOMP_23
+END_TESTCASE			NET-PPP-VJCOMP-0123
+
+START_TESTCASE			NET-PPP-VJCOMP-0124
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0124
+//! @SymTestCaseDesc URG flag is set
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Create a current packet with change only in urgent data field. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a COMPRESSED_TCP packet with U bit set in the change mask. The URG data field is encoded. The TCP/IP headers are the new compressed headers. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number. 
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJCOMP_1
+END_TESTCASE			NET-PPP-VJCOMP-0124
+
+START_TESTCASE			NET-PPP-VJCOMP-0125
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0125
+//! @SymTestCaseDesc Changes in window field and the window delta (d) is 0<d<0x100
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions See T_VJBOUND_11
+//! @SymTestExpectedResults See T_VJBOUND_11
+END_TESTCASE			NET-PPP-VJCOMP-0125
+
+START_TESTCASE			NET-PPP-VJCOMP-0126
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0126
+//! @SymTestCaseDesc Changes in window field and the window delta (d) is 0x100<d<0x80000
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions  See T_VJBOUND_12
+//! @SymTestExpectedResults See T_VJBOUND_12 
+END_TESTCASE			NET-PPP-VJCOMP-0126
+
+START_TESTCASE			NET-PPP-VJCOMP-0127
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0127
+//! @SymTestCaseDesc Changes in ack field and the ack delta (d) is 0<d<0x100
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions  See T_VJBOUND_1
+//! @SymTestExpectedResults See T_VJBOUND_1
+END_TESTCASE			NET-PPP-VJCOMP-0127
+
+START_TESTCASE			NET-PPP-VJCOMP-0128
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0128
+//! @SymTestCaseDesc Changes in ack field and the ack delta (d) is 0x100<=d<0x10000
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions See T_VJBOUND_2
+//! @SymTestExpectedResults See T_VJBOUND_2
+END_TESTCASE			NET-PPP-VJCOMP-0128
+
+START_TESTCASE			NET-PPP-VJCOMP-0129
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0129
+//! @SymTestCaseDesc Changes in Sequence Number field and the sequence number delta (d) is 0<d<0x100. Also the change does not equal to the amount of user data in the last packet.
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions See T_VJBOUND_6
+//! @SymTestExpectedResults  See T_VJBOUND_6
+END_TESTCASE			NET-PPP-VJCOMP-0129
+
+START_TESTCASE			NET-PPP-VJCOMP-0130
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0130
+//! @SymTestCaseDesc Changes in Sequence Number field and the sequence number delta (d) is 0x100<=d<0x10000. Also the change does not equal to the amount of user data in the last packet.
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions See T_VJBOUND_7
+//! @SymTestExpectedResults See T_VJBOUND_7
+END_TESTCASE			NET-PPP-VJCOMP-0130
+
+START_TESTCASE			NET-PPP-VJCOMP-0131
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0131
+//! @SymTestCaseDesc Special Case Encoding: Unidirectional data transfer - Set change mask to SAWU 
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Create a current packet with a sequence number change equals to the amount of user data in the last packet. The current packet has no change in URG flag or Window field. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a COMPRESSED_TCP packet with change mask set to SAWU. The encoded sequence number change is discarded. The TCP/IP headers are the new compressed headers. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJCOMP_5
+END_TESTCASE			NET-PPP-VJCOMP-0131
+
+START_TESTCASE			NET-PPP-VJCOMP-0132
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0132
+//! @SymTestCaseDesc Special Case Encoding: Echoed Interactive Traffic - Set change mask to SWU
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Create a current packet with changes in sequence number and ack fields and they both are changed by the same amount and that amount is the amount of user data in the last packet. The Window field or the URG flag have no changes. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a COMPRESSED_TCP packet with change mask set to SWU. The encoded changes are discarded. The TCP/IP headers are the new compressed headers.  The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line.
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJCOMP_6
+END_TESTCASE			NET-PPP-VJCOMP-0132
+
+START_TESTCASE			NET-PPP-VJCOMP-0133
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0133
+//! @SymTestCaseDesc Changes in sequence number and ack fields but they are not changed by the same amount
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Create a current packet with changes in sequence number and ack fields but they not changed by the same amount. The Window field or the URG flag have no changes. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a COMPRESSED_TCP packet with change mask set to SA. The difference in sequence number and ack fields are encoded. The TCP/IP headers are the new compressed headers.  The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJCOMP_7
+END_TESTCASE			NET-PPP-VJCOMP-0133
+
+START_TESTCASE			NET-PPP-VJCOMP-0134
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0134
+//! @SymTestCaseDesc Changes in sequence number and ack fields. They are changed by the same amount but that amount is not the amount of user data in the last packet.
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Create a current packet with changes in sequence number and ack fields and they both are changed by the same amount. However, that amount is not the amount of user data in the last packet. The Window field or the URG flag have no changes. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a COMPRESSED_TCP packet with change mask set to SA. The difference in sequence number and ack fields are encoded. The TCP/IP headers are the new compressed headers.  The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJCOMP_8
+END_TESTCASE			NET-PPP-VJCOMP-0134
+
+START_TESTCASE			NET-PPP-VJCOMP-0135
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0135
+//! @SymTestCaseDesc Changes in PacketID; The difference is greater than one. 
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Create a current packet with a change in the window field (the difference is non-zero compared to previous packet), as well as a change in the packet id. The difference between the current and previous packet's packet id is greater than one. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a COMPRESSED_TCP packet with change mask set to IW. The difference in packet ID and window field are encoded. The TCP/IP headers are the new compressed headers.  The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJCOMP_9
+END_TESTCASE			NET-PPP-VJCOMP-0135
+
+START_TESTCASE			NET-PPP-VJCOMP-0136
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0136
+//! @SymTestCaseDesc Changes in PacketID; The difference is smaller than zero. 
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Create a current packet with in the window field (the difference is non-zero compared to previous packet), as well as a change in the packet id. The difference between the current and previous packet's packet id is smaller than zero. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a COMPRESSED_TCP packet with change mask set to IW. The difference in packet ID and window field are encoded. The TCP/IP headers are the new compressed headers.  The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJCOMP_10
+END_TESTCASE			NET-PPP-VJCOMP-0136
+
+START_TESTCASE			NET-PPP-VJCOMP-0137
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0137
+//! @SymTestCaseDesc Changes in PacketID; The difference is one. 
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Create a current packet with a change in the window field (the difference is non-zero compared to previous packet), as well as a change in the packet id. The difference between the current and previous packet's packet id is one. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a COMPRESSED_TCP. The W bit is set in the change mask and the difference in windows field is encoded. But the I bit in the change mask is not set and the difference in the packet ID is not encoded. The TCP/IP headers are the new compressed headers.  
+//! The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJCOMP_11
+END_TESTCASE			NET-PPP-VJCOMP-0137
+
+START_TESTCASE			NET-PPP-VJCOMP-0138
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0138
+//! @SymTestCaseDesc Push bit is set 
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Create a current packet with a change in the window field (the difference is non-zero compared to previous packet), as well as setting the PUSH bit. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a COMPRESSED_TCP. The W bit is set in the change mask and the difference in windows field is encoded. But the P bit in the change mask is set. The TCP/IP headers are the new compressed headers.  The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJCOMP_12
+END_TESTCASE			NET-PPP-VJCOMP-0138
+
+START_TESTCASE			NET-PPP-VJCOMP-0139
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0139
+//! @SymTestCaseDesc Connection number is different than the last one sent on this serial line 
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Create a current packet with a different connection number than the last one sent on this serial line. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a COMPRESSED_TCP. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line and the C bit is set in the change mask. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJCOMP_13
+END_TESTCASE			NET-PPP-VJCOMP-0139
+
+// DECOMPRESSION ///////////////////////////////////////
+
+START_TESTCASE			NET-PPP-VJCOMP-0140
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0140
+//! @SymTestCaseDesc Receiving TYPE_ERROR packet; Discard COMPRESSED_TCP packets until a COMPRESSED_TCP packet with C bit set is received
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions 
+//! Step 1) Create a TYPE_ERROR packet. The packet is passed to the decompressor. 
+//! Step 2) Generate two COMPRESSED_TCP packets with C bit not set. 
+//! Step 3) Send the packets generated in Step 2 to the decompressor. 
+//! Step 4) Generate a COMPRESSED_TCP packet with C bit set. 
+//! Step 5) Send the packet generated in Step 4 to the decompressor. 
+//! @SymTestExpectedResults 
+//! Step 1) Nothing (a NULL packet) is returned; toss flag is set
+//! Step 3) Nothing (a NULL packet) is returned.
+//! Step 5) Use the output generated by reference decompressor and VJ decompressor to check that the TCP and IP headers of the output packet are as expected.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJDecompressTypeErrorTest c:\te_vjcomp\te_vjcomp.ini T_VJDECOMP_ERR_1
+END_TESTCASE			NET-PPP-VJCOMP-0140
+
+START_TESTCASE			NET-PPP-VJCOMP-0141
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0141
+//! @SymTestCaseDesc Receiving TYPE_ERROR packet; Discard COMPRESSED_TCP packets until an UNCOMPRESSED_TCP packet is received
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions 
+//! Step 1) Create a TYPE_ERROR packet. The packet is passed to the decompressor. 
+//! Step 2) Generate two COMPRESSED_TCP packets with C bit not set. 
+//! Step 3) Send the packets generated in Step 2 to the decompressor. 
+//! Step 4) Generate an UNCOMPRESSED_TCP packet 
+//! Step 5) Send the packet generated in Step 4 to the decompressor.
+//! @SymTestExpectedResults 
+//! Step 1) Nothing (a NULL packet) is returned; toss flag is set
+//! Step 3) Nothing (a NULL packet) is returned.
+//! Step 5) Use the output generated by reference decompressor and VJ decompressor to check that the TCP and IP headers of the output packet are as expected.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJDecompressTypeErrorTest c:\te_vjcomp\te_vjcomp.ini T_VJDECOMP_ERR_2
+END_TESTCASE			NET-PPP-VJCOMP-0141
+
+START_TESTCASE			NET-PPP-VJCOMP-0142
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0142
+//! @SymTestCaseDesc Packet is of TYPE_IP 
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Create a TYPE_IP packet and send the packet to VJ decompressor
+//! @SymTestExpectedResults Use the output generated by VJ decompressor to check that the TCP and IP headers of the output packet are as expected as in the original packet.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJDecompressTest c:\te_vjcomp\te_vjcomp.ini T_VJUNCOMP_2
+END_TESTCASE			NET-PPP-VJCOMP-0142
+
+START_TESTCASE			NET-PPP-VJCOMP-0143
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0143
+//! @SymTestCaseDesc UNCOMPRESSED_TCP packet with invalid connection number: IP protocol field contains a connection number that is greater than the maximum number of connection slots available. 
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions 
+//! Step 1) Create an UNCOMPRESSED_TCP packet with an invalid connection number, where the connection number is one greater than the maximum number of available slots. For example, use 17 for the connection number in the current packet if the maximum number of slots is 16. 
+//! Step 2) Send the packet to VJ Decompressor and Reference decompressor. 
+//! Step 3) Create a COMPRESSED_TCP packet with C bit clear (to verify that the toss flag is set)
+//!  @SymTestExpectedResults 
+//! Step 2) Nothing (a null packet) is returned; toss flag is set. Use the output generated by VJ decompressor and Reference decompressor to check that the TCP and IP headers of the output packet are as expected.
+//! Step 3) Nothing (a null packet) is returned because the toss flag is set.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJDecompressTypeErrorTest c:\te_vjcomp\te_vjcomp.ini T_VJDECOMP_UNCOMP_1
+END_TESTCASE			NET-PPP-VJCOMP-0143
+
+START_TESTCASE			NET-PPP-VJCOMP-0144
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0144
+//! @SymTestCaseDesc 
+//! Step 1) Create an UNCOMPRESSED_TCP packet with invalid connection number: IP protocol field contains a connection number that is greater than the maximum number of connection slots available. 
+//! Step 2) Send the packet to VJ Decompressor and Reference decompressor. 
+//! Step 3) Create a COMPRESSED_TCP packet with C bit clear (to verify that the toss flag is set)
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Create an uncompressed TCP packet with an invalid connection number that is smaller than 0. Send the packet to VJ Decompressor and Reference decompressor. 
+//! @SymTestExpectedResults 
+//! Step 2) Nothing (a null packet) is returned; toss flag is set. Use the output generated by VJ decompressor and Reference decompressor to check that the TCP and IP headers of the output packet are as expected.
+//! Step 3) Create a COMPRESSED_TCP packet with C bit clear (to verify that the toss flag is set)
+RUN_TEST_STEP 1000 TE_VJCOMP CVJDecompressTypeErrorTest c:\te_vjcomp\te_vjcomp.ini T_VJDECOMP_UNCOMP_2
+END_TESTCASE			NET-PPP-VJCOMP-0144
+
+START_TESTCASE			NET-PPP-VJCOMP-0145
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0145
+//! @SymTestCaseDesc UNCOMPRESSED_TCP packet with a valid connection number
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions 
+//! 1) Reuse the test data used in T_VJDECOMP_UNCOMP_1 to set the toss flag.
+//! 2) Send the packet to VJ Decompressor and reference decompressor. This is to set up the environment so that the toss flag is set
+//! 3) Create an uncompressed TCP packet with a valid connection number in the IP protocol field. Send the packet to VJ Decompressor and Reference decompressor. 
+//! @SymTestExpectedResults 
+//! Step 2) Nothing (a null packet) is returned; toss flag is set. 
+//! Step 3) Toss flag is cleared. The last connection received field is updated with the connection number indicated in the packet's IP protocol field. 
+//! In the output packet, the IP protocol field contains the TCP protocol number '6'. The packet header is copied to the indicated state slot. Use the output generated by VJ decompressor and Reference decompressor to check that the TCP and IP headers of the output packet are as expected.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJDecompressTypeErrorTest c:\te_vjcomp\te_vjcomp.ini T_VJDECOMP_UNCOMP_3
+END_TESTCASE			NET-PPP-VJCOMP-0145
+
+START_TESTCASE			NET-PPP-VJCOMP-0146
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0146 
+//! @SymTestCaseDesc COMPRESSED_TCP packet with C bit set, but with invalid connection number: IP protocol field contains a connection number that is greater than the maximum number of connection slots available. 
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions 
+//! Step 1) Create an compressed TCP packet with C bit set and has an invalid connection number, where the connection number is one greater than the maximum number of available slots. For example, use 17 for the connection number in the current packet if the maximum number of slots is 16. 
+//! Step 2) Send the packet to VJ Decompressor and Reference decompressor.
+//! Step 3) Create a COMPRESSED_TCP packet with C bit clear (to verify that the toss flag is set). This will cover T_VJDECOMP_COMP_3
+//! @SymTestExpectedResults 
+//! Step 2) Nothing (a null packet) is returned; toss flag is set. Use the output generated by VJ decompressor and Reference decompressor to check that the TCP and IP headers of the output packet are as expected.
+//! Step 3) Nothing (a null packet) is returned because the toss flag is set.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJDecompressTypeErrorTest c:\te_vjcomp\te_vjcomp.ini T_VJDECOMP_COMP_1
+END_TESTCASE			NET-PPP-VJCOMP-0146
+
+START_TESTCASE			NET-PPP-VJCOMP-0147
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0147
+//! @SymTestCaseDesc COMPRESSED_TCP packet with C bit set and with a valid connection number
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions 
+//! Step 1) Reuse test data that is used in T_VJDECOMP_COMP_1 to set up the environment of having the toss flag set
+//! Step 2) Send those packets to VJDecompressor and the reference decompressor
+//! Step 3) Create a compressed TCP packet with C bit set and has a valid connection number 
+//! Step 4) Send the packet to VJ Decompressor and the reference Decompressor
+//! @SymTestExpectedResults 
+//! Step 2) Nothing (a null packet) is returned; toss flag is set. Use the output generated by VJ decompressor and Reference decompressor to check that the TCP and IP headers of the output packet are as expected.
+//! Step 3) Toss flag is cleared. The last connection received field is updated with the connection number indicated in the packet's IP protocol field. In the output packet, the IP protocol field contains the TCP protocol number '6'. 
+//! The packet header is copied to the indicated state slot. Use the output generated by VJ decompressor and Reference decompressor to check that the TCP and IP headers of the output packet are as expected.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJDecompressTypeErrorTest c:\te_vjcomp\te_vjcomp.ini T_VJDECOMP_COMP_2
+END_TESTCASE			NET-PPP-VJCOMP-0147
+
+START_TESTCASE			NET-PPP-VJCOMP-0148
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0148
+//! @SymTestCaseDesc Compressed_TCP packet has PUSH bit set
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Reuse libpcap file for T_VJCOMP_12. Packets are sent to reference compressor. The compressed packets are then sent to VJ decompressor
+//! @SymTestExpectedResults The decompressed output packet has P bit set in the change mask. The last connection received field is updated with the connection number indicated in the packet's IP protocol field. In the output packet, the IP protocol field contains the TCP protocol number '6'. 
+//! The packet header is copied to the indicated state slot. Use the output generated by VJ decompressor to check that the TCP and IP headers of the output packet is as in the original packet. 
+RUN_TEST_STEP 1000 TE_VJCOMP CVJDecompressTest c:\te_vjcomp\te_vjcomp.ini T_VJCOMP_12
+END_TESTCASE			NET-PPP-VJCOMP-0148
+
+START_TESTCASE			NET-PPP-VJCOMP-0149
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0149
+//! @SymTestCaseDesc Unidirectional data special case - Compressed_TCP packet has S, A, W, U bits set
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Reuse libpcap file for T_VJCOMP_5. Packets are sent to reference compressor. The compressed packets are then sent to VJ decompressor
+//! @SymTestExpectedResults The decompressed output packet's TCP sequence number is increased by the amount of user data in the last packet. The last connection received field is updated with the connection number indicated in the packet's IP protocol field. In the output packet, the IP protocol field contains the TCP protocol number '6'. 
+//! The packet header is copied to the indicated state slot. Use the output generated by VJ decompressor to check that the TCP and IP headers of the output packet is as in the original packet. 
+RUN_TEST_STEP 1000 TE_VJCOMP CVJDecompressTest c:\te_vjcomp\te_vjcomp.ini T_VJCOMP_5
+END_TESTCASE			NET-PPP-VJCOMP-0149
+
+START_TESTCASE			NET-PPP-VJCOMP-0150
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0150
+//! @SymTestCaseDesc Terminal traffic special case - Compressed_TCP packet has S, A, W bits set and A bit is clear
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Reuse libpcap file for T_VJCOMP_6. Packets are sent to reference compressor. The compressed packets are then sent to VJ decompressor
+//! @SymTestExpectedResults The decompressed output packet's TCP sequence number and ack fields are increased by the amount of user data in the last packet. The last connection received field is updated with the connection number indicated in the packet's IP protocol field. In the output packet, the IP protocol field contains the TCP protocol number '6'. 
+//! The packet header is copied to the indicated state slot. Use the output generated by VJ decompressor to check that the TCP and IP headers of the output packet is as in the original packet. 
+RUN_TEST_STEP 1000 TE_VJCOMP CVJDecompressTest c:\te_vjcomp\te_vjcomp.ini T_VJCOMP_6
+END_TESTCASE			NET-PPP-VJCOMP-0150
+
+START_TESTCASE			NET-PPP-VJCOMP-0151
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0151
+//! @SymTestCaseDesc Compressed_TCP packet has U bit set
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Reuse libpcap file for T_VJCOMP_1. Packets are sent to reference compressor. The compressed packets are then sent to VJ decompressor
+//! @SymTestExpectedResults The decompressed output packet's TCP URG bit is set. The next byte(s) of incoming packet are decoded and stuffed into the TCP Urgent Pointer. The last connection received field is updated with the connection number indicated in the packet's IP protocol field. In the output packet, the IP protocol field contains the TCP protocol number '6'. 
+//! The packet header is copied to the indicated state slot. Use the output generated by VJ decompressor to check that the TCP and IP headers of the output packet is as in the original packet. 
+RUN_TEST_STEP 1000 TE_VJCOMP CVJDecompressTest c:\te_vjcomp\te_vjcomp.ini T_VJCOMP_1
+END_TESTCASE			NET-PPP-VJCOMP-0151
+
+START_TESTCASE			NET-PPP-VJCOMP-0152
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0152
+//! @SymTestCaseDesc Compressed_TCP packet has W bit set
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Reuse libpcap file for T_VJCOMP_2. Packets are sent to reference compressor. The compressed packets are then sent to VJ decompressor
+//! @SymTestExpectedResults The decompressed output packet's TCP W bit is set. The next byte(s) of the incoming packet are decoded and added to TCP window field of the saved header. The last connection received field is updated with the connection number indicated in the packet's IP protocol field. In the output packet, the IP protocol field contains the TCP protocol number '6'. 
+//! The packet header is copied to the indicated state slot. Use the output generated by VJ decompressor to check that the TCP and IP headers of the output packet is as in the original packet. 
+RUN_TEST_STEP 1000 TE_VJCOMP CVJDecompressTest c:\te_vjcomp\te_vjcomp.ini T_VJCOMP_2
+END_TESTCASE			NET-PPP-VJCOMP-0152
+
+START_TESTCASE			NET-PPP-VJCOMP-0153
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0153
+//! @SymTestCaseDesc Compressed_TCP packet has A bit set
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Reuse libpcap file for T_VJCOMP_3. Packets are sent to reference compressor. The compressed packets are then sent to VJ decompressor
+//! @SymTestExpectedResults The decompressed output packet's TCP A bit is set. The next byte(s) of the incoming packet are decoded and added to TCP ack field of the saved header. The last connection received field is updated with the connection number indicated in the packet's IP protocol field. In the output packet, the IP protocol field contains the TCP protocol number '6'. 
+//! The packet header is copied to the indicated state slot. Use the output generated by VJ decompressor to check that the TCP and IP headers of the output packet is as in the original packet. 
+RUN_TEST_STEP 1000 TE_VJCOMP CVJDecompressTest c:\te_vjcomp\te_vjcomp.ini T_VJCOMP_3
+END_TESTCASE			NET-PPP-VJCOMP-0153
+
+START_TESTCASE			NET-PPP-VJCOMP-0154
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0154
+//! @SymTestCaseDesc Compressed_TCP packet has S bit set
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Reuse libpcap file for T_VJCOMP_4. Packets are sent to reference compressor. The compressed packets are then sent to VJ decompressor
+//! @SymTestExpectedResults The decompressed output packet's TCP S bit is set. The next byte(s) of the incoming packet are decoded and added to TCP sequence number field of the saved header. The last connection received field is updated with the connection number indicated in the packet's IP protocol field. In the output packet, the IP protocol field contains the TCP protocol number '6'. 
+//! The packet header is copied to the indicated state slot. Use the output generated by VJ decompressor to check that the TCP and IP headers of the output packet is as in the original packet. 
+RUN_TEST_STEP 1000 TE_VJCOMP CVJDecompressTest c:\te_vjcomp\te_vjcomp.ini T_VJCOMP_4
+END_TESTCASE			NET-PPP-VJCOMP-0154
+
+START_TESTCASE			NET-PPP-VJCOMP-0155
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0155 
+//! @SymTestCaseDesc Compressed_TCP packet has I bit set
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Reuse libpcap file for T_VJCOMP_9. Packets are sent to reference compressor. The compressed packets are then sent to VJ decompressor
+//! @SymTestExpectedResults The decompressed output packet's TCP I bit is set. The next byte(s) of the incoming packet are decoded and added to IP ID field of the saved header. The last connection received field is updated with the connection number indicated in the packet's IP protocol field. In the output packet, the IP protocol field contains the TCP protocol number '6'. 
+//! The packet header is copied to the indicated state slot. Use the output generated by VJ decompressor to check that the TCP and IP headers of the output packet is as in the original packet. 
+RUN_TEST_STEP 1000 TE_VJCOMP CVJDecompressTest c:\te_vjcomp\te_vjcomp.ini T_VJCOMP_9
+END_TESTCASE			NET-PPP-VJCOMP-0155
+
+START_TESTCASE			NET-PPP-VJCOMP-0156
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0156
+//! @SymTestCaseDesc Compressed_TCP packet has I bit clear
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Reuse libpcap file for T_VJCOMP_11. Packets are sent to reference compressor. The compressed packets are then sent to VJ decompressor
+//! @SymTestExpectedResults The decompressed output packet's TCP I bit is clear. One is added to IP ID field of the saved header. The last connection received field is updated with the connection number indicated in the packet's IP protocol field. In the output packet, the IP protocol field contains the TCP protocol number '6'. 
+//! The packet header is copied to the indicated state slot. Use the output generated by VJ decompressor to check that the TCP and IP headers of the output packet is as in the original packet. 
+RUN_TEST_STEP 1000 TE_VJCOMP CVJDecompressTest c:\te_vjcomp\te_vjcomp.ini T_VJCOMP_11
+END_TESTCASE			NET-PPP-VJCOMP-0156
+
+START_TESTCASE			NET-PPP-VJCOMP-0157
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0157
+//! @SymTestCaseDesc The first packet that is sent on a specific slot is a COMPRESSED_TCP packet.No uncompressed TCP packet has been sent on this link before.
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions 
+//! Step 1) Create a precompressed packet
+//! Step 2) Send it to the VJ decompressor and the reference decompressor
+//! Step 3) Create a COMPRESSED_TCP packet with C bit clear (to verify that the toss flag is set). @SymTestExpectedResults 
+//! Step 4) The toss flag is set and a null packet is returned.  Use the output generated by VJ decompressor to check that the output packets are null as expected.
+//! Step 5) Nothing (a null packet) is returned because the toss flag is set.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJandRefDecompressTest c:\te_vjcomp\te_vjcomp.ini T_VJDECOMP_COMP_14
+END_TESTCASE			NET-PPP-VJCOMP-0157
+
+START_TESTCASE			NET-PPP-VJCOMP-0158
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0158
+//! @SymTestCaseDesc Input packets have identical source IP address and checksum, but different destination IP address with one of the existing connection
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Send the created packets to the VJCompressor and the Reference Compressor
+//! @SymTestExpectedResults Observe that the second input packet is not dispatched to the same connection slot as the first packet. Instead, a new connection slot is used. 
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJSEARCH_1
+END_TESTCASE			NET-PPP-VJCOMP-0158
+
+START_TESTCASE			NET-PPP-VJCOMP-0159
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0159
+//! @SymTestCaseDesc Input packets have identical destination IP address and checksum, but different source address with one of the existing connection 
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Send the created packets to the VJCompressor and the Reference Compressor
+//! @SymTestExpectedResults Observe that the second input packet is not dispatched to the same connection slot as the first packet. Instead, a new connection slot is used.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJSEARCH_2
+END_TESTCASE			NET-PPP-VJCOMP-0159
+
+START_TESTCASE			NET-PPP-VJCOMP-0160
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0160
+//! @SymTestCaseDesc Input packet has identical source IP address, destination IP address and checksum, but different source port (dest port) with one of the existing connection
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Send the created packets to the VJCompressor and the Reference Compressor
+//! @SymTestExpectedResults Observe that the second input packet is not dispatched to the same connection slot as the first packet. Instead, a new connection slot is used.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJSEARCH_3
+END_TESTCASE			NET-PPP-VJCOMP-0160
+
+START_TESTCASE			NET-PPP-VJCOMP-0161
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0161
+//! @SymTestCaseDesc When all the outgoing VJ connections are occupied, an input packet requires the creation of a new connection
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Assume that the maximum number of slots is 16. Create 19 packets. For the first 16 packets, every packet created has different port number, ie. they''ll occupy connection slots 0 15. The next packet will have a difference port number than the first 16 packets. It'll should be dispatched to slot 0. 
+//! Create the 17th packet so that all its ports, source and destination address match those in connection slot 2. Create the 18th packet to request a new connection slot. 
+//! @SymTestExpectedResults The 18th packet should reclaim Slot 1 (the least recently used slot)
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJSEARCH_4
+END_TESTCASE			NET-PPP-VJCOMP-0161
+
+START_TESTCASE			NET-PPP-VJCOMP-0162
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0162
+//! @SymTestCaseDesc Changes in ack field and the ack delta (d) is 0<d<0x100
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Create a current packet with change only in the ack field. The difference between the current and previous packet's ack field is 0<d<0x100. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a COMPRESSED_TCP packet with A bit set in the change mask. The difference in the ack field is encoded. The TCP/IP headers are the new compressed headers. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJBOUND_1
+END_TESTCASE			NET-PPP-VJCOMP-0162
+
+START_TESTCASE			NET-PPP-VJCOMP-0163
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0163
+//! @SymTestCaseDesc Changes in ack field and the ack delta (d) is 0x100<=d<0x10000
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Create a current packet with change only in the ack field. The difference between the current and previous packet's ack field is 0x100<=d<0x10000. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a COMPRESSED_TCP packet with A bit set in the change mask. The difference in the ack field is encoded. The TCP/IP headers are the new compressed headers. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJBOUND_2
+END_TESTCASE			NET-PPP-VJCOMP-0163
+
+START_TESTCASE			NET-PPP-VJCOMP-0164
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0164
+//! @SymTestCaseDesc Test Ack deltas (d) where d>=0x10000
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Set the difference between the current and previous packet's acknowledge number fields to be >= 0x10000. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a UNCOMPRESSED_TCP packet. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJBOUND_3
+END_TESTCASE			NET-PPP-VJCOMP-0164
+
+START_TESTCASE			NET-PPP-VJCOMP-0165
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0165
+//! @SymTestCaseDesc Test Ack deltas (d) where -0x10000<=d<0
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Set the difference between the current and previous packet's acknowledge number fields to be -0x10000<=d<0. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a UNCOMPRESSED_TCP packet. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJBOUND_4
+END_TESTCASE			NET-PPP-VJCOMP-0165
+
+START_TESTCASE			NET-PPP-VJCOMP-0166
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0166
+//! @SymTestCaseDesc Test Ack deltas (d) where d<-0x10000
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Set the difference between the current and previous packet's acknowledge number fields to be <-0x10000. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a UNCOMPRESSED_TCP packet. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJBOUND_5
+END_TESTCASE			NET-PPP-VJCOMP-0166
+
+START_TESTCASE			NET-PPP-VJCOMP-0167
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0167
+//! @SymTestCaseDesc Changes in Sequence Number field and the sequence number delta (d) is 0<d<0x100. Also the change does not equal to the amount of user data in the last packet.
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Create a current packet with change only in the sequence number field. The sequence number delta (d) is 0<d<0x100. Also the change does not equal to the amount of user data in the last packet. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a COMPRESSED_TCP packet with S bit set in the change mask. The difference in the sequence number field is encoded. The TCP/IP headers are the new compressed headers. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJBOUND_6
+END_TESTCASE			NET-PPP-VJCOMP-0167
+
+START_TESTCASE			NET-PPP-VJCOMP-0168
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0168
+//! @SymTestCaseDesc Changes in Sequence Number field and the sequence number delta (d) is 0x100<=d<0x10000. Also the change does not equal to the amount of user data in the last packet.
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Create a current packet with change only in the sequence number field. The difference between the current and previous packet's sequence number delta (d) is 0x100<=d<0x10000. Also the change does not equal to the amount of user data in the last packet. 
+//! The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a COMPRESSED_TCP packet with S bit set in the change mask. The difference in the sequence number field is encoded. The TCP/IP headers are the new compressed headers. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJBOUND_7
+END_TESTCASE			NET-PPP-VJCOMP-0168
+
+START_TESTCASE			NET-PPP-VJCOMP-0169
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0169
+//! @SymTestCaseDesc Test Seq deltas (d) where d>=0x10000
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Set the difference between the current and previous packet's sequence number fields to be >=0x10000. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a UNCOMPRESSED_TCP packet. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJBOUND_8
+END_TESTCASE			NET-PPP-VJCOMP-0169
+
+START_TESTCASE			NET-PPP-VJCOMP-0170
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0170
+//! @SymTestCaseDesc Test Seq deltas (d) where -0x10000<=d<0
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Set the difference between the current and previous packet's sequence number fields to be -0x10000<=d<0. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a UNCOMPRESSED_TCP packet. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJBOUND_9
+END_TESTCASE			NET-PPP-VJCOMP-0170
+
+START_TESTCASE			NET-PPP-VJCOMP-0171
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0171
+//! @SymTestCaseDesc Test Sequence deltas (d) where d<-0x10000
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Set the difference between the current and previous packet's sequence number fields to be <-0x10000. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a UNCOMPRESSED_TCP packet. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number.
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJBOUND_10
+END_TESTCASE			NET-PPP-VJCOMP-0171
+
+START_TESTCASE			NET-PPP-VJCOMP-0172
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0172
+//! @SymTestCaseDesc Changes in window field and the window delta (d) is 0<d<0x100
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Create a current packet with change only in the windows field. The difference between the current and previous packet's window field is 0<d<0x100. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected.
+//! @SymTestExpectedResults The output packet is a COMPRESSED_TCP packet with W bit set in the change mask. The difference in the windows data field is encoded. The TCP/IP headers are the new compressed headers. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number. 
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJBOUND_11
+END_TESTCASE			NET-PPP-VJCOMP-0172
+
+START_TESTCASE			NET-PPP-VJCOMP-0173
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0173
+//! @SymTestCaseDesc Changes in window field and the window delta (d) is 0x100<d<0x80000
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Create a current packet with change only in the windows field. The difference between the current and previous packet's window field is 0x100<d<0x80000. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected. 
+//! @SymTestExpectedResults The output packet is a COMPRESSED_TCP packet with W bit set in the change mask. The difference in the windows data field is encoded. The TCP/IP headers are the new compressed headers. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number. 
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJBOUND_12
+END_TESTCASE			NET-PPP-VJCOMP-0173
+
+START_TESTCASE			NET-PPP-VJCOMP-0174
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0174
+//! @SymTestCaseDesc Changes in window field and the window delta (d) is -0x100<d<0
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Create a current packet with change only in the windows field. The difference between the current and previous packet's window field is 0x100<d<0x80000. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected. 
+//! @SymTestExpectedResults The output packet is a COMPRESSED_TCP packet with W bit set in the change mask. The difference in the windows data field is encoded. The TCP/IP headers are the new compressed headers. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJBOUND_13
+END_TESTCASE			NET-PPP-VJCOMP-0174
+
+START_TESTCASE			NET-PPP-VJCOMP-0175
+//! @SYMTestCaseID		NET-PPP-VJCOMP-0175
+//! @SymTestCaseDesc Test Windows deltas (d) where -0x8000<=d<-0x100
+//! @SymFssId CDMA/Networking/NetInfra/PPP/COMP/VJCOMP 
+//! @SymTestActions Create a current packet with change only in the windows field. The difference between the current and previous packet's window field is-0x8000<=d<-0x100. The packet is passed to the compressor and then use the output generated by reference compressor to check that the TCP and IP headers of the output packet are as expected. 
+//! @SymTestExpectedResults The output packet is a COMPRESSED_TCP packet with W bit set in the change mask. The difference in the windows data field is encoded. The TCP/IP headers are the new compressed headers. The slot that corresponds to the connection number is updated with the input packet's IP and TCP headers; the connection number is recorded as the last connection sent in this serial line. 
+//! The TCP and IP headers of the output packet generated by the compressor under test are the same as those generated by the reference compressor: the IP protocol field (byte 9) is changed from '6' (protocol TCP) to a connection number. 
+RUN_TEST_STEP 1000 TE_VJCOMP CVJCompressTest c:\te_vjcomp\te_vjcomp.ini T_VJBOUND_14
+END_TESTCASE			NET-PPP-VJCOMP-0175
+
+run_script z:\TestData\scripts\te_esock_test_unloadesockForced.script
+

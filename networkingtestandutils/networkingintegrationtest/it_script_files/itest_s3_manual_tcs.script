@@ -1,0 +1,45 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+
+
+PRINT Integration test scripts section 3 GPRS bearer - manual test cases
+
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+RUN_SCRIPT z:\testdata\scripts\te_esock_test_loadesock.script
+
+// load the required dlls
+LOAD_SUITE TE_Esock
+
+
+// configure commdb for GPRS bearer
+// use ced to make the required database
+print loading commdb for gprs
+run_script z:\testdata\scripts\integration\itest_s3\load_gprs
+
+
+PRINT Running only IPv4 and no IPSec by default 
+PRINT Please make sure IR connection is turned on at start
+
+run_script z:\testdata\scripts\integration\itest_s3\itest3_14.script **IPSec TEST 
+run_script z:\testdata\scripts\integration\itest_s3\itest3_15.script **IPv6 TEST
+run_script z:\testdata\scripts\integration\itest_s3\itest3_16.script **IPSec TEST 
+
+//Since it requires manually disconnect the connection, hence this test step needs to be run at the end
+PRINT Please reconnect IR
+run_script z:\testdata\scripts\integration\itest_s3\itest3_13.script
+
+run_script z:\TestData\scripts\te_esock_test_unloadesockForced.script

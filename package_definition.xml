@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SystemDefinition schema="3.0.0">
+  <package id="networkingsrv" name="Networking Services" levels="adaptation hw-if plugin framework server app-if">
+    <collection id="commsdb" name="Comms DB" level="server">
+      <component id="s60_commsdb" filter="s60" name="S60 Commsdb" class="config">
+        <unit bldFile="commsdb/s60_commsdb/group"/>
+      </component>
+    </collection>
+    <collection id="esockapiextensions" name="ESock API Extensions" level="app-if">
+      <component id="internetsockets" name="Internet Sockets" introduced="ER5" purpose="mandatory">
+        <unit bldFile="esockapiextensions/internetsockets/group" mrp="esockapiextensions/internetsockets/group/networking_insock.mrp"/>
+      </component>
+    </collection>
+    <collection id="tcpiputils" name="TCP/IP Utilities" level="plugin">
+      <component id="dnd" name="DND" introduced="7.0" purpose="mandatory">
+        <unit bldFile="tcpiputils/dnd/group" mrp="tcpiputils/dnd/group/networking_dnd.mrp"/>
+      </component>
+      <component id="dndconfig" name="DND Config" introduced="7.0" purpose="mandatory" class="config" filter="test">
+        <unit mrp="tcpiputils/dnd/group/networking_dnd-config.mrp" bldFile="tcpiputils/dnd/data"/>
+      </component>
+      <component id="dhcp" name="DHCP" introduced="8.0" purpose="optional">
+        <unit bldFile="tcpiputils/dhcp/group" mrp="tcpiputils/dhcp/group/networking_dhcp.mrp"/>
+      </component>
+      <component id="networkaddressandporttranslation" name="Network Address and Port Translation" introduced="^2" purpose="mandatory" class="plugin">
+        <unit bldFile="tcpiputils/networkaddressandporttranslation/group" mrp="tcpiputils/networkaddressandporttranslation/group/networking_napt.mrp"/>
+      </component>
+      <component id="punycodeconv" name="Punycode Converter" introduced="^3" purpose="mandatory">
+        <unit bldFile="tcpiputils/punycodeconv/group" mrp="tcpiputils/punycodeconv/group/networking_punycodeconverter.mrp"/>
+      </component>
+    </collection>
+    <collection id="linklayercontrol" name="Link Layer Control" level="hw-if">
+      <component id="nullagt" name="NULL AGT" introduced="7.0s" purpose="optional" class="plugin">
+        <unit bldFile="linklayercontrol/nullagt/group" mrp="linklayercontrol/nullagt/group/networking_nullagt.mrp"/>
+      </component>
+      <component id="genericscprparameters" name="Generic SCPR Parameters" introduced="^3" purpose="optional">
+        <unit bldFile="linklayercontrol/genericscprparameters/group" mrp="linklayercontrol/genericscprparameters/group/networking_genericscprparams.mrp"/>
+      </component>
+      <component id="mbmsparameters" name="MBMS Parameters" introduced="^3" purpose="optional" class="plugin">
+        <unit bldFile="linklayercontrol/mbmsparameters/group" mrp="linklayercontrol/mbmsparameters/group/networking_mbmsparams.mrp"/>
+      </component>
+      <component id="networkinterfacemgr" name="Network Interface Manager" introduced="ER5U" purpose="mandatory">
+        <unit version="2" bldFile="linklayercontrol/networkinterfacemgr/group" mrp="linklayercontrol/networkinterfacemgr/group/comms-infras_nifman.mrp"/>
+      </component>
+    </collection>
+    <collection id="linklayerprotocols" name="Link Layer Protocols" level="hw-if">
+      <component id="ethernetnif" name="Ethernet NIF" purpose="optional" class="plugin">
+        <unit bldFile="linklayerprotocols/ethernetnif/group" mrp="linklayerprotocols/ethernetnif/group/networking_ether802.mrp"/>
+      </component>
+      <component id="ethernetpacketdriver" name="Ethernet Packet Driver" introduced="7.0" purpose="optional" class="plugin" filter="test">
+        <unit mrp="linklayerprotocols/ethernetpacketdriver/group/networking_etherdrv_srconly.mrp" bldFile="linklayerprotocols/ethernetpacketdriver/group"/>
+      </component>
+      <component id="pppnif" name="PPP NIF" introduced="ER5" purpose="optional" class="plugin">
+        <unit version="2" bldFile="linklayerprotocols/pppnif/group" mrp="linklayerprotocols/pppnif/group/networking_ppp.mrp"/>
+      </component>
+      <component id="pppconfig" name="PPP Config" introduced="ER5" purpose="optional" class="config" filter="test">
+        <unit version="2" mrp="linklayerprotocols/pppnif/group/networking_ppp-config.mrp" bldFile="linklayerprotocols/pppnif/data"/>
+      </component>
+      <component id="slipnif" name="SLIP NIF" purpose="development" class="plugin">
+        <unit bldFile="linklayerprotocols/slipnif/group" mrp="linklayerprotocols/slipnif/group/networking_slip.mrp"/>
+      </component>
+      <component id="tunnelnif" name="Tunnel NIF" introduced="7.0s" purpose="optional" class="plugin">
+        <unit bldFile="linklayerprotocols/tunnelnif/group" mrp="linklayerprotocols/tunnelnif/group/networking_tunnelnif.mrp"/>
+      </component>
+    </collection>
+    <collection id="linklayerutils" name="Link Layer Utilities" level="hw-if">
+      <component id="packetlogger" name="Packet Logger" introduced="8.1" purpose="development">
+        <unit bldFile="linklayerutils/packetlogger/group" mrp="linklayerutils/packetlogger/group/networking_packetlogger.mrp"/>
+      </component>
+    </collection>
+    <collection id="networkcontrol" name="Network Control" level="plugin">
+      <component id="qosfwconfig" name="QoS Framework Config" introduced="7.0s" purpose="optional" class="config" filter="test">
+        <unit mrp="networkcontrol/qosfwconfig/qos/group/networking_qos-config.mrp" bldFile="networkcontrol/qosfwconfig/qos/data"/>
+      </component>
+      <component id="qoslib" name="QoS Library" introduced="7.0s" purpose="optional">
+        <unit bldFile="networkcontrol/qoslib/group" mrp="networkcontrol/qoslib/group/networking_qoslib.mrp"/>
+      </component>
+      <component id="pfqoslib" name="PF QoS Library" introduced="7.0s" purpose="optional">
+        <unit bldFile="networkcontrol/pfqoslib/group" mrp="networkcontrol/pfqoslib/group/networking_pfqoslib.mrp"/>
+      </component>
+      <component id="qosfwprt" name="QoS Framework PRT" introduced="7.0s" purpose="optional" class="plugin">
+        <unit bldFile="networkcontrol/qosfwconfig/qos/group" mrp="networkcontrol/qosfwconfig/qos/group/networking_qos.mrp"/>
+      </component>
+      <component id="qosipscpr" name="QoS IP SCPR" purpose="optional" class="plugin">
+        <unit bldFile="networkcontrol/qosipscpr/group" mrp="networkcontrol/qosipscpr/group/networking_qosipscpr.mrp"/>
+      </component>
+      <component id="ipnetworklayer" name="IP Network Layer" introduced="^3" purpose="optional" class="plugin">
+        <unit bldFile="networkcontrol/ipnetworklayer/group" mrp="networkcontrol/ipnetworklayer/group/networking_ipproto.mrp"/>
+      </component>
+      <component id="iptransportlayer" name="IP Transport Layer" introduced="^3" purpose="optional" class="plugin">
+        <unit bldFile="networkcontrol/iptransportlayer/group" mrp="networkcontrol/iptransportlayer/group/networking_iptransport.mrp"/>
+      </component>
+      <component id="commsuserpromptmgr" name="Comms User Prompt Manager" introduced="^3" purpose="mandatory">
+        <unit bldFile="networkcontrol/commsuserpromptmgr/group" mrp="networkcontrol/commsuserpromptmgr/group/networking_netups.mrp"/>
+      </component>
+      <component id="ipupsplugins" name="IP UPS Plugins" introduced="^3" purpose="optional" class="plugin">
+        <unit bldFile="networkcontrol/ipupsplugins/group" mrp="networkcontrol/ipupsplugins/group/networking_ipups.mrp"/>
+      </component>
+    </collection>
+    <collection id="networkprotocols" name="Network Protocols" level="plugin">
+      <component id="tcpipv4config" name="TCP/IPv4/v6 Config" introduced="7.0" purpose="mandatory" class="config" filter="test">
+        <unit mrp="networkprotocols/tcpipv4v6prt/group/networking_tcpip6-config.mrp" bldFile="networkprotocols/tcpipv4v6prt/data"/>
+      </component>
+      <component id="ipeventnotifier" name="IP Event Notifier" introduced="8.1" purpose="mandatory" class="plugin">
+        <unit bldFile="networkprotocols/ipeventnotifier/group" mrp="networkprotocols/ipeventnotifier/group/networking_ipeventnotifier.mrp"/>
+      </component>
+      <component id="tcpipv4v6prt" name="TCP/IPv4/v6 PRT" introduced="7.0" purpose="mandatory" class="plugin">
+        <unit bldFile="networkprotocols/tcpipv4v6prt/group" mrp="networkprotocols/tcpipv4v6prt/group/networking_tcpip6.mrp"/>
+      </component>
+      <component id="iphook" name="IP Hook" introduced="7.0" purpose="mandatory">
+        <unit bldFile="networkprotocols/iphook/inhook6/group" mrp="networkprotocols/iphook/inhook6/group/networking_inhook6.mrp"/>
+      </component>
+      <component id="mobileip" name="Mobile IP" introduced="8.1" purpose="optional" class="plugin">
+        <unit bldFile="networkprotocols/mobileip/group" mrp="networkprotocols/mobileip/group/networking_mobileip.mrp"/>
+      </component>
+      <component id="dnsproxy" name="DNS Proxy" introduced="^3" purpose="optional">
+        <unit bldFile="networkprotocols/dnsproxy/group" mrp="networkprotocols/dnsproxy/group/networking_dnsproxy.mrp"/>
+      </component>
+    </collection>
+    <collection id="networksecurity" name="Network Security" level="framework">
+      <component id="tls" name="TLS" introduced="6.0" purpose="mandatory">
+        <unit bldFile="networksecurity/tls/group" mrp="networksecurity/tls/group/networking_tls.mrp"/>
+      </component>
+      <component id="tlsprovider" name="TLS Provider" introduced="8.1" purpose="mandatory">
+        <unit bldFile="networksecurity/tlsprovider/group" mrp="networksecurity/tlsprovider/group/security_tlsprovider.mrp"/>
+      </component>
+      <component id="ipsec" name="IPsec" introduced="7.0" purpose="optional">
+        <unit bldFile="networksecurity/ipsec/group" mrp="networksecurity/ipsec/group/networking_ipsec.mrp"/>
+      </component>
+    </collection>
+    <collection id="networkingtestandutils" name="Networking Test and Utils" level="app-if">
+      <component id="networkingunittest" name="Networking Unit Test" introduced="7.0" purpose="development" filter="test">
+        <unit mrp="networkingtestandutils/networkingunittest/group/networking_unittest.mrp" bldFile="networkingtestandutils/networkingunittest/group"/>
+      </component>
+      <component id="networkingexamples" name="Networking Examples" introduced="7.0" purpose="development">
+        <unit bldFile="networkingtestandutils/networkingexamples/examplecode/group" mrp="networkingtestandutils/networkingexamples/examplecode/group/networking_examplecode.mrp"/>
+      </component>
+      <component id="exampleinternetutilities" name="Example Internet Utilities" introduced="ER5" purpose="development" filter="test">
+        <unit mrp="networkingtestandutils/exampleinternetutilities/group/networking_inetutil.mrp" bldFile="networkingtestandutils/exampleinternetutilities/group"/>
+      </component>
+      <component id="ipprobe" name="IP Probe" introduced="7.0s" purpose="development" class="plugin" filter="test">
+        <unit mrp="networkingtestandutils/ipprobe/group/networking_probe.mrp" bldFile="networkingtestandutils/ipprobe/group"/>
+      </component>
+      <component id="ipv6to4tunnel" name="IPv6 to 4 Tunnel" purpose="development" class="plugin" filter="test">
+        <unit mrp="networkingtestandutils/ipv6to4tunnel/group/networking_6to4.mrp" bldFile="networkingtestandutils/ipv6to4tunnel/group"/>
+      </component>
+      <component id="ipanalyzer" name="IP Analyzer" deprecated="^3" introduced="7.0" purpose="development" filter="test">
+        <unit mrp="networkingtestandutils/ipanalyzer/group/networking_iprotor.mrp" bldFile="networkingtestandutils/ipanalyzer/group"/>
+      </component>
+      <component id="networkingintegrationtest" name="Networking Integration Test" introduced="ER5" purpose="development">
+        <unit bldFile="networkingtestandutils/networkingintegrationtest/Group" mrp="networkingtestandutils/networkingintegrationtest/Group/networking_integrationtest.mrp"/>
+      </component>
+      <component id="networkingperformancemeasurementtools" name="Networking Performance Measurement Tools" introduced="^3" purpose="development">
+        <unit bldFile="networkingtestandutils/networkingperformancemeasurementtools/group" mrp="networkingtestandutils/networkingperformancemeasurementtools/group/networking_netperf.mrp"/>
+      </component>
+    </collection>
+    <collection id="networkingsrv_info" name="Networking Services Info" level="app-if">
+      <component id="networkingrom" name="Networking ROM" purpose="mandatory">
+        <!--  production component: contains the IBY files -->
+        <unit bldFile="networkingsrv_info/networkingrom/group" mrp="networkingsrv_info/networkingrom/group/networking_general.mrp"/>
+      </component>
+      <component id="networkingdocs" name="Networking Documentation" purpose="development" class="doc">
+        <unit mrp="networkingsrv_info/networkingdocs/networking_documentation.mrp"/>
+      </component>
+      <component id="networkingsrv_metadata" name="Networking Services Metadata" class="config" introduced="^2" purpose="development" target="desktop">
+        <unit mrp="networkingsrv_info/networkingsrv_metadata/networkingsrv_metadata.mrp"/>
+      </component>
+    </collection>
+    <collection id="pppcompressionplugins" name="PPP Compression Plugins" level="plugin">
+      <component id="predictorcompression" name="Predictor Compression" introduced="6.0" purpose="optional" class="plugin">
+        <unit bldFile="pppcompressionplugins/predictorcompression/group" mrp="pppcompressionplugins/predictorcompression/group/networking_predcomp.mrp"/>
+      </component>
+    </collection>
+  </package>
+</SystemDefinition>

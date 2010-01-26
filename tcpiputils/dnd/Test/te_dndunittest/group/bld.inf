@@ -1,0 +1,37 @@
+// Copyright (c) 2005-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// bld.inf - name resolver (without UI)
+// te_dndServer.exe to test Domain name daemon providing dynamic name resolution for hosts
+//
+
+PRJ_PLATFORMS
+DEFAULT
+
+PRJ_TESTEXPORTS
+
+//-- iby file for the test
+./te_dndunittest.iby	/epoc32/rom/include/te_dndunittest.iby
+
+
+//-- test script files
+../configs/te_ipv6config.cfg            z:/testdata/configs/te_ipv6config.cfg
+../scripts/te_unittestdnd.script 	z:/testdata/scripts/te_unittestdnd.script
+../configs/te_unittestdnd.xml		z:/testdata/configs/te_unittestdnd.xml
+
+../configs/resolver_test1.ini           z:/testdata/configs/resolver_test1.ini
+../configs/resolver_test2.ini           z:/testdata/configs/resolver_test2.ini
+
+
+PRJ_TESTMMPFILES
+te_dndunittest.mmp

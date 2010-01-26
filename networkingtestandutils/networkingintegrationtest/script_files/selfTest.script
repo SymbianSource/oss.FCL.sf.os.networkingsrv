@@ -1,0 +1,124 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//
+PRINT Run all the self tests 
+PRINT 
+PAUSE_AT_END
+
+//
+LOAD_SUITE TS_SelfTest.dll
+
+START_TESTCASE			NET-Integration-0401
+//! @SYMTestCaseID		NET-Integration-0401
+
+heap_mark
+RUN_TEST_STEP -1, TS_SelfTest SchedulerTest
+TEST_COMPLETE
+heap_markend 
+END_TESTCASE			NET-Integration-0401
+
+// Temporarily commented out. See http://loncoredev01/networking/information/tests/index.php
+// for tracking info.
+
+//START_TESTCASE			NET-Integration-0402
+///! @SYMTestCaseID		NET-Integration-0402
+//
+// multithread
+// heap_mark
+// RUN_TEST_STEP 100, TS_SelfTest SchedulerTest
+// TEST_COMPLETE
+// heap_markend 
+//END_TESTCASE			NET-Integration-0402
+
+
+START_TESTCASE			NET-Integration-0403
+//! @SYMTestCaseID		NET-Integration-0403
+
+heap_mark
+RUN_TEST_STEP -1, TS_SelfTest SchedulerTest
+TEST_COMPLETE
+heap_markend 
+END_TESTCASE			NET-Integration-0403
+
+
+// Temporarily commented out. See http://loncoredev01/networking/information/tests/index.php
+// for tracking info.
+//START_TESTCASE			NET-Integration-0404
+///! @SYMTestCaseID		NET-Integration-0404
+//
+// RUN_TEST_STEP 100  TS_SelfTest exampletest1 Z:\testdata\configs\integration\example.ini 
+// TEST_COMPLETE
+// # different comment style
+// END_TESTCASE			NET-Integration-0404
+
+
+// Temporarily commented out. See http://loncoredev01/networking/information/tests/index.php
+// for tracking info.
+//START_TESTCASE			NET-Integration-0405
+///! @SYMTestCaseID		NET-Integration-0405
+//
+// RUN_TEST_STEP 100, TS_SelfTest, exampletest2 
+// TEST_COMPLETE 
+// END_TESTCASE			NET-Integration-0405
+//
+
+// Temporarily commented out. See http://loncoredev01/networking/information/tests/index.php
+// for tracking info.
+//START_TESTCASE			NET-Integration-0406
+///! @SYMTestCaseID		NET-Integration-0406
+//
+// RUN_TEST_STEP 100, TS_SelfTest exampletest3   
+// TEST_COMPLETE 
+// END_TESTCASE			NET-Integration-0406
+
+// Temporarily commented out. See http://loncoredev01/networking/information/tests/index.php
+// for tracking info.
+//START_TESTCASE			NET-Integration-0407
+///! @SYMTestCaseID		NET-Integration-0407
+//
+// RUN_TEST_STEP 100, TS_SelfTest exampletest4   
+// TEST_COMPLETE 
+// END_TESTCASE			NET-Integration-0407
+
+// Temporarily commented out. See http://loncoredev01/networking/information/tests/index.php
+// for tracking info.
+//START_TESTCASE			NET-Integration-0408
+///! @SYMTestCaseID		NET-Integration-0408
+//
+// RUN_TEST_STEP 100, TS_SelfTest exampletest5   
+// TEST_COMPLETE 
+// END_TESTCASE			NET-Integration-0408
+
+// Temporarily commented out. See http://loncoredev01/networking/information/tests/index.php
+// for tracking info.
+//START_TESTCASE			NET-Integration-0409
+///! @SYMTestCaseID		NET-Integration-0409
+//
+// there is no test "notest"
+// RUN_TEST_STEP 100, TS_SelfTest notest
+// TEST_COMPLETE 
+// END_TESTCASE			NET-Integration-0409
+
+// Temporarily commented out. See http://loncoredev01/networking/information/tests/index.php
+// for tracking info.
+//START_TESTCASE			NET-Integration-0410
+///! @SYMTestCaseID		NET-Integration-0410
+//
+// print good test with bad ini file
+// RUN_TEST_STEP 100  TS_SelfTest exampletest1 C:\junk.ini 
+// TEST_COMPLETE 
+// END_TESTCASE			NET-Integration-0410
+

@@ -1,0 +1,45 @@
+Release notes form PREDCOMP
+
+Release
+=======
+08 April 2004
+
+Implemented a number of performance optimizations, including avoiding a buffer
+copy in the buffer flatten code when the input buffer fits in a single MBuf,
+and avoiding the unnecessary zeroing of the compressed buffer.  Fixed a
+problem that could result in a buffer overflow.  Fixed a number of lint
+warnings.  Added some Doxygen comments.
+
+Release
+=======
+Made by AnnW, 18th April 2000
+
+Changed #inlcude's to specify \epoc32\include\networking for private header files
+where necessary.
+
+Release 003
+===========
+Made by AnnW, August 31 1999
+
+Added TARGETPATH to MMP file.
+Added ARM def file.
+
+Release 002
+===========
+Made by AnnW, August 18 1999
+
+Changed logging to use FLOGGER directly and not use PPP logging facilities.
+
+Release 001
+===========
+Made by BobC, August 05 1999
+
+First Beta Release.
+
+Tested against :-
+
+CISCO Router
+
+Using :-
+Tested with T_Inet.exe Test_06
+TTelnet Application

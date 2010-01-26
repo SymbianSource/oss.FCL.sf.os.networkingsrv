@@ -1,0 +1,4 @@
+EXPORTS
+; NEW:
+	NewInterfaceFactoryL @ 1 NONAME ; (null)
+

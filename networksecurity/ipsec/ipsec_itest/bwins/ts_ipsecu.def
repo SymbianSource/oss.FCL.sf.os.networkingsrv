@@ -1,0 +1,3 @@
+EXPORTS
+	?NewTestSuiteIpsecL@@YAPAVCTestSuiteIpsec@@XZ @ 1 NONAME ; class CTestSuiteIpsec * __cdecl NewTestSuiteIpsecL(void)
+

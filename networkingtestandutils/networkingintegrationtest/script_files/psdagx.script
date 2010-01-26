@@ -1,0 +1,825 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//
+PRINT PsdAgx Test Suite
+PRINT 
+//
+MULTITHREAD
+LOAD_SUITE TS_PSDAGX.DLL
+// Disable all timeouts due to bug somewhere in Scheduletest where timeouts 
+// of around 3 minutes do not appear to be possible
+
+START_TESTCASE			NET-Integration-0201
+//! @SYMTestCaseID		NET-Integration-0201
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test1.1  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0201
+
+
+START_TESTCASE			NET-Integration-0202
+//! @SYMTestCaseID		NET-Integration-0202
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test1.2  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0202
+
+
+START_TESTCASE			NET-Integration-0203
+//! @SYMTestCaseID		NET-Integration-0203
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test1.3  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0203
+
+
+START_TESTCASE			NET-Integration-0204
+//! @SYMTestCaseID		NET-Integration-0204
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test1.4  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0204
+
+
+START_TESTCASE			NET-Integration-0205
+//! @SYMTestCaseID		NET-Integration-0205
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test1.5  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0205
+
+
+START_TESTCASE			NET-Integration-0206
+//! @SYMTestCaseID		NET-Integration-0206
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test1.6  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0206
+
+
+START_TESTCASE			NET-Integration-0207
+//! @SYMTestCaseID		NET-Integration-0207
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test1.7  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0207
+
+
+START_TESTCASE			NET-Integration-0208
+//! @SYMTestCaseID		NET-Integration-0208
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test1.8
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0208
+
+
+START_TESTCASE			NET-Integration-0209
+//! @SYMTestCaseID		NET-Integration-0209
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test1.9
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0209
+
+
+START_TESTCASE			NET-Integration-0210
+//! @SYMTestCaseID		NET-Integration-0210
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test1.10
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0210
+
+
+START_TESTCASE			NET-Integration-0211
+//! @SYMTestCaseID		NET-Integration-0211
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test1.11
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0211
+
+
+START_TESTCASE			NET-Integration-0212
+//! @SYMTestCaseID		NET-Integration-0212
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test1.12
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0212
+
+
+START_TESTCASE			NET-Integration-0213
+//! @SYMTestCaseID		NET-Integration-0213
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test1.13
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0213
+
+
+START_TESTCASE			NET-Integration-0214
+//! @SYMTestCaseID		NET-Integration-0214
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test1.14
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0214
+
+
+START_TESTCASE			NET-Integration-0215
+//! @SYMTestCaseID		NET-Integration-0215
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test2.1  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0215
+
+
+START_TESTCASE			NET-Integration-0216
+//! @SYMTestCaseID		NET-Integration-0216
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test2.2  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0216
+
+
+START_TESTCASE			NET-Integration-0217
+//! @SYMTestCaseID		NET-Integration-0217
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test2.3  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0217
+
+
+START_TESTCASE			NET-Integration-0218
+//! @SYMTestCaseID		NET-Integration-0218
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test2.4  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0218
+//
+
+START_TESTCASE			NET-Integration-0219
+//! @SYMTestCaseID		NET-Integration-0219
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.1  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0219
+
+
+START_TESTCASE			NET-Integration-0220
+//! @SYMTestCaseID		NET-Integration-0220
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.2  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0220
+
+
+START_TESTCASE			NET-Integration-0221
+//! @SYMTestCaseID		NET-Integration-0221
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.3  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0221
+
+
+START_TESTCASE			NET-Integration-0222
+//! @SYMTestCaseID		NET-Integration-0222
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.4  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0222
+
+
+START_TESTCASE			NET-Integration-0223
+//! @SYMTestCaseID		NET-Integration-0223
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.5  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0223
+
+
+START_TESTCASE			NET-Integration-0224
+//! @SYMTestCaseID		NET-Integration-0224
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.6  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0224
+
+
+START_TESTCASE			NET-Integration-0225
+//! @SYMTestCaseID		NET-Integration-0225
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.7  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0225
+
+
+START_TESTCASE			NET-Integration-0226
+//! @SYMTestCaseID		NET-Integration-0226
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.8
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0226
+
+
+START_TESTCASE			NET-Integration-0227
+//! @SYMTestCaseID		NET-Integration-0227
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.9 
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0227
+
+
+START_TESTCASE			NET-Integration-0228
+//! @SYMTestCaseID		NET-Integration-0228
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.10  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0228
+
+
+START_TESTCASE			NET-Integration-0229
+//! @SYMTestCaseID		NET-Integration-0229
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.11
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0229
+
+
+START_TESTCASE			NET-Integration-0230
+//! @SYMTestCaseID		NET-Integration-0230
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.12  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0230
+
+
+START_TESTCASE			NET-Integration-0231
+//! @SYMTestCaseID		NET-Integration-0231
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.13  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0231
+
+
+START_TESTCASE			NET-Integration-0232
+//! @SYMTestCaseID		NET-Integration-0232
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.14  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0232
+
+
+START_TESTCASE			NET-Integration-0233
+//! @SYMTestCaseID		NET-Integration-0233
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.15  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0233
+
+
+START_TESTCASE			NET-Integration-0234
+//! @SYMTestCaseID		NET-Integration-0234
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.16  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0234
+
+
+START_TESTCASE			NET-Integration-0235
+//! @SYMTestCaseID		NET-Integration-0235
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.17  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0235
+
+
+START_TESTCASE			NET-Integration-0236
+//! @SYMTestCaseID		NET-Integration-0236
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.18
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0236
+
+
+START_TESTCASE			NET-Integration-0237
+//! @SYMTestCaseID		NET-Integration-0237
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.19 
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0237
+
+
+START_TESTCASE			NET-Integration-0238
+//! @SYMTestCaseID		NET-Integration-0238
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.20  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0238
+
+
+START_TESTCASE			NET-Integration-0239
+//! @SYMTestCaseID		NET-Integration-0239
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.21  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0239
+
+
+START_TESTCASE			NET-Integration-0240
+//! @SYMTestCaseID		NET-Integration-0240
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.22  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0240
+
+
+START_TESTCASE			NET-Integration-0241
+//! @SYMTestCaseID		NET-Integration-0241
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.23  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0241
+
+
+START_TESTCASE			NET-Integration-0242
+//! @SYMTestCaseID		NET-Integration-0242
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.24  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0242
+
+
+START_TESTCASE			NET-Integration-0243
+//! @SYMTestCaseID		NET-Integration-0243
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.25  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0243
+
+
+START_TESTCASE			NET-Integration-0244
+//! @SYMTestCaseID		NET-Integration-0244
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.26  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0244
+
+
+START_TESTCASE			NET-Integration-0245
+//! @SYMTestCaseID		NET-Integration-0245
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.27  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0245
+
+
+START_TESTCASE			NET-Integration-0246
+//! @SYMTestCaseID		NET-Integration-0246
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.28
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0246
+
+
+START_TESTCASE			NET-Integration-0247
+//! @SYMTestCaseID		NET-Integration-0247
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.29 
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0247
+
+
+START_TESTCASE			NET-Integration-0248
+//! @SYMTestCaseID		NET-Integration-0248
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.30
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0248
+
+
+START_TESTCASE			NET-Integration-0249
+//! @SYMTestCaseID		NET-Integration-0249
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test3.31
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0249
+
+// 
+START_TESTCASE			NET-Integration-0250
+//! @SYMTestCaseID		NET-Integration-0250
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test4.1  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0250
+//
+
+START_TESTCASE			NET-Integration-0251
+//! @SYMTestCaseID		NET-Integration-0251
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test5.1  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0251
+
+
+START_TESTCASE			NET-Integration-0252
+//! @SYMTestCaseID		NET-Integration-0252
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test5.2  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0252
+
+
+START_TESTCASE			NET-Integration-0253
+//! @SYMTestCaseID		NET-Integration-0253
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test5.3  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0253
+//
+
+START_TESTCASE			NET-Integration-0254
+//! @SYMTestCaseID		NET-Integration-0254
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test6.1  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0254
+
+
+START_TESTCASE			NET-Integration-0255
+//! @SYMTestCaseID		NET-Integration-0255
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test6.2  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0255
+
+
+START_TESTCASE			NET-Integration-0256
+//! @SYMTestCaseID		NET-Integration-0256
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test6.3  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0256
+
+
+START_TESTCASE			NET-Integration-0257
+//! @SYMTestCaseID		NET-Integration-0257
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test6.4  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0257
+
+
+START_TESTCASE			NET-Integration-0258
+//! @SYMTestCaseID		NET-Integration-0258
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test6.5  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0258
+
+
+START_TESTCASE			NET-Integration-0259
+//! @SYMTestCaseID		NET-Integration-0259
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test6.6  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0259
+
+
+START_TESTCASE			NET-Integration-0260
+//! @SYMTestCaseID		NET-Integration-0260
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test6.7  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0260
+
+
+START_TESTCASE			NET-Integration-0261
+//! @SYMTestCaseID		NET-Integration-0261
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test6.8
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0261
+
+
+START_TESTCASE			NET-Integration-0262
+//! @SYMTestCaseID		NET-Integration-0262
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test6.9 
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0262
+
+
+START_TESTCASE			NET-Integration-0263
+//! @SYMTestCaseID		NET-Integration-0263
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test6.10
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0263
+
+
+START_TESTCASE			NET-Integration-0264
+//! @SYMTestCaseID		NET-Integration-0264
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test6.11
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0264
+
+
+START_TESTCASE			NET-Integration-0265
+//! @SYMTestCaseID		NET-Integration-0265
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test6.12
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0265
+//
+
+START_TESTCASE			NET-Integration-0266
+//! @SYMTestCaseID		NET-Integration-0266
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test7.1  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0266
+
+
+START_TESTCASE			NET-Integration-0267
+//! @SYMTestCaseID		NET-Integration-0267
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test7.2  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0267
+
+
+START_TESTCASE			NET-Integration-0268
+//! @SYMTestCaseID		NET-Integration-0268
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test7.3  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0268
+
+
+START_TESTCASE			NET-Integration-0269
+//! @SYMTestCaseID		NET-Integration-0269
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test7.4  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0269
+
+
+START_TESTCASE			NET-Integration-0270
+//! @SYMTestCaseID		NET-Integration-0270
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test7.5  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0270
+
+
+START_TESTCASE			NET-Integration-0271
+//! @SYMTestCaseID		NET-Integration-0271
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test7.6  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0271
+
+
+START_TESTCASE			NET-Integration-0272
+//! @SYMTestCaseID		NET-Integration-0272
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test7.7  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0272
+
+
+START_TESTCASE			NET-Integration-0273
+//! @SYMTestCaseID		NET-Integration-0273
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test7.8
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0273
+
+
+START_TESTCASE			NET-Integration-0274
+//! @SYMTestCaseID		NET-Integration-0274
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test7.9 
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0274
+
+
+START_TESTCASE			NET-Integration-0275
+//! @SYMTestCaseID		NET-Integration-0275
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test7.10  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0275
+
+
+START_TESTCASE			NET-Integration-0276
+//! @SYMTestCaseID		NET-Integration-0276
+
+RUN_PANIC_STEP -1, TS_PSDAGX, Test7.11
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0276
+//
+
+START_TESTCASE			NET-Integration-0277
+//! @SYMTestCaseID		NET-Integration-0277
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test8.1  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0277
+//
+
+START_TESTCASE			NET-Integration-0278
+//! @SYMTestCaseID		NET-Integration-0278
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test9.1  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0278
+//
+
+START_TESTCASE			NET-Integration-0279
+//! @SYMTestCaseID		NET-Integration-0279
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test10.1  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0279
+
+
+START_TESTCASE			NET-Integration-0280
+//! @SYMTestCaseID		NET-Integration-0280
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test10.2  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0280
+
+
+START_TESTCASE			NET-Integration-0281
+//! @SYMTestCaseID		NET-Integration-0281
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test10.3  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0281
+//
+
+START_TESTCASE			NET-Integration-0282
+//! @SYMTestCaseID		NET-Integration-0282
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test11.1  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0282
+
+
+START_TESTCASE			NET-Integration-0283
+//! @SYMTestCaseID		NET-Integration-0283
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test11.2  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0283
+
+
+START_TESTCASE			NET-Integration-0284
+//! @SYMTestCaseID		NET-Integration-0284
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test11.3  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0284
+
+
+START_TESTCASE			NET-Integration-0285
+//! @SYMTestCaseID		NET-Integration-0285
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test11.4  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0285
+
+
+START_TESTCASE			NET-Integration-0286
+//! @SYMTestCaseID		NET-Integration-0286
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test11.5  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0286
+
+
+START_TESTCASE			NET-Integration-0287
+//! @SYMTestCaseID		NET-Integration-0287
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test11.6  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0287
+
+
+START_TESTCASE			NET-Integration-0288
+//! @SYMTestCaseID		NET-Integration-0288
+
+RUN_PANIC_STEP -1, TS_PSDAGX, Test11.7  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0288
+//
+
+START_TESTCASE			NET-Integration-0289
+//! @SYMTestCaseID		NET-Integration-0289
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test12.1  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0289
+//
+
+START_TESTCASE			NET-Integration-0290
+//! @SYMTestCaseID		NET-Integration-0290
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test13.1  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0290
+
+
+START_TESTCASE			NET-Integration-0291
+//! @SYMTestCaseID		NET-Integration-0291
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test13.2  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0291
+//
+
+START_TESTCASE			NET-Integration-0292
+//! @SYMTestCaseID		NET-Integration-0292
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test14.1  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0292
+
+
+START_TESTCASE			NET-Integration-0293
+//! @SYMTestCaseID		NET-Integration-0293
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test14.2  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0293
+
+
+START_TESTCASE			NET-Integration-0294
+//! @SYMTestCaseID		NET-Integration-0294
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test14.3  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0294
+
+
+START_TESTCASE			NET-Integration-0295
+//! @SYMTestCaseID		NET-Integration-0295
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test14.4  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0295
+
+
+START_TESTCASE			NET-Integration-0296
+//! @SYMTestCaseID		NET-Integration-0296
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test14.5  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0296
+//
+
+START_TESTCASE			NET-Integration-0297
+//! @SYMTestCaseID		NET-Integration-0297
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test15.1  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0297
+
+
+START_TESTCASE			NET-Integration-0298
+//! @SYMTestCaseID		NET-Integration-0298
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test15.2  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0298
+
+
+START_TESTCASE			NET-Integration-0299
+//! @SYMTestCaseID		NET-Integration-0299
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test15.3  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0299
+
+
+START_TESTCASE			NET-Integration-0301
+//! @SYMTestCaseID		NET-Integration-0301
+
+RUN_TEST_STEP -1, TS_PSDAGX, Test15.4  
+TEST_COMPLETE 
+END_TESTCASE			NET-Integration-0301
+//
+
+

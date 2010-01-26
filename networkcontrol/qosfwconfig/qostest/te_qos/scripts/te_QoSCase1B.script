@@ -1,0 +1,71 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//
+PRINT Running CASE1B
+PRINT Activate a primary PDP context with generic parameter set, WITHOUT using event notification and check that the QoS parameters are granted.
+
+//
+LOAD_SUITE te_esockteststepsSuite -SharedData
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+START_TESTCASE			NET-QoS-3101
+//! @SYMTestCaseID		NET-QoS-3101
+// start simtsy
+RUN_TEST_STEP 100 te_esockteststepsSuite StartSimTSYStep z:\testdata\configs\te_QoSCase1B.ini SimTsy
+RUN_TEST_STEP 100 te_esockteststepsSuite creatersocketservStep z:\testdata\configs\te_QoSCase1B.ini CreateSockSvr
+RUN_TEST_STEP 100 te_esockteststepsSuite createrconnectionStep z:\testdata\configs\te_QoSCase1B.ini CreateConn
+RUN_TEST_STEP 100 te_esockteststepsSuite creatersubconnectionStep z:\testdata\configs\te_QoSCase1B.ini CreateSubConn
+RUN_TEST_STEP 100 te_esockteststepsSuite creatersocketStep z:\testdata\configs\te_QoSCase1B.ini CreateSocket
+RUN_TEST_STEP 100 te_esockteststepsSuite creatersubconparameterbundleStep z:\testdata\configs\te_QoSCase1B.ini CreateParamBundle
+RUN_TEST_STEP 100 te_esockteststepsSuite connectrsocketservStep z:\testdata\configs\te_QoSCase1B.ini ConnectSockSvr
+RUN_TEST_STEP 100 te_esockteststepsSuite openrconnectionStep z:\testdata\configs\te_QoSCase1B.ini OpenConn
+RUN_TEST_STEP 100 te_esockteststepsSuite startrconnectionStep z:\testdata\configs\te_QoSCase1B.ini StartConn
+RUN_TEST_STEP 100 te_esockteststepsSuite openrsocketStep z:\testdata\configs\te_QoSCase1B.ini OpenSocket
+RUN_TEST_STEP 100 te_esockteststepsSuite connectrsocketStep z:\testdata\configs\te_QoSCase1B.ini ConnectSocket
+RUN_TEST_STEP 100 te_esockteststepsSuite openrsubconnectionStep z:\testdata\configs\te_QoSCase1B.ini OpenSubConn
+RUN_TEST_STEP 100 te_esockteststepsSuite addrsockettorsubconnectionStep z:\testdata\configs\te_QoSCase1B.ini AddSocketToSubConn
+RUN_TEST_STEP 100 te_esockteststepsSuite creatersubconparameterfamilyStep z:\testdata\configs\te_QoSCase1B.ini CreateParamFamily
+RUN_TEST_STEP 100 te_esockteststepsSuite initialiseextiplinkr5parametersetStep z:\testdata\configs\te_QoSCase1B.ini InitExtIPLinkR5ParamSet 
+
+RUN_TEST_STEP 100 te_esockteststepsSuite setrsubconparametersStep z:\testdata\configs\te_QoSCase1B.ini SetSubConnParams
+
+DELAY 1000
+
+RUN_TEST_STEP 100 te_esockteststepsSuite getrsubconparametersStep z:\testdata\configs\te_QoSCase1B.ini GetSubConnParams
+
+RUN_TEST_STEP 100 te_esockteststepsSuite creatersubconparameterbundleStep z:\testdata\configs\te_QoSCase1B.ini CreateGrantedParamBundle
+RUN_TEST_STEP 100 te_esockteststepsSuite creatersubconparameterfamilyStep z:\testdata\configs\te_QoSCase1B.ini CreateGrantedParamFamily
+RUN_TEST_STEP 100 te_esockteststepsSuite initialiseextiplinkr5parametersetStep z:\testdata\configs\te_QoSCase1B.ini InitExtIPLinkR5GrantedParamSet
+
+RUN_TEST_STEP 100 te_esockteststepsSuite compareextiplinkr5parametersetStep z:\testdata\configs\te_QoSCase1B.ini CompareParamSets
+
+RUN_TEST_STEP 100 te_esockteststepsSuite closersubconparameterbundleStep z:\testdata\configs\te_QoSCase1B.ini CloseGrantedParamBundle
+
+RUN_TEST_STEP 100 te_esockteststepsSuite closersubconparameterbundleStep z:\testdata\configs\te_QoSCase1B.ini CloseParamBundle
+RUN_TEST_STEP 100 te_esockteststepsSuite closersocketStep z:\testdata\configs\te_QoSCase1B.ini CloseSocket
+RUN_TEST_STEP 100 te_esockteststepsSuite closersubconnectionStep z:\testdata\configs\te_QoSCase1B.ini CloseSubConn
+RUN_TEST_STEP 100 te_esockteststepsSuite closerconnectionStep z:\testdata\configs\te_QoSCase1B.ini CloseConn
+RUN_TEST_STEP 100 te_esockteststepsSuite closersocketservStep z:\testdata\configs\te_QoSCase1B.ini CloseSockSvr
+RUN_TEST_STEP 100 te_esockteststepsSuite cleanallStep
+END_TESTCASE			NET-QoS-3101
+
+// stop simtsy
+RUN_TEST_STEP 100 te_esockteststepsSuite StopSimTSYStep z:\testdata\configs\te_QoSCase1B.ini SimTsy
+RUN_SCRIPT Z:\TestData\Scripts\te_esock_test_stopallinterfaces.script
+RUN_SCRIPT Z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+PRINT Completed CASE1B
+

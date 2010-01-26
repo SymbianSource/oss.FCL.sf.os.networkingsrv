@@ -1,0 +1,48 @@
+// Copyright (c) 2000-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// Component description file 
+// 
+//
+
+
+PRJ_TESTEXPORTS
+// for winsw
+../scripts/te_incoming_ppp-platsec.script	/epoc32/release/winscw/udeb/z/testdata/scripts/te_incoming_ppp.script
+../config/te_incoming_ppp.ini           /epoc32/release/winscw/udeb/z/testdata/configs/te_incoming_ppp.ini  
+../config/te_incoming_ppp_scr.cfg	/epoc32/release/winscw/udeb/z/testdata/configs/te_incoming_ppp_scr.cfg 
+
+// for wins
+../scripts/te_incoming_ppp-platsec.script	/epoc32/release/wins/udeb/z/testdata/scripts/te_incoming_ppp.script
+../config/te_incoming_ppp.ini           /epoc32/release/wins/udeb/z/testdata/configs/te_incoming_ppp.ini  
+../config/te_incoming_ppp_scr.cfg	/epoc32/release/wins/udeb/z/testdata/configs/te_incoming_ppp_scr.cfg 
+
+
+// Urel for winsw
+../scripts/te_incoming_ppp-platsec.script	/epoc32/release/winscw/urel/z/testdata/scripts/te_incoming_ppp.script
+../config/te_incoming_ppp.ini           /epoc32/release/winscw/urel/z/testdata/configs/te_incoming_ppp.ini  
+../config/te_incoming_ppp_scr.cfg	/epoc32/release/winscw/urel/z/testdata/configs/te_incoming_ppp_scr.cfg 
+
+// UREL for wins
+../scripts/te_incoming_ppp-platsec.script	/epoc32/release/wins/urel/z/testdata/scripts/te_incoming_ppp.script
+../config/te_incoming_ppp.ini           /epoc32/release/wins/urel/z/testdata/configs/te_incoming_ppp.ini  
+../config/te_incoming_ppp_scr.cfg	/epoc32/release/wins/urel/z/testdata/configs/te_incoming_ppp_scr.cfg 
+
+
+
+te_incoming_ppp.iby	/epoc32/rom/include/te_incoming_ppp.iby
+
+
+PRJ_TESTMMPFILES
+//..\..\..\..\..\..\cellularsrv\telephonyserverplugins\multimodetsy\test\ts_loopback\loopback.mmp
+te_incoming_ppp.mmp

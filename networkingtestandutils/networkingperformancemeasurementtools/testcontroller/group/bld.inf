@@ -1,0 +1,50 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+// for copying the latest scripts to tools folder
+
+
+PRJ_TESTEXPORTS
+
+../bin/netperf.cmd							/epoc32/tools/netperf.cmd
+
+../bin/netperf.pl							/epoc32/tools/netperf/bin/netperf.pl
+../bin/netperf.pm							/epoc32/tools/netperf/bin/netperf.pm
+../bin/preparescripts.pl					/epoc32/tools/netperf/bin/preparescripts.pl
+../bin/processresults.pl					/epoc32/tools/netperf/bin/processresults.pl
+../bin/csvtohtml.pl							/epoc32/tools/netperf/bin/csvtohtml.pl
+
+../data/ucc.ini								/epoc32/tools/netperf/data/ucc.ini
+
+// starting point ini file.. with lots of comments so it should be easy to customise.
+../data/netperf_example.ini						/epoc32/tools/netperf/data/netperf_example.ini
+
+// example ini files.. for the automated tests.
+../data/netperf_emu.ini						/epoc32/tools/netperf/data/netperf_emu.ini
+
+../data/netperf_h2_eth.ini					/epoc32/tools/netperf/data/netperf_h2_eth.ini
+../data/netperf_h2_eth_delays.ini				/epoc32/tools/netperf/data/netperf_h2_eth_delays.ini
+
+../data/netperf_eth_ntras_template.xml		/epoc32/tools/netperf/data/netperf_eth_ntras_template.xml
+../data/netperf_eth_ntras_delays_template.cfg	/epoc32/tools/netperf/data/netperf_eth_ntras_delays_template.cfg
+
+
+
+
+
+
+
+

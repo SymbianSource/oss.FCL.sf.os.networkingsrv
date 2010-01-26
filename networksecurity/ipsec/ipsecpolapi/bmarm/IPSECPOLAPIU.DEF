@@ -1,0 +1,16 @@
+EXPORTS
+	__16RIpsecPolicyServ @ 1 NONAME R3UNUSED ; RIpsecPolicyServ::RIpsecPolicyServ(void)
+	CancelActivate__16RIpsecPolicyServ @ 2 NONAME R3UNUSED ; RIpsecPolicyServ::CancelActivate(void)
+	CancelLoad__16RIpsecPolicyServ @ 3 NONAME R3UNUSED ; RIpsecPolicyServ::CancelLoad(void)
+	CancelMatch__16RIpsecPolicyServ @ 4 NONAME R3UNUSED ; RIpsecPolicyServ::CancelMatch(void)
+	CancelUnload__16RIpsecPolicyServ @ 5 NONAME R3UNUSED ; RIpsecPolicyServ::CancelUnload(void)
+	Connect__16RIpsecPolicyServ @ 6 NONAME R3UNUSED ; RIpsecPolicyServ::Connect(void)
+	GetDebugInfo__16RIpsecPolicyServR6TDes16Ui @ 7 NONAME R3UNUSED ; RIpsecPolicyServ::GetDebugInfo(TDes16 &, unsigned int)
+	LoadPolicy__16RIpsecPolicyServRC6TDesC8Rt8TPckgBuf1Z13TPolicyHandleR14TRequestStatus @ 8 NONAME ; RIpsecPolicyServ::LoadPolicy(TDesC8 const &, TPckgBuf<TPolicyHandle> &, TRequestStatus &)
+	LoadPolicy__16RIpsecPolicyServRC6TDesC8Rt8TPckgBuf1Z13TPolicyHandleR14TRequestStatusRCt8TPckgBuf1Z12TZoneInfoSetUi @ 9 NONAME ; RIpsecPolicyServ::LoadPolicy(TDesC8 const &, TPckgBuf<TPolicyHandle> &, TRequestStatus &, TPckgBuf<TZoneInfoSet> const &, unsigned int)
+	MatchSelector__16RIpsecPolicyServRC6TDesC8R5TDes8R14TRequestStatus @ 10 NONAME ; RIpsecPolicyServ::MatchSelector(TDesC8 const &, TDes8 &, TRequestStatus &)
+	UnloadPolicy__16RIpsecPolicyServRC13TPolicyHandleR14TRequestStatus @ 11 NONAME R3UNUSED ; RIpsecPolicyServ::UnloadPolicy(TPolicyHandle const &, TRequestStatus &)
+	Version__C16RIpsecPolicyServ @ 12 NONAME R3UNUSED ; RIpsecPolicyServ::Version(void) const
+	"_._16RIpsecPolicyServ" @ 13 NONAME R3UNUSED ; RIpsecPolicyServ::~RIpsecPolicyServ(void)
+	ActivatePolicy__16RIpsecPolicyServRC13TPolicyHandleR14TRequestStatus @ 14 NONAME R3UNUSED ; RIpsecPolicyServ::ActivatePolicy(TPolicyHandle const &, TRequestStatus &)
+

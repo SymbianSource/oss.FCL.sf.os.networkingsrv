@@ -1,0 +1,11 @@
+//
+//    helpcmd.txt - protocol analyzer help module
+//
+//    Portions Copyright (c) Symbian Software Ltd. 2007.
+//    Portions Copyright (C) 1999-2004 Nokia. * Nokia Core OS *
+//    Save as expressly licensed to you by Symbian Software Ltd, all rights reserved.
+//
+////////////////////////////////////////////////////////////////
+// creates the .mbg and mbm files to use in help
+
+/hiprotor.mbg iprotor.mbm screen.bmp

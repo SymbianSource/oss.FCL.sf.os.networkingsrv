@@ -1,0 +1,44 @@
+EXPORTS
+	NewInterfaceFactoryL @ 1 NONAME ; NewInterfaceFactoryL
+	_ZN12TIeee802AddrC1Ev @ 2 NONAME ; TIeee802Addr::TIeee802Addr(void)
+	_ZN12TIeee802AddrC1ERK6TDesC8 @ 3 NONAME ; TIeee802Addr::TIeee802Addr(TDesC8 const&)
+	_ZN12TIeee802AddrC1ERKx @ 4 NONAME ; TIeee802Addr::TIeee802Addr(long long const&)
+	_ZN11CPktDrvBaseC2ER14CPktDrvFactory @ 5 NONAME ; CPktDrvBase::CPktDrvBase[not-in-charge](CPktDrvFactory&)
+	_ZN11CPktDrvBaseD1Ev @ 6 NONAME ; CPktDrvBase::~CPktDrvBase(void)
+	_ZN14CPktDrvFactory5CloseEv @ 7 NONAME ; CPktDrvFactory::Close(void)
+	_ZN14CLANLinkCommon13FoundMACAddrLEv @ 8 NONAME ; CLANLinkCommon::FoundMACAddrL(void)
+	_ZN14CLANLinkCommon11LinkLayerUpEv @ 9 NONAME ; CLANLinkCommon::LinkLayerUp(void)
+	_ZN14CLANLinkCommon7ProcessER10RMBufChainPv @ 10 NONAME ; CLANLinkCommon::Process(RMBufChain&, void*)
+	_ZN14CLANLinkCommon13ResumeSendingEv @ 11 NONAME ; CLANLinkCommon::ResumeSending(void)
+	_ZN11CPktDrvBase8SetNameLERK7TDesC16 @ 12 NONAME ; CPktDrvBase::SetNameL(TDesC16 const&)
+	_ZN13TEthernetAddrC1ERKx @ 13 NONAME ; TEthernetAddr::TEthernetAddr(long long const&)
+	_ZN12TIeee802Addr5ResetEv @ 14 NONAME ; TIeee802Addr::Reset(void)
+	_ZN13TEthernetAddrC1Ev @ 15 NONAME ; TEthernetAddr::TEthernetAddr(void)
+	_ZN13TEthernetAddrC1ERK6TDesC8 @ 16 NONAME ; TEthernetAddr::TEthernetAddr(TDesC8 const&)
+	_ZN14CLANLinkCommon10IfProgressEjii @ 17 NONAME ; CLANLinkCommon::IfProgress(unsigned int, int, int)
+	_ZN14CLANLinkCommon10IfProgressEii @ 18 NONAME ; CLANLinkCommon::IfProgress(int, int)
+	_ZN14CLANLinkCommon8NifEventE24TNetworkAdaptorEventTypejRK6TDesC8Pv @ 19 NONAME ; CLANLinkCommon::NifEvent(TNetworkAdaptorEventType, unsigned int, TDesC8 const&, void*)
+	_ZN14CLANLinkCommon8ReadBoolERK7TDesC16Ri @ 20 NONAME ; CLANLinkCommon::ReadBool(TDesC16 const&, int&)
+	_ZN14CLANLinkCommon7ReadDesERK7TDesC16R5TDes8 @ 21 NONAME ; CLANLinkCommon::ReadDes(TDesC16 const&, TDes8&)
+	_ZN14CLANLinkCommon7ReadDesERK7TDesC16R6TDes16 @ 22 NONAME ; CLANLinkCommon::ReadDes(TDesC16 const&, TDes16&)
+	_ZN14CLANLinkCommon7ReadIntERK7TDesC16Rm @ 23 NONAME ; CLANLinkCommon::ReadInt(TDesC16 const&, unsigned long&)
+	_ZN14CLANLinkCommon9WriteBoolERK7TDesC16i @ 24 NONAME ; CLANLinkCommon::WriteBool(TDesC16 const&, int)
+	_ZN14CLANLinkCommon8WriteDesERK7TDesC16RK6TDesC8 @ 25 NONAME ; CLANLinkCommon::WriteDes(TDesC16 const&, TDesC8 const&)
+	_ZN14CLANLinkCommon8WriteDesERK7TDesC16S2_ @ 26 NONAME ; CLANLinkCommon::WriteDes(TDesC16 const&, TDesC16 const&)
+	_ZN14CLANLinkCommon8WriteIntERK7TDesC16m @ 27 NONAME ; CLANLinkCommon::WriteInt(TDesC16 const&, unsigned long)
+	_ZN13TEthernetAddrC2Ev @ 28 NONAME ; TEthernetAddr::TEthernetAddr[not-in-charge](void)
+	_ZTV11CPktDrvBase @ 29 NONAME ; vtable for CPktDrvBase
+	_ZTI14CPktDrvFactory @ 30 NONAME ; typeinfo for CPktDrvFactory
+	_ZN11CPktDrvBaseD2Ev @ 31 NONAME ; CPktDrvBase::~CPktDrvBase [not-in-charge](void)
+	_ZTI11CPktDrvBase @ 32 NONAME ; typeinfo for CPktDrvBase
+	_ZN12TIeee802AddrC2ERK6TDesC8 @ 33 NONAME ; TIeee802Addr::TIeee802Addr[not-in-charge](TDesC8 const&)
+	_ZN11CPktDrvBaseD0Ev @ 34 NONAME ; CPktDrvBase::~CPktDrvBase [in-charge deleting](void)
+	_ZTV14CPktDrvFactory @ 35 NONAME ; vtable for CPktDrvFactory
+	_ZN12TIeee802AddrC2Ev @ 36 NONAME ; TIeee802Addr::TIeee802Addr[not-in-charge](void)
+	_ZN13TEthernetAddrC2ERK6TDesC8 @ 37 NONAME ; TEthernetAddr::TEthernetAddr[not-in-charge](TDesC8 const&)
+	_ZN13TEthernetAddrC2ERKx @ 38 NONAME ; TEthernetAddr::TEthernetAddr[not-in-charge](long long const&)
+	_ZN12TIeee802AddrC2ERKx @ 39 NONAME ; TIeee802Addr::TIeee802Addr[not-in-charge](long long const&)
+	_ZTI14CLANLinkCommon @ 40 NONAME ; #<TI>#
+	_ZTV14CLANLinkCommon @ 41 NONAME ; #<VT>#
+	_ZN14CLANLinkCommon13LinkLayerDownEiNS_7TActionE @ 42 NONAME
+

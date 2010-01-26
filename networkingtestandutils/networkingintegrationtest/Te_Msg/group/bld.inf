@@ -1,0 +1,49 @@
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRJ_EXPORTS
+
+PRJ_MMPFILES
+
+PRJ_TESTMMPFILES
+te_msg.mmp
+
+PRJ_TESTEXPORTS
+
+// TE_msg - IBY
+te_msg.iby		                /epoc32/rom/include/te_msg.iby
+
+// TE_msg - Target
+../Scripts/te_msg.script		/epoc32/data/z/testdata/scripts/te_msg.script
+../testdata/te_msg.ini		/epoc32/data/z/testdata/configs/te_msg.ini  
+../testdata/te_msg.xml		/epoc32/data/z/testdata/configs/te_msg.xml
+
+// TE_msg - WINS
+../Scripts/te_msg.script		/epoc32/release/wins/udeb/z/testdata/scripts/te_msg.script
+../testdata/te_msg.ini		/epoc32/release/wins/udeb/z/testdata/configs/te_msg.ini  
+../testdata/te_msg.xml		/epoc32/release/wins/udeb/z/testdata/configs/te_msg.xml
+../Scripts/te_msg.script		/epoc32/release/wins/urel/z/testdata/scripts/te_msg.script
+../testdata/te_msg.ini		/epoc32/release/wins/urel/z/testdata/configs/te_msg.ini  
+../testdata/te_msg.xml		/epoc32/release/wins/urel/z/testdata/configs/te_msg.xml
+
+// TE_msg - WINScw
+../Scripts/te_msg.script		/epoc32/release/winscw/udeb/z/testdata/scripts/te_msg.script
+../testdata/te_msg.ini		/epoc32/release/winscw/udeb/z/testdata/configs/te_msg.ini  
+../testdata/te_msg.xml		/epoc32/release/winscw/udeb/z/testdata/configs/te_msg.xml
+../Scripts/te_msg.script		/epoc32/release/winscw/urel/z/testdata/scripts/te_msg.script
+../testdata/te_msg.ini		/epoc32/release/winscw/urel/z/testdata/configs/te_msg.ini  
+../testdata/te_msg.xml		/epoc32/release/winscw/urel/z/testdata/configs/te_msg.xml
+
+

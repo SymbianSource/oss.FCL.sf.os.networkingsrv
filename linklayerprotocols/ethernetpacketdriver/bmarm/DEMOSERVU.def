@@ -1,0 +1,7 @@
+EXPORTS
+; NEW:
+	Connect__12RDemoSessioni @ 1 NONAME ; RDemoSession::Connect(int)
+	ReadLine__C12RDemoSessionRC6TDesC8R14TRequestStatus @ 2 NONAME ; RDemoSession::ReadLine(TDesC8 const &, TRequestStatus &) const
+	Version__C12RDemoSession @ 3 NONAME ; RDemoSession::Version(void) const
+	WriteLine__C12RDemoSessionRC6TDesC8R14TRequestStatus @ 4 NONAME ; RDemoSession::WriteLine(TDesC8 const &, TRequestStatus &) const
+

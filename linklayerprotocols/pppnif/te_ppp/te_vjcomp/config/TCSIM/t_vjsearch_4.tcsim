@@ -1,0 +1,109 @@
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of the License "Symbian Foundation License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.symbianfoundation.org/legal/sfl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// T_VJSEARCH_4
+// When all the outgoing VJ connections are occupied, if an input packet
+// requires the creation of a new connection
+// tcsim input file to generate test data for VJ compression tests.
+// 
+//
+
+#include "packet.def"
+#include "ports.tc"
+
+dev eth0 100 Mbps {
+    egress {
+    }
+}
+
+// Use slot 0
+send TCP_PCK($ip_id=1 $ip_sum=0x66cc $tcp_sport = PORT_FTP_DATA $tcp_dport = 100 $tcp_ACK=1 $tcp_seq=0 $tcp_sum=0x6b59)
+     0x30
+
+// Use slot 1
+send TCP_PCK($ip_id=2 $ip_sum=0x66cb $tcp_sport = PORT_FTP_DATA $tcp_dport = 301 $tcp_ACK=1 $tcp_seq=0 $tcp_sum=0x6990)
+     0x31
+
+// Use slot 2
+send TCP_PCK($ip_id=3 $ip_sum=0x66ca $tcp_sport = PORT_FTP_DATA $tcp_dport = 602 $tcp_ACK=1 $tcp_seq=0 $tcp_sum=0x6763)
+     0x32
+
+// Use slot 3
+send TCP_PCK($ip_id=4 $ip_sum=0x66c9 $tcp_sport = PORT_FTP_DATA $tcp_dport = 803 $tcp_ACK=1 $tcp_seq=0 $tcp_sum=0x659a)
+     0x33
+
+// Use slot 4
+send TCP_PCK($ip_id=5 $ip_sum=0x66c8 $tcp_sport = PORT_FTP_DATA $tcp_dport = 1104 $tcp_ACK=1 $tcp_seq=0 $tcp_sum=0x636d)
+     0x34
+
+// Use slot 5
+send TCP_PCK($ip_id=6 $ip_sum=0x66c7 $tcp_sport = PORT_FTP_DATA $tcp_dport = 1305 $tcp_ACK=1 $tcp_seq=0 $tcp_sum=0x61a4)
+     0x35
+
+// Use slot 6
+send TCP_PCK($ip_id=7 $ip_sum=0x66c6 $tcp_sport = PORT_FTP_DATA $tcp_dport = 1606 $tcp_ACK=1 $tcp_seq=0 $tcp_sum=0x5f77)
+     0x36
+
+// Use slot 7
+send TCP_PCK($ip_id=8 $ip_sum=0x66c5 $tcp_sport = PORT_FTP_DATA $tcp_dport = 1807 $tcp_ACK=1 $tcp_seq=0 $tcp_sum=0x5dae)
+     0x37
+
+// Use slot 8
+send TCP_PCK($ip_id=9 $ip_sum=0x66c4 $tcp_sport = PORT_FTP_DATA $tcp_dport = 2108 $tcp_ACK=1 $tcp_seq=0 $tcp_sum=0x5b81)
+     0x38
+
+// Use slot 9
+send TCP_PCK($ip_id=10 $ip_sum=0x66c3 $tcp_sport = PORT_FTP_DATA $tcp_dport = 2409 $tcp_ACK=1 $tcp_seq=0 $tcp_sum=0x5954)
+     0x39
+
+// Use slot 10
+send TCP_PCK($ip_id=11 $ip_sum=0x66c2 $tcp_sport = PORT_FTP_DATA $tcp_dport = 2610 $tcp_ACK=1 $tcp_seq=0 $tcp_sum=0x508b)
+     0x41
+
+// Use slot 11
+send TCP_PCK($ip_id=12 $ip_sum=0x66c1 $tcp_sport = PORT_FTP_DATA $tcp_dport = 2911 $tcp_ACK=1 $tcp_seq=0 $tcp_sum=0x4e5e)
+     0x42
+
+// Use slot 12
+send TCP_PCK($ip_id=13 $ip_sum=0x66c0 $tcp_sport = PORT_FTP_DATA $tcp_dport = 3112 $tcp_ACK=1 $tcp_seq=0 $tcp_sum=0x4c95)
+     0x43
+
+// Use slot 13
+send TCP_PCK($ip_id=14 $ip_sum=0x66bf $tcp_sport = PORT_FTP_DATA $tcp_dport = 3413 $tcp_ACK=1 $tcp_seq=0 $tcp_sum=0x4a68)
+     0x44
+
+// Use slot 14
+send TCP_PCK($ip_id=15 $ip_sum=0x66be $tcp_sport = PORT_FTP_DATA $tcp_dport = 3614 $tcp_ACK=1 $tcp_seq=0 $tcp_sum=0x489f)
+     0x45
+
+// Use slot 15
+send TCP_PCK($ip_id=16 $ip_sum=0x66bd $tcp_sport = PORT_FTP_DATA $tcp_dport = 3915 $tcp_ACK=1 $tcp_seq=0 $tcp_sum=0x4672)
+     0x46
+
+// Overwrite slot 0
+send TCP_PCK($ip_id=17 $ip_sum=0x66bc $tcp_sport = PORT_FTP_DATA $tcp_dport = 32800 $tcp_ACK=1 $tcp_seq=0 $tcp_sum=0xa19c)
+     0x7a
+
+// Reuse slot 2
+send TCP_PCK($ip_id=18 $ip_sum=0x66bb $tcp_sport = PORT_FTP_DATA $tcp_dport = 602 $tcp_ACK=1 $tcp_seq=1 $tcp_sum=0x6762)
+     0x32
+
+// Overwrite slot 1
+send TCP_PCK($ip_id=19 $ip_sum=0x66ba $tcp_sport = PORT_FTP_DATA $tcp_dport = 33101 $tcp_ACK=1 $tcp_seq=0 $tcp_sum=0xab6f)
+     0x6f
+
+// Overwrite slot 3 (skipping slot 2)
+send TCP_PCK($ip_id=20 $ip_sum=0x66b9 $tcp_sport = PORT_FTP_DATA $tcp_dport = 33603 $tcp_ACK=1 $tcp_seq=0 $tcp_sum=0xa479)
+     0x74
+
+end

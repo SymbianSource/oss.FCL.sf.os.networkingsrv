@@ -1,0 +1,65 @@
+// Copyright (c) 2002-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+TARGET          dummyppp.nif
+TARGETTYPE      DLL
+UID      0x10003d3a	0x101f7fc6
+VENDORID 0x70000001
+
+
+SOURCEPATH      ../src
+SOURCE          dummypppnif.cpp
+SOURCE			dummypppniffactory.cpp
+SOURCEPATH      ../../../SPPP
+SOURCE			PPPFCS.CPP
+SOURCE			PPPLOG.CPP
+SOURCE			PPPOPT.CPP
+
+USERINCLUDE	../../../INC
+USERINCLUDE     ../src
+
+SYSTEMINCLUDE	../../../SPPP
+
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+SYSTEMINCLUDE   /epoc32/include
+#else
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+#endif
+
+LIBRARY         euser.lib nifman.lib insock.lib esock.lib inhook6.lib
+LIBRARY         mbufmgr.lib
+LIBRARY         nodemessages.lib
+
+#if defined(WINS)
+DEFFILE               DUMMYPPPNIF.DEF
+#elif defined(GCC32)
+DEFFILE               DUMMYPPPNIF.DEF
+#else
+DEFFILE               dummypppNif.def
+#endif
+
+
+#include	"comms-infras/commsdebugutility.mmh"
+
+START WINS
+BASEADDRESS             0x59100000
+END
+
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+
+
+UNPAGED
+
+SMPSAFE

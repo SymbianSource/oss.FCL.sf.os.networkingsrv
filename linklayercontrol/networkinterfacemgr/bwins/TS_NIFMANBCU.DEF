@@ -1,0 +1,3 @@
+EXPORTS
+	?NewNifmanBCTestSuiteL@@YAPAVCNifmanBCTestSuite@@XZ @ 1 NONAME ; class CNifmanBCTestSuite * __cdecl NewNifmanBCTestSuiteL(void)
+

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relnotes name="DND">
+  <purpose>
+    Domain Name Daemon (DND), DNS host name resolver implementation used by networking components.
+  </purpose>
+</relnotes>

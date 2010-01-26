@@ -1,0 +1,54 @@
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+
+PRJ_EXPORTS
+
+
+PRJ_TESTEXPORTS
+
+//-- iby file for the test
+TE_LlmnrServer.iby	/epoc32/rom/include/te_llmnrserver.iby
+
+//-- test script files
+../Scriptfiles/te_llmnr.script		/epoc32/release/wins/udeb/z/testdata/scripts/llmnr/te_llmnr.script
+../Scriptfiles/te_llmnr.script		/epoc32/release/winscw/udeb/z/testdata/scripts/llmnr/te_llmnr.script
+
+../Scriptfiles/te_llmnr_ip4.script	/epoc32/release/wins/udeb/z/testdata/scripts/llmnr/te_llmnr_ip4.script
+../Scriptfiles/te_llmnr_ip4.script	/epoc32/release/winscw/udeb/z/testdata/scripts/llmnr/te_llmnr_ip4.script
+
+../Scriptfiles/te_llmnr_ip6.script	/epoc32/release/wins/udeb/z/testdata/scripts/llmnr/te_llmnr_ip6.script
+../Scriptfiles/te_llmnr_ip6.script	/epoc32/release/winscw/udeb/z/testdata/scripts/llmnr/te_llmnr_ip6.script
+
+
+//-- test configs
+../Configs/te_llmnr.ini			/epoc32/release/wins/udeb/z/testdata/configs/llmnr/te_llmnr.ini
+../Configs/te_llmnr.ini			/epoc32/release/winscw/udeb/z/testdata/configs/llmnr/te_llmnr.ini
+
+
+../Configs/te_llmnr_ip4.xml		/epoc32/release/wins/udeb/z/testdata/configs/llmnr/te_llmnr_ip4.xml
+../Configs/te_llmnr_ip4.xml		/epoc32/release/winscw/udeb/z/testdata/configs/llmnr/te_llmnr_ip4.xml
+
+../Configs/te_llmnr_ip6.xml		/epoc32/release/wins/udeb/z/testdata/configs/llmnr/te_llmnr_ip6.xml
+../Configs/te_llmnr_ip6.xml		/epoc32/release/winscw/udeb/z/testdata/configs/llmnr/te_llmnr_ip6.xml
+
+
+PRJ_MMPFILES
+
+
+
+PRJ_TESTMMPFILES
+
+TE_LlmnrServer.mmp

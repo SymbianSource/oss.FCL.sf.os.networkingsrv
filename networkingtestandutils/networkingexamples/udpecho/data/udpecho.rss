@@ -1,0 +1,362 @@
+// Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// udpecho.rss - udp echo resource file
+//
+
+NAME UDPE
+/*
+#include <eikdef.rh>
+#include <eiktbar.rh>
+#include <eikmenu.rh>
+#include <eikctrls.hrh>
+#include <eikspace.rh>
+#include <eikclock.rh>
+#include <eikcmbut.rh>
+#include <eikdialg.rh>
+#include <eikchlst.rh>
+#include <eikmfne.rh>
+#include <eiklabel.rh>
+#include <eikedwin.rh>
+#include <techview/eikon.rsg>
+*/
+#include <techview/eikon.rh>
+#include <techview/eikon.rsg>
+
+#include "udpecho.hrh"
+
+RESOURCE RSS_SIGNATURE { }
+
+RESOURCE TBUF { buf=""; }
+
+RESOURCE EIK_APP_INFO
+	{
+	menubar=r_echo_menubar;
+	hotkeys=r_echo_hotkeys;
+	toolbar=r_echo_toolbar;
+	// cba=r_echo_cba;  // Not in Hurricane
+	}
+#if 0  //Not in Hurricane
+RESOURCE CBA r_echo_cba
+{
+	//LONG flags=EEikButtonGroupAddToStack;
+	//WORD breadth=80; // !!! make this accessible from LAF
+	//LLINK related_buttons=0;
+   	buttons = 
+	{
+		CBA_BUTTON
+		{
+			id=EUdpEchoStart;
+			txt="Start";
+		},
+		CBA_BUTTON
+		{
+			id=EUdpEchoStop;
+			txt="Stop";
+		},
+		CBA_BUTTON
+		{
+			id=EUdpEchoOptions;
+			txt="Options";
+		},
+		CBA_BUTTON
+		{
+			id=EEikCmdExit;
+			txt="Exit";
+		}
+	};
+}
+
+#endif
+
+RESOURCE TOOLBAR r_echo_toolbar
+    {
+    controls=
+		{
+		TBAR_CTRL
+			{
+			id=EUdpEchoCmdFileName;
+			type=EEikCtFileNameLabel;
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdFileNameLabelHeight;
+			},
+		TBAR_BUTTON
+			{
+			id=EUdpEchoStart;
+			txt="Start";
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdToolBarButtonHeight;
+			},
+		TBAR_BUTTON
+			{
+			id=EUdpEchoStop;
+			txt="Stop";
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdToolBarButtonHeight;
+			},
+		TBAR_BUTTON
+			{
+			id=EUdpEchoOptions;
+			txt="Options";
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdToolBarButtonHeight;
+			},
+		TBAR_BUTTON
+			{
+			id=EEikCmdExit;
+			txt="Exit";
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdToolBarButtonHeight;
+			},
+		TBAR_CTRL
+			{
+			type=EEikCtSpacer;
+			flags=EEikToolBarCtrlHasSetMinLength|EEikToolBarCtrlIsStretchable;
+			length=0;
+			control=SPACER;
+			},
+		TBAR_CTRL
+			{
+			type=EEikCtClock;
+			control=CLOCK { digitalresourceid=R_EIK_DIGITAL_CLOCK; analogresourceid=R_EIK_ANALOG_CLOCK; };
+			},
+		TBAR_CTRL
+			{
+			type=EEikCtSpacer;
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdGapBelowClock;
+			control=SPACER;
+			}
+		};
+    }
+
+
+RESOURCE HOTKEYS r_echo_hotkeys
+    {
+    control=
+        {
+        HOTKEY { command=EEikCmdExit; key='e'; },
+		HOTKEY { command=EUdpEchoStart; key='s'; },
+		HOTKEY { command=EUdpEchoStop; key='f'; },
+		HOTKEY { command=EUdpEchoOptions; key='o'; },
+		HOTKEY { command=EUdpEchoClearScreen; key='c'; }
+        };
+
+	shift_control=
+		{
+			HOTKEY { command=EUdpEchoHelp; key='h'; }
+		};
+    }
+
+RESOURCE MENU_BAR r_echo_menubar
+    {
+    titles=
+        {
+        MENU_TITLE { menu_pane=r_echo_file_menu; txt="File"; },
+        MENU_TITLE { menu_pane=r_echo_tools_menu; txt="Tools"; },
+		MENU_TITLE { menu_pane=r_echo_view_menu; txt="View"; },
+		MENU_TITLE { menu_pane=r_echo_console_menu; txt="Console"; },
+		MENU_TITLE { menu_pane=r_echo_help_menu; txt="Help"; }
+		};
+    }
+
+RESOURCE MENU_PANE r_echo_file_menu
+	{
+	items=
+		{
+		MENU_ITEM { command=EEikCmdExit; txt="Close"; }
+        };
+    }
+
+RESOURCE MENU_PANE r_echo_tools_menu
+	{
+	items=
+		{
+		MENU_ITEM { command=EUdpEchoStart; txt="Start"; },
+		MENU_ITEM { command=EUdpEchoStop; txt="Stop"; }		
+        };
+    }
+
+RESOURCE MENU_PANE r_echo_view_menu
+	{
+	items=
+		{
+		MENU_ITEM { command=EUdpEchoOptions; txt="Options…"; }
+		};
+	}
+
+RESOURCE MENU_PANE r_echo_console_menu
+	{
+	items=
+        {
+		MENU_ITEM
+            {
+            command=EUdpEchoClearScreen;
+            txt="ClearScreen";
+            }
+ 		};
+	}
+
+RESOURCE MENU_PANE r_echo_help_menu
+	{
+	items=
+        {
+        MENU_ITEM
+            {
+            command=EUdpEchoAbout;
+            txt="About UdpEcho…";
+            }
+		};
+	}
+
+
+
+RESOURCE DLG_BUTTONS r_eik_buttons_help_cancel_ok
+    {
+    buttons=
+        {
+		DLG_BUTTON { id=EHelpButton; button=CMBUT {txt="Help";}; hotkey='H';},
+        DLG_BUTTON { id=EEikBidCancel; button=CMBUT {txt="Cancel";}; hotkey=EEikBidCancel; flags=0; },
+        DLG_BUTTON { id=EEikBidOk; button=CMBUT {txt="OK";}; hotkey=EEikBidOk; flags=0; }
+        };
+    }
+
+RESOURCE DLG_BUTTONS r_eik_buttons_set_clear_cancel_ok
+    {
+    buttons=
+        {
+		DLG_BUTTON { id=ESetButton; button=CMBUT {txt="Set all";}; hotkey='S';},
+		DLG_BUTTON { id=EClearButton; button=CMBUT {txt="Clear all";}; hotkey='C';},
+        DLG_BUTTON { id=EEikBidCancel; button=CMBUT {txt="Cancel";}; hotkey=EEikBidCancel; flags=0; },
+        DLG_BUTTON { id=EEikBidOk; button=CMBUT {txt="OK";}; hotkey=EEikBidOk; flags=0; }
+        };
+    }
+
+RESOURCE DIALOG r_echo_options_dialog
+	{
+	title="EPOC32 Echo Options";
+	buttons=R_EIK_BUTTONS_CANCEL_OK;	//r_eik_buttons_help_cancel_ok;
+	flags=EEikDialogFlagWait|EEikDialogFlagDensePacking;	//|EEikDialogFlagNotifyEsc|EEikDialogFlagButtonsRight
+	items=
+		{
+		DLG_LINE
+			{
+            type=EEikCtChoiceList;
+            prompt="Protocol";
+            id=EUdpEchoProtocol;
+			control=CHOICELIST
+				{
+				array_id=r_protocol_list;
+				};
+			},
+		DLG_LINE
+			{
+            type=EEikCtChoiceList;
+            prompt="Action";
+            id=EUdpEchoAction;
+			control=CHOICELIST
+				{
+				array_id=r_action_list;
+				};
+			},
+		DLG_LINE
+			{
+			type=EEikCtNumberEditor;
+            prompt="Echo Port";
+            id=EUdpEchoPort;
+			control=NUMBER_EDITOR
+				{
+					min= 1;
+					max= 65535;
+				};
+			},
+		DLG_LINE
+			{
+			type=EEikCtCheckBox;
+			prompt="Per packet log";
+			id=EUdpEchoPacketTrace;
+			},
+		DLG_LINE
+			{
+			type=EEikCtEdwin;
+            prompt="Multicast Group";
+            id=EUdpEchoMcastGroup;
+			control=EDWIN
+				{
+					width= 16;
+					maxlength= 48;
+				};
+			}
+		};
+	}
+
+
+RESOURCE DIALOG r_echo_about	//About Dialog
+	{
+	title="About UdpEcho v0.1";
+	buttons=R_EIK_BUTTONS_CONTINUE;
+	flags=EEikDialogFlagButtonsBelow;
+	items=
+		{
+		DLG_LINE
+			{
+			type=EEikCtLabel;
+			prompt="";
+			control=LABEL
+				{
+				txt="EPOC32 UDP Echo ";
+				};				
+			},
+		DLG_LINE
+			{
+			type=EEikCtLabel;
+			prompt="";
+			control=LABEL
+				{
+				txt="By Pekka Lundström";
+				};				
+			},
+		DLG_LINE
+			{
+			type=EEikCtLabel;
+			prompt="";
+			control=LABEL
+				{
+				txt=" COPYRIGHT (c) Nokia Internet Communications 2000";
+				};				
+			}	
+		};
+	}
+
+RESOURCE ARRAY r_protocol_list
+	{
+	items=
+		{
+		LBUF { txt="UDP"; },
+		LBUF { txt="TCP"; }
+		};
+	}
+
+RESOURCE ARRAY r_action_list
+	{
+	items=
+		{
+		LBUF { txt="Echo"; },
+		LBUF { txt="Discard"; }
+		};
+	}
+
+
+RESOURCE TBUF r_echo_net_open_error { buf="Error opening Network"; }
+RESOURCE TBUF r_not_implemented { buf="Not available yet"; }
+RESOURCE TBUF r_busy { buf="Running"; }

@@ -1,0 +1,63 @@
+// Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// Test Dedicated Signalling Primary Context
+// 
+//
+
+/**
+ @file
+*/
+
+PRJ_TESTEXPORTS
+
+../configs/CIT_P635_Loopback.ini z:/testdata/configs/cit_p635_loopback.ini
+../configs/CIT_P635_qospolicies.ini z:/testdata/configs/cit_p635_qospolicies.ini
+../configs/CIT_P635_simtsy_config1.txt z:/testdata/configs/cit_p635_simtsy_config1.txt
+../configs/CIT_P635_simtsy_config2.txt z:/testdata/configs/cit_p635_simtsy_config2.txt
+../configs/Te_DedicatedSignalling1ryCtx.ini z:/testdata/configs/te_dedicatedsignalling1ryctx.ini
+../configs/Te_DedicatedSignalling1ryCtx.xml z:/testdata/configs/te_dedicatedsignalling1ryctx.xml
+../configs/Te_DedicatedSignalling1ryCtx_Attach_Monitor.ini z:/testdata/configs/te_dedicatedsignalling1ryctx_attach_monitor.ini
+../configs/Te_DedicatedSignalling1ryCtx_Attach_Normal.ini z:/testdata/configs/te_dedicatedsignalling1ryctx_attach_normal.ini
+../configs/Te_DedicatedSignalling1ryCtx_ChangedSID.xml z:/testdata/configs/te_dedicatedsignalling1ryctx_changedsid.xml
+../configs/Te_DedicatedSignalling1ryCtx_DHCP_Open_Sock.ini z:/testdata/configs/te_dedicatedsignalling1ryctx_dhcp_open_sock.ini
+../configs/Te_DedicatedSignalling1ryCtx_DNS_Open_Sock.ini z:/testdata/configs/te_dedicatedsignalling1ryctx_dns_open_sock.ini
+../configs/Te_DedicatedSignalling1ryCtx_IMSSI.xml z:/testdata/configs/te_dedicatedsignalling1ryctx_imssi.xml
+../configs/Te_DedicatedSignalling1ryCtx_NoSID.xml z:/testdata/configs/te_dedicatedsignalling1ryctx_nosid.xml
+../configs/Te_DedicatedSignalling1ryCtx_SIP_Open_Sock.ini z:/testdata/configs/te_dedicatedsignalling1ryctx_sip_open_sock.ini
+../configs/Te_DedicatedSignalling1ryCtx_Start_Conn_Fail.ini z:/testdata/configs/te_dedicatedsignalling1ryctx_start_conn_fail.ini
+
+
+../scripts/CIT_P635_Setup_QosPolicies1.script z:/testdata/scripts/cit_p635_setup_qospolicies1.script
+../scripts/CIT_P635_Setup_QosPolicies2.script z:/testdata/scripts/cit_p635_setup_qospolicies2.script
+../scripts/Restore_QosPolicies.script z:/testdata/scripts/restore_qospolicies.script
+#ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+../configs/te_dedicatedsignalling1ryctx.cfg z:/testdata/configs/te_dedicatedsignalling1ryctx.cfg
+../configs/te_dedicatedsignalling1ryctx_changedsid.cfg z:/testdata/configs/te_dedicatedsignalling1ryctx_changedsid.cfg
+../configs/te_dedicatedsignalling1ryctx_imssi.cfg z:/testdata/configs/te_dedicatedsignalling1ryctx_imssi.cfg
+../configs/te_dedicatedsignalling1ryctx_nosid.cfg z:/testdata/configs/te_dedicatedsignalling1ryctx_nosid.cfg
+
+../scripts/te_dedicatedsignalling1ryctx_post401.script z:/testdata/scripts/te_dedicatedsignalling1ryctx.script
+
+#else
+../scripts/Te_DedicatedSignalling1ryCtx.script z:/testdata/scripts/te_dedicatedsignalling1ryctx.script
+#endif
+../scripts/Te_DedicatedSignalling1ryCtx_Attach_Monitor.script z:/testdata/scripts/te_dedicatedsignalling1ryctx_attach_monitor.script
+../scripts/Te_DedicatedSignalling1ryCtx_Attach_Normal.script z:/testdata/scripts/te_dedicatedsignalling1ryctx_attach_normal.script
+../scripts/Te_DedicatedSignalling1ryCtx_DHCP_Open_Sock.script z:/testdata/scripts/te_dedicatedsignalling1ryctx_dhcp_open_sock.script
+../scripts/Te_DedicatedSignalling1ryCtx_DNS_Open_Sock.script z:/testdata/scripts/te_dedicatedsignalling1ryctx_dns_open_sock.script
+../scripts/Te_DedicatedSignalling1ryCtx_SIP_Open_Sock.script z:/testdata/scripts/te_dedicatedsignalling1ryctx_sip_open_sock.script
+../scripts/Te_DedicatedSignalling1ryCtx_Start_Conn_Fail.script z:/testdata/scripts/te_dedicatedsignalling1ryctx_start_conn_fail.script
+../scripts/Te_DedicatedSignalling1ryCtx_Start_Modify_Stop.script z:/testdata/scripts/te_dedicatedsignalling1ryctx_start_modify_stop.script
+
+te_DedicatedSignalling1ryCtx.iby /epoc32/rom/include/te_dedicatedsignalling1ryctx.iby

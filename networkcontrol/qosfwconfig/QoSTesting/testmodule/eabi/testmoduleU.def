@@ -1,0 +1,19 @@
+EXPORTS
+	Install @ 1 NONAME
+	_ZTI11CChannelMan @ 2 NONAME ; #<TI>#
+	_ZTI11CNifManager @ 3 NONAME ; #<TI>#
+	_ZTI11CTestModule @ 4 NONAME ; #<TI>#
+	_ZTI12CRequestBase @ 5 NONAME ; #<TI>#
+	_ZTI16CExtensionModule @ 6 NONAME ; #<TI>#
+	_ZTI4CNif @ 7 NONAME ; #<TI>#
+	_ZTI8CChannel @ 8 NONAME ; #<TI>#
+	_ZTI9CFlowData @ 9 NONAME ; #<TI>#
+	_ZTV11CChannelMan @ 10 NONAME ; #<VT>#
+	_ZTV11CNifManager @ 11 NONAME ; #<VT>#
+	_ZTV11CTestModule @ 12 NONAME ; #<VT>#
+	_ZTV12CRequestBase @ 13 NONAME ; #<VT>#
+	_ZTV16CExtensionModule @ 14 NONAME ; #<VT>#
+	_ZTV4CNif @ 15 NONAME ; #<VT>#
+	_ZTV8CChannel @ 16 NONAME ; #<VT>#
+	_ZTV9CFlowData @ 17 NONAME ; #<VT>#
+

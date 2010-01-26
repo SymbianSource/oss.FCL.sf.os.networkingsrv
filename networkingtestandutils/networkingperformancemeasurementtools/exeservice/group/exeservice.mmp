@@ -1,0 +1,46 @@
+// Copyright (c) 2008-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// UCC service allowing TEF scripts on a Symbian OS device to run 
+// binaries on the PC side. Launched with the allowed binaries in an argument,
+// to prevent a rampant entity on the network invoking bad things.
+// 
+//
+
+/**
+ @file
+ @internalTechnology
+*/
+
+target			exeservice.exe
+targettype		exe
+sourcepath		..\src
+userinclude		..\inc
+userinclude		..\..\utilslib\inc
+userinclude		\epoc32\engineeringtools\ucc\genericservice\inc
+userinclude		..\..\..\..\..\3rdparty\oncrpc\source_for_build\oncrpc
+//systeminclude		\epoc32\engineeringtools\ucc\oncrpc\inc
+
+source			exeservice.cpp
+source			main.cpp
+
+staticlibrary		..\..\..\..\..\unref\orphan\comgen\networking\engineeringtools\ucc\oncrpc\lib\oncrpcms.lib
+staticlibrary		genericservice.lib
+staticlibrary		utils.lib
+
+START TOOLS
+win32_library		ws2_32.lib
+win32_library		Advapi32.lib
+END
+
+SMPSAFE

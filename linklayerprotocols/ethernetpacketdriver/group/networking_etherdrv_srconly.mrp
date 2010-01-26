@@ -1,0 +1,30 @@
+#
+# Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+# All rights reserved.
+# This component and the accompanying materials are made available
+# under the terms of "Eclipse Public License v1.0"
+# which accompanies this distribution, and is available
+# at the URL "http://www.eclipse.org/legal/epl-v10.html".
+#
+# Initial Contributors:
+# Nokia Corporation - initial contribution.
+#
+# Contributors:
+#
+# Description: 
+#
+
+component	networking_etherdrv_srconly
+
+source	\sf\os\networkingsrv\linklayerprotocols\ethernetpacketdriver
+
+notes_source	\component_defs\release.src
+
+
+ipr E 
+ipr T \sf\os\networkingsrv\linklayerprotocols\ethernetpacketdriver\demoserv
+ipr T \sf\os\networkingsrv\linklayerprotocols\ethernetpacketdriver\NetCards
+ipr T \sf\os\networkingsrv\linklayerprotocols\ethernetpacketdriver\pump
+ipr T \sf\os\networkingsrv\linklayerprotocols\ethernetpacketdriver\Tsrc
+
+

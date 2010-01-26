@@ -1,0 +1,13 @@
+EXPORTS
+	_Z7E32Mainv @ 1 NONAME ; E32Main(void)
+	_ZTI12CExpireTimer @ 2 NONAME ; #<TI>#
+	_ZTI13CConfigServer @ 3 NONAME ; #<TI>#
+	_ZTI13CIoctlHandler @ 4 NONAME ; #<TI>#
+	_ZTI14CConfigControl @ 5 NONAME ; #<TI>#
+	_ZTI14CConfigSession @ 6 NONAME ; #<TI>#
+	_ZTV12CExpireTimer @ 7 NONAME ; #<VT>#
+	_ZTV13CConfigServer @ 8 NONAME ; #<VT>#
+	_ZTV13CIoctlHandler @ 9 NONAME ; #<VT>#
+	_ZTV14CConfigControl @ 10 NONAME ; #<VT>#
+	_ZTV14CConfigSession @ 11 NONAME ; #<VT>#
+

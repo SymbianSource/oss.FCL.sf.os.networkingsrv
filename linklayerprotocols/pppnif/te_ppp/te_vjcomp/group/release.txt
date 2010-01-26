@@ -1,0 +1,27 @@
+Release 001
+===========
+mandyc 21/11/2003 
+Van Jacobson compression and decompression test harness
+
+script file is te_vjcomp.script
+
+te_vjcomp.script specifies which tests are run by giving a list of ini files which are compressed and or decompressed by the VJ compression and decompression code.
+
+The test packets are contained in a libpcap file. The libpcap file used by each test case is specified in ini file after the test case id, e.g. [T_VJCOMP_1]
+
+All test results are written to the testexecute log file. If debug_mode = true is specified in the ini file after the libpcap file field in a test case, the debug mode is turned on in that test case. Content of the compressed/decompressed packets in that test case will be dumped to the testexecute log file. 
+
+User can also configure the maximum number of slots allowed in the VJ compressor or decompressor for each test case by specifying max_slots = <a value between 2 and 255>. If no maximum slots value is specified, the default value 16 will be used.   
+
+Compression test cases:
+
+The source file is a libpcap file containing not compressed test packets. Both the VJ compressor and the reference compressor compress the packets. For each packet, the compressed data of the VJ compressor will be compared to the results of the reference compressor. If there is any difference, the test case would fail.
+
+Decompression test cases with precompressed packets as input:
+
+The source file is a libpcap file containing Van Jacobson precompressed test packets. Both the VJ decompressor and the reference decompressor will decompress the packets. For each packet, the decompressed data of the VJ decompressor will be compared to the results of the reference decompressor. If there is any difference, the test case would fail. 
+
+Decompresion test cases with not compressed packets as input:
+
+The source file is a libpcap file containing not compressed test packets. The reference compressor will first compress the packets. The compressed packets are then decompressed by the VJ decompressor. The decompressed data of the VJ decompressor is compared to the original packet in the libpcap file. If there is any difference, the test case would fail. 
+

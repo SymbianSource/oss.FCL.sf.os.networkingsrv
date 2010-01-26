@@ -1,0 +1,398 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//!//////////////////////////////////////////////////////////////////
+//! @file
+//! @SYMTestSuiteName	 	  	NET-DHCP-CIT
+//! @SYMScriptTestEnvironment	TestExecuteFramework (TEF).
+//! @SYMScriptPurpose			Script file for DHCP testing on IPv4.
+//! @SYMScriptInfo				1.Here we use CommsDB with ipv4 settings.
+//!								2.ORDER IS IMPORTANT! SetIAPToUse and SetAddressMode lines affect the operation of the subsequent commands.	
+//!//////////////////////////////////////////////////////////////////
+
+load_suite DhcpTestServer
+
+//Load esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+run_test_step 5 DhcpTestServer SetAddressMode z:\TestData\configs\DHCP\dhcptest.ini IPv4
+
+DELAY 1000 // To avoid locking on commsdat
+//SET IAP TO DYNAMIC
+delay 1000 // To avoid locking on commsdat
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet1
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-16-1
+//! @SYMTestCaseDesc 		For receiving SIP address option.
+//! @SYMFssID				Networking/DHCP/DHCP-16-1
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented	
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults	EPASS
+//! @SYMTestType 			CIT
+//! @SYMTestActions	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE 2_13_StaticAddrDynamicDNS_GetSIPAddress
+run_test_step 50 DhcpTestServer 2_GetSIPAddrViaDHCP z:\TestData\configs\DHCP\dhcptest.ini ExpectDHCPResponseBeforeCompletion
+END_TESTCASE 2_13_StaticAddrDynamicDNS_GetSIPAddress
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-16-2
+//! @SYMTestCaseDesc 		For receiving SIP domain option.
+//! @SYMFssID				Networking/DHCP/DHCP-16-2
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented	
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults	EPASS
+//! @SYMTestType 			CIT
+//! @SYMTestActions	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE 2_14_StaticAddrDynamicDNS_GetSIPDomain
+run_test_step 50 DhcpTestServer 2_GetSIPDomain	z:\TestData\configs\DHCP\dhcptest.ini ExpectDHCPResponseBeforeCompletion
+END_TESTCASE 2_14_StaticAddrDynamicDNS_GetSIPDomain
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-16-3
+//! @SYMTestCaseDesc 		Get raw option data in INFORM mode (also forces stateless mode in IPv6).To catch recurrence of INC059922
+//! @SYMFssID				Networking/DHCP/DHCP-16-3
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented	
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults	EPASS
+//! @SYMTestType 			CIT
+//! @SYMTestActions	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE 2_15_StaticAddrDynamicDNS_GetRaw
+DELAY 1000 // To avoid locking on commsdat
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemon_StaticAddr_DynamicDNS
+run_test_step 50 DhcpTestServer 2_GetRaw	z:\TestData\configs\DHCP\dhcptest.ini ExpectDHCPResponseBeforeCompletion
+END_TESTCASE 2_15_StaticAddrDynamicDNS_GetRaw
+
+
+
+
+
+//SET IAP TO STATIC IP STATIC DNS (DHCP STILL RUNS)
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemon_StaticAddr_StaticDNS
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-16-4
+//! @SYMTestCaseDesc 		INFORM mode must return immediately when IP address and DNS address are static.After defect 69825
+//! @SYMFssID				Networking/DHCP/DHCP-16-4
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented	
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults	EPASS
+//! @SYMTestType 			CIT
+//! @SYMTestActions	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE 2_16_StaticAddrStaticDNS_GetRaw
+run_test_step 50 DhcpTestServer 2_GetRaw	z:\TestData\configs\DHCP\dhcptest.ini ExpectImmediateCompletion
+END_TESTCASE 2_16_StaticAddrStaticDNS_GetRaw
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-16-5
+//! @SYMTestCaseDesc 		INFORM Test for receiving SIP address option
+//! @SYMFssID				Networking/DHCP/DHCP-16-5
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented	
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults	EPASS
+//! @SYMTestType 			CIT
+//! @SYMTestActions	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE 2_17_StaticAddrStaticDNS_GetSIPAddress
+run_test_step 50 DhcpTestServer 2_GetSIPAddrViaDHCP	z:\TestData\configs\DHCP\dhcptest.ini ExpectImmediateCompletion
+END_TESTCASE 2_17_StaticAddrStaticDNS_GetSIPAddress
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-16-6
+//! @SYMTestCaseDesc 		INFORM Test for receiving SIP domain option
+//! @SYMFssID				Networking/DHCP/DHCP-16-6
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented	
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults	EPASS
+//! @SYMTestType 			CIT
+//! @SYMTestActions	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE 2_18_StaticAddrStaticDNS_GetSIPDomain
+run_test_step 50 DhcpTestServer 2_GetSIPDomain	z:\TestData\configs\DHCP\dhcptest.ini ExpectImmediateCompletion
+END_TESTCASE 2_18_StaticAddrStaticDNS_GetSIPDomain
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-16-7
+//! @SYMTestCaseDesc 		Ensure static configuration works when no subnet mask is specified
+//! @SYMFssID				Networking/DHCP/DHCP-16-7
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented	
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults	EPASS
+//! @SYMTestType 			CIT
+//! @SYMTestActions	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE 2_19_StaticAddrStaticDNS_NoMask
+// SET IAP TO STATIC IP STATIC DNS WITH NO SUBNET MASK (DHCP STILL RUNS)
+DELAY 1000 // To avoid locking on commsdat
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemon_StaticAddr_NoMask
+run_test_step 50 DhcpTestServer 2_GetRaw	z:\TestData\configs\DHCP\dhcptest.ini ExpectImmediateCompletion
+END_TESTCASE 2_19_StaticAddrStaticDNS_NoMask
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-16-8
+//! @SYMTestCaseDesc 		Ensure static configuration works when no gateway is specified
+//! @SYMFssID				Networking/DHCP/DHCP-16-8
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented	
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults	EPASS
+//! @SYMTestType 			CIT
+//! @SYMTestActions	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE 2_20_StaticAddrStaticDNS_NoGateway
+// SET IAP TO STATIC IP STATIC DNS WITH NO GATEWAY (DHCP STILL RUNS)
+DELAY 1000 // To avoid locking on commsdat
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemon_StaticAddr_NoGateway
+run_test_step 50 DhcpTestServer 2_GetRaw	z:\TestData\configs\DHCP\dhcptest.ini ExpectImmediateCompletion
+END_TESTCASE 2_20_StaticAddrStaticDNS_NoGateway
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-16-9
+//! @SYMTestCaseDesc 		Ensure static configuration works when no DNS servers are specified
+//! @SYMFssID				Networking/DHCP/DHCP-16-9
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented	
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults	EPASS
+//! @SYMTestType 			CIT
+//! @SYMTestActions	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE 2_21_StaticAddrStaticDNS_NoDNSServers
+// SET IAP TO STATIC IP STATIC DNS WITH NO DNS SERVERS (DHCP STILL RUNS)
+DELAY 1000 // To avoid locking on commsdat
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemon_StaticAddr_NoDNSServers
+run_test_step 50 DhcpTestServer 2_GetRaw	z:\TestData\configs\DHCP\dhcptest.ini ExpectImmediateCompletion
+END_TESTCASE 2_21_StaticAddrStaticDNS_NoDNSServers
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-16-10
+//! @SYMTestCaseDesc 		Test IPv4 broadcast operation
+//! @SYMFssID				Networking/DHCP/DHCP-16-10
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented	
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults	EPASS
+//! @SYMTestType 			CIT
+//! @SYMTestActions	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE 2_22_Solicit_Broadcast
+run_test_step 5 DhcpTestServer SetDebugFlags z:\TestData\configs\DHCP\dhcptest.ini SolicitBroadcastOffer
+DELAY 1000 // To avoid locking on commsdat
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet1
+run_test_step 50 DhcpTestServer 2_2	z:\TestData\configs\DHCP\dhcptest.ini
+run_test_step 60 DhcpTestServer SetDebugFlags z:\TestData\configs\DHCP\dhcptest.ini ClearDebugFlags
+END_TESTCASE 2_22_Solicit_Broadcast
+
+
+
+
+
+// SET IAP TO DYNAMIC
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet1
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-16-11
+//! @SYMTestCaseDesc 		DHCP Decline - DAD case
+//! @SYMFssID				Networking/DHCP/DHCP-16-11
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented	
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults	EPASS
+//! @SYMTestType 			CIT
+//! @SYMTestActions	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-16-11
+run_test_step 50 DhcpTestServer 5_7	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-16-11
+
+//put new tests above this
+
+//older tests (usually fail) so leave these til last til they're fixed
+
+DELAY 1000 // To avoid locking on commsdat
+// SET IAP TO STATIC IP DYNAMIC DNS
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemon_StaticAddr_DynamicDNS
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-16-12
+//! @SYMTestCaseDesc 		Inform Scenario
+//! @SYMFssID				Networking/DHCP/DHCP-16-12
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented	
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults	EPASS
+//! @SYMTestType 			CIT
+//! @SYMTestActions	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-16-12
+run_test_step 50 DhcpTestServer 5_1	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-16-12
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-16-13
+//! @SYMTestCaseDesc 		Renew Current Lease whilst having static IP address
+//! @SYMFssID				Networking/DHCP/DHCP-16-13
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented	
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults	EPASS
+//! @SYMTestType 			CIT
+//! @SYMTestActions	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-16-13
+run_test_step 50 DhcpTestServer 5_2	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-16-13
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-16-14
+//! @SYMTestCaseDesc 		Release Lease of statically configured connection
+//! @SYMFssID				Networking/DHCP/DHCP-16-14
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented	
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults	EPASS
+//! @SYMTestType 			CIT
+//! @SYMTestActions	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-16-14
+run_test_step 50 DhcpTestServer 5_3	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-16-14
+
+DELAY 1000 // To avoid locking on commsdat
+// SET IAP TO DYNAMIC
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet1
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-16-15
+//! @SYMTestCaseDesc 		Renew Current Lease
+//! @SYMFssID				Networking/DHCP/DHCP-16-15
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented	
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults	EPASS
+//! @SYMTestType 			CIT
+//! @SYMTestActions	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-16-15
+run_test_step 50 DhcpTestServer 5_4	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-16-15
+
+
+
+
+DELAY 1000 // To avoid locking on commsdat
+// SET IAP TO DYNAMIC
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet1
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-16-16
+//! @SYMTestCaseDesc 		Reconfigure with a different server.Nithin's server-change test case
+//! @SYMFssID				Networking/DHCP/DHCP-16-16
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented	
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults	EPASS
+//! @SYMTestType 			CIT
+//! @SYMTestActions	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+START_TESTCASE DHCP-16-16
+run_test_step 180 DhcpTestServer 3_4	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-16-16
+
+
+# Stop all interfaces and unload esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_stopallinterfaces.script
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script

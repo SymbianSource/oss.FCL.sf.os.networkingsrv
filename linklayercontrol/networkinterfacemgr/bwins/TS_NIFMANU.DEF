@@ -1,0 +1,3 @@
+EXPORTS
+	?NewTestSuiteNifmanL@@YAPAVCTestSuiteNifman@@XZ @ 1 NONAME ; class CTestSuiteNifman * __cdecl NewTestSuiteNifmanL(void)
+

@@ -1,0 +1,61 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+MACRO		LLMNR_ENABLED
+MACRO           TCPIP6_LOGFILE
+MACRO		DND_DCM_EXTENSION
+
+TARGET		tdnd_dnsproxy.exe	// Automagically dnd.dll (thread) on EKA1 emulators
+UID			0 0x10000882
+TARGETTYPE	exe
+TARGETPATH	/sys/bin
+SOURCEPATH	../src
+SOURCE		hacked_servers.cpp
+SOURCEPATH	../../../../tcpiputils/dnd/src
+
+SOURCE		dndexe.cpp engine.cpp listener.cpp resolver.cpp hosts.cpp
+SOURCE		dns.cpp llmnrconf.cpp llmnrresponder.cpp hostname.cpp 
+SOURCE		llmnrnotifyhandler.cpp message.cpp cache.cpp node.cpp  
+SOURCE		record.cpp serverconf.cpp dns_sock.cpp
+	
+USERINCLUDE		../../../../tcpiputils/dnd/inc ../../../../tcpiputils/dnd/include
+
+SYSTEMINCLUDE	../../../iphook/inhook6/inc 
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+SYSTEMINCLUDE	/epoc32/include
+SYSTEMINCLUDE	/epoc32/include/networking	// dns_qry.*
+#else
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+SYSTEMINCLUDE	/epoc32/include/platform/networking	// dns_qry.*
+#endif
+
+LIBRARY		euser.lib
+LIBRARY		esock.lib insock.lib inhook6.lib
+LIBRARY		efsrv.lib
+LIBRARY		commsdat.lib
+#ifdef SYMBIAN_DNS_PUNYCODE
+MACRO	EXCLUDE_SYMBIAN_DNS_PUNYCODE
+#endif //SYMBIAN_DNS_PUNYCODE
+
+
+#include <cflog.mmh>
+
+CAPABILITY      NetworkControl NetworkServices ReadDeviceData
+
+VENDORID	0x70000001
+
+UNPAGED
+SMPSAFE

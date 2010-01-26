@@ -1,0 +1,15 @@
+EXPORTS
+	?NewApplication@@YAPAVCApaApplication@@XZ @ 1 NONAME ; class CApaApplication * __cdecl NewApplication(void)
+; NEW:
+	?DestroyConnection@CWebServerEng@@QAEXPAVCWebServerCon@@@Z @ 2 NONAME ; public: void __thiscall CWebServerEng::DestroyConnection(class CWebServerCon *)
+	?NewL@CWebServerCon@@SAPAV1@PAVCWebServerEng@@@Z @ 3 NONAME ; public: static class CWebServerCon * __cdecl CWebServerCon::NewL(class CWebServerEng *)
+	?NewL@CWebServerEng@@SAPAV1@XZ @ 4 NONAME ; public: static class CWebServerEng * __cdecl CWebServerEng::NewL(void)
+	?Reset@CWebServerEng@@QAEXXZ @ 5 NONAME ; public: void __thiscall CWebServerEng::Reset(void)
+	?SetObserver@CWebServerCon@@QAEXPAVMWebServerObserver@@@Z @ 6 NONAME ; public: void __thiscall CWebServerCon::SetObserver(class MWebServerObserver *)
+	?SetObserver@CWebServerEng@@QAEXPAVMWebServerObserver@@@Z @ 7 NONAME ; public: void __thiscall CWebServerEng::SetObserver(class MWebServerObserver *)
+	?SignalRunL@CWebServerCon@@QAEXH@Z @ 8 NONAME ; public: void __thiscall CWebServerCon::SignalRunL(int)
+	?StartConnection@CWebServerCon@@QAEXXZ @ 9 NONAME ; public: void __thiscall CWebServerCon::StartConnection(void)
+	?StartWebServerL@CWebServerEng@@QAEXXZ @ 10 NONAME ; public: void __thiscall CWebServerEng::StartWebServerL(void)
+	?StatusText@CWebServerEng@@QAEAAVTDes16@@XZ @ 11 NONAME ; public: class TDes16 & __thiscall CWebServerEng::StatusText(void)
+	?WebServerBusyL@CWebServerCon@@QAEXXZ @ 12 NONAME ; public: void __thiscall CWebServerCon::WebServerBusyL(void)
+

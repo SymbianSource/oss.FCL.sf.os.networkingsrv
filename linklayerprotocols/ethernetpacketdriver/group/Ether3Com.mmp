@@ -1,0 +1,38 @@
+// Copyright (c) 2001-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+TARGET         Ether3Com.pdd
+TARGETTYPE     pdd
+UID 	0x100039D0 0x10009B72
+VENDORID 0x70000001
+
+SOURCEPATH     ..\src
+SOURCE         EtherBasePdd.cpp Ether3ComPdd.cpp EtherDev3c574.cpp
+
+USERINCLUDE  	. ..\inc
+SYSTEMINCLUDE   \EPOC32\INCLUDE
+SYSTEMINCLUDE   \EPOC32\INCLUDE\KERNEL
+
+LIBRARY        EUSER.LIB
+ASSPLIBRARY    EKERN.LIB EPBUS.LIB
+
+START WINS
+BASEADDRESS	0x7ff60000
+WIN32_LIBRARY	kernel32.lib
+END
+
+CAPABILITY ALL -Tcb
+
+SMPSAFE

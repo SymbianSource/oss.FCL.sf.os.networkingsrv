@@ -1,0 +1,60 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+
+PRINT Run all te_IPEventNotifier Suite Tests
+
+LOAD_SUITE TE_IPEventNotifierSuite
+
+run_script z:\testdata\scripts\ipeventnotifier\ipen_setup_ip6.script
+
+
+
+RUN_TEST_STEP 100 TE_IPEventNotifierSuite IPEventNotifier1Step_ReceiveMFlag z:\testdata\configs\ipeventnotifier\ipen.ini ReceiveMFlag
+
+RUN_TEST_STEP 100 TE_IPEventNotifierSuite IPEventNotifier2Step_IPReady z:\testdata\configs\ipeventnotifier\ipen.ini IPReady
+
+
+//!@file
+START_TESTCASE          NET-IPEventNotifier-0101
+//! @SYMTestCaseID      NET-IPEventNotifier-0101
+//! @SYMTestCaseDesc Receive O flag
+//! @SYMFssID Networking/IPEventNotifier/IPEN-6
+//! @SYMTestStatus Implemented
+//! @SYMTestPriority Critical
+//! @SYMTestActions A Router Advertisement packet is received, which triggers IPEN into publishing 
+//! the O flag value, which is picked up by the test harness' NetSubscribe-registered event handler.
+//! @SYMTestExpectedResults KErrNone
+//! @SYMTestType Integration
+
+
+RUN_TEST_STEP 100 TE_IPEventNotifierSuite IPEventNotifier4Step_ReceiveOFlag z:\testdata\configs\ipeventnotifier\ipen.ini ReceiveOFlag
+// repeat test (ensure open/close session is ok)
+RUN_TEST_STEP 100 TE_IPEventNotifierSuite IPEventNotifier1Step_ReceiveMFlag z:\testdata\configs\ipeventnotifier\ipen.ini ReceiveMFlag
+
+RUN_TEST_STEP 100 TE_IPEventNotifierSuite IPEventNotifier2Step_IPReady z:\testdata\configs\ipeventnotifier\ipen.ini IPNotReady
+
+RUN_TEST_STEP 100 TE_IPEventNotifierSuite IPEventNotifier3Step_LinkLocalAddress z:\testdata\configs\ipeventnotifier\ipen.ini LinkLocalAddress
+END_TESTCASE            NET-IPEventNotifier-0101
+
+# Unload esock
+RUN_SCRIPT z:\testdata\scripts\te_esock_test_unloadesockforced.script
+
+
+PRINT Complate_te_IPEventNotifier_Tests
+
+
+

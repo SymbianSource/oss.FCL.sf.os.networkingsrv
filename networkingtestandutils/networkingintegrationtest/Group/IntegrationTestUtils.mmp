@@ -1,0 +1,42 @@
+// Copyright (c) 2001-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// using relative paths for sourcepath and user includes
+// 
+//
+
+TARGET        integrationtestutils.dll
+TARGETTYPE    dll
+UID           0x1000008d 0x101F529D 
+VENDORID 0x70000001
+
+SOURCEPATH    ../IntegrationTestUtils
+SOURCE        IntegrationTestUtils.cpp
+SOURCE        Log.cpp
+SOURCE        TestSuite.cpp
+SOURCE        TestStep.cpp
+SOURCE        TestUtils.cpp
+SOURCE        LogFile.cpp
+
+
+ 
+USERINCLUDE   ../inc
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+LIBRARY     	euser.lib efsrv.lib 
+LIBRARY		cinidata.lib
+
+epocheapsize  1000 6000000
+CAPABILITY All -Tcb
+
+SMPSAFE

@@ -1,0 +1,6 @@
+EXPORTS
+; NEW:
+	Install @ 1 NONAME R3UNUSED ; (null)
+	__8TPppAddr @ 2 NONAME R3UNUSED ; TPppAddr::TPppAddr(void)
+	__as__8TPppAddrRC9TSockAddr @ 3 NONAME R3UNUSED ; TPppAddr::operator=(TSockAddr const &)
+

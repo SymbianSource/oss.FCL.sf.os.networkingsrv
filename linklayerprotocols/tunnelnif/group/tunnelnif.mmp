@@ -1,0 +1,79 @@
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// tunnelcfp.mmp
+// Tunnel CFProtocol Virtual interface component for IPsec
+// 
+//
+
+/**
+ @file 
+*/
+
+TARGET          tunnel.dll
+TARGETTYPE      PLUGIN
+UID         	0x10009D8D 0x10281DF6
+VENDORID	0x70000001
+
+
+SOURCEPATH  	../src
+SOURCE		tunnelFactory.cpp
+SOURCE  	tunnelFlow.cpp 
+SOURCE  	tunnelBinders.cpp
+SOURCE		tunnelmcpr.cpp
+SOURCE		tunnelmcprfactory.cpp
+SOURCE		TunnelAgentHandler.cpp
+SOURCE		tunnelConfig.cpp
+SOURCE		tunnelCommon.cpp
+SOURCE		ecom_impl.cpp
+
+USERINCLUDE	../inc
+USERINCLUDE	../../../linklayercontrol/networkinterfacemgr/agentprcore/inc
+USERINCLUDE	../../../linklayercontrol/networkinterfacemgr/agentpr/inc
+
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+LIBRARY mbufmgr.lib
+LIBRARY euser.lib 
+LIBRARY esocksvr.lib
+LIBRARY serverden.lib
+LIBRARY netmeta.lib
+LIBRARY coreproviders.lib
+LIBRARY commsfw.lib
+LIBRARY agentprcore.lib
+LIBRARY insock.lib
+LIBRARY nodemessages.lib
+LIBRARY meshmachine.lib
+LIBRARY netinterfaces.lib
+LIBRARY virtualconstructors.lib
+LIBRARY factories.lib
+
+DEBUGLIBRARY		flogger.lib
+
+START RESOURCE 10281DF6.rss
+TARGET tunnel.rsc
+END
+
+START WINS
+BASEADDRESS             0x59100000
+END
+
+
+//MI support
+#include <elements/sd_mintercept.mmh>
+
+
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+UNPAGED
+
+SMPSAFE

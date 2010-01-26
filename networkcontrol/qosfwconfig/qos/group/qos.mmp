@@ -1,0 +1,50 @@
+// Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// qos.mmp - QoS Framework module MMP file
+// qos.prt QoS framework protocol plug-in for socket server
+//
+
+
+
+/**
+ @file
+*/
+
+
+TARGET      qos.prt
+TARGETTYPE  dll
+NOEXPORTLIBRARY
+
+UID         0x10003d38 0x101F6CFF
+VENDORID    0x70000001
+
+SOURCEPATH  ../src
+
+SOURCE      qos_prot.cpp Family.cpp flowhook.cpp interface.cpp modules.cpp negotiation.cpp Policy_mgr.cpp 
+SOURCE      policies.cpp policy_msg.cpp policy_sap.cpp qos_channel.cpp timeout.cpp
+
+USERINCLUDE     . ../inc ../include
+USERINCLUDE ../inc
+USERINCLUDE ../../../pfqoslib/inc
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+LIBRARY         euser.lib esock.lib mbufmgr.lib esocksvr.lib insock.lib efsrv.lib inhook6.lib pfqoslib.lib 
+
+DEBUGLIBRARY    flogger.lib
+
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+
+UNPAGED
+
+SMPSAFE

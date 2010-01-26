@@ -1,0 +1,2 @@
+xcopy /s \epoc32\release\marm\urel\d rem::c:
+quit

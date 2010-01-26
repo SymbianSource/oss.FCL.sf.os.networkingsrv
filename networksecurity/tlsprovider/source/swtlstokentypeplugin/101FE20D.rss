@@ -1,0 +1,41 @@
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+#include <cryptotokenregistryinfo.rh>
+RESOURCE REGISTRY_INFO theInfo
+	{
+	dll_uid = 0x101FE20D;
+	interfaces = 
+		{
+		INTERFACE_INFO
+			{
+			interface_uid = CT_INTERFACE_UID; 
+			implementations = 
+				{
+				BINARY_IMPLEMENTATION_INFO
+					{
+					implementation_uid = 0x101FE20D; // UID of the token type
+					version_no = 1; // Version number of this token type
+					display_name = "Sw TLS Token Type"; 
+					// Supported interfaces:
+					default_data = {0x0E, 0xE2, 0x1F, 0x10, // MTLSTokenProvider
+							 0x0F, 0xE2, 0x1F, 0x10};// MTLSSession
+					opaque_data = { 0x01, 0x01, 0x00, 0x00};// attr 1 value (1)
+					}
+				};
+			}
+		};
+	}
+

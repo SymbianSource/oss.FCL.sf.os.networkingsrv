@@ -1,0 +1,32 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// create the commdb file
+// CED z:\testdata\configs\qos\qostesting.cfg
+//
+
+//
+PRINT Run all the self tests 
+PRINT 
+PAUSE_AT_END
+
+// Only singlethread mode is allowed because of the active scheduler implementation
+// (Active scheduler is owned by suite, not a single test case)
+singlethread
+
+LOAD_SUITE TS_QoS.dll
+
+
+RUN_TEST_STEP 600000 TS_QoS qos_908
+TEST_COMPLETE 
+

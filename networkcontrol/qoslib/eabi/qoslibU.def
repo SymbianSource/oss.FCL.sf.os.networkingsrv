@@ -1,0 +1,147 @@
+EXPORTS
+	_ZNK12TQoSSelectoreqERKS_ @ 1 NONAME ; TQoSSelector::operator==(TQoSSelector const&) const
+	_ZNK14CQoSParameters18AdaptationPriorityEv @ 2 NONAME ABSENT ; CQoSParameters::AdaptationPriority(void) const
+	_ZN14CQoSParameters13AddExtensionLER14CExtensionBase @ 3 NONAME ; CQoSParameters::AddExtensionL(CExtensionBase&)
+	_ZN10RQoSPolicy17CancelNotifyEventER12MQoSObserver @ 4 NONAME ; RQoSPolicy::CancelNotifyEvent(MQoSObserver&)
+	_ZN10RQoSPolicy11NotifyEventER12MQoSObserverj @ 5 NONAME
+	_ZN10RQoSPolicy14LoadPolicyFileERK7TDesC16 @ 6 NONAME
+	_ZN10RQoSPolicy16UnloadPolicyFileERK7TDesC16 @ 7 NONAME
+	_ZN10RQoSPolicy4OpenERK12TQoSSelector @ 8 NONAME
+	_ZN10RQoSPolicy5CloseEv @ 9 NONAME
+	_ZN10RQoSPolicy6GetQoSEv @ 10 NONAME
+	_ZN10RQoSPolicy6SetQoSER14CQoSParameters @ 11 NONAME
+	_ZN10RQoSPolicyC1Ev @ 12 NONAME
+	_ZN10RQoSPolicyC2Ev @ 13 NONAME
+	_ZN10RQoSPolicyD1Ev @ 14 NONAME
+	_ZN10RQoSPolicyD2Ev @ 15 NONAME
+	_ZN12CQoSAddEventC1EP14CQoSParametersi @ 16 NONAME
+	_ZN12CQoSAddEventC2EP14CQoSParametersi @ 17 NONAME
+	_ZN12CQoSGetEventC1EP14CQoSParametersi @ 18 NONAME
+	_ZN12CQoSGetEventC2EP14CQoSParametersi @ 19 NONAME
+	_ZN12TQoSSelector10SetDstMaskERK9TInetAddr @ 20 NONAME
+	_ZN12TQoSSelector10SetSrcMaskERK9TInetAddr @ 21 NONAME
+	_ZN12TQoSSelector11SetProtocolEj @ 22 NONAME
+	_ZN12TQoSSelector13SetMaxPortDstEj @ 23 NONAME
+	_ZN12TQoSSelector13SetMaxPortSrcEj @ 24 NONAME
+	_ZN12TQoSSelector6SetDstERK9TInetAddr @ 25 NONAME
+	_ZN12TQoSSelector6SetSrcERK9TInetAddr @ 26 NONAME
+	_ZN12TQoSSelector7SetAddrER7RSocket @ 27 NONAME
+	_ZN12TQoSSelector7SetAddrERK9TInetAddrS2_S2_S2_jjj @ 28 NONAME
+	_ZN12TQoSSelector8SetIapIdEi @ 29 NONAME
+	_ZN12TQoSSelectorC1Ev @ 30 NONAME
+	_ZN12TQoSSelectorC2Ev @ 31 NONAME
+	_ZN13CQoSEventBaseC1Ei @ 32 NONAME
+	_ZN13CQoSEventBaseC2Ei @ 33 NONAME
+	_ZN13CQoSJoinEventC1ERK12TQoSSelectori @ 34 NONAME
+	_ZN13CQoSJoinEventC2ERK12TQoSSelectori @ 35 NONAME
+	_ZN13CQoSLoadEventC1ERK9TQoSEventiRK7TDesC16 @ 36 NONAME
+	_ZN13CQoSLoadEventC2ERK9TQoSEventiRK7TDesC16 @ 37 NONAME
+	_ZN14CExtensionBaseC2Ev @ 38 NONAME
+	_ZN14CExtensionBaseD0Ev @ 39 NONAME
+	_ZN14CExtensionBaseD1Ev @ 40 NONAME
+	_ZN14CExtensionBaseD2Ev @ 41 NONAME
+	_ZN14CQoSAdaptEventC1ER14CQoSParametersi @ 42 NONAME
+	_ZN14CQoSAdaptEventC2ER14CQoSParametersi @ 43 NONAME
+	_ZN14CQoSLeaveEventC1ERK12TQoSSelectori @ 44 NONAME
+	_ZN14CQoSLeaveEventC2ERK12TQoSSelectori @ 45 NONAME
+	_ZN14CQoSParameters10ExtensionsEv @ 46 NONAME
+	_ZN14CQoSParameters12SetAdaptModeEi @ 47 NONAME
+	_ZN14CQoSParameters13FindExtensionEi @ 48 NONAME
+	_ZN14CQoSParameters13SetHeaderModeEi @ 49 NONAME
+	_ZN14CQoSParameters14SetUpLinkDelayEi @ 50 NONAME
+	_ZN14CQoSParameters15RemoveExtensionEi @ 51 NONAME
+	_ZN14CQoSParameters16SetDownLinkDelayEi @ 52 NONAME
+	_ZN14CQoSParameters17SetDropModeUplinkEh @ 53 NONAME ABSENT
+	_ZN14CQoSParameters17SetUpLinkPriorityEi @ 54 NONAME
+	_ZN14CQoSParameters26SetUpLinkAveragePacketSizeEi @ 55 NONAME
+	_ZN14CQoSParameters19SetDropModeDownlinkEh @ 56 NONAME ABSENT
+	_ZN14CQoSParameters19SetDownLinkPriorityEi @ 57 NONAME
+	_ZN14CQoSParameters28SetDownLinkAveragePacketSizeEi @ 58 NONAME
+	_ZN14CQoSParameters21SetAdaptationPriorityEh @ 59 NONAME ABSENT
+	_ZN14CQoSParameters26SetUpLinkMaximumPacketSizeEi @ 60 NONAME
+	_ZN14CQoSParameters23SetUpLinkDelayVariationEi @ 61 NONAME
+	_ZN14CQoSParameters28SetDownLinkMaximumPacketSizeEi @ 62 NONAME
+	_ZN14CQoSParameters18SetUplinkBandwidthEi @ 63 NONAME
+	_ZN14CQoSParameters25SetUpLinkMaximumBurstSizeEi @ 64 NONAME
+	_ZN14CQoSParameters25SetDownLinkDelayVariationEi @ 65 NONAME
+	_ZN14CQoSParameters20SetDownlinkBandwidthEi @ 66 NONAME
+	_ZN14CQoSParameters27SetDownLinkMaximumBurstSizeEi @ 67 NONAME
+	_ZN14CQoSParameters5CopyLERS_ @ 68 NONAME
+	_ZN14CQoSParameters7SetNameERK4TBufILi128EE @ 69 NONAME
+	_ZN14CQoSParametersC1Ev @ 70 NONAME
+	_ZN14CQoSParametersC2Ev @ 71 NONAME
+	_ZN14CQoSParametersD0Ev @ 72 NONAME
+	_ZN14CQoSParametersD1Ev @ 73 NONAME
+	_ZN14CQoSParametersD2Ev @ 74 NONAME
+	_ZN15CQoSDeleteEventC1Ei @ 75 NONAME
+	_ZN15CQoSDeleteEventC2Ei @ 76 NONAME
+	_ZN16CQoSChannelEventC1EP14CQoSParametersi @ 77 NONAME
+	_ZN16CQoSChannelEventC2EP14CQoSParametersi @ 78 NONAME
+	_ZN16CQoSConfirmEventC1ER14CQoSParameters @ 79 NONAME
+	_ZN16CQoSConfirmEventC2ER14CQoSParameters @ 80 NONAME
+	_ZN16CQoSFailureEventC1ER14CQoSParametersi @ 81 NONAME
+	_ZN16CQoSFailureEventC2ER14CQoSParametersi @ 82 NONAME
+	_ZNK12CQoSAddEvent10ParametersEv @ 83 NONAME
+	_ZNK12CQoSAddEvent6ReasonEv @ 84 NONAME
+	_ZNK12CQoSGetEvent10ParametersEv @ 85 NONAME
+	_ZNK12CQoSGetEvent6ReasonEv @ 86 NONAME
+	_ZNK12TQoSSelector10GetDstMaskEv @ 87 NONAME
+	_ZNK12TQoSSelector10GetSrcMaskEv @ 88 NONAME
+	_ZNK12TQoSSelector10MaxPortDstEv @ 89 NONAME
+	_ZNK12TQoSSelector10MaxPortSrcEv @ 90 NONAME
+	_ZNK12TQoSSelector5IapIdEv @ 91 NONAME
+	_ZNK12TQoSSelector5MatchER7RSocket @ 92 NONAME
+	_ZNK12TQoSSelector6GetDstEv @ 93 NONAME
+	_ZNK12TQoSSelector6GetSrcEv @ 94 NONAME
+	_ZNK12TQoSSelector8ProtocolEv @ 95 NONAME
+	_ZNK13CQoSEventBase9EventTypeEv @ 96 NONAME
+	_ZNK13CQoSJoinEvent6ReasonEv @ 97 NONAME
+	_ZNK13CQoSJoinEvent8SelectorEv @ 98 NONAME
+	_ZNK13CQoSLoadEvent6ReasonEv @ 99 NONAME
+	_ZNK13CQoSLoadEvent8FileNameEv @ 100 NONAME
+	_ZNK14CQoSAdaptEvent10ParametersEv @ 101 NONAME
+	_ZNK14CQoSAdaptEvent6ReasonEv @ 102 NONAME
+	_ZNK14CQoSLeaveEvent6ReasonEv @ 103 NONAME
+	_ZNK14CQoSLeaveEvent8SelectorEv @ 104 NONAME
+	_ZNK14CQoSParameters13GetHeaderModeEv @ 105 NONAME
+	_ZNK14CQoSParameters14GetUpLinkDelayEv @ 106 NONAME
+	_ZNK14CQoSParameters16GetDownLinkDelayEv @ 107 NONAME
+	_ZNK14CQoSParameters14DropModeUplinkEv @ 108 NONAME ABSENT
+	_ZNK14CQoSParameters17GetUpLinkPriorityEv @ 109 NONAME
+	_ZNK14CQoSParameters26GetUpLinkAveragePacketSizeEv @ 110 NONAME
+	_ZNK14CQoSParameters16DropModeDownlinkEv @ 111 NONAME ABSENT
+	_ZNK14CQoSParameters19GetDownLinkPriorityEv @ 112 NONAME
+	_ZNK14CQoSParameters28GetDownLinkAveragePacketSizeEv @ 113 NONAME
+	_ZNK14CQoSParameters26GetUpLinkMaximumPacketSizeEv @ 114 NONAME
+	_ZNK14CQoSParameters23GetUpLinkDelayVariationEv @ 115 NONAME
+	_ZNK14CQoSParameters28GetDownLinkMaximumPacketSizeEv @ 116 NONAME
+	_ZNK14CQoSParameters18GetUplinkBandwidthEv @ 117 NONAME
+	_ZNK14CQoSParameters25GetUpLinkMaximumBurstSizeEv @ 118 NONAME
+	_ZNK14CQoSParameters25GetDownLinkDelayVariationEv @ 119 NONAME
+	_ZNK14CQoSParameters20GetDownlinkBandwidthEv @ 120 NONAME
+	_ZNK14CQoSParameters27GetDownLinkMaximumBurstSizeEv @ 121 NONAME
+	_ZNK14CQoSParameters7GetNameEv @ 122 NONAME
+	_ZNK14CQoSParameters9AdaptModeEv @ 123 NONAME
+	_ZNK15CQoSDeleteEvent6ReasonEv @ 124 NONAME
+	_ZNK16CQoSChannelEvent10ParametersEv @ 125 NONAME
+	_ZNK16CQoSChannelEvent6ReasonEv @ 126 NONAME
+	_ZNK16CQoSConfirmEvent10ParametersEv @ 127 NONAME
+	_ZNK16CQoSFailureEvent10ParametersEv @ 128 NONAME
+	_ZNK16CQoSFailureEvent6ReasonEv @ 129 NONAME
+	_ZTI14CExtensionBase @ 130 NONAME ; #<TI>#
+	_ZTI14CQoSParameters @ 131 NONAME ; #<TI>#
+	_ZTI15CQoSRequestBase @ 132 NONAME ; #<TI>#
+	_ZTI7CPolicy @ 133 NONAME ; #<TI>#
+	_ZTI7CQoSMan @ 134 NONAME ; #<TI>#
+	_ZTI7CSender @ 135 NONAME ; #<TI>#
+	_ZTI8CChannel @ 136 NONAME ; #<TI>#
+	_ZTI8CRequest @ 137 NONAME ; #<TI>#
+	_ZTV14CExtensionBase @ 138 NONAME ; #<VT>#
+	_ZTV14CQoSParameters @ 139 NONAME ; #<VT>#
+	_ZTV15CQoSRequestBase @ 140 NONAME ; #<VT>#
+	_ZTV7CPolicy @ 141 NONAME ; #<VT>#
+	_ZTV7CQoSMan @ 142 NONAME ; #<VT>#
+	_ZTV7CSender @ 143 NONAME ; #<VT>#
+	_ZTV8CChannel @ 144 NONAME ; #<VT>#
+	_ZTV8CRequest @ 145 NONAME ; #<VT>#
+

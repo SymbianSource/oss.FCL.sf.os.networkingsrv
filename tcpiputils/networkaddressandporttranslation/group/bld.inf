@@ -1,0 +1,38 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+
+PRJ_PLATFORMS
+
+PRJ_EXPORTS
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+../inc/naptinterface.h  /epoc32/include/naptinterface.h
+#else
+../inc/naptinterface.h	SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/naptinterface.h)
+#endif
+../data/ip.napt.esk	/epoc32/winscw/c/private/101f7989/esock/ip.napt.esk
+../data/napt.ini	/epoc32/winscw/c/private/101f7989/esock/napt.ini
+../group/napt.iby	/epoc32/rom/include/napt.iby
+../data/ip.napt.esk	/epoc32/data/z/private/101f7989/esock/ip.napt.esk
+../data/napt.ini	/epoc32/data/z/private/101f7989/esock/napt.ini
+
+PRJ_MMPFILES
+napt.mmp
+
+// TESTS
+
+#include "../TE_Napt/group/bld.inf"
+#include "../Te_NaptCap/group/bld.inf"
+#include "../te_unittest/group/bld.inf"

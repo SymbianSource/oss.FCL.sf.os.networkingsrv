@@ -1,0 +1,36 @@
+EXPORTS
+	_Z11StartThreadv @ 1 NONAME
+	_ZN18CUmtsSimServServer14ThreadFunctionEPv @ 2 NONAME
+	_ZTI10CPacketQoS @ 3 NONAME ; #<TI>#
+	_ZTI14CPacketContext @ 4 NONAME ; #<TI>#
+	_ZTI14CPacketService @ 5 NONAME ; #<TI>#
+	_ZTI14CUmtsSimulator @ 6 NONAME ; #<TI>#
+	_ZTI18CControlApiWrapper @ 7 NONAME ; #<TI>#
+	_ZTI18CSimRequestManager @ 8 NONAME ; #<TI>#
+	_ZTI18CUmtsSimServServer @ 9 NONAME ; #<TI>#
+	_ZTI19CSimEventController @ 10 NONAME ; #<TI>#
+	_ZTI19CUmtsSimServSession @ 11 NONAME ; #<TI>#
+	_ZTI20CPacketQoSApiWrapper @ 12 NONAME ; #<TI>#
+	_ZTI24CPacketContextApiWrapper @ 13 NONAME ; #<TI>#
+	_ZTI24CPacketServiceApiWrapper @ 14 NONAME ; #<TI>#
+	_ZTI9CSimTimer @ 15 NONAME ; #<TI>#
+	_ZTIN18CSimRequestManager15CRequestHandlerE @ 16 NONAME ; #<TI>#
+	_ZTIN19CSimEventController6CEventE @ 17 NONAME ; #<TI>#
+	_ZTIN9CSimTimer13CRequestQueueE @ 18 NONAME ; #<TI>#
+	_ZTV10CPacketQoS @ 19 NONAME ; #<VT>#
+	_ZTV14CPacketContext @ 20 NONAME ; #<VT>#
+	_ZTV14CPacketService @ 21 NONAME ; #<VT>#
+	_ZTV14CUmtsSimulator @ 22 NONAME ; #<VT>#
+	_ZTV18CControlApiWrapper @ 23 NONAME ; #<VT>#
+	_ZTV18CSimRequestManager @ 24 NONAME ; #<VT>#
+	_ZTV18CUmtsSimServServer @ 25 NONAME ; #<VT>#
+	_ZTV19CSimEventController @ 26 NONAME ; #<VT>#
+	_ZTV19CUmtsSimServSession @ 27 NONAME ; #<VT>#
+	_ZTV20CPacketQoSApiWrapper @ 28 NONAME ; #<VT>#
+	_ZTV24CPacketContextApiWrapper @ 29 NONAME ; #<VT>#
+	_ZTV24CPacketServiceApiWrapper @ 30 NONAME ; #<VT>#
+	_ZTV9CSimTimer @ 31 NONAME ; #<VT>#
+	_ZTVN18CSimRequestManager15CRequestHandlerE @ 32 NONAME ; #<VT>#
+	_ZTVN19CSimEventController6CEventE @ 33 NONAME ; #<VT>#
+	_ZTVN9CSimTimer13CRequestQueueE @ 34 NONAME ; #<VT>#
+

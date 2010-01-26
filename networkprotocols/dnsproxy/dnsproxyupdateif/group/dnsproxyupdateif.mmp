@@ -1,0 +1,56 @@
+// Copyright (c) 2008-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// @file
+// @SYMPurpose devdpextn.dll MTP device dp extension data provider plugin.
+//
+
+
+
+TARGET		  dnsproxyupdateif.dll
+TARGETTYPE	  PLUGIN
+UID	          0x10009D8D 0x200215F3 
+VENDORID 	  0x70000001
+
+#if defined(WINS)
+deffile dnsproxyupdate.def
+#elif defined(MARM)
+deffile dnsproxyupdate.def
+#endif
+
+CAPABILITY All -TCB
+
+//include dir
+USERINCLUDE	    ../inc
+USERINCLUDE    ../../dnsproxyclient/inc
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+//source dir
+SOURCEPATH	    ../src
+
+//source files
+SOURCE		   implproxy.cpp
+//SOURCE		   dnsproxyupdateif.cpp
+SOURCE		   dnsproxyupdateimpl.cpp
+
+//lib files
+LIBRARY		 euser.lib 
+LIBRARY		 ecom.lib 
+LIBRARY		 dnsproxyclient.lib 
+
+//rss files
+SOURCEPATH ../src
+START RESOURCE dnsproxyupdateif.rss
+END
+
+SMPSAFE

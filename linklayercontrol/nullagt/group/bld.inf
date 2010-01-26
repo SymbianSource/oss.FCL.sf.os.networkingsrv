@@ -1,0 +1,52 @@
+// Copyright (c) 2000-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// Minimal connection agent for IEEE 802.3 (Ethernet(tm)) support and similar network interfaces
+// 
+//
+
+/**
+ @file
+*/
+
+
+
+PRJ_PLATFORMS
+
+DEFAULT
+
+PRJ_EXPORTS
+
+../inc/nullagtprog.h	SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(nullagtprog.h)
+../group/nullagt.iby	/epoc32/rom/include/nullagt.iby
+
+PRJ_TESTEXPORTS
+../TS_nullagt/group/nullagttests.iby  /epoc32/rom/include/nullagttests.iby
+
+../TS_nullagt/group/nullagenttest_setup.script  /epoc32/release/wins/udeb/z/testdata/scripts/nullagenttest_setup.script
+../TS_nullagt/group/nullagenttest_setup.script  /epoc32/release/winscw/udeb/z/testdata/scripts/nullagenttest_setup.script
+../TS_nullagt/group/nullagenttest.script    	/epoc32/release/wins/udeb/z/testdata/scripts/nullagenttest.script
+../TS_nullagt/group/nullagenttest.script    	/epoc32/release/winscw/udeb/z/testdata/scripts/nullagenttest.script
+../TS_nullagt/group/nullagenttest_NonConnection.script   	/epoc32/release/wins/udeb/z/testdata/scripts/nullagenttest_nonconnection.script
+../TS_nullagt/group/nullagenttest_NonConnection.script    	/epoc32/release/winscw/udeb/z/testdata/scripts/nullagenttest_nonconnection.script
+../TS_nullagt/group/nullagenttest.xml    	/epoc32/release/wins/udeb/z/testdata/configs/nullagenttest.xml
+../TS_nullagt/group/nullagenttest.xml    	/epoc32/release/winscw/udeb/z/testdata/configs/nullagenttest.xml
+
+PRJ_MMPFILES
+
+../group/nullagt.mmp
+
+PRJ_TESTMMPFILES
+
+../TS_nullagt/group/nullagttests.mmp
+

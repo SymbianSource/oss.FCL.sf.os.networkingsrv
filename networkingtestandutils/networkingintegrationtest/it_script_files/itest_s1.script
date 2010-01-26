@@ -1,0 +1,68 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+///
+PRINT Integration test scripts section 1 CSD bearer
+
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+RUN_SCRIPT z:\testdata\scripts\te_esock_test_loadesock.script
+
+// setup
+LOAD_SUITE TE_Esock
+	
+
+//RConnection scripts
+//run_script z:\testdata\scripts\integration\itest_s1\itest_RConnection.script	
+
+
+// configure commdb for CSD Bearer Tests
+// use ced to make the required database
+run_script z:\testdata\scripts\integration\itest_s1\load_csd.script
+run_script z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+// client timeout
+run_script z:\testdata\scripts\te_esock_test_loadesock.script
+run_script z:\testdata\scripts\integration\itest_s1\itest1_01.script
+run_script z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+run_script z:\testdata\scripts\te_esock_test_loadesock.script
+run_script z:\testdata\scripts\integration\itest_s1\itest1_03.script
+run_script z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+// Rnif Stop
+run_script z:\testdata\scripts\te_esock_test_loadesock.script
+run_script z:\testdata\scripts\integration\itest_s1\itest1_09.script
+run_script z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+run_script z:\testdata\scripts\te_esock_test_loadesock.script
+run_script z:\testdata\scripts\integration\itest_s1\itest1_11.script
+run_script z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+// Gencon connection client timeout
+run_script z:\testdata\scripts\te_esock_test_loadesock.script
+run_script z:\testdata\scripts\integration\itest_s1\itest1_17.script
+run_script z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+run_script z:\testdata\scripts\te_esock_test_loadesock.script
+
+//Ipsec tests - the ordering is important, Nif stop tests need to be run before
+run_script z:\testdata\scripts\integration\itest_s1\itest1_10.script
+run_script z:\testdata\scripts\integration\itest_s1\itest1_02.script
+run_script z:\testdata\scripts\integration\itest_s1\itest1_04.script
+run_script z:\testdata\scripts\integration\itest_s1\itest1_12.script
+
+run_script z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+print end of CSD Bearer Tests

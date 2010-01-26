@@ -1,0 +1,10 @@
+EXPORTS
+	Install @ 1 NONAME
+	_ZN8TPppAddrC1Ev @ 2 NONAME
+	_ZN8TPppAddrC2Ev @ 3 NONAME
+	_ZN8TPppAddraSERK9TSockAddr @ 4 NONAME
+	_ZTI7MPppFsm @ 5 NONAME ; #<TI>#
+	_ZTI9MPppRecvr @ 6 NONAME ; #<TI>#
+	_ZTV7MPppFsm @ 7 NONAME ; #<VT>#
+	_ZTV9MPppRecvr @ 8 NONAME ; #<VT>#
+

@@ -1,0 +1,7 @@
+EXPORTS
+	_ZN15RTlsCacheClient13RequestNotifyER14TRequestStatus @ 1 NONAME
+	_ZN15RTlsCacheClient4OpenERK16CX509Certificate @ 2 NONAME
+	_ZN15RTlsCacheClient6CancelEv @ 3 NONAME
+	_ZN15RTlsCacheClient9GetStateLEv @ 4 NONAME
+	_ZN15RTlsCacheClient9SetStateLE16TCacheEntryState @ 5 NONAME
+

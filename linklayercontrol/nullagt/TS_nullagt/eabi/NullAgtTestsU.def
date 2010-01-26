@@ -1,0 +1,23 @@
+EXPORTS
+	_Z15CreateTestSuitev @ 1 NONAME
+	_ZTI17CTestSuiteNullAgt @ 2 NONAME ; #<TI>#
+	_ZTI17NullAgentTestStep @ 3 NONAME ; #<TI>#
+	_ZTI24CTestStepNullAgtCommDbIf @ 4 NONAME ; #<TI>#
+	_ZTI25CTestStepNullAgtOverrides @ 5 NONAME ; #<TI>#
+	_ZTI25CTestStepNullAgtReconnect @ 6 NONAME ; #<TI>#
+	_ZTI28CTestStepNullAgtLoopbackTest @ 7 NONAME ; #<TI>#
+	_ZTI29CTestStepNullAgtNotifications @ 8 NONAME ; #<TI>#
+	_ZTI32CTestStepNullAgtConnectionCancel @ 9 NONAME ; #<TI>#
+	_ZTI32CTestStepNullAgtSimpleConnection @ 10 NONAME ; #<TI>#
+	_ZTI35CTestStepNullAgtMultipleConnections @ 11 NONAME ; #<TI>#
+	_ZTV17CTestSuiteNullAgt @ 12 NONAME ; #<VT>#
+	_ZTV17NullAgentTestStep @ 13 NONAME ; #<VT>#
+	_ZTV24CTestStepNullAgtCommDbIf @ 14 NONAME ; #<VT>#
+	_ZTV25CTestStepNullAgtOverrides @ 15 NONAME ; #<VT>#
+	_ZTV25CTestStepNullAgtReconnect @ 16 NONAME ; #<VT>#
+	_ZTV28CTestStepNullAgtLoopbackTest @ 17 NONAME ; #<VT>#
+	_ZTV29CTestStepNullAgtNotifications @ 18 NONAME ; #<VT>#
+	_ZTV32CTestStepNullAgtConnectionCancel @ 19 NONAME ; #<VT>#
+	_ZTV32CTestStepNullAgtSimpleConnection @ 20 NONAME ; #<VT>#
+	_ZTV35CTestStepNullAgtMultipleConnections @ 21 NONAME ; #<VT>#
+

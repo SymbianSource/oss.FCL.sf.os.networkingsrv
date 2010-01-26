@@ -1,0 +1,37 @@
+#
+# Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+# All rights reserved.
+# This component and the accompanying materials are made available
+# under the terms of "Eclipse Public License v1.0"
+# which accompanies this distribution, and is available
+# at the URL "http://www.eclipse.org/legal/epl-v10.html".
+#
+# Initial Contributors:
+# Nokia Corporation - initial contribution.
+#
+# Contributors:
+#
+# Description: 
+#
+
+component	networking_inhook6
+source	\sf\os\networkingsrv\networkprotocols\iphook\inhook6
+
+#UmaA : add inhook6example
+source	\sf\os\networkingsrv\networkprotocols\iphook\inhook6example
+
+binary	\sf\os\networkingsrv\networkprotocols\iphook\inhook6\group	all
+exports	\sf\os\networkingsrv\networkprotocols\iphook\inhook6\group
+notes_source	\component_defs\release.src
+
+
+# ==   comments appear after the line they describe  ==
+ipr F 
+ipr D \sf\os\networkingsrv\networkprotocols\iphook\inhook6
+# Assigned Category B until the interpretation of the contract has defined the correct IPR categories.
+ipr D \sf\os\networkingsrv\networkprotocols\iphook\inhook6\data
+ipr D \sf\os\networkingsrv\networkprotocols\iphook\inhook6\group
+ipr D \sf\os\networkingsrv\networkprotocols\iphook\inhook6\include
+ipr F \sf\os\networkingsrv\networkprotocols\iphook\inhook6example\eabi
+# Example Source
+

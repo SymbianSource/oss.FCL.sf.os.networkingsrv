@@ -1,0 +1,62 @@
+// Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// 102070ED.RSS
+// Registry info for IP Connection Provider plug-in
+// 
+//
+
+/**
+ @file
+*/
+
+#include <ecom/registryinfo.rh>
+
+RESOURCE REGISTRY_INFO theInfo
+{
+dll_uid = 0x102866C3;
+interfaces = 
+    {
+    INTERFACE_INFO
+        {
+        interface_uid =  0x10274546;
+        implementations = 
+            {
+           IMPLEMENTATION_INFO
+                {
+                implementation_uid = 0x10274547;
+                version_no = 1;
+                display_name = "Network Meta Connection Provider Factory";
+                default_data = "NetworkMCprFactory";
+                opaque_data = "";
+                }
+            };
+        },
+    INTERFACE_INFO
+        {
+        interface_uid =  0x10281DD7;
+        implementations = 
+            {
+           IMPLEMENTATION_INFO
+                {
+                implementation_uid = 0x10281DD8;
+                version_no = 1;
+                display_name = "IP Tier Manager";
+                default_data = "IpTierManager";
+                opaque_data = "";
+                }
+            };
+        }
+    };
+}
+

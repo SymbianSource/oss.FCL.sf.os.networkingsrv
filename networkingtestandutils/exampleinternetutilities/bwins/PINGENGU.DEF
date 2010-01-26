@@ -1,0 +1,9 @@
+EXPORTS
+	??0TPingOptions@@QAE@XZ @ 1 NONAME ; TPingOptions::TPingOptions(void)
+	??1CPingEng@@UAE@XZ @ 2 NONAME ; CPingEng::~CPingEng(void)
+	?Cancel@CPingEng@@QAEXXZ @ 3 NONAME ; void CPingEng::Cancel(void)
+	?CancelAndFinished@CPingEng@@QAEXXZ @ 4 NONAME ; void CPingEng::CancelAndFinished(void)
+	?NewL@CPingEng@@SAPAV1@AAVMPingNotificationHandler@@@Z @ 5 NONAME ; class CPingEng * CPingEng::NewL(class MPingNotificationHandler &)
+	?SetPriorities@CPingEng@@QAEXHHH@Z @ 6 NONAME ; void CPingEng::SetPriorities(int, int, int)
+	?StartL@CPingEng@@QAEXABVTPingOptions@@@Z @ 7 NONAME ; void CPingEng::StartL(class TPingOptions const &)
+

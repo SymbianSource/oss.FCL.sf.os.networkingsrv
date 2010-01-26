@@ -1,0 +1,60 @@
+EXPORTS
+	_ZN12CTLSProviderD1Ev @ 1 NONAME ; CTLSProvider::~CTLSProvider(void)
+	_ZN12CTLSProvider10AttributesEv @ 2 NONAME ; CTLSProvider::Attributes(void)
+	_ZN11CTLSSession13CancelRequestEv @ 3 NONAME ; CTLSSession::CancelRequest(void)
+	_ZN12CTLSProvider13CancelRequestEv @ 4 NONAME ; CTLSProvider::CancelRequest(void)
+	_ZN11CTLSSession27CertificateVerifySignatureLEP14CMessageDigestS1_RP6HBufC8R14TRequestStatus @ 5 NONAME ; CTLSSession::CertificateVerifySignatureL(CMessageDigest*, CMessageDigest*, HBufC8*&, TRequestStatus&)
+	_ZN12CTLSProvider13CipherSuitesLER6RArrayI15TTLSCipherSuiteER14TRequestStatus @ 6 NONAME ; CTLSProvider::CipherSuitesL(RArray<TTLSCipherSuite>&, TRequestStatus&)
+	_ZN12CTLSProvider18ClearSessionCacheLER20TTLSSessionNameAndIDR14TRequestStatus @ 7 NONAME ; CTLSProvider::ClearSessionCacheL(TTLSSessionNameAndID&, TRequestStatus&)
+	_ZN11CTLSSession17ClientCertificateERP16CX509CertificateR14TRequestStatus @ 8 NONAME ; CTLSSession::ClientCertificate(CX509Certificate*&, TRequestStatus&)
+	_ZN11CTLSSession17ClientCertificateERP6HBufC8R14TRequestStatus @ 9 NONAME ; CTLSSession::ClientCertificate(HBufC8*&, TRequestStatus&)
+	_ZN11CTLSSession18ClientFinishedMsgLEP14CMessageDigestS1_RP6HBufC8R14TRequestStatus @ 10 NONAME ; CTLSSession::ClientFinishedMsgL(CMessageDigest*, CMessageDigest*, HBufC8*&, TRequestStatus&)
+	_ZN11CTLSSession17ClientKeyExchangeERP6HBufC8R14TRequestStatus @ 11 NONAME ; CTLSSession::ClientKeyExchange(HBufC8*&, TRequestStatus&)
+	_ZN12CTLSProvider8ConnectLEv @ 12 NONAME ; CTLSProvider::ConnectL(void)
+	_ZN12CTLSProvider7CreateLERP11CTLSSessionR14TRequestStatus @ 13 NONAME ; CTLSProvider::CreateL(CTLSSession*&, TRequestStatus&)
+	_ZN11CTLSSession17DecryptAndVerifyLERK6TDesC8RP6HBufC8RxR15TRecordProtocol @ 14 NONAME ; CTLSSession::DecryptAndVerifyL(TDesC8 const&, HBufC8*&, long long&, TRecordProtocol&)
+	_ZN11CTLSSession8EncryptLERK6TDesC8RP6HBufC8RxR15TRecordProtocol @ 15 NONAME ; CTLSSession::EncryptL(TDesC8 const&, HBufC8*&, long long&, TRecordProtocol&)
+	_ZN12CTLSProvider14GenerateRandomER5TDes8 @ 16 NONAME ; CTLSProvider::GenerateRandom(TDes8&)
+	_ZN12CTLSProvider11GetSessionLER14TTLSServerAddrR5TBuf8ILi32EER14TRequestStatus @ 17 NONAME ; CTLSProvider::GetSessionL(TTLSServerAddr&, TBuf8<32>&, TRequestStatus&)
+	_ZN11CTLSSession4NewLEP15CTlsSessionImpl @ 18 NONAME ; CTLSSession::NewL(CTlsSessionImpl*)
+	_ZN12CTLSProvider10ReConnectLEv @ 19 NONAME ; CTLSProvider::ReConnectL(void)
+	_ZN11CTLSSession17ServerCertificateERP16CX509CertificateR14TRequestStatus @ 20 NONAME ; CTLSSession::ServerCertificate(CX509Certificate*&, TRequestStatus&)
+	_ZN11CTlsEncrypt19TLSPRFComputationsLERK6TDesC8S2_RK16TTLSMACAlgorithmiR5TDes8 @ 21 NONAME ; CTlsEncrypt::TLSPRFComputationsL(TDesC8 const&, TDesC8 const&, TTLSMACAlgorithm const&, int, TDes8&)
+	_ZN11CTlsEncrypt7TLSPRFLERK6TDesC8S2_iR5TDes8 @ 22 NONAME ; CTlsEncrypt::TLSPRFL(TDesC8 const&, TDesC8 const&, int, TDes8&)
+	_ZN12CTLSProvider13TlsSessionPtrEv @ 23 NONAME ; CTLSProvider::TlsSessionPtr(void)
+	_ZN12CTLSProvider23VerifyServerCertificateERK6TDesC8RP16CX509CertificateR14TRequestStatus @ 24 NONAME ; CTLSProvider::VerifyServerCertificate(TDesC8 const&, CX509Certificate*&, TRequestStatus&)
+	_ZN11CTLSSession24VerifyServerFinishedMsgLEP14CMessageDigestS1_RK6TDesC8R14TRequestStatus @ 25 NONAME ; CTLSSession::VerifyServerFinishedMsgL(CMessageDigest*, CMessageDigest*, TDesC8 const&, TRequestStatus&)
+	_ZN12CTLSProvider16VerifySignatureLERK21CSubjectPublicKeyInfoRK6TDesC8S5_ @ 26 NONAME ; CTLSProvider::VerifySignatureL(CSubjectPublicKeyInfo const&, TDesC8 const&, TDesC8 const&)
+	_ZN11CTLSSessionD1Ev @ 27 NONAME ; CTLSSession::~CTLSSession(void)
+	_ZN11CTLSSession10AttributesEv @ 28 NONAME ; CTLSSession::Attributes(void)
+	_ZN11CTLSSessionD2Ev @ 29 NONAME ; CTLSSession::~CTLSSession [not-in-charge](void)
+	_ZN12CTLSProviderD0Ev @ 30 NONAME ; CTLSProvider::~CTLSProvider [in-charge deleting](void)
+	_ZN11CTLSSessionD0Ev @ 31 NONAME ; CTLSSession::~CTLSSession [in-charge deleting](void)
+	_ZN12CTLSProviderD2Ev @ 32 NONAME ; CTLSProvider::~CTLSProvider [not-in-charge](void)
+	_ZTI10CTokenInfo @ 33 NONAME ; #<TI>#
+	_ZTI11CTLSSession @ 34 NONAME ; #<TI>#
+	_ZTI11CTlsEncrypt @ 35 NONAME ; #<TI>#
+	_ZTI12CTLSProvider @ 36 NONAME ; #<TI>#
+	_ZTI15CTlsBrowseToken @ 37 NONAME ; #<TI>#
+	_ZTI15CTlsSessionImpl @ 38 NONAME ; #<TI>#
+	_ZTI16CTlsProviderImpl @ 39 NONAME ; #<TI>#
+	_ZTI19CTLSPublicKeyParams @ 40 NONAME ; #<TI>#
+	_ZTI20CTlsClntAuthenticate @ 41 NONAME ; #<TI>#
+	_ZTI20CTlsCryptoAttributes @ 42 NONAME ; #<TI>#
+	_ZTI20CTokenTypesAndTokens @ 43 NONAME ; #<TI>#
+	_ZTV10CTokenInfo @ 44 NONAME ; #<VT>#
+	_ZTV11CTLSSession @ 45 NONAME ; #<VT>#
+	_ZTV11CTlsEncrypt @ 46 NONAME ; #<VT>#
+	_ZTV12CTLSProvider @ 47 NONAME ; #<VT>#
+	_ZTV15CTlsBrowseToken @ 48 NONAME ; #<VT>#
+	_ZTV15CTlsSessionImpl @ 49 NONAME ; #<VT>#
+	_ZTV16CTlsProviderImpl @ 50 NONAME ; #<VT>#
+	_ZTV19CTLSPublicKeyParams @ 51 NONAME ; #<VT>#
+	_ZTV20CTlsClntAuthenticate @ 52 NONAME ; #<VT>#
+	_ZTV20CTlsCryptoAttributes @ 53 NONAME ; #<VT>#
+	_ZTV20CTokenTypesAndTokens @ 54 NONAME ; #<VT>#
+	_ZTI18CTlsProviderPolicy @ 55 NONAME ; #<TI>#
+	_ZTV18CTlsProviderPolicy @ 56 NONAME ; #<VT>#
+	_ZN11CTLSSession13KeyDerivationERK6TDesC8RK21TTLSMasterSecretInputR5TDes8 @ 57 NONAME
+	_ZN11CTLSSession17ClientCertificateEP13RPointerArrayI6HBufC8ER14TRequestStatus @ 58 NONAME
+

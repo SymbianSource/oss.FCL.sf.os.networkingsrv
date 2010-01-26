@@ -1,0 +1,30 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+#ifndef __TE_IPEVENTNOTIFIER_SUITE_IBY__
+#define __TE_IPEVENTNOTIFIER_SUITE_IBY__
+
+#include <testexecute.iby>
+
+file=ABI_DIR\BUILD_DIR\TE_IPEventNotifierSuite.exe		System\bin\TE_IPEventNotifierSuite.exe
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\ipeventnotifier\TE_IPEventNotifierSuite.script testdata\scripts\ipeventnotifier\TE_IPEventNotifierSuite.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\ipeventnotifier\ipen_setup_ip6.script testdata\scripts\ipeventnotifier\ipen_setup_ip6.script
+data=EPOCROOT##Epoc32\data\z\TestData\configs\ipeventnotifier\ipen_eka2.xml testdata\configs\ipeventnotifier\ipen_eka2.xml
+data=EPOCROOT##Epoc32\data\z\TestData\configs\ipeventnotifier\ipen.ini testdata\configs\ipeventnotifier\ipen.ini
+
+#endif
+

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<relnotes schema="1.0.0" name="Internet Sockets" purpose="" type="component">
+  <revision major="1" functional="0" minor="0" date="20071017">
+    <ref name="PDEF112245" type="defect"/>
+    <description>Added an extra section to the CommsDebugUtility How To documentation FAQ listing the components which must be properly matched for logging to work on a target.  Added extra RDebug output so that if a crash results from mismatched components then more information will be printed for the programmer to understand what has happened.</description>
+  </revision>
+  <purpose>
+    Plugin to sockets server, IPv6/v4 socket library specialising generic socket server address class for TCP/IP v4 or v6 protocols to implement sockets over TCP/IP.
+  </purpose>
+  <defect number="DEF102839" title="Qos Scheduler Needs to be removed from MCL" revision="001">
+    Removed scheduler component
+  </defect>
+</relnotes>

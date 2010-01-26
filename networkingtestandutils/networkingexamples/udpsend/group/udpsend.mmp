@@ -1,0 +1,61 @@
+// Copyright (c) 2005-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// udpsend.mmp - UDP test program MMP file
+// UDP test program
+//
+
+
+
+/**
+ @file
+*/
+
+MACRO           EPOC_SDK=0x08000000
+
+TARGET          udpsend.exe
+TARGETTYPE      exe
+MACRO		MAKE_EXE_APPLICATION
+UID             0 0x01000534
+
+EPOCSTACKSIZE	0x5000
+TARGETPATH	/sys/bin
+
+SOURCEPATH      ../src
+
+SOURCE          udpsend.cpp engine.cpp
+
+START RESOURCE	../data/udpsend.rss
+HEADER
+TARGETPATH /resource/apps
+END
+
+START RESOURCE	../data/udpsend_reg.rss
+TARGETPATH /private/10003a3f/apps
+END
+
+USERINCLUDE     ../inc
+SYSTEMINCLUDE   ../../../../networkprotocols/iphook/inhook6/inc 
+
+SYSTEMINCLUDE	/epoc32/include/techview
+SYSTEMINCLUDE   /epoc32/include
+
+LIBRARY         euser.lib apparc.lib cone.lib
+LIBRARY         eikcore.lib eikcoctl.lib eikdlg.lib
+LIBRARY         esock.lib insock.lib 
+
+CAPABILITY ALL -Tcb
+
+VENDORID	0x70000001
+
+SMPSAFE

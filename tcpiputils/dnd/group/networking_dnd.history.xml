@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<relnotes schema="1.0.0" name="DND" purpose="" type="component">
+  <revision major="1" functional="0" minor="0" date="20070803">
+    <ref name="PDEF110098" type="defect"/>
+    <description>Enabling IAP commsdat records to be protected with the ECDPrivate attribute. This requires that the DHCP and DND components are assigned the ReadDeviceData privilege and that various changes are made to ensure hidden IAP records are visible to networking components which need to be able to read them.</description>
+  </revision>
+  <purpose>
+    Domain Name Daemon (DND), DNS host name resolver implementation used by networking components.
+  </purpose>
+  <defect number="DEF126005" title="DNS resolver requests should have more randomness in ID and source port" revision="002">
+  </defect>
+  <defect number="PDEF104564" title="jax-rpc-me10a wronginparams test fails" revision="001">
+    
+  </defect>
+   <defect number="PDEF127005" title="logging changed from flogger to commsdbg" revision="001">
+    
+  </defect>
+
+</relnotes>

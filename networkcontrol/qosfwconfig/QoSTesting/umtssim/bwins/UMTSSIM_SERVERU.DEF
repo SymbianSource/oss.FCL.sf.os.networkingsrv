@@ -1,0 +1,4 @@
+EXPORTS
+	?StartThread@@YAHXZ @ 1 NONAME ; int __cdecl StartThread(void)
+	?ThreadFunction@CUmtsSimServServer@@SAHPAX@Z @ 2 NONAME ; public: static int __cdecl CUmtsSimServServer::ThreadFunction(void *)
+

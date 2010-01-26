@@ -1,0 +1,111 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+#ifndef __DHCPTESTSERVER_IBY__
+#define __DHCPTESTSERVER_IBY__
+
+#include <testexecute.iby>
+
+file=ABI_DIR\DEBUG_DIR\DhcpTestServer.exe	System\bin\DhcpTestServer.exe
+
+
+#ifdef SYMBIAN_EXCLUDE_DHCP
+REM Feature DHCP is not included in this ROM
+data=\epoc32\data\z\testdata\scripts\DHCP\te_dhcpremovedtest_ip4.script			TestData\scripts\DHCP\te_dhcpremovedtest_ip4.script
+
+data=\epoc32\data\z\TestData\configs\DHCP\DHCPced_ip4.xml.omapxxx	TestData\configs\DHCP\DHCPced_ip4.xml
+data=\epoc32\data\z\TestData\configs\DHCP\dhcptest.ini    		    TestData\configs\DHCP\dhcptest.ini
+
+#else
+
+//##################### script files
+
+//-- ip4 specific
+data=\epoc32\data\z\testdata\scripts\DHCP\DHCP_OOM6_ip4.script			        TestData\scripts\DHCP\DHCP_OOM6_ip4.script
+data=\epoc32\data\z\testdata\scripts\DHCP\te_DHCPTest_ip4.script				TestData\scripts\DHCP\te_DHCPTest_ip4.script
+data=\epoc32\data\z\testdata\scripts\DHCP\DHCPBasicInteractions1_ip4.script		TestData\scripts\DHCP\DHCPBasicInteractions1_ip4.script
+data=\epoc32\data\z\testdata\scripts\DHCP\DHCPConfiguration2_ip4.script			TestData\scripts\DHCP\DHCPConfiguration2_ip4.script
+data=\epoc32\data\z\testdata\scripts\DHCP\DHCPRenewAndRelease3_ip4.script			TestData\scripts\DHCP\DHCPRenewAndRelease3_ip4.script
+data=\epoc32\data\z\testdata\scripts\DHCP\DHCPDynamicInteraction4_ip4.script	TestData\scripts\DHCP\DHCPDynamicInteraction4_ip4.script
+data=\epoc32\data\z\testdata\scripts\DHCP\DHCPManualtests5_ip4.script			TestData\scripts\DHCP\DHCPManualtests5_ip4.script
+
+//-- ip6 specific
+file=ABI_DIR\DEBUG_DIR\ramod1.prt    SYSTEM_BINDIR\ramod1.prt
+file=ABI_DIR\DEBUG_DIR\ramod2.prt    SYSTEM_BINDIR\ramod2.prt
+file=ABI_DIR\DEBUG_DIR\ramod3.prt    SYSTEM_BINDIR\ramod3.prt
+data=\epoc32\data\z\testdata\scripts\DHCP\DHCP_OOM6_ip6.script			        TestData\scripts\DHCP\DHCP_OOM6_ip6.script
+data=\epoc32\data\z\testdata\scripts\DHCP\te_DHCPTest_ip6.script				TestData\scripts\DHCP\te_DHCPTest_ip6.script
+data=\epoc32\data\z\testdata\scripts\DHCP\DHCPBasicInteractions1_ip6.script		TestData\scripts\DHCP\DHCPBasicInteractions1_ip6.script
+data=\epoc32\data\z\testdata\scripts\DHCP\DHCPConfiguration2_ip6.script			TestData\scripts\DHCP\DHCPConfiguration2_ip6.script
+data=\epoc32\data\z\testdata\scripts\DHCP\DHCPRenewAndRelease3_ip6.script			TestData\scripts\DHCP\DHCPRenewAndRelease3_ip6.script
+data=\epoc32\data\z\testdata\scripts\DHCP\DHCPDynamicInteraction4_ip6.script	TestData\scripts\DHCP\DHCPDynamicInteraction4_ip6.script
+data=\epoc32\data\z\testdata\scripts\DHCP\DHCPManualtests5_ip6.script			TestData\scripts\DHCP\DHCPManualtests5_ip6.script
+data=\epoc32\data\z\testdata\scripts\DHCP\dhcpmanualTests2_ip6.script			TestData\scripts\DHCP\dhcpmanualTests2_ip6.script
+data=\epoc32\data\z\testdata\scripts\DHCP\DHCPBasicInteractions1-inform_ip6.script		TestData\scripts\DHCP\DHCPBasicInteractions1-inform_ip6.script
+data=\epoc32\data\z\testdata\scripts\DHCP\DHCPConfiguration2-inform_ip6.script			TestData\scripts\DHCP\DHCPConfiguration2-inform_ip6.script
+data=\epoc32\data\z\testdata\scripts\DHCP\DHCPRenewAndRelease3-inform_ip6.script			TestData\scripts\DHCP\DHCPRenewAndRelease3-inform_ip6.script
+data=\epoc32\data\z\testdata\scripts\DHCP\DHCPDynamicInteraction4-inform_ip6.script	TestData\scripts\DHCP\DHCPDynamicInteraction4-inform_ip6.script
+#ifdef SYMBIAN_TCPIPDHCP_UPDATE
+data=\epoc32\data\z\testdata\scripts\DHCP\DHCPPREQ1898_Ipv6.script					TestData\scripts\DHCP\DHCPPREQ1898_Ipv6.script
+#endif //SYMBIAN_TCPIPDHCP_UPDATE
+
+data=\epoc32\data\z\testdata\configs\DHCP\TestDHCPv6Config1\ip.ramod.esk			        TestData\configs\DHCP\TestDHCPv6Config1\ip.ramod.esk
+data=\epoc32\data\z\testdata\configs\DHCP\TestDHCPv6Config2\ip.ramod.esk			        TestData\configs\DHCP\TestDHCPv6Config2\ip.ramod.esk
+data=\epoc32\data\z\testdata\configs\DHCP\TestDHCPv6Config3\ip.ramod.esk			        TestData\configs\DHCP\TestDHCPv6Config3\ip.ramod.esk
+
+//SIP server
+data=\epoc32\data\z\testdata\scripts\DHCP\TE_SIPServer_DHCP_hwonly_ip4.script	TestData\scripts\DHCP\TE_SIPServer_DHCP_hwonly_ip4.script
+data=\epoc32\data\z\testdata\scripts\SipServer_setup.script                     TestData\scripts\SipServer_setup.script
+data=\epoc32\data\z\testdata\scripts\TE_SIPServerTesting.script                 TestData\scripts\TE_SIPServerTesting.script
+data=\epoc32\data\z\testdata\configs\SipServer.xml                              TestData\configs\SipServer.xml
+data=\epoc32\data\z\testdata\configs\SIP_Server_simtsy_config.txt               TestData\configs\SIP_Server_simtsy_config.txt
+data=\epoc32\data\z\testdata\configs\te_sipservertesting_qospolicies.ini	TestData\configs\te_sipservertesting_qospolicies.ini
+data=\epoc32\data\z\testdata\configs\te_sipservertesting_loopback.ini		TestData\configs\te_sipservertesting_loopback.ini
+
+//##################### config files
+
+//-- ip4 specific
+#ifdef OMAP16XX
+data=\epoc32\data\z\TestData\configs\DHCP\DHCPced_ip4.xml.omapxxx	TestData\configs\DHCP\DHCPced_ip4.xml
+#else
+data=\epoc32\data\z\TestData\configs\DHCP\DHCPced_ip4.xml.lubbock   TestData\configs\DHCP\DHCPced_ip4.xml
+#endif
+
+
+//-- ip6 specific
+#ifdef OMAP16XX
+data=\epoc32\data\z\TestData\configs\DHCP\DHCPced_ip6.xml.omapxxx    TestData\configs\DHCP\DHCPced_ip6.xml
+#else
+data=\epoc32\data\z\TestData\configs\DHCP\DHCPced_ip6.xml.lubbock    TestData\configs\DHCP\DHCPced_ip6.xml
+#endif
+
+
+
+//-- common
+data=\epoc32\data\z\TestData\configs\DHCP\dhcptest.ini    		TestData\configs\DHCP\dhcptest.ini
+#ifdef SYMBIAN_NETWORKING_DHCPSERVER
+data=\epoc32\data\z\TestData\configs\DHCP\dhcpservertest.cfg    	TestData\configs\DHCP\dhcpservertest.cfg
+#endif // SYMBIAN_NETWORKING_DHCPSERVER	
+
+#ifdef SYMBIAN_NETWORKING_DHCP_MSG_HEADERS
+data=\epoc32\data\z\testdata\scripts\DHCP\DHCPPREQ1647_48_ip4.script		TestData\scripts\DHCP\DHCPPREQ1647_48_ip4.script
+#endif // SYMBIAN_NETWORKING_DHCP_MSG_HEADERS
+
+
+
+#endif
+
+#endif

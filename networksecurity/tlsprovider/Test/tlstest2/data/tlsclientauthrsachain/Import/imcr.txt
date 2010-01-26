@@ -1,0 +1,125 @@
+<action>
+	<actionname>Opening a certificate store manager</actionname>
+	<actiontype>init</actiontype>
+	<actionbody>
+		<mode>write</mode>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>Creating a CertificateAppInfoManager</actionname>
+	<actiontype>initappmanager</actiontype>
+	<actionbody></actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>Adding client TLS</actionname>
+	<actiontype>addclient</actiontype>
+	<actionbody>
+		<name>TLS2</name>
+		<uid>1073744081</uid>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>Adding client TLS</actionname>
+	<actiontype>addclient</actiontype>
+	<actionbody>
+		<name>TLS222</name>
+		<uid>1</uid>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>Adding client TLS</actionname>
+	<actiontype>addclient</actiontype>
+	<actionbody>
+		<name>Server Authentication</name>
+		<uid>268441661</uid>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>Add the root certificate for the SSL server CA</actionname>
+	<actiontype>addcert</actiontype>
+	<actionbody>
+		<format>X509</format>
+		<label>root</label>
+		<issuerkey></issuerkey>
+		<subjectkey></subjectkey>
+		<certstore>0</certstore>
+		<certfile>\tcertstore\data\root-cert.der</certfile>
+		<certowner>CA</certowner>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>Set TLS application for the certificate</actionname>
+	<actiontype>setapplications</actiontype>
+	<actionbody>
+		<label>root</label>
+		<uid>1</uid>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>Set the trust for the certificate</actionname>
+	<actiontype>settrust</actiontype>
+	<actionbody>
+		<label>root</label>
+		<trust>1</trust>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>Deleting the CertificateAppInfoManager</actionname>
+	<actiontype>deleteappmanager</actiontype>
+	<actionbody></actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>Deleting the writable certificate store manager</actionname>
+	<actiontype>delete</actiontype>
+	<actionbody></actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>Sleep 5 seconds so server exits</actionname>
+	<actiontype>sleep</actiontype>
+	<actionbody>
+          <seconds>5</seconds>
+        </actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>

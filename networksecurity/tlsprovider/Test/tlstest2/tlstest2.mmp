@@ -1,0 +1,95 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+TARGET tlstest2.exe
+CAPABILITY   All -TCB
+TARGETTYPE exe
+
+UID 0x1000007a 0x400008D1
+VENDORID 0x70000001
+
+SOURCEPATH .
+SOURCE main.cpp
+SOURCE tlstest2server.cpp
+SOURCE tlsstepbase.cpp
+SOURCE getrandomstep.cpp
+SOURCE ciphersuitesstep.cpp
+SOURCE verifyservercertstep.cpp
+SOURCE verifysignaturestep.cpp
+SOURCE clientkeyexchangestep.cpp
+SOURCE clientcertificatestep.cpp
+SOURCE clientfinishedstep.cpp
+SOURCE serverfinishedstep.cpp
+SOURCE encryptstep.cpp
+SOURCE decryptstep.cpp
+SOURCE keyderivationstep.cpp
+SOURCE psuedorandom.cpp
+SOURCE dhparamreader.cpp
+SOURCE testpadding.cpp
+SOURCE verifyCreateMethodStep.cpp
+SOURCE verifyGetSessionstep.cpp
+SOURCE verifyCancellationstep.cpp
+SOURCE TSecureConnection.cpp
+SOURCE handshakestep.cpp
+SOURCE startupcommsstep.cpp
+SOURCE cachedservcertstep.cpp
+SOURCE negativegetsessionstep.cpp
+
+SOURCE newkeyderivationstep.cpp
+SOURCE newtlsstepbase.cpp
+SOURCE multicancelstep.cpp 
+SOURCE delayedgetsessionstep.cpp
+SOURCE createnegativestep.cpp
+SOURCE servcertwithdialogstep.cpp
+SOURCE cachestepbase.cpp
+SOURCE updateentrystep.cpp
+SOURCE entrystatusstep.cpp
+SOURCE checkfilesstep.cpp
+
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+SYSTEMINCLUDE /epoc32/include
+SYSTEMINCLUDE /epoc32/include/test
+#else
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+SYSTEMINCLUDE 	/epoc32/include/platform/test
+SYSTEMINCLUDE 	/epoc32/include/platform/mw
+SYSTEMINCLUDE 	/epoc32/include/mw
+#endif
+
+USERINCLUDE ../../source/tlsprovider
+USERINCLUDE ../../inc
+
+LIBRARY euser.lib
+LIBRARY hash.lib
+LIBRARY asn1.lib
+LIBRARY asnpkcs.lib
+LIBRARY efsrv.lib
+LIBRARY tlsprovider.lib
+LIBRARY cryptography.lib
+LIBRARY crypto.lib
+
+LIBRARY x509.lib
+LIBRARY testexecuteutils.lib
+LIBRARY testexecutelogclient.lib
+LIBRARY random.lib
+LIBRARY esock.lib 
+LIBRARY securesocket.lib 
+LIBRARY insock.lib 
+LIBRARY tlscacheclient.lib
+LIBRARY c32.lib http.lib bafl.lib inetprotutil.lib estor.lib
+SMPSAFE
+

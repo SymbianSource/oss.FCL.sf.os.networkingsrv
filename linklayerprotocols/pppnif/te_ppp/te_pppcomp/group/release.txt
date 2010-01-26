@@ -1,0 +1,32 @@
+Release 002
+===========
+lionelr 22 05 2003 
+bytes related to the protocol in the decompression buffer returned by the decompressor
+are now properly decoded. Exampletaken from hdlc code.
+
+
+Release 001
+===========
+lionelr 22 05 2003 
+PPP compression and decompression test harness
+
+script file exported to epoc32/c/ts_pppcomp.script
+
+ts_pppcomp.script specifies which tests are run
+by giving a list of ini file which run compress or decompress
+
+compression type is specified in ini file after the key word [COMP]
+source file is specified in ini file after the key word [SOURCE]
+the source file is the original file in compress test case or the compressed file 
+in the decompress test case
+dest file is specified in ini file after the key word [DEST]
+the destination file is 
+- in compress case: the compressed data which will be used as a reference.
+  the result of the compression test will be compared to this file. If there is any difference
+  a file with the same name plus "." + COMPRESION TYPE appended to the name, will be created.
+  The user can then compare the 2 files.
+- in  decompress case: the original file with non compressed data. This will be
+  used as a reference and the result of the decompression will be compared to this file.
+  If there is any difference
+    a file with the same name plus ".DE" + COMPRESION TYPE appended to the name, will be created.
+  The user can then compare the 2 files.

@@ -1,0 +1,67 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+#ifndef TE_SBLP_SUITE_IBY
+#define TE_SBLP_SUITE_IBY
+
+#include <testexecute.iby>
+#include <te_esockteststepssuite.iby>
+
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\configs\te_Sblp_Mesh.cfg TestData\Configs\te_Sblp_Mesh.cfg
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\configs\te_sblpsuite_simtsy.txt TestData\Configs\te_sblpsuite_simtsy.txt
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\configs\te_Sblp_loopbackcsy.ini TestData\Configs\te_Sblp_loopbackcsy.ini
+
+#ifdef SYMBIAN_EXCLUDE_QOS_PROTPLUGINS
+REM Feature QoS is not included in this ROM
+
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\scripts\te_SblpQoSRemovedSuite.script TestData\Scripts\te_SblpQoSRemovedSuite.script
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\scripts\te_SblpCase12.script TestData\Scripts\te_SblpCase12.Script
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\configs\te_SblpCase12.ini    TestData\Configs\te_SblpCase12.ini
+
+#else
+
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\scripts\te_SblpSuite.script TestData\Scripts\te_SblpSuite.script
+
+#endif
+
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\scripts\te_SblpCase1.script TestData\Scripts\te_SblpCase1.Script
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\configs\te_SblpCase1.ini TestData\Configs\te_SblpCase1.ini
+
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\scripts\te_SblpCase2.script TestData\Scripts\te_SblpCase2.Script
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\configs\te_SblpCase2.ini TestData\Configs\te_SblpCase2.ini
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\configs\te_SblpCase2_ParamsGranted.ini TestData\Configs\te_SblpCase2_ParamsGranted.ini
+
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\scripts\te_SblpCase3.script TestData\Scripts\te_SblpCase3.Script
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\configs\te_SblpCase3.ini TestData\Configs\te_SblpCase3.ini
+
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\scripts\te_SblpCase4.script TestData\Scripts\te_SblpCase4.Script
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\configs\te_SblpCase4.ini TestData\Configs\te_SblpCase4.ini
+
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\scripts\te_SblpCase5.script TestData\Scripts\te_SblpCase5.Script
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\configs\te_SblpCase5.ini TestData\Configs\te_SblpCase5.ini
+
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\scripts\te_SblpCase6.script TestData\Scripts\te_SblpCase6.Script
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\configs\te_SblpCase6.ini TestData\Configs\te_SblpCase6.ini
+
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\scripts\te_SblpCase7.script TestData\Scripts\te_SblpCase7.Script
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\configs\te_SblpCase7.ini TestData\Configs\te_SblpCase7.ini
+
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\scripts\te_SblpCase8.script TestData\Scripts\te_SblpCase8.Script
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\configs\te_SblpCase8.ini TestData\Configs\te_SblpCase8.ini
+
+
+#endif

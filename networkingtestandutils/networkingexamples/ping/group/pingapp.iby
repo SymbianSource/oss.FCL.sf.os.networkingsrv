@@ -1,0 +1,35 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+#ifndef __PINGAPP_IBY__
+#define __PINGAPP_IBY__
+
+REM note! pingapp is pingapp.app and not ping.exe
+
+REM static dependencies
+#include <esock.iby>
+#include <insock.iby>
+
+#ifdef __UI_FRAMEWORKS_V2__
+file=ABI_DIR\DEBUG_DIR\pingapp.exe                       system\apps\pingapp\pingapp.exe
+#else
+file=ABI_DIR\DEBUG_DIR\pingapp.app                       system\apps\pingapp\pingapp.app
+#endif
+
+data=MULTI_LINGUIFY(RSC ZSYSTEM\apps\pingapp\pingapp     system\apps\pingapp\pingapp)
+
+
+#endif // __PINGAPP_IBY__

@@ -1,0 +1,64 @@
+<action>
+	<actionname>0.1, Delete keystore data file</actionname>
+	<actiontype>deletekeystoredata</actiontype>
+	<actionbody>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>0.2, Opening key store in manager mode</actionname>
+	<actiontype>init</actiontype>
+	<actionbody>
+		<mode>manager</mode>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>0.3, Add rsacert key </actionname>
+	<actiontype>importkey</actiontype>
+	<actionbody>
+	        <ImportData>rsacertkey1.txt</ImportData>
+		<keyusage>allusagesbutNR</keyusage>
+		<keysize>1024</keysize>
+		<keylabel>Tls Test RSAKey</keylabel>
+		<keyalgorithm>RSA</keyalgorithm>
+		<keyaccesstype>Extractable</keyaccesstype>
+		<passphrase>pinkcloud</passphrase>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+
+<action>
+	<actionname>0.4, Set rsacert use policy based on SID and capabilities</actionname>
+	<actiontype>setusepolicy</actiontype>
+	<actionbody>
+		<keylabel>Tls Test RSAKey</keylabel>
+		<policy>
+			<secureid>0x101f52c4</secureid>
+			<capability>ReadUserData</capability>
+		</policy>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+
+<action>
+	<actionname>0.5, Close key store</actionname>
+	<actiontype>delete</actiontype>
+	<actionbody></actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+

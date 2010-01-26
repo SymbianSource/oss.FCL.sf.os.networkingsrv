@@ -1,0 +1,70 @@
+
+/***********************************************************************************************************************/
+
+					WEEK 8 code drop
+
+/***********************************************************************************************************************/
+
+Steps to load protocol.
+
+1. build napt
+
+2. on any application do 
+
+RSocketServer sock_server;
+
+RSOcket socket;
+socket.Open(sock_server ,_L("napt"));
+
+
+/*************************************************************************************************************
+
+This drop supports specified downlink. You need to send Interface Index information for both private and global Interace. 
+**************************************************************************************************************/
+
+
+//////Steps to do it with Example.
+
+/////Open socket on that connection.i.e 
+
+RConnection con; //global
+con.Start(sock_server);  //If not started. If started attach it to existing connection
+
+RSocket sock;
+sock.Open( on conn); // Open(sock_Server, KAfInet, KSockDatagram, KProtocolInetUdp, con);
+
+Sock.Send()  //send some dummy data through this interface;
+ 
+TPckg<TInt> indexBuf(index);
+sock.GetOpt(KSoInterfaceIndex, KSolInetIp , index);//KSolInetIp
+
+
+
+//////////Similarly you can take interafce index of private interface.
+
+
+1. Open Connection on that interface.
+ 
+2. Open connection bound socket.
+
+3. Send dummy information.
+
+4. GetOpt and take interface Index.
+
+
+/************************************************************************************************************** 
+                         Now how to set these options to napt.....
+
+***************************************************************************************************************/
+
+
+socket.setopt (Downlink , private , NULL ); 
+
+////////////// socket is the socket instance that is opened on napt.
+
+//////////// downlink is the interface index of downlink interface , private one is for private Interface.
+
+
+
+
+/************************************************END***********************************************************/

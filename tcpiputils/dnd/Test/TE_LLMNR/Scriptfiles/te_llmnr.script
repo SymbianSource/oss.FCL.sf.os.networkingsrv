@@ -1,0 +1,70 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//*************************************************************************************
+//*
+//* 	Generic script file both for IPv4 and IPv6 tests
+//*		This script requires properly set up CommsDB for IPv6 or IPv4, so
+//* 	refer to the te_llmnr_ip4.script and te_llmnr_ip6.script
+//*
+//*************************************************************************************
+
+PRINT TE_LLMNR: Link Local Multicast Name Resolution test
+
+//
+LOAD_SUITE TE_LlmnrServer -SharedData
+//                                       
+
+
+//-- startup of the test environment
+START_TESTCASE          NET-LLMNR-0101
+//! @SYMTestCaseID      NET-LLMNR-0101
+RUN_TEST_STEP  	TE_LlmnrServer TestStepLLMNR_StartUp 
+END_TESTCASE            NET-LLMNR-0101
+
+
+//-- initialize LLMNR test engine. 
+//-- N.B. All other tests except for Shutdown depend on the results of this step
+START_TESTCASE          NET-LLMNR-0102
+//! @SYMTestCaseID      NET-LLMNR-0102
+RUN_TEST_STEP  	2000 	TE_LlmnrServer TestStepLLMNR_Init z:\TestData\configs\LLMNR\te_llmnr.ini LLMNR_Init
+END_TESTCASE            NET-LLMNR-0102
+
+
+//-- run test 1.1 Testing LLMNR dns queries. 
+START_TESTCASE          NET-LLMNR-0103
+//! @SYMTestCaseID      NET-LLMNR-0103
+RUN_TEST_STEP  	2000 	TE_LlmnrServer TestStepLLMNR_Queries 
+END_TESTCASE            NET-LLMNR-0103
+
+
+//-- run LL Name conflict test
+START_TESTCASE          NET-LLMNR-0104
+//! @SYMTestCaseID      NET-LLMNR-0104
+RUN_TEST_STEP  	2000 	TE_LlmnrServer TestStepLLMNR_NameConflict z:\TestData\configs\LLMNR\te_llmnr.ini NameConflictTest
+END_TESTCASE            NET-LLMNR-0104
+
+
+//-- shutdown all
+START_TESTCASE          NET-LLMNR-0105
+//! @SYMTestCaseID      NET-LLMNR-0105
+RUN_TEST_STEP  TE_LlmnrServer TestStepLLMNR_ShutDown
+END_TESTCASE            NET-LLMNR-0105
+
+
+
+
+
+

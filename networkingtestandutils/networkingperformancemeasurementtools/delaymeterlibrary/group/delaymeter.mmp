@@ -1,0 +1,60 @@
+// Copyright (c) 2008-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// Library used by top (netperfte) and bottom of stack (delaymeterplugin)
+// to record the stack delay i.e. the time taken for each packet to
+// traverse the comms stack.
+// 
+//
+
+/**
+ @file
+ @internalTechnology
+*/
+
+TARGET		delaymeter.dll
+TARGETTYPE	dll
+
+UID		0x1000008D 0x10285DAD
+
+SOURCEPATH	../src
+SOURCE		delaymeter.cpp
+
+//MACRO			_NETPERF_TRACE
+
+SYSTEMINCLUDE	../inc
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+SYSTEMINCLUDE	/epoc32/include
+#else
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+SYSTEMINCLUDE	/epoc32/include/platform
+USERINCLUDE 	../../delaymeterproto/inc
+USERINCLUDE 	../../netperftefplugin/inc
+#endif
+
+LIBRARY		euser.lib 
+LIBRARY		esock.lib
+LIBRARY		hal.lib
+LIBRARY		mbufmgr.lib
+LIBRARY		insock.lib
+LIBRARY		nodemessages.lib
+LIBRARY		netmeta.lib
+
+// Used by a plugin for the comms stack so needs at least the same capabilities as the comms process
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+
+VENDORID	0x70000001
+
+UNPAGED
+
+SMPSAFE

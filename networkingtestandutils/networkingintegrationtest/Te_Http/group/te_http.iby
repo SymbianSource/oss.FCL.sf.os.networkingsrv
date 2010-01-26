@@ -1,0 +1,31 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+#ifndef __TE_HTTP_IBY__
+#define __TE_HTTP_IBY__
+
+#include <testexecute.iby>
+
+file=ABI_DIR\DEBUG_DIR\Te_http.exe					System\libs\Te_http.exe
+
+data=EPOCROOT##epoc32\release\wins\udeb\z\TestData\Scripts\TE_http.script    	TestData\Scripts\TE_http.script 
+data=EPOCROOT##epoc32\release\wins\udeb\z\TestData\Configs\TE_http.xml  		TestData\Configs\TE_http.xml      
+data=EPOCROOT##epoc32\release\wins\udeb\z\TestData\Configs\TE_http.ini   	TestData\Configs\TE_http.ini   
+data=EPOCROOT##epoc32\release\wins\udeb\z\TestData\Configs\hosts.te_http  	TestData\Configs\hosts.te_http
+
+
+#endif

@@ -1,0 +1,240 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+run_script z:\TestData\scripts\te_esock_test_unloadesockForced.script
+ced z:\TestData\configs\Te_NaptConnection.xml
+run_script z:\TestData\scripts\te_esock_test_loadesock.script
+
+LOAD_SUITE TE_RConnectionSuite -SharedData
+
+PRINT Initialising test environment
+
+RUN_UTILS  MkDir c:\NaptTemp\
+RUN_UTILS  MakeReadWrite c:\private\101F7989\esock\tcpip.ini
+RUN_UTILS  CopyFile c:\private\101f7989\ESock\tcpip.ini c:\NaptTemp\tcpip.ini
+RUN_UTILS  CopyFile z:\TestData\Configs\NaptTcpIp.ini c:\private\101F7989\esock\tcpip.ini
+
+START_TESTCASE          NET-Napt-0101
+//! @SYMTestCaseID      NET-Napt-0101
+//! @SYMTestCaseDesc Send data over TCP Socket.
+//! @SYMPREQ Preq609
+//! @SYMTestActions Send data over TCP Socket to Echo Server running in Test Network.
+//! @SYMTestExpectedResults Receive the same data sent to Echo Server.
+//! @SYMTestPriority Critical
+//! @SYMTestStatus Implemented
+//! @SYMTestType CIT
+run_test_step 200 TE_RConnectionSuite Test950 z:\testdata\configs\te_naptconfig.ini
+END_TESTCASE            NET-Napt-0101
+
+START_TESTCASE          NET-Napt-0102
+//! @SYMTestCaseID      NET-Napt-0102
+//! @SYMTestCaseDesc Send data over UDP Socket.
+//! @SYMPREQ Preq609
+//! @SYMTestActions Send data over UDP Socket to Echo Server running in Test Network.
+//! @SYMTestExpectedResults Receive reply from the  Echo Server.
+//! @SYMTestPriority Critical
+//! @SYMTestStatus Implemented
+//! @SYMTestType CIT
+run_test_step 200 TE_RConnectionSuite Test951 z:\testdata\configs\te_naptconfig.ini
+END_TESTCASE            NET-Napt-0102
+
+START_TESTCASE          NET-Napt-0103
+//! @SYMTestCaseID      NET-Napt-0103
+//! @SYMTestCaseDesc Send data over UDP Socket.
+//! @SYMPREQ Preq609
+//! @SYMTestActions Send data over UDP Socket to invalid port in Echo Server running in Test Network.
+//! @SYMTestExpectedResults Receive ICMP error message
+//! @SYMTestPriority Critical
+//! @SYMTestStatus Implemented
+//! @SYMTestType CIT
+run_test_step 200 TE_RConnectionSuite Test952 z:\testdata\configs\te_naptconfig.ini
+END_TESTCASE            NET-Napt-0103
+
+START_TESTCASE          NET-Napt-0104
+//! @SYMTestCaseID      NET-Napt-0104
+//! @SYMTestCaseDesc Resolve a machine name.
+//! @SYMPREQ Preq609
+//! @SYMTestActions Resolve a machine name to IP address 
+//! @SYMTestExpectedResults Receive the same data sent to Echo Server over each socket.
+//! @SYMTestPriority Critical
+//! @SYMTestStatus Implemented
+//! @SYMTestType CIT
+//! run_test_step 200 TE_RConnectionSuite Test953 z:\testdata\configs\te_naptconfig.ini
+END_TESTCASE            NET-Napt-0104
+
+START_TESTCASE          NET-Napt-0105
+//! @SYMTestCaseID      NET-Napt-0105
+//! @SYMTestCaseDesc Resolve address.
+//! @SYMPREQ Preq609
+//! @SYMTestActions Get the name of a host from its address. 
+//! @SYMTestExpectedResults Receive the same data sent to Echo Server over each socket.
+//! @SYMTestPriority Critical
+//! @SYMTestStatus Implemented
+//! @SYMTestType CIT
+//! run_test_step 200 TE_RConnectionSuite Test954 z:\testdata\configs\te_naptconfig.ini
+END_TESTCASE            NET-Napt-0105
+
+START_TESTCASE          NET-Napt-0106
+//! @SYMTestCaseID      NET-Napt-0106
+//! @SYMTestCaseDesc Ping
+//! @SYMPREQ Preq609
+//! @SYMTestActions Ping a global IP address 
+//! @SYMTestExpectedResults Should be able to ping the global address.
+//! @SYMTestPriority Critical
+//! @SYMTestStatus Implemented
+//! @SYMTestType CIT
+run_test_step 200 TE_RConnectionSuite Test955 z:\testdata\configs\te_naptconfig.ini
+END_TESTCASE            NET-Napt-0106
+
+START_TESTCASE          NET-Napt-0107
+//! @SYMTestCaseID      NET-Napt-0107
+//! @SYMTestCaseDesc Open many TCP Sockets.
+//! @SYMPREQ Preq609
+//! @SYMTestActions Open many TCP Sockets and Send data to Echo Server over each socket. 
+//! @SYMTestExpectedResults Receive the same data sent to Echo Server over each socket.
+//! @SYMTestPriority Critical
+//! @SYMTestStatus Implemented
+//! @SYMTestType CIT
+run_test_step 300 TE_RConnectionSuite Test956 z:\testdata\configs\te_naptconfig.ini
+END_TESTCASE            NET-Napt-0107
+
+START_TESTCASE          NET-Napt-0108
+//! @SYMTestCaseID      NET-Napt-0108
+//! @SYMTestCaseDesc Send bulk data
+//! @SYMPREQ Preq609
+//! @SYMTestActions Open many TCP Sockets and Send bulk data to Echo Server over each socket. 
+//! @SYMTestExpectedResults Receive the same data sent to Echo Server over each socket.
+//! @SYMTestPriority Critical
+//! @SYMTestStatus Implemented
+//! @SYMTestType CIT
+run_test_step 200 TE_RConnectionSuite Test957 z:\testdata\configs\te_naptconfig.ini
+END_TESTCASE            NET-Napt-0108
+
+START_TESTCASE          NET-Napt-0109
+//! @SYMTestCaseID      NET-Napt-0109
+//! @SYMTestCaseDesc Open, Send and Close TCP Sockets in different order
+//! @SYMPREQ Preq609
+//! @SYMTestActions Open many TCP Sockets and Send packets to Echo Server over each socket.
+//                  Open, Send and Close TCP Sockets in different order. 
+//! @SYMTestExpectedResults Receive the same data sent to Echo Server over each socket.
+//! @SYMTestPriority Critical
+//! @SYMTestStatus Implemented
+//! @SYMTestType CIT
+run_test_step 200 TE_RConnectionSuite Test958 z:\testdata\configs\te_naptconfig.ini
+END_TESTCASE            NET-Napt-0109
+
+START_TESTCASE          NET-Napt-0110
+//! @SYMTestCaseID      NET-Napt-0110
+//! @SYMTestCaseDesc NAPT TCP Timer Expires 
+//! @SYMPREQ Preq609
+//! @SYMTestActions NAPT Timer Expires.
+//! @SYMTestExpectedResults The NAPT should not give any panics.The packets send after 
+//!                          suspend sockets should be send to Echo Server.
+//! @SYMTestPriority Critical
+//! @SYMTestStatus Implemented
+//! @SYMTestType CIT
+RUN_UTILS  MakeReadWrite c:\private\101F7989\esock\napt.ini
+RUN_UTILS  CopyFile c:\private\101f7989\ESock\napt.ini c:\NaptTemp\napt.ini
+RUN_UTILS  CopyFile z:\TestData\Configs\napttemp.ini c:\private\101F7989\esock\napt.ini
+run_test_step 200 TE_RConnectionSuite Test959 z:\testdata\configs\te_naptconfig.ini
+PRINT Restoring previous napt.ini file
+RUN_UTILS  MakeReadWrite c:\NaptTemp\napt.ini
+RUN_UTILS  CopyFile c:\NaptTemp\napt.ini c:\private\101F7989\esock\napt.ini
+RUN_UTILS  DeleteFile c:\NaptTemp\napt.ini
+END_TESTCASE            NET-Napt-0110
+
+START_TESTCASE          NET-Napt-0111
+//! @SYMTestCaseID      NET-Napt-0111
+//! @SYMTestCaseDesc Send Tcp packets 
+//! @SYMPREQ Preq609
+//! @SYMTestActions Open and send packets over TCP socket (Socket1) from Test App (Te_RConnectionSuite) 
+//!                 to echo server running in Test Network. Open and Send packets over another TCP socket 
+//!                 (Socket2) from TestServer1 to Echo Server.
+//! @SYMTestExpectedResults Receive the same data sent to Echo Server over each socket.
+//!                         The packets send over Socket1 should not be NAPTed and packets send over Socket2 
+//!                         should ne NAPTed.
+//! @SYMTestPriority Critical
+//! @SYMTestStatus Implemented
+//! @SYMTestType CIT
+run_test_step 200 TE_RConnectionSuite Test960 z:\testdata\configs\te_naptconfig.ini
+END_TESTCASE            NET-Napt-0111
+
+START_TESTCASE          NET-Napt-0112
+//! @SYMTestCaseID      NET-Napt-0112
+//! @SYMTestCaseDesc Ping 
+//! @SYMPREQ Preq609
+//! @SYMTestActions Ping uplink interface 
+//! @SYMTestExpectedResults Should be able to ping the Global Interface.
+//! @SYMTestPriority Critical
+//! @SYMTestStatus Implemented
+//! @SYMTestType CIT
+//!run_test_step 200 TE_RConnectionSuite Test961 z:\testdata\configs\te_naptconfig.ini
+END_TESTCASE            NET-Napt-0112
+
+START_TESTCASE          NET-Napt-0113
+//! @SYMTestCaseID      NET-Napt-0113
+//! @SYMTestCaseDesc loading napt twice
+//! @SYMPREQ Preq601
+//! @SYMTestActions     load napt from two sockets
+//! @SYMTestExpectedResults Should recieve KErrInUse
+//!                         
+//! @SYMTestPriority Critical
+//! @SYMTestStatus Implemented
+//! @SYMTestType CIT
+run_test_step 200 TE_RConnectionSuite Test967 z:\testdata\configs\te_naptconfig.ini
+END_TESTCASE            NET-Napt-0113
+
+START_TESTCASE          NET-Napt-0114
+//! @SYMTestCaseID      NET-Napt-0114
+//! @SYMTestCaseDesc ICMP time exceeded message type test
+//! @SYMPREQ Preq601
+//! @SYMTestActions     Generate ICMP time exceeded message on the NaptSocket.
+//! @SYMTestExpectedResults Should recieve the ICMP message properly
+//!                         
+//! @SYMTestPriority Critical
+//! @SYMTestStatus Implemented
+//! @SYMTestType CIT
+run_test_step 200 TE_RConnectionSuite Test962 z:\testdata\configs\te_naptconfig.ini
+END_TESTCASE            NET-Napt-0114
+
+START_TESTCASE          NET-Napt-0115
+//! @SYMTestCaseID      NET-Napt-0115
+//! @SYMTestCaseDesc Send data over TCP Socket, with reduced NAPT TCP timeout.
+//! @SYMPREQ Preq609
+//! @SYMTestActions Send data over TCP Socket to Echo Server running in Test Network.
+//! @SYMTestExpectedResults Connection timeout.
+//! @SYMTestPriority Critical
+//! @SYMTestStatus Implemented
+//! @SYMTestType CIT
+
+RUN_UTILS  MakeReadWrite c:\private\101F7989\esock\napt.ini
+RUN_UTILS  CopyFile c:\private\101F7989\esock\napt.ini c:\NaptTemp\napt.ini
+RUN_UTILS  CopyFile z:\testdata\configs\napttemp.ini c:\private\101F7989\esock\napt.ini
+
+run_test_step 200 TE_RConnectionSuite Test968 z:\testdata\configs\te_naptconfig.ini
+
+RUN_UTILS  CopyFile c:\NaptTemp\napt.ini c:\private\101F7989\esock\napt.ini
+RUN_UTILS  DeleteFile c:\NaptTemp\napt.ini
+
+PRINT Restoring previous tcpip.ini file
+RUN_UTILS  MakeReadWrite c:\NaptTemp\tcpip.ini
+RUN_UTILS  CopyFile c:\NaptTemp\tcpip.ini c:\private\101F7989\esock\tcpip.ini
+RUN_UTILS  DeleteFile c:\NaptTemp\tcpip.ini
+RUN_SCRIPT Z:\TestData\Scripts\te_esock_test_stopallinterfaces.script
+run_script z:\TestData\scripts\te_esock_test_unloadesockForced.script
+//run_utils DeleteFile c:\rconnectiontest.ini
+END_TESTCASE            NET-Napt-0115
+

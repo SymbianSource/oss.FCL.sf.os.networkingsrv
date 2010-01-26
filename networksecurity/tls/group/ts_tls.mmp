@@ -1,0 +1,70 @@
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// using relative paths for sourcepath and user includes
+// 
+//
+
+TARGET        ts_tls.dll
+TARGETTYPE    dll
+UID           0x1000008d 0x101F52C4
+VENDORID 0x70000001
+
+SOURCEPATH	../ts_tls
+
+SOURCE		COMINIT.CPP
+SOURCE		TeststepTls.cpp
+SOURCE		TestsuiteTls.cpp
+SOURCE		TlsTestStep1.cpp
+SOURCE		TlsOomTestStep.cpp
+SOURCE		TlsTestSection2.cpp
+SOURCE		TlsTestSection3.cpp
+SOURCE		T_HTTPOB.CPP
+SOURCE		t_oomClientTest.cpp
+SOURCE		T_TLS_cntrl.cpp
+SOURCE		T_TLS_test.cpp
+SOURCE		T_TLS_PSK_Test.cpp
+
+USERINCLUDE	../ts_tls
+USERINCLUDE	../protocol
+USERINCLUDE 	../inc
+
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+SYSTEMINCLUDE	/epoc32/include/networking
+SYSTEMINCLUDE	/epoc32/include
+SYSTEMINCLUDE 	/epoc32/include/comms-infras
+SYSTEMINCLUDE 	/epoc32/include/test
+#else
+SYSTEMINCLUDE	/epoc32/include/platform/networking
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+SYSTEMINCLUDE 	/epoc32/include/platform/comms-infras
+SYSTEMINCLUDE 	/epoc32/include/platform/test
+#endif
+
+LIBRARY		euser.lib 
+LIBRARY		commsdat.lib
+LIBRARY		integrationtestutils.lib
+LIBRARY		esock.lib 
+LIBRARY		insock.lib 
+LIBRARY		c32root.lib 
+LIBRARY		securesocket.lib
+LIBRARY		crypto.lib
+LIBRARY		ssl.lib
+LIBRARY		testexecuteutils.lib
+LIBRARY		bafl.lib
+LIBRARY		cinidata.lib 
+
+CAPABILITY ALL -Tcb
+
+
+SMPSAFE

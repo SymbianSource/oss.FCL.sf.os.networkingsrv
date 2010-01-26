@@ -1,0 +1,41 @@
+@ECHO OFF
+
+if "%1"=="" set remdir=REM::C:
+
+if not exist %remdir%\System md %remdir%\System
+if not exist %remdir%\System\Libs md %remdir%\System\Libs
+if not exist %remdir%\System\Programs md %remdir%\System\Programs
+if not exist %remdir%\System\Data md %remdir%\System\Data
+
+copy \Epoc32\Release\Marm\Rel\tcpip.prt %remdir%\System\Libs
+copy \Epoc32\Release\Marm\Rel\insock.dll %remdir%\System\Libs
+copy \Epoc32\Release\Marm\Rel\nifman.dll %remdir%\System\Libs
+copy \Epoc32\Release\Marm\Rel\ppp.nif %remdir%\System\Libs
+rem copy \Epoc32\Release\Marm\Rel\slip.nif %remdir%\System\Libs
+copy \Epoc32\Release\Marm\Rel\ntras.agt %remdir%\System\Libs
+
+copy \Epoc32\Release\Marm\Rel\t_inet.exe %remdir%\System\Programs
+copy \Epoc32\Release\Marm\Rel\eshell.exe %remdir%\System\Programs
+rem copy \Epoc32\Release\Marm\Rel\stest.exe %remdir%\System\Programs
+copy \Epoc32\Release\Marm\Rel\tnifman.exe %remdir%\System\Programs
+copy \Epoc32\Release\Marm\Rel\t_dns.exe %remdir%\System\Programs
+copy \Epoc32\Release\Marm\Rel\t_shut.exe %remdir%\System\Programs
+
+copy \epoc32\release\Marm\Rel\pingeng.dll %remdir%\System\Libs
+copy \epoc32\release\Marm\Rel\ping.exe %remdir%\System\Programs
+copy \epoc32\release\Marm\Rel\treng.dll %remdir%\System\Libs
+copy \epoc32\release\Marm\Rel\tracert.exe %remdir%\System\Programs
+copy \epoc32\release\Marm\Rel\tftpeng.dll %remdir%\System\Libs
+copy \epoc32\release\Marm\Rel\tftp.exe %remdir%\System\Programs
+copy \epoc32\release\Marm\Rel\ipconfig.exe %remdir%\System\Programs
+copy \epoc32\release\Marm\Rel\route.exe %remdir%\System\Programs
+
+rem copy \Tcpip\Data\Escomp.ini %remdir%\System\Data\Esock.ini
+rem copy \Tcpip\Data\Ppp.ini %remdir%\System\Data
+rem copy \Tcpip\Data\Tcpip.ini %remdir%\System\Data
+rem copy \Tcpip\Data\Ras.ini %remdir%\System\Data
+copy \Tcpip\Data\hosts %remdir%\System\Data
+
+quit
+
+set remdir=

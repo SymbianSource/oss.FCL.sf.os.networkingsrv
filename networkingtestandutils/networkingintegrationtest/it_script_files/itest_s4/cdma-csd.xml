@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+ All rights reserved.
+ This component and the accompanying materials are made available
+ under the terms of the License "Symbian Foundation License v1.0"
+ which accompanies this distribution, and is available
+ at the URL "http://www.symbianfoundation.org/legal/sfl-v10.html".
+
+ Initial Contributors:
+ Nokia Corporation - initial contribution.
+
+ Contributors:
+
+ Description:
+ CommDB Settings File
+ All Rights Reserved
+
+-->
+
+
+
+<CommDB:Config xmlns="SymbianOS.Generic.Comms-Infras.CommDB"
+               xmlns:CommDB="SymbianOS.Generic.Comms-Infras.CommDB"
+               xmlns:xlink="http://www.w3.org/1999/xlink"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="SymbianOS.Generic.Comms-Infras.CommDB CommDB.xsd">
+
+<InformationTable>
+</InformationTable>
+
+<NetworkTable>
+</NetworkTable>
+
+<IAPTable>
+    <IAP operation="add">
+        <Name>NT RAS</Name>
+        <IAPService>DialOutISP.Default Dial Out ISP</IAPService>
+    </IAP>
+</IAPTable>
+
+<ModemBearerTable>
+</ModemBearerTable>
+
+<LANBearerTable>
+</LANBearerTable>
+
+<LANServiceTable>
+    <LANService operation="add">
+        <Name>Ethernet</Name>
+        <IfNetworks>ip,ip6</IfNetworks>
+        <IpNetMask>255.255.255.0</IpNetMask>
+        <IpGateway>194.72.6.1</IpGateway>
+        <IpAddr>192.168.0.100</IpAddr>
+        <IpAddrFromServer>TRUE</IpAddrFromServer>
+        <IpDNSAddrFromServer>FALSE</IpDNSAddrFromServer>
+        <IpNameServer1>194.72.6.51</IpNameServer1>
+        <IpNameServer2>194.72.6.52</IpNameServer2>
+    </LANService>
+</LANServiceTable>
+
+<DialInISPTable>
+    <DialInISP operation="add">
+        <Name>Default Dial In ISP</Name>
+        <UseLoginScript>FALSE</UseLoginScript>
+        <IpAddrFromServer>TRUE</IpAddrFromServer>
+        <IpDNSAddrFromServer>TRUE</IpDNSAddrFromServer>
+        <EnableIPHeaderComp>FALSE</EnableIPHeaderComp>
+        <EnableLCPExtension>FALSE</EnableLCPExtension>
+        <DisablePlainTextAuth>FALSE</DisablePlainTextAuth>
+        <EnableSWComp>FALSE</EnableSWComp>
+    </DialInISP>
+    <DialInISP operation="add">
+        <Name>Dial In CS ISP</Name>
+        <UseLoginScript>FALSE</UseLoginScript>
+        <IpAddrFromServer>TRUE</IpAddrFromServer>
+        <IpDNSAddrFromServer>TRUE</IpDNSAddrFromServer>
+        <EnableIPHeaderComp>FALSE</EnableIPHeaderComp>
+        <EnableLCPExtension>FALSE</EnableLCPExtension>
+        <DisablePlainTextAuth>FALSE</DisablePlainTextAuth>
+        <EnableSWComp>FALSE</EnableSWComp>
+    </DialInISP>
+</DialInISPTable>
+
+<DialOutISPTable>
+    <DialOutISP operation="add">
+        <Name>Default Dial Out ISP</Name>
+        <DialResolution>FALSE</DialResolution>
+        <UseLoginScript>FALSE</UseLoginScript>
+        <PromptForLogin>TRUE</PromptForLogin>
+        <IfPromptForAuth>TRUE</IfPromptForAuth>
+        <IpAddrFromServer>TRUE</IpAddrFromServer>
+        <IpDNSAddrFromServer>TRUE</IpDNSAddrFromServer>
+        <DefaultTelNum>0</DefaultTelNum>
+        <DisplayPCT>FALSE</DisplayPCT>
+        <IfNetworks>ip,ip6</IfNetworks>
+        <AuthRetries>0</AuthRetries>
+        <IfCallbackEnabled>FALSE</IfCallbackEnabled>
+        <CallbackTimeout>0</CallbackTimeout>
+        <EnableIPHeaderComp>FALSE</EnableIPHeaderComp>
+        <EnableLCPExtension>FALSE</EnableLCPExtension>
+        <DisablePlainTextAuth>FALSE</DisablePlainTextAuth>
+        <EnableSWComp>FALSE</EnableSWComp>
+        <BearerService>0</BearerService>
+        <BearerName>ASYNCHRONOUS</BearerName>
+        <BearerSpeed>UNSPECIFIED</BearerSpeed>
+        <BearerCE>UNSPECIFIED</BearerCE>
+        <BearerType>CSD</BearerType>
+        <ChannelCoding>48</ChannelCoding>
+        <AIUR>9600</AIUR>
+        <RequestedTimeSlots>0</RequestedTimeSlots>
+        <MaximumTimeSlots>0</MaximumTimeSlots>
+        <BearerProtocol>0</BearerProtocol>
+        <RlpVersion>0</RlpVersion>
+        <IwfToMs>0</IwfToMs>
+        <MsToIwf>0</MsToIwf>
+        <AckTimer>0</AckTimer>
+        <RetransmissionAttempts>0</RetransmissionAttempts>
+        <ResequencePeriod>0</ResequencePeriod>
+        <V42Compression>0</V42Compression>
+        <V42Codewords>0</V42Codewords>
+        <V42MaxLength>0</V42MaxLength>
+        <Asymmetry>0</Asymmetry>
+        <UserInitUpgrade>FALSE</UserInitUpgrade>
+    </DialOutISP>
+    <DialOutISP operation="add">
+        <Name>NT RAS</Name>
+        <DialResolution>TRUE</DialResolution>
+        <UseLoginScript>FALSE</UseLoginScript>
+        <PromptForLogin>FALSE</PromptForLogin>
+        <IfPromptForAuth>FALSE</IfPromptForAuth>
+        <IpAddrFromServer>TRUE</IpAddrFromServer>
+        <IpDNSAddrFromServer>TRUE</IpDNSAddrFromServer>
+        <Type>INTERNETONLY</Type>
+        <DefaultTelNum>0</DefaultTelNum>
+        <LoginScript>CHARMAP \[windows-1252\]\nLOOP 10\n{\nSEND &quot;CLIENT&quot;+&lt;0x0d&gt;\nWAIT 3\n{\n&quot;SERVER&quot; OK\n}\n}\nEXIT KErrNoAnswer$\n\nOK:\nEXIT\n</LoginScript>
+        <DisplayPCT>FALSE</DisplayPCT>
+        <IfNetworks>ip,ip6</IfNetworks>
+        <IfAuthName>RasUser</IfAuthName>
+        <IfAuthPass>pass</IfAuthPass>
+        <AuthRetries>0</AuthRetries>
+        <IfCallbackEnabled>FALSE</IfCallbackEnabled>
+        <CallbackTimeout>0</CallbackTimeout>
+        <EnableIPHeaderComp>FALSE</EnableIPHeaderComp>
+        <EnableLCPExtension>FALSE</EnableLCPExtension>
+        <DisablePlainTextAuth>FALSE</DisablePlainTextAuth>
+        <EnableSWComp>FALSE</EnableSWComp>
+        <BearerService>0</BearerService>
+        <BearerName>ASYNCHRONOUS</BearerName>
+        <BearerSpeed>UNSPECIFIED</BearerSpeed>
+        <BearerCE>UNSPECIFIED</BearerCE>
+        <BearerType>CSD</BearerType>
+        <ChannelCoding>48</ChannelCoding>
+        <AIUR>9600</AIUR>
+        <RequestedTimeSlots>0</RequestedTimeSlots>
+        <MaximumTimeSlots>0</MaximumTimeSlots>
+        <BearerProtocol>0</BearerProtocol>
+        <RlpVersion>0</RlpVersion>
+        <IwfToMs>0</IwfToMs>
+        <MsToIwf>0</MsToIwf>
+        <AckTimer>0</AckTimer>
+        <RetransmissionAttempts>0</RetransmissionAttempts>
+        <ResequencePeriod>0</ResequencePeriod>
+        <V42Compression>0</V42Compression>
+        <V42Codewords>0</V42Codewords>
+        <V42MaxLength>0</V42MaxLength>
+        <Asymmetry>0</Asymmetry>
+        <UserInitUpgrade>FALSE</UserInitUpgrade>
+    </DialOutISP>
+</DialOutISPTable>
+
+<AgentLookupTable>
+</AgentLookupTable>
+
+<CDMA2000PacketServiceTable>
+    <CDMA2000PacketService operation="add">
+        <Name>New Record</Name>
+        <IwfName>New Record</IwfName>
+        <ServiceOption>LOWSPEEDDATA</ServiceOption>
+        <PdpType>IPV4</PdpType>
+        <DataCompression>TRUE</DataCompression>
+        <HeaderCompression>TRUE</HeaderCompression>
+        <AnonymousAccess>TRUE</AnonymousAccess>
+        <AuthRetries>0</AuthRetries>
+        <EnableLCPExtension>TRUE</EnableLCPExtension>
+        <DisablePlainTextAuth>TRUE</DisablePlainTextAuth>
+        <ApType>0</ApType>
+        <QosWarningTimeout>10</QosWarningTimeout>
+        <IfPromptForAuth>TRUE</IfPromptForAuth>
+        <IpAddrFromServer>TRUE</IpAddrFromServer>
+        <IpDNSAddrFromServer>TRUE</IpDNSAddrFromServer>
+        <RlpMode>UNKNOWN</RlpMode>
+        <CDMAMobileIP>FALSE</CDMAMobileIP>
+        <CDMAMobileIPTimeout>10000000</CDMAMobileIPTimeout>
+    </CDMA2000PacketService>
+</CDMA2000PacketServiceTable>
+
+<DefaultCDMA2000Table>
+</DefaultCDMA2000Table>
+
+<ChargecardTable>
+    <Chargecard operation="add">
+        <Name>Dummy BT Chargecard</Name>
+        <AccountNumber>144,12345678</AccountNumber>
+        <Pin>0000</Pin>
+        <LocalRule>HG</LocalRule>
+        <NatRule>HFG</NatRule>
+        <IntlRule>HEFG</IntlRule>
+    </Chargecard>
+    <Chargecard operation="add">
+        <Name>Dummy Mercury Chargecard</Name>
+        <AccountNumber>0500800800,,12345678</AccountNumber>
+        <Pin>****</Pin>
+        <LocalRule>HG</LocalRule>
+        <NatRule>J,K,0FG</NatRule>
+        <IntlRule>HEFG</IntlRule>
+    </Chargecard>
+</ChargecardTable>
+
+<ConnectionPreferencesTable>
+    <ConnectionPreferences operation="add">
+        <Name>ConnectionPreferencesTable1</Name>
+        <Ranking>1</Ranking>
+        <Direction>OUTGOING</Direction>
+        <DialogPref>DONOTPROMPT</DialogPref>
+        <BearerSet>CSD</BearerSet>
+        <IAPRef>IAP.NT RAS</IAPRef>
+    </ConnectionPreferences>
+</ConnectionPreferencesTable>
+
+<GlobalSettingsTable>
+    <GlobalSettings operation="add">
+        <Name>GlobalSettingsTable1</Name>
+        <RedialAttempts>3</RedialAttempts>
+        <SmsBearer>2</SmsBearer>
+        <SmsReceiveMode>2</SmsReceiveMode>
+        <GPRSAttachMode>1</GPRSAttachMode>
+        <AcceptIncomingGprs>1</AcceptIncomingGprs>
+        <ConnectionAttempts>2</ConnectionAttempts>
+        <ModemForDataAndFax>1</ModemForDataAndFax>
+        <ModemForPhoneServicesAndSMS>1</ModemForPhoneServicesAndSMS>
+        <LocationForDataAndFax>Location.Default Location</LocationForDataAndFax>
+        <LocationForPhoneServicesAndSMS>Location.Mobile</LocationForPhoneServicesAndSMS>
+        <GPRSClassCBearer>GSM</GPRSClassCBearer>
+    </GlobalSettings>
+</GlobalSettingsTable>
+
+<IncomingGPRSTable>
+    <IncomingGPRS operation="add">
+        <Name>Dummy Incoming GPRS Settings</Name>
+        <APN>Test</APN>
+        <PDPType>IPV4</PDPType>
+        <PDPAddress>0.0.0.0</PDPAddress>
+        <IfPromptForAuth>FALSE</IfPromptForAuth>
+        <IpAddrFromServer>TRUE</IpAddrFromServer>
+        <IpDNSAddrFromServer>TRUE</IpDNSAddrFromServer>
+        <ReqPrecedence>1</ReqPrecedence>
+        <ReqDelay>1</ReqDelay>
+        <ReqReliability>1</ReqReliability>
+        <ReqPeakThroughput>1</ReqPeakThroughput>
+        <ReqMeanThroughput>1</ReqMeanThroughput>
+        <MinPrecedence>1</MinPrecedence>
+        <MinDelay>1</MinDelay>
+        <MinReliability>1</MinReliability>
+        <MinPeakThroughput>1</MinPeakThroughput>
+        <MinMeanThroughput>1</MinMeanThroughput>
+        <DataCompression>FALSE</DataCompression>
+        <HeaderCompression>FALSE</HeaderCompression>
+        <AnonymousAccess>FALSE</AnonymousAccess>
+        <IfNetworks>ip</IfNetworks>
+        <IfAuthName>RasUser</IfAuthName>
+        <IfAuthPass>pass</IfAuthPass>
+        <AuthRetries>1</AuthRetries>
+        <IpNameServer1>0.0.0.0</IpNameServer1>
+        <IpNameServer2>0.0.0.0</IpNameServer2>
+        <EnableLCPExtension>FALSE</EnableLCPExtension>
+        <DisablePlainTextAuth>FALSE</DisablePlainTextAuth>
+    </IncomingGPRS>
+</IncomingGPRSTable>
+
+<OutgoingGPRSTable>
+    <OutgoingGPRS operation="add">
+        <Name>NTRas GPRS</Name>
+        <APN>Test</APN>
+        <PDPType>IPV4</PDPType>
+        <IfPromptForAuth>FALSE</IfPromptForAuth>
+        <IpAddrFromServer>TRUE</IpAddrFromServer>
+        <IpDNSAddrFromServer>FALSE</IpDNSAddrFromServer>
+        <ReqPrecedence>2</ReqPrecedence>
+        <ReqDelay>4</ReqDelay>
+        <ReqReliability>3</ReqReliability>
+        <ReqPeakThroughput>3</ReqPeakThroughput>
+        <ReqMeanThroughput>31</ReqMeanThroughput>
+        <MinPrecedence>2</MinPrecedence>
+        <MinDelay>4</MinDelay>
+        <MinReliability>3</MinReliability>
+        <MinPeakThroughput>3</MinPeakThroughput>
+        <MinMeanThroughput>31</MinMeanThroughput>
+        <DataCompression>FALSE</DataCompression>
+        <HeaderCompression>FALSE</HeaderCompression>
+        <AnonymousAccess>FALSE</AnonymousAccess>
+        <IfNetworks>ip</IfNetworks>
+        <IfAuthName>RasUser</IfAuthName>
+        <IfAuthPass>pass</IfAuthPass>
+        <AuthRetries>1</AuthRetries>
+        <IpNameServer1>194.72.6.51</IpNameServer1>
+        <IpNameServer2>194.72.6.51</IpNameServer2>
+        <EnableLCPExtension>FALSE</EnableLCPExtension>
+        <DisablePlainTextAuth>FALSE</DisablePlainTextAuth>
+    </OutgoingGPRS>
+</OutgoingGPRSTable>
+
+<DefaultGPRSTable>
+    <DefaultGPRS operation="add">
+        <Name>Dummy Default GPRS Settings</Name>
+        <APN>Access point name</APN>
+        <PDPType>IPV6</PDPType>
+        <PDPAddress>www.wid.com</PDPAddress>
+        <Usage>1</Usage>
+        <Precedence>1</Precedence>
+        <Delay>1</Delay>
+        <Reliability>1</Reliability>
+        <PeakThroughput>1</PeakThroughput>
+        <MeanThroughput>1</MeanThroughput>
+        <MinPrecedence>1</MinPrecedence>
+        <MinDelay>1</MinDelay>
+        <MinReliability>1</MinReliability>
+        <MinPeakThroughput>1</MinPeakThroughput>
+        <MinMeanThroughput>1</MinMeanThroughput>
+        <DataCompression>TRUE</DataCompression>
+        <HeaderCompression>TRUE</HeaderCompression>
+        <AnonymousAccess>TRUE</AnonymousAccess>
+    </DefaultGPRS>
+</DefaultGPRSTable>
+
+<ProxyTable>
+    <Proxy operation="add">
+        <Name>ProxyTable1</Name>
+        <ISPRef>DialOutISP.NT RAS</ISPRef>
+        <UseProxyServer>TRUE</UseProxyServer>
+        <ProtocolName>http</ProtocolName>
+        <ProxyServerName>www.dummyproxy.com</ProxyServerName>
+        <PortNumber>80</PortNumber>
+        <Exceptions>www.dummyproxy.com/exception</Exceptions>
+    </Proxy>
+</ProxyTable>
+
+<LocationTable>
+    <Location operation="add">
+        <Name>Default Location</Name>
+        <Mobile>TRUE</Mobile>
+        <UsePulseDial>FALSE</UsePulseDial>
+        <WaitForDialTone>FALSE</WaitForDialTone>
+        <PauseAfterDialout>0</PauseAfterDialout>
+        <IntlPrefixCode>+</IntlPrefixCode>
+        <NatPrefixCode>0</NatPrefixCode>
+        <NatCode>44</NatCode>
+    </Location>
+    <Location operation="add">
+        <Name>Office</Name>
+        <Mobile>FALSE</Mobile>
+        <UsePulseDial>FALSE</UsePulseDial>
+        <WaitForDialTone>FALSE</WaitForDialTone>
+        <PauseAfterDialout>0</PauseAfterDialout>
+        <IntlPrefixCode>00</IntlPrefixCode>
+        <NatPrefixCode>0</NatPrefixCode>
+        <NatCode>44</NatCode>
+        <AreaCode>171</AreaCode>
+        <DialOutCode>9,</DialOutCode>
+    </Location>
+    <Location operation="add">
+        <Name>Office Direct Dial</Name>
+        <Mobile>FALSE</Mobile>
+        <UsePulseDial>FALSE</UsePulseDial>
+        <WaitForDialTone>FALSE</WaitForDialTone>
+        <PauseAfterDialout>0</PauseAfterDialout>
+        <IntlPrefixCode>00</IntlPrefixCode>
+        <NatPrefixCode>0</NatPrefixCode>
+        <NatCode>44</NatCode>
+        <AreaCode>171</AreaCode>
+    </Location>
+    <Location operation="add">
+        <Name>Mobile</Name>
+        <Mobile>TRUE</Mobile>
+        <UsePulseDial>FALSE</UsePulseDial>
+        <WaitForDialTone>FALSE</WaitForDialTone>
+        <PauseAfterDialout>0</PauseAfterDialout>
+        <IntlPrefixCode>+</IntlPrefixCode>
+        <NatPrefixCode>0</NatPrefixCode>
+        <NatCode>44</NatCode>
+    </Location>
+    <Location operation="add">
+        <Name>Home</Name>
+        <Mobile>FALSE</Mobile>
+        <UsePulseDial>TRUE</UsePulseDial>
+        <WaitForDialTone>TRUE</WaitForDialTone>
+        <PauseAfterDialout>0</PauseAfterDialout>
+        <IntlPrefixCode>00</IntlPrefixCode>
+        <NatPrefixCode>0</NatPrefixCode>
+        <NatCode>44</NatCode>
+        <AreaCode>181</AreaCode>
+    </Location>
+</LocationTable>
+
+<SecureSocketTable>
+    <SecureSocket operation="add">
+        <Name>SecureSocketTable1</Name>
+        <ProtocolName>ssl3.0</ProtocolName>
+        <ProtoLibrary>ssladaptor.dll</ProtoLibrary>
+    </SecureSocket>
+    <SecureSocket operation="add">
+        <Name>SecureSocketTable2</Name>
+        <ProtocolName>tls1.0</ProtocolName>
+        <ProtoLibrary>ssladaptor.dll</ProtoLibrary>
+    </SecureSocket>
+</SecureSocketTable>
+
+<BTDeviceTable>
+</BTDeviceTable>
+
+<BTPersistTable>
+</BTPersistTable>
+
+<BTSecurityTable>
+</BTSecurityTable>
+
+<BTDefaultTable>
+</BTDefaultTable>
+
+<WAPAccessPointTable>
+    <WAPAccessPoint operation="add">
+        <Name>Default Dial In ISP</Name>
+        <CurrentBearer>WAPIPBearer</CurrentBearer>
+    </WAPAccessPoint>
+    <WAPAccessPoint operation="add">
+        <Name>Dummy WAP Settings</Name>
+        <CurrentBearer>WAPIPBearer</CurrentBearer>
+        <StartPage>www.wapstart.com</StartPage>
+    </WAPAccessPoint>
+</WAPAccessPointTable>
+
+<WAPIPBearerTable>
+    <WAPIPBearer operation="template">
+        <Name>WAPIPBearerTable1</Name>
+        <AccessPoint>WAPAccessPoint.-1</AccessPoint>
+        <WSPOption>CONNECTIONLESS</WSPOption>
+        <Security>FALSE</Security>
+        <IAPRef>IAP.-1</IAPRef>
+        <ProxyPortNumber>0</ProxyPortNumber>
+    </WAPIPBearer>
+    <WAPIPBearer operation="add">
+        <Name>WAPIPBearerTable2</Name>
+        <AccessPoint>WAPAccessPoint.Dummy WAP Settings</AccessPoint>
+        <GatewayAddress>www.wapgateway.com</GatewayAddress>
+        <WSPOption>CONNECTIONORIENTED</WSPOption>
+        <Security>FALSE</Security>
+        <IAPRef>IAP.NT RAS</IAPRef>
+        <ProxyPortNumber>1</ProxyPortNumber>
+    </WAPIPBearer>
+</WAPIPBearerTable>
+
+<WAPSMSBearerTable>
+    <WAPSMSBearer operation="template">
+        <Name>WAPSMSBearerTable1</Name>
+        <AccessPoint>WAPAccessPoint.-1</AccessPoint>
+        <WSPOption>CONNECTIONLESS</WSPOption>
+        <Security>FALSE</Security>
+    </WAPSMSBearer>
+    <WAPSMSBearer operation="add">
+        <Name>WAPSMSBearerTable2</Name>
+        <AccessPoint>WAPAccessPoint.Dummy WAP Settings</AccessPoint>
+        <GatewayAddress>+4412345678901</GatewayAddress>
+        <WSPOption>CONNECTIONORIENTED</WSPOption>
+        <Security>FALSE</Security>
+        <ServiceCentreAddress>+442071234567</ServiceCentreAddress>
+    </WAPSMSBearer>
+</WAPSMSBearerTable>
+
+<VirtualBearerTable>
+</VirtualBearerTable>
+
+<VpnServiceTable>
+</VpnServiceTable>
+
+
+</CommDB:Config>

@@ -1,0 +1,37 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+#ifndef __TH_TESTNIFPPP_IBY__
+#define __TH_TESTNIFPPP_IBY__
+
+REM Comms Framework FLogger extension
+#include <commsdebugutility.iby>
+
+#include <ppp.iby>
+
+// tppp requires t_esock and t_nifman
+#include <tunittest.iby>
+
+// T_PPP
+file=ABI_DIR\DEBUG_DIR\t_ntras.dll         System\Libs\t_ntras.dll
+file=ABI_DIR\DEBUG_DIR\tppp.nif            System\Libs\tppp.nif
+file=ABI_DIR\DEBUG_DIR\umtsif.dll           System\Libs\umtsif.dll
+file=ABI_DIR\DEBUG_DIR\TH_TestNifPPP.exe           Test\TH_TestNifPPP.exe
+
+// Testnif
+data=EPOCROOT##epoc32\data\z\pdpconfig.txt            	Testdata\configs\pdpconfig.txt
+
+#endif // __TH_TESTNIFPPP_IBY__

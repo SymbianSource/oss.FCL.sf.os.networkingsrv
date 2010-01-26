@@ -1,0 +1,112 @@
+EXPORTS
+	??0CExtensionBase@@QAE@XZ @ 1 NONAME ; CExtensionBase::CExtensionBase(void)
+	??0CQoSAdaptEvent@@QAE@AAVCQoSParameters@@H@Z @ 2 NONAME ; CQoSAdaptEvent::CQoSAdaptEvent(class CQoSParameters &, int)
+	??0CQoSAddEvent@@QAE@PAVCQoSParameters@@H@Z @ 3 NONAME ; CQoSAddEvent::CQoSAddEvent(class CQoSParameters *, int)
+	??0CQoSChannelEvent@@QAE@PAVCQoSParameters@@H@Z @ 4 NONAME ; CQoSChannelEvent::CQoSChannelEvent(class CQoSParameters *, int)
+	??0CQoSConfirmEvent@@QAE@AAVCQoSParameters@@@Z @ 5 NONAME ; CQoSConfirmEvent::CQoSConfirmEvent(class CQoSParameters &)
+	??0CQoSDeleteEvent@@QAE@H@Z @ 6 NONAME ; CQoSDeleteEvent::CQoSDeleteEvent(int)
+	??0CQoSEventBase@@QAE@H@Z @ 7 NONAME ; CQoSEventBase::CQoSEventBase(int)
+	??0CQoSFailureEvent@@QAE@AAVCQoSParameters@@H@Z @ 8 NONAME ; CQoSFailureEvent::CQoSFailureEvent(class CQoSParameters &, int)
+	??0CQoSGetEvent@@QAE@PAVCQoSParameters@@H@Z @ 9 NONAME ; CQoSGetEvent::CQoSGetEvent(class CQoSParameters *, int)
+	??0CQoSJoinEvent@@QAE@ABVTQoSSelector@@H@Z @ 10 NONAME ; CQoSJoinEvent::CQoSJoinEvent(class TQoSSelector const &, int)
+	??0CQoSLeaveEvent@@QAE@ABVTQoSSelector@@H@Z @ 11 NONAME ; CQoSLeaveEvent::CQoSLeaveEvent(class TQoSSelector const &, int)
+	??0CQoSLoadEvent@@QAE@ABW4TQoSEvent@@HABVTDesC16@@@Z @ 12 NONAME ; CQoSLoadEvent::CQoSLoadEvent(enum TQoSEvent const &, int, class TDesC16 const &)
+	??0CQoSParameters@@QAE@XZ @ 13 NONAME ; CQoSParameters::CQoSParameters(void)
+	??0RQoSPolicy@@QAE@XZ @ 14 NONAME ; RQoSPolicy::RQoSPolicy(void)
+	??0TQoSSelector@@QAE@XZ @ 15 NONAME ; TQoSSelector::TQoSSelector(void)
+	??1CExtensionBase@@UAE@XZ @ 16 NONAME ; CExtensionBase::~CExtensionBase(void)
+	??1CQoSParameters@@UAE@XZ @ 17 NONAME ; CQoSParameters::~CQoSParameters(void)
+	??1RQoSPolicy@@QAE@XZ @ 18 NONAME ; RQoSPolicy::~RQoSPolicy(void)
+	??8TQoSSelector@@QBEHABV0@@Z @ 19 NONAME ; int TQoSSelector::operator==(class TQoSSelector const &) const
+	?AdaptMode@CQoSParameters@@QBEHXZ @ 20 NONAME ; int CQoSParameters::AdaptMode(void) const
+	?AdaptationPriority@CQoSParameters@@QBEEXZ @ 21 NONAME ABSENT ; unsigned char CQoSParameters::AdaptationPriority(void) const
+	?AddExtensionL@CQoSParameters@@QAEHAAVCExtensionBase@@@Z @ 22 NONAME ; int CQoSParameters::AddExtensionL(class CExtensionBase &)
+	?CancelNotifyEvent@RQoSPolicy@@QAEHAAVMQoSObserver@@@Z @ 23 NONAME ; int RQoSPolicy::CancelNotifyEvent(class MQoSObserver &)
+	?Close@RQoSPolicy@@QAEHXZ @ 24 NONAME ; int RQoSPolicy::Close(void)
+	?CopyL@CQoSParameters@@QAEXAAV1@@Z @ 25 NONAME ; void CQoSParameters::CopyL(class CQoSParameters &)
+	?GetDownLinkDelay@CQoSParameters@@QBEHXZ @ 26 NONAME ; int CQoSParameters::GetDownLinkDelay(void) const
+	?GetUpLinkDelay@CQoSParameters@@QBEHXZ @ 27 NONAME ; int CQoSParameters::GetUpLinkDelay(void) const
+	?DropModeDownlink@CQoSParameters@@QBEEXZ @ 28 NONAME ABSENT ; unsigned char CQoSParameters::DropModeDownlink(void) const
+	?DropModeUplink@CQoSParameters@@QBEEXZ @ 29 NONAME ABSENT ; unsigned char CQoSParameters::DropModeUplink(void) const
+	?EventType@CQoSEventBase@@QBEHXZ @ 30 NONAME ; int CQoSEventBase::EventType(void) const
+	?Extensions@CQoSParameters@@QAEAAV?$TSglQue@VCExtensionBase@@@@XZ @ 31 NONAME ; class TSglQue<class CExtensionBase> & CQoSParameters::Extensions(void)
+	?FileName@CQoSLoadEvent@@QBEABV?$TBuf@$0BAA@@@XZ @ 32 NONAME ; class TBuf<256> const & CQoSLoadEvent::FileName(void) const
+	?FindExtension@CQoSParameters@@QAEPAVCExtensionBase@@H@Z @ 33 NONAME ; class CExtensionBase * CQoSParameters::FindExtension(int)
+	?GetDst@TQoSSelector@@QBE?AVTInetAddr@@XZ @ 34 NONAME ; class TInetAddr TQoSSelector::GetDst(void) const
+	?GetDstMask@TQoSSelector@@QBE?AVTInetAddr@@XZ @ 35 NONAME ; class TInetAddr TQoSSelector::GetDstMask(void) const
+	?GetQoS@RQoSPolicy@@QAEHXZ @ 36 NONAME ; int RQoSPolicy::GetQoS(void)
+	?GetSrc@TQoSSelector@@QBE?AVTInetAddr@@XZ @ 37 NONAME ; class TInetAddr TQoSSelector::GetSrc(void) const
+	?GetSrcMask@TQoSSelector@@QBE?AVTInetAddr@@XZ @ 38 NONAME ; class TInetAddr TQoSSelector::GetSrcMask(void) const
+	?GetHeaderMode@CQoSParameters@@QBEHXZ @ 39 NONAME ; int CQoSParameters::GetHeaderMode(void) const
+	?IapId@TQoSSelector@@QBEHXZ @ 40 NONAME ; int TQoSSelector::IapId(void) const
+	?LoadPolicyFile@RQoSPolicy@@QAEHABVTDesC16@@@Z @ 41 NONAME ; int RQoSPolicy::LoadPolicyFile(class TDesC16 const &)
+	?Match@TQoSSelector@@QBEHAAVRSocket@@@Z @ 42 NONAME ; int TQoSSelector::Match(class RSocket &) const
+	?GetDownLinkMaximumPacketSize@CQoSParameters@@QBEHXZ @ 43 NONAME ; int CQoSParameters::GetDownLinkMaximumPacketSize(void) const
+	?GetUpLinkMaximumPacketSize@CQoSParameters@@QBEHXZ @ 44 NONAME ; int CQoSParameters::GetUpLinkMaximumPacketSize(void) const
+	?MaxPortDst@TQoSSelector@@QBEIXZ @ 45 NONAME ; unsigned int TQoSSelector::MaxPortDst(void) const
+	?MaxPortSrc@TQoSSelector@@QBEIXZ @ 46 NONAME ; unsigned int TQoSSelector::MaxPortSrc(void) const
+	?GetDownlinkBandwidth@CQoSParameters@@QBEHXZ @ 47 NONAME ; int CQoSParameters::GetDownlinkBandwidth(void) const
+	?GetUplinkBandwidth@CQoSParameters@@QBEHXZ @ 48 NONAME ; int CQoSParameters::GetUplinkBandwidth(void) const
+	?GetDownLinkDelayVariation@CQoSParameters@@QBEHXZ @ 49 NONAME ; int CQoSParameters::GetDownLinkDelayVariation(void) const
+	?GetUpLinkDelayVariation@CQoSParameters@@QBEHXZ @ 50 NONAME ; int CQoSParameters::GetUpLinkDelayVariation(void) const
+	?GetName@CQoSParameters@@QBEABV?$TBuf@$0IA@@@XZ @ 51 NONAME ; class TBuf<128> const & CQoSParameters::GetName(void) const
+	?NotifyEvent@RQoSPolicy@@QAEHAAVMQoSObserver@@I@Z @ 52 NONAME ; int RQoSPolicy::NotifyEvent(class MQoSObserver &, unsigned int)
+	?Open@RQoSPolicy@@QAEHABVTQoSSelector@@@Z @ 53 NONAME ; int RQoSPolicy::Open(class TQoSSelector const &)
+	?Parameters@CQoSAdaptEvent@@QBEPAVCQoSParameters@@XZ @ 54 NONAME ; class CQoSParameters * CQoSAdaptEvent::Parameters(void) const
+	?Parameters@CQoSAddEvent@@QBEPAVCQoSParameters@@XZ @ 55 NONAME ; class CQoSParameters * CQoSAddEvent::Parameters(void) const
+	?Parameters@CQoSChannelEvent@@QBEPAVCQoSParameters@@XZ @ 56 NONAME ; class CQoSParameters * CQoSChannelEvent::Parameters(void) const
+	?Parameters@CQoSConfirmEvent@@QBEPAVCQoSParameters@@XZ @ 57 NONAME ; class CQoSParameters * CQoSConfirmEvent::Parameters(void) const
+	?Parameters@CQoSFailureEvent@@QBEPAVCQoSParameters@@XZ @ 58 NONAME ; class CQoSParameters * CQoSFailureEvent::Parameters(void) const
+	?Parameters@CQoSGetEvent@@QBEPAVCQoSParameters@@XZ @ 59 NONAME ; class CQoSParameters * CQoSGetEvent::Parameters(void) const
+	?GetDownLinkPriority@CQoSParameters@@QBEHXZ @ 60 NONAME ; int CQoSParameters::GetDownLinkPriority(void) const
+	?GetUpLinkPriority@CQoSParameters@@QBEHXZ @ 61 NONAME ; int CQoSParameters::GetUpLinkPriority(void) const
+	?Protocol@TQoSSelector@@QBEIXZ @ 62 NONAME ; unsigned int TQoSSelector::Protocol(void) const
+	?Reason@CQoSAdaptEvent@@QBEHXZ @ 63 NONAME ; int CQoSAdaptEvent::Reason(void) const
+	?Reason@CQoSAddEvent@@QBEHXZ @ 64 NONAME ; int CQoSAddEvent::Reason(void) const
+	?Reason@CQoSChannelEvent@@QBEHXZ @ 65 NONAME ; int CQoSChannelEvent::Reason(void) const
+	?Reason@CQoSDeleteEvent@@QBEHXZ @ 66 NONAME ; int CQoSDeleteEvent::Reason(void) const
+	?Reason@CQoSFailureEvent@@QBEHXZ @ 67 NONAME ; int CQoSFailureEvent::Reason(void) const
+	?Reason@CQoSGetEvent@@QBEHXZ @ 68 NONAME ; int CQoSGetEvent::Reason(void) const
+	?Reason@CQoSJoinEvent@@QBEHXZ @ 69 NONAME ; int CQoSJoinEvent::Reason(void) const
+	?Reason@CQoSLeaveEvent@@QBEHXZ @ 70 NONAME ; int CQoSLeaveEvent::Reason(void) const
+	?Reason@CQoSLoadEvent@@QBEHXZ @ 71 NONAME ; int CQoSLoadEvent::Reason(void) const
+	?RemoveExtension@CQoSParameters@@QAEHH@Z @ 72 NONAME ; int CQoSParameters::RemoveExtension(int)
+	?Selector@CQoSJoinEvent@@QBEABVTQoSSelector@@XZ @ 73 NONAME ; class TQoSSelector const & CQoSJoinEvent::Selector(void) const
+	?Selector@CQoSLeaveEvent@@QBEABVTQoSSelector@@XZ @ 74 NONAME ; class TQoSSelector const & CQoSLeaveEvent::Selector(void) const
+	?SetAdaptMode@CQoSParameters@@QAEXH@Z @ 75 NONAME ; void CQoSParameters::SetAdaptMode(int)
+	?SetAdaptationPriority@CQoSParameters@@QAEXE@Z @ 76 NONAME ABSENT ; void CQoSParameters::SetAdaptationPriority(unsigned char)
+	?SetAddr@TQoSSelector@@QAEHAAVRSocket@@@Z @ 77 NONAME ; int TQoSSelector::SetAddr(class RSocket &)
+	?SetAddr@TQoSSelector@@QAEHABVTInetAddr@@000III@Z @ 78 NONAME ; int TQoSSelector::SetAddr(class TInetAddr const &, class TInetAddr const &, class TInetAddr const &, class TInetAddr const &, unsigned int, unsigned int, unsigned int)
+	?SetDownLinkDelay@CQoSParameters@@QAEXH@Z @ 79 NONAME ; void CQoSParameters::SetDownLinkDelay(int)
+	?SetUpLinkDelay@CQoSParameters@@QAEXH@Z @ 80 NONAME ; void CQoSParameters::SetUpLinkDelay(int)
+	?SetDropModeDownlink@CQoSParameters@@QAEHE@Z @ 81 NONAME ABSENT ; int CQoSParameters::SetDropModeDownlink(unsigned char)
+	?SetDropModeUplink@CQoSParameters@@QAEHE@Z @ 82 NONAME ABSENT ; int CQoSParameters::SetDropModeUplink(unsigned char)
+	?SetDst@TQoSSelector@@QAEHABVTInetAddr@@@Z @ 83 NONAME ; int TQoSSelector::SetDst(class TInetAddr const &)
+	?SetDstMask@TQoSSelector@@QAEHABVTInetAddr@@@Z @ 84 NONAME ; int TQoSSelector::SetDstMask(class TInetAddr const &)
+	?SetHeaderMode@CQoSParameters@@QAEXH@Z @ 85 NONAME ; void CQoSParameters::SetHeaderMode(int)
+	?SetIapId@TQoSSelector@@QAEXH@Z @ 86 NONAME ; void TQoSSelector::SetIapId(int)
+	?SetDownLinkMaximumPacketSize@CQoSParameters@@QAEXH@Z @ 87 NONAME ; void CQoSParameters::SetDownLinkMaximumPacketSize(int)
+	?SetUpLinkMaximumPacketSize@CQoSParameters@@QAEXH@Z @ 88 NONAME ; void CQoSParameters::SetUpLinkMaximumPacketSize(int)
+	?SetMaxPortDst@TQoSSelector@@QAEHI@Z @ 89 NONAME ; int TQoSSelector::SetMaxPortDst(unsigned int)
+	?SetMaxPortSrc@TQoSSelector@@QAEHI@Z @ 90 NONAME ; int TQoSSelector::SetMaxPortSrc(unsigned int)
+	?SetDownlinkBandwidth@CQoSParameters@@QAEXH@Z @ 91 NONAME ; void CQoSParameters::SetDownlinkBandwidth(int)
+	?SetUplinkBandwidth@CQoSParameters@@QAEXH@Z @ 92 NONAME ; void CQoSParameters::SetUplinkBandwidth(int)
+	?SetDownLinkDelayVariation@CQoSParameters@@QAEXH@Z @ 93 NONAME ; void CQoSParameters::SetDownLinkDelayVariation(int)
+	?SetUpLinkDelayVariation@CQoSParameters@@QAEXH@Z @ 94 NONAME ; void CQoSParameters::SetUpLinkDelayVariation(int)
+	?SetName@CQoSParameters@@QAEXABV?$TBuf@$0IA@@@@Z @ 95 NONAME ; void CQoSParameters::SetName(class TBuf<128> const &)
+	?SetDownLinkPriority@CQoSParameters@@QAEXH@Z @ 96 NONAME ; void CQoSParameters::SetDownLinkPriority(int)
+	?SetUpLinkPriority@CQoSParameters@@QAEXH@Z @ 97 NONAME ; void CQoSParameters::SetUpLinkPriority(int)
+	?SetProtocol@TQoSSelector@@QAEXI@Z @ 98 NONAME ; void TQoSSelector::SetProtocol(unsigned int)
+	?SetQoS@RQoSPolicy@@QAEHAAVCQoSParameters@@@Z @ 99 NONAME ; int RQoSPolicy::SetQoS(class CQoSParameters &)
+	?SetSrc@TQoSSelector@@QAEHABVTInetAddr@@@Z @ 100 NONAME ; int TQoSSelector::SetSrc(class TInetAddr const &)
+	?SetSrcMask@TQoSSelector@@QAEHABVTInetAddr@@@Z @ 101 NONAME ; int TQoSSelector::SetSrcMask(class TInetAddr const &)
+	?SetDownLinkMaximumBurstSize@CQoSParameters@@QAEXH@Z @ 102 NONAME ; void CQoSParameters::SetDownLinkMaximumBurstSize(int)
+	?SetUpLinkMaximumBurstSize@CQoSParameters@@QAEXH@Z @ 103 NONAME ; void CQoSParameters::SetUpLinkMaximumBurstSize(int)
+	?SetDownLinkAveragePacketSize@CQoSParameters@@QAEXH@Z @ 104 NONAME ; void CQoSParameters::SetDownLinkAveragePacketSize(int)
+	?SetUpLinkAveragePacketSize@CQoSParameters@@QAEXH@Z @ 105 NONAME ; void CQoSParameters::SetUpLinkAveragePacketSize(int)
+	?GetDownLinkMaximumBurstSize@CQoSParameters@@QBEHXZ @ 106 NONAME ; int CQoSParameters::GetDownLinkMaximumBurstSize(void) const
+	?GetUpLinkMaximumBurstSize@CQoSParameters@@QBEHXZ @ 107 NONAME ; int CQoSParameters::GetUpLinkMaximumBurstSize(void) const
+	?GetDownLinkAveragePacketSize@CQoSParameters@@QBEHXZ @ 108 NONAME ; int CQoSParameters::GetDownLinkAveragePacketSize(void) const
+	?GetUpLinkAveragePacketSize@CQoSParameters@@QBEHXZ @ 109 NONAME ; int CQoSParameters::GetUpLinkAveragePacketSize(void) const
+	?UnloadPolicyFile@RQoSPolicy@@QAEHABVTDesC16@@@Z @ 110 NONAME ; int RQoSPolicy::UnloadPolicyFile(class TDesC16 const &)
+

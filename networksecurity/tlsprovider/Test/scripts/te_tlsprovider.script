@@ -1,0 +1,138 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//
+PRINT Run all Tls provider tests
+//
+LOAD_SUITE TlsProvServer
+//
+#
+PAUSE    
+
+//! @SYMTestCaseID 	SEC-TLSP-PROV-0002
+//! @SYMTestCaseDesc 	Tls provider tests
+
+START_TESTCASE SEC-TLSP-PROV-0002
+
+RUN_UTILS MkDir c:\data\
+//Test ciphersuite selection
+RUN_TEST_STEP 100 TlsProvServer TlsTestStep1.0
+RUN_TEST_STEP 100 TlsProvServer TlsTestStep1.1
+
+//Check random numbers
+RUN_TEST_STEP 100 TlsProvServer TlsTestStep2.0 
+
+//Test token selection with and without client authentication
+RUN_TEST_STEP 100 TlsProvServer TlsTestStep3.0
+// RUN_TEST_STEP 100 TlsProvServer TlsTestStep3.1 z:\testdata\scripts\te_tlsprov.ini TestStep3_1
+
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ClientAuthentication\CACerts.dat c:\System\data\CACerts.dat
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ClientAuthentication\keys.dat c:\System\data\keys.dat 
+
+//Test token selection with client authentication    
+//Create backup for the existing cert and key stores    
+//Now copy our test stores
+//RUN_TEST_STEP 100 TlsProvServer TlsTestStep3.2 z:\testdata\scripts\te_tlsprov.ini TestStep3_1
+
+//Test for session resumption from providers view  
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\ciphersuite03_TLS\Premaster.bin c:\Premaster.bin 
+// RUN_TEST_STEP 100 TlsProvServer TlsTestStep3.3 z:\testdata\scripts\te_tlsprov.ini TestSection4
+RUN_UTILS MakeReadWrite c:\Premaster.bin 
+RUN_UTILS DeleteFile c:\Premaster.bin 
+
+
+//Validate server certificate
+RUN_TEST_STEP 100 TlsProvServer TlsTestStep5.0 z:\testdata\scripts\te_tlsprov.ini TestStep5_0
+RUN_TEST_STEP 100 TlsProvServer TlsTestStep5.1 z:\testdata\scripts\te_tlsprov.ini TestStep5_1
+
+//Test Encryption, Decryption, Mac computation and Export key generation
+
+RUN_UTILS MakeReadWrite c:\data\KeyMaterial.bin
+RUN_UTILS MakeReadWrite c:\data\ActualAppData.bin
+RUN_UTILS MakeReadWrite c:\data\EncryptOutput.bin
+RUN_UTILS MakeReadWrite c:\data\DecryptionInput.bin
+RUN_UTILS MakeReadWrite c:\data\DecryptionOutputNoMac.bin
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\EncryptionDataTLS_Export\KeyMaterial.bin c:\data\KeyMaterial.bin
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\EncryptionDataTLS_Export\ActualAppData.bin c:\data\ActualAppData.bin
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\EncryptionDataTLS_Export\EncryptOutput.bin c:\data\EncryptOutput.bin
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\EncryptionDataTLS_Export\DecryptionInput.bin c:\data\DecryptionInput.bin
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\EncryptionDataTLS_Export\DecryptionOutputNoMac.bin c:\data\DecryptionOutputNoMac.bin
+// RUN_TEST_STEP 200 TlsProvServer TlsTestStep6.0 z:\testdata\scripts\te_tlsprov.ini TestStep3_1
+RUN_UTILS MakeReadWrite c:\data\KeyMaterial.bin
+RUN_UTILS MakeReadWrite c:\data\ActualAppData.bin
+RUN_UTILS MakeReadWrite c:\data\EncryptOutput.bin
+RUN_UTILS MakeReadWrite c:\data\DecryptionInput.bin
+RUN_UTILS MakeReadWrite c:\data\DecryptionOutputNoMac.bin
+RUN_UTILS DeleteFile c:\data\ActualAppData.bin
+RUN_UTILS DeleteFile c:\data\EncryptOutput.bin
+RUN_UTILS DeleteFile c:\data\DecryptionInput.bin
+RUN_UTILS DeleteFile c:\data\DecryptionOutputNoMac.bin
+RUN_UTILS DeleteFile c:\data\KeyMaterial.bin
+
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\EncryptionDataSSL_Export\KeyMaterial.bin c:\data\KeyMaterial.bin
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\EncryptionDataSSL_Export\ActualAppData.bin c:\data\ActualAppData.bin
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\EncryptionDataSSL_Export\EncryptOutput.bin c:\data\EncryptOutput.bin
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\EncryptionDataSSL_Export\DecryptionInput.bin c:\data\DecryptionInput.bin
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\EncryptionDataSSL_Export\DecryptionOutputNoMac.bin c:\data\DecryptionOutputNoMac.bin
+// RUN_TEST_STEP 200 TlsProvServer TlsTestStep6.1 z:\testdata\scripts\te_tlsprov.ini TestStep3_1
+RUN_UTILS MakeReadWrite c:\data\KeyMaterial.bin
+RUN_UTILS MakeReadWrite c:\data\ActualAppData.bin
+RUN_UTILS MakeReadWrite c:\data\EncryptOutput.bin
+RUN_UTILS MakeReadWrite c:\data\DecryptionInput.bin
+RUN_UTILS MakeReadWrite c:\data\DecryptionOutputNoMac.bin
+RUN_UTILS DeleteFile c:\data\ActualAppData.bin
+RUN_UTILS DeleteFile c:\data\EncryptOutput.bin
+RUN_UTILS DeleteFile c:\data\DecryptionInput.bin
+RUN_UTILS DeleteFile c:\data\DecryptionOutputNoMac.bin
+RUN_UTILS DeleteFile c:\data\KeyMaterial.bin
+
+
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\EncryptionDataDES_TLS\KeyMaterial.bin c:\data\KeyMaterial.bin
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\EncryptionDataDES_TLS\ActualAppData.bin c:\data\ActualAppData.bin
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\EncryptionDataDES_TLS\EncryptOutput.bin c:\data\EncryptOutput.bin
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\EncryptionDataDES_TLS\DecryptionInput.bin c:\data\DecryptionInput.bin
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\EncryptionDataDES_TLS\DecryptionOutputNoMac.bin c:\data\DecryptionOutputNoMac.bin
+// RUN_TEST_STEP 200 TlsProvServer TlsTestStep6.2 z:\testdata\scripts\te_tlsprov.ini TestStep3_1
+RUN_UTILS MakeReadWrite c:\data\KeyMaterial.bin
+RUN_UTILS MakeReadWrite c:\data\ActualAppData.bin
+RUN_UTILS MakeReadWrite c:\data\EncryptOutput.bin
+RUN_UTILS MakeReadWrite c:\data\DecryptionInput.bin
+RUN_UTILS MakeReadWrite c:\data\DecryptionOutputNoMac.bin
+RUN_UTILS DeleteFile c:\data\ActualAppData.bin
+RUN_UTILS DeleteFile c:\data\EncryptOutput.bin
+RUN_UTILS DeleteFile c:\data\DecryptionInput.bin
+RUN_UTILS DeleteFile c:\data\DecryptionOutputNoMac.bin
+RUN_UTILS DeleteFile c:\data\KeyMaterial.bin
+
+
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\EncryptionDataDES_SSL\KeyMaterial.bin c:\data\KeyMaterial.bin
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\EncryptionDataDES_SSL\ActualAppData.bin c:\data\ActualAppData.bin
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\EncryptionDataDES_SSL\EncryptOutput.bin c:\data\EncryptOutput.bin
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\EncryptionDataDES_SSL\DecryptionInput.bin c:\data\DecryptionInput.bin
+RUN_UTILS CopyFile z:\testdata\configs\tlsprovtestdata\EncryptionDataDES_SSL\DecryptionOutputNoMac.bin c:\data\DecryptionOutputNoMac.bin
+// RUN_TEST_STEP 200 TlsProvServer TlsTestStep6.3 z:\testdata\scripts\te_tlsprov.ini TestStep3_1
+RUN_UTILS MakeReadWrite c:\data\KeyMaterial.bin
+RUN_UTILS MakeReadWrite c:\data\ActualAppData.bin
+RUN_UTILS MakeReadWrite c:\data\EncryptOutput.bin
+RUN_UTILS MakeReadWrite c:\data\DecryptionInput.bin
+RUN_UTILS MakeReadWrite c:\data\DecryptionOutputNoMac.bin
+RUN_UTILS DeleteFile c:\data\ActualAppData.bin
+RUN_UTILS DeleteFile c:\data\EncryptOutput.bin
+RUN_UTILS DeleteFile c:\data\DecryptionInput.bin
+RUN_UTILS DeleteFile c:\data\DecryptionOutputNoMac.bin
+RUN_UTILS DeleteFile c:\data\KeyMaterial.bin
+
+END_TESTCASE SEC-TLSP-PROV-0002
+

@@ -1,0 +1,381 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//!//////////////////////////////////////////////////////////////////
+//! @file
+//! @SYMTestSuiteName			NET-DHCP-CIT
+//! @SYMScriptTestEnvironment	TestExecuteFramework (TEF).
+//! @SYMScriptPurpose			Script file for DHCP testing on IPv4
+//! @SYMScriptInfo				1.Here we use CommsDB with ipv4 settings.
+//!								2.ORDER IS IMPORTANT! SetIAPToUse and SetAddressMode lines affect the operation of the subsequent commands.
+//!//////////////////////////////////////////////////////////////////
+
+
+//Load the Server
+LOAD_SUITE DhcpTestServer
+
+//Load esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+RUN_TEST_STEP 5 DhcpTestServer SetAddressMode z:\TestData\configs\DHCP\dhcptest.ini IPv4
+
+//Set IAP to Dynamic
+RUN_TEST_STEP 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet1
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-10-1
+//! @SYMTestCaseDesc 		Fetch the siaddr feild in the DHCP message header from external DHCP server
+//! @SYMFssID 				Networking/DHCP/DHCP-10-1
+//! @SYMREQ 				7893 
+//! @SYMPREQ 				1647
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestActions  		1.Test starts a new connection.
+//! 						2.After successful start, the connection is queried for IP address of next bootstrap server (SIADDR).
+//! @SYMTestExpectedResults KErrNone
+//! @SYMTestType 			CIT
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-10-1
+RUN_TEST_STEP 50 DhcpTestServer 2_26	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-10-1
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-10-2
+//! @SYMTestCaseDesc 		Fetch the TFTP server name in sname field in DHCP message header
+//! @SYMFssID 				Networking/DHCP/DHCP-10-2
+//! @SYMREQ 				7893 
+//! @SYMPREQ 				1647
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestActions  		1.Test starts a new connection.
+//! 						2.After successful start, the connection is queried for IP address of next bootstrap server (SIADDR).
+//! @SYMTestExpectedResults KErrNone
+//! @SYMTestType 			CIT
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-10-2
+RUN_TEST_STEP 50 DhcpTestServer 2_27	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-10-2
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-10-3
+//! @SYMTestCaseDesc 		Fetch the TFTP server name in Option 66 from external DHCP server
+//! @SYMFssID 				Networking/DHCP/DHCP-10-3
+//! @SYMREQ 				7893 
+//! @SYMPREQ 				1647
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestActions  		1.Test starts a new connection.
+//! 						2.After successful start, the connection is queried for IP address of next bootstrap server (SIADDR).
+//! @SYMTestExpectedResults KErrNone
+//! @SYMTestType 			CIT
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-10-3
+RUN_TEST_STEP 50 DhcpTestServer 2_28	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-10-3
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-10-4
+//! @SYMTestCaseDesc 		Fetch the TFTP server ip address in Option 150 from external DHCP server
+//! @SYMFssID 				Networking/DHCP/DHCP-10-4
+//! @SYMREQ 				7893 
+//! @SYMPREQ 				1647
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestActions  		1.Test starts a new connection.
+//! 						2.After successful start, the connection is queried for IP address of next bootstrap server (SIADDR).
+//! @SYMTestExpectedResults KErrNone
+//! @SYMTestType 			CIT
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-10-4
+RUN_TEST_STEP 50 DhcpTestServer 2_29	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-10-4
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-10-5
+//! @SYMTestCaseDesc 		Fetch the GeoConf value in Option 123 from external DHCP server
+//! @SYMFssID 				Networking/DHCP/DHCP-10-5
+//! @SYMREQ 				7893 
+//! @SYMPREQ 				1647
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestActions  		1.Test starts a new connection.
+//! 						2.After successful start, the connection is queried for IP address of next bootstrap server (SIADDR).
+//! @SYMTestExpectedResults KErrNone
+//! @SYMTestType 			CIT
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-10-5
+RUN_TEST_STEP 50 DhcpTestServer 2_30	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-10-5
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-10-6
+//! @SYMTestCaseDesc 		Fetch the Geo Civic option value in Option 99 from external DHCP server.
+//! @SYMFssID 				Networking/DHCP/DHCP-10-6
+//! @SYMREQ 				7893 
+//! @SYMPREQ 				1647
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestActions  		1.Test starts a new connection.
+//! 						2.After successful start, the connection is queried for IP address of next bootstrap server (SIADDR).
+//! @SYMTestExpectedResults KErrNone
+//! @SYMTestType 			CIT
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-10-6
+RUN_TEST_STEP 50 DhcpTestServer 2_31	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-10-6
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-10-7
+//! @SYMTestCaseDesc 		Fetch the multiple options from external DHCP server
+//! @SYMFssID 				Networking/DHCP/DHCP-10-7
+//! @SYMREQ 				7893 
+//! @SYMPREQ 				1647
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestActions  		1.Test starts a new connection.
+//! 						2.After successful start, the connection is queried for IP address of next bootstrap server (SIADDR).
+//! @SYMTestExpectedResults KErrNone
+//! @SYMTestType 			CIT
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-10-7
+RUN_TEST_STEP 50 DhcpTestServer 2_32	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-10-7
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-10-8
+//! @SYMTestCaseDesc 		Fetch TFTP server name(Option 66) with insufficient buffer.
+//! @SYMFssID 				Networking/DHCP/DHCP-10-8
+//! @SYMREQ 				7893 
+//! @SYMPREQ 				1647
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestActions  		1.Test starts a new connection.
+//! 						2.After successful start, the connection is queried for IP address of next bootstrap server (SIADDR).
+//! @SYMTestExpectedResults KErrNone
+//! @SYMTestType 			CIT
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-10-8
+RUN_TEST_STEP 50 DhcpTestServer 2_33	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-10-8
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-10-9
+//! @SYMTestCaseDesc 		Fetch the value SIADDR feild when server has not offered SIADDR.
+//! @SYMFssID 				Networking/DHCP/DHCP-10-9
+//! @SYMREQ 				7893 
+//! @SYMPREQ 				1647
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestActions  		1.Test starts a new connection.
+//! 						2.After successful start, the connection is queried for IP address of next bootstrap server (SIADDR).
+//! @SYMTestExpectedResults KErrNone
+//! @SYMTestType 			CIT
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-10-9
+RUN_TEST_STEP 50 DhcpTestServer 2_34	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-10-9
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-10-10
+//! @SYMTestCaseDesc 		Fetch option 66 when the same has not been offered by the external DHCP server.
+//! @SYMFssID 				Networking/DHCP/DHCP-10-10
+//! @SYMREQ 				7893 
+//! @SYMPREQ 				1647
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestActions  		1.Test starts a new connection.
+//! 						2.After successful start, the connection is queried for IP address of next bootstrap server (SIADDR).
+//! @SYMTestExpectedResults KErrNone
+//! @SYMTestType 			CIT
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-10-10
+RUN_TEST_STEP 50 DhcpTestServer 2_35	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-10-10
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-10-11
+//! @SYMTestCaseDesc 		Fetch indexed multiple TFTP server IP addresses.offered by the external DHCP server.
+//! @SYMFssID 				Networking/DHCP/DHCP-10-11
+//! @SYMREQ 				7893 
+//! @SYMPREQ 				1647
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestActions  		1.Test starts a new connection.
+//! 						2.After successful start, the connection is queried for IP address of next bootstrap server (SIADDR).
+//! @SYMTestExpectedResults KErrNone
+//! @SYMTestType 			CIT
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-10-11
+RUN_TEST_STEP 50 DhcpTestServer 2_36	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-10-11
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-10-12
+//! @SYMTestCaseDesc 		Fetch non existant indexed TFTP server IP adress.
+//! @SYMFssID 				Networking/DHCP/DHCP-10-12
+//! @SYMREQ 				7893 
+//! @SYMPREQ 				1647
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestActions  		1.Test starts a new connection.
+//! 						2.After successful start, the connection is queried for IP address of next bootstrap server (SIADDR).
+//! @SYMTestExpectedResults KErrNone
+//! @SYMTestType 			CIT
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-10-12
+RUN_TEST_STEP 50 DhcpTestServer 2_37	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-10-12
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-10-13
+//! @SYMTestCaseDesc 		Fetch swap server IP adress.
+//! @SYMFssID 				Networking/DHCP/DHCP-10-13
+//! @SYMREQ 				7893 
+//! @SYMPREQ 				1647
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestActions  		1.Test starts a new connection.
+//! 						2.After successful start, the connection is queried for IP address of next bootstrap server (SIADDR).
+//! @SYMTestExpectedResults KErrNone
+//! @SYMTestType 			CIT
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-10-13
+RUN_TEST_STEP 50 DhcpTestServer 2_38	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-10-13
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-10-14
+//! @SYMTestCaseDesc 		Fetch TFTP server IP adress,Geo Civic value and GeoSpatial Option
+//! @SYMFssID 				Networking/DHCP/DHCP-10-14
+//! @SYMREQ 				7893 
+//! @SYMPREQ 				1647
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestActions  		1.Test starts a new connection.
+//! 						2.After successful start, the connection is queried for IP address of next bootstrap server (SIADDR).
+//! @SYMTestExpectedResults KErrNone
+//! @SYMTestType 			CIT
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-10-14
+RUN_TEST_STEP 50 DhcpTestServer 2_39	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-10-14
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-10-15
+//! @SYMTestCaseDesc 		Fetch Geo Civic option value from DHCP server
+//! @SYMFssID 				Networking/DHCP/DHCP-10-15
+//! @SYMREQ 				7893 
+//! @SYMPREQ 				1647
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestActions  		1.Test starts a new connection.
+//! 						2.After successful start, the connection is queried for IP address of next bootstrap server (SIADDR).
+//! @SYMTestExpectedResults KErrNone
+//! @SYMTestType 			CIT
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-10-15
+RUN_TEST_STEP 50 DhcpTestServer 2_40	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-10-15
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-10-16
+//! @SYMTestCaseDesc 		Fetch the TFTP server name in Option 66 from DHCP server.
+//! @SYMFssID 				Networking/DHCP/DHCP-10-16
+//! @SYMREQ 				7894 
+//! @SYMPREQ 				1648
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestActions  		1.Test starts a new connection.
+//! 						2.After successful start, the connection is queried for IP address TFTP server in option 66.
+//! @SYMTestExpectedResults KErrNone
+//! @SYMTestType 			CIT
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-10-15
+RUN_TEST_STEP 50 DhcpTestServer 2_41	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-10-15
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID               DHCP-OOM-3
+//! @SYMTestCaseDesc             Continuous failnext allocation test
+//! @SYMFssID                    Networking/DHCP/DHCP-OOM-3
+//! @SYMREQ                      2197
+//! @SYMPREQ                     32
+//! @SYMTestPriority             Critical
+//! @SYMTestActions              1.Start the connection
+//!                              2.Mark the server heap for fail next allocation
+//!                              3.Stop the connection
+//!                              4.Unmark the server heap and validate result
+//! @SYMTestExpectedResults      EPass
+//! @SYMTestType                 CIT
+//! @SYMTestStatus               Implemented
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-OOM-3
+RUN_TEST_STEP 1200 DhcpTestServer OOM_3 z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-OOM-3
+
+
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_stopallinterfaces.script
+
+//Unload esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script

@@ -1,0 +1,68 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//
+// setup CommDb (PPP over WinTunnel on COMM::3)
+//
+run_script z:\TestData\scripts\esock_test_unloadesockForced.script
+ced c:\test\nifman\ts_nifmanbc\c\nifmanbc.xml ced.log
+run_script z:\TestData\scripts\esock_test_loadesock.script
+
+//
+// load the suite
+//
+LOAD_SUITE TS_NIFMANBC.DLL
+
+PAUSE_AT_END
+
+
+//
+// run the tests
+//
+HEAP_MARK
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test1_1
+TEST_COMPLETE
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test1_2
+TEST_COMPLETE
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test1_3
+TEST_COMPLETE
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test1_4
+TEST_COMPLETE
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test1_5
+TEST_COMPLETE
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test1_6
+TEST_COMPLETE
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test2_1
+TEST_COMPLETE
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test2_2
+TEST_COMPLETE
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test2_3
+TEST_COMPLETE
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test2_4
+TEST_COMPLETE
+
+HEAP_MARKEND
+
+run_script z:\TestData\scripts\esock_test_unloadesockForced.script

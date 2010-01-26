@@ -1,0 +1,404 @@
+EXPORTS
+	Install @ 1 NONAME ; Install
+	MCommReplacementImport1 @ 2 NONAME
+	MCommReplacementImport2 @ 3 NONAME
+	MCommReplacementImport3 @ 4 NONAME
+	MTimerReplacementImport1 @ 5 NONAME
+	MTimerReplacementImport2 @ 6 NONAME
+	MTimerReplacementImport3 @ 7 NONAME
+	NonExistentImport1 @ 8 NONAME
+	_ZN10CAgentBase10ConstructLEv @ 9 NONAME
+	_ZN10CAgentBase10DoReadBoolERK7TDesC16RiPK12RMessagePtr2 @ 10 NONAME
+	_ZN10CAgentBase10DoWriteDesERK7TDesC16RK6TDesC8PK12RMessagePtr2 @ 11 NONAME
+	_ZN10CAgentBase10DoWriteDesERK7TDesC16S2_PK12RMessagePtr2 @ 12 NONAME
+	_ZN10CAgentBase10DoWriteIntERK7TDesC16mPK12RMessagePtr2 @ 13 NONAME
+	_ZN10CAgentBase10OverridesLEv @ 14 NONAME
+	_ZN10CAgentBase11DoWriteBoolERK7TDesC16iPK12RMessagePtr2 @ 15 NONAME
+	_ZN10CAgentBase12AuthenticateER6TDes16S1_ @ 16 NONAME
+	_ZN10CAgentBase13SetOverridesLEP26CStoreableOverrideSettings @ 17 NONAME
+	_ZN10CAgentBase14SelectCompleteERK7TDesC16 @ 18 NONAME
+	_ZN10CAgentBase14SelectCompleteEi @ 19 NONAME
+	_ZN10CAgentBase15CancelReconnectEv @ 20 NONAME
+	_ZN10CAgentBase15DoReadLongDesLCERK7TDesC16PK12RMessagePtr2 @ 21 NONAME
+	_ZN10CAgentBase17ReconnectCompleteEi @ 22 NONAME
+	_ZN10CAgentBase18CancelAuthenticateEv @ 23 NONAME
+	_ZN10CAgentBase19ConnectionSettingsLEv @ 24 NONAME
+	_ZN10CAgentBase21DoCheckReadCapabilityERK7TDesC16PK12RMessagePtr2 @ 25 NONAME
+	_ZN10CAgentBase22DoCheckWriteCapabilityERK7TDesC16PK12RMessagePtr2 @ 26 NONAME
+	_ZN10CAgentBase22SetConnectionSettingsLERK19TConnectionSettings @ 27 NONAME
+	_ZN10CAgentBase24MDPOAuthenticateCompleteEi @ 28 NONAME
+	_ZN10CAgentBase25ServiceChangeNotificationEmRK7TDesC16 @ 29 NONAME
+	_ZN10CAgentBase35RequestNotificationOfServiceChangeLEP19MAgentSessionNotify @ 30 NONAME
+	_ZN10CAgentBase40CancelRequestNotificationOfServiceChangeEP19MAgentSessionNotify @ 31 NONAME
+	_ZN10CAgentBase9DoReadDesERK7TDesC16R5TDes8PK12RMessagePtr2 @ 32 NONAME
+	_ZN10CAgentBase9DoReadDesERK7TDesC16R6TDes16PK12RMessagePtr2 @ 33 NONAME
+	_ZN10CAgentBase9DoReadIntERK7TDesC16RmPK12RMessagePtr2 @ 34 NONAME
+	_ZN10CAgentBase9ReconnectEv @ 35 NONAME
+	_ZN10CAgentBaseC2Ev @ 36 NONAME
+	_ZN10CAgentBaseD0Ev @ 37 NONAME
+	_ZN10CAgentBaseD1Ev @ 38 NONAME
+	_ZN10CAgentBaseD2Ev @ 39 NONAME
+	_ZN10CNifIfBase4OpenEv @ 40 NONAME
+	_ZN10CNifIfBase5BindLEPv @ 41 NONAME
+	_ZN10CNifIfBase5CloseEv @ 42 NONAME
+	_ZN10CNifIfBase5StateEv @ 43 NONAME
+	_ZN10CNifIfBase7CleanupEPv @ 44 NONAME
+	_ZN10CNifIfBase7ControlEjjR5TDes8Pv @ 45 NONAME
+	_ZN10CNifIfBaseC2ER10CNifIfLink @ 46 NONAME
+	_ZN10CNifIfBaseC2ER13CNifIfFactory @ 47 NONAME
+	_ZN10CNifIfBaseC2Ev @ 48 NONAME
+	_ZN10CNifIfBaseD0Ev @ 49 NONAME
+	_ZN10CNifIfBaseD1Ev @ 50 NONAME
+	_ZN10CNifIfBaseD2Ev @ 51 NONAME
+	_ZN10CNifIfLink20AuthenticateCompleteEi @ 52 NONAME
+	_ZN10CNifIfLink7RestartEP10CNifIfBase @ 53 NONAME
+	_ZN10CNifIfLinkC2ER13CNifIfFactory @ 54 NONAME
+	_ZN11CBearerBase10ConstructLEv @ 55 NONAME ABSENT
+	_ZN11CBearerBase12RemoveAgentLEP13CNifAgentBase @ 56 NONAME ABSENT
+	_ZN11CBearerBase14UpdateObserverEv @ 57 NONAME ABSENT
+	_ZN11CBearerBase18AnyBearerAvailableERi @ 58 NONAME ABSENT
+	_ZN11CBearerBase23SecondPhaseAvailabilityEv @ 59 NONAME ABSENT
+	_ZN11CBearerBase9AddAgentLEP13CNifAgentBase @ 60 NONAME ABSENT
+	_ZN11CBearerBaseC2EP15MBearerObserver @ 61 NONAME ABSENT
+	_ZN11CBearerBaseD0Ev @ 62 NONAME ABSENT
+	_ZN11CBearerBaseD1Ev @ 63 NONAME ABSENT
+	_ZN11CBearerBaseD2Ev @ 64 NONAME ABSENT
+	_ZN11CNifFactory16ControlledDeleteEPv @ 65 NONAME
+	_ZN11CNifFactory4OpenEv @ 66 NONAME
+	_ZN11CNifFactory5CloseEv @ 67 NONAME
+	_ZN11CNifFactory5InitLER8RLibraryR10CObjectCon @ 68 NONAME
+	_ZN11CNifFactory7CleanupEPv @ 69 NONAME
+	_ZN11CNifFactoryC2Ev @ 70 NONAME
+	_ZN11CNifFactoryD0Ev @ 71 NONAME
+	_ZN11CNifFactoryD1Ev @ 72 NONAME
+	_ZN11CNifFactoryD2Ev @ 73 NONAME
+	_ZN12CAgentSMBase12GetLastErrorERi @ 74 NONAME
+	_ZN12CAgentSMBase12NotificationE20TAgentToNifEventTypePv @ 75 NONAME
+	_ZN12CAgentSMBase13CompleteStateEi @ 76 NONAME
+	_ZN12CAgentSMBase14ServiceStartedEv @ 77 NONAME
+	_ZN12CAgentSMBase14UpdateProgressEii @ 78 NONAME
+	_ZN12CAgentSMBase18ConnectionCompleteEi @ 79 NONAME
+	_ZN12CAgentSMBase18ConnectionCompleteEii @ 80 NONAME
+	_ZN12CAgentSMBase18DisconnectCompleteEv @ 81 NONAME
+	_ZN12CAgentSMBase22ConnectionContinuationENS_22TSMContinueConnectTypeE @ 82 NONAME
+	_ZN12CAgentSMBase24PreventConnectionRetriesEv @ 83 NONAME
+	_ZN12CAgentSMBase26IncomingConnectionReceivedEv @ 84 NONAME
+	_ZN12CAgentSMBase2DbEv @ 85 NONAME
+	_ZN12CAgentSMBase4RunLEv @ 86 NONAME
+	_ZN12CAgentSMBase6DlgPrcEv @ 87 NONAME
+	_ZN12CAgentSMBase8DoCancelEv @ 88 NONAME
+	_ZN12CAgentSMBaseC2ER12MAgentNotifyP16CDialogProcessorR14CCommsDbAccess @ 89 NONAME
+	_ZN12CAgentSMBaseD0Ev @ 90 NONAME
+	_ZN12CAgentSMBaseD1Ev @ 91 NONAME
+	_ZN12CAgentSMBaseD2Ev @ 92 NONAME
+	_ZN12CEventLogger10LogCallEndER14TRequestStatus @ 93 NONAME
+	_ZN12CEventLogger12LogCallStartERK7TDesC16iS2_4TUidR14TRequestStatus @ 94 NONAME
+	_ZN12CEventLogger15LogDataAddEventEiRK7TDesC16iS2_4TUid @ 95 NONAME
+	_ZN12CEventLogger18LogDataTransferredExx4TUidR14TRequestStatus @ 96 NONAME
+	_ZN12CEventLogger18LogDataUpdateEventEiRK4TUid @ 97 NONAME
+	_ZN12CEventLogger18LogDataUpdateEventEiRK4TUidRKxS4_ @ 98 NONAME
+	_ZN12CEventLogger28LogDataNotifyLastEventUpdateEP14TRequestStatus @ 99 NONAME
+	_ZN12CEventLogger4NewLEv @ 100 NONAME
+	_ZN12CEventLogger6CancelEv @ 101 NONAME
+	_ZN12CEventLoggerD0Ev @ 102 NONAME
+	_ZN12CEventLoggerD1Ev @ 103 NONAME
+	_ZN12CEventLoggerD2Ev @ 104 NONAME
+	_ZN12MNifIfNotify7ReadDesERK7TDesC16R5TDes8 @ 105 NONAME
+	_ZN12MNifIfNotify7ReadDesERK7TDesC16R5TDes8PK12RMessagePtr2 @ 106 NONAME
+	_ZN12MNifIfNotify7ReadDesERK7TDesC16R6TDes16 @ 107 NONAME
+	_ZN12MNifIfNotify7ReadDesERK7TDesC16R6TDes16PK12RMessagePtr2 @ 108 NONAME
+	_ZN12MNifIfNotify7ReadIntERK7TDesC16Rm @ 109 NONAME
+	_ZN12MNifIfNotify7ReadIntERK7TDesC16RmPK12RMessagePtr2 @ 110 NONAME
+	_ZN12MNifIfNotify8ReadBoolERK7TDesC16Ri @ 111 NONAME
+	_ZN12MNifIfNotify8ReadBoolERK7TDesC16RiPK12RMessagePtr2 @ 112 NONAME
+	_ZN12MNifIfNotify8WriteDesERK7TDesC16RK6TDesC8 @ 113 NONAME
+	_ZN12MNifIfNotify8WriteDesERK7TDesC16RK6TDesC8PK12RMessagePtr2 @ 114 NONAME
+	_ZN12MNifIfNotify8WriteDesERK7TDesC16S2_ @ 115 NONAME
+	_ZN12MNifIfNotify8WriteDesERK7TDesC16S2_PK12RMessagePtr2 @ 116 NONAME
+	_ZN12MNifIfNotify8WriteIntERK7TDesC16m @ 117 NONAME
+	_ZN12MNifIfNotify8WriteIntERK7TDesC16mPK12RMessagePtr2 @ 118 NONAME
+	_ZN12MNifIfNotify9WriteBoolERK7TDesC16i @ 119 NONAME
+	_ZN12MNifIfNotify9WriteBoolERK7TDesC16iPK12RMessagePtr2 @ 120 NONAME
+	_ZN13CNifAgentBase13ReadLongDesLCERK7TDesC16 @ 121 NONAME
+	_ZN13CNifAgentBase13ReadLongDesLCERK7TDesC16PK12RMessagePtr2 @ 122 NONAME
+	_ZN13CNifAgentBase19CheckReadCapabilityERK7TDesC16PK12RMessagePtr2 @ 123 NONAME
+	_ZN13CNifAgentBase20CheckWriteCapabilityERK7TDesC16PK12RMessagePtr2 @ 124 NONAME
+	_ZN13CNifAgentBase21DoCheckReadCapabilityERK7TDesC16PK12RMessagePtr2 @ 125 NONAME
+	_ZN13CNifAgentBase22DoCheckWriteCapabilityERK7TDesC16PK12RMessagePtr2 @ 126 NONAME
+	_ZN13CNifAgentBase7ControlEjjR5TDes8 @ 127 NONAME
+	_ZN13CNifAgentBase7ReadDesERK7TDesC16R5TDes8 @ 128 NONAME
+	_ZN13CNifAgentBase7ReadDesERK7TDesC16R5TDes8PK12RMessagePtr2 @ 129 NONAME
+	_ZN13CNifAgentBase7ReadDesERK7TDesC16R6TDes16 @ 130 NONAME
+	_ZN13CNifAgentBase7ReadDesERK7TDesC16R6TDes16PK12RMessagePtr2 @ 131 NONAME
+	_ZN13CNifAgentBase7ReadIntERK7TDesC16Rm @ 132 NONAME
+	_ZN13CNifAgentBase7ReadIntERK7TDesC16RmPK12RMessagePtr2 @ 133 NONAME
+	_ZN13CNifAgentBase8ReadBoolERK7TDesC16Ri @ 134 NONAME
+	_ZN13CNifAgentBase8ReadBoolERK7TDesC16RiPK12RMessagePtr2 @ 135 NONAME
+	_ZN13CNifAgentBase8WriteDesERK7TDesC16RK6TDesC8 @ 136 NONAME
+	_ZN13CNifAgentBase8WriteDesERK7TDesC16RK6TDesC8PK12RMessagePtr2 @ 137 NONAME
+	_ZN13CNifAgentBase8WriteDesERK7TDesC16S2_ @ 138 NONAME
+	_ZN13CNifAgentBase8WriteDesERK7TDesC16S2_PK12RMessagePtr2 @ 139 NONAME
+	_ZN13CNifAgentBase8WriteIntERK7TDesC16m @ 140 NONAME
+	_ZN13CNifAgentBase8WriteIntERK7TDesC16mPK12RMessagePtr2 @ 141 NONAME
+	_ZN13CNifAgentBase9WriteBoolERK7TDesC16i @ 142 NONAME
+	_ZN13CNifAgentBase9WriteBoolERK7TDesC16iPK12RMessagePtr2 @ 143 NONAME
+	_ZN13CNifAgentBaseC2Ev @ 144 NONAME
+	_ZN13CNifIfFactory13NewInterfaceLERK7TDesC16P12MNifIfNotify @ 145 NONAME
+	_ZN14CCommsDbAccess10GetGlobalLERK7TDesC16Rm @ 146 NONAME
+	_ZN14CCommsDbAccess10ModemTableEv @ 147 NONAME
+	_ZN14CCommsDbAccess11GetTsyNameLER6TDes16 @ 148 NONAME
+	_ZN14CCommsDbAccess12GetLongDesLCERK7TDesC16S2_ @ 149 NONAME
+	_ZN14CCommsDbAccess12SetCommPortLERKN5RCall9TCommPortE @ 150 NONAME
+	_ZN14CCommsDbAccess13DoesIapExistLEm @ 151 NONAME
+	_ZN14CCommsDbAccess13ReadLongDesLCERK7TDesC16 @ 152 NONAME
+	_ZN14CCommsDbAccess13SetOverridesLEP23CCommDbOverrideSettings @ 153 NONAME
+	_ZN14CCommsDbAccess14SetNetworkModeEN12RMobilePhone23TMobilePhoneNetworkModeE @ 154 NONAME
+	_ZN14CCommsDbAccess15GetPreferedIapLERm26TCommDbConnectionDirectionm @ 155 NONAME
+	_ZN14CCommsDbAccess15GetServiceTypeLER6TDes16 @ 156 NONAME
+	_ZN14CCommsDbAccess15SetPreferedIapLERm26TCommDbConnectionDirectionm @ 157 NONAME
+	_ZN14CCommsDbAccess17GetFirstValidIapLERm @ 158 NONAME
+	_ZN14CCommsDbAccess19CheckReadCapabilityERK7TDesC16PK12RMessagePtr2 @ 159 NONAME
+	_ZN14CCommsDbAccess19GetCurrentSettingsLER19TConnectionSettings26TCommDbConnectionDirectionm @ 160 NONAME
+	_ZN14CCommsDbAccess19GetLengthOfLongDesLERK7TDesC16S2_ @ 161 NONAME
+	_ZN14CCommsDbAccess19GetServiceSettingsLER19TConnectionSettings @ 162 NONAME
+	_ZN14CCommsDbAccess19SetCurrentSettingsLERK19TConnectionSettings @ 163 NONAME
+	_ZN14CCommsDbAccess20CheckWriteCapabilityERK7TDesC16PK12RMessagePtr2 @ 164 NONAME
+	_ZN14CCommsDbAccess20SetModemAndLocationLERK19TConnectionSettings @ 165 NONAME
+	_ZN14CCommsDbAccess21GetConnectionAttemptsEv @ 166 NONAME
+	_ZN14CCommsDbAccess22IsShowingHiddenRecordsEv @ 167 NONAME
+	_ZN14CCommsDbAccess29GetBearerAvailabilityTsyNameLER6TDes16 @ 168 NONAME
+	_ZN14CCommsDbAccess35IsTelNumLengthZeroForRasConnectionLER19TConnectionSettings @ 169 NONAME
+	_ZN14CCommsDbAccess35RequestNotificationOfServiceChangeLEP22MServiceChangeObserver @ 170 NONAME
+	_ZN14CCommsDbAccess40CancelRequestNotificationOfServiceChangeEP22MServiceChangeObserver @ 171 NONAME
+	_ZN14CCommsDbAccess4NewLEP14MCommsDbAccess @ 172 NONAME
+	_ZN14CCommsDbAccess4NewLEi @ 173 NONAME
+	_ZN14CCommsDbAccess4NewLEv @ 174 NONAME
+	_ZN14CCommsDbAccess5CloseEv @ 175 NONAME
+	_ZN14CCommsDbAccess7GetDesLERK7TDesC16S2_R5TDes8 @ 176 NONAME
+	_ZN14CCommsDbAccess7GetDesLERK7TDesC16S2_R6TDes16 @ 177 NONAME
+	_ZN14CCommsDbAccess7GetIntLERK7TDesC16S2_Rm @ 178 NONAME
+	_ZN14CCommsDbAccess7ReadDesERK7TDesC16R5TDes8 @ 179 NONAME
+	_ZN14CCommsDbAccess7ReadDesERK7TDesC16R6TDes16 @ 180 NONAME
+	_ZN14CCommsDbAccess7ReadIntERK7TDesC16Rm @ 181 NONAME
+	_ZN14CCommsDbAccess8GetBoolLERK7TDesC16S2_Ri @ 182 NONAME
+	_ZN14CCommsDbAccess8ReadBoolERK7TDesC16Ri @ 183 NONAME
+	_ZN14CCommsDbAccess8WriteDesERK7TDesC16RK6TDesC8 @ 184 NONAME
+	_ZN14CCommsDbAccess8WriteDesERK7TDesC16S2_ @ 185 NONAME
+	_ZN14CCommsDbAccess8WriteIntERK7TDesC16m @ 186 NONAME
+	_ZN14CCommsDbAccess9WriteBoolERK7TDesC16i @ 187 NONAME
+	_ZN14CCommsDbAccessD0Ev @ 188 NONAME
+	_ZN14CCommsDbAccessD1Ev @ 189 NONAME
+	_ZN14CCommsDbAccessD2Ev @ 190 NONAME
+	_ZN14MCommsDbAccess19CheckReadCapabilityERK7TDesC16PK12RMessagePtr2 @ 191 NONAME
+	_ZN14MCommsDbAccess20CheckWriteCapabilityERK7TDesC16PK12RMessagePtr2 @ 192 NONAME
+	_ZN14MCommsDbAccessD0Ev @ 193 NONAME
+	_ZN14MCommsDbAccessD1Ev @ 194 NONAME
+	_ZN14MCommsDbAccessD2Ev @ 195 NONAME
+	_ZN15CAgentStateBase10JumpToRunlEi @ 196 NONAME
+	_ZN15CAgentStateBaseC2ER21MAgentStateMachineEnv @ 197 NONAME
+	_ZN15CAgentStateBaseD0Ev @ 198 NONAME
+	_ZN15CAgentStateBaseD1Ev @ 199 NONAME
+	_ZN15CAgentStateBaseD2Ev @ 200 NONAME
+	_ZN16CDialogProcessor10QoSWarningER24MDialogProcessorObserver @ 201 NONAME
+	_ZN16CDialogProcessor12AuthenticateER24MDialogProcessorObserverR6TDes16S3_i @ 202 NONAME
+	_ZN16CDialogProcessor16CancelEverythingEv @ 203 NONAME
+	_ZN16CDialogProcessor16SelectConnectionER24MDialogProcessorObserverRK16TConnectionPrefs @ 204 NONAME
+	_ZN16CDialogProcessor16SelectConnectionER24MDialogProcessorObserverRK16TConnectionPrefsi @ 205 NONAME
+	_ZN16CDialogProcessor17WarnNewConnectionER24MDialogProcessorObserverRK16TConnectionPrefsPK7TDesC16PK19TIspConnectionNamesi @ 206 NONAME
+	_ZN16CDialogProcessor22DestroyPctNotificationER24MDialogProcessorObserver @ 207 NONAME
+	_ZN16CDialogProcessor22SelectModemAndLocationER24MDialogProcessorObserver @ 208 NONAME
+	_ZN16CDialogProcessor4NewLEi @ 209 NONAME
+	_ZN16CDialogProcessor5LoginER24MDialogProcessorObserverR6TDes16S3_i @ 210 NONAME
+	_ZN16CDialogProcessor7OpenPctEv @ 211 NONAME
+	_ZN16CDialogProcessor7ReadPctER24MDialogProcessorObserverR6TDes16 @ 212 NONAME
+	_ZN16CDialogProcessor8ClosePctEv @ 213 NONAME
+	_ZN16CDialogProcessor8WritePctERK7TDesC16 @ 214 NONAME
+	_ZN16CDialogProcessor9ReconnectER24MDialogProcessorObserver @ 215 NONAME
+	_ZN16CDialogProcessorD0Ev @ 216 NONAME
+	_ZN16CDialogProcessorD1Ev @ 217 NONAME
+	_ZN16CDialogProcessorD2Ev @ 218 NONAME
+	_ZN19TConnectionSettingsC1Ev @ 219 NONAME
+	_ZN19TConnectionSettingsC2Ev @ 220 NONAME
+	_ZN22CNetworkControllerBase10AddBearerLEP11CBearerBase @ 221 NONAME ABSENT
+	_ZN22CNetworkControllerBase11AddNetworkLEP8CNetwork @ 222 NONAME ABSENT
+	_ZN22CNetworkControllerBaseC2Ev @ 223 NONAME ABSENT
+	_ZN22CNetworkControllerBaseD0Ev @ 224 NONAME ABSENT
+	_ZN22CNetworkControllerBaseD1Ev @ 225 NONAME ABSENT
+	_ZN22CNetworkControllerBaseD2Ev @ 226 NONAME ABSENT
+	_ZN22CStateMachineAgentBase10ConstructLEv @ 227 NONAME
+	_ZN22CStateMachineAgentBase10DisconnectEi @ 228 NONAME
+	_ZN22CStateMachineAgentBase12GetLastErrorERi @ 229 NONAME
+	_ZN22CStateMachineAgentBase12NotificationE20TAgentToNifEventTypePv @ 230 NONAME
+	_ZN22CStateMachineAgentBase12NotificationE20TNifToAgentEventTypePv @ 231 NONAME
+	_ZN22CStateMachineAgentBase13CancelConnectEv @ 232 NONAME
+	_ZN22CStateMachineAgentBase13GetExcessDataER5TDes8 @ 233 NONAME
+	_ZN22CStateMachineAgentBase14ServiceStartedEv @ 234 NONAME
+	_ZN22CStateMachineAgentBase14UpdateProgressEii @ 235 NONAME
+	_ZN22CStateMachineAgentBase18ConnectionCompleteEi @ 236 NONAME
+	_ZN22CStateMachineAgentBase18ConnectionCompleteEii @ 237 NONAME
+	_ZN22CStateMachineAgentBase18DisconnectCompleteEv @ 238 NONAME
+	_ZN22CStateMachineAgentBase24PreventConnectionRetriesEv @ 239 NONAME
+	_ZN22CStateMachineAgentBase26IncomingConnectionReceivedEv @ 240 NONAME
+	_ZN22CStateMachineAgentBase7ConnectE17TAgentConnectType @ 241 NONAME
+	_ZN22CStateMachineAgentBase7ConnectE17TAgentConnectTypeP26CStoreableOverrideSettings @ 242 NONAME
+	_ZN22CStateMachineAgentBaseC2Ev @ 243 NONAME
+	_ZN22CStateMachineAgentBaseD0Ev @ 244 NONAME
+	_ZN22CStateMachineAgentBaseD1Ev @ 245 NONAME
+	_ZN22CStateMachineAgentBaseD2Ev @ 246 NONAME
+	_ZN24MDialogProcessorObserver16MDPOWarnCompleteEii @ 247 NONAME
+	_ZN24MDialogProcessorObserver17MDPOLoginCompleteEi @ 248 NONAME
+	_ZN24MDialogProcessorObserver18MDPOSelectCompleteEiRK19TConnectionSettings @ 249 NONAME
+	_ZN24MDialogProcessorObserver19MDPOReadPctCompleteEi @ 250 NONAME
+	_ZN24MDialogProcessorObserver21MDPOReconnectCompleteEi @ 251 NONAME
+	_ZN24MDialogProcessorObserver22MDPODestroyPctCompleteEi @ 252 NONAME
+	_ZN24MDialogProcessorObserver22MDPOQoSWarningCompleteEii @ 253 NONAME
+	_ZN24MDialogProcessorObserver24MDPOAuthenticateCompleteEi @ 254 NONAME
+	_ZN24MDialogProcessorObserver34MDPOSelectModemAndLocationCompleteEiRK19TConnectionSettings @ 255 NONAME
+	_ZN3Nif12CreateAgentLERK7TDesC16i @ 256 NONAME
+	_ZN3Nif14NewConnectionLEP17MConnectionNotifyj @ 257 NONAME
+	_ZN3Nif14SetSocketStateE15TNifSocketStateP17CServProviderBase @ 258 NONAME
+	_ZN3Nif15CheckInstalledLEv @ 259 NONAME
+	_ZN3Nif16CreateInterfaceLERK7TDesC16 @ 260 NONAME
+	_ZN3Nif16CreateInterfaceLERK7TDesC16P12MNifIfNotify @ 261 NONAME
+	_ZN3Nif16IsProtocolLoadedERK7TDesC16 @ 262 NONAME
+	_ZN3Nif18NetworkLayerClosedER10MNifIfUser @ 263 NONAME
+	_ZN3Nif26CheckInstalledMBufManagerLEv @ 264 NONAME
+	_ZN3Nif4StopEPvP10CNifIfBase @ 265 NONAME
+	_ZN3Nif4StopERK7TDesC16 @ 266 NONAME
+	_ZN3Nif5BindLER10MNifIfUserPvR6TDes16RK7TDesC16 @ 267 NONAME
+	_ZN3Nif6StartLER6TDes16RK7TDesC16 @ 268 NONAME
+	_ZN3Nif9ProgressLER12TNifProgressPvP10CNifIfBase @ 269 NONAME
+	_ZN3Nif9ProgressLER12TNifProgressRK7TDesC16 @ 270 NONAME
+	_ZN5MComm10CommCancelEv @ 271 NONAME
+	_ZN5MComm10CommDeleteEv @ 272 NONAME
+	_ZN5MComm13CommReadReadyEv @ 273 NONAME
+	_ZN5MComm14CommConstructLEii @ 274 NONAME
+	_ZN5MComm14CommReadCancelEv @ 275 NONAME
+	_ZN5MComm14CommWriteReadyEv @ 276 NONAME
+	_ZN5MComm15CommWriteCancelEv @ 277 NONAME
+	_ZN5MComm17CommReadOneOrMoreER5TDes8 @ 278 NONAME
+	_ZN5MComm8CommOpenERK7TDesC1611TCommAccess @ 279 NONAME
+	_ZN5MComm8CommOpenERK7TDesC16S2_11TCommAccess @ 280 NONAME
+	_ZN5MComm8CommOpenERK7TDesC16S2_11TCommAccess9TCommRole @ 281 NONAME
+	_ZN5MComm8CommReadER5TDes8 @ 282 NONAME
+	_ZN5MComm9CommCloseEv @ 283 NONAME
+	_ZN5MComm9CommWriteERK6TDesC8 @ 284 NONAME
+	_ZN6MTimer10TimerAfterE27TTimeIntervalMicroSeconds32 @ 285 NONAME
+	_ZN6MTimer11TimerCancelEv @ 286 NONAME
+	_ZN6MTimer11TimerDeleteEv @ 287 NONAME
+	_ZN6MTimer15TimerConstructLEi @ 288 NONAME
+	_ZN6MTimer7TimerAtERK5TTime @ 289 NONAME
+	_ZN6MTimer9TimerLockE14TTimerLockSpec @ 290 NONAME
+	_ZN8CNetwork10ConstructLEv @ 291 NONAME ABSENT
+	_ZN8CNetwork12RemoveAgentLEP13CNifAgentBase @ 292 NONAME ABSENT
+	_ZN8CNetwork4NewLEmP22CNetworkControllerBase @ 293 NONAME ABSENT
+	_ZN8CNetwork5NewLCEmP22CNetworkControllerBase @ 294 NONAME ABSENT
+	_ZN8CNetwork9AddAgentLEP13CNifAgentBase @ 295 NONAME ABSENT
+	_ZN8CNetworkC1EmP22CNetworkControllerBase @ 296 NONAME ABSENT
+	_ZN8CNetworkC2EmP22CNetworkControllerBase @ 297 NONAME ABSENT
+	_ZN8CNetworkD0Ev @ 298 NONAME ABSENT
+	_ZN8CNetworkD1Ev @ 299 NONAME ABSENT
+	_ZN8CNetworkD2Ev @ 300 NONAME ABSENT
+	_ZNK10CAgentBase8IsActiveEv @ 301 NONAME
+	_ZNK11CBearerBase18AvailableBearerSetEv @ 302 NONAME ABSENT
+	_ZNK11CBearerBase18SupportedBearerSetEv @ 303 NONAME ABSENT
+	_ZNK14CCommsDbAccess10LocationIdEv @ 304 NONAME
+	_ZNK14CCommsDbAccess11NetworkModeEv @ 305 NONAME
+	_ZNK14CCommsDbAccess22GetConnectionDirectionEv @ 306 NONAME
+	_ZNK22CNetworkControllerBase15FindNetworkByIdEmRP8CNetwork @ 307 NONAME ABSENT
+	_ZNK22CStateMachineAgentBase11IsReconnectEv @ 308 NONAME
+	_ZNK5MComm13CommIsReadingEv @ 309 NONAME
+	_ZNK5MComm13CommIsWritingEv @ 310 NONAME
+	_ZNK8CNetwork14FindAgentByIapEmRP13CNifAgentBase @ 311 NONAME ABSENT
+	_ZNK8CNetwork9NetworkIdEv @ 312 NONAME ABSENT
+	_ZTI10CAgentBase @ 313 NONAME ; #<TI>#
+	_ZTI10CNifIfBase @ 314 NONAME ; #<TI>#
+	_ZTI10CNifIfLink @ 315 NONAME ; #<TI>#
+	_ZTI11CBearerBase @ 316 NONAME ABSENT ; #<TI>#
+	_ZTI11CNifFactory @ 317 NONAME ; #<TI>#
+	_ZTI12CAgentSMBase @ 318 NONAME ; #<TI>#
+	_ZTI12CEventLogger @ 319 NONAME ; #<TI>#
+	_ZTI13CNifAgentBase @ 320 NONAME ; #<TI>#
+	_ZTI13CNifIfFactory @ 321 NONAME ; #<TI>#
+	_ZTI14CCommsDbAccess @ 322 NONAME ; #<TI>#
+	_ZTI14MCommsDbAccess @ 323 NONAME ; #<TI>#
+	_ZTI15CAgentStateBase @ 324 NONAME ; #<TI>#
+	_ZTI16CDialogProcessor @ 325 NONAME ; #<TI>#
+	_ZTI22CNetworkControllerBase @ 326 NONAME ABSENT ; #<TI># 
+	_ZTI22CStateMachineAgentBase @ 327 NONAME ; #<TI>#
+	_ZTI24MDialogProcessorObserver @ 328 NONAME ; #<TI>#
+	_ZTI8CNetwork @ 329 NONAME ABSENT ; #<TI>#
+	_ZTV10CAgentBase @ 330 NONAME ; #<VT>#
+	_ZTV10CNifIfBase @ 331 NONAME ; #<VT>#
+	_ZTV10CNifIfLink @ 332 NONAME ; #<VT>#
+	_ZTV11CBearerBase @ 333 NONAME ABSENT ; #<VT>#
+	_ZTV11CNifFactory @ 334 NONAME ; #<VT>#
+	_ZTV12CAgentSMBase @ 335 NONAME ; #<VT>#
+	_ZTV12CEventLogger @ 336 NONAME ; #<VT>#
+	_ZTV13CNifAgentBase @ 337 NONAME ; #<VT>#
+	_ZTV13CNifIfFactory @ 338 NONAME ; #<VT>#
+	_ZTV14CCommsDbAccess @ 339 NONAME ; #<VT>#
+	_ZTV14MCommsDbAccess @ 340 NONAME ; #<VT>#
+	_ZTV15CAgentStateBase @ 341 NONAME ; #<VT>#
+	_ZTV16CDialogProcessor @ 342 NONAME ; #<VT>#
+	_ZTV22CNetworkControllerBase @ 343 NONAME ABSENT ; #<VT>#
+	_ZTV22CStateMachineAgentBase @ 344 NONAME ; #<VT>#
+	_ZTV24MDialogProcessorObserver @ 345 NONAME ; #<VT>#
+	_ZTV8CNetwork @ 346 NONAME ABSENT ; #<VT>#
+	_ZThn12_N10CAgentBase24MDPOAuthenticateCompleteEi @ 347 NONAME ; #<thunk>#
+	_ZThn16_N10CAgentBase14SelectCompleteERK7TDesC16 @ 348 NONAME ; #<thunk>#
+	_ZThn16_N10CAgentBase14SelectCompleteEi @ 349 NONAME ; #<thunk>#
+	_ZThn16_N10CAgentBase17ReconnectCompleteEi @ 350 NONAME ; #<thunk>#
+	_ZThn28_N12CAgentSMBase12NotificationE20TAgentToNifEventTypePv @ 351 NONAME ; #<thunk>#
+	_ZThn28_N12CAgentSMBase13CompleteStateEi @ 352 NONAME ; #<thunk>#
+	_ZThn28_N12CAgentSMBase14ServiceStartedEv @ 353 NONAME ; #<thunk>#
+	_ZThn28_N12CAgentSMBase14UpdateProgressEii @ 354 NONAME ; #<thunk>#
+	_ZThn28_N12CAgentSMBase18ConnectionCompleteEi @ 355 NONAME ; #<thunk>#
+	_ZThn28_N12CAgentSMBase18ConnectionCompleteEii @ 356 NONAME ; #<thunk>#
+	_ZThn28_N12CAgentSMBase18DisconnectCompleteEv @ 357 NONAME ; #<thunk>#
+	_ZThn28_N12CAgentSMBase24PreventConnectionRetriesEv @ 358 NONAME ; #<thunk>#
+	_ZThn28_N12CAgentSMBase26IncomingConnectionReceivedEv @ 359 NONAME ; #<thunk>#
+	_ZThn28_N12CAgentSMBase2DbEv @ 360 NONAME ; #<thunk>#
+	_ZThn28_N12CAgentSMBase6DlgPrcEv @ 361 NONAME ; #<thunk>#
+	_ZThn316_N22CStateMachineAgentBase12NotificationE20TAgentToNifEventTypePv @ 362 NONAME ; #<thunk>#
+	_ZThn316_N22CStateMachineAgentBase14ServiceStartedEv @ 363 NONAME ; #<thunk>#
+	_ZThn316_N22CStateMachineAgentBase14UpdateProgressEii @ 364 NONAME ; #<thunk>#
+	_ZThn316_N22CStateMachineAgentBase18ConnectionCompleteEi @ 365 NONAME ; #<thunk>#
+	_ZThn316_N22CStateMachineAgentBase18ConnectionCompleteEii @ 366 NONAME ; #<thunk>#
+	_ZThn316_N22CStateMachineAgentBase18DisconnectCompleteEv @ 367 NONAME ; #<thunk>#
+	_ZThn316_N22CStateMachineAgentBase24PreventConnectionRetriesEv @ 368 NONAME ; #<thunk>#
+	_ZThn316_N22CStateMachineAgentBase26IncomingConnectionReceivedEv @ 369 NONAME ; #<thunk>#
+	_ZThn8_N10CAgentBase25ServiceChangeNotificationEmRK7TDesC16 @ 370 NONAME ; #<thunk>#
+	_ZN13CNifAgentBase7ControlEjjR5TDes8RK8RProcess @ 371 NONAME ; #<thunk>#
+	_ZN7CNifMan6GlobalEv @ 372 NONAME
+	_ZTI21CAgentDialogProcessor @ 373 NONAME
+	_ZTV21CAgentDialogProcessor @ 374 NONAME
+	NonExistentImport375 @ 375 NONAME ABSENT
+	NonExistentImport376 @ 376 NONAME ABSENT
+	NonExistentImport377 @ 377 NONAME ABSENT
+	NonExistentImport378 @ 378 NONAME ABSENT
+	NonExistentImport379 @ 379 NONAME ABSENT
+	_ZN7MCommV210CommCancelEv @ 380 NONAME
+	_ZN7MCommV210CommDeleteEv @ 381 NONAME
+	_ZN7MCommV213CommReadReadyEv @ 382 NONAME
+	_ZN7MCommV214CommConstructLEii @ 383 NONAME
+	_ZN7MCommV214CommReadCancelEv @ 384 NONAME
+	_ZN7MCommV214CommWriteReadyEv @ 385 NONAME
+	_ZN7MCommV215CommWriteCancelEv @ 386 NONAME
+	_ZN7MCommV217CommReadOneOrMoreER5TDes8 @ 387 NONAME
+	_ZN7MCommV24PortEv @ 388 NONAME
+	_ZN7MCommV26SetBcaEPN25BasebandChannelAdaptation4MBcaE @ 389 NONAME
+	_ZN7MCommV27BcaNameEv @ 390 NONAME
+	_ZN7MCommV28CommOpenERK7TDesC16 @ 391 NONAME
+	_ZN7MCommV28CommReadER5TDes8 @ 392 NONAME
+	_ZN7MCommV29CommCloseEv @ 393 NONAME
+	_ZN7MCommV29CommWriteERK6TDesC8 @ 394 NONAME
+	_ZNK7MCommV213CommIsReadingEv @ 395 NONAME
+	_ZNK7MCommV213CommIsWritingEv @ 396 NONAME
+	_ZTI17CScriptBcaControl @ 397 NONAME ; #<TI>#
+	_ZTI7MCommV2 @ 398 NONAME ; #<TI>#
+	_ZTV17CScriptBcaControl @ 399 NONAME ; #<VT>#
+	_ZTV7MCommV2 @ 400 NONAME ; #<VT>#
+	_ZNK10CAgentBase13GetBearerInfoEv @ 401 NONAME
+	_ZNK13CNifAgentBase13GetBearerInfoEv @ 402 NONAME
+

@@ -1,0 +1,33 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+#ifndef __TPPP_IBY__
+#define __TPPP_IBY__
+
+#include <ppp.iby>
+
+#include <ts_esockutil.iby>
+
+file=ABI_DIR\DEBUG_DIR\tpppsize.exe 				Test\tpppsize.exe
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\ppp\tpppsize.ini	TestData\configs\ppp\tpppsize.ini
+
+// T_PPP
+file=ABI_DIR\DEBUG_DIR\t_nifman.dll        System\Libs\t_nifman.dll
+file=ABI_DIR\DEBUG_DIR\t_esock.dll         System\Libs\t_esock.dll
+file=ABI_DIR\DEBUG_DIR\tppp.nif            System\Libs\tppp.nif
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\ppp\t_ppp.xml	TestData\configs\ppp\t_ppp.xml
+
+#endif // __PPP_IBY__

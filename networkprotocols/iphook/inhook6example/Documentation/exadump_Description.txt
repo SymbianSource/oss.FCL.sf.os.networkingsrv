@@ -1,0 +1,14 @@
+Portions Copyright (c) Symbian Software Ltd. 2007.
+Portions Copyright (C) 2003-2007 Nokia. * Nokia Core OS *
+Save as expressly licensed to you by Symbian Software Ltd, all rights reserved.
+
+Exadump
+
+This plugin is binded to IP protocol. It is started
+when IP protocol is started an destroyed when IP protocol
+is destroyed. It will attach itself for all incoming
+and outgoing  packets (outbound flow hook).
+
+A file c:\exadump.dat is created. This will contain
+a dump of packets in TCPDUMP format (suitable for
+viewing in ethereal).

@@ -1,0 +1,9 @@
+EXPORTS
+	??0REchoDaemonSession@@QAE@XZ @ 1 NONAME ; REchoDaemonSession::REchoDaemonSession(void)
+	??1REchoDaemonSession@@QAE@XZ @ 2 NONAME ; REchoDaemonSession::~REchoDaemonSession(void)
+	?Connect@REchoDaemonSession@@QAEHXZ @ 3 NONAME ; int REchoDaemonSession::Connect(void)
+	?Start@REchoDaemonSession@@QAEHHHH@Z @ 4 NONAME ; int REchoDaemonSession::Start(int, int, int)
+	?Stop@REchoDaemonSession@@QAEHHHH@Z @ 5 NONAME ; int REchoDaemonSession::Stop(int, int, int)
+	?StopAll@REchoDaemonSession@@QAEHXZ @ 6 NONAME ; int REchoDaemonSession::StopAll(void)
+	?Version@REchoDaemonSession@@QBE?AVTVersion@@XZ @ 7 NONAME ; class TVersion REchoDaemonSession::Version(void) const
+

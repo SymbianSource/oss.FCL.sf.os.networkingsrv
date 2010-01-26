@@ -1,0 +1,5 @@
+-i..\..\..\security\cryptalg\import\inc
+-i..\inc
+-i..\sppp
+
+..\sppp\*.cpp

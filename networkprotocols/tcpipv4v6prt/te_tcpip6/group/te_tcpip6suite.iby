@@ -1,0 +1,100 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+#ifndef __TE_TCPIP6_SUITE_IBY__
+#define __TE_TCPIP6_SUITE_IBY__
+
+#include <testexecute.iby>
+
+data=EPOCROOT##Epoc32\data\z\TestData\configs\tcpip6AdapWnd.ced.cfg		TestData\configs\tcpip6AdapWnd.ced.cfg
+data=EPOCROOT##Epoc32\data\z\TestData\configs\tcpip6AdapWnd_gprs.ced.cfg 	TestData\configs\tcpip6AdapWnd_gprs.ced.cfg
+data=EPOCROOT##Epoc32\data\z\TestData\configs\tcpip6AdapWnd_vpn.ced.cfg 	TestData\configs\tcpip6AdapWnd_vpn.ced.cfg
+
+data=EPOCROOT##Epoc32\data\z\TestData\configs\te_tcpip6AdapWnd.ini 	TestData\configs\te_tcpip6AdapWnd.ini
+data=EPOCROOT##Epoc32\data\z\TestData\configs\te_tcpip6AdapWnd_expSocket_02.ini 	TestData\configs\te_tcpip6AdapWnd_expSocket_02.ini
+
+//config.txt file for simtsy
+data=EPOCROOT##Epoc32\data\z\TestData\configs\te_tcpip6AdapWnd_Modulation_Gprs_Edge_config.txt 	TestData\configs\te_tcpip6AdapWnd_Modulation_Gprs_Edge_config.txt
+data=EPOCROOT##Epoc32\data\z\TestData\configs\te_tcpip6AdapWnd_Modulation_Gprs_Umts_config.txt 	TestData\configs\te_tcpip6AdapWnd_Modulation_Gprs_Umts_config.txt
+data=EPOCROOT##Epoc32\data\z\TestData\configs\te_tcpip6AdapWnd_Modulation_Gprs_Hsdpa_config.txt	TestData\configs\te_tcpip6AdapWnd_Modulation_Gprs_Hsdpa_config.txt
+data=EPOCROOT##Epoc32\data\z\TestData\configs\te_tcpip6AdapWnd_Modulation_Edge_Gprs_config.txt 	TestData\configs\te_tcpip6AdapWnd_Modulation_Edge_Gprs_config.txt
+data=EPOCROOT##Epoc32\data\z\TestData\configs\te_tcpip6AdapWnd_Modulation_Edge_Umts_config.txt 	TestData\configs\te_tcpip6AdapWnd_Modulation_Edge_Umts_config.txt
+data=EPOCROOT##Epoc32\data\z\TestData\configs\te_tcpip6AdapWnd_Modulation_Edge_Hsdpa_config.txt	TestData\configs\te_tcpip6AdapWnd_Modulation_Edge_Hsdpa_config.txt
+data=EPOCROOT##Epoc32\data\z\TestData\configs\te_tcpip6AdapWnd_Modulation_Umts_Gprs_config.txt 	TestData\configs\te_tcpip6AdapWnd_Modulation_Umts_Gprs_config.txt
+data=EPOCROOT##Epoc32\data\z\TestData\configs\te_tcpip6AdapWnd_Modulation_Umts_Edge_config.txt 	TestData\configs\te_tcpip6AdapWnd_Modulation_Umts_Edge_config.txt
+data=EPOCROOT##Epoc32\data\z\TestData\configs\te_tcpip6AdapWnd_Modulation_Umts_Hsdpa_config.txt	TestData\configs\te_tcpip6AdapWnd_Modulation_Umts_Hsdpa_config.txt
+data=EPOCROOT##Epoc32\data\z\TestData\configs\te_tcpip6AdapWnd_Modulation_Hsdpa_Gprs_config.txt	TestData\configs\te_tcpip6AdapWnd_Modulation_Hsdpa_Gprs_config.txt
+data=EPOCROOT##Epoc32\data\z\TestData\configs\te_tcpip6AdapWnd_Modulation_Hsdpa_Edge_config.txt	TestData\configs\te_tcpip6AdapWnd_Modulation_Hsdpa_Edge_config.txt
+data=EPOCROOT##Epoc32\data\z\TestData\configs\te_tcpip6AdapWnd_Modulation_Hsdpa_Umts_config.txt	TestData\configs\te_tcpip6AdapWnd_Modulation_Hsdpa_Umts_config.txt
+
+data=EPOCROOT##Epoc32\data\z\TestData\configs\tcpip6AdapWnd_config_gprs.txt 	TestData\configs\tcpip6AdapWnd_config_gprs.txt
+data=EPOCROOT##Epoc32\data\z\TestData\configs\tcpip6AdapWnd_config_edge.txt 	TestData\configs\tcpip6AdapWnd_config_edge.txt
+data=EPOCROOT##Epoc32\data\z\TestData\configs\tcpip6AdapWnd_config_umts.txt 	TestData\configs\tcpip6AdapWnd_config_umts.txt
+data=EPOCROOT##Epoc32\data\z\TestData\configs\tcpip6AdapWnd_config_hsdpa.txt 	TestData\configs\tcpip6AdapWnd_config_hsdpa.txt
+
+data=EPOCROOT##Epoc32\data\z\TestData\configs\tcpip6AdapWnd_LoopbackCSY.ini 	TestData\configs\tcpip6AdapWnd_LoopbackCSY.ini
+
+
+//Parent Script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd.script TestData\Scripts\te_tcpip6AdapWnd.Script
+
+//Explicit Socket tests
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_expSocket_gprs1.script TestData\Scripts\te_tcpip6AdapWnd_expSocket_gprs1.Script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_expSocket_gprs2.script TestData\Scripts\te_tcpip6AdapWnd_expSocket_gprs2.Script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_expSocket_gprs3.script TestData\Scripts\te_tcpip6AdapWnd_expSocket_gprs3.Script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_expSocket_edge1.script TestData\Scripts\te_tcpip6AdapWnd_expSocket_edge1.Script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6adapwnd_expsocket_edge1_user.script TestData\Scripts\te_tcpip6adapwnd_expsocket_edge1_user.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_expSocket_edge2.script TestData\Scripts\te_tcpip6AdapWnd_expSocket_edge2.Script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_expSocket_edge3.script TestData\Scripts\te_tcpip6AdapWnd_expSocket_edge3.Script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_expSocket_umts1.script TestData\Scripts\te_tcpip6AdapWnd_expSocket_umts1.Script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_expSocket_umts2.script TestData\Scripts\te_tcpip6AdapWnd_expSocket_umts2.Script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_expSocket_umts3.script TestData\Scripts\te_tcpip6AdapWnd_expSocket_umts3.Script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_expSocket_hsdpa1.script TestData\Scripts\te_tcpip6AdapWnd_expSocket_hsdpa1.Script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_expSocket_hsdpa2.script TestData\Scripts\te_tcpip6AdapWnd_expSocket_hsdpa2.Script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_expSocket_hsdpa3.script TestData\Scripts\te_tcpip6AdapWnd_expSocket_hsdpa3.Script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_expSocket_ethernet1.script TestData\Scripts\te_tcpip6AdapWnd_expSocket_ethernet1.Script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_expSocket_ethernet2.script TestData\Scripts\te_tcpip6AdapWnd_expSocket_ethernet2.Script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_expSocket_ethernet3.script TestData\Scripts\te_tcpip6AdapWnd_expSocket_ethernet3.Script
+
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_Modulation_Gprs_Edge.script TestData\Scripts\te_tcpip6AdapWnd_Modulation_Gprs_Edge.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_Modulation_Gprs_Umts.script TestData\Scripts\te_tcpip6AdapWnd_Modulation_Gprs_Umts.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_Modulation_Gprs_Hsdpa.script TestData\Scripts\te_tcpip6AdapWnd_Modulation_Gprs_Hsdpa.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_Modulation_Edge_Gprs.script TestData\Scripts\te_tcpip6AdapWnd_Modulation_Edge_Gprs.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6adapwnd_modulation_edge_gprs_user_set.script TestData\Scripts\te_tcpip6adapwnd_modulation_edge_gprs_user_set.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_Modulation_Edge_Umts.script TestData\Scripts\te_tcpip6AdapWnd_Modulation_Edge_Umts.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_Modulation_Edge_Hsdpa.script TestData\Scripts\te_tcpip6AdapWnd_Modulation_Edge_Hsdpa.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_Modulation_Umts_Gprs.script TestData\Scripts\te_tcpip6AdapWnd_Modulation_Umts_Gprs.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_Modulation_Umts_Edge.script TestData\Scripts\te_tcpip6AdapWnd_Modulation_Umts_Edge.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_Modulation_Umts_Hsdpa.script TestData\Scripts\te_tcpip6AdapWnd_Modulation_Umts_Hsdpa.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_Modulation_Hsdpa_Gprs.script TestData\Scripts\te_tcpip6AdapWnd_Modulation_Hsdpa_Gprs.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_Modulation_Hsdpa_Edge.script TestData\Scripts\te_tcpip6AdapWnd_Modulation_Hsdpa_Edge.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_Modulation_Hsdpa_Umts.script TestData\Scripts\te_tcpip6AdapWnd_Modulation_Hsdpa_Umts.script
+
+
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_VPNModulation_Gprs_Edge.script TestData\Scripts\te_tcpip6AdapWnd_VPNModulation_Gprs_Edge.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_VPNModulation_Gprs_Umts.script TestData\Scripts\te_tcpip6AdapWnd_VPNModulation_Gprs_Umts.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_VPNModulation_Gprs_Hsdpa.script TestData\Scripts\te_tcpip6AdapWnd_VPNModulation_Gprs_Hsdpa.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_VPNModulation_Edge_Gprs.script TestData\Scripts\te_tcpip6AdapWnd_VPNModulation_Edge_Gprs.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_VPNModulation_Edge_Umts.script TestData\Scripts\te_tcpip6AdapWnd_VPNModulation_Edge_Umts.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_VPNModulation_Edge_Hsdpa.script TestData\Scripts\te_tcpip6AdapWnd_VPNModulation_Edge_Hsdpa.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_VPNModulation_Umts_Gprs.script TestData\Scripts\te_tcpip6AdapWnd_VPNModulation_Umts_Gprs.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_VPNModulation_Umts_Edge.script TestData\Scripts\te_tcpip6AdapWnd_VPNModulation_Umts_Edge.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_VPNModulation_Umts_Hsdpa.script TestData\Scripts\te_tcpip6AdapWnd_VPNModulation_Umts_Hsdpa.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_VPNModulation_Hsdpa_Gprs.script TestData\Scripts\te_tcpip6AdapWnd_VPNModulation_Hsdpa_Gprs.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_VPNModulation_Hsdpa_Edge.script TestData\Scripts\te_tcpip6AdapWnd_VPNModulation_Hsdpa_Edge.script
+data=EPOCROOT##Epoc32\data\z\TestData\scripts\te_tcpip6AdapWnd_VPNModulation_Hsdpa_Umts.script TestData\Scripts\te_tcpip6AdapWnd_VPNModulation_Hsdpa_Umts.script
+
+#endif

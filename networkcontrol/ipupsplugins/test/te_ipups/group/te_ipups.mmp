@@ -1,0 +1,86 @@
+// Copyright (c) 2008-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+/**
+ @file
+ @test
+*/
+
+
+
+
+TARGET      te_ipups.exe
+TARGETTYPE  exe
+UID         0x1000007A 0x10285B91
+VENDORID	0x70000001
+ 
+CAPABILITY ALL -TCB
+
+SOURCEPATH  ../src
+SOURCE	    te_ipups_stepbase.cpp
+SOURCE	    te_ipups_server.cpp
+SOURCE	    te_ipups_ups_step.cpp
+SOURCE	    te_ipups_notify_count.cpp
+SOURCE	    te_ipups_delete_decision_db.cpp
+
+USERINCLUDE  ../inc
+
+SOURCEPATH  ../policyfile
+
+START RESOURCE ups_10285B91_10281DD8.rss
+TARGETPATH /private/10283558/policies
+END
+
+START RESOURCE ups_10285B91_10281DD8.rss
+TARGETPATH /private/10283558/policies
+TARGET ups_a0000001_10281dd8.rsc
+END
+
+START RESOURCE ups_10285B91_10281DD8.rss
+TARGETPATH /private/10283558/policies
+TARGET ups_10000001_10281dd8.rsc
+END
+
+START RESOURCE ups_10285B91_10281DD8.rss
+TARGETPATH /private/10283558/policies
+TARGET ups_10000002_10281dd8.rsc
+END
+
+START RESOURCE ups_test_always_101F7989_10281DD8.rss
+TARGETPATH	/system/data
+TARGET ups_test_always_101F7989_10281DD8.rss
+END
+
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+SYSTEMINCLUDE /epoc32/include
+SYSTEMINCLUDE /epoc32/include/ups
+SYSTEMINCLUDE /epoc32/include/test
+#else
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+SYSTEMINCLUDE /epoc32/include/platform/test
+#endif
+
+LIBRARY     euser.lib
+LIBRARY		testexecuteutils.lib 
+LIBRARY		testexecutelogclient.lib 
+LIBRARY		bafl.lib
+LIBRARY     efsrv.lib 
+LIBRARY   	numberconversion.lib
+LIBRARY		upsclient.lib
+LIBRARY		upsmanagement.lib
+LIBRARY		upsnotifierutil.lib
+LIBRARY		estor.lib 
+
+SMPSAFE

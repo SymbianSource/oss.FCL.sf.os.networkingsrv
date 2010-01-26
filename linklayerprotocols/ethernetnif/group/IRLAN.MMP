@@ -1,0 +1,57 @@
+// Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// irlan.drv User side IrLAN protocol driver 
+// 
+//
+
+/**
+ @file
+*/
+
+
+TARGET        irlan.drv
+TARGETTYPE    DLL
+UID    0x1000053f 0x10009b70
+VENDORID 0x70000001
+
+SOURCEPATH    ../IRLAN             
+SOURCE        INTSOCK.CPP
+SOURCE        IRFRAME.CPP
+SOURCE        IRLANBUF.CPP
+SOURCE        IRLANCTL.CPP
+SOURCE 	      IRLANDAT.CPP
+SOURCE        IRLANDLL.CPP
+SOURCE 	      IRLANIO.CPP
+SOURCE        IRLANUTL.CPP
+SOURCE	      PRINT.CPP
+SOURCE        irlantimer.cpp
+
+USERINCLUDE   	../IRLAN
+USERINCLUDE 	../INC
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+LIBRARY       euser.lib esock.lib esocksvr.lib ethint.lib irda.lib mbufmgr.lib
+#ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+LIBRARY         nodemessages.lib
+#endif
+
+START WINS
+    BASEADDRESS 0x7ff50000
+END
+
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+
+UNPAGED
+
+SMPSAFE

@@ -1,0 +1,156 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+#ifndef __T_IPSEC_IBY__
+#define __T_IPSEC_IBY__
+
+#include <ipsec.iby>
+#include <vpn.iby>
+#include <integrationtest.iby>
+
+file=ABI_DIR\DEBUG_DIR\t_ipsec.exe             System\Libs\t_ipsec.exe
+
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\te_ipsec-common.script            testdata\scripts\te_ipsec-common.script
+
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ikev2-ops.script         testdata\scripts\ns-ipsec-ikev2-ops.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-ops.script   testdata\scripts\ns-ipsec-multiple-sa-ops.script
+
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ikev2test-ops.ini        testdata\scripts\ns-ipsec-ikev2test-ops.ini
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiplesatest-ops.ini   testdata\scripts\ns-ipsec-multiplesatest-ops.ini
+
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ikev2-1.script         testdata\scripts\ns-ipsec-ikev2-1.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ikev2-2.script         testdata\scripts\ns-ipsec-ikev2-2.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ikev2-3.script         testdata\scripts\ns-ipsec-ikev2-3.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ikev2-4.script         testdata\scripts\ns-ipsec-ikev2-4.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ikev2-5.script         testdata\scripts\ns-ipsec-ikev2-5.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ikev2-6.script         testdata\scripts\ns-ipsec-ikev2-6.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ikev2-7.script         testdata\scripts\ns-ipsec-ikev2-7.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ikev2-8.script         testdata\scripts\ns-ipsec-ikev2-8.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ikev2-9.script         testdata\scripts\ns-ipsec-ikev2-9.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ikev2-10.script         testdata\scripts\ns-ipsec-ikev2-10.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ikev2-11.script         testdata\scripts\ns-ipsec-ikev2-11.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ikev2-12.script         testdata\scripts\ns-ipsec-ikev2-12.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-1.script   testdata\scripts\ns-ipsec-multiple-sa-1.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-2.script   testdata\scripts\ns-ipsec-multiple-sa-2.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-3.script   testdata\scripts\ns-ipsec-multiple-sa-3.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-4.script   testdata\scripts\ns-ipsec-multiple-sa-4.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-5.script   testdata\scripts\ns-ipsec-multiple-sa-5.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-6.script   testdata\scripts\ns-ipsec-multiple-sa-6.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-7.script   testdata\scripts\ns-ipsec-multiple-sa-7.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-8.script   testdata\scripts\ns-ipsec-multiple-sa-8.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-9.script   testdata\scripts\ns-ipsec-multiple-sa-9.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-10.script   testdata\scripts\ns-ipsec-multiple-sa-10.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-11.script   testdata\scripts\ns-ipsec-multiple-sa-11.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-12.script   testdata\scripts\ns-ipsec-multiple-sa-12.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-13.script   testdata\scripts\ns-ipsec-multiple-sa-13.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-14.script   testdata\scripts\ns-ipsec-multiple-sa-14.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-15.script   testdata\scripts\ns-ipsec-multiple-sa-15.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-16.script   testdata\scripts\ns-ipsec-multiple-sa-16.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-17.script   testdata\scripts\ns-ipsec-multiple-sa-17.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-18.script   testdata\scripts\ns-ipsec-multiple-sa-18.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-19.script   testdata\scripts\ns-ipsec-multiple-sa-19.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-20.script   testdata\scripts\ns-ipsec-multiple-sa-20.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-21.script   testdata\scripts\ns-ipsec-multiple-sa-21.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-22.script   testdata\scripts\ns-ipsec-multiple-sa-22.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-23.script   testdata\scripts\ns-ipsec-multiple-sa-23.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-multiple-sa-24.script   testdata\scripts\ns-ipsec-multiple-sa-24.script
+
+
+
+REM common files 
+data=EPOCROOT##epoc32\data\Z\TestData\configs\epoc2linux.xml    	testdata\configs\epoc2linux.xml
+data=EPOCROOT##epoc32\data\Z\TestData\configs\ethernetced1853.xml   testdata\configs\ethernetced1853.xml
+
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel.pin  testdata\configs\linux_tunnel.pin
+
+REM Policy files
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel1.pol   testdata\configs\linux_tunnel1.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel2.pol   testdata\configs\linux_tunnel2.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel3.pol   testdata\configs\linux_tunnel3.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel4.pol   testdata\configs\linux_tunnel4.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel5.pol   testdata\configs\linux_tunnel5.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel6.pol   testdata\configs\linux_tunnel6.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel7.pol   testdata\configs\linux_tunnel7.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel8.pol   testdata\configs\linux_tunnel8.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel9.pol   testdata\configs\linux_tunnel9.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel10.pol      testdata\configs\linux_tunnel10.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel11.pol      testdata\configs\linux_tunnel11.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel12.pol      testdata\configs\linux_tunnel12.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel13.pol      testdata\configs\linux_tunnel13.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel14.pol      testdata\configs\linux_tunnel14.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel15.pol      testdata\configs\linux_tunnel15.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel16.pol      testdata\configs\linux_tunnel16.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel17.pol      testdata\configs\linux_tunnel17.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel18.pol      testdata\configs\linux_tunnel18.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel19.pol      testdata\configs\linux_tunnel19.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel20.pol      testdata\configs\linux_tunnel20.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel21.pol      testdata\configs\linux_tunnel21.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel22.pol      testdata\configs\linux_tunnel22.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel23.pol      testdata\configs\linux_tunnel23.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel24.pol      testdata\configs\linux_tunnel24.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel25.pol      testdata\configs\linux_tunnel25.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel26.pol      testdata\configs\linux_tunnel26.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel27.pol      testdata\configs\linux_tunnel27.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel28.pol      testdata\configs\linux_tunnel28.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel29.pol      testdata\configs\linux_tunnel29.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel30.pol      testdata\configs\linux_tunnel30.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel31.pol      testdata\configs\linux_tunnel31.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel32.pol      testdata\configs\linux_tunnel32.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel33.pol      testdata\configs\linux_tunnel33.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel34.pol      testdata\configs\linux_tunnel34.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel35.pol      testdata\configs\linux_tunnel35.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel36.pol      testdata\configs\linux_tunnel36.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel37.pol      testdata\configs\linux_tunnel37.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel38.pol      testdata\configs\linux_tunnel38.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel39.pol      testdata\configs\linux_tunnel39.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel40.pol      testdata\configs\linux_tunnel40.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel41.pol      testdata\configs\linux_tunnel41.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel42.pol      testdata\configs\linux_tunnel42.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel43.pol      testdata\configs\linux_tunnel43.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel44.pol      testdata\configs\linux_tunnel44.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel45.pol      testdata\configs\linux_tunnel45.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel46.pol      testdata\configs\linux_tunnel46.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel47.pol      testdata\configs\linux_tunnel47.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel48.pol      testdata\configs\linux_tunnel48.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel49.pol      testdata\configs\linux_tunnel49.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel50.pol      testdata\configs\linux_tunnel50.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel51.pol      testdata\configs\linux_tunnel51.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel52.pol      testdata\configs\linux_tunnel52.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel53.pol      testdata\configs\linux_tunnel53.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel54.pol      testdata\configs\linux_tunnel54.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel55.pol      testdata\configs\linux_tunnel55.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel56.pol      testdata\configs\linux_tunnel56.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel57.pol      testdata\configs\linux_tunnel57.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel58.pol      testdata\configs\linux_tunnel58.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel59.pol      testdata\configs\linux_tunnel59.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel60.pol      testdata\configs\linux_tunnel60.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel61.pol      testdata\configs\linux_tunnel61.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel62.pol      testdata\configs\linux_tunnel62.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel63.pol      testdata\configs\linux_tunnel63.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel64.pol      testdata\configs\linux_tunnel64.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel65.pol      testdata\configs\linux_tunnel65.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel66.pol      testdata\configs\linux_tunnel66.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel67.pol      testdata\configs\linux_tunnel67.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel68.pol      testdata\configs\linux_tunnel68.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel69.pol      testdata\configs\linux_tunnel69.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel70.pol      testdata\configs\linux_tunnel70.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel71.pol      testdata\configs\linux_tunnel71.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel72.pol      testdata\configs\linux_tunnel72.pol
+data=EPOCROOT##epoc32\data\Z\TestData\configs\linux_tunnel73.pol      testdata\configs\linux_tunnel73.pol
+
+
+#endif

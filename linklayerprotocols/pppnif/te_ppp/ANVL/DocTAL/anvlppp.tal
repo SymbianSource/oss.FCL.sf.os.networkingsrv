@@ -1,0 +1,1826 @@
+Portions of this file are Copyright (c) 2004 Symbian Software Ltd. All Rights Reserved.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+PROTOCOL SPECIFICATION AND TEST SETUP
+ANVL Test Suite PPP Family (ppp of ppp, pppauth, rfc1471, rfc1473)
+RFC 1661:  'The Point-to-Point Protocol (PPP)'
+(William Allen Simpson, Daydreamer, July 1994)
+RFC 1662:  'PPP in HDLC-like Framing'
+(William Allen Simpson, Daydreamer, July 1994)
+This test suite requires that the workstation running ANVL be
+connected to the DUT with a serial cable. The DUT should be
+configured to have all default values for its options. Some
+tests require LQM, IP (if available in this version of ANVL) or
+a LAN interface to also be configured.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+1.1
+TEST_DESCRIPTION
+Restart Timer default is 3 seconds (with Configure-Requests)
+TEST_REFERENCE
+RFC 1661 s4.6 p24 Counters and Timers
+TEST_METHOD
+- ANVL: Cause DUT to open connection
+-  DUT: Send Configure-Request
+- ANVL: Do not respond
+-  DUT: Send Configure-Requests every 3 secs (or doubling up to that)
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+1.2
+TEST_DESCRIPTION
+Restart Timer default is 3 seconds (with Terminate-Requests)
+TEST_REFERENCE
+RFC 1661 s4.6 p24 Counters and Timers
+TEST_METHOD
+- ANVL: Cause DUT to close connection
+-  DUT: Send Terminate-Request
+- ANVL: Do not respond
+-  DUT: Send Terminate-Requests every 3 secs (or doubling up to that)
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+1.3
+TEST_DESCRIPTION
+Restart Timer MUST be configurable
+TEST_REFERENCE
+RFC 1661 s4.6 p24 Counters and Timers
+TEST_METHOD
+- ANVL: Configure Restart Timer to be different than 3 seconds
+- ANVL: Cause DUT to open connection
+-  DUT: Send Configure-Request
+- ANVL: Do not respond
+-  DUT: Send Configure-Requests every Restart-Timer secs
+        (or doubling up to that)
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+1.4
+TEST_DESCRIPTION
+Max Terminate default is 2
+TEST_REFERENCE
+RFC 1661 s4.6 p24 Counters and Timers
+TEST_METHOD
+- ANVL: Cause DUT to close connection
+-  DUT: Send Terminate-Request
+- ANVL: Do not respond
+-  DUT: Send Terminate-Request
+- ANVL: Do not respond
+-  DUT: Drop connection
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+1.5
+TEST_DESCRIPTION
+Max Terminate MUST be configurable
+TEST_REFERENCE
+RFC 1661 s4.6 p24 Counters and Timers
+TEST_METHOD
+- ANVL: Configure Max Terminate to be different than 2
+- ANVL: Open connection
+- ANVL: Cause DUT to close connection
+-  DUT: Send Terminate-Request
+- ANVL: Do not respond
+-  DUT: Send total of 'Max Terminate' Terminate-Requests
+- ANVL: Do not respond
+-  DUT: Drop connection
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+1.6
+TEST_DESCRIPTION
+Max Configure default is 10
+TEST_REFERENCE
+RFC 1661 s4.6 p24 Counters and Timers
+TEST_METHOD
+- ANVL: Cause DUT to open connection
+-  DUT: Send Configure-Request
+- ANVL: Do not respond
+-  DUT: Send total of 10 Configure-Requests
+- ANVL: Do not respond
+-  DUT: Stop sending Configure-Requests
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+1.7
+TEST_DESCRIPTION
+Max Configure MUST be configurable
+TEST_REFERENCE
+RFC 1661 s4.6 p24 Counters and Timers
+TEST_METHOD
+- ANVL: Configure Max Configure to be different than 10
+- ANVL: Cause DUT to open connection
+-  DUT: Send Configure-Request
+- ANVL: Do not respond
+-  DUT: Send total of 'Max Configure' Configure-Requests
+- ANVL: Do not respond
+-  DUT: Stop sending Configure-Requests
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+1.8
+TEST_DESCRIPTION
+Max Failure default is 5
+TEST_REFERENCE
+RFC 1661 s4.6 p25 Counters and Timers
+TEST_METHOD
+- ANVL: Send Configure-Request with option DUT will Nak
+-  DUT: Send Configure-Nak
+- ANVL: Send total of 5 Configure-Requests that are the same
+-  DUT: Send total of 5 Configure-Naks
+- ANVL: Send 1 additional Configure-Request that is the same
+-  DUT: Send Configure-Reject
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+1.9
+TEST_DESCRIPTION
+Max Failure MUST be configurable
+TEST_REFERENCE
+RFC 1661 s4.6 p25 Counters and Timers
+TEST_METHOD
+- ANVL: Configure DUT with Max Failure to N (different than 5)
+- ANVL: Send Configure-Request with option DUT will Nak
+-  DUT: Send Configure-Nak
+- ANVL: Send total of N Configure-Requests that are the same
+-  DUT: Send total of N Configure-Naks
+- ANVL: Send 1 additional Configure-Request that is the same
+-  DUT: Send Code-Reject
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+3.1
+TEST_DESCRIPTION
+An implementation wishing to open connection MUST transmit a
+Configure-Request
+TEST_REFERENCE
+RFC 1661 s5.1 p28 Configure-Request
+TEST_METHOD
+- ANVL: Cause DUT to open connection
+-  DUT: Send Configure-Request
+- ANVL: Validate fields
+        Code             1
+        Identifier       any
+        Length           packet length (<= 1500)
+        Options          type is 1-5, 7, 8, 17-19 (MP options)
+                         no default values
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+3.3
+TEST_DESCRIPTION
+The Identifier field MUST be changed whenever the content of the
+Options field changes.
+TEST_REFERENCE
+RFC 1661 s5.1 p28 Configure-Request
+TEST_METHOD
+- SETUP: Give DUT non-default MRU
+- ANVL: Cause DUT to open connection with non-default MRU
+-  DUT: Send Configure-Request
+- ANVL: Send Configure-Reject for MRU specifying default value
+-  DUT: Send Configure-Request
+- ANVL: Check that id is different and Options changed
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+3.4
+TEST_DESCRIPTION
+Upon reception of Configure-Request, an appropriate reply MUST
+be transmitted.
+TEST_REFERENCE
+RFC 1661 s5.1 p28 Configure-Request
+TEST_METHOD
+- ANVL: Send Configure-Request
+-  DUT: Send one of Configure-{Ack,Nak,Reject}
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+3.5
+TEST_DESCRIPTION
+Configure-Requests with bad lengths are ignored
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s5.1 p28 Configure-Request
+TEST_METHOD
+- ANVL: Send Configure-Request with incorrect length
+-  DUT: Should not send Configure-{Ack,Nak,Reject}
+- CASE: length = 0-3
+- CASE: stated length > actual length
+- CASE: Options length = MRU
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+3.6
+TEST_DESCRIPTION
+Configuration Options SHOULD NOT be included with default values
+TEST_REFERENCE
+RFC 1661 s5.1 p28 Configure-Request
+TEST_METHOD
+- SETUP: Give DUT non-default MRU
+- ANVL: Cause DUT to open connection with non-boolean Option
+-  DUT: Send Configure-Request
+- ANVL: Send Configure-Nak for Option specifying default value
+-  DUT: Send Configure-Request without Option
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+4.1
+TEST_DESCRIPTION
+If every Option and value received in Configure-Request is
+recognizable then the implementation MUST transmit Configure-Ack
+TEST_REFERENCE
+RFC 1661 s5.2 p29 Configure-Ack
+TEST_METHOD
+- ANVL: Send DUT Configuration-Request with some Options
+-  DUT: Send Configure-Ack
+- ANVL: Validate fields
+        Code             2
+        Identifier       same as in Request
+        Length           packet length (<= 1500)
+        Options          same as in Request
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+4.2
+TEST_DESCRIPTION
+Discard Configure-Acks whose Identifier and/or Option fields do not
+match those of the Configure-Request.
+TEST_REFERENCE
+RFC 1661 s5.2 p29 Configure-Ack
+TEST_METHOD
+- ANVL: Cause DUT to open connection
+- ANVL: Negotiate LCP using Configure-Ack with bad Identifier field
+-  DUT: Send Configure-Request (should not reach LCP Open state)
+- ANVL: Negotiate LCP using Configure-Ack with extra option appended
+-  DUT: Send Configure-Request (should not reach LCP Open state)
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+4.3
+TEST_DESCRIPTION
+The Options in the Configure-Ack contains the Options field
+copied from the Configure-Request
+TEST_REFERENCE
+RFC 1661 s5.2 p29 Configure-Ack
+TEST_METHOD
+- ANVL: Send Configure-Request with agreeable Options
+-  DUT: Send Configure-Ack
+- ANVL: Validate Options are exactly the same
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+4.4
+TEST_DESCRIPTION
+A Configure-Ack with invalid Options should be discarded
+TEST_REFERENCE
+RFC 1661 s5.2 p29 Configure-Ack
+TEST_METHOD
+- ANVL: Cause DUT to open connection with >1 Options
+- ANVL: Negotiate LCP using Configure-Ack with different
+        values in Options
+-  DUT: Send Configure-Request (should not reach LCP Open state)
+- ANVL: Negotiate LCP using Configure-Ack with Options in
+        different order
+-  DUT: Send Configure-Request (should not reach LCP Open state)
+- ANVL: Negotiate LCP using Configure-Ack with last Option missing
+-  DUT: Send Configure-Request (should not reach LCP Open state)
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+4.5
+TEST_DESCRIPTION
+Configure-Ack with bad length is discarded
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s5.2 p29 Configure-Ack
+TEST_METHOD
+- ANVL: Cause DUT to open connection
+- ANVL: Negotiate LCP using Configure-Ack with incorrect length
+-  DUT: Send Configure-Request (should not reach LCP Open state)
+- CASE: length = 0-3
+- CASE: stated length > actual
+- CASE: Options field length = MRU
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+4.6
+TEST_DESCRIPTION
+Unsolicited Configure-Acks are discarded
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s5.2 p29 Configure-Ack
+TEST_METHOD
+- ANVL: Send Configure-Ack, before connection is established
+-  DUT: Should not crash
+- ANVL: Establish connection
+- ANVL: Close connection
+- ANVL: Send Configure-Ack, after connection is closed
+-  DUT: Should not crash
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+5.1
+TEST_DESCRIPTION
+If all Options are known, but some have unacceptable values a
+Configure-Nak is sent with appropriate values indicated
+TEST_REFERENCE
+RFC 1661 s5.3 p30 Configure-Nak
+TEST_METHOD
+- ANVL: Send Configure-Request with unacceptable Options
+-  DUT: Send Configure-Nak
+- ANVL: Validate fields
+        Code              3
+        Identifier        same as in Request
+        Length            packet length (<= 1500)
+        Options           unnacceptable, new values, in order
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+5.2
+TEST_DESCRIPTION
+Options which have no value fields (boolean Options) MUST use the
+Configure-Reject reply instead.
+TEST_REFERENCE
+RFC 1661 s5.3 p30 Configure-Nak
+TEST_METHOD
+- ANVL: Send Configure-Request with unacceptable boolean Options
+-  DUT: Send Configure-Reject, not Configure-Nak
+- ANVL: Send Configure-Request with unacceptable Options of both types
+-  DUT: Send Configure-Reject for boolean Option only
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+5.4
+TEST_DESCRIPTION
+If Identifier in Configure-Nak does not match that of the last
+Configure-Request it MUST be discarded
+TEST_REFERENCE
+RFC 1661 s5.3 p31 Configure-Nak, p46 Magic-Number
+TEST_METHOD
+- ANVL: Cause DUT to open connection with Magic-Number option
+-  DUT: Send Configure-Request with Magic-Number option
+- ANVL: Send Configure-Nak with different Identifier field
+-  DUT: Send unmodified Configure-Request (same ID field)
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+5.5
+TEST_DESCRIPTION
+Reception of Configure-Nak indicates that new Configure-Request
+MAY be sent with the Options modified as in the Configure-Nak
+TEST_REFERENCE
+RFC 1661 s5.3 p30 Configure-Nak
+TEST_METHOD
+- SETUP: Give DUT non-default MRU
+- ANVL: Cause DUT to open connection with Options
+-  DUT: Send Configure-Request
+- ANVL: Send Configure-Nak with new values
+-  DUT: Send Configure-Request with modified values
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+5.6
+TEST_DESCRIPTION
+A Configure-Nak may contain Options with default values if different
+from the Configure-Request
+TEST_REFERENCE
+RFC 1661 s5.3 p30 Configure-Nak
+TEST_METHOD
+- SETUP: Give DUT non-default MRU
+- ANVL: Cause DUT to open connection with non-boolean Option
+-  DUT: Send Configure-Request
+- ANVL: Send Configure-Nak for Option specifying default value
+-  DUT: Send Configure-Request either with the default value or
+        without Option
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+5.9
+TEST_DESCRIPTION
+Unsolicited Configure-Naks are discarded
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s5.3 p30 Configure-Nak
+TEST_METHOD
+- ANVL: (with connection open) Send Configure-Nak
+- ANVL: Check that connection is still up
+- ANVL: Close connection
+- ANVL: Send Configure-Nak
+-  DUT: Should not crash and should not send a response
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+5.10
+TEST_DESCRIPTION
+Configure-Nak with bad length is discarded
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s5.3 p30 Configure-Nak
+TEST_METHOD
+- ANVL: Cause DUT to open connection
+-  DUT: Send Configure-Request
+- ANVL: Send Configure-Nak with incorrect length
+-  DUT: Send unmodified Configure-Request
+- CASE: length = 0-3
+- CASE: stated length > actual
+- CASE: Options field length = MRU
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+5.11
+TEST_DESCRIPTION
+Configure-Nak with no Options should be ignored
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s5.3 p30 Configure-Nak
+TEST_METHOD
+- ANVL: Cause DUT to open connection
+-  DUT: Send Configure-Request
+- ANVL: Send Configure-Nak with no Options specified
+-  DUT: Send Configure-Request
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+6.1
+TEST_DESCRIPTION
+If Options received in Configure-Request are not acceptable for
+negotiation then Configure-Reject MUST be sent
+TEST_REFERENCE
+RFC 1661 s5.4 p31 Configure-Reject
+TEST_METHOD
+- ANVL: Send Configure-Request with unknown Option
+-  DUT: Send Configure-Reject
+- ANVL: Validate fields
+- ANVL: Validate fields
+        Code                       4
+        Identifier                 same as in Request
+        Length                     packet length (<= 1500)
+        Options                    bad Options, in order
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+6.2
+TEST_DESCRIPTION
+Invalid Configure-Rejects are discarded
+TEST_REFERENCE
+RFC 1661 s5.4 p31 Configure-Reject
+TEST_METHOD
+- ANVL: Cause DUT to open connection with Options (>1)
+-  DUT: Send Configure-Request
+- ANVL: Send DUT Configure-Reject with different Identifier
+-  DUT: Send unmodified Configure-Request
+- ANVL: Send Configure-Reject with Options in wrong order
+-  DUT: Send unmodified Configure-Request
+- ANVL: Send Configure-Reject with different values in Option fields
+-  DUT: Send unmodified Configure-Request
+- ANVL: Send Configure-Reject with Options not in Configure-Request
+-  DUT: Send unmodified Configure-Request
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+6.3
+TEST_DESCRIPTION
+A Configure-Request with none of the rejected Options should be sent
+when valid Configure-Reject is received
+TEST_REFERENCE
+RFC 1661 s5.4 p31 Configure-Reject
+TEST_METHOD
+- ANVL: Cause DUT to open connection with non-necessary Option
+-  DUT: Send Configure-Request
+- ANVL: Send Configure-Reject with Option
+-  DUT: Send Configure-Request without Option
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+6.4
+TEST_DESCRIPTION
+Configure-Rejects with bad lengths should be discarded
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s5.4 p31-32 Configure-Reject
+TEST_METHOD
+- ANVL: Cause DUT to open connection
+-  DUT: Send Configure-Request
+- ANVL: Send Configure-Reject with incorrect length
+-  DUT: Send unmodified Configure-Request
+- CASE: length = 0-3
+- CASE: stated length > actual
+- CASE: Options field length = MRU
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+6.5
+TEST_DESCRIPTION
+Configure-Reject with no Options should be ignored
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s5.4 p31-32 Configure-Reject
+TEST_METHOD
+- ANVL: Cause DUT to open connection
+-  DUT: Send Configure-Request
+- ANVL: Send Configure-Reject with no Options specified
+-  DUT: Send Configure-Request
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+6.6
+TEST_DESCRIPTION
+Unsolicited Configure-Rejects are discarded
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s5.4 p31-31 Configure-Reject
+TEST_METHOD
+- ANVL: Close connection
+- ANVL: Send Configure-Reject
+-  DUT: Should not crash
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+7.1
+TEST_DESCRIPTION
+A LCP implementation wishing to close connection SHOULD transmit
+a LCP packet with the Code field set to 5 (Terminate-Request)
+TEST_REFERENCE
+RFC 1661 s5.5 p33 Terminate-Request and Terminate-Ack
+TEST_METHOD
+- ANVL: Set up PPP connection with DUT
+- ANVL: Cause DUT to close connection
+-  DUT: Send Terminate-Request
+- ANVL: Validate fields
+        Code                       5
+        Identifier                 any
+        Length                     packet length (<= MRU)
+        Data                       len - 4 bytes of data
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+7.2
+TEST_DESCRIPTION
+Terminate-Request packets SHOULD continue to be sent until
+Terminate-Ack is received.
+TEST_REFERENCE
+RFC 1661 s5.5 p33 Terminate-Request and Terminate-Ack
+TEST_METHOD
+- ANVL: Set up PPP connection with DUT
+- ANVL: Cause DUT to close connection
+-  DUT: Send Terminate-Request packets
+- ANVL: Ignore 2 Terminate-Requests
+- ANVL: Send Terminate-Ack packet
+-  DUT: Should stop sending Terminate-Request packets
+- ANVL: Check connection is closed
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+7.3
+TEST_DESCRIPTION
+Terminate-Request packets SHOULD continue to be sent until
+the lower layer indicates that it has gone down.
+TEST_REFERENCE
+RFC 1661 s5.5 p33 Terminate-Request and Terminate-Ack
+TEST_METHOD
+- ANVL: Set up PPP connection with DUT
+- ANVL: Cause DUT to close connection
+-  DUT: Send Terminate-Request packets
+- ANVL: Ignore 2 Terminate-Request packets
+- ANVL: Drop DTR
+-  DUT: Should stop sending Terminate-Request packets
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+7.4
+TEST_DESCRIPTION
+Terminate-Request packets SHOULD continue to be sent until
+a sufficiently large number have been transmitted
+TEST_REFERENCE
+RFC 1661 s5.5 p33 Terminate-Request and Terminate-Ack
+TEST_METHOD
+- ANVL: Set up PPP connection with DUT
+-  DUT: Send Max Terminate Terminate-Request packets
+-  DUT: Close connection
+- ANVL: Check connection is closed
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+7.5
+TEST_DESCRIPTION
+Upon reception of Terminate-Request, a Terminate-Ack MUST be
+transmitted
+TEST_REFERENCE
+RFC 1661 s5.5 p33 Terminate-Request and Terminate-Ack
+TEST_METHOD
+- ANVL: Set up PPP connection with DUT
+- ANVL: Send DUT Terminate-Request
+-  DUT: Send Terminate-Ack
+- ANVL: Validate fields
+        Code                       6
+        Identifier                 same as in Terminate-Request
+        Length                     packet length (<= MRU)
+        Data                       len - 4 bytes of data
+-  DUT: Close connection
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+7.7
+TEST_DESCRIPTION
+An unelicited Terminate-Ack means peer is in need of renegotiation
+TEST_REFERENCE
+RFC 1661 s5.5 p33 Terminate-Request and Terminate-Ack
+TEST_METHOD
+- ANVL: Set up PPP connection with DUT
+- ANVL: Send Terminate-Ack
+-  DUT: Send Configure-Request
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+7.9
+TEST_DESCRIPTION
+Bad length Terminate-Request packets should be discarded
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s5.5 p33-34 Terminate-Request and Terminate-Ack
+TEST_METHOD
+- ANVL: Send Terminate-Request with incorrect lengths
+-  DUT: Should discard
+- ANVL: Check connection still up
+- CASE: length = 0-3
+- CASE: stated length > actual
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+7.10
+TEST_DESCRIPTION
+Bad length Terminate-Ack packets should be discarded
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s5.5 p33-34 Terminate-Request and Terminate-Ack
+TEST_METHOD
+- ANVL: Set up PPP connection with DUT
+- ANVL: Cause DUT to close connection
+-  DUT: Send Terminate-Request
+- ANVL: Send Terminate-Ack with incorrect length
+-  DUT: Resend Terminate-Request with original id
+- CASE: length = 0-3
+- CASE: stated length > actual
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+7.25
+TEST_DESCRIPTION
+Default Terminate Ack timeout is 3 (+/-0.5) seconds
+TEST_REFERENCE
+NEGATIVE: RFC1661 s3.7 Link Termination Phase
+TEST_METHOD
+- ANVL: Set up PPP connection with DUT
+- ANVL: Send DUT Terminate-Request
+-  DUT: Send Terminate-Ack
+- ANVL: Wait for at most 1 2/3 of timeout period
+- ANVL: Send Terminate-Request
+-  DUT: Do not respond.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+TEST_NUM
+7.26
+TEST_DESCRIPTION
+If Terminate Request is received in Stopping state
+Terminate Ack is retransmitted but the timeout is not restarted.
+TEST_REFERENCE
+NEGATIVE: RFC1661 s3.7 Link Termination Phase
+TEST_METHOD
+- ANVL: Set up PPP connection with DUT
+- ANVL: Send Terminate-Request
+-  DUT: Send Terminate-Ack
+- ANVL: Wait for 2 seconds
+- ANVL: Send Terminate-Request
+-  DUT: Send Terminate-Ack
+- ANVL: Wait for 2 seconds
+- ANVL: Send Terminate Request
+-  DUT: Do not respond
+- CASE: >1 Terminate Request received in Stopping state
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+TEST_NUM
+7.27
+TEST_DESCRIPTION
+Symbian Specific: Terminate Ack Timeout should be configurable
+TEST_REFERENCE
+RFC1661 s3.7 Link Termination Phase
+TEST_METHOD
+- ANVL: Set up PPP connection with DUT
+- ANVL: Configure DUT with Terminate Ack timeout (9 sec) which is 
+        different from default(3 +/- 0.5 sec)
+- ANVL: Send DUT Terminate-Request
+-  DUT: Send Terminate-Ack
+- ANVL: Wait for 2/3 of timeout to expire
+- ANVL: Send Terminate-Request
+-  DUT: Send Terminate-Ack
+- ANVL: Wait for 1 timeout to expire
+- ANVL: Send Terminate-Request
+-  DUT: Do not respond
+- CASE: >1 Terminate Request received in Stopping state
+- CASE: TerminateRequest timeout > default timeout
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+TEST_NUM
+8.1
+TEST_DESCRIPTION
+Reception of a LCP packet with an invalid Code MUST be reported
+by transmitting a Code-Reject
+TEST_REFERENCE
+RFC 1661 s5.6 p34 Code-Reject
+TEST_METHOD
+- ANVL: Send LCP packet with invalid code to DUT
+-  DUT: Send Code-Reject packet
+- ANVL: Validate fields
+        Code                       7
+        Identifier                 any
+        Length                     packet length (<= MRU)
+        Rejected-Packet            info field of rejected packet
+                                   truncated to MRU
+- CASE: 0, 25, 128, 200
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+8.2
+TEST_DESCRIPTION
+The Identifier field MUST be changed for each Code-Reject sent.
+TEST_REFERENCE
+RFC 1661 s5.6 p34 Code-Reject
+TEST_METHOD
+- ANVL: Send LCP packet with unknown code to DUT
+-  DUT: Send Code-Reject packet
+- ANVL: Send LCP packet with unknown code to DUT
+-  DUT: Send Code-Reject packet with different Identifier
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+8.3
+TEST_DESCRIPTION
+The Rejected-Information MUST be truncated to comply with the peer's
+established MRU.
+TEST_REFERENCE
+RFC 1661 s5.6 p34 Code-Reject
+TEST_METHOD
+- ANVL: Send LCP packet with unknown code and len = MRU
+-  DUT: Send Code-Reject
+- ANVL: Validate Rejected-Packet field is truncated correctly
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+8.4
+TEST_DESCRIPTION
+Unsolicited Code-Reject should be discarded
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s5.6 p34 Code-Reject
+TEST_METHOD
+- ANVL: Send Code-Reject for unknown code
+-  DUT: Should discard
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+8.5
+TEST_DESCRIPTION
+Bad length Code-Reject packets should be discarded
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s5.6 p34 Code-Reject
+TEST_METHOD
+- ANVL: Send Code-Reject with incorrect lengths
+-  DUT: Should remain up
+- CASE: length = 0-3
+- CASE: stated length > actual
+- CASE: Rejected-Packet field length = MRU
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+8.6
+TEST_DESCRIPTION
+A Code-Reject of a packet such as an Echo-Reply communicates an
+unrecoverable error that terminates the connection
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s5.6 p34 Code-Reject
+RFC 1661 s4.3 p20 Events
+TEST_METHOD
+- ANVL: Send Echo-Request
+-  DUT: Send Echo-Reply
+- ANVL: Send Code-Reject for Echo-Reply
+- ANVL: Send Echo-Request
+-  DUT: Do not respond
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+9.1
+TEST_DESCRIPTION
+Reception of a PPP packet with an unknown Protocol field
+MUST be reported back to the peer by transmitting a Protocol-Reject
+TEST_REFERENCE
+RFC 1661 s5.7 p35 Protocol-Reject
+TEST_METHOD
+- ANVL: Send a PPP packet with unknown Protocol field to DUT
+-  DUT: Send back Protocol-Reject packet
+- ANVL: Validate fields:
+        Code                       8
+        Identifier                 any
+        Length                     packet length (<= MRU)
+        Rejected-Protocol          rejected protocol field
+        Rejected-Information       length - 6 bytes of Info. field
+                                   of rejected packet
+- CASE: Protocol = 0xC022, 0, 0x8037, 0xFEFF, 0x0022
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+9.2
+TEST_DESCRIPTION
+Upon reception of a Protocol-Reject, the implementation MUST stop
+sending packets of the indicated protocol
+TEST_REFERENCE
+RFC 1661 s5.7 p35 Protocol-Reject
+TEST_METHOD
+- ANVL: Cause DUT to send non-LCP packets
+-  DUT: Send non-LCP packets
+- ANVL: Send Protocol-Reject packet for protocol
+-  DUT: Should stop sending packets for that protocol
+- CASE: protocol = IP, non-LCP packet = ICMP echo
+- CASE: protocol = IPCP, non-LCP packet = IPCP packets
+- CASE: protocol = IPCP, non-LCP packet = ICMP echo
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+9.3
+TEST_DESCRIPTION       
+The Identifier field MUST be changed for each Protocol-Reject sent.
+TEST_REFERENCE
+RFC 1661 s5.7 p35 Protocol-Reject
+TEST_METHOD
+- ANVL: Send PPP packet with unknown Protocol field to DUT
+-  DUT: Send Protocol-Reject packet
+- ANVL: Send another PPP packet with unknown Protocol
+-  DUT: Send another Protocol-Reject packet with different id
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+9.4
+TEST_DESCRIPTION
+The Rejected-Information MUST be truncated to comply with the peer's
+established MRU.
+TEST_REFERENCE
+RFC 1661 s5.7 p35 Protocol-Reject
+TEST_METHOD
+- ANVL: Send PPP packet with unknown protocol and length = MRU
+-  DUT: Should truncate the Rejected-Information to comply with MRU
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+9.5
+TEST_DESCRIPTION
+Protocol-Reject of LCP should cause full connection shutdown
+TEST_REFERENCE
+RFC 1661 s4.5 p19 Events
+TEST_METHOD
+- ANVL: Open an LCP connection
+- ANVL: Send Protocol-Reject for LCP
+-  DUT: Should shut down all layers
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+9.6
+TEST_DESCRIPTION
+Protocol-Rejects with bad lengths should be ignored
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s5.7 p35-36 Protocol-Reject
+TEST_METHOD
+- ANVL: Establish connection
+- ANVL: Send Protocol-Rejects for LCP with incorrect lengths
+- ANVL: Send Echo-Request
+-  DUT: Should reply
+- CASE: length = 0-5
+- CASE: stated length > actual
+- CASE: Rejected-Information length = MRU
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+9.7
+TEST_DESCRIPTION
+Discard Protocol-Reject with unknown protocol
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s5.7 p35-36 Protocol-Reject
+TEST_METHOD
+- ANVL: Send Protocol-Reject for unknown protocol
+-  DUT: Discard Protocol-Reject
+- ANVL: Check that connection is still up
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+9.8
+TEST_DESCRIPTION
+Protocol-Reject packets can only be sent in the LCP Opened state
+TEST_REFERENCE
+RFC 1661 s5.7 p35-36 Protocol-Reject
+TEST_METHOD
+- ANVL: Close connection
+- ANVL: Send packet with unknown protocol
+-  DUT: Should not send Protocol-Reject
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+9.9
+TEST_DESCRIPTION
+Protocol-Reject of LCP (RXJ- in state 2-9) causes full shutdown
+TEST_REFERENCE
+RFC 1661 s4.1 p12 State Transition Table (RXJ-)
+TEST_METHOD
+- ANVL: Begin opening an LCP connection
+- ANVL: Send Protocol-Reject for LCP packets during negotiation
+-  DUT: Shut down connection
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+9.10
+TEST_DESCRIPTION
+Protocol-Reject packets received in any state other than LCP Opened
+SHOULD be silently discarded
+TEST_REFERENCE
+RFC 1661 s5.7 p36 Protocol-Reject
+TEST_METHOD
+- ANVL: Begin opening an LCP connection
+- ANVL: Send Protocol-Reject for IPCP packets during negotiation
+-  DUT: Bring LCP link up
+- ANVL: Negotiate IPCP connection using rejected protocol
+-  DUT: Bring requested IPCP link up
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+10.1
+TEST_DESCRIPTION
+Echo-Request fields correctly filled in
+TEST_REFERENCE
+RFC 1661 s5.8 p36-37 Echo-Request and Echo-Reply
+TEST_METHOD
+- ANVL: Cause DUT to send Echo-Request
+-  DUT: Send Echo-Request packet
+- ANVL: Validate fields: 
+        Code                       9
+        Identifier                 any
+        Length                     packet length (<= MRU)
+        Magic-Number               0 or negotiated Magic-Number
+        Data                       length - 8 bytes of data
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+10.2
+TEST_DESCRIPTION
+Upon reception of an Echo-Request, a correctly formatted Echo-Reply
+is sent
+TEST_REFERENCE
+RFC 1661 s5.8 p36 Echo-Request and Echo-Reply
+TEST_METHOD
+- ANVL: Send Echo-Request packet
+-  DUT: Send Echo-Reply packet
+- ANVL: Validate fields: 
+        Code                       10
+        Identifier                 same as Echo-Request
+        Length                     packet length (<= MRU)
+        Magic-Number               0 unless Magic-Number negotiated
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+10.3
+TEST_DESCRIPTION
+On transmission, the Identifier field MUST be changed whenever
+a valid reply has been received for a previous request.
+TEST_REFERENCE
+RFC 1661 s5.8 p36 Echo-Request and Echo-Reply
+TEST_METHOD
+- ANVL: Cause DUT to send Echo-Request packet
+-  DUT: Send Echo-Request packet
+- ANVL: Send Echo-Reply
+- ANVL: Cause DUT to send Echo-Request packet
+-  DUT: Send Echo-Request packet
+- ANVL: Send Echo-Reply
+- ANVL: Verify that Identifier is different
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+10.4
+TEST_DESCRIPTION
+Echo-Request and Echo-Reply packets MUST only be sent in the LCP
+Opened state; any received when not in that state are discarded.
+TEST_REFERENCE
+RFC 1661 s5.8 p36 Echo-Request and Echo-Reply
+TEST_METHOD
+- ANVL: Close connection
+- ANVL: Cause DUT to send Echo-Request
+-  DUT: Should not send Echo-Request
+- ANVL: Send Echo-Request
+-  DUT: Should not send Echo-Reply
+- ANVL: Send Echo-Reply
+-  DUT: Should not crash
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+10.5
+TEST_DESCRIPTION
+Echo-Reply Data must be truncated to accommodate peer's MRU
+TEST_REFERENCE
+RFC 1548 s5.8 p37 Echo-Request and Echo-Reply
+TEST_METHOD
+- ANVL: Open connection with ANVL MRU < DUT MRU
+- ANVL: Send Echo-Request with data len = DUT MRU
+-  DUT: Send Echo-Reply
+- ANVL: Check that data len is truncated to ANVL MRU
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+10.6
+TEST_DESCRIPTION
+Unsolicited Echo-Reply is discarded
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s5.8 p36-37 Echo-Request and Echo-Reply
+TEST_METHOD
+- ANVL: Send Echo-Reply
+-  DUT: Should not crash
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+10.7
+TEST_DESCRIPTION
+Echo-Reply with Identifier different from Echo-Request is ignored
+TEST_REFERENCE
+RFC 1661 s5.8 p36 Echo-Request and Echo-Reply
+TEST_METHOD
+- ANVL: Cause DUT to send Echo-Request
+-  DUT: Send Echo-Request
+- ANVL: Send Echo-Reply with different id
+-  DUT: Send Echo-Request again
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+10.8
+TEST_DESCRIPTION
+Echo-Requests with non-zero Magic-Numbers are discarded
+when Magic-Number has not been negotiated
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s5.8 p36-37 Echo-Request and Echo-Reply
+TEST_METHOD
+- ANVL: Open connection with no Magic-Numbers
+- ANVL: Send Echo-Request with Magic-Number
+-  DUT: Should not send Echo-Reply
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+10.9
+TEST_DESCRIPTION
+Echo-Requests with bad Magic-Numbers are discarded
+when Magic-Number has been negotiated
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s5.8 p36-37 Echo-Request and Echo-Reply
+TEST_METHOD
+- ANVL: Open connection with Magic-Numbers
+- ANVL: Send Echo-Request with invalid Magic-Number
+-  DUT: Should not send Echo-Reply
+- CASE: Non-zero Magic-Number not equal to negotiated Magic-Number
+- CASE: Magic-Number = 0
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+10.10
+TEST_DESCRIPTION
+Echo-Requests with bad lengths are discarded
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s5.8 p36-37 Echo-Request and Echo-Reply
+TEST_METHOD
+- ANVL: Send Echo-Request with incorrect length
+-  DUT: Should not send Echo-Reply
+- ANVL: Send Echo-Request with correct length
+-  DUT: Should send Echo-Reply
+- CASE: length 0-7
+- CASE: stated length > actual length
+- CASE: data length = default MRU
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+10.11
+TEST_DESCRIPTION
+Echo-Requests should be retransmitted if no Echo-Reply is received
+TEST_REFERENCE
+RFC 1661 s5.8 p37 Echo-Request and Echo-Reply
+TEST_METHOD
+- ANVL: Cause DUT to send Echo-Request
+-  DUT: Send Echo-Request
+- ANVL: Do not send Echo-Reply
+-  DUT: Retransmit Echo-Request
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+10.12
+TEST_DESCRIPTION
+Echo-Replies with non-zero Magic-Numbers are discarded
+when Magic-Number has not been negotiated
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s5.8 p36-37 Echo-Request and Echo-Reply
+TEST_METHOD
+- ANVL: Open connection with no Magic-Numbers
+- ANVL: Cause DUT to send Echo-Request
+-  DUT: Send Echo-Request
+- ANVL: Send Echo-Reply with Magic-Number
+-  DUT: Resend Echo-Request
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+10.13
+TEST_DESCRIPTION
+Echo-Replies with bad Magic-Numbers are discarded
+when Magic-Number has been negotiated
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s5.8 p36-37 Echo-Request and Echo-Reply
+TEST_METHOD
+- ANVL: Open connection with Magic-Numbers
+- ANVL: Cause DUT to send Echo-Request
+-  DUT: Send Echo-Request
+- ANVL: Send Echo-Reply with invalid Magic-Number
+-  DUT: Resend Echo-Request
+- CASE: Non-zero Magic-Number not equal to negotiated Magic-Number
+- CASE: Magic-Number = 0
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+10.14
+TEST_DESCRIPTION
+Echo-Replies with bad lengths are discarded
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s5.8 p36-37 Echo-Request and Echo-Reply
+TEST_METHOD
+- ANVL: Cause DUT to send Echo-Request
+-  DUT: Send Echo-Request
+- ANVL: Send Echo-Reply with incorrect length
+-  DUT: Resend Echo-Request
+- CASE: length 0-7
+- CASE: stated length > actual length
+- CASE: data length = default MRU
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+12.1
+TEST_DESCRIPTION
+Validate format of Maximum-Receive-Unit Option fields
+TEST_REFERENCE
+RFC 1661 s6.1 p41 Maximum-Receive-Unit
+TEST_METHOD
+- ANVL: Cause DUT to open connection with MRU Option
+-  DUT: Send Configure-Request
+- ANVL: Validate Maximum-Receive-Unit Option
+        Type                       1
+        Length                     4
+        MRU                        configured value
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+12.2
+TEST_DESCRIPTION
+Check Maximum-Receive-Unit Option is functional
+TEST_REFERENCE
+RFC 1661 s6.1 p41 Maximum-Receive-Unit
+TEST_METHOD
+- ANVL: Open connection requesting MRU of < 1500 octets
+- ANVL: Send Echo-Request with len = 1500
+-  DUT: Send Echo-Response with len = MRU
+- ANVL: Close connection
+- ANVL: Cause DUT to open connection with MRU < 1500 octets
+- ANVL: Send Echo-Request with len > 1500
+-  DUT: Should not respond
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+12.3
+TEST_DESCRIPTION
+The default Maximum-Receive-Unit is 1500 octets.
+TEST_REFERENCE
+RFC 1661 s6.1 p41 Maximum-Receive-Unit
+TEST_METHOD
+- ANVL: Cause DUT to open connection with default Options
+- ANVL: Send Echo-Request of length 1500
+-  DUT: Send Echo-Reply
+- ANVL: Send Echo-Request of length 1501
+-  DUT: Should not reply
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+12.4
+TEST_DESCRIPTION
+If a Maximum-Receive-Unit of less than 1500 is negotiated, packets
+of length 1500 must still be accepted
+TEST_REFERENCE
+RFC 1661 s6.1 p41 Maximum-Receive-Unit
+TEST_METHOD
+- ANVL: Cause DUT to open connection with MRU < 1500
+- ANVL: Send Echo-Request of length 1500
+-  DUT: Send Echo-Reply
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+12.6
+TEST_DESCRIPTION
+A Maximum-Receive-Unit of less than 4 should not be allowed
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s6.1 p41 Maximum-Receive-Unit
+TEST_METHOD
+- ANVL: Open connection with invalid MRU
+-  DUT: Send Configure-Nak
+- CASE: MRU = 0-3
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+12.7
+TEST_DESCRIPTION
+If an Option is received (MRU) in a Configure-Request but
+with an incorrect Length, a Configure-Nak SHOULD be transmitted
+unless the Length goes beyond the end of the packet
+TEST_REFERENCE
+RFC 1661 s6 p41 LCP Configuration Options
+TEST_METHOD
+- ANVL: Send Configure-Requests with MRU Option with incorrect length
+-  DUT: Should Configure-Nak
+- CASE: Length < 4
+-  DUT: Should silently discard packet
+- CASE: Length > 4
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+13.1
+TEST_DESCRIPTION
+Validate format of Async-Control-Character-Map Option fields
+TEST_REFERENCE
+RFC 1662 s7.1 p14-15 Async-Control-Character-Map
+TEST_METHOD
+- ANVL: Cause DUT to open connection with ACCM Option
+-  DUT: Send Configure-Request
+- ANVL: Validate ACCM Option:
+        Type                       2
+        Length                     6
+        ACCM                       configured value
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+13.2
+TEST_DESCRIPTION
+Validate functionality of Async-Control-Character-Map Option
+TEST_REFERENCE
+RFC 1661 s7.1 p14-16 Async-Control-Character-Map
+TEST_METHOD
+- ANVL: For each successive control character:
+- ANVL: Open connection with ACCM for that character
+- ANVL: Send Echo-Request containing that character
+-  DUT: Send Echo-Reply
+- ANVL: Check that character was mapped
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+13.3
+TEST_DESCRIPTION
+If an Option is received (ACCM) in a Configure-Request but
+with an incorrect Length, a Configure-Nak SHOULD be transmitted
+unless the Length goes beyond the end of the packet
+TEST_REFERENCE
+RFC 1661 s6 p40 LCP Configuration Options
+TEST_METHOD
+- ANVL: Send Configure-Requests with ACCM Option with incorrect length
+-  DUT: Should Configure-Nak
+- CASE: Length < 6, length > 6
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+14.1
+TEST_DESCRIPTION
+Validate format of Authentication-Protocol Option fields
+TEST_REFERENCE
+RFC 1661 s6.2 p41 Authentication-Protocol
+TEST_METHOD
+- ANVL: Cause DUT to open connection with Auth-Protocol Option
+-  DUT: Send Configure-Request
+- ANVL: Validate fields of Authentication-Protocol Option:
+        Type                       3
+        Length                     >=4
+        Authentication-Protocol    c023 (PAP) or c223 (CHAP)
+        Data                       zero (PAP) or more octets (CHAP)
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+14.2
+TEST_DESCRIPTION
+An implementation MUST NOT include multiple Authentication-
+Protocol Configuration Options in its Configure-Request packets.
+TEST_REFERENCE
+RFC 1661 s6.2 p41 Authentication-Protocol
+TEST_METHOD
+- ANVL: Send Configure-Request requesting both
+        PAP and CHAP Authentication
+-  DUT: Do not send a Configure-Ack for the Configure-Request
+- ANVL: Reset PPP Connection
+-  DUT: Send Configure-Request
+- ANVL: Send Configure-Nak with both PAP and CHAP Authentication
+-  DUT: Send another Configure-Request
+- ANVL: Verify that the Configure-Request does not contain both
+        PAP and CHAP Authentication
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+14.5
+TEST_DESCRIPTION
+If an Option is received (Auth Protocol) in a Configure-Request but
+with an incorrect Length, a Configure-Nak SHOULD be transmitted
+unless the Length goes beyond the end of the packet
+TEST_REFERENCE
+RFC 1661 s6 p40 LCP Configuration Options
+TEST_METHOD
+- ANVL: Send Configure-Requests with Authentication Protocol
+        Option with incorrect length
+-  DUT: Should Configure-Nak
+- CASE: Length < 4
+-  DUT: Should siletly discard packet
+- CASE: Length > 4
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+15.1
+TEST_DESCRIPTION
+Validate format of Quality-Protocol Option fields
+TEST_REFERENCE
+RFC 1661 s6.3 p42-43 Quality-Protocol
+TEST_METHOD
+- ANVL: Cause DUT to open connection with LQM Option
+-  DUT: Send Configure-Request
+- ANVL: Validate fields of Quality-Protocol Option
+        Type                       4
+        Length                     >=4
+        Quality-Protocol           c025
+        Data                       zero or more octets
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+15.4
+TEST_DESCRIPTION
+If an Option is received (Quality Protocol) in a Configure-Request but
+with an incorrect Length, a Configure-Nak SHOULD be transmitted
+TEST_REFERENCE
+RFC 1661 s6 p40 LCP Configuration Options
+TEST_METHOD
+- ANVL: Send Configure-Requests with Quality Protocol Option with
+        incorrect length
+-  DUT: Should Configure-Nak
+- CASE: Length < 4
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+16.1
+TEST_DESCRIPTION
+Validate format of Magic-Number Option fields
+TEST_REFERENCE
+RFC 1661 s6.4 p44-46 Magic-Number
+TEST_METHOD
+- ANVL: Cause DUT to open connection with Magic-Number Option
+-  DUT: Send Configure-Request
+- ANVL: Validate fields of Magic-Number Option
+        Type                       5
+        Length                     6
+        Magic-Number               not 0
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+16.2
+TEST_DESCRIPTION
+A Magic-Number of zero is illegal and MUST always be Nak'd, if it
+is not Rejected outright.
+TEST_REFERENCE
+RFC 1661 s6.4 p46 Magic-Number
+TEST_METHOD
+- ANVL: Send Configure-Request with Magic-Number set to zero
+-  DUT: Send Configure-Nak or Configure-Reject
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+16.3
+TEST_DESCRIPTION
+If Magic-Number Option in a received Configure-Request is different
+than the last Magic-Number Option sent, it SHOULD be acknowleged
+TEST_REFERENCE
+RFC 1661 s6.4 p44 Magic-number
+TEST_METHOD
+- ANVL: Cause DUT to open connection with Magic-Number Option
+-  DUT: Send Configure-Request with Magic-Number Option
+- ANVL: Send Configure-Request with different Magic-Number
+-  DUT: Send Configure-Ack with ANVL's Magic-Number
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+16.4
+TEST_DESCRIPTION
+If a received Configure-Request has the same Magic-Number Option
+as the last Configure-Request sent, MUST send Configure-Nak
+TEST_REFERENCE
+RFC 1661 s6.4 p44 Magic-Number
+TEST_METHOD
+- ANVL: Cause DUT to open connection with Magic-Number
+-  DUT: Send Configure-Request with Magic-Number
+- ANVL: Send Configure-Ack
+- ANVL: Send back Configure-Request with the same Magic-Number
+-  DUT: Send Configure-Nak with different Magic-Number
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+16.5
+TEST_DESCRIPTION
+A new Configure-Request SHOULD NOT be sent to the peer until
+normal processing would cause it to be sent
+TEST_REFERENCE
+RFC 1661 s6.4 p44 Magic-Number
+TEST_METHOD
+- ANVL: Cause DUT to open connection with Magic-Number
+-  DUT: Send Configure-Request with Magic-Number
+- ANVL: Send Configure-Request with the same Magic-Number
+-  DUT: Wait for Restart Timer before sending new Configure-Request
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+16.7
+TEST_DESCRIPTION
+If Magic-Number requested, MUST NOT reject request for Magic-Number
+TEST_REFERENCE
+RFC 1661 s6.4 p45 Magic-Number
+TEST_METHOD
+- ANVL: Cause DUT to open connection with Magic-Number
+-  DUT: Send Configure-Request with Magic-Number
+- ANVL: Send Configure-Request with different Magic-Number
+-  DUT: Do not sent Configure-Reject for Magic-Number
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+16.8
+TEST_DESCRIPTION
+If Magic-Number Option is rejected, it SHOULD be treated as if
+a Configure-Ack had been received
+TEST_REFERENCE
+RFC 1661 s6.4 p45 Magic-Number
+TEST_METHOD
+- ANVL: Cause DUT to open connection with Magic-Number Option
+-  DUT: Send Configure-Request with Magic-Number Option
+- ANVL: Send Configure-Reject rejecting the Magic-Number Option
+- ANVL: Send Configure-Request with no Options
+-  DUT: Send Configure-Ack
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+16.10
+TEST_DESCRIPTION
+If an Option is received (Magic Number) in a Configure-Request but
+with an incorrect Length, a Configure-Nak SHOULD be transmitted
+unless the Length goes beyond the end of the packet
+TEST_REFERENCE
+RFC 1661 s6 p40 LCP Configuration Options
+TEST_METHOD
+- ANVL: Send Configure-Requests with Magic Number Option with
+        incorrect length
+-  DUT: Should Configure-Nak
+- CASE: Length < 6
+-  DUT: Should silently discard packet
+- CASE: Length > 6
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+17.1
+TEST_DESCRIPTION
+Validate format of Protocol-Field-Compression Option fields
+TEST_REFERENCE
+RFC 1661 s6.5 p47-48 Protocol-Field-Compression
+TEST_METHOD
+- ANVL: Cause DUT to open connection with Protocol-Field-Compression
+-  DUT: Send Configure-Request
+- ANVL: Validate fields of Protocol-Field-Compression Option:
+        Type                       7
+        Length                     2
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+17.2
+TEST_DESCRIPTION
+When negotiated, PPP implementations MUST accept PPP packets with
+either double-octet or single-octet Protocol fields
+TEST_REFERENCE
+RFC 1661 s6.5 p47 Protocol-Field-Compression
+TEST_METHOD
+- SETUP: Enable Protocol Field Compression on DUT
+- ANVL: Negotiate LCP with Protocol-Field-Compression
+- ANVL: Establish NCP with DUT
+- ANVL: Send protocol echo packet with Protocol field compressed
+-  DUT: Should respond to echo packet
+- ANVL: Verify that echo reply packet has Protocol field compressed
+- ANVL: Send protocol echo packet with Protocol field uncompressed
+-  DUT: Should respond to echo packet
+- ANVL: Verify that echo reply packet has Protocol field compressed
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+17.3
+TEST_DESCRIPTION
+Reject single-octet Protocol fields when compression not negotiated
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s6.5 p47 Protocol-Field-Compression
+TEST_METHOD
+- SETUP: Disable Protocol Field Compression on DUT
+- ANVL: Negotiate LCP with no Protocol-Field-Compression
+- ANVL: Establish NCP with DUT
+- ANVL: Send protocol echo packet with Protocol field compressed
+-  DUT: Should not respond to echo packet
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+17.5
+TEST_DESCRIPTION
+When a Protocol field is compressed, the Data Link Layer FCS field
+is calculated on the compressed frame, not the original frame.
+TEST_REFERENCE
+RFC 1661 s6.5 p47 Protocol-Field-Compression
+TEST_METHOD
+- ANVL: Set up PPP connection with Protocol field compression on
+- ANVL: Validate that FCS fields on packets sent from DUT are
+        calculated correctly
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+17.6
+TEST_DESCRIPTION
+If an Option is received (PFC) in a Configure-Request but
+with an incorrect Length, a Configure-Nak SHOULD be transmitted
+unless the Length goes beyond the end of the packet
+TEST_REFERENCE
+RFC 1661 s6 p40 LCP Configuration Options
+TEST_METHOD
+- ANVL: Send Configure-Requests with Protocol Field
+        Compression Option with incorrect length
+-  DUT: Should Configure-Nak
+- CASE: Length < 2
+-  DUT: Should silently discard packet
+- CASE: Length > 2
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+18.1
+TEST_DESCRIPTION
+Validate format of Address-and-Control-Field-Compression Option
+fields
+TEST_REFERENCE
+RFC 1661 s6.6 p49 Address-and-Control-Field-Compression
+TEST_METHOD
+- ANVL: Cause DUT to open connection with ACFC Option Fields
+-  DUT: Send Configure-Request
+- ANVL: Validate fields of ACFC Option
+        Type                       8
+        Length                     2
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+18.2
+TEST_DESCRIPTION
+Validate correct functioning of Address and Control field
+compression
+TEST_REFERENCE
+RFC 1661 s6.6 p49 Address-and-Control-Field-Compression
+TEST_METHOD
+- SETUP: Enable Address and Control Field Compression on DUT
+- ANVL: Negotiate LCP with Address-and-Control-Field-Compression
+- ANVL: Establish NCP with DUT
+-  DUT: Should send NCP packets with Address and Control fields
+        compressed
+- ANVL: Send protocol echo packet with Address and Control fields
+        compressed
+-  DUT: Should respond to echo packet with Address and Control fields
+        compressed
+- ANVL: Verify that echo reply packet has Address and Control fields
+        compressed
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+18.3
+TEST_DESCRIPTION
+The Address and Control fields MUST NOT be compressed when sending
+any LCP packet; this rule guarantees unambiguous recognition of LCP's
+TEST_REFERENCE
+RFC 1661 s6.6 p49 Address-and-Control-Field-Compression
+TEST_METHOD
+- ANVL: Set up connection with Address and Control field compression
+- ANVL: Send Echo-Request packet to DUT with uncompressed fields
+-  DUT: Send Echo-Reply
+- ANVL: Verify that the Address and Control fields of the Echo-Reply
+        are not compressed
+- ANVL: Send Echo-Request packet to DUT with compressed fields
+-  DUT: Send Echo-Reply
+- ANVL: Verify that the Address and Control fields of the Echo-Reply
+        are not compressed
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+18.4
+TEST_DESCRIPTION
+When Address and Control fields are compressed, the Data Link Layer
+Layer FCS field is calculated on compressed frame, not the original
+TEST_REFERENCE
+RFC 1661 s6.6 p49 Address-and-Control-Field-Compression
+TEST_METHOD
+- ANVL: Set up PPP connection with Address and Control field 
+        compression turned on
+- ANVL: Validate that FCS fields on packets sent from DUT are
+        calculated correctly
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+18.5
+TEST_DESCRIPTION
+If an Option is received (ACFC) in a Configure-Request but
+with an incorrect Length, a Configure-Nak SHOULD be transmitted
+unless the Length goes beyond the end of the packet
+TEST_REFERENCE
+RFC 1661 s6 p40 LCP Configuration Options
+TEST_METHOD
+- ANVL: Send Configure-Requests with Address and Control Field
+        Compression Option with incorrect length
+-  DUT: Should Configure-Nak
+- CASE: Length < 2
+-  DUT: Should silently discard packet
+- CASE: Length > 2
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+19.1
+TEST_DESCRIPTION
+None of the Configuration Options in this specification
+can be listed more than once.
+TEST_REFERENCE
+RFC 1661 s6 p39 LCP Configuration Options
+TEST_METHOD
+- ANVL: Establish a PPP Connection
+- ANVL: Send Configure-Request with 2 MRU Options
+-  DUT: Do not send a Configure-Ack
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+20.1
+TEST_DESCRIPTION
+Try to send packets with bad FCS
+TEST_REFERENCE
+Customer Request
+TEST_METHOD
+- ANVL: Establish LCP connection
+- ANVL: Establish IPCP Connection
+- ANVL: Send an ICMP Echo with a bad HDLC FCS
+-  DUT: Should not respond
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+20.2
+TEST_DESCRIPTION
+Send an HDLC packet of 100K to try to overflow input buffers
+TEST_REFERENCE
+Customer Request: Beth Miaoulis
+TEST_METHOD
+- ANVL: Send an HDLC Framing byte
+- ANVL: Continue sending 100K of data without sending another
+        HDLC framing packet (would signal the end of the packet)
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+20.3
+TEST_DESCRIPTION
+If using Echo-Requests to monitor link quality, DUT should terminate
+link after some number of Echo-Replies are not received
+TEST_REFERENCE
+Customer Request: Corwin
+TEST_METHOD
+-  DUT: Send n periodic Echo-Requests to verify link is up
+- ANVL: Only send Echo-Reply to 2 out of n Echo-Requests
+-  DUT: Should terminate link after only 2 out of n Echo-Requests
+        have been answered
+(Repeat for various patterns of which 2 Echo-Requests are answered)
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+20.4
+TEST_DESCRIPTION
+Ensure that when a Config-Ack is sent before Max Configure
+is reached, a Connection can be properly established
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s4.6 p24 Counters and Timers
+TEST_METHOD
+- ANVL: Cause DUT to open connection
+-  DUT: Send Configure-Request
+- ANVL: Do not send Configure-Ack until after n Configure-Requests
+-  DUT: Continue to bring link up
+- CASE: n = 1-9
+TEST_FLAGS
+TF_UNSPEC
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+TEST_NUM
+20.5
+TEST_DESCRIPTION
+Ensure that when a Config-Ack is sent after the Restart Timer
+that a Config-Req is retransmitted
+TEST_REFERENCE
+NEGATIVE: RFC 1661 s4.6 p24 Counters and Timers
+TEST_METHOD
+- ANVL: Cause DUT to open connection
+-  DUT: Send Configure-Request
+- ANVL: Do not send Configure-Ack until after n seconds
+-  DUT: Resend Configure-Request
+- CASE: n = 4-8
+TEST_FLAGS
+TF_UNSPEC

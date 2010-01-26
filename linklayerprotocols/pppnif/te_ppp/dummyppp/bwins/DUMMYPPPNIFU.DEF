@@ -1,0 +1,3 @@
+EXPORTS
+	?NewInterfaceFactoryL@@YAPAVCNifFactory@@XZ @ 1 NONAME ; class CNifFactory * __cdecl NewInterfaceFactoryL(void)
+

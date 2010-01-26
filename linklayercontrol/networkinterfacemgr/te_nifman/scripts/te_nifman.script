@@ -1,0 +1,93 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+// Ensure that the default config is present if no cleverer one has been put there already
+RUN_SCRIPT z:\testdata\scripts\exec_esock_default_to_config_1.script
+
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+// load the suite
+LOAD_SUITE TE_Nifman -SharedData
+
+
+START_TESTCASE			COMINF-nifman-0101
+//! @SYMTestCaseID		COMINF-nifman-0101
+
+RUN_TEST_STEP 50 TE_Nifman OpenCloseBogus
+END_TESTCASE			COMINF-nifman-0101
+
+
+//START_TESTCASE			COMINF-nifman-0102
+///! @SYMTestCaseID		COMINF-nifman-0102
+
+//OpenClosePSD relies on PSD agent
+//RUN_TEST_STEP 50 TE_Nifman OpenClosePSD
+//END_TESTCASE			COMINF-nifman-0102
+
+
+START_TESTCASE			COMINF-nifman-0103
+//! @SYMTestCaseID		COMINF-nifman-0103
+
+RUN_TEST_STEP 50 TE_Nifman StartStopInterfaces
+END_TESTCASE			COMINF-nifman-0103
+
+
+START_TESTCASE			COMINF-nifman-0104
+//! @SYMTestCaseID		COMINF-nifman-0104
+
+RUN_TEST_STEP 50 TE_Nifman ProgressNotification
+END_TESTCASE			COMINF-nifman-0104
+
+
+//START_TESTCASE			COMINF-nifman-0105
+///! @SYMTestCaseID		COMINF-nifman-0105
+
+// test5 - not implemented the right way
+// RUN_TEST_STEP 50 TE_Nifman Test5
+//END_TESTCASE			COMINF-nifman-0105
+
+
+START_TESTCASE			COMINF-nifman-0106
+//! @SYMTestCaseID		COMINF-nifman-0106
+
+RUN_TEST_STEP 50 TE_Nifman ConnectReconnect
+END_TESTCASE			COMINF-nifman-0106
+
+
+START_TESTCASE			COMINF-nifman-0107
+//! @SYMTestCaseID		COMINF-nifman-0107
+
+RUN_TEST_STEP 50 TE_Nifman BinderLayerDown
+END_TESTCASE			COMINF-nifman-0107
+
+
+START_TESTCASE			COMINF-nifman-0108
+//! @SYMTestCaseID		COMINF-nifman-0108
+
+RUN_TEST_STEP 50 TE_Nifman SocketServerShutdown
+END_TESTCASE			COMINF-nifman-0108
+
+
+//START_TESTCASE			COMINF-nifman-0109
+///! @SYMTestCaseID		COMINF-nifman-0109
+
+// Test 8 is never run in the original tnifman
+// RUN_TEST_STEP 50 TE_Nifman Test8
+//END_TESTCASE			COMINF-nifman-0109
+
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+

@@ -1,0 +1,62 @@
+// Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// dndexe.mmp - name resolver MMP file (without UI)
+// dnd.exe Domain name daemon providing dynamic name resolution for hosts
+//
+
+
+
+/**
+ @file
+*/
+
+MACRO		LLMNR_ENABLED
+MACRO       TCPIP6_LOGFILE
+MACRO		DND_DCM_EXTENSION
+
+#ifdef SYMBIAN_DNS_PUNYCODE
+MACRO	EXCLUDE_SYMBIAN_DNS_PUNYCODE
+#endif //SYMBIAN_DNS_PUNYCODE
+
+TARGET		dnd_def.exe	// Automagically dnd.dll (thread) on EKA1 emulators
+UID			0 0x10000882
+
+TARGETTYPE	exe
+
+TARGETPATH	/sys/bin
+
+SOURCEPATH	../src
+
+SOURCE		dndexe.cpp engine.cpp listener.cpp resolver.cpp hosts.cpp
+SOURCE		dns.cpp llmnrconf.cpp llmnrresponder.cpp hostname.cpp 
+SOURCE		llmnrnotifyhandler.cpp message.cpp cache.cpp node.cpp  
+SOURCE		record.cpp serverconf.cpp dns_sock.cpp servers.cpp
+
+USERINCLUDE		../inc ../include
+
+USERINCLUDE ../../../networkprotocols/iphook/inhook6/inc
+
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+LIBRARY		euser.lib
+LIBRARY		esock.lib insock.lib inhook6.lib
+LIBRARY		efsrv.lib
+LIBRARY		commsdat.lib
+
+CAPABILITY      NetworkControl NetworkServices ReadDeviceData
+
+#include <cflog.mmh>
+VENDORID	0x70000001
+
+SMPSAFE

@@ -1,0 +1,2372 @@
+
+(object Petal
+    version    	43
+    _written   	"Rose 6.5.9232.10"
+    charSet    	0)
+
+(object Design "Logical View"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    quid       	"3DB81467000F"
+    defaults   	(object defaults
+	rightMargin 	0.250000
+	leftMargin 	0.250000
+	topMargin  	0.250000
+	bottomMargin 	0.500000
+	pageOverlap 	0.250000
+	clipIconLabels 	TRUE
+	autoResize 	TRUE
+	snapToGrid 	TRUE
+	gridX      	16
+	gridY      	16
+	defaultFont 	(object Font
+	    size       	10
+	    face       	"Arial"
+	    bold       	FALSE
+	    italics    	FALSE
+	    underline  	FALSE
+	    strike     	FALSE
+	    color      	0
+	    default_color 	TRUE)
+	showMessageNum 	1
+	showClassOfObject 	TRUE
+	notation   	"Unified")
+    root_usecase_package 	(object Class_Category "Use Case View"
+	quid       	"3DB81467001A"
+	exportControl 	"Public"
+	global     	TRUE
+	logical_models 	(list unit_reference_list)
+	logical_presentations 	(list unit_reference_list
+	    (object UseCaseDiagram "Main"
+		quid       	"3DB8146A00C8"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list))))
+    root_category 	(object Class_Category "Logical View"
+	quid       	"3DB814670019"
+	exportControl 	"Public"
+	global     	TRUE
+	subsystem  	"Component View"
+	quidu      	"3DB814670037"
+	logical_models 	(list unit_reference_list
+	    (object Class "CNifServerSession"
+		quid       	"3DB814700224"
+		superclasses 	(list inheritance_relationship_list
+		    (object Inheritance_Relationship
+			quid       	"3DB814CC0281"
+			supplier   	"Logical View::MImplicitConnectionNotify"
+			quidu      	"3DB814940367")
+		    (object Inheritance_Relationship
+			quid       	"3DB814CF0068"
+			supplier   	"Logical View::MConnectionNotify"
+			quidu      	"3DB814A8031F")
+		    (object Inheritance_Relationship
+			quid       	"3DB9520E0216"
+			supplier   	"Logical View::Base::CSession"
+			quidu      	"3DB95204010D"))
+		operations 	(list Operations
+		    (object Operation "ImplicitConnectionEvent"
+			quid       	"3DB8195A03E6"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "ProgressNotification"
+			quid       	"3DB96A4C0089"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)))
+	    (object Class "CNifSession"
+		quid       	"3DB8147A0387"
+		operations 	(list Operations
+		    (object Operation "AttachToConnectionL"
+			quid       	"3DB96A3D01A0"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)))
+	    (object Class "CNifCompatibilityLayer"
+		quid       	"3DB81482013A"
+		operations 	(list Operations
+		    (object Operation "MapProgressEnumValue"
+			quid       	"3DB96BD102B9"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)))
+	    (object Class "MImplicitConnectionNotify"
+		quid       	"3DB814940367")
+	    (object Class "MConnectionNotify"
+		quid       	"3DB814A8031F")
+	    (object Class "CNifServer"
+		quid       	"3DB815280283"
+		superclasses 	(list inheritance_relationship_list
+		    (object Inheritance_Relationship
+			quid       	"3DB8153800EC"
+			supplier   	"Logical View::Base::CServer"
+			quidu      	"3DB8152F02DD")))
+	    (object Class "CCommsDbAccess"
+		quid       	"3DB815660029")
+	    (object Class "CNetworkControllerBase"
+		quid       	"3DB815FB02B9"
+		superclasses 	(list inheritance_relationship_list
+		    (object Inheritance_Relationship
+			quid       	"3DE36785031F"
+			supplier   	"Logical View::Base::CBase"
+			quidu      	"3DE367740249")
+		    (object Inheritance_Relationship
+			quid       	"3DE367D00042"
+			supplier   	"Logical View::MBearerObserver"
+			quidu      	"3DE367C50259"))
+		operations 	(list Operations
+		    (object Operation "RequestImplicitConnectionNotification"
+			quid       	"3DB819380383"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "CancelImplicitConnectionNotification"
+			quid       	"3DB8197303D8"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)))
+	    (object Class "RNif"
+		quid       	"3DB8187D001D"
+		superclasses 	(list inheritance_relationship_list
+		    (object Inheritance_Relationship
+			quid       	"3DB818830300"
+			supplier   	"Logical View::Base::RSessionBase"
+			quidu      	"3DB8187403D1")))
+	    (object Class "RGenericAgent"
+		quid       	"3DB81887020C"
+		superclasses 	(list inheritance_relationship_list
+		    (object Inheritance_Relationship
+			quid       	"3DB818900151"
+			supplier   	"Logical View::RNif"
+			quidu      	"3DB8187D001D")))
+	    (object Class "NewClass"
+		quid       	"3DE36735023E")
+	    (object Class "CNetwork"
+		quid       	"3DE3673F0365")
+	    (object Class "CBearerBase"
+		quid       	"3DE3675400C6")
+	    (object Class "MBearerObserver"
+		quid       	"3DE367C50259")
+	    (object Class "CNifAgentBase"
+		quid       	"3DE652A00058")
+	    (object Association "$UNNAMED$0"
+		quid       	"3DB814EF01FF"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$1"
+			quid       	"3DB814F0014C"
+			supplier   	"Logical View::CNifCompatibilityLayer"
+			quidu      	"3DB81482013A"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$2"
+			quid       	"3DB814F0014D"
+			supplier   	"Logical View::CNifServerSession"
+			quidu      	"3DB814700224"
+			is_aggregate 	TRUE)))
+	    (object Association "$UNNAMED$3"
+		quid       	"3DB815770331"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$4"
+			quid       	"3DB8157802BA"
+			supplier   	"Logical View::CCommsDbAccess"
+			quidu      	"3DB815660029"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$5"
+			quid       	"3DB8157802C4"
+			supplier   	"Logical View::CNifServerSession"
+			quidu      	"3DB814700224"
+			is_aggregate 	TRUE)))
+	    (object Association "$UNNAMED$6"
+		quid       	"3DB8158E0370"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$7"
+			quid       	"3DB8158F0281"
+			supplier   	"Logical View::CNifSession"
+			quidu      	"3DB8147A0387"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$8"
+			quid       	"3DB8158F0282"
+			supplier   	"Logical View::CNifServerSession"
+			quidu      	"3DB814700224"
+			is_aggregate 	TRUE)))
+	    (object Association "$UNNAMED$9"
+		quid       	"3DB8160603B9"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$10"
+			quid       	"3DB81607027A"
+			supplier   	"Logical View::CNetworkControllerBase"
+			quidu      	"3DB815FB02B9"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$11"
+			quid       	"3DB816070284"
+			supplier   	"Logical View::CNifServerSession"
+			quidu      	"3DB814700224"
+			is_aggregate 	TRUE)))
+	    (object Association "$UNNAMED$12"
+		quid       	"3DB95225024B"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$13"
+			quid       	"3DB9522600D0"
+			supplier   	"Logical View::MConnectionNotify"
+			quidu      	"3DB814A8031F"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$14"
+			quid       	"3DB9522600DA"
+			supplier   	"Logical View::CNifSession"
+			quidu      	"3DB8147A0387")))
+	    (object Association "$UNNAMED$15"
+		quid       	"3DB95338014C"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$16"
+			quid       	"3DB9533900EA"
+			supplier   	"Logical View::MImplicitConnectionNotify"
+			quidu      	"3DB814940367"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$17"
+			quid       	"3DB9533900F4"
+			supplier   	"Logical View::CNetworkControllerBase"
+			quidu      	"3DB815FB02B9")))
+	    (object Association "$UNNAMED$18"
+		quid       	"3DE367460239"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$19"
+			quid       	"3DE3674701B8"
+			supplier   	"Logical View::CNetwork"
+			quidu      	"3DE3673F0365"
+			client_cardinality 	(value cardinality "n")
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$20"
+			quid       	"3DE3674701B9"
+			supplier   	"Logical View::CNetworkControllerBase"
+			quidu      	"3DB815FB02B9"
+			client_cardinality 	(value cardinality "1"))))
+	    (object Association "$UNNAMED$21"
+		quid       	"3DE3675E0369"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$22"
+			quid       	"3DE3675F011C"
+			supplier   	"Logical View::CBearerBase"
+			quidu      	"3DE3675400C6"
+			client_cardinality 	(value cardinality "n")
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$23"
+			quid       	"3DE3675F0126"
+			supplier   	"Logical View::CNetworkControllerBase"
+			quidu      	"3DB815FB02B9"
+			client_cardinality 	(value cardinality "1"))))
+	    (object Association "$UNNAMED$24"
+		quid       	"3DE367FF02AD"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$25"
+			quid       	"3DE3680001E6"
+			supplier   	"Logical View::MBearerObserver"
+			quidu      	"3DE367C50259"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$26"
+			quid       	"3DE3680001F0"
+			supplier   	"Logical View::CBearerBase"
+			quidu      	"3DE3675400C6")))
+	    (object Association "$UNNAMED$27"
+		quid       	"3DE652A8024E"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$28"
+			quid       	"3DE652A901B9"
+			supplier   	"Logical View::CNifAgentBase"
+			quidu      	"3DE652A00058"
+			client_cardinality 	(value cardinality "n")
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$29"
+			quid       	"3DE652A901C3"
+			supplier   	"Logical View::CNetwork"
+			quidu      	"3DE3673F0365"
+			client_cardinality 	(value cardinality "1"))))
+	    (object Association "$UNNAMED$30"
+		quid       	"3DE652AE00B2"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$31"
+			quid       	"3DE652AF0320"
+			supplier   	"Logical View::CNifAgentBase"
+			quidu      	"3DE652A00058"
+			client_cardinality 	(value cardinality "n")
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$32"
+			quid       	"3DE652AF032A"
+			supplier   	"Logical View::CBearerBase"
+			quidu      	"3DE3675400C6"
+			client_cardinality 	(value cardinality "1"))))
+	    (object Class_Category "Base"
+		quid       	"3DE3636300ED"
+		exportControl 	"Public"
+		logical_models 	(list unit_reference_list
+		    (object Class "RMessage"
+			quid       	"3DB96D410024"
+			operations 	(list Operations
+			    (object Operation "Write"
+				quid       	"3DB96D920016"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Complete"
+				quid       	"3DB96DA0034B"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)))
+		    (object Class "CSession"
+			quid       	"3DB95204010D")
+		    (object Class "RSessionBase"
+			quid       	"3DB8187403D1")
+		    (object Class "CServer"
+			quid       	"3DB8152F02DD")
+		    (object Class "CBase"
+			quid       	"3DE367740249"))
+		logical_presentations 	(list unit_reference_list))
+	    (object Mechanism @1
+		logical_models 	(list unit_reference_list
+		    (object Object "$UNNAMED$33"
+			quid       	"3DB8190F0059"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"3DB819360037"
+				supplier   	"$UNNAMED$34"
+				quidu      	"3DB81912008F"
+				messages   	(list Messages
+				    (object Message "RequestImplicitConnectionNotification( )"
+					quid       	"3DB819360038"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"1"
+					ordinal    	0
+					quidu      	"3DB819380383")
+				    (object Message "ImplicitConnectionEvent( )"
+					quid       	"3DB81959013C"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"ToClientFromSupplier"
+					sequence   	"2"
+					ordinal    	1
+					quidu      	"3DB8195A03E6")
+				    (object Message "ImplicitConnectionEvent( )"
+					quid       	"3DB8196A0294"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"ToClientFromSupplier"
+					sequence   	"3"
+					ordinal    	2
+					quidu      	"3DB8195A03E6")
+				    (object Message "CancelImplicitConnectionNotification( )"
+					quid       	"3DB819710317"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"4"
+					ordinal    	3
+					quidu      	"3DB8197303D8"))))
+			class      	"Logical View::CNifServerSession"
+			quidu      	"3DB814700224"
+			persistence 	"Transient"
+			multi      	FALSE)
+		    (object Object "$UNNAMED$34"
+			quid       	"3DB81912008F"
+			class      	"Logical View::CNetworkControllerBase"
+			quidu      	"3DB815FB02B9"
+			persistence 	"Transient"
+			multi      	FALSE)))
+	    (object Mechanism @2
+		logical_models 	(list unit_reference_list
+		    (object Object "$UNNAMED$35"
+			quid       	"3DB96A070261"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"3DB96A1700B5"
+				supplier   	"$UNNAMED$36"
+				quidu      	"3DB96A100137"
+				messages   	(list Messages
+				    (object Message "RequestImplicitConnectionNotification( )"
+					quid       	"3DB96A1700B6"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"1"
+					ordinal    	0
+					quidu      	"3DB819380383")
+				    (object Message "ImplicitConnectionEvent( )"
+					quid       	"3DB96A2003A7"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"ToClientFromSupplier"
+					sequence   	"2"
+					ordinal    	1
+					quidu      	"3DB8195A03E6")))
+			    (object Link
+				quid       	"3DB96A310261"
+				supplier   	"$UNNAMED$37"
+				quidu      	"3DB96A2B01F4"
+				messages   	(list Messages
+				    (object Message "AttachToConnectionL( )"
+					quid       	"3DB96A310262"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"2.1"
+					ordinal    	2
+					quidu      	"3DB96A3D01A0")
+				    (object Message "ProgressNotification( )"
+					quid       	"3DB96A4903BA"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"ToClientFromSupplier"
+					sequence   	"3"
+					ordinal    	3
+					quidu      	"3DB96A4C0089"))))
+			class      	"Logical View::CNifServerSession"
+			quidu      	"3DB814700224"
+			persistence 	"Transient"
+			multi      	FALSE)
+		    (object Object "$UNNAMED$36"
+			quid       	"3DB96A100137"
+			class      	"Logical View::CNetworkControllerBase"
+			quidu      	"3DB815FB02B9"
+			persistence 	"Transient"
+			multi      	FALSE)
+		    (object Object "$UNNAMED$37"
+			quid       	"3DB96A2B01F4"
+			class      	"Logical View::CNifSession"
+			quidu      	"3DB8147A0387"
+			persistence 	"Transient"
+			multi      	FALSE)))
+	    (object Mechanism @3
+		logical_models 	(list unit_reference_list
+		    (object Object "$UNNAMED$38"
+			quid       	"3DB96BB70140"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"3DB96BCA01BF"
+				supplier   	"$UNNAMED$39"
+				quidu      	"3DB96BC5028A"
+				messages   	(list Messages
+				    (object Message "ProgressNotification( )"
+					quid       	"3DB96BCA01C0"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"1"
+					ordinal    	0
+					quidu      	"3DB96A4C0089"))))
+			class      	"Logical View::CNifSession"
+			quidu      	"3DB8147A0387"
+			persistence 	"Transient"
+			multi      	FALSE)
+		    (object Object "$UNNAMED$40"
+			quid       	"3DB96BBA0393"
+			class      	"Logical View::CNifCompatibilityLayer"
+			quidu      	"3DB81482013A"
+			persistence 	"Transient"
+			multi      	FALSE)
+		    (object Object "$UNNAMED$39"
+			quid       	"3DB96BC5028A"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"3DB96BD00131"
+				supplier   	"$UNNAMED$40"
+				quidu      	"3DB96BBA0393"
+				messages   	(list Messages
+				    (object Message "MapProgressEnumValue( )"
+					quid       	"3DB96BD00132"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"1.1"
+					ordinal    	1
+					quidu      	"3DB96BD102B9")))
+			    (object Link
+				quid       	"3DB96D80024B"
+				supplier   	"iProgressMessage"
+				quidu      	"3DB96D6D023A"
+				messages   	(list Messages
+				    (object Message "Write( )"
+					quid       	"3DB96D80024C"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"1.2"
+					ordinal    	2
+					quidu      	"3DB96D920016")
+				    (object Message "Complete( )"
+					quid       	"3DB96D9C0129"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"1.3"
+					ordinal    	3
+					quidu      	"3DB96DA0034B"))))
+			class      	"Logical View::CNifServerSession"
+			quidu      	"3DB814700224"
+			persistence 	"Transient"
+			multi      	FALSE)
+		    (object Object "iProgressMessage"
+			quid       	"3DB96D6D023A"
+			class      	"Logical View::Base::RMessage"
+			quidu      	"3DB96D410024"
+			persistence 	"Transient"
+			multi      	FALSE))))
+	logical_presentations 	(list unit_reference_list
+	    (object ClassDiagram "Main"
+		quid       	"3DB8146A0103"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	1906
+		items      	(list diagram_item_list
+		    (object ClassView "Class" "Logical View::MImplicitConnectionNotify" @4
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(1120, 1120)
+			label      	(object ItemLabel
+			    Parent_View 	@4
+			    location   	(863, 1069)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	514
+			    justify    	0
+			    label      	"MImplicitConnectionNotify")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB814940367"
+			width      	532
+			height     	126
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::MConnectionNotify" @5
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(1680, 1120)
+			label      	(object ItemLabel
+			    Parent_View 	@5
+			    location   	(1489, 1069)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	382
+			    justify    	0
+			    label      	"MConnectionNotify")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB814A8031F"
+			width      	400
+			height     	126
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::CNifServer" @6
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(1120, 496)
+			label      	(object ItemLabel
+			    Parent_View 	@6
+			    location   	(1011, 445)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	218
+			    justify    	0
+			    label      	"CNifServer")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB815280283"
+			width      	236
+			height     	126
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::Base::CServer" @7
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(1120, 240)
+			label      	(object ItemLabel
+			    Parent_View 	@7
+			    location   	(1031, 166)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	178
+			    justify    	0
+			    label      	"CServer")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB8152F02DD"
+			width      	196
+			height     	172
+			annotation 	8
+			autoResize 	TRUE)
+		    (object InheritView "" @8
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"3DB8153800EC"
+			client     	@6
+			supplier   	@7
+			line_style 	0)
+		    (object ClassView "Class" "Logical View::CNifCompatibilityLayer" @9
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			location   	(1424, 1744)
+			label      	(object ItemLabel
+			    Parent_View 	@9
+			    location   	(1201, 1692)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	446
+			    justify    	0
+			    label      	"CNifCompatibilityLayer")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB81482013A"
+			width      	464
+			height     	128
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::CCommsDbAccess" @10
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(1776, 1440)
+			label      	(object ItemLabel
+			    Parent_View 	@10
+			    location   	(1582, 1389)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	388
+			    justify    	0
+			    label      	"CCommsDbAccess")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB815660029"
+			width      	406
+			height     	126
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::CNifSession" @11
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			location   	(912, 1744)
+			label      	(object ItemLabel
+			    Parent_View 	@11
+			    location   	(780, 1692)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	264
+			    justify    	0
+			    label      	"CNifSession")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB8147A0387"
+			width      	282
+			height     	128
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::CNetworkControllerBase" @12
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			location   	(480, 1440)
+			label      	(object ItemLabel
+			    Parent_View 	@12
+			    location   	(242, 1388)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	476
+			    justify    	0
+			    label      	"CNetworkControllerBase")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB815FB02B9"
+			width      	494
+			height     	128
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::CNifServerSession" @13
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			location   	(1120, 1440)
+			label      	(object ItemLabel
+			    Parent_View 	@13
+			    location   	(932, 1388)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	376
+			    justify    	0
+			    label      	"CNifServerSession")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB814700224"
+			width      	394
+			height     	128
+			annotation 	8
+			autoResize 	TRUE)
+		    (object InheritView "" @14
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"3DB814CC0281"
+			client     	@13
+			supplier   	@4
+			line_style 	0)
+		    (object InheritView "" @15
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"3DB814CF0068"
+			client     	@13
+			supplier   	@5
+			line_style 	0)
+		    (object AssociationViewNew "$UNNAMED$0" @16
+			location   	(1271, 1591)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"3DB814EF01FF"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$1" @17
+				Parent_View 	@16
+				location   	(263, 999)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DB814F0014C"
+				client     	@16
+				supplier   	@9
+				line_style 	0)
+			    (object RoleView "$UNNAMED$2" @18
+				Parent_View 	@16
+				location   	(263, 999)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DB814F0014D"
+				client     	@16
+				supplier   	@13
+				line_style 	0)))
+		    (object AssociationViewNew "$UNNAMED$3" @19
+			location   	(1444, 1440)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"3DB815770331"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$4" @20
+				Parent_View 	@19
+				location   	(68, 640)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DB8157802BA"
+				client     	@19
+				supplier   	@10
+				line_style 	0)
+			    (object RoleView "$UNNAMED$5" @21
+				Parent_View 	@19
+				location   	(68, 640)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DB8157802C4"
+				client     	@19
+				supplier   	@13
+				line_style 	0)))
+		    (object AssociationViewNew "$UNNAMED$6" @22
+			location   	(1014, 1591)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"3DB8158E0370"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$7" @23
+				Parent_View 	@22
+				location   	(-362, 791)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DB8158F0281"
+				client     	@22
+				supplier   	@11
+				line_style 	0)
+			    (object RoleView "$UNNAMED$8" @24
+				Parent_View 	@22
+				location   	(-362, 791)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DB8158F0282"
+				client     	@22
+				supplier   	@13
+				line_style 	0)))
+		    (object AssociationViewNew "$UNNAMED$9" @25
+			location   	(824, 1440)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"3DB8160603B9"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$10" @26
+				Parent_View 	@25
+				location   	(-552, 640)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DB81607027A"
+				client     	@25
+				supplier   	@12
+				line_style 	0)
+			    (object RoleView "$UNNAMED$11" @27
+				Parent_View 	@25
+				location   	(-552, 640)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DB816070284"
+				client     	@25
+				supplier   	@13
+				line_style 	0)))
+		    (object ClassView "Class" "Logical View::Base::RSessionBase" @28
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(368, 160)
+			label      	(object ItemLabel
+			    Parent_View 	@28
+			    location   	(219, 86)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	298
+			    justify    	0
+			    label      	"RSessionBase")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB8187403D1"
+			width      	316
+			height     	172
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::RNif" @29
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(368, 400)
+			label      	(object ItemLabel
+			    Parent_View 	@29
+			    location   	(287, 349)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	162
+			    justify    	0
+			    label      	"RNif")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB8187D001D"
+			height     	126
+			annotation 	8
+			autoResize 	TRUE)
+		    (object InheritView "" @30
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"3DB818830300"
+			client     	@29
+			supplier   	@28
+			line_style 	0)
+		    (object ClassView "Class" "Logical View::RGenericAgent" @31
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(368, 656)
+			label      	(object ItemLabel
+			    Parent_View 	@31
+			    location   	(210, 605)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	316
+			    justify    	0
+			    label      	"RGenericAgent")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB81887020C"
+			width      	334
+			height     	126
+			annotation 	8
+			autoResize 	TRUE)
+		    (object InheritView "" @32
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"3DB818900151"
+			client     	@31
+			supplier   	@29
+			line_style 	0)
+		    (object ClassView "Class" "Logical View::Base::CSession" @33
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(512, 1104)
+			label      	(object ItemLabel
+			    Parent_View 	@33
+			    location   	(410, 1030)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	204
+			    justify    	0
+			    label      	"CSession")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB95204010D"
+			width      	222
+			height     	172
+			annotation 	8
+			autoResize 	TRUE)
+		    (object InheritView "" @34
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"3DB9520E0216"
+			client     	@13
+			supplier   	@33
+			line_style 	0)
+		    (object ClassView "Class" "Logical View::Base::RMessage" @35
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			location   	(1856, 608)
+			label      	(object ItemLabel
+			    Parent_View 	@35
+			    location   	(1736, 534)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	240
+			    justify    	0
+			    label      	"RMessage")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB96D410024"
+			width      	258
+			height     	172
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::Base::CBase" @36
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(784, 2144)
+			label      	(object ItemLabel
+			    Parent_View 	@36
+			    location   	(700, 2070)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	168
+			    justify    	0
+			    label      	"CBase")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DE367740249"
+			width      	186
+			height     	172
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::CNetworkControllerBase" @37
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			location   	(1008, 2480)
+			label      	(object ItemLabel
+			    Parent_View 	@37
+			    location   	(770, 2428)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	476
+			    justify    	0
+			    label      	"CNetworkControllerBase")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB815FB02B9"
+			width      	494
+			height     	128
+			annotation 	8
+			autoResize 	TRUE)
+		    (object InheritView "" @38
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"3DE36785031F"
+			client     	@37
+			supplier   	@36
+			line_style 	0)
+		    (object ClassView "Class" "Logical View::MBearerObserver" @39
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(1344, 2144)
+			label      	(object ItemLabel
+			    Parent_View 	@39
+			    location   	(1172, 2093)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	344
+			    justify    	0
+			    label      	"MBearerObserver")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DE367C50259"
+			width      	362
+			height     	126
+			annotation 	8
+			autoResize 	TRUE)
+		    (object InheritView "" @40
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"3DE367D00042"
+			client     	@37
+			supplier   	@39
+			line_style 	0)
+		    (object ClassView "Class" "Logical View::CNetwork" @41
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(448, 2480)
+			label      	(object ItemLabel
+			    Parent_View 	@41
+			    location   	(346, 2429)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	204
+			    justify    	0
+			    label      	"CNetwork")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DE3673F0365"
+			width      	222
+			height     	126
+			annotation 	8
+			autoResize 	TRUE)
+		    (object AssociationViewNew "$UNNAMED$18" @42
+			location   	(659, 2480)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"3DE367460239"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$19" @43
+				Parent_View 	@42
+				location   	(-237, 144)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DE3674701B8"
+				client     	@42
+				supplier   	@41
+				line_style 	0
+				label      	(object SegLabel @44
+				    Parent_View 	@43
+				    location   	(608, 2522)
+				    anchor     	2
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	15
+				    justify    	0
+				    label      	"*"
+				    pctDist    	0.519337
+				    height     	42
+				    orientation 	0))
+			    (object RoleView "$UNNAMED$20" @45
+				Parent_View 	@42
+				location   	(-237, 144)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DE3674701B9"
+				client     	@42
+				supplier   	@37
+				line_style 	0
+				label      	(object SegLabel @46
+				    Parent_View 	@45
+				    location   	(745, 2508)
+				    anchor     	2
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	15
+				    justify    	0
+				    label      	"1"
+				    pctDist    	0.865134
+				    height     	28
+				    orientation 	1))))
+		    (object ClassView "Class" "Logical View::CBearerBase" @47
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(1584, 2480)
+			label      	(object ItemLabel
+			    Parent_View 	@47
+			    location   	(1445, 2429)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	278
+			    justify    	0
+			    label      	"CBearerBase")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DE3675400C6"
+			width      	296
+			height     	126
+			annotation 	8
+			autoResize 	TRUE)
+		    (object AssociationViewNew "$UNNAMED$21" @48
+			location   	(1345, 2480)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"3DE3675E0369"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$22" @49
+				Parent_View 	@48
+				location   	(449, 144)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DE3675F011C"
+				client     	@48
+				supplier   	@47
+				line_style 	0
+				label      	(object SegLabel @50
+				    Parent_View 	@49
+				    location   	(1385, 2522)
+				    anchor     	2
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	15
+				    justify    	0
+				    label      	"*"
+				    pctDist    	0.380405
+				    height     	42
+				    orientation 	1))
+			    (object RoleView "$UNNAMED$23" @51
+				Parent_View 	@48
+				location   	(449, 144)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DE3675F0126"
+				client     	@48
+				supplier   	@37
+				line_style 	0
+				label      	(object SegLabel @52
+				    Parent_View 	@51
+				    location   	(1269, 2519)
+				    anchor     	2
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	15
+				    justify    	0
+				    label      	"1"
+				    pctDist    	0.872973
+				    height     	39
+				    orientation 	0))))
+		    (object AssociationViewNew "$UNNAMED$24" @53
+			location   	(1463, 2311)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"3DE367FF02AD"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$25" @54
+				Parent_View 	@53
+				location   	(103, -425)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DE3680001E6"
+				client     	@53
+				supplier   	@39
+				line_style 	0)
+			    (object RoleView "$UNNAMED$26" @55
+				Parent_View 	@53
+				location   	(103, -425)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DE3680001F0"
+				client     	@53
+				supplier   	@47
+				line_style 	0)))
+		    (object ClassView "Class" "Logical View::CNifAgentBase" @56
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(1040, 2784)
+			label      	(object ItemLabel
+			    Parent_View 	@56
+			    location   	(889, 2733)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	302
+			    justify    	0
+			    label      	"CNifAgentBase")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DE652A00058"
+			width      	320
+			height     	126
+			annotation 	8
+			autoResize 	TRUE)
+		    (object AssociationViewNew "$UNNAMED$27" @57
+			location   	(737, 2628)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"3DE652A8024E"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$28" @58
+				Parent_View 	@57
+				location   	(289, 148)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DE652A901B9"
+				client     	@57
+				supplier   	@56
+				line_style 	0
+				label      	(object SegLabel @59
+				    Parent_View 	@58
+				    location   	(843, 2725)
+				    anchor     	2
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	15
+				    justify    	0
+				    label      	"*"
+				    pctDist    	0.688754
+				    height     	38
+				    orientation 	1))
+			    (object RoleView "$UNNAMED$29" @60
+				Parent_View 	@57
+				location   	(289, 148)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DE652A901C3"
+				client     	@57
+				supplier   	@41
+				line_style 	0
+				label      	(object SegLabel @61
+				    Parent_View 	@60
+				    location   	(554, 2595)
+				    anchor     	2
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	15
+				    justify    	0
+				    label      	"1"
+				    pctDist    	0.900000
+				    height     	54
+				    orientation 	0))))
+		    (object AssociationViewNew "$UNNAMED$30" @62
+			location   	(1310, 2631)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"3DE652AE00B2"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$31" @63
+				Parent_View 	@62
+				location   	(-274, 151)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DE652AF0320"
+				client     	@62
+				supplier   	@56
+				line_style 	0
+				label      	(object SegLabel @64
+				    Parent_View 	@63
+				    location   	(1226, 2728)
+				    anchor     	2
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	15
+				    justify    	0
+				    label      	"*"
+				    pctDist    	0.666109
+				    height     	43
+				    orientation 	0))
+			    (object RoleView "$UNNAMED$32" @65
+				Parent_View 	@62
+				location   	(-274, 151)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DE652AF032A"
+				client     	@62
+				supplier   	@47
+				line_style 	0
+				label      	(object SegLabel @66
+				    Parent_View 	@65
+				    location   	(1479, 2599)
+				    anchor     	2
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	15
+				    justify    	0
+				    label      	"1"
+				    pctDist    	0.900000
+				    height     	54
+				    orientation 	1))))))
+	    (object ClassDiagram "Server Session"
+		quid       	"3DB951F00123"
+		title      	"Server Session"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list
+		    (object ClassView "Class" "Logical View::CNifServerSession" @67
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			location   	(1424, 528)
+			label      	(object ItemLabel
+			    Parent_View 	@67
+			    location   	(1236, 476)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	376
+			    justify    	0
+			    label      	"CNifServerSession")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB814700224"
+			width      	394
+			height     	128
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::MConnectionNotify" @68
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(960, 208)
+			label      	(object ItemLabel
+			    Parent_View 	@68
+			    location   	(772, 157)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	376
+			    justify    	0
+			    label      	"MConnectionNotify")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB814A8031F"
+			width      	394
+			height     	126
+			annotation 	8
+			autoResize 	TRUE)
+		    (object InheritView "" @69
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"3DB814CF0068"
+			client     	@67
+			supplier   	@68
+			line_style 	0)
+		    (object ClassView "Class" "Logical View::CNifSession" @70
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			location   	(960, 864)
+			label      	(object ItemLabel
+			    Parent_View 	@70
+			    location   	(828, 812)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	264
+			    justify    	0
+			    label      	"CNifSession")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB8147A0387"
+			width      	282
+			height     	128
+			annotation 	8
+			autoResize 	TRUE)
+		    (object AssociationViewNew "$UNNAMED$6" @71
+			location   	(1191, 695)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"3DB8158E0370"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$7" @72
+				Parent_View 	@71
+				location   	(-185, -105)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DB8158F0281"
+				client     	@71
+				supplier   	@70
+				line_style 	0)
+			    (object RoleView "$UNNAMED$8" @73
+				Parent_View 	@71
+				location   	(-185, -105)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DB8158F0282"
+				client     	@71
+				supplier   	@67
+				line_style 	0)))
+		    (object AssociationViewNew "$UNNAMED$12" @74
+			location   	(960, 535)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"3DB95225024B"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$13" @75
+				Parent_View 	@74
+				location   	(160, -1337)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DB9522600D0"
+				client     	@74
+				supplier   	@68
+				line_style 	0)
+			    (object RoleView "$UNNAMED$14" @76
+				Parent_View 	@74
+				location   	(160, -1337)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DB9522600DA"
+				client     	@74
+				supplier   	@70
+				line_style 	0)))))
+	    (object ClassDiagram "Implicit Connection Notification"
+		quid       	"3DB9530F00FD"
+		title      	"Implicit Connection Notification"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list
+		    (object ClassView "Class" "Logical View::CNifServerSession" @77
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			location   	(992, 768)
+			label      	(object ItemLabel
+			    Parent_View 	@77
+			    location   	(804, 716)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	376
+			    justify    	0
+			    label      	"CNifServerSession")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB814700224"
+			width      	394
+			height     	128
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::MImplicitConnectionNotify" @78
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(992, 336)
+			label      	(object ItemLabel
+			    Parent_View 	@78
+			    location   	(735, 285)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	514
+			    justify    	0
+			    label      	"MImplicitConnectionNotify")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB814940367"
+			width      	532
+			height     	126
+			annotation 	8
+			autoResize 	TRUE)
+		    (object InheritView "" @79
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"3DB814CC0281"
+			client     	@77
+			supplier   	@78
+			line_style 	0)
+		    (object ClassView "Class" "Logical View::CNetworkControllerBase" @80
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			location   	(1760, 768)
+			label      	(object ItemLabel
+			    Parent_View 	@80
+			    location   	(1522, 716)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	476
+			    justify    	0
+			    label      	"CNetworkControllerBase")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB815FB02B9"
+			width      	494
+			height     	128
+			annotation 	8
+			autoResize 	TRUE)
+		    (object AssociationViewNew "$UNNAMED$9" @81
+			location   	(1350, 768)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"3DB8160603B9"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$11" @82
+				Parent_View 	@81
+				location   	(-490, 48)
+				label      	(object SegLabel @83
+				    Parent_View 	@82
+				    location   	(1222, 727)
+				    hidden     	TRUE
+				    anchor     	1
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	""
+				    pctDist    	0.800000
+				    height     	42
+				    orientation 	1)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DB816070284"
+				client     	@81
+				supplier   	@77
+				line_style 	0)
+			    (object RoleView "$UNNAMED$10" @84
+				Parent_View 	@81
+				location   	(-490, 48)
+				label      	(object SegLabel @85
+				    Parent_View 	@84
+				    location   	(1479, 727)
+				    hidden     	TRUE
+				    anchor     	1
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	""
+				    pctDist    	0.800000
+				    height     	42
+				    orientation 	0)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DB81607027A"
+				client     	@81
+				supplier   	@80
+				line_style 	0)))
+		    (object AssociationViewNew "$UNNAMED$15" @86
+			location   	(1376, 551)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"3DB95338014C"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$16" @87
+				Parent_View 	@86
+				location   	(-384, -217)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DB9533900EA"
+				client     	@86
+				supplier   	@78
+				line_style 	0)
+			    (object RoleView "$UNNAMED$17" @88
+				Parent_View 	@86
+				location   	(-384, -217)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"3DB9533900F4"
+				client     	@86
+				supplier   	@80
+				line_style 	0)))))
+	    (object InteractionDiagram "Implicit Connection Notification A"
+		mechanism_ref 	@1
+		quid       	"3DB819030138"
+		title      	"Implicit Connection Notification A"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list
+		    (object InterObjView "$UNNAMED$33" @89
+			location   	(448, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@89
+			    location   	(448, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	354
+			    justify    	0
+			    label      	"")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB8190F0059"
+			width      	372
+			height     	1137
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @90
+			    location   	(448, 384)
+			    line_color 	3342489
+			    InterObjView 	@89
+			    height     	120
+			    y_coord    	60
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @91
+			    location   	(448, 640)
+			    line_color 	3342489
+			    InterObjView 	@89
+			    height     	60
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @92
+			    location   	(448, 896)
+			    line_color 	3342489
+			    InterObjView 	@89
+			    height     	60
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @93
+			    location   	(448, 1152)
+			    line_color 	3342489
+			    InterObjView 	@89
+			    height     	120
+			    y_coord    	60
+			    Nested     	FALSE))
+		    (object InterObjView "$UNNAMED$34" @94
+			location   	(1248, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@94
+			    location   	(1248, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	462
+			    justify    	0
+			    label      	"")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB81912008F"
+			width      	480
+			height     	1137
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @95
+			    location   	(1248, 384)
+			    line_color 	3342489
+			    InterObjView 	@94
+			    height     	60
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @96
+			    location   	(1248, 640)
+			    line_color 	3342489
+			    InterObjView 	@94
+			    height     	120
+			    y_coord    	60
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @97
+			    location   	(1248, 896)
+			    line_color 	3342489
+			    InterObjView 	@94
+			    height     	120
+			    y_coord    	60
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @98
+			    location   	(1248, 1152)
+			    line_color 	3342489
+			    InterObjView 	@94
+			    height     	60
+			    y_coord    	0
+			    Nested     	FALSE))
+		    (object InterMessView "" @99
+			location   	(16, 384)
+			label      	(object SegLabel @100
+			    Parent_View 	@99
+			    location   	(847, 340)
+			    quidu      	"3DB819360038"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	719
+			    justify    	0
+			    label      	"RequestImplicitConnectionNotification( )"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@89
+			supplier   	@94
+			Focus_Src  	@90
+			Focus_Entry 	@95
+			origin     	(463, 384)
+			terminus   	(1232, 384)
+			ordinal    	0)
+		    (object InterMessView "" @101
+			location   	(16, 640)
+			label      	(object SegLabel @102
+			    Parent_View 	@101
+			    location   	(848, 596)
+			    quidu      	"3DB81959013C"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	469
+			    justify    	0
+			    label      	"ImplicitConnectionEvent( )"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	1)
+			line_color 	3342489
+			client     	@94
+			supplier   	@89
+			Focus_Src  	@96
+			Focus_Entry 	@91
+			origin     	(1232, 640)
+			terminus   	(464, 640)
+			ordinal    	1)
+		    (object InterMessView "" @103
+			location   	(16, 896)
+			label      	(object SegLabel @104
+			    Parent_View 	@103
+			    location   	(848, 852)
+			    quidu      	"3DB8196A0294"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	469
+			    justify    	0
+			    label      	"ImplicitConnectionEvent( )"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	1)
+			line_color 	3342489
+			client     	@94
+			supplier   	@89
+			Focus_Src  	@97
+			Focus_Entry 	@92
+			origin     	(1232, 896)
+			terminus   	(464, 896)
+			ordinal    	2)
+		    (object InterMessView "" @105
+			location   	(16, 1152)
+			label      	(object SegLabel @106
+			    Parent_View 	@105
+			    location   	(847, 1108)
+			    quidu      	"3DB819710317"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	694
+			    justify    	0
+			    label      	"CancelImplicitConnectionNotification( )"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@89
+			supplier   	@94
+			Focus_Src  	@93
+			Focus_Entry 	@98
+			origin     	(463, 1152)
+			terminus   	(1232, 1152)
+			ordinal    	3)))
+	    (object InteractionDiagram "Implicit Connection Notification B"
+		mechanism_ref 	@2
+		quid       	"3DB96A00027F"
+		title      	"Implicit Connection Notification B"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list
+		    (object InterObjView "$UNNAMED$35" @107
+			location   	(1184, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@107
+			    location   	(1184, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	354
+			    justify    	0
+			    label      	"")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB96A070261"
+			width      	372
+			height     	897
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @108
+			    location   	(1184, 384)
+			    line_color 	3342489
+			    InterObjView 	@107
+			    height     	120
+			    y_coord    	60
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @109
+			    location   	(1184, 608)
+			    line_color 	3342489
+			    InterObjView 	@107
+			    height     	152
+			    y_coord    	92
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @110
+			    location   	(1184, 912)
+			    line_color 	3342489
+			    InterObjView 	@107
+			    height     	60
+			    y_coord    	0
+			    Nested     	FALSE))
+		    (object InterObjView "$UNNAMED$36" @111
+			location   	(400, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@111
+			    location   	(400, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	462
+			    justify    	0
+			    label      	"")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB96A100137"
+			width      	480
+			height     	897
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @112
+			    location   	(400, 384)
+			    line_color 	3342489
+			    InterObjView 	@111
+			    height     	60
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @113
+			    location   	(400, 608)
+			    line_color 	3342489
+			    InterObjView 	@111
+			    height     	212
+			    y_coord    	152
+			    Nested     	FALSE))
+		    (object InterObjView "$UNNAMED$37" @114
+			location   	(1840, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@114
+			    location   	(1840, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	282
+			    justify    	0
+			    label      	"")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB96A2B01F4"
+			width      	300
+			height     	897
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @115
+			    location   	(1840, 640)
+			    line_color 	3342489
+			    InterObjView 	@114
+			    height     	60
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @116
+			    location   	(1840, 912)
+			    line_color 	3342489
+			    InterObjView 	@114
+			    height     	120
+			    y_coord    	60
+			    Nested     	FALSE))
+		    (object InterMessView "" @117
+			location   	(16, 384)
+			label      	(object SegLabel @118
+			    Parent_View 	@117
+			    location   	(792, 340)
+			    quidu      	"3DB96A1700B6"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	720
+			    justify    	0
+			    label      	"RequestImplicitConnectionNotification( )"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	1)
+			line_color 	3342489
+			client     	@107
+			supplier   	@111
+			Focus_Src  	@108
+			Focus_Entry 	@112
+			origin     	(1168, 384)
+			terminus   	(416, 384)
+			ordinal    	0)
+		    (object InterMessView "" @119
+			location   	(16, 608)
+			label      	(object SegLabel @120
+			    Parent_View 	@119
+			    location   	(791, 564)
+			    quidu      	"3DB96A2003A7"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	469
+			    justify    	0
+			    label      	"ImplicitConnectionEvent( )"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@111
+			supplier   	@107
+			Focus_Src  	@113
+			Focus_Entry 	@109
+			origin     	(415, 608)
+			terminus   	(1168, 608)
+			ordinal    	1)
+		    (object InterMessView "" @121
+			location   	(16, 640)
+			label      	(object SegLabel @122
+			    Parent_View 	@121
+			    location   	(1511, 596)
+			    quidu      	"3DB96A310262"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	426
+			    justify    	0
+			    label      	"AttachToConnectionL( )"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@107
+			supplier   	@114
+			Focus_Src  	@109
+			Focus_Entry 	@115
+			origin     	(1199, 640)
+			terminus   	(1824, 640)
+			ordinal    	2)
+		    (object InterMessView "" @123
+			location   	(16, 912)
+			label      	(object SegLabel @124
+			    Parent_View 	@123
+			    location   	(1512, 868)
+			    quidu      	"3DB96A4903BA"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	401
+			    justify    	0
+			    label      	"ProgressNotification( )"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	1)
+			line_color 	3342489
+			client     	@114
+			supplier   	@107
+			Focus_Src  	@116
+			Focus_Entry 	@110
+			origin     	(1824, 912)
+			terminus   	(1200, 912)
+			ordinal    	3)))
+	    (object InteractionDiagram "Progress Stage Mapping"
+		mechanism_ref 	@3
+		quid       	"3DB96BAE0074"
+		title      	"Progress Stage Mapping"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list
+		    (object InterObjView "$UNNAMED$38" @125
+			location   	(432, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@125
+			    location   	(432, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	282
+			    justify    	0
+			    label      	"")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB96BB70140"
+			width      	300
+			height     	685
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @126
+			    location   	(432, 384)
+			    line_color 	3342489
+			    InterObjView 	@125
+			    height     	436
+			    y_coord    	376
+			    Nested     	FALSE))
+		    (object InterObjView "$UNNAMED$40" @127
+			location   	(1632, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@127
+			    location   	(1632, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	432
+			    justify    	0
+			    label      	"")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB96BBA0393"
+			width      	450
+			height     	685
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @128
+			    location   	(1632, 416)
+			    line_color 	3342489
+			    InterObjView 	@127
+			    height     	60
+			    y_coord    	0
+			    Nested     	FALSE))
+		    (object InterObjView "iProgressMessage" @129
+			location   	(2112, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@129
+			    location   	(2112, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	374
+			    justify    	0
+			    label      	"iProgressMessage")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB96D6D023A"
+			width      	392
+			height     	685
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @130
+			    location   	(2112, 544)
+			    line_color 	3342489
+			    InterObjView 	@129
+			    height     	60
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @131
+			    location   	(2112, 640)
+			    line_color 	3342489
+			    InterObjView 	@129
+			    height     	60
+			    y_coord    	0
+			    Nested     	FALSE))
+		    (object InterObjView "$UNNAMED$39" @132
+			location   	(928, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@132
+			    location   	(928, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	354
+			    justify    	0
+			    label      	"")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"3DB96BC5028A"
+			width      	372
+			height     	685
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @133
+			    location   	(928, 384)
+			    line_color 	3342489
+			    InterObjView 	@132
+			    height     	376
+			    y_coord    	316
+			    Nested     	FALSE))
+		    (object InterMessView "" @134
+			location   	(16, 384)
+			label      	(object SegLabel @135
+			    Parent_View 	@134
+			    location   	(679, 340)
+			    quidu      	"3DB96BCA01C0"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	400
+			    justify    	0
+			    label      	"ProgressNotification( )"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@125
+			supplier   	@132
+			Focus_Src  	@126
+			Focus_Entry 	@133
+			origin     	(447, 384)
+			terminus   	(912, 384)
+			ordinal    	0)
+		    (object InterMessView "" @136
+			location   	(16, 416)
+			label      	(object SegLabel @137
+			    Parent_View 	@136
+			    location   	(1279, 372)
+			    quidu      	"3DB96BD00132"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	509
+			    justify    	0
+			    label      	"MapProgressEnumValue( )"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@132
+			supplier   	@127
+			Focus_Src  	@133
+			Focus_Entry 	@128
+			origin     	(943, 416)
+			terminus   	(1616, 416)
+			ordinal    	1)
+		    (object InterMessView "" @138
+			location   	(16, 544)
+			label      	(object SegLabel @139
+			    Parent_View 	@138
+			    location   	(1519, 500)
+			    quidu      	"3DB96D80024C"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	169
+			    justify    	0
+			    label      	"Write( )"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@132
+			supplier   	@129
+			Focus_Src  	@133
+			Focus_Entry 	@130
+			origin     	(943, 544)
+			terminus   	(2096, 544)
+			ordinal    	2)
+		    (object InterMessView "" @140
+			location   	(16, 640)
+			label      	(object SegLabel @141
+			    Parent_View 	@140
+			    location   	(1519, 596)
+			    quidu      	"3DB96D9C0129"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	209
+			    justify    	0
+			    label      	"Complete( )"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@132
+			supplier   	@129
+			Focus_Src  	@133
+			Focus_Entry 	@131
+			origin     	(943, 640)
+			terminus   	(2096, 640)
+			ordinal    	3)))))
+    root_subsystem 	(object SubSystem "Component View"
+	quid       	"3DB814670037"
+	physical_models 	(list unit_reference_list)
+	physical_presentations 	(list unit_reference_list
+	    (object Module_Diagram "Main"
+		quid       	"3DB8146A00C7"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list))))
+    process_structure 	(object Processes
+	quid       	"3DB814670038"
+	ProcsNDevs 	(list
+	    (object Process_Diagram "Deployment View"
+		quid       	"3DB81467004B"
+		title      	"Deployment View"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list))))
+    properties 	(object Properties
+	attributes 	(list Attribute_Set
+	    (object Attribute
+		tool       	"DDL"
+		name       	"propertyId"
+		value      	"809135966")
+	    (object Attribute
+		tool       	"DDL"
+		name       	"default__Project"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"DDL"
+			name       	"Directory"
+			value      	"AUTO GENERATE")
+		    (object Attribute
+			tool       	"DDL"
+			name       	"DataBase"
+			value      	("DataBaseSet" 800))
+		    (object Attribute
+			tool       	"DDL"
+			name       	"DataBaseSet"
+			value      	(list Attribute_Set
+			    (object Attribute
+				tool       	"DDL"
+				name       	"ANSI"
+				value      	800)
+			    (object Attribute
+				tool       	"DDL"
+				name       	"Oracle"
+				value      	801)
+			    (object Attribute
+				tool       	"DDL"
+				name       	"SQLServer"
+				value      	802)
+			    (object Attribute
+				tool       	"DDL"
+				name       	"Sybase"
+				value      	803)
+			    (object Attribute
+				tool       	"DDL"
+				name       	"Watcom"
+				value      	804)))
+		    (object Attribute
+			tool       	"DDL"
+			name       	"PrimaryKeyColumnName"
+			value      	"Id")
+		    (object Attribute
+			tool       	"DDL"
+			name       	"PrimaryKeyColumnType"
+			value      	"NUMBER(5)")
+		    (object Attribute
+			tool       	"DDL"
+			name       	"ViewName"
+			value      	"V_")
+		    (object Attribute
+			tool       	"DDL"
+			name       	"TableName"
+			value      	"T_")
+		    (object Attribute
+			tool       	"DDL"
+			name       	"InheritSuffix"
+			value      	"_V")
+		    (object Attribute
+			tool       	"DDL"
+			name       	"DropClause"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"DDL"
+			name       	"BaseViews"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"DDL"
+			name       	"DDLScriptFilename"
+			value      	"DDL1.SQL")))
+	    (object Attribute
+		tool       	"DDL"
+		name       	"default__Attribute"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"DDL"
+			name       	"ColumnType"
+			value      	"VARCHAR")
+		    (object Attribute
+			tool       	"DDL"
+			name       	"Length"
+			value      	"")
+		    (object Attribute
+			tool       	"DDL"
+			name       	"NullsOK"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"DDL"
+			name       	"PrimaryKey"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"DDL"
+			name       	"Unique"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"DDL"
+			name       	"CompositeUnique"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"DDL"
+			name       	"CheckConstraint"
+			value      	"")))
+	    (object Attribute
+		tool       	"DDL"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"Rose Model Integrator"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"Rose Web Publisher"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"Version Control"
+		name       	"HiddenTool"
+		value      	FALSE))
+	quid       	"3DB814670039"))

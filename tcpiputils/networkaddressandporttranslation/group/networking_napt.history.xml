@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relnotes name="NAPT">
+  <purpose>
+    Limited Network Address Port translation for IPv4
+  </purpose>
+
+  <preq number="602" title="IP forwarding" revision="001">
+    Limited NAPT Functionality
+  </preq>
+</relnotes>

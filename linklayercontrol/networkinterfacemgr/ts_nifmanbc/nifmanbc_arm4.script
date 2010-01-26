@@ -1,0 +1,119 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+// this test is in two parts - first we have tests with valid connection preferences
+// then later we have tests where the IAP in the connection preferences is 0.
+
+LOAD_SUITE TS_NIFMANBC.DLL
+PAUSE_AT_END
+
+//
+// setup CommDb (PPP over WinTunnel on COMM::3)
+//
+run_script z:\TestData\scripts\esock_test_unloadesock.script
+ced z:\TestData\configs\nifmanbc.xml ced.log
+run_script z:\TestData\scripts\esock_test_loadesock.script
+
+//
+// run the tests
+//
+HEAP_MARK
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test1_1
+TEST_COMPLETE
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test1_2
+TEST_COMPLETE
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test1_3
+TEST_COMPLETE
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test1_4
+TEST_COMPLETE
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test1_5
+TEST_COMPLETE
+
+// Test 1_6 checks that overrides work properly. However if you try to use overrides when a different
+// interface is open you get KErrInUse. Hence best to close the interfaces first.
+run_script z:\TestData\scripts\esock_test_stopallinterfaces.script
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test1_6
+TEST_COMPLETE
+
+// Test 1_7 checks that behaviour of GetActiveXSettings is good when no (implicit) interface is 
+// present. The easiest way to ensure this is to kill all the active interfaces.
+run_script z:\TestData\scripts\esock_test_stopallinterfaces.script
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test1_7
+TEST_COMPLETE
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test2_3
+TEST_COMPLETE
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test2_4
+TEST_COMPLETE
+
+HEAP_MARKEND
+
+// setup commdb for tests with invalid IAP in the rank 1 connection preference
+run_script z:\TestData\scripts\esock_test_unloadesock.script
+ced z:\TestData\configs\nifmanbc_badconnpref.xml ced.log
+run_script z:\TestData\scripts\esock_test_loadesock.script
+
+// copy ini file into place so we use the dummy agent notifier
+run_utils CopyFile z:\testdata\configs\agentdialog.ini c:\system\data\agentdialog.ini
+
+HEAP_MARK
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test1_1
+TEST_COMPLETE
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test1_2
+TEST_COMPLETE
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test1_3
+TEST_COMPLETE
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test1_4
+TEST_COMPLETE
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test1_5
+TEST_COMPLETE
+
+// Test 1_6 checks that overrides work properly. However if you try to use overrides when a different
+// interface is open you get KErrInUse. Hence best to close the interfaces first.
+run_script z:\TestData\scripts\esock_test_stopallinterfaces.script
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test1_6
+TEST_COMPLETE
+
+// Test 1_7 checks that behaviour of GetActiveXSettings is good when no (implicit) interface is 
+// present. The easiest way to ensure this is to kill all the active interfaces.
+run_script z:\TestData\scripts\esock_test_stopallinterfaces.script
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test1_7
+TEST_COMPLETE
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test2_3
+TEST_COMPLETE
+
+RUN_TEST_STEP 100000, TS_NIFMANBC, Test2_4
+TEST_COMPLETE
+
+HEAP_MARKEND
+
+// delete the ini file so we don't affect other tests
+run_utils delete c:\system\data\agentdialog.ini

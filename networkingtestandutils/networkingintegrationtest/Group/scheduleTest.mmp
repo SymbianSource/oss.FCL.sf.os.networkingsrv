@@ -1,0 +1,40 @@
+// Copyright (c) 2001-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// using relative paths for sourcepath and user includes
+// 
+//
+
+TARGET        scheduletest.exe
+TARGETTYPE    exe
+UID           0x101F93D3
+VENDORID 0x70000001
+
+SOURCEPATH    ../scheduleTest
+SOURCE        parseline.cpp
+SOURCE        script.cpp
+SOURCE        consolemain.cpp
+
+USERINCLUDE   ../inc
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+LIBRARY       	euser.lib
+LIBRARY		efsrv.lib 
+LIBRARY		integrationtestutils.lib 
+
+epocstacksize 0x8000
+epocheapsize 1000 6000000
+
+CAPABILITY All -Tcb
+
+SMPSAFE

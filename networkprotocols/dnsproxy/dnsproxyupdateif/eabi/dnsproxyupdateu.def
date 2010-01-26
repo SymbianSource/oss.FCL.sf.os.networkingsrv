@@ -1,0 +1,5 @@
+EXPORTS
+	_Z24ImplementationGroupProxyRi @ 1 NONAME
+	_ZTI19CDNSProxyUpdateImpl @ 2 NONAME
+	_ZTV19CDNSProxyUpdateImpl @ 3 NONAME
+

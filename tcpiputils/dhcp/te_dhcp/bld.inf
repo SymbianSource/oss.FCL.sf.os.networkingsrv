@@ -1,0 +1,92 @@
+// Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRJ_TESTMMPFILES
+../te_dhcp/te_dhcpTestServer.mmp
+../te_dhcp/DummyDNSUpdate.mmp
+../te_dhcp/ramods/ramod1.mmp
+../te_dhcp/ramods/ramod2.mmp
+../te_dhcp/ramods/ramod3.mmp
+
+PRJ_TESTEXPORTS
+
+../te_dhcp/DummyDNSUpdate.iby                   			/epoc32/rom/include/dummydnsupdate.iby
+../te_dhcp/te_dhcpTestServer.iby                   			/epoc32/rom/include/te_dhcptestserver.iby
+
+
+//-- ip4 specific
+../te_dhcp/config/scripts/te_dhcptest_ip4.script				z:/testdata/scripts/dhcp/te_dhcptest_ip4.script
+../te_dhcp/config/scripts/DHCPBasicInteractions1_ip4.script		z:/testdata/scripts/dhcp/dhcpbasicinteractions1_ip4.script
+../te_dhcp/config/scripts/DHCPConfiguration2_ip4.script			z:/testdata/scripts/dhcp/dhcpconfiguration2_ip4.script
+../te_dhcp/config/scripts/DHCPRenewAndRelease3_ip4.script		z:/testdata/scripts/dhcp/dhcprenewandrelease3_ip4.script
+../te_dhcp/config/scripts/DHCPDynamicInteraction4_ip4.script	z:/testdata/scripts/dhcp/dhcpdynamicinteraction4_ip4.script
+../te_dhcp/config/scripts/DHCPManualtests5_ip4.script			z:/testdata/scripts/dhcp/dhcpmanualtests5_ip4.script
+../te_dhcp/config/scripts/DHCP_OOM6_ip4.script					z:/testdata/scripts/dhcp/dhcp_oom6_ip4.script
+
+//-- ip6 specific
+#ifdef SYMBIAN_TCPIPDHCP_UPDATE
+../te_dhcp/config/scripts/te_dhcptest_ip6_PREQ1898.script				z:/testdata/scripts/dhcp/te_dhcptest_ip6.script
+#else
+../te_dhcp/config/scripts/te_dhcptest_ip6.script				z:/testdata/scripts/dhcp/te_dhcptest_ip6.script
+#endif // SYMBIAN_TCPIPDHCP_UPDATE
+../te_dhcp/config/scripts/DHCPBasicInteractions1_ip6.script		z:/testdata/scripts/dhcp/dhcpbasicinteractions1_ip6.script
+../te_dhcp/config/scripts/DHCPConfiguration2_ip6.script			z:/testdata/scripts/dhcp/dhcpconfiguration2_ip6.script
+../te_dhcp/config/scripts/DHCPRenewAndRelease3_ip6.script		z:/testdata/scripts/dhcp/dhcprenewandrelease3_ip6.script
+../te_dhcp/config/scripts/DHCPDynamicInteraction4_ip6.script	z:/testdata/scripts/dhcp/dhcpdynamicinteraction4_ip6.script
+../te_dhcp/config/scripts/DHCPManualtests5_ip6.script			z:/testdata/scripts/dhcp/dhcpmanualtests5_ip6.script
+../te_dhcp/config/scripts/dhcpmanualTests2_ip6.script			z:/testdata/scripts/dhcp/dhcpmanualtests2_ip6.script
+../te_dhcp/config/scripts/DHCP_OOM6_ip6.script					z:/testdata/scripts/dhcp/dhcp_oom6_ip6.script
+../te_dhcp/config/scripts/DHCPBasicInteractions1-inform_ip6.script		z:/testdata/scripts/dhcp/dhcpbasicinteractions1-inform_ip6.script
+../te_dhcp/config/scripts/DHCPConfiguration2-inform_ip6.script			z:/testdata/scripts/dhcp/dhcpconfiguration2-inform_ip6.script
+../te_dhcp/config/scripts/DHCPRenewAndRelease3-inform_ip6.script		z:/testdata/scripts/dhcp/dhcprenewandrelease3-inform_ip6.script
+../te_dhcp/config/scripts/DHCPDynamicInteraction4-inform_ip6.script	z:/testdata/scripts/dhcp/dhcpdynamicinteraction4-inform_ip6.script
+#ifdef SYMBIAN_TCPIPDHCP_UPDATE
+../te_dhcp/config/scripts/DHCPPREQ1898_Ipv6.script					z:/testdata/scripts/dhcp/dhcppreq1898_ipv6.script
+#endif //SYMBIAN_TCPIPDHCP_UPDATE 
+//SIP server
+../te_dhcp/config/scripts/TE_SIPServer_DHCP_hwonly_ip4.script	z:/testdata/scripts/dhcp/te_sipserver_dhcp_hwonly_ip4.script
+../te_dhcp/config/scripts/SipServer_setup.script                z:/testdata/scripts/sipserver_setup.script
+../te_dhcp/config/scripts/TE_SIPServerTesting.script            z:/testdata/scripts/te_sipservertesting.script
+../te_dhcp/config/scripts/SipServer.xml                         z:/testdata/configs/sipserver.xml
+../te_dhcp/config/scripts/SIP_Server_simtsy_config.txt          z:/testdata/configs/sip_server_simtsy_config.txt
+../te_dhcp/config/te_sipservertesting_loopback.ini		z:/testdata/configs/te_sipservertesting_loopback.ini
+../te_dhcp/config/te_sipservertesting_qospolicies.ini		z:/testdata/configs/te_sipservertesting_qospolicies.ini
+
+//Added for DHCP testing with Codenomicon tool
+../te_dhcp/config/scripts/te_dhcp_codenomicon1_test.script	  z:/testdata/scripts/dhcp/te_dhcp_codenomicon1_test.script
+../te_dhcp/config/scripts/te_dhcp_codenomicon2_test.script    z:/testdata/scripts/dhcp/te_dhcp_codenomicon2_test.script
+
+//-- common
+../te_dhcp/config/scripts/dhcptest.ini  						z:/testdata/configs/dhcp/dhcptest.ini
+
+#ifdef SYMBIAN_NETWORKING_DHCPSERVER
+../te_dhcp/config/scripts/dhcpservertest.cfg					 /epoc32/release/winscw/udeb/z/testdata/configs/dhcp/dhcpservertest.cfg
+../te_dhcp/config/scripts/dhcpservertest.cfg					 /epoc32/data/z/testdata/configs/dhcp/dhcpservertest.cfg
+../te_dhcp/config/scripts/te_dhcpservertest.script 				z:/testdata/scripts/dhcp/te_dhcpservertest.script
+#endif // SYMBIAN_NETWORKING_DHCPSERVER	
+
+
+//-- Component removal No IPv6 equivalent of this ROM only test.
+../te_dhcp/config/scripts/te_dhcpremovedtest_ip4.script        z:/testdata/scripts/dhcp/te_dhcpremovedtest_ip4.script
+
+#ifdef SYMBIAN_NETWORKING_DHCP_MSG_HEADERS
+../te_dhcp/config/scripts/DHCPPREQ1647_48_ip4.script			z:/testdata/scripts/dhcp/dhcppreq1647_48_ip4.script
+#endif // SYMBIAN_NETWORKING_DHCP_MSG_HEADERS
+
+// XML FILES WITH COMMS SETTINGS ARE NOW GENERATED AND EXPORTED BY PERL SCRIPT IN CONFIG FOLDER
+
+#include "config/bld.inf"
+
+

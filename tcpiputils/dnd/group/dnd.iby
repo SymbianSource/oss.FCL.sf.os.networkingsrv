@@ -1,0 +1,32 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+#ifndef __DND_IBY__
+#define __DND_IBY__
+
+REM dependencies
+#include <esock.iby>
+#include <insock.iby>
+#include <inhook6.iby>
+
+data=EPOCROOT##epoc32\data\z\private\10000882\resolver.ini    private\10000882\resolver.ini
+
+#ifdef SYMBIAN_INCLUDE_PUNYCODE
+file=ABI_DIR\DEBUG_DIR\dnd.exe                sys\bin\dnd.exe
+#else
+file=ABI_DIR\DEBUG_DIR\dnd_def.exe            sys\bin\dnd.exe
+#endif //SYMBIAN_INCLUDE_PUNYCODE
+
+#endif // __DND_IBY__

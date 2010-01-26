@@ -1,0 +1,95 @@
+EXPORTS
+	??0TInetAddr@@QAE@ABVTSockAddr@@@Z @ 1 NONAME
+	??0TInetAddr@@QAE@I@Z @ 2 NONAME
+	??0TInetAddr@@QAE@KI@Z @ 3 NONAME
+	??0TInetAddr@@QAE@XZ @ 4 NONAME
+	?Address@TInetAddr@@QBEKXZ @ 5 NONAME
+	?CmpAddr@TInetAddr@@QBEHABV1@@Z @ 6 NONAME
+	?Input@TInetAddr@@QAEHABVTDesC16@@@Z @ 7 NONAME
+	?Match@TInetAddr@@QBEHABV1@0@Z @ 8 NONAME
+	?Match@TInetAddr@@QBEHABV1@@Z @ 9 NONAME
+	?Net@TInetAddr@@QAEXABV1@@Z @ 10 NONAME
+	?NetBroadcast@TInetAddr@@QAEXABV1@@Z @ 11 NONAME
+	?NetMask@TInetAddr@@QAEXABV1@@Z @ 12 NONAME
+	?Output@TInetAddr@@QBEXAAVTDes16@@@Z @ 13 NONAME
+	?SetAddress@TInetAddr@@QAEXK@Z @ 14 NONAME
+	?SubNet@TInetAddr@@QAEXABV1@0@Z @ 15 NONAME
+	?SubNetBroadcast@TInetAddr@@QAEXABV1@0@Z @ 16 NONAME
+	??0TInetAddr@@QAE@ABVTIp6Addr@@I@Z @ 17 NONAME
+	?FlowLabel@TInetAddr@@QBEHXZ @ 18 NONAME
+	?Ip6Address@TInetAddr@@QBEABVTIp6Addr@@XZ @ 19 NONAME
+	?IsLinkLocal@TInetAddr@@QBEHXZ @ 20 NONAME
+	?IsLoopback@TInetAddr@@QBEHXZ @ 21 NONAME
+	?IsMulticast@TInetAddr@@QBEHXZ @ 22 NONAME
+	?IsSiteLocal@TInetAddr@@QBEHXZ @ 23 NONAME
+	?IsUnicast@TInetAddr@@QBEHXZ @ 24 NONAME
+	?IsUnspecified@TInetAddr@@QBEHXZ @ 25 NONAME
+	?IsV4Compat@TInetAddr@@QBEHXZ @ 26 NONAME
+	?IsV4Mapped@TInetAddr@@QBEHXZ @ 27 NONAME
+	?Match@TInetAddr@@QBEHABV1@H@Z @ 28 NONAME
+	?Prefix@TInetAddr@@QAEXABV1@H@Z @ 29 NONAME
+	?PrefixMask@TInetAddr@@QAEXH@Z @ 30 NONAME
+	?SetAddress@TInetAddr@@QAEXABVTIp6Addr@@@Z @ 31 NONAME
+	?SetFlowLabel@TInetAddr@@QAEXH@Z @ 32 NONAME
+	?SetV4CompatAddress@TInetAddr@@QAEXK@Z @ 33 NONAME
+	?SetV4MappedAddress@TInetAddr@@QAEXK@Z @ 34 NONAME
+	?IsEqual@TIp6Addr@@QBEHABV1@@Z @ 35 NONAME
+	?IsLinkLocal@TIp6Addr@@QBEHXZ @ 36 NONAME
+	?IsLoopback@TIp6Addr@@QBEHXZ @ 37 NONAME
+	?IsMulticast@TIp6Addr@@QBEHXZ @ 38 NONAME
+	?IsSiteLocal@TIp6Addr@@QBEHXZ @ 39 NONAME
+	?IsUnicast@TIp6Addr@@QBEHXZ @ 40 NONAME
+	?IsUnspecified@TIp6Addr@@QBEHXZ @ 41 NONAME
+	?IsV4Compat@TIp6Addr@@QBEHXZ @ 42 NONAME
+	?IsV4Mapped@TIp6Addr@@QBEHXZ @ 43 NONAME
+	?Match@TIp6Addr@@QBEHABV1@@Z @ 44 NONAME
+	?ConvertToV4@TInetAddr@@QAEXXZ @ 45 NONAME
+	?ConvertToV4Compat@TInetAddr@@QAEXXZ @ 46 NONAME
+	?ConvertToV4Mapped@TInetAddr@@QAEXXZ @ 47 NONAME
+	?Scope@TIp6Addr@@QBEHXZ @ 48 NONAME
+	?Scope@TInetAddr@@QBEKXZ @ 49 NONAME
+	?SetScope@TInetAddr@@QAEXK@Z @ 50 NONAME
+	??0TE64Addr@@QAE@ABV0@@Z @ 51 NONAME ; public: __thiscall TE64Addr::TE64Addr(class TE64Addr const &)
+	??0TE64Addr@@QAE@AB_J@Z @ 52 NONAME ; public: __thiscall TE64Addr::TE64Addr(__int64 const &)
+	??0TE64Addr@@QAE@PBEI@Z @ 53 NONAME ; public: __thiscall TE64Addr::TE64Addr(unsigned char const *,unsigned int)
+	??0TE64Addr@@QAE@XZ @ 54 NONAME ; public: __thiscall TE64Addr::TE64Addr(void)
+	??0TEui64Addr@@QAE@ABVTSockAddr@@@Z @ 55 NONAME ; public: __thiscall TEui64Addr::TEui64Addr(class TSockAddr const &)
+	??0TEui64Addr@@QAE@XZ @ 56 NONAME ; public: __thiscall TEui64Addr::TEui64Addr(void)
+	?AddrLen@TE64Addr@@SAIXZ @ 57 NONAME ; public: static unsigned int __cdecl TE64Addr::AddrLen(void)
+	?AddrLen@TEui64Addr@@KAIXZ @ 58 NONAME ; protected: static unsigned int __cdecl TEui64Addr::AddrLen(void)
+	?AddrPtr@TE64Addr@@QAEPAEXZ @ 59 NONAME ; public: unsigned char * __thiscall TE64Addr::AddrPtr(void)
+	?AddrPtr@TEui64Addr@@IBEPAUSE64Addr@@XZ @ 60 NONAME ; protected: struct SE64Addr * __thiscall TEui64Addr::AddrPtr(void)const 
+	?AddrPtrC@TE64Addr@@QBEPBEXZ @ 61 NONAME ; public: unsigned char const * __thiscall TE64Addr::AddrPtrC(void)const 
+	?Address@TEui64Addr@@QBEAAVTE64Addr@@XZ @ 62 NONAME ; public: class TE64Addr & __thiscall TEui64Addr::Address(void)const 
+	?Cast@TEui64Addr@@SAAAV1@ABVTSockAddr@@@Z @ 63 NONAME ; public: static class TEui64Addr & __cdecl TEui64Addr::Cast(class TSockAddr const &)
+	?Cast@TEui64Addr@@SAAAV1@PBVTSockAddr@@@Z @ 64 NONAME ; public: static class TEui64Addr & __cdecl TEui64Addr::Cast(class TSockAddr const *)
+	?Init@TEui64Addr@@QAEXXZ @ 65 NONAME ; public: void __thiscall TEui64Addr::Init(void)
+	?IsGroup@TE64Addr@@QBEHXZ @ 66 NONAME ; public: int __thiscall TE64Addr::IsGroup(void)const 
+	?IsUniversal@TE64Addr@@QBEHXZ @ 67 NONAME ; public: int __thiscall TE64Addr::IsUniversal(void)const 
+	?IsZero@TE64Addr@@QBEHXZ @ 68 NONAME ; public: int __thiscall TE64Addr::IsZero(void)const 
+	?IsZero@TEui64Addr@@QBEHXZ @ 69 NONAME ; public: int __thiscall TEui64Addr::IsZero(void)const 
+	?Match@TE64Addr@@QBEHABV1@@Z @ 70 NONAME ; public: int __thiscall TE64Addr::Match(class TE64Addr const &)const 
+	?Match@TEui64Addr@@QBEHABV1@@Z @ 71 NONAME ; public: int __thiscall TEui64Addr::Match(class TEui64Addr const &)const 
+	?Output@TE64Addr@@QBEXAAVTDes16@@@Z @ 72 NONAME ; public: void __thiscall TE64Addr::Output(class TDes16 &)const 
+	?SetAddr@TE64Addr@@QAEXABV1@@Z @ 73 NONAME ; public: void __thiscall TE64Addr::SetAddr(class TE64Addr const &)
+	?SetAddr@TE64Addr@@QAEXAB_J@Z @ 74 NONAME ; public: void __thiscall TE64Addr::SetAddr(__int64 const &)
+	?SetAddr@TE64Addr@@QAEXPBEI@Z @ 75 NONAME ; public: void __thiscall TE64Addr::SetAddr(unsigned char const *,unsigned int)
+	?SetAddrFromEUI48@TE64Addr@@QAEXPBE@Z @ 76 NONAME ; public: void __thiscall TE64Addr::SetAddrFromEUI48(unsigned char const *)
+	?SetAddrRandom@TE64Addr@@QAEXXZ @ 77 NONAME ; public: void __thiscall TE64Addr::SetAddrRandom(void)
+	?SetAddrRandomNZ@TE64Addr@@QAEXXZ @ 78 NONAME ; public: void __thiscall TE64Addr::SetAddrRandomNZ(void)
+	?SetAddrRandomNZButNot@TE64Addr@@QAEXABV1@@Z @ 79 NONAME ; public: void __thiscall TE64Addr::SetAddrRandomNZButNot(class TE64Addr const &)
+	?SetAddrZero@TE64Addr@@QAEXXZ @ 80 NONAME ; public: void __thiscall TE64Addr::SetAddrZero(void)
+	?SetAddress@TEui64Addr@@QAEXABVTE64Addr@@@Z @ 81 NONAME ; public: void __thiscall TEui64Addr::SetAddress(class TE64Addr const &)
+	?SetGroupBit@TE64Addr@@QAEXH@Z @ 82 NONAME ; public: void __thiscall TE64Addr::SetGroupBit(int)
+	?SetUniversalBit@TE64Addr@@QAEXH@Z @ 83 NONAME ; public: void __thiscall TE64Addr::SetUniversalBit(int)
+	?Init@TInetAddr@@QAEXI@Z @ 84 NONAME
+	?OutputWithScope@TInetAddr@@QBEXAAVTDes16@@@Z @ 85 NONAME ; public: void __thiscall TInetAddr::OutputWithScope(class TDes16 &)const 
+	??0TLinkAddr@@QAE@XZ @ 86 NONAME ; TLinkAddr::TLinkAddr(void)
+	?Address@TLinkAddr@@QBE?AVTPtrC8@@XZ @ 87 NONAME ; class TPtrC8 TLinkAddr::Address(void) const
+	?Cast@TLinkAddr@@SAAAV1@AAVTSockAddr@@@Z @ 88 NONAME ; class TLinkAddr & TLinkAddr::Cast(class TSockAddr &)
+	?Cast@TLinkAddr@@SAABV1@ABVTSockAddr@@@Z @ 89 NONAME ; class TLinkAddr const & TLinkAddr::Cast(class TSockAddr const &)
+	?Cast@TLinkAddr@@SAPAV1@PAVTSockAddr@@@Z @ 90 NONAME ; class TLinkAddr * TLinkAddr::Cast(class TSockAddr *)
+	?Cast@TLinkAddr@@SAPBV1@PBVTSockAddr@@@Z @ 91 NONAME ; class TLinkAddr const * TLinkAddr::Cast(class TSockAddr const *)
+	?GetLinkAddr@TSoInetRouteInfo@@QBEHAAVTLinkAddr@@@Z @ 92 NONAME ; int TSoInetRouteInfo::GetLinkAddr(class TLinkAddr &) const
+	?SetAddress@TLinkAddr@@QAEXABVTDesC8@@@Z @ 93 NONAME ; void TLinkAddr::SetAddress(class TDesC8 const &)
+

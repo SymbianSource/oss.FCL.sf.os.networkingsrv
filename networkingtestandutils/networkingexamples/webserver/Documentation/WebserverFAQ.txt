@@ -1,0 +1,54 @@
+Epoc Webserver FAQs:
+
+1. The connection is shut down after a while. How can I solve it ?
+
+After a time of inactivity the conections are automatcally shutting down by the RAS server or by the EPOC device. To solve this problem you can follow the following steps:
+
+In the EPOC device, go to the Control Panel. Select Internet. In the box "If idle, stay on line for" select the maximum value (e.g. 59:59). 
+(Note: You can start ping to ping a packet every, for example, 30 minutes to the emulator to avoid disconection after 1 hour.)
+
+In Windows NT, start the registry editor (\Winnt\system32\regedt32.exe). 
+Go to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RemoteAccess\Parameters.
+Select the registry Autodisconnect and set it to zero.This action disables Autodisconnect.
+
+(Note: Do not minimise the emulator, otherwise the connection is closed. To avoid automatic switch off : go to the Control Panel.Select Switch On/Off. In the box automatic switch off, select No.)
+
+2. The RAS connection is not established and no error is reported when I start the Webserver with the new stack ?
+
+If you have recompile the entire 6pack project, probably you have updated the commdb.dll and commdb.lib. In that case,  go to the esock.ini file (/epoc32/release/wins/deb/Z/system/data) and change the following lines:
+
+	[nifman]
+	default = netdial
+by
+	[nifman]
+default= ntras
+
+3. When I try to run ebld I get an 'Spawned Failed: Invalid argument' error in the command line, why ?
+
+In Control Panel | System go to Enviroment. There is an enviroment variable called ComSpec. Check that the value in it is correct. It should be:
+
+ C:\WINNT\C:\WINNT\system32\cmd.exe
+
+    If it is not a proper command program must be defined instead.(e.g:4nt)
+
+ 
+
+
+DOCUMENTTYPE
+
+1 (1)
+
+
+
+
+TypeUnitOrDepartmentHere
+
+
+
+TypeYourNameHere
+TypeDateHere
+
+
+
+
+

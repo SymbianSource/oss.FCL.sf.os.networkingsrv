@@ -1,0 +1,34 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+#ifndef TE_NAPT_IBY
+#define TE_NAPT_IBY
+
+#include<ts_esockutil.iby>
+#include<te_rconnectionsuite.iby>
+
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_naptconfig.ini TestData\Configs\te_naptconfig.ini
+data=EPOCROOT##epoc32\data\z\TestData\scripts\Te_Napt.script TestData\Scripts\Te_Napt.script
+data=EPOCROOT##epoc32\data\z\TestData\configs\Te_NaptConnection.xml  TestData\Configs\Te_NaptConnection.xml 
+data=EPOCROOT##epoc32\data\z\TestData\configs\napttemp.ini  TestData\Configs\napttemp.ini
+data=EPOCROOT##epoc32\data\z\TestData\configs\NaptTcpIp.ini TestData\Configs\NaptTcpIp.ini
+
+#endif
+
+
+
+

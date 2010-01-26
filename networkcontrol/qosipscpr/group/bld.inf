@@ -1,0 +1,31 @@
+// Copyright (c) 2005-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+#if defined(SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY)
+
+PRJ_EXPORTS
+
+../inc/ip_subconparams.h SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(ip_subconparams.h)
+../inc/ip_subconparams.inl SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(ip_subconparams.inl)
+
+../group/QosIPSCPR.iby /epoc32/rom/include/qosipscpr.iby
+
+PRJ_MMPFILES
+QosIPSCPR.mmp
+
+PRJ_TESTMMPFILES
+
+#endif
+

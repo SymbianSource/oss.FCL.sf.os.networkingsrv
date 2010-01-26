@@ -1,0 +1,136 @@
+EXPORTS
+	??0RControl@@QAE@XZ @ 1 NONAME ; RControl::RControl(void)
+	??0RPacketContext@@QAE@XZ @ 2 NONAME ; RPacketContext::RPacketContext(void)
+	??0RPacketQoS@@QAE@XZ @ 3 NONAME ; RPacketQoS::RPacketQoS(void)
+	??0RPacketService@@QAE@XZ @ 4 NONAME ; RPacketService::RPacketService(void)
+	??0RUmtsSimServ@@QAE@XZ @ 5 NONAME ; RUmtsSimServ::RUmtsSimServ(void)
+	??0TContextConfigGPRS@RPacketContext@@QAE@XZ @ 6 NONAME ; RPacketContext::TContextConfigGPRS::TContextConfigGPRS(void)
+	??0TDnsInfoV2@RPacketContext@@QAE@XZ @ 7 NONAME ; RPacketContext::TDnsInfoV2::TDnsInfoV2(void)
+	??0TProtocolConfigOptionV2@RPacketContext@@QAE@XZ @ 8 NONAME ; RPacketContext::TProtocolConfigOptionV2::TProtocolConfigOptionV2(void)
+	??0TQoSCapsGPRS@RPacketQoS@@QAE@XZ @ 9 NONAME ; RPacketQoS::TQoSCapsGPRS::TQoSCapsGPRS(void)
+	??0TQoSCapsR99_R4@RPacketQoS@@QAE@XZ @ 10 NONAME ; RPacketQoS::TQoSCapsR99_R4::TQoSCapsR99_R4(void)
+	??0TQoSGPRSRequested@RPacketQoS@@QAE@XZ @ 11 NONAME ; RPacketQoS::TQoSGPRSRequested::TQoSGPRSRequested(void)
+	??0TQoSR99_R4Requested@RPacketQoS@@QAE@XZ @ 12 NONAME ; RPacketQoS::TQoSR99_R4Requested::TQoSR99_R4Requested(void)
+	??1CControlNotifyAll@@UAE@XZ @ 13 NONAME ; CControlNotifyAll::~CControlNotifyAll(void)
+	??1CPacketServiceStatus@@UAE@XZ @ 14 NONAME ; CPacketServiceStatus::~CPacketServiceStatus(void)
+	??1RControl@@QAE@XZ @ 15 NONAME ; RControl::~RControl(void)
+	??1RPacketContext@@QAE@XZ @ 16 NONAME ; RPacketContext::~RPacketContext(void)
+	??1RPacketQoS@@QAE@XZ @ 17 NONAME ; RPacketQoS::~RPacketQoS(void)
+	??1RPacketService@@QAE@XZ @ 18 NONAME ; RPacketService::~RPacketService(void)
+	?Activate@RPacketContext@@QBEXAAVTRequestStatus@@@Z @ 19 NONAME ; void RPacketContext::Activate(class TRequestStatus &) const
+	?AddPacketFilter@RPacketContext@@QBEXAAVTRequestStatus@@ABVTDesC8@@@Z @ 20 NONAME ; void RPacketContext::AddPacketFilter(class TRequestStatus &, class TDesC8 const &) const
+	?Attach@RPacketService@@QBEXAAVTRequestStatus@@@Z @ 21 NONAME ; void RPacketService::Attach(class TRequestStatus &) const
+	?CancelAsyncRequest@RControl@@QBEXH@Z @ 22 NONAME ; void RControl::CancelAsyncRequest(int) const
+	?CancelAsyncRequest@RPacketContext@@QBEXH@Z @ 23 NONAME ; void RPacketContext::CancelAsyncRequest(int) const
+	?CancelAsyncRequest@RPacketQoS@@QBEXH@Z @ 24 NONAME ; void RPacketQoS::CancelAsyncRequest(int) const
+	?CancelAsyncRequest@RPacketService@@QBEXH@Z @ 25 NONAME ; void RPacketService::CancelAsyncRequest(int) const
+	?CancelRequest@CControlNotifyAll@@QAEXXZ @ 26 NONAME ; void CControlNotifyAll::CancelRequest(void)
+	?CancelRequest@CPacketServiceStatus@@QAEXXZ @ 27 NONAME ; void CPacketServiceStatus::CancelRequest(void)
+	?Close@RControl@@QAEXXZ @ 28 NONAME ; void RControl::Close(void)
+	?Close@RPacketContext@@QAEXXZ @ 29 NONAME ; void RPacketContext::Close(void)
+	?Close@RPacketQoS@@QAEXXZ @ 30 NONAME ; void RPacketQoS::Close(void)
+	?Close@RPacketService@@QAEXXZ @ 31 NONAME ; void RPacketService::Close(void)
+	?Close@RUmtsSimServ@@QAEXXZ @ 32 NONAME ; void RUmtsSimServ::Close(void)
+	?ConfigureEvent@RControl@@QBEHABVTDesC16@@@Z @ 33 NONAME ; int RControl::ConfigureEvent(class TDesC16 const &) const
+	?ConfigureRequestHandler@RControl@@QBEHABVTDesC16@@@Z @ 34 NONAME ; int RControl::ConfigureRequestHandler(class TDesC16 const &) const
+	?Connect@RUmtsSimServ@@QAEHXZ @ 35 NONAME ; int RUmtsSimServ::Connect(void)
+	?Deactivate@RPacketContext@@QBEXAAVTRequestStatus@@@Z @ 36 NONAME ; void RPacketContext::Deactivate(class TRequestStatus &) const
+	?Delete@RPacketContext@@QBEXAAVTRequestStatus@@@Z @ 37 NONAME ; void RPacketContext::Delete(class TRequestStatus &) const
+	?Detach@RPacketService@@QBEXAAVTRequestStatus@@@Z @ 38 NONAME ; void RPacketService::Detach(class TRequestStatus &) const
+	?EnumerateContexts@RPacketService@@QBEXAAVTRequestStatus@@AAH1@Z @ 39 NONAME ; void RPacketService::EnumerateContexts(class TRequestStatus &, int &, int &) const
+	?EnumerateContextsInNif@RPacketService@@QBEXAAVTRequestStatus@@ABVTDesC16@@AAH@Z @ 40 NONAME ; void RPacketService::EnumerateContextsInNif(class TRequestStatus &, class TDesC16 const &, int &) const
+	?EnumerateNifs@RPacketService@@QBEXAAVTRequestStatus@@AAH@Z @ 41 NONAME ; void RPacketService::EnumerateNifs(class TRequestStatus &, int &) const
+	?EnumeratePacketFilters@RPacketContext@@QBEXAAVTRequestStatus@@AAH@Z @ 42 NONAME ; void RPacketContext::EnumeratePacketFilters(class TRequestStatus &, int &) const
+	?GetConfig@RPacketContext@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 43 NONAME ; void RPacketContext::GetConfig(class TRequestStatus &, class TDes8 &) const
+	?GetContextInfo@RPacketService@@QBEXAAVTRequestStatus@@HAAUTContextInfo@1@@Z @ 44 NONAME ; void RPacketService::GetContextInfo(class TRequestStatus &, int, struct RPacketService::TContextInfo &) const
+	?GetContextNameInNif@RPacketService@@QBEXAAVTRequestStatus@@ABVTDesC16@@HAAVTDes16@@@Z @ 45 NONAME ; void RPacketService::GetContextNameInNif(class TRequestStatus &, class TDesC16 const &, int, class TDes16 &) const
+	?GetNifInfo@RPacketService@@QBEXAAVTRequestStatus@@HAAVTDes8@@@Z @ 46 NONAME ; void RPacketService::GetNifInfo(class TRequestStatus &, int, class TDes8 &) const
+	?GetPacketFilterInfo@RPacketContext@@QBEXAAVTRequestStatus@@HAAVTDes8@@@Z @ 47 NONAME ; void RPacketContext::GetPacketFilterInfo(class TRequestStatus &, int, class TDes8 &) const
+	?GetProfileParameters@RPacketQoS@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 48 NONAME ; void RPacketQoS::GetProfileParameters(class TRequestStatus &, class TDes8 &) const
+	?GetStatus@RPacketContext@@QBEHAAW4TContextStatus@1@@Z @ 49 NONAME ; int RPacketContext::GetStatus(enum RPacketContext::TContextStatus &) const
+	?GetStatus@RPacketService@@QBEHAAW4TStatus@1@@Z @ 50 NONAME ; int RPacketService::GetStatus(enum RPacketService::TStatus &) const
+	?InitialiseContext@RPacketContext@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 51 NONAME ; void RPacketContext::InitialiseContext(class TRequestStatus &, class TDes8 &) const
+	?MakeRequest@CControlNotifyAll@@QAEXP6AXABVTDesC16@@PAX@Z1@Z @ 52 NONAME ; void CControlNotifyAll::MakeRequest(void (*)(class TDesC16 const &, void *), void *)
+	?MakeRequest@CPacketServiceStatus@@QAEXP6AXABW4TStatus@RPacketService@@PAX@Z1@Z @ 53 NONAME ; void CPacketServiceStatus::MakeRequest(void (*)(enum RPacketService::TStatus const &, void *), void *)
+	?ModifyActiveContext@RPacketContext@@QBEXAAVTRequestStatus@@@Z @ 54 NONAME ; void RPacketContext::ModifyActiveContext(class TRequestStatus &) const
+	?NewL@CControlNotifyAll@@SAPAV1@PAVRControl@@@Z @ 55 NONAME ; class CControlNotifyAll * CControlNotifyAll::NewL(class RControl *)
+	?NewL@CPacketServiceStatus@@SAPAV1@PAVRPacketService@@@Z @ 56 NONAME ; class CPacketServiceStatus * CPacketServiceStatus::NewL(class RPacketService *)
+	?NotifyAll@RControl@@QBEXAAVTRequestStatus@@AAVTDes16@@@Z @ 57 NONAME ; void RControl::NotifyAll(class TRequestStatus &, class TDes16 &) const
+	?NotifyConfigChanged@RPacketContext@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 58 NONAME ; void RPacketContext::NotifyConfigChanged(class TRequestStatus &, class TDes8 &) const
+	?NotifyContextAdded@RPacketService@@QBEXAAVTRequestStatus@@AAVTDes16@@@Z @ 59 NONAME ; void RPacketService::NotifyContextAdded(class TRequestStatus &, class TDes16 &) const
+	?NotifyProfileChanged@RPacketQoS@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 60 NONAME ; void RPacketQoS::NotifyProfileChanged(class TRequestStatus &, class TDes8 &) const
+	?NotifyStatusChange@RPacketContext@@QAEXAAVTRequestStatus@@AAW4TContextStatus@1@@Z @ 61 NONAME ; void RPacketContext::NotifyStatusChange(class TRequestStatus &, enum RPacketContext::TContextStatus &)
+	?NotifyStatusChange@RPacketService@@QBEXAAVTRequestStatus@@AAW4TStatus@1@@Z @ 62 NONAME ; void RPacketService::NotifyStatusChange(class TRequestStatus &, enum RPacketService::TStatus &) const
+	?Open@RControl@@QAEHAAVRUmtsSimServ@@@Z @ 63 NONAME ; int RControl::Open(class RUmtsSimServ &)
+	?Open@RPacketService@@QAEHAAVRUmtsSimServ@@@Z @ 64 NONAME ; int RPacketService::Open(class RUmtsSimServ &)
+	?OpenExistingContext@RPacketContext@@QAEHAAVRPacketService@@ABVTDesC16@@@Z @ 65 NONAME ; int RPacketContext::OpenExistingContext(class RPacketService &, class TDesC16 const &)
+	?OpenExistingQoS@RPacketQoS@@QAEHAAVRPacketContext@@AAVTDesC16@@@Z @ 66 NONAME ; int RPacketQoS::OpenExistingQoS(class RPacketContext &, class TDesC16 &)
+	?OpenNewContext@RPacketContext@@QAEHAAVRPacketService@@AAVTDes16@@@Z @ 67 NONAME ; int RPacketContext::OpenNewContext(class RPacketService &, class TDes16 &)
+	?OpenNewQoS@RPacketQoS@@QAEHAAVRPacketContext@@AAVTDes16@@@Z @ 68 NONAME ; int RPacketQoS::OpenNewQoS(class RPacketContext &, class TDes16 &)
+	?OpenNewSecondaryContext@RPacketContext@@QAEHAAVRPacketService@@ABVTDesC16@@AAVTDes16@@@Z @ 69 NONAME ; int RPacketContext::OpenNewSecondaryContext(class RPacketService &, class TDesC16 const &, class TDes16 &)
+	?ReconfigureSimulator@RControl@@QBEHABVTDesC16@@H@Z @ 70 NONAME ; int RControl::ReconfigureSimulator(class TDesC16 const &, int) const
+	?ReconfigureSimulator@RControl@@QBEHH@Z @ 71 NONAME ; int RControl::ReconfigureSimulator(int) const
+	?RemovePacketFilter@RPacketContext@@QBEXAAVTRequestStatus@@H@Z @ 72 NONAME ; void RPacketContext::RemovePacketFilter(class TRequestStatus &, int) const
+	?SetConfig@RPacketContext@@QBEXAAVTRequestStatus@@ABVTDesC8@@@Z @ 73 NONAME ; void RPacketContext::SetConfig(class TRequestStatus &, class TDesC8 const &) const
+	?SetProfileParameters@RPacketQoS@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 74 NONAME ; void RPacketQoS::SetProfileParameters(class TRequestStatus &, class TDes8 &) const
+	?Version@RUmtsSimServ@@QBE?AVTVersion@@XZ @ 75 NONAME ; class TVersion RUmtsSimServ::Version(void) const
+	??1CTFTMediaAuthorizationV3@RPacketContext@@UAE@XZ @ 76 NONAME ; RPacketContext::CTFTMediaAuthorizationV3::~CTFTMediaAuthorizationV3(void)
+	?ExtensionId@CTFTMediaAuthorizationV3@RPacketContext@@QBEIXZ @ 77 NONAME ; unsigned int RPacketContext::CTFTMediaAuthorizationV3::ExtensionId(void) const
+	?ExternalizeL@CTFTMediaAuthorizationV3@RPacketContext@@UBEXAAPAVHBufC8@@@Z @ 78 NONAME ; void RPacketContext::CTFTMediaAuthorizationV3::ExternalizeL(class HBufC8 * &) const
+	?InternalizeL@CTFTMediaAuthorizationV3@RPacketContext@@UAEXAAVTDes8@@@Z @ 79 NONAME ; void RPacketContext::CTFTMediaAuthorizationV3::InternalizeL(class TDes8 &)
+	?NewL@CTFTMediaAuthorizationV3@RPacketContext@@SAPAV12@XZ @ 80 NONAME ; class RPacketContext::CTFTMediaAuthorizationV3 * RPacketContext::CTFTMediaAuthorizationV3::NewL(void)
+	??0TTlvStructBase@@IAE@AAVTPtr8@@E@Z @ 81 NONAME ; TTlvStructBase::TTlvStructBase(class TPtr8 &, unsigned char)
+	?AnyNextItemL@TTlvStructBase@@IAEHAAVMTlvItemIdType@@AAVTPtr8@@0AAVMTlvItemDataLengthType@@@Z @ 82 NONAME ; int TTlvStructBase::AnyNextItemL(class MTlvItemIdType &, class TPtr8 &, class MTlvItemIdType &, class MTlvItemDataLengthType &)
+	?AppendItemL@TTlvStructBase@@IAEHAAVMTlvItemIdType@@AAVMTlvItemDataLengthType@@ABVTPtr8@@@Z @ 83 NONAME ; int TTlvStructBase::AppendItemL(class MTlvItemIdType &, class MTlvItemDataLengthType &, class TPtr8 const &)
+	?NextItemL@TTlvStructBase@@IAEHABVMTlvItemIdType@@AAVTPtr8@@AAV2@AAVMTlvItemDataLengthType@@@Z @ 84 NONAME ; int TTlvStructBase::NextItemL(class MTlvItemIdType const &, class TPtr8 &, class MTlvItemIdType &, class MTlvItemDataLengthType &)
+	?RemoveNextItemL@TTlvStructBase@@IAEHAAVMTlvItemIdType@@0AAVMTlvItemDataLengthType@@@Z @ 85 NONAME ; int TTlvStructBase::RemoveNextItemL(class MTlvItemIdType &, class MTlvItemIdType &, class MTlvItemDataLengthType &)
+	?ResetCursorPos@TTlvStructBase@@QAEXXZ @ 86 NONAME ; void TTlvStructBase::ResetCursorPos(void)
+	??0RTelSubSessionBase@@IAE@XZ @ 87 NONAME ; RTelSubSessionBase::RTelSubSessionBase(void)
+	?Blank@RTelSubSessionBase@@IBEHHW4TReqPriorityType@1@@Z @ 88 NONAME ; int RTelSubSessionBase::Blank(int, enum RTelSubSessionBase::TReqPriorityType) const
+	?Blank@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@W4TReqPriorityType@1@@Z @ 89 NONAME ; void RTelSubSessionBase::Blank(int, class TRequestStatus &, enum RTelSubSessionBase::TReqPriorityType) const
+	?CancelAsyncRequest@RTelSubSessionBase@@QBEXH@Z @ 90 NONAME ; void RTelSubSessionBase::CancelAsyncRequest(int) const
+	?CancelReq@RTelSubSessionBase@@IBEHHH@Z @ 91 NONAME ; int RTelSubSessionBase::CancelReq(int, int) const
+	?CancelSubSession@RTelSubSessionBase@@IBEHXZ @ 92 NONAME ; int RTelSubSessionBase::CancelSubSession(void) const
+	?Get@RTelSubSessionBase@@IBEHHAAVTDes16@@0W4TReqPriorityType@1@@Z @ 93 NONAME ; int RTelSubSessionBase::Get(int, class TDes16 &, class TDes16 &, enum RTelSubSessionBase::TReqPriorityType) const
+	?Get@RTelSubSessionBase@@IBEHHAAVTDes16@@W4TReqPriorityType@1@@Z @ 94 NONAME ; int RTelSubSessionBase::Get(int, class TDes16 &, enum RTelSubSessionBase::TReqPriorityType) const
+	?Get@RTelSubSessionBase@@IBEHHAAVTDes8@@0W4TReqPriorityType@1@@Z @ 95 NONAME ; int RTelSubSessionBase::Get(int, class TDes8 &, class TDes8 &, enum RTelSubSessionBase::TReqPriorityType) const
+	?Get@RTelSubSessionBase@@IBEHHAAVTDes8@@AAVTDes16@@W4TReqPriorityType@1@@Z @ 96 NONAME ; int RTelSubSessionBase::Get(int, class TDes8 &, class TDes16 &, enum RTelSubSessionBase::TReqPriorityType) const
+	?Get@RTelSubSessionBase@@IBEHHAAVTDes8@@W4TReqPriorityType@1@@Z @ 97 NONAME ; int RTelSubSessionBase::Get(int, class TDes8 &, enum RTelSubSessionBase::TReqPriorityType) const
+	?Get@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@AAVTDes16@@1W4TReqPriorityType@1@@Z @ 98 NONAME ; void RTelSubSessionBase::Get(int, class TRequestStatus &, class TDes16 &, class TDes16 &, enum RTelSubSessionBase::TReqPriorityType) const
+	?Get@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@AAVTDes16@@W4TReqPriorityType@1@@Z @ 99 NONAME ; void RTelSubSessionBase::Get(int, class TRequestStatus &, class TDes16 &, enum RTelSubSessionBase::TReqPriorityType) const
+	?Get@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@AAVTDes8@@1W4TReqPriorityType@1@@Z @ 100 NONAME ; void RTelSubSessionBase::Get(int, class TRequestStatus &, class TDes8 &, class TDes8 &, enum RTelSubSessionBase::TReqPriorityType) const
+	?Get@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@AAVTDes8@@AAVTDes16@@W4TReqPriorityType@1@@Z @ 101 NONAME ; void RTelSubSessionBase::Get(int, class TRequestStatus &, class TDes8 &, class TDes16 &, enum RTelSubSessionBase::TReqPriorityType) const
+	?Get@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@AAVTDes8@@W4TReqPriorityType@1@@Z @ 102 NONAME ; void RTelSubSessionBase::Get(int, class TRequestStatus &, class TDes8 &, enum RTelSubSessionBase::TReqPriorityType) const
+	?PanicClient@@YAXH@Z @ 103 NONAME ; void PanicClient(int)
+	?Set@RTelSubSessionBase@@IBEHHABVRFile@@W4TReqPriorityType@1@@Z @ 104 NONAME ; int RTelSubSessionBase::Set(int, class RFile const &, enum RTelSubSessionBase::TReqPriorityType) const
+	?Set@RTelSubSessionBase@@IBEHHABVTDesC16@@0W4TReqPriorityType@1@@Z @ 105 NONAME ; int RTelSubSessionBase::Set(int, class TDesC16 const &, class TDesC16 const &, enum RTelSubSessionBase::TReqPriorityType) const
+	?Set@RTelSubSessionBase@@IBEHHABVTDesC16@@W4TReqPriorityType@1@@Z @ 106 NONAME ; int RTelSubSessionBase::Set(int, class TDesC16 const &, enum RTelSubSessionBase::TReqPriorityType) const
+	?Set@RTelSubSessionBase@@IBEHHABVTDesC8@@0W4TReqPriorityType@1@@Z @ 107 NONAME ; int RTelSubSessionBase::Set(int, class TDesC8 const &, class TDesC8 const &, enum RTelSubSessionBase::TReqPriorityType) const
+	?Set@RTelSubSessionBase@@IBEHHABVTDesC8@@ABVTDesC16@@W4TReqPriorityType@1@@Z @ 108 NONAME ; int RTelSubSessionBase::Set(int, class TDesC8 const &, class TDesC16 const &, enum RTelSubSessionBase::TReqPriorityType) const
+	?Set@RTelSubSessionBase@@IBEHHABVTDesC8@@W4TReqPriorityType@1@@Z @ 109 NONAME ; int RTelSubSessionBase::Set(int, class TDesC8 const &, enum RTelSubSessionBase::TReqPriorityType) const
+	?Set@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@ABVTDesC16@@1W4TReqPriorityType@1@@Z @ 110 NONAME ; void RTelSubSessionBase::Set(int, class TRequestStatus &, class TDesC16 const &, class TDesC16 const &, enum RTelSubSessionBase::TReqPriorityType) const
+	?Set@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@ABVTDesC16@@W4TReqPriorityType@1@@Z @ 111 NONAME ; void RTelSubSessionBase::Set(int, class TRequestStatus &, class TDesC16 const &, enum RTelSubSessionBase::TReqPriorityType) const
+	?Set@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@ABVTDesC8@@1W4TReqPriorityType@1@@Z @ 112 NONAME ; void RTelSubSessionBase::Set(int, class TRequestStatus &, class TDesC8 const &, class TDesC8 const &, enum RTelSubSessionBase::TReqPriorityType) const
+	?Set@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@ABVTDesC8@@ABVTDesC16@@W4TReqPriorityType@1@@Z @ 113 NONAME ; void RTelSubSessionBase::Set(int, class TRequestStatus &, class TDesC8 const &, class TDesC16 const &, enum RTelSubSessionBase::TReqPriorityType) const
+	?Set@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@ABVTDesC8@@W4TReqPriorityType@1@@Z @ 114 NONAME ; void RTelSubSessionBase::Set(int, class TRequestStatus &, class TDesC8 const &, enum RTelSubSessionBase::TReqPriorityType) const
+	?SetAndGet@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@AAVTDes8@@ABVTDesC16@@W4TReqPriorityType@1@@Z @ 115 NONAME ; void RTelSubSessionBase::SetAndGet(int, class TRequestStatus &, class TDes8 &, class TDesC16 const &, enum RTelSubSessionBase::TReqPriorityType) const
+	?SetAndGet@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@ABVTDesC16@@AAVTDes16@@W4TReqPriorityType@1@@Z @ 116 NONAME ; void RTelSubSessionBase::SetAndGet(int, class TRequestStatus &, class TDesC16 const &, class TDes16 &, enum RTelSubSessionBase::TReqPriorityType) const
+	?SetAndGet@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@ABVTDesC8@@AAVTDes16@@W4TReqPriorityType@1@@Z @ 117 NONAME ; void RTelSubSessionBase::SetAndGet(int, class TRequestStatus &, class TDesC8 const &, class TDes16 &, enum RTelSubSessionBase::TReqPriorityType) const
+	?SetAndGet@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@ABVTDesC8@@AAVTDes8@@W4TReqPriorityType@1@@Z @ 118 NONAME ; void RTelSubSessionBase::SetAndGet(int, class TRequestStatus &, class TDesC8 const &, class TDes8 &, enum RTelSubSessionBase::TReqPriorityType) const
+	??0TPcoId@RPacketContext@@QAE@G@Z @ 119 NONAME ; RPacketContext::TPcoId::TPcoId(unsigned short)
+	??0TPcoId@RPacketContext@@QAE@XZ @ 120 NONAME ; RPacketContext::TPcoId::TPcoId(void)
+	??0TPcoItemDataLength@RPacketContext@@QAE@E@Z @ 121 NONAME ; RPacketContext::TPcoItemDataLength::TPcoItemDataLength(unsigned char)
+	??0TPcoItemDataLength@RPacketContext@@QAE@XZ @ 122 NONAME ; RPacketContext::TPcoItemDataLength::TPcoItemDataLength(void)
+	?DataLength@TPcoItemDataLength@RPacketContext@@UBEIXZ @ 123 NONAME ; unsigned int RPacketContext::TPcoItemDataLength::DataLength(void) const
+	?ExternalizeL@TPcoId@RPacketContext@@UBEXAAVTDes8@@@Z @ 124 NONAME ; void RPacketContext::TPcoId::ExternalizeL(class TDes8 &) const
+	?ExternalizeL@TPcoItemDataLength@RPacketContext@@UBEXAAVTDes8@@@Z @ 125 NONAME ; void RPacketContext::TPcoItemDataLength::ExternalizeL(class TDes8 &) const
+	?Id@TPcoId@RPacketContext@@QBEGXZ @ 126 NONAME ; unsigned short RPacketContext::TPcoId::Id(void) const
+	?InternalizeL@TPcoId@RPacketContext@@UAEXAAVTDesC8@@@Z @ 127 NONAME ; void RPacketContext::TPcoId::InternalizeL(class TDesC8 &)
+	?InternalizeL@TPcoItemDataLength@RPacketContext@@UAEXAAVTDesC8@@@Z @ 128 NONAME ; void RPacketContext::TPcoItemDataLength::InternalizeL(class TDesC8 &)
+	?IsEqual@TPcoId@RPacketContext@@UBEHABVMTlvItemIdType@@@Z @ 129 NONAME ; int RPacketContext::TPcoId::IsEqual(class MTlvItemIdType const &) const
+	?SerializedLength@TPcoId@RPacketContext@@UBEIXZ @ 130 NONAME ; unsigned int RPacketContext::TPcoId::SerializedLength(void) const
+	?SerializedLength@TPcoItemDataLength@RPacketContext@@UBEIXZ @ 131 NONAME ; unsigned int RPacketContext::TPcoItemDataLength::SerializedLength(void) const
+	?SetDataLength@TPcoItemDataLength@RPacketContext@@UAEXI@Z @ 132 NONAME ; void RPacketContext::TPcoItemDataLength::SetDataLength(unsigned int)
+	?SetId@TPcoId@RPacketContext@@QAEXG@Z @ 133 NONAME ; void RPacketContext::TPcoId::SetId(unsigned short)
+	??0TQoSR5Requested@RPacketQoS@@QAE@XZ @ 134 NONAME ; RPacketQoS::TQoSR5Requested::TQoSR5Requested(void)
+

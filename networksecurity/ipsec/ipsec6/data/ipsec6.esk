@@ -1,0 +1,16 @@
+[sockman]
+protocols= secpol,pfkey,crypto
+
+[pfkey]
+filename= ipsec6.prt
+index= 2
+bindto= crypto
+
+[secpol]
+filename= ipsec6.prt
+index= 1
+bindto= pfkey,ip6
+
+[crypto]
+filename= ipseccrypto.prt
+index= 1

@@ -1,0 +1,40 @@
+// Copyright (c) 2002-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+
+PRJ_PLATFORMS
+
+DEFAULT
+
+PRJ_EXPORTS
+
+PRJ_TESTEXPORTS
+
+..\group\nullagttests.iby  \epoc32\rom\include\nullagttests.iby
+
+..\group\nullagenttest_setup.script   	\epoc32\release\wins\udeb\z\TestData\Scripts\nullagenttest_setup.script
+..\group\nullagenttest_setup.script   	\epoc32\release\winscw\udeb\z\TestData\Scripts\nullagenttest_setup.script
+..\group\nullagenttest.script    	\epoc32\release\wins\udeb\z\TestData\Scripts\nullagenttest.script
+..\group\nullagenttest.script    	\epoc32\release\winscw\udeb\z\TestData\Scripts\nullagenttest.script
+..\group\nullagenttest_NonConnection.script   	\epoc32\release\wins\udeb\z\TestData\Scripts\nullagenttest_NonConnection.script
+..\group\nullagenttest_NonConnection.script    	\epoc32\release\winscw\udeb\z\TestData\Scripts\nullagenttest_NonConnection.script
+..\group\nullagenttest.xml    		\epoc32\release\wins\udeb\z\TestData\Configs\nullagenttest.xml
+..\group\nullagenttest.xml    		\epoc32\release\winscw\udeb\z\TestData\Configs\nullagenttest.xml
+
+
+PRJ_MMPFILES
+
+PRJ_TESTMMPFILES
+NullAgtTests.mmp

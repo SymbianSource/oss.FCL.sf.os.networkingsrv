@@ -1,0 +1,17 @@
+EXPORTS
+	_Z20NewInterfaceFactoryLv @ 1 NONAME
+	_ZTI10CHungryIf4 @ 2 NONAME
+	_ZTI10CHungryIf6 @ 3 NONAME
+	_ZTI12CDummyIfLink @ 4 NONAME
+	_ZTI13CHungryIfLink @ 5 NONAME
+	_ZTI15CDummyIfFactory @ 6 NONAME
+	_ZTI9CDummyIf4 @ 7 NONAME
+	_ZTI9CDummyIf6 @ 8 NONAME
+	_ZTV10CHungryIf4 @ 9 NONAME
+	_ZTV10CHungryIf6 @ 10 NONAME
+	_ZTV12CDummyIfLink @ 11 NONAME
+	_ZTV13CHungryIfLink @ 12 NONAME
+	_ZTV15CDummyIfFactory @ 13 NONAME
+	_ZTV9CDummyIf4 @ 14 NONAME
+	_ZTV9CDummyIf6 @ 15 NONAME
+

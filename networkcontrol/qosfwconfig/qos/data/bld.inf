@@ -1,0 +1,39 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+
+PRJ_EXPORTS
+// Specify the source file followed by its destination here
+// copy will be used to copy the source file to its destination
+// If there's no destination then the source file will be copied
+// to the same name in epoc32include
+
+#ifdef 	__SECURE_DATA__
+qos.ini		/epoc32/data/z/private/101f7989/esock/qos.ini
+qos.ini		/epoc32/wins/c/private/101f7989/esock/qos.ini
+qos.ini		/epoc32/winscw/c/private/101f7989/esock/qos.ini
+qospolicies.ini	/epoc32/data/z/private/101f7989/esock/qospolicies.ini
+qospolicies.ini	/epoc32/wins/c/private/101f7989/esock/qospolicies.ini
+qospolicies.ini	/epoc32/winscw/c/private/101f7989/esock/qospolicies.ini
+#else
+qos.ini		\epoc32\data\z\system\data\qos.ini
+qos.ini		\epoc32\wins\c\system\data\qos.ini
+qos.ini		\epoc32\winscw\c\system\data\qos.ini
+qospolicies.ini	\epoc32\data\z\system\data\qospolicies.ini
+qospolicies.ini	\epoc32\wins\c\system\data\qospolicies.ini
+qospolicies.ini	\epoc32\winscw\c\system\data\qospolicies.ini
+
+#endif
+

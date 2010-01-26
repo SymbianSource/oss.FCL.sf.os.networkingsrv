@@ -1,0 +1,465 @@
+[PDP0]
+#  Assigned Context Name
+ContextName= Pdp0
+#  Context Status
+ContextStatus= 0
+#  Qos Profile Name
+QosProfileName= PdpQos0
+#  Primary Context Start Entry 
+ContextPrimaryStartEntry= 0, 2000
+#  ContextCreateEntry= <ReturnCode> 
+ContextCreateEntry= 0
+#  ContextQosSetEntry= <ReturnCode>, <Duration>
+ContextQosSetEntry= 0, 50
+#  ContextActivateEntry= <ReturnCode>, <Duration>
+ContextActivateEntry= 0 ,100
+#  ContextDeleteEntry= <ReturnCode>, <Duration>
+ContextDeleteEntry= 0, 50
+#  ContextDeActivateEntry= <ReturnCode>, <Duration>
+#ContextDeActivateEntry= 0, 50
+#  ContextModifyActivate= <ReturnCode>, <Duration>
+ContextModifyActivate= 0, 50
+ContextTFTModifyEntry =0, 100
+# GPRS-0x01, CDMA-0x02, Rel99Rel4-0x04
+PacketDataExtensionId= 4
+# Unspecified-1, Conversational-2, Streaming-4, Interactive-8, Background-10
+QosNegTrafficClass= 2
+# Unspecified-0, Required-1, NotRequired-2
+QosNegDeliveryOrder= 1
+# DeliveryUnspecified-0, NoDetection-1, DeliveryRequired-2, DeliveryNotRequired-3
+QosNegErroneousSDUDelivery= 0
+# 
+QosNegMaxSDUSize= 1510
+#
+QosNegUpBitRate= 100
+#
+QosNegDownBitRate= 100
+# Unspecified-0, 0.05-1, 0.01-2, 0.005-4
+# 0.004-8, 0.001-16, 0.0001-32, 0.00001-64, 0.000001-128, 0.00000006-256
+QosNegBitErrorRatio= 256
+# Unspecified-0, 0.1-1, 0.01-2, 0.007-4, 0.001-8, 0.0001-16, 0.00001-32, 0.000001-64
+QosNegSDUErrorRatio= 64
+# Unspecified-0, Priority1-1, Priority2-2, Priority3-4
+QosNegTrafficHandlingPriority= 1
+#
+QosNegTransferDelay= 100
+#
+QosNegGuaranteedUpRate= 100
+#
+QosNegGuaranteedDownRate= 100
+
+[PDP1]
+ContextName= Pdp1
+ContextStatus= 0
+QosProfileName= PdpQos1
+ContextPrimaryStart= 0, 2000
+ContextCreateEntry= 0
+ContextQosSetEntry= 0, 250
+ContextActivateEntry= 0 ,500
+ContextDeleteEntry= 0, 50
+ContextModifyActivate= 0, 50
+ContextTFTModifyEntry = 0, 50
+
+PacketDataExtensionId= 4
+QosNegTrafficClass= 2
+QosNegDeliveryOrder= 1
+QosNegErroneousSDUDelivery= 0
+QosNegMaxSDUSize= 1510
+QosNegUpBitRate= 100
+QosNegDownBitRate= 100
+QosNegBitErrorRatio= 256
+QosNegSDUErrorRatio= 64
+QosNegTrafficHandlingPriority= 1
+QosNegTransferDelay= 100
+QosNegGuaranteedUpRate= 100
+QosNegGuaranteedDownRate= 100
+
+
+[PDP2]
+ContextName= Pdp2
+ContextStatus= 0
+QosProfileName= PdpQos2
+ContextPrimaryStart= 0, 2000
+ContextCreateEntry= 0
+ContextQosSetEntry= 0, 250
+ContextActivateEntry= 0 ,500
+ContextDeleteEntry= 0, 50
+ContextModifyActivate= 0, 50
+ContextTFTModifyEntry = 0, 50
+
+PacketDataExtensionId= 4
+QosNegTrafficClass= 2
+QosNegDeliveryOrder= 1
+QosNegErroneousSDUDelivery= 0
+QosNegMaxSDUSize= 1510
+QosNegUpBitRate= 100
+QosNegDownBitRate= 100
+QosNegBitErrorRatio= 256
+QosNegSDUErrorRatio= 64
+QosNegTrafficHandlingPriority= 1
+QosNegTransferDelay= 100
+QosNegGuaranteedUpRate= 100
+QosNegGuaranteedDownRate= 100
+
+
+[PDP3]
+ContextName= Pdp3
+ContextStatus= 0
+QosProfileName= PdpQos3
+ContextPrimaryStart= 0, 2000
+ContextCreateEntry= 0
+ContextQosSetEntry= 0, 250
+ContextActivateEntry= 0 ,300
+ContextDeleteEntry= 0, 50
+ContextModifyActivate= 0, 50
+ContextTFTModifyEntry = 0, 50
+
+PacketDataExtensionId= 4
+QosNegTrafficClass= 2
+QosNegDeliveryOrder= 1
+QosNegErroneousSDUDelivery= 0
+QosNegMaxSDUSize= 1510
+QosNegUpBitRate= 100
+QosNegDownBitRate= 100
+QosNegBitErrorRatio= 256
+QosNegSDUErrorRatio= 64
+QosNegTrafficHandlingPriority= 1
+QosNegTransferDelay= 100
+QosNegGuaranteedUpRate= 100
+QosNegGuaranteedDownRate= 100
+
+
+[PDP4]
+ContextName= Pdp4
+ContextStatus= 0
+QosProfileName= PdpQos4
+ContextPrimaryStart= 0, 2000
+ContextCreateEntry= 0
+ContextQosSetEntry= 0, 250
+ContextActivateEntry= 0 ,300
+ContextDeleteEntry= 0, 50
+ContextModifyActivate= 0, 50
+ContextTFTModifyEntry = 0, 50
+
+PacketDataExtensionId= 4
+QosNegTrafficClass= 2
+QosNegDeliveryOrder= 1
+QosNegErroneousSDUDelivery= 0
+QosNegMaxSDUSize= 1510
+QosNegUpBitRate= 100
+QosNegDownBitRate= 100
+QosNegBitErrorRatio= 256
+QosNegSDUErrorRatio= 64
+QosNegTrafficHandlingPriority= 1
+QosNegTransferDelay= 100
+QosNegGuaranteedUpRate= 100
+QosNegGuaranteedDownRate= 100
+
+
+[PDP5]
+ContextName= Pdp5
+ContextStatus= 0
+QosProfileName= PdpQos5
+ContextPrimaryStart= 0, 2000
+ContextCreateEntry= 0
+ContextQosSetEntry= 0, 250
+ContextActivateEntry= 0 ,500
+ContextDeleteEntry= 0, 50
+ContextModifyActivate= 0, 50
+ContextTFTModifyEntry = 0, 50
+
+PacketDataExtensionId= 4
+QosNegTrafficClass= 2
+QosNegDeliveryOrder= 1
+QosNegErroneousSDUDelivery= 0
+QosNegMaxSDUSize= 1510
+QosNegUpBitRate= 100
+QosNegDownBitRate= 100
+QosNegBitErrorRatio= 256
+QosNegSDUErrorRatio= 64
+QosNegTrafficHandlingPriority= 1
+QosNegTransferDelay= 100
+QosNegGuaranteedUpRate= 100
+QosNegGuaranteedDownRate= 100
+
+
+[PDP6]
+ContextName= Pdp6
+ContextStatus= 0
+QosProfileName= PdpQos6
+ContextPrimaryStart= 0, 2000
+ContextCreateEntry= 0
+ContextQosSetEntry= 0, 50
+ContextActivateEntry= 0 ,100
+ContextDeleteEntry= 0, 50
+ContextModifyActivate= 0, 50
+ContextTFTModifyEntry = 0, 50
+
+PacketDataExtensionId= 4
+QosNegTrafficClass= 2
+QosNegDeliveryOrder= 1
+QosNegErroneousSDUDelivery= 0
+QosNegMaxSDUSize= 1510
+QosNegUpBitRate= 100
+QosNegDownBitRate= 100
+QosNegBitErrorRatio= 256
+QosNegSDUErrorRatio= 64
+QosNegTrafficHandlingPriority= 1
+QosNegTransferDelay= 100
+QosNegGuaranteedUpRate= 100
+QosNegGuaranteedDownRate= 100
+
+
+
+[PDP7]
+ContextName= Pdp7
+ContextStatus= 0
+QosProfileName= PdpQos7
+ContextPrimaryStart= 0, 2000
+ContextCreateEntry= 0
+ContextQosSetEntry= 0, 250
+ContextActivateEntry= 0 ,100
+ContextDeleteEntry= 0, 50
+ContextModifyActivate= 0, 50
+ContextTFTModifyEntry = 0, 50
+
+PacketDataExtensionId= 4
+QosNegTrafficClass= 2
+QosNegDeliveryOrder= 1
+QosNegErroneousSDUDelivery= 0
+QosNegMaxSDUSize= 1510
+QosNegUpBitRate= 100
+QosNegDownBitRate= 100
+QosNegBitErrorRatio= 256
+QosNegSDUErrorRatio= 64
+QosNegTrafficHandlingPriority= 1
+QosNegTransferDelay= 100
+QosNegGuaranteedUpRate= 100
+QosNegGuaranteedDownRate= 100
+
+
+[PDP8]
+ContextName= Pdp8
+ContextStatus= 0
+QosProfileName= PdpQos8
+ContextPrimaryStart= 0, 2000
+ContextCreateEntry= 0
+ContextQosSetEntry= 0, 250
+ContextActivateEntry= 0 ,100
+ContextDeleteEntry= 0, 50
+ContextModifyActivate= 0, 50
+ContextTFTModifyEntry = 0, 50
+
+PacketDataExtensionId= 4
+QosNegTrafficClass= 2
+QosNegDeliveryOrder= 1
+QosNegErroneousSDUDelivery= 0
+QosNegMaxSDUSize= 1510
+QosNegUpBitRate= 100
+QosNegDownBitRate= 100
+QosNegBitErrorRatio= 256
+QosNegSDUErrorRatio= 64
+QosNegTrafficHandlingPriority= 1
+QosNegTransferDelay= 100
+QosNegGuaranteedUpRate= 100
+QosNegGuaranteedDownRate= 100
+
+
+[PDP9]
+ContextName= Pdp9
+ContextStatus= 0
+QosProfileName= PdpQos9
+ContextPrimaryStart= 0, 2000
+ContextCreateEntry= 0
+ContextQosSetEntry= 0, 250
+ContextActivateEntry= 0 ,100
+ContextDeleteEntry= 0, 50
+ContextModifyActivate= 0, 50
+ContextTFTModifyEntry = 0, 50
+
+PacketDataExtensionId= 4
+QosNegTrafficClass= 2
+QosNegDeliveryOrder= 1
+QosNegErroneousSDUDelivery= 0
+QosNegMaxSDUSize= 1510
+QosNegUpBitRate= 100
+QosNegDownBitRate= 100
+QosNegBitErrorRatio= 256
+QosNegSDUErrorRatio= 64
+QosNegTrafficHandlingPriority= 1
+QosNegTransferDelay= 100
+QosNegGuaranteedUpRate= 100
+QosNegGuaranteedDownRate= 100
+
+[PDP10]
+ContextName= Pdp10
+ContextStatus= 0
+QosProfileName= PdpQos10
+ContextPrimaryStart= 0, 2000
+ContextCreateEntry= 0
+ContextQosSetEntry= 0, 250
+ContextActivateEntry= 0 ,100
+ContextDeleteEntry= 0, 50
+ContextModifyActivate= 0, 50
+ContextTFTModifyEntry = 0, 50
+
+PacketDataExtensionId= 4
+QosNegTrafficClass= 2
+QosNegDeliveryOrder= 1
+QosNegErroneousSDUDelivery= 0
+QosNegMaxSDUSize= 1510
+QosNegUpBitRate= 100
+QosNegDownBitRate= 100
+QosNegBitErrorRatio= 256
+QosNegSDUErrorRatio= 64
+QosNegTrafficHandlingPriority= 1
+QosNegTransferDelay= 100
+QosNegGuaranteedUpRate= 100
+QosNegGuaranteedDownRate= 100
+
+
+[PDP11]
+ContextName= Pdp11
+ContextStatus= 0
+QosProfileName= PdpQos11
+ContextPrimaryStart= 0, 2000
+ContextCreateEntry= 0
+ContextQosSetEntry= 0, 250
+ContextActivateEntry= 0 ,100
+ContextDeleteEntry= 0, 50
+ContextModifyActivate= 0, 50
+ContextTFTModifyEntry = 0, 50
+
+PacketDataExtensionId= 4
+QosNegTrafficClass= 2
+QosNegDeliveryOrder= 1
+QosNegErroneousSDUDelivery= 0
+QosNegMaxSDUSize= 1510
+QosNegUpBitRate= 100
+QosNegDownBitRate= 100
+QosNegBitErrorRatio= 256
+QosNegSDUErrorRatio= 64
+QosNegTrafficHandlingPriority= 1
+QosNegTransferDelay= 100
+QosNegGuaranteedUpRate= 100
+QosNegGuaranteedDownRate= 100
+
+
+[PDP12]
+ContextName= Pdp12
+ContextStatus= 0
+QosProfileName= PdpQos12
+ContextPrimaryStart= 0, 2000
+ContextCreateEntry= 0
+ContextQosSetEntry= 0, 250
+ContextActivateEntry= 0 ,100
+ContextDeleteEntry= 0, 50
+ContextModifyActivate= 0, 50
+ContextTFTModifyEntry = 0, 50
+
+PacketDataExtensionId= 4
+QosNegTrafficClass= 2
+QosNegDeliveryOrder= 1
+QosNegErroneousSDUDelivery= 0
+QosNegMaxSDUSize= 1510
+QosNegUpBitRate= 100
+QosNegDownBitRate= 100
+QosNegBitErrorRatio= 256
+QosNegSDUErrorRatio= 64
+QosNegTrafficHandlingPriority= 1
+QosNegTransferDelay= 100
+QosNegGuaranteedUpRate= 100
+QosNegGuaranteedDownRate= 100
+
+
+[PDP13]
+ContextName= Pdp13
+ContextStatus= 0
+QosProfileName= PdpQos13
+ContextPrimaryStart= 0, 2000
+ContextCreateEntry= 0
+ContextQosSetEntry= 0, 250
+ContextActivateEntry= 0 ,100
+ContextDeleteEntry= 0, 50
+ContextModifyActivate= 0, 50
+ContextTFTModifyEntry = 0, 50
+
+PacketDataExtensionId= 4
+QosNegTrafficClass= 2
+QosNegDeliveryOrder= 1
+QosNegErroneousSDUDelivery= 0
+QosNegMaxSDUSize= 1510
+QosNegUpBitRate= 100
+QosNegDownBitRate= 100
+QosNegBitErrorRatio= 256
+QosNegSDUErrorRatio= 64
+QosNegTrafficHandlingPriority= 1
+QosNegTransferDelay= 100
+QosNegGuaranteedUpRate= 100
+QosNegGuaranteedDownRate= 100
+
+
+[PDP14]
+ContextName= Pdp14
+ContextStatus= 0
+QosProfileName= PdpQos14
+ContextPrimaryStart= 0, 2000
+ContextCreateEntry= 0
+ContextQosSetEntry= 0, 250
+ContextActivateEntry= 0 ,100
+ContextDeleteEntry= 0, 50
+ContextModifyActivate= 0, 50
+ContextTFTModifyEntry = 0, 50
+
+PacketDataExtensionId= 4
+QosNegTrafficClass= 2
+QosNegDeliveryOrder= 1
+QosNegErroneousSDUDelivery= 0
+QosNegMaxSDUSize= 1510
+QosNegUpBitRate= 100
+QosNegDownBitRate= 100
+QosNegBitErrorRatio= 256
+QosNegSDUErrorRatio= 64
+QosNegTrafficHandlingPriority= 1
+QosNegTransferDelay= 100
+QosNegGuaranteedUpRate= 100
+QosNegGuaranteedDownRate= 100
+
+[PDP15]
+ContextName= Pdp15
+ContextStatus= 0
+QosProfileName= PdpQos15
+ContextPrimaryStart= 0, 2000
+ContextCreateEntry= 0
+ContextQosSetEntry= 0, 250
+ContextActivateEntry= 0 ,100
+ContextDeleteEntry= 0, 50
+ContextModifyActivate= 0, 50
+ContextTFTModifyEntry = 0, 50
+
+PacketDataExtensionId= 4
+QosNegTrafficClass= 2
+QosNegDeliveryOrder= 1
+QosNegErroneousSDUDelivery= 0
+QosNegMaxSDUSize= 1510
+QosNegUpBitRate= 100
+QosNegDownBitRate= 100
+QosNegBitErrorRatio= 256
+QosNegSDUErrorRatio= 64
+QosNegTrafficHandlingPriority= 1
+QosNegTransferDelay= 100
+QosNegGuaranteedUpRate= 100
+QosNegGuaranteedDownRate= 100
+
+
+[SBLP0]
+AuthorizationToken=www.nokia.com
+NumberofFlowIds=2
+FlowIdentifier0=10,12
+FlowIdentifier1=14,16
+
+[SBLP1]
+AuthorizationToken=www.symbian.com
+NumberofFlowIds=2
+FlowIdentifier0=10,13
+FlowIdentifier1=14,14

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relnotes name="Internet Sockets">
+  <purpose>
+    Plugin to sockets server, IPv6/v4 socket library specialising generic socket server address class for TCP/IP v4 or v6 protocols to implement sockets over TCP/IP.
+  </purpose>
+</relnotes>

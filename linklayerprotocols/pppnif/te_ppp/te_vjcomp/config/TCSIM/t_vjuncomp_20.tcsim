@@ -1,0 +1,105 @@
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of the License "Symbian Foundation License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.symbianfoundation.org/legal/sfl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// T_VJUNCOMP_20
+// Reserved bits are set
+// tcsim input file to generate test data for VJ compression tests.
+// 
+//
+
+#include "packet.def"
+#include "ports.tc"
+
+// This is a version of TCP_HDR from packet4.def that includes support
+// for setting the TCP reserved fields in the data offset octet with
+// $tcp_reserved
+#define TCP_HDR_IMPROVED(params) \
+			/* source port, REQUIRED			*/ \
+			/* destination port, REQUIRED			*/ \
+  $tcp_seq = 0		/* sequence number				*/ \
+  $tcp_ack = 0		/* acknowledgement number			*/ \
+  $tcp_off = 5		/* data offset (5 for "no options")		*/ \
+  $tcp_flags = 0	/* tcp flags					*/ \
+  $tcp_URG = 0		/*   URG					*/ \
+  $tcp_ACK = 0		/*   ACK					*/ \
+  $tcp_PSH = 0		/*   PSH					*/ \
+  $tcp_RST = 0		/*   RST					*/ \
+  $tcp_SYN = 0		/*   SYN					*/ \
+  $tcp_FIN = 0		/*   FIN					*/ \
+  $tcp_win = 0		/* window					*/ \
+  $tcp_sum = 0		/* checksum					*/ \
+  $tcp_urp = 0		/* urgent pointer				*/ \
+  $tcp_reserved = 0	/* reserved				*/ \
+									\
+  params								\
+									\
+  /* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+	*/ \
+  /* |          Source Port          |       Destination Port        |	*/ \
+  /* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+	*/ \
+									\
+  ns: $tcp_sport							\
+  ns: $tcp_dport							\
+									\
+  /* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+	*/ \
+  /* |                        Sequence Number                        |	*/ \
+  /* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+	*/ \
+									\
+  nl: $tcp_seq								\
+									\
+  /* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+	*/ \
+  /* |                    Acknowledgment Number                      |	*/ \
+  /* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+	*/ \
+									\
+  nl: $tcp_ack								\
+									\
+  /* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+	*/ \
+  /* |  Data |           |U|A|P|R|S|F|                               |	*/ \
+  /* | Offset| Reserved  |R|C|S|S|Y|I|            Window             |	*/ \
+  /* |       |           |G|K|H|T|N|N|                               |	*/ \
+  /* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+	*/ \
+									\
+  ($tcp_off << 4) | $tcp_reserved 					\
+  ($tcp_URG << 5) | ($tcp_ACK << 4) | ($tcp_PSH << 3) |			\
+    ($tcp_RST << 2) | ($tcp_SYN << 1) | $tcp_FIN | $tcp_flags		\
+  ns: $tcp_win								\
+									\
+  /* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+	*/ \
+  /* |           Checksum            |         Urgent Pointer        |	*/ \
+  /* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+	*/ \
+									\
+  ns: $tcp_sum								\
+  ns: $tcp_urp								\
+									\
+  /* ----- End of header ----- */
+
+dev eth0 100 Mbps {
+    egress {
+    }
+}
+
+// Packet to prime the compressor
+send TCP_PCK($ip_id=1 $ip_sum=0x66cc $tcp_sport = PORT_FTP_DATA $tcp_dport = 1234 $tcp_ACK=1 $tcp_seq=0 $tcp_sum=0x65eb)
+     0x31
+
+// Packet with TCP reserved bit 0 set
+send IP_HDR($ip_proto = IPPROTO_TCP $ip_id=2 $ip_sum=0x66cb)
+    TCP_HDR_IMPROVED($tcp_sport = PORT_FTP_DATA $tcp_dport = 1234 $tcp_ACK=1 $tcp_seq=1 $tcp_reserved=1 $tcp_sum=0x63ea)
+     0x32
+
+// Packet with TCP reserved bit 3 set
+send IP_HDR($ip_proto = IPPROTO_TCP $ip_id=3 $ip_sum=0x66ca)
+    TCP_HDR_IMPROVED($tcp_sport = PORT_FTP_DATA $tcp_dport = 1234 $tcp_ACK=1 $tcp_seq=1 $tcp_reserved=4 $tcp_sum=0x60ea)
+     0x32
+
+
+end

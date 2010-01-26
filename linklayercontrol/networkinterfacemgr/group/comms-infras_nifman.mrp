@@ -1,0 +1,40 @@
+#
+# Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+# All rights reserved.
+# This component and the accompanying materials are made available
+# under the terms of "Eclipse Public License v1.0"
+# which accompanies this distribution, and is available
+# at the URL "http://www.eclipse.org/legal/epl-v10.html".
+#
+# Initial Contributors:
+# Nokia Corporation - initial contribution.
+#
+# Contributors:
+#
+# Description: 
+#
+
+component	comms-infras_nifman
+source	\sf\os\networkingsrv\linklayercontrol\networkinterfacemgr\agentpr
+source	\sf\os\networkingsrv\linklayercontrol\networkinterfacemgr\agentprcore
+source	\sf\os\networkingsrv\linklayercontrol\networkinterfacemgr\bmarm
+source	\sf\os\networkingsrv\linklayercontrol\networkinterfacemgr\bwins
+source	\sf\os\networkingsrv\linklayercontrol\networkinterfacemgr\CS_Config
+source	\sf\os\networkingsrv\linklayercontrol\networkinterfacemgr\Documentation
+source	\sf\os\networkingsrv\linklayercontrol\networkinterfacemgr\eabi
+source	\sf\os\networkingsrv\linklayercontrol\networkinterfacemgr\group
+source	\sf\os\networkingsrv\linklayercontrol\networkinterfacemgr\inc
+source	\sf\os\networkingsrv\linklayercontrol\networkinterfacemgr\netcfgext
+source	\sf\os\networkingsrv\linklayercontrol\networkinterfacemgr\src
+source	\sf\os\networkingsrv\linklayercontrol\networkinterfacemgr\te_connectioncontrol
+source	\sf\os\networkingsrv\linklayercontrol\networkinterfacemgr\te_nifman
+source	\sf\os\networkingsrv\linklayercontrol\networkinterfacemgr\ts_nifmanbc
+
+binary	\sf\os\networkingsrv\linklayercontrol\networkinterfacemgr\group	all
+exports	\sf\os\networkingsrv\linklayercontrol\networkinterfacemgr\group
+notes_source	\component_defs\release.src
+
+ipr D 
+ipr T \sf\os\networkingsrv\linklayercontrol\networkinterfacemgr\te_connectioncontrol
+ipr T \sf\os\networkingsrv\linklayercontrol\networkinterfacemgr\te_nifman
+ipr T \sf\os\networkingsrv\linklayercontrol\networkinterfacemgr\ts_nifmanbc

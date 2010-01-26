@@ -1,0 +1,3 @@
+EXPORTS
+	?NewTestSuiteSelfTestL@@YAPAVCTS_QoSSuite@@XZ @ 1 NONAME ; class CTS_QoSSuite * __cdecl NewTestSuiteSelfTestL(void)
+

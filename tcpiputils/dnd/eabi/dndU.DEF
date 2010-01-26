@@ -1,0 +1,47 @@
+EXPORTS
+	_Z7E32Mainv @ 1 NONAME ; E32Main(void)
+	_ZTI10CDndEngine @ 2 NONAME ; #<TI>#
+	_ZTI10CDndRecord @ 3 NONAME ; #<TI>#
+	_ZTI10CDnsSocket @ 4 NONAME ; #<TI>#
+	_ZTI10CLlmnrConf @ 5 NONAME ; #<TI>#
+	_ZTI10RHostsFile @ 6 NONAME ; #<TI>#
+	_ZTI11TDndReqData @ 7 NONAME ; #<TI>#
+	_ZTI12CDndListener @ 8 NONAME ; #<TI>#
+	_ZTI12CDndResolver @ 9 NONAME ; #<TI>#
+	_ZTI13CDndDnsclient @ 10 NONAME ; #<TI>#
+	_ZTI13CDndNameSpace @ 11 NONAME ; #<TI>#
+	_ZTI13TLlmnrMsgData @ 12 NONAME ; #<TI>#
+	_ZTI13TQuerySession @ 13 NONAME ; #<TI>#
+	_ZTV11CDnsService @ 14 NONAME ; #<VT>#
+	_ZTI11CDnsService @ 15 NONAME ; #<TI>#
+	_ZTI16CDnsSocketReader @ 16 NONAME ; #<TI>#
+	_ZTI16CDnsSocketWriter @ 17 NONAME ; #<TI>#
+	_ZTI17CDnsServerManager @ 18 NONAME ; #<TI>#
+	_ZTI18CDndLlmnrResponder @ 19 NONAME ; #<TI>#
+	_ZTI22CDndLlmnrNotifyHandler @ 20 NONAME ; #<TI>#
+	_ZTI8CDndMain @ 21 NONAME ; #<TI>#
+	_ZTI8CDndNode @ 22 NONAME ; #<TI>#
+	_ZTI9CDndCache @ 23 NONAME ; #<TI>#
+	_ZTV10CDndEngine @ 24 NONAME ; #<VT>#
+	_ZTV10CDndRecord @ 25 NONAME ; #<VT>#
+	_ZTV10CDnsSocket @ 26 NONAME ; #<VT>#
+	_ZTV10CLlmnrConf @ 27 NONAME ; #<VT>#
+	_ZTV10RHostsFile @ 28 NONAME ; #<VT>#
+	_ZTV11TDndReqData @ 29 NONAME ; #<VT>#
+	_ZTV12CDndListener @ 30 NONAME ; #<VT>#
+	_ZTV12CDndResolver @ 31 NONAME ; #<VT>#
+	_ZTV13CDndDnsclient @ 32 NONAME ; #<VT>#
+	_ZTV13CDndNameSpace @ 33 NONAME ; #<VT>#
+	_ZTV13TLlmnrMsgData @ 34 NONAME ; #<VT>#
+	_ZTV13TQuerySession @ 35 NONAME ; #<VT>#
+	_ZTV15CDndLlmnrSender @ 36 NONAME ABSENT ; #<VT>#
+	_ZTV15CServerConfFile @ 37 NONAME ABSENT ; #<VT>#
+	_ZTV16CDnsSocketReader @ 38 NONAME ; #<VT>#
+	_ZTV16CDnsSocketWriter @ 39 NONAME ; #<VT>#
+	_ZTV17CDnsServerManager @ 40 NONAME ; #<VT>#
+	_ZTV18CDndLlmnrResponder @ 41 NONAME ; #<VT>#
+	_ZTV22CDndLlmnrNotifyHandler @ 42 NONAME ; #<VT>#
+	_ZTV8CDndMain @ 43 NONAME ; #<VT>#
+	_ZTV8CDndNode @ 44 NONAME ; #<VT>#
+	_ZTV9CDndCache @ 45 NONAME ; #<VT>#
+

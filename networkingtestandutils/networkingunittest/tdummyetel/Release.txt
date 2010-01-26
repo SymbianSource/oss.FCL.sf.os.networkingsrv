@@ -1,0 +1,28 @@
+TDummyEtel - 7/12/01
+
+The TDummyEtel project was created for PSD.AGX, Genconn.AGT and CSD.AGX unit test cases. It simulates the behavior of Etel, Etelpckt and Etelmm and responds with error codes etc according to the relevant test specification.
+
+The code from EtelMM and EtelPckt is exactly the same as the real code in EtelMM and EtelPckt. These are only required by the test harness for type purposes, mostly for various enumerations declared in the header files. It was necessary to link these together with Etel to avoid circular dependencies.
+
+The rest of the code, originally from Etel has been heavily modified to correspond with the unit test specifications. It must be kept up to date as new functionality is added to Etel, otherwise some test cases may not work as they were originally intended.
+
+The code in DummyEtel is designed to simulate etel functions, trigger Context Config and Qos change warnings and perform Status changes. Some of this functionality, especially the Context config, Qos and status changes are additions to Etel, required to suite test specifications/
+
+
+Maintaining DummyEtel as changes are made
+
+- EtelMM - should be able to just dump all the EtelMM files from the real EtelMM straight into this project, just remove the duplicate E32DLL() function
+
+
+- EtelPckt - should be able to just dump all the EtelMM files from the real EtelPckt straight into this project, just remove the duplicate E32DLL() function
+
+
+- Etel - have to manually add new functionality to the dummy etel. Most functionality is bypassed in these classes anyway, usually just does message.Complete(KErrNone); unless a specific test calls for an error to be returned.
+
+
+Test Harnesses that use DummyEtel
+
+\networking\csdagx\ts_csdagx
+\networking\genconn\ts_utgenconn
+\networking\psdagx\ts_psdagx
+

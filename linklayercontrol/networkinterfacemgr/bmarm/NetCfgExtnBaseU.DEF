@@ -1,0 +1,14 @@
+EXPORTS
+	"_._27CNetworkConfigExtensionBase" @ 1 NONAME R3UNUSED ; CNetworkConfigExtensionBase::~CNetworkConfigExtensionBase(void)
+	CancelControl__27CNetworkConfigExtensionBase @ 2 NONAME R3UNUSED ; CNetworkConfigExtensionBase::CancelControl(void)
+	ConfigureNetworkL__27CNetworkConfigExtensionBase @ 3 NONAME R3UNUSED ; CNetworkConfigExtensionBase::ConfigureNetworkL(void)
+	ConstructL__27CNetworkConfigExtensionBase @ 4 NONAME R3UNUSED ; CNetworkConfigExtensionBase::ConstructL(void)
+	Deregister__27CNetworkConfigExtensionBasei @ 5 NONAME R3UNUSED ; CNetworkConfigExtensionBase::Deregister(int)
+	DoCancel__27CNetworkConfigExtensionBase @ 6 NONAME R3UNUSED ; CNetworkConfigExtensionBase::DoCancel(void)
+	LinkLayerDown__27CNetworkConfigExtensionBase @ 7 NONAME R3UNUSED ; CNetworkConfigExtensionBase::LinkLayerDown(void)
+	LinkLayerUp__27CNetworkConfigExtensionBase @ 8 NONAME R3UNUSED ; CNetworkConfigExtensionBase::LinkLayerUp(void)
+	RunError__27CNetworkConfigExtensionBasei @ 9 NONAME R3UNUSED ; CNetworkConfigExtensionBase::RunError(int)
+	RunL__27CNetworkConfigExtensionBase @ 10 NONAME R3UNUSED ; CNetworkConfigExtensionBase::RunL(void)
+	SendIoctlMessageL__27CNetworkConfigExtensionBaseRC9RMessage2 @ 11 NONAME R3UNUSED ; CNetworkConfigExtensionBase::SendIoctlMessageL(RMessage2 const &)
+	AsyncDelete__27CNetworkConfigExtensionBase @ 12 NONAME R3UNUSED ; CNetworkConfigExtensionBase::AsyncDelete(void)
+

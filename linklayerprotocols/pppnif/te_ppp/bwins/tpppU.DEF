@@ -1,0 +1,5 @@
+EXPORTS
+	Install @ 1 NONAME
+	??0TPppAddr@@QAE@XZ @ 2 NONAME ; TPppAddr::TPppAddr(void)
+	??4TPppAddr@@QAEAAV0@ABVTSockAddr@@@Z @ 3 NONAME ; class TPppAddr & TPppAddr::operator=(class TSockAddr const &)
+

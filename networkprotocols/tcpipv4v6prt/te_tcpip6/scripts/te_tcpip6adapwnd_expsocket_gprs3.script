@@ -1,0 +1,109 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//! @file
+//! @SYMTestSuiteName NET_EXPSOCKET02_TCPADAPTIVEWNDSIZE
+//! @SYMScriptTestEnvironment Standard Symbian HRP or emulator environment
+
+PRINT NET_EXPSOCKET02_TCPADAPTIVEWNDSIZE:
+PRINT Set AP(4) to be up.
+PRINT Start connect with snap with one as GPRS.
+PRINT Stop connection
+
+// Load the test suite
+LOAD_SUITE te_esockteststepsSuite -SharedData
+
+// Set up the comms database and start esock in preparation for the test
+RUN_SCRIPT Z:\TestData\scripts\te_esock_test_unloadesockForced.script
+CED -i z:\testdata\configs\tcpip6AdapWnd_gprs.ced.cfg c:\tcpip6AdapWnd_gprs.ced.cfg.log
+
+
+//PRINT Initialising test environment
+RUN_UTILS  MkDir c:\simtsy\
+RUN_UTILS  MakeReadWrite c:\simtsy\config.txt
+RUN_UTILS  MakeReadWrite c:\config.txt
+RUN_UTILS  MakeReadWrite c:\loopback.ini
+RUN_UTILS  DeleteFile c:\simtsy\config.txt
+RUN_UTILS  DeleteFile c:\config.txt
+RUN_UTILS  DeleteFile c:\loopback.ini
+RUN_UTILS  CopyFile z:\TestData\Configs\tcpip6AdapWnd_LoopbackCSY.ini c:\loopback.ini
+
+
+RUN_UTILS  CopyFile z:\TestData\Configs\tcpip6AdapWnd_config_gprs.txt c:\simtsy\config.txt
+RUN_UTILS  CopyFile z:\TestData\Configs\tcpip6AdapWnd_config_gprs.txt c:\config.txt
+
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+
+START_TESTCASE			NS-TCPIP6-ExpSocket-WndSize-02
+//! @SYMTestCaseID		NS-TCPIP6-ExpSocket-WndSize-02
+//!@SYMTestCaseDesc           	TODO_CDG
+//!@SYMPREQ                   	PREQ1854
+//!@SYMAPI
+// TODO_CDG
+//!@SYMTestPriority           	Critical
+//!@SYMTestActions
+// TODO_CDG
+//!@SYMTestType               	CIT
+//!@SYMTestExpectedResults    	TODO_CDG
+
+
+// Create and connect socketserver and connectionserver instances
+RUN_TEST_STEP 150 te_esockteststepsSuite creatersocketservStep z:\testdata\configs\te_tcpip6AdapWnd_expSocket_02.ini CreateSockSvr
+RUN_TEST_STEP 150 te_esockteststepsSuite connectrsocketservStep z:\testdata\configs\te_tcpip6AdapWnd_expSocket_02.ini ConnectSockSvr
+
+// Create and open a connection (conn1)
+RUN_TEST_STEP 150 te_esockteststepsSuite createrconnectionStep z:\testdata\configs\te_tcpip6AdapWnd_expSocket_02.ini CreateConn
+RUN_TEST_STEP 150 te_esockteststepsSuite openrconnectionStep z:\testdata\configs\te_tcpip6AdapWnd_expSocket_02.ini OpenConn
+
+// Make bearer1 available and connect with associated snap
+RUN_TEST_STEP 150 te_esockteststepsSuite SetAccessPointAvailabilityStep z:\testdata\configs\te_tcpip6AdapWnd_expSocket_02.ini ChangeAvailabilityUpAp4
+
+RUN_TEST_STEP 150 te_esockteststepsSuite startrconnectionStep z:\testdata\configs\te_tcpip6AdapWnd_expSocket_02.ini StartConnSnap53
+
+RUN_TEST_STEP 100 te_esockteststepsSuite creatersubconnectionStep z:\testdata\configs\te_tcpip6AdapWnd_expSocket_02.ini CreateSubConn1
+RUN_TEST_STEP 100 te_esockteststepsSuite openrsubconnectionStep z:\testdata\configs\te_tcpip6AdapWnd_expSocket_02.ini OpenSubConn1
+
+// Create and open a Socket(TcpSock1)
+RUN_TEST_STEP 150 te_esockteststepsSuite CreateRSocketStep z:\testdata\configs\te_tcpip6AdapWnd_expSocket_02.ini CreateTcpSock1
+RUN_TEST_STEP 150 te_esockteststepsSuite OpenRSocketStep z:\testdata\configs\te_tcpip6AdapWnd_expSocket_02.ini OpenTcpSock1
+
+// Create and open a Socket(TcpSock2)
+RUN_TEST_STEP 150 te_esockteststepsSuite CreateRSocketStep z:\testdata\configs\te_tcpip6AdapWnd_expSocket_02.ini CreateTcpSock2
+RUN_TEST_STEP 150 te_esockteststepsSuite OpenRSocketStep z:\testdata\configs\te_tcpip6AdapWnd_expSocket_02.ini OpenTcpSock2
+
+//Retrieve the TCP Window size for GPRS
+RUN_TEST_STEP 150 te_esockteststepsSuite SocketGetOptionStep z:\testdata\configs\te_tcpip6AdapWnd_expSocket_02.ini GetOptOnSocketGPRS
+RUN_TEST_STEP 150 te_esockteststepsSuite SocketGetOptionStep z:\testdata\configs\te_tcpip6AdapWnd_expSocket_02.ini GetOptOnSocketGPRS1
+
+
+// Clean up what we used
+RUN_TEST_STEP 150 te_esockteststepsSuite StopRConnectionStep z:\testdata\configs\te_tcpip6AdapWnd_expSocket_02.ini StopConn
+RUN_TEST_STEP 100 te_esockteststepsSuite closersocketStep z:\testdata\configs\te_tcpip6AdapWnd_expSocket_02.ini CloseTcpSock1
+RUN_TEST_STEP 100 te_esockteststepsSuite closersocketStep z:\testdata\configs\te_tcpip6AdapWnd_expSocket_02.ini CloseTcpSock2
+RUN_TEST_STEP 100 te_esockteststepsSuite closersubconnectionStep z:\testdata\configs\te_tcpip6AdapWnd_expSocket_02.ini CloseSubConn1
+RUN_TEST_STEP 150 te_esockteststepsSuite CloseRConnectionStep z:\testdata\configs\te_tcpip6AdapWnd_expSocket_02.ini CloseConn
+RUN_TEST_STEP 150 te_esockteststepsSuite closersocketservStep z:\testdata\configs\te_tcpip6AdapWnd_expSocket_02.ini CloseSocketSvr
+END_TESTCASE			NS-TCPIP6-ExpSocket-WndSize-02
+
+
+// Clean up
+RUN_SCRIPT Z:\TestData\Scripts\te_esock_test_stopallinterfaces.script
+RUN_SCRIPT Z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+PRINT Completed NET_EXPSOCKET02_TCPADAPTIVEWNDSIZE
+
+
+

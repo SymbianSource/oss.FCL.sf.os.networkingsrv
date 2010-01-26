@@ -1,0 +1,8 @@
+EXPORTS
+	_ZN10RDNSClient10AddDbEntryERK5TDes8RK6TDes16R14TRequestStatus @ 1 NONAME
+	_ZN10RDNSClient13RemoveDbEntryERK6TDes16R14TRequestStatus @ 2 NONAME
+	_ZN10RDNSClient16UpdateDomainNameERK5TDes8R14TRequestStatus @ 3 NONAME
+	_ZN10RDNSClient19ConfigureUplinkInfoERK5TDes8R14TRequestStatus @ 4 NONAME
+	_ZN10RDNSClient23ConfigureDnsProxyServerERK5TDes8R14TRequestStatus @ 5 NONAME
+	_ZN10RDNSClient7ConnectEv @ 6 NONAME
+

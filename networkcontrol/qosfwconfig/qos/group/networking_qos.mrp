@@ -1,0 +1,48 @@
+#
+# Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+# All rights reserved.
+# This component and the accompanying materials are made available
+# under the terms of "Eclipse Public License v1.0"
+# which accompanies this distribution, and is available
+# at the URL "http://www.eclipse.org/legal/epl-v10.html".
+#
+# Initial Contributors:
+# Nokia Corporation - initial contribution.
+#
+# Contributors:
+#
+# Description: 
+#
+
+component	networking_qos
+source	\sf\os\networkingsrv\networkcontrol\qosfwconfig\qos\bwins
+source	\sf\os\networkingsrv\networkcontrol\qosfwconfig\qos\eabi
+source	\sf\os\networkingsrv\networkcontrol\qosfwconfig\qos\bmarm
+source	\sf\os\networkingsrv\networkcontrol\qosfwconfig\qos\Documentation
+source	\sf\os\networkingsrv\networkcontrol\qosfwconfig\qos\group
+source	\sf\os\networkingsrv\networkcontrol\qosfwconfig\qos\inc
+source	\sf\os\networkingsrv\networkcontrol\qosfwconfig\qos\include
+source	\sf\os\networkingsrv\networkcontrol\qosfwconfig\qos\src
+#MattD: Nokia Test code...
+source	\sf\os\networkingsrv\networkcontrol\qosfwconfig\qostest
+source	\sf\os\networkingsrv\networkcontrol\qosfwconfig\QoSTesting
+
+binary	\sf\os\networkingsrv\networkcontrol\qosfwconfig\qos\group	all
+exports	\sf\os\networkingsrv\networkcontrol\qosfwconfig\qos\group
+exports \sf\os\networkingsrv\networkcontrol\qosfwconfig\qos\data   networking_qos-config
+notes_source	\component_defs\release.src
+
+-export_file \sf\os\networkingsrv\networkcontrol\qosfwconfig\qos\data\qos.ini    \epoc32\data\z\private\101F7989\esock\qos.ini
+-export_file \sf\os\networkingsrv\networkcontrol\qosfwconfig\qos\data\qos.ini    \epoc32\wins\c\private\101F7989\esock\qos.ini
+-export_file \sf\os\networkingsrv\networkcontrol\qosfwconfig\qos\data\qos.ini    \epoc32\winscw\c\private\101F7989\esock\qos.ini
+
+-export_file \sf\os\networkingsrv\networkcontrol\qosfwconfig\qos\data\qospolicies.ini    \epoc32\data\z\private\101F7989\esock\qospolicies.ini
+-export_file \sf\os\networkingsrv\networkcontrol\qosfwconfig\qos\data\qospolicies.ini    \epoc32\wins\c\private\101F7989\esock\qospolicies.ini
+-export_file \sf\os\networkingsrv\networkcontrol\qosfwconfig\qos\data\qospolicies.ini    \epoc32\winscw\c\private\101F7989\esock\qospolicies.ini
+
+
+
+ipr E
+ipr T \sf\os\networkingsrv\networkcontrol\qosfwconfig\qostest
+ipr T \sf\os\networkingsrv\networkcontrol\qosfwconfig\QoSTesting
+

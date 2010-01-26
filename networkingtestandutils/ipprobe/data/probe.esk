@@ -1,0 +1,8 @@
+[sockman]
+protocols= probe
+
+[probe]
+filename= probe.prt
+bindto= ip6
+index= 1
+

@@ -1,0 +1,41 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+#ifndef __PPP_IBY__
+#define __PPP_IBY__
+
+REM dependencies
+#include <esock.iby>
+#include <insock.iby>
+#include <nifman.iby>
+#include <c32.iby>
+#include <random.iby>
+
+// The default BCA is C32, but may be replaced by another BCA if desired
+#include <c32bca.iby>
+
+data=EPOCROOT##epoc32\data\z\private\101F7989\esock\ccp.ini private\101f7989\esock\ccp.ini
+
+#ifdef _DEBUG
+ECOM_PLUGIN_UDEB(ppp.dll,10281C4E.rss)
+#else
+ECOM_PLUGIN(ppp.dll,10281C4E.rss)
+#endif
+
+file=ABI_DIR\DEBUG_DIR\pppmain.dll			System\Libs\pppmain.dll
+file=ABI_DIR\DEBUG_DIR\vjcomp.dll			System\Libs\vjcomp.dll
+
+#endif // __PPP_IBY__

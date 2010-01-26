@@ -1,0 +1,47 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+#ifndef __IPSEC_IBY__
+#define __IPSEC_IBY__
+
+#include <esock.iby>
+#include <insock.iby>
+#include <inhook6.iby>
+
+#ifdef SYMBIAN_CRYPTO
+	#include <crypto.iby>
+#else
+	#include <cryptalg.iby>
+#endif
+
+REM IPSEC protocol and other core components
+
+
+#ifdef SYMBIAN_EXCLUDE_IPSEC
+
+	REM Feature IPSEC not included in this rom
+
+#else
+	#include <ipsec6.iby>
+	file=ABI_DIR\DEBUG_DIR\ipsecpolparser.dll	System\Libs\ipsecpolparser.dll
+	file=ABI_DIR\DEBUG_DIR\ipsecpolapi.dll		System\Libs\ipsecpolapi.dll
+	file=ABI_DIR\DEBUG_DIR\ipsecpol.exe		System\Programs\ipsecpol.exe
+	file=ABI_DIR\DEBUG_DIR\lib_pfkey.dll		System\Libs\lib_pfkey.dll
+	#include <ipseccrypto.iby>
+
+#endif // SYMBIAN_EXCLUDE_IPSEC
+
+#endif // __IPSEC_IBY__

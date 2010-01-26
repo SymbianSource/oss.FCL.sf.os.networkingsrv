@@ -1,0 +1,7 @@
+[sockman]
+protocols= exadump
+
+[exadump]
+filename= exadump.prt
+bindfrom= ip6
+index= 1

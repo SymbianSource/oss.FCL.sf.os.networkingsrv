@@ -1,0 +1,40 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+TARGET        treng.dll
+TARGETTYPE    DLL
+UID    0x1000008d 0x10003d3b
+VENDORID 0x70000001
+
+SOURCEPATH	../TRENG
+SOURCE        TRENG.CPP
+
+DEFFILE        TRENG.DEF
+
+SYSTEMINCLUDE ../INC
+
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+SYSTEMINCLUDE /epoc32/include
+#else
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+#endif
+
+LIBRARY       euser.lib esock.lib insock.lib inhook6.lib commdb.lib 
+
+// Capabilities to match inhook6.dll
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+
+SMPSAFE

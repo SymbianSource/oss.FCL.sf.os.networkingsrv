@@ -1,0 +1,10 @@
+Portions Copyright (c) Symbian Software Ltd. 2007.
+Portions Copyright (C) 2003-2007 Nokia. * Nokia Core OS *
+Save as expressly licensed to you by Symbian Software Ltd, all rights reserved.
+
+Exain
+
+This plugin is binded to IP protocol. It is started
+when IP protocol is started an destroyed when IP protocol
+is destroyed. It will receive all ICMP messages coming
+in and passes them forward.

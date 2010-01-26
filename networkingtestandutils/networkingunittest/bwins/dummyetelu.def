@@ -1,0 +1,695 @@
+EXPORTS
+	?RetrieveListL@CRetrieveMobilePhoneONList@@QAEPAVCMobilePhoneONList@@XZ @ 1 NONAME ; class CMobilePhoneONList * CRetrieveMobilePhoneONList::RetrieveListL(void)
+	??0TPhoneInfo@RPhone@@QAE@XZ @ 2 NONAME ; RPhone::TPhoneInfo::TPhoneInfo(void)
+	?SetDynamicHscsdParams@RMobileCall@@QBEXAAVTRequestStatus@@W4TMobileCallAiur@1@H@Z @ 3 NONAME ; void RMobileCall::SetDynamicHscsdParams(class TRequestStatus &, enum RMobileCall::TMobileCallAiur, int) const
+	?Close@RMobileConferenceCall@@QAEXXZ @ 4 NONAME ; void RMobileConferenceCall::Close(void)
+	?GetStatus@RPacketContext@@QBEHAAW4TContextStatus@1@@Z @ 5 NONAME ; int RPacketContext::GetStatus(enum RPacketContext::TContextStatus &) const
+	?NotifyFdnStatusChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAW4TMobilePhoneFdnStatus@1@@Z @ 6 NONAME ; void RMobilePhone::NotifyFdnStatusChange(class TRequestStatus &, enum RMobilePhone::TMobilePhoneFdnStatus &) const
+	?Init@CCallBase@@EAEXXZ @ 7 NONAME ; void CCallBase::Init(void)
+	?GetCurrentNetwork@RMobilePhone@@QBEXAAVTRequestStatus@@AAVTDes8@@AAVTMobilePhoneLocationAreaV1@1@@Z @ 8 NONAME ; void RMobilePhone::GetCurrentNetwork(class TRequestStatus &, class TDes8 &, class RMobilePhone::TMobilePhoneLocationAreaV1 &) const
+	??1CRetrieveMobilePhoneONList@@UAE@XZ @ 9 NONAME ; CRetrieveMobilePhoneONList::~CRetrieveMobilePhoneONList(void)
+	?ContinueDTMFStringSending@RMobilePhone@@QBEHH@Z @ 10 NONAME ; int RMobilePhone::ContinueDTMFStringSending(int) const
+	??0CCallBase@@QAE@XZ @ 11 NONAME ; CCallBase::CCallBase(void)
+	?GetMobileCallStatus@RMobileCall@@QBEHAAW4TMobileCallStatus@1@@Z @ 12 NONAME ; int RMobileCall::GetMobileCallStatus(enum RMobileCall::TMobileCallStatus &) const
+	?NotifyVoiceFallback@RMobileCall@@QBEXAAVTRequestStatus@@AAV?$TBuf@$0IA@@@@Z @ 13 NONAME ; void RMobileCall::NotifyVoiceFallback(class TRequestStatus &, class TBuf<128> &) const
+	?GetLastErrorCause@RPacketContext@@QBEHAAH@Z @ 14 NONAME ; int RPacketContext::GetLastErrorCause(int &) const
+	?NumberOfSlotsL@CCallBase@@UAEHH@Z @ 15 NONAME ; int CCallBase::NumberOfSlotsL(int)
+	?ReferenceCount@RCall@@QBEHXZ @ 16 NONAME ; int RCall::ReferenceCount(void) const
+	??0RMobileUssdMessaging@@QAE@XZ @ 17 NONAME ; RMobileUssdMessaging::RMobileUssdMessaging(void)
+	?GetDefaultContextParams@RPacketService@@QBEHAAVTDes8@@@Z @ 18 NONAME ; int RPacketService::GetDefaultContextParams(class TDes8 &) const
+	?GetDataVolumeTransferred@RPacketContext@@QBEHAAUTDataVolume@1@@Z @ 19 NONAME ; int RPacketContext::GetDataVolumeTransferred(struct RPacketContext::TDataVolume &) const
+	?GetAlternatingCallMode@RMobilePhone@@QBEHAAW4TMobilePhoneAlternatingCallMode@1@AAW4TMobileService@1@@Z @ 20 NONAME ; int RMobilePhone::GetAlternatingCallMode(enum RMobilePhone::TMobilePhoneAlternatingCallMode &, enum RMobilePhone::TMobileService &) const
+	?NotifyTrafficChannelConfirmation@RMobileCall@@QBEXAAVTRequestStatus@@AAW4TMobileCallTch@1@@Z @ 21 NONAME ; void RMobileCall::NotifyTrafficChannelConfirmation(class TRequestStatus &, enum RMobileCall::TMobileCallTch &) const
+	?NotifyCallAdded@RLine@@QAEXAAVTRequestStatus@@AAV?$TBuf@$0IA@@@@Z @ 22 NONAME ; void RLine::NotifyCallAdded(class TRequestStatus &, class TBuf<128> &)
+	?NotifyMulticallParamsChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 23 NONAME ; void RMobilePhone::NotifyMulticallParamsChange(class TRequestStatus &, class TDes8 &) const
+	?GetFeatureCode@RMobilePhone@@QBEXAAVTRequestStatus@@AAVTDes16@@W4TMobilePhoneNetworkService@1@W4TMobilePhoneServiceAction@1@@Z @ 24 NONAME ; void RMobilePhone::GetFeatureCode(class TRequestStatus &, class TDes16 &, enum RMobilePhone::TMobilePhoneNetworkService, enum RMobilePhone::TMobilePhoneServiceAction) const
+	?GetNetworkSelectionSetting@RMobilePhone@@QBEHAAVTDes8@@@Z @ 25 NONAME ; int RMobilePhone::GetNetworkSelectionSetting(class TDes8 &) const
+	?GetInfo@RPhone@@QBEHAAVTPhoneInfo@1@@Z @ 26 NONAME ; int RPhone::GetInfo(class RPhone::TPhoneInfo &) const
+	?CheckOwnershipBySession@CCallBase@@ABE?AW4TOwnershipStatus@RCall@@PAVCTelSession@@H@Z @ 27 NONAME ; enum RCall::TOwnershipStatus CCallBase::CheckOwnershipBySession(class CTelSession *, int) const
+	?GetMobileCallInfo@RMobileCall@@QBEHAAVTDes8@@@Z @ 28 NONAME ; int RMobileCall::GetMobileCallInfo(class TDes8 &) const
+	?Init@CFaxBase@@EAEXXZ @ 29 NONAME ; void CFaxBase::Init(void)
+	?GetSecurityCaps@RMobilePhone@@QBEHAAK@Z @ 30 NONAME ; int RMobilePhone::GetSecurityCaps(unsigned long &) const
+	?AnswerIncomingCall@RCall@@QAEXAAVTRequestStatus@@ABVTDesC8@@@Z @ 31 NONAME ; void RCall::AnswerIncomingCall(class TRequestStatus &, class TDesC8 const &)
+	?Close@RCall@@QAEXXZ @ 32 NONAME ; void RCall::Close(void)
+	?AnswerIncomingCall@RCall@@QAEXAAVTRequestStatus@@@Z @ 33 NONAME ; void RCall::AnswerIncomingCall(class TRequestStatus &)
+	?NewL@CMobilePhoneENList@@SAPAV1@XZ @ 34 NONAME ; class CMobilePhoneENList * CMobilePhoneENList::NewL(void)
+	?HangUpCancel@RCall@@QBEXXZ @ 35 NONAME ; void RCall::HangUpCancel(void) const
+	?Set@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@ABVTDesC16@@1W4TReqPriorityType@1@@Z @ 36 NONAME ; void RTelSubSessionBase::Set(int, class TRequestStatus &, class TDesC16 const &, class TDesC16 const &, enum RTelSubSessionBase::TReqPriorityType) const
+	?GetCallDuration@RCall@@QBEHAAVTTimeIntervalSeconds@@@Z @ 37 NONAME ; int RCall::GetCallDuration(class TTimeIntervalSeconds &) const
+	?GetBearerServiceInfo@RCall@@QBEHAAUTBearerService@1@@Z @ 38 NONAME ; int RCall::GetBearerServiceInfo(struct RCall::TBearerService &) const
+	?GetMessageStoreInfo@RMobileSmsMessaging@@QBEXAAVTRequestStatus@@HAAVTDes8@@@Z @ 39 NONAME ; void RMobileSmsMessaging::GetMessageStoreInfo(class TRequestStatus &, int, class TDes8 &) const
+	?NotifyMobileDataCallCapsChange@RMobileCall@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 40 NONAME ; void RMobileCall::NotifyMobileDataCallCapsChange(class TRequestStatus &, class TDes8 &) const
+	?ConnectCancel@RCall@@QBEXXZ @ 41 NONAME ; void RCall::ConnectCancel(void) const
+	??0TMobileUssdCapsV1@RMobileUssdMessaging@@QAE@XZ @ 42 NONAME ; RMobileUssdMessaging::TMobileUssdCapsV1::TMobileUssdCapsV1(void)
+	??0TMobileAddress@RMobilePhone@@QAE@XZ @ 43 NONAME ; RMobilePhone::TMobileAddress::TMobileAddress(void)
+	?AddEntryL@CMobilePhoneListBase@@IAEXPBX@Z @ 44 NONAME ; void CMobilePhoneListBase::AddEntryL(void const *)
+	?AddCall@RMobileConferenceCall@@QBEXAAVTRequestStatus@@ABV?$TBuf@$0IA@@@@Z @ 45 NONAME ; void RMobileConferenceCall::AddCall(class TRequestStatus &, class TBuf<128> const &) const
+	?NotifyCapsChange@RLine@@QAEXAAVTRequestStatus@@AAUTCaps@1@@Z @ 46 NONAME ; void RLine::NotifyCapsChange(class TRequestStatus &, struct RLine::TCaps &)
+	?SendDTMFTones@RMobilePhone@@QBEXAAVTRequestStatus@@ABVTDesC16@@@Z @ 47 NONAME ; void RMobilePhone::SendDTMFTones(class TRequestStatus &, class TDesC16 const &) const
+	?Destruct@RMobilePhoneStore@@IAEXXZ @ 48 NONAME ; void RMobilePhoneStore::Destruct(void)
+	?SetMSClass@RPacketService@@QBEXAAVTRequestStatus@@W4TMSClass@1@@Z @ 49 NONAME ; void RPacketService::SetMSClass(class TRequestStatus &, enum RPacketService::TMSClass) const
+	?NotifyNITZInfoChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAVTMobilePhoneNITZ@1@@Z @ 50 NONAME ; void RMobilePhone::NotifyNITZInfoChange(class TRequestStatus &, class RMobilePhone::TMobilePhoneNITZ &) const
+	?Close@RMobileNamStore@@QAEXXZ @ 51 NONAME ; void RMobileNamStore::Close(void)
+	?Start@CRetrieveMobilePhoneCWList@@QAEXAAVTRequestStatus@@W4TMobileInfoLocation@RMobilePhone@@@Z @ 52 NONAME ; void CRetrieveMobilePhoneCWList::Start(class TRequestStatus &, enum RMobilePhone::TMobileInfoLocation)
+	?SetTestNumber@RTelServer@@QAEHH@Z @ 53 NONAME ; int RTelServer::SetTestNumber(int)
+	?Open@RMobileUssdMessaging@@QAEHAAVRMobilePhone@@@Z @ 54 NONAME ; int RMobileUssdMessaging::Open(class RMobilePhone &)
+	??0TProtocolConfigOptionV2@RPacketContext@@QAE@XZ @ 55 NONAME ; RPacketContext::TProtocolConfigOptionV2::TProtocolConfigOptionV2(void)
+	?PutTagAndValue@CPhoneBookBuffer@@QAEHEABVTDesC8@@@Z @ 56 NONAME ; int CPhoneBookBuffer::PutTagAndValue(unsigned char, class TDesC8 const &)
+	?GetIccAccessCaps@RMobilePhone@@QBEHAAK@Z @ 57 NONAME ; int RMobilePhone::GetIccAccessCaps(unsigned long &) const
+	?GetFdnStatus@RMobilePhone@@QBEHAAW4TMobilePhoneFdnStatus@1@@Z @ 58 NONAME ; int RMobilePhone::GetFdnStatus(enum RMobilePhone::TMobilePhoneFdnStatus &) const
+	?MaxNumberEntries@CMobilePhoneListBase@@QBEHXZ @ 59 NONAME ; int CMobilePhoneListBase::MaxNumberEntries(void) const
+	?NotifyNetworkSelectionSettingChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 60 NONAME ; void RMobilePhone::NotifyNetworkSelectionSettingChange(class TRequestStatus &, class TDes8 &) const
+	?NotifyDynamicCapsChange@RPacketService@@QBEXAAVTRequestStatus@@AAI@Z @ 61 NONAME ; void RPacketService::NotifyDynamicCapsChange(class TRequestStatus &, unsigned int &) const
+	?GetStatus@RLine@@QBEHAAW4TStatus@RCall@@@Z @ 62 NONAME ; int RLine::GetStatus(enum RCall::TStatus &) const
+	??0RMobileConferenceCall@@QAE@XZ @ 63 NONAME ; RMobileConferenceCall::RMobileConferenceCall(void)
+	?ActivateUUS@RMobileCall@@QBEXAAVTRequestStatus@@ABVTDesC8@@@Z @ 64 NONAME ; void RMobileCall::ActivateUUS(class TRequestStatus &, class TDesC8 const &) const
+	?SetMulticallParams@RMobilePhone@@QBEXAAVTRequestStatus@@H@Z @ 65 NONAME ; void RMobilePhone::SetMulticallParams(class TRequestStatus &, int) const
+	?GetCaps@RMobileBroadcastMessaging@@QBEHAAVTDes8@@@Z @ 66 NONAME ; int RMobileBroadcastMessaging::GetCaps(class TDes8 &) const
+	?SetCallBarringStatus@RMobilePhone@@QBEXAAVTRequestStatus@@W4TMobilePhoneCBCondition@1@ABVTMobilePhoneCBChangeV1@1@@Z @ 67 NONAME ; void RMobilePhone::SetCallBarringStatus(class TRequestStatus &, enum RMobilePhone::TMobilePhoneCBCondition, class RMobilePhone::TMobilePhoneCBChangeV1 const &) const
+	?SetExtendedErrorGranularity@RTelServer@@QBEHW4TErrorGranularity@1@@Z @ 68 NONAME ; int RTelServer::SetExtendedErrorGranularity(enum RTelServer::TErrorGranularity) const
+	??0TMobilePhoneCBChangeV1@RMobilePhone@@QAE@XZ @ 69 NONAME ; RMobilePhone::TMobilePhoneCBChangeV1::TMobilePhoneCBChangeV1(void)
+	??1CMobilePhoneCcbsList@@UAE@XZ @ 70 NONAME ; CMobilePhoneCcbsList::~CMobilePhoneCcbsList(void)
+	?NewL@CRetrieveMobilePhoneDetectedNetworks@@SAPAV1@AAVRMobilePhone@@@Z @ 71 NONAME ; class CRetrieveMobilePhoneDetectedNetworks * CRetrieveMobilePhoneDetectedNetworks::NewL(class RMobilePhone &)
+	??1CRetrieveMobilePhoneCFList@@UAE@XZ @ 72 NONAME ; CRetrieveMobilePhoneCFList::~CRetrieveMobilePhoneCFList(void)
+	??0TMobilePhonePasswordChangeV1@RMobilePhone@@QAE@XZ @ 73 NONAME ; RMobilePhone::TMobilePhonePasswordChangeV1::TMobilePhonePasswordChangeV1(void)
+	?GetProfileParameters@RPacketQoS@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 74 NONAME ; void RPacketQoS::GetProfileParameters(class TRequestStatus &, class TDes8 &) const
+	?NotifyCallDurationChangeCancel@RCall@@QBEXXZ @ 75 NONAME ; void RCall::NotifyCallDurationChangeCancel(void) const
+	?GetInfo@RLine@@QBEHAAVTLineInfo@1@@Z @ 76 NONAME ; int RLine::GetInfo(class RLine::TLineInfo &) const
+	?Des2n@TDataPackage@@QBEPAVTDes8@@XZ @ 77 NONAME ; class TDes8 * TDataPackage::Des2n(void) const
+	?NackSmsStored@RMobileSmsMessaging@@QBEXAAVTRequestStatus@@ABVTDesC8@@H@Z @ 78 NONAME ; void RMobileSmsMessaging::NackSmsStored(class TRequestStatus &, class TDesC8 const &, int) const
+	??1CMobilePhoneONList@@UAE@XZ @ 79 NONAME ; CMobilePhoneONList::~CMobilePhoneONList(void)
+	?Start@CRetrieveMobilePhoneDetectedNetworks@@QAEXAAVTRequestStatus@@@Z @ 80 NONAME ; void CRetrieveMobilePhoneDetectedNetworks::Start(class TRequestStatus &)
+	??1CMobilePhoneBroadcastIdList@@UAE@XZ @ 81 NONAME ; CMobilePhoneBroadcastIdList::~CMobilePhoneBroadcastIdList(void)
+	?StartDTMFTone@RMobilePhone@@QBEHVTChar@@@Z @ 82 NONAME ; int RMobilePhone::StartDTMFTone(class TChar) const
+	?Set@CPhoneBookBuffer@@QAEXPAVTDes8@@@Z @ 83 NONAME ; void CPhoneBookBuffer::Set(class TDes8 *)
+	??1CSubSessionExtBase@@UAE@XZ @ 84 NONAME ; CSubSessionExtBase::~CSubSessionExtBase(void)
+	?SetMode@RTelServer@@QAEHW4TMobilePhoneNetworkMode@1@@Z @ 85 NONAME ; int RTelServer::SetMode(enum RTelServer::TMobilePhoneNetworkMode)
+	?ReceiveUUI@RMobileCall@@QBEXAAVTRequestStatus@@AAV?$TBuf@$0IB@@@@Z @ 86 NONAME ; void RMobileCall::ReceiveUUI(class TRequestStatus &, class TBuf<129> &) const
+	?NumberOfSlotsL@CLineBase@@UAEHH@Z @ 87 NONAME ; int CLineBase::NumberOfSlotsL(int)
+	?GetDynamicCaps@RPacketService@@QBEHAAI@Z @ 88 NONAME ; int RPacketService::GetDynamicCaps(unsigned int &) const
+	?Close@RMobileONStore@@QAEXXZ @ 89 NONAME ; void RMobileONStore::Close(void)
+	?Start@CRetrieveMobilePhoneSmsList@@QAEXAAVTRequestStatus@@@Z @ 90 NONAME ; void CRetrieveMobilePhoneSmsList::Start(class TRequestStatus &)
+	?SendUUI@RMobileCall@@QBEXAAVTRequestStatus@@HABV?$TBuf@$0IB@@@@Z @ 91 NONAME ; void RMobileCall::SendUUI(class TRequestStatus &, int, class TBuf<129> const &) const
+	?NotifyLockInfoChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAW4TMobilePhoneLock@1@AAVTDes8@@@Z @ 92 NONAME ; void RMobilePhone::NotifyLockInfoChange(class TRequestStatus &, enum RMobilePhone::TMobilePhoneLock &, class TDes8 &) const
+	?NotifyHookChange@RLine@@QAEXAAVTRequestStatus@@AAW4THookStatus@RCall@@@Z @ 93 NONAME ; void RLine::NotifyHookChange(class TRequestStatus &, enum RCall::THookStatus &)
+	?Start@CRetrieveMobilePhoneENList@@QAEXAAVTRequestStatus@@@Z @ 94 NONAME ; void CRetrieveMobilePhoneENList::Start(class TRequestStatus &)
+	?OpenPostProcessing@CCallBase@@EAEXPAVCTelSession@@H@Z @ 95 NONAME ; void CCallBase::OpenPostProcessing(class CTelSession *, int)
+	?GetCaps@RMobileConferenceCall@@QBEHAAK@Z @ 96 NONAME ; int RMobileConferenceCall::GetCaps(unsigned long &) const
+	?NotifySecurityCapsChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAK@Z @ 97 NONAME ; void RMobilePhone::NotifySecurityCapsChange(class TRequestStatus &, unsigned long &) const
+	??0TMobileCallDataCapsV1@RMobileCall@@QAE@XZ @ 98 NONAME ; RMobileCall::TMobileCallDataCapsV1::TMobileCallDataCapsV1(void)
+	?ConstructL@RMobileUssdMessaging@@IAEXXZ @ 99 NONAME ; void RMobileUssdMessaging::ConstructL(void)
+	?GetProfileCapabilities@RPacketQoS@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 100 NONAME ; void RPacketQoS::GetProfileCapabilities(class TRequestStatus &, class TDes8 &) const
+	?Close@RMobileBroadcastMessaging@@QAEXXZ @ 101 NONAME ; void RMobileBroadcastMessaging::Close(void)
+	??0TMobileGsmSmsEntryV1@RMobileSmsStore@@QAE@XZ @ 102 NONAME ; RMobileSmsStore::TMobileGsmSmsEntryV1::TMobileGsmSmsEntryV1(void)
+	?Open@RMobileSmsMessaging@@QAEHAAVRMobilePhone@@@Z @ 103 NONAME ; int RMobileSmsMessaging::Open(class RMobilePhone &)
+	?SetProfileParameters@RPacketQoS@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 104 NONAME ; void RPacketQoS::SetProfileParameters(class TRequestStatus &, class TDes8 &) const
+	?SetCallForwardingStatus@RMobilePhone@@QBEXAAVTRequestStatus@@W4TMobilePhoneCFCondition@1@ABVTMobilePhoneCFChangeV1@1@@Z @ 105 NONAME ; void RMobilePhone::SetCallForwardingStatus(class TRequestStatus &, enum RMobilePhone::TMobilePhoneCFCondition, class RMobilePhone::TMobilePhoneCFChangeV1 const &) const
+	?GetConfig@RPacketContext@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 106 NONAME ; void RPacketContext::GetConfig(class TRequestStatus &, class TDes8 &) const
+	??0TMobileUssdAttributesV1@RMobileUssdMessaging@@QAE@XZ @ 107 NONAME ; RMobileUssdMessaging::TMobileUssdAttributesV1::TMobileUssdAttributesV1(void)
+	?NewL@CRetrieveMobilePhoneBroadcastIdList@@SAPAV1@AAVRMobileBroadcastMessaging@@@Z @ 108 NONAME ; class CRetrieveMobilePhoneBroadcastIdList * CRetrieveMobilePhoneBroadcastIdList::NewL(class RMobileBroadcastMessaging &)
+	?Start@CRetrieveMobilePhoneBroadcastIdList@@QAEXAAVTRequestStatus@@W4TMobileBroadcastIdType@RMobileBroadcastMessaging@@@Z @ 109 NONAME ; void CRetrieveMobilePhoneBroadcastIdList::Start(class TRequestStatus &, enum RMobileBroadcastMessaging::TMobileBroadcastIdType)
+	?Close@RPacketContext@@QAEXXZ @ 110 NONAME ; void RPacketContext::Close(void)
+	?Close@RMobileENStore@@QAEXXZ @ 111 NONAME ; void RMobileENStore::Close(void)
+	??0CTelObject@@QAE@XZ @ 112 NONAME ; CTelObject::CTelObject(void)
+	?Destruct@RMobileCall@@MAEXXZ @ 113 NONAME ; void RMobileCall::Destruct(void)
+	?NotifyIncomingCallCancel@RLine@@QBEXXZ @ 114 NONAME ; void RLine::NotifyIncomingCallCancel(void) const
+	?CancelReq@RTelSubSessionBase@@IBEHHH@Z @ 115 NONAME ; int RTelSubSessionBase::CancelReq(int, int) const
+	?RetrieveListL@CRetrieveMobilePhoneCWList@@QAEPAVCMobilePhoneCWList@@XZ @ 116 NONAME ; class CMobilePhoneCWList * CRetrieveMobilePhoneCWList::RetrieveListL(void)
+	?SetTrafficChannel@RMobileCall@@QBEHW4TMobileCallTch@1@@Z @ 117 NONAME ; int RMobileCall::SetTrafficChannel(enum RMobileCall::TMobileCallTch) const
+	?NotifyCallServiceCapsChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAK@Z @ 118 NONAME ; void RMobilePhone::NotifyCallServiceCapsChange(class TRequestStatus &, unsigned long &) const
+	?RetrieveListL@CRetrieveMobilePhoneCBList@@QAEPAVCMobilePhoneCBList@@XZ @ 119 NONAME ; class CMobilePhoneCBList * CRetrieveMobilePhoneCBList::RetrieveListL(void)
+	?AcceptCCBSRecall@RMobileCall@@QBEXAAVTRequestStatus@@@Z @ 120 NONAME ; void RMobileCall::AcceptCCBSRecall(class TRequestStatus &) const
+	?Write@RMobilePhoneBookStore@@QBEXAAVTRequestStatus@@AAVTDes8@@AAH@Z @ 121 NONAME ; void RMobilePhoneBookStore::Write(class TRequestStatus &, class TDes8 &, int &) const
+	??0RMobilePhone@@QAE@XZ @ 122 NONAME ; RMobilePhone::RMobilePhone(void)
+	?SetPuct@RMobilePhone@@QBEXAAVTRequestStatus@@ABVTDesC8@@@Z @ 123 NONAME ; void RMobilePhone::SetPuct(class TRequestStatus &, class TDesC8 const &) const
+	??1CRetrieveMobilePhoneSmspList@@UAE@XZ @ 124 NONAME ; CRetrieveMobilePhoneSmspList::~CRetrieveMobilePhoneSmspList(void)
+	?NotifyStatusChange@RPacketContext@@QAEXAAVTRequestStatus@@AAW4TContextStatus@1@@Z @ 125 NONAME ; void RPacketContext::NotifyStatusChange(class TRequestStatus &, enum RPacketContext::TContextStatus &)
+	?NotifyCallWaitingStatusChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 126 NONAME ; void RMobilePhone::NotifyCallWaitingStatusChange(class TRequestStatus &, class TDes8 &) const
+	??0TMobilePhoneIdentityV1@RMobilePhone@@QAE@XZ @ 127 NONAME ; RMobilePhone::TMobilePhoneIdentityV1::TMobilePhoneIdentityV1(void)
+	?NotifyIccMessageWaitingIndicatorsChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 128 NONAME ; void RMobilePhone::NotifyIccMessageWaitingIndicatorsChange(class TRequestStatus &, class TDes8 &) const
+	?NewL@CRetrieveMobilePhoneNamList@@SAPAV1@AAVRMobilePhoneStore@@@Z @ 129 NONAME ; class CRetrieveMobilePhoneNamList * CRetrieveMobilePhoneNamList::NewL(class RMobilePhoneStore &)
+	?Get@RTelSubSessionBase@@IBEHHAAVTDes8@@AAVTDes16@@W4TReqPriorityType@1@@Z @ 130 NONAME ; int RTelSubSessionBase::Get(int, class TDes8 &, class TDes16 &, enum RTelSubSessionBase::TReqPriorityType) const
+	??0TMobileSmspEntryV1@RMobileSmsMessaging@@QAE@XZ @ 131 NONAME ; RMobileSmsMessaging::TMobileSmspEntryV1::TMobileSmspEntryV1(void)
+	??0TMobileSmsSendAttributesV1@RMobileSmsMessaging@@QAE@XZ @ 132 NONAME ; RMobileSmsMessaging::TMobileSmsSendAttributesV1::TMobileSmsSendAttributesV1(void)
+	?ReceiveMessage@RMobileSmsMessaging@@QBEXAAVTRequestStatus@@AAVTDes8@@1@Z @ 133 NONAME ; void RMobileSmsMessaging::ReceiveMessage(class TRequestStatus &, class TDes8 &, class TDes8 &) const
+	?Close@RMobilePhoneBookStore@@QAEXXZ @ 134 NONAME ; void RMobilePhoneBookStore::Close(void)
+	?Swap@RMobileConferenceCall@@QBEXAAVTRequestStatus@@@Z @ 135 NONAME ; void RMobileConferenceCall::Swap(class TRequestStatus &) const
+	?GetPreferredBearer@RPacketService@@QBEHAAW4TPreferredBearer@1@@Z @ 136 NONAME ; int RPacketService::GetPreferredBearer(enum RPacketService::TPreferredBearer &) const
+	?StartBatch@CRetrieveMobilePhoneSmsList@@QAEXAAVTRequestStatus@@HH@Z @ 137 NONAME ; void CRetrieveMobilePhoneSmsList::StartBatch(class TRequestStatus &, int, int)
+	??0TMobileBroadcastIdEntryV1@RMobileBroadcastMessaging@@QAE@XZ @ 138 NONAME ; RMobileBroadcastMessaging::TMobileBroadcastIdEntryV1::TMobileBroadcastIdEntryV1(void)
+	?SetFdnSetting@RMobilePhone@@QBEXAAVTRequestStatus@@W4TMobilePhoneFdnSetting@1@@Z @ 139 NONAME ; void RMobilePhone::SetFdnSetting(class TRequestStatus &, enum RMobilePhone::TMobilePhoneFdnSetting) const
+	?OpenNewCall@RCall@@QAEHAAVRTelServer@@ABVTDesC16@@AAVTDes16@@@Z @ 140 NONAME ; int RCall::OpenNewCall(class RTelServer &, class TDesC16 const &, class TDes16 &)
+	?NotifyModemDetectedCancel@RPhone@@QBEXXZ @ 141 NONAME ; void RPhone::NotifyModemDetectedCancel(void) const
+	??1CMobilePhoneCFList@@UAE@XZ @ 142 NONAME ; CMobilePhoneCFList::~CMobilePhoneCFList(void)
+	?Dial@RCall@@QBEHABVTDesC8@@ABVTDesC16@@@Z @ 143 NONAME ; int RCall::Dial(class TDesC8 const &, class TDesC16 const &) const
+	?RetrieveListL@CRetrieveMobilePhoneCFList@@QAEPAVCMobilePhoneCFList@@XZ @ 144 NONAME ; class CMobilePhoneCFList * CRetrieveMobilePhoneCFList::RetrieveListL(void)
+	??0CSubSessionExtBase@@QAE@XZ @ 145 NONAME ; CSubSessionExtBase::CSubSessionExtBase(void)
+	?Service@CLineBase@@EAEHABVRMessage2@@PAVCReqEntry@@@Z @ 146 NONAME ; int CLineBase::Service(class RMessage2 const &, class CReqEntry *)
+	?ConstructL@RMobileNamStore@@IAEXXZ @ 147 NONAME ; void RMobileNamStore::ConstructL(void)
+	?Detach@RPacketService@@QBEXAAVTRequestStatus@@@Z @ 148 NONAME ; void RPacketService::Detach(class TRequestStatus &) const
+	?NotifyCapsChange@RPhone@@QAEXAAVTRequestStatus@@AAUTCaps@1@@Z @ 149 NONAME ; void RPhone::NotifyCapsChange(class TRequestStatus &, struct RPhone::TCaps &)
+	?ConstructL@RMobileCall@@MAEXXZ @ 150 NONAME ; void RMobileCall::ConstructL(void)
+	?ReqModeL@CCallBase@@UAEIH@Z @ 151 NONAME ; unsigned int CCallBase::ReqModeL(int)
+	?ReqModeL@CFaxBase@@UAEIH@Z @ 152 NONAME ; unsigned int CFaxBase::ReqModeL(int)
+	?NewL@CMobilePhoneBroadcastIdList@@SAPAV1@XZ @ 153 NONAME ; class CMobilePhoneBroadcastIdList * CMobilePhoneBroadcastIdList::NewL(void)
+	?Des2u@TDataPackage@@QBEPAVTDes16@@XZ @ 154 NONAME ; class TDes16 * TDataPackage::Des2u(void) const
+	?Open@RPhone@@QAEHAAVRTelServer@@ABVTDesC16@@@Z @ 155 NONAME ; int RPhone::Open(class RTelServer &, class TDesC16 const &)
+	?InternalizeL@CMobilePhoneListBase@@QAEXAAVRReadStream@@@Z @ 156 NONAME ; void CMobilePhoneListBase::InternalizeL(class RReadStream &)
+	?GetNetworkCaps@RMobilePhone@@QBEHAAK@Z @ 157 NONAME ; int RMobilePhone::GetNetworkCaps(unsigned long &) const
+	??1CPhoneBase@@UAE@XZ @ 158 NONAME ; CPhoneBase::~CPhoneBase(void)
+	?NotifyStopInDTMFString@RMobilePhone@@QBEXAAVTRequestStatus@@@Z @ 159 NONAME ; void RMobilePhone::NotifyStopInDTMFString(class TRequestStatus &) const
+	?EnumeratePhones@RTelServer@@QBEHAAH@Z @ 160 NONAME ; int RTelServer::EnumeratePhones(int &) const
+	??0TMobilePhoneStoreInfoV1@RMobilePhoneStore@@QAE@XZ @ 161 NONAME ; RMobilePhoneStore::TMobilePhoneStoreInfoV1::TMobilePhoneStoreInfoV1(void)
+	?Get@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@AAVTDes8@@AAVTDes16@@W4TReqPriorityType@1@@Z @ 162 NONAME ; void RTelSubSessionBase::Get(int, class TRequestStatus &, class TDes8 &, class TDes16 &, enum RTelSubSessionBase::TReqPriorityType) const
+	??1CMobilePhoneNamList@@UAE@XZ @ 163 NONAME ; CMobilePhoneNamList::~CMobilePhoneNamList(void)
+	?NotifyMessageWaiting@RMobilePhone@@QBEXAAVTRequestStatus@@AAH@Z @ 164 NONAME ; void RMobilePhone::NotifyMessageWaiting(class TRequestStatus &, int &) const
+	?PutTagAndValue@CPhoneBookBuffer@@QAEHEE@Z @ 165 NONAME ; int CPhoneBookBuffer::PutTagAndValue(unsigned char, unsigned char)
+	?GetInfo@RCall@@QBEHAAVTCallInfo@1@@Z @ 166 NONAME ; int RCall::GetInfo(class RCall::TCallInfo &) const
+	?GetCCBSStatus@RMobilePhone@@QBEXAAVTRequestStatus@@AAW4TMobilePhoneCCBSStatus@1@W4TMobileInfoLocation@1@@Z @ 167 NONAME ; void RMobilePhone::GetCCBSStatus(class TRequestStatus &, enum RMobilePhone::TMobilePhoneCCBSStatus &, enum RMobilePhone::TMobileInfoLocation) const
+	?ActivateCCBS@RMobileCall@@QBEXAAVTRequestStatus@@@Z @ 168 NONAME ; void RMobileCall::ActivateCCBS(class TRequestStatus &) const
+	?GetPhoneId@RMobilePhone@@QBEXAAVTRequestStatus@@AAVTMobilePhoneIdentityV1@1@@Z @ 169 NONAME ; void RMobilePhone::GetPhoneId(class TRequestStatus &, class RMobilePhone::TMobilePhoneIdentityV1 &) const
+	?NotifyReceiveModeChange@RMobileSmsMessaging@@QAEXAAVTRequestStatus@@AAW4TMobileSmsReceiveMode@1@@Z @ 170 NONAME ; void RMobileSmsMessaging::NotifyReceiveModeChange(class TRequestStatus &, enum RMobileSmsMessaging::TMobileSmsReceiveMode &)
+	??0RFax@@QAE@XZ @ 171 NONAME ; RFax::RFax(void)
+	?Delete@RMobilePhoneStore@@QBEXAAVTRequestStatus@@H@Z @ 172 NONAME ; void RMobilePhoneStore::Delete(class TRequestStatus &, int) const
+	?__DbgCheckHeap@RTelServer@@QAEHH@Z @ 173 NONAME ; int RTelServer::__DbgCheckHeap(int)
+	?GetCurrentMode@RMobilePhone@@QBEHAAW4TMobilePhoneNetworkMode@1@@Z @ 174 NONAME ; int RMobilePhone::GetCurrentMode(enum RMobilePhone::TMobilePhoneNetworkMode &) const
+	?GetBatteryInfo@RMobilePhone@@QBEXAAVTRequestStatus@@AAVTMobilePhoneBatteryInfoV1@1@@Z @ 175 NONAME ; void RMobilePhone::GetBatteryInfo(class TRequestStatus &, class RMobilePhone::TMobilePhoneBatteryInfoV1 &) const
+	?GetBatteryCaps@RMobilePhone@@QBEHAAK@Z @ 176 NONAME ; int RMobilePhone::GetBatteryCaps(unsigned long &) const
+	?ProgramFeatureCode@RMobilePhone@@QBEXAAVTRequestStatus@@ABVTDesC16@@W4TMobilePhoneNetworkService@1@W4TMobilePhoneServiceAction@1@@Z @ 177 NONAME ; void RMobilePhone::ProgramFeatureCode(class TRequestStatus &, class TDesC16 const &, enum RMobilePhone::TMobilePhoneNetworkService, enum RMobilePhone::TMobilePhoneServiceAction) const
+	?ConstructL@RPacketContext@@MAEXXZ @ 178 NONAME ; void RPacketContext::ConstructL(void)
+	?ReqCompleted@CTelObject@@UAEXKH@Z @ 179 NONAME ; void CTelObject::ReqCompleted(unsigned long, int)
+	?ExternalizeL@CMobilePhoneListBase@@QBEXAAVRWriteStream@@@Z @ 180 NONAME ; void CMobilePhoneListBase::ExternalizeL(class RWriteStream &) const
+	?CheckOwnership@CCallBase@@UBE?AW4TCallOwnership@MCallBaseTSY@@K@Z @ 181 NONAME ; enum MCallBaseTSY::TCallOwnership CCallBase::CheckOwnership(unsigned long) const
+	?EnumerateMessageStores@RMobileSmsMessaging@@QBEHAAH@Z @ 182 NONAME ; int RMobileSmsMessaging::EnumerateMessageStores(int &) const
+	?RelinquishOwnershipCompleted@CCallBase@@UAEXH@Z @ 183 NONAME ; void CCallBase::RelinquishOwnershipCompleted(int)
+	?Open@RMobileSmsStore@@QAEHAAVRMobileSmsMessaging@@ABVTDesC16@@@Z @ 184 NONAME ; int RMobileSmsStore::Open(class RMobileSmsMessaging &, class TDesC16 const &)
+	?GetHookStatus@RLine@@QBEHAAW4THookStatus@RCall@@@Z @ 185 NONAME ; int RLine::GetHookStatus(enum RCall::THookStatus &) const
+	?NotifyModeChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAW4TMobilePhoneNetworkMode@1@@Z @ 186 NONAME ; void RMobilePhone::NotifyModeChange(class TRequestStatus &, enum RMobilePhone::TMobilePhoneNetworkMode &) const
+	?RetrieveListL@CRetrieveMobilePhoneCcbsList@@QAEPAVCMobilePhoneCcbsList@@XZ @ 187 NONAME ; class CMobilePhoneCcbsList * CRetrieveMobilePhoneCcbsList::RetrieveListL(void)
+	??0TMobileCallParamsV1@RMobileCall@@QAE@XZ @ 188 NONAME ; RMobileCall::TMobileCallParamsV1::TMobileCallParamsV1(void)
+	?NotifyDefaultPrivacyChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAW4TMobilePhonePrivacy@1@@Z @ 189 NONAME ; void RMobilePhone::NotifyDefaultPrivacyChange(class TRequestStatus &, enum RMobilePhone::TMobilePhonePrivacy &) const
+	?TriggerQoSConfigRestore@RTelServer@@QAEHXZ @ 190 NONAME ; int RTelServer::TriggerQoSConfigRestore(void)
+	?GetMobileCallCaps@RMobileCall@@QBEHAAVTDes8@@@Z @ 191 NONAME ; int RMobileCall::GetMobileCallCaps(class TDes8 &) const
+	??1CMobilePhoneGsmSmsList@@UAE@XZ @ 192 NONAME ; CMobilePhoneGsmSmsList::~CMobilePhoneGsmSmsList(void)
+	?NotifyHookChangeCancel@RCall@@QBEXXZ @ 193 NONAME ; void RCall::NotifyHookChangeCancel(void) const
+	?NumberOfSlotsL@CFaxBase@@UAEHH@Z @ 194 NONAME ; int CFaxBase::NumberOfSlotsL(int)
+	?NotifyStatusChangeCancel@RCall@@QBEXXZ @ 195 NONAME ; void RCall::NotifyStatusChangeCancel(void) const
+	?Service@CFaxBase@@EAEHABVRMessage2@@PAVCReqEntry@@@Z @ 196 NONAME ; int CFaxBase::Service(class RMessage2 const &, class CReqEntry *)
+	?GetMobileCallInfo@RMobileConferenceCall@@QBEHHAAVTDes8@@@Z @ 197 NONAME ; int RMobileConferenceCall::GetMobileCallInfo(int, class TDes8 &) const
+	??0TMobileCallCapsV1@RMobileCall@@QAE@XZ @ 198 NONAME ; RMobileCall::TMobileCallCapsV1::TMobileCallCapsV1(void)
+	?NotifyMobileLineStatusChange@RMobileLine@@QBEXAAVTRequestStatus@@AAW4TMobileCallStatus@RMobileCall@@@Z @ 199 NONAME ; void RMobileLine::NotifyMobileLineStatusChange(class TRequestStatus &, enum RMobileCall::TMobileCallStatus &) const
+	??0RMobilePhoneBookStore@@QAE@XZ @ 200 NONAME ; RMobilePhoneBookStore::RMobilePhoneBookStore(void)
+	??1CRetrieveMobilePhoneCBList@@UAE@XZ @ 201 NONAME ; CRetrieveMobilePhoneCBList::~CRetrieveMobilePhoneCBList(void)
+	?NewL@CRetrieveMobilePhoneSmspList@@SAPAV1@AAVRMobileSmsMessaging@@@Z @ 202 NONAME ; class CRetrieveMobilePhoneSmspList * CRetrieveMobilePhoneSmspList::NewL(class RMobileSmsMessaging &)
+	?SetLockSetting@RMobilePhone@@QBEXAAVTRequestStatus@@W4TMobilePhoneLock@1@W4TMobilePhoneLockSetting@1@@Z @ 203 NONAME ; void RMobilePhone::SetLockSetting(class TRequestStatus &, enum RMobilePhone::TMobilePhoneLock, enum RMobilePhone::TMobilePhoneLockSetting) const
+	?OpenExistingCall@RCall@@QAEHAAVRPhone@@ABVTDesC16@@@Z @ 204 NONAME ; int RCall::OpenExistingCall(class RPhone &, class TDesC16 const &)
+	?NotifyConferenceStatusChange@RMobileConferenceCall@@QBEXAAVTRequestStatus@@AAW4TMobileConferenceStatus@1@@Z @ 205 NONAME ; void RMobileConferenceCall::NotifyConferenceStatusChange(class TRequestStatus &, enum RMobileConferenceCall::TMobileConferenceStatus &) const
+	?Read@RMobilePhoneBookStore@@QBEXAAVTRequestStatus@@HHAAVTDes8@@@Z @ 206 NONAME ; void RMobilePhoneBookStore::Read(class TRequestStatus &, int, int, class TDes8 &) const
+	?NotifyBatteryInfoChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAVTMobilePhoneBatteryInfoV1@1@@Z @ 207 NONAME ; void RMobilePhone::NotifyBatteryInfoChange(class TRequestStatus &, class RMobilePhone::TMobilePhoneBatteryInfoV1 &) const
+	?ResumeSmsReception@RMobileSmsMessaging@@QBEXAAVTRequestStatus@@@Z @ 208 NONAME ; void RMobileSmsMessaging::ResumeSmsReception(class TRequestStatus &) const
+	?NotifyMobileCallCapsChange@RMobileCall@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 209 NONAME ; void RMobileCall::NotifyMobileCallCapsChange(class TRequestStatus &, class TDes8 &) const
+	?GetTsyName@RTelServer@@QBEHHAAVTDes16@@@Z @ 210 NONAME ; int RTelServer::GetTsyName(int, class TDes16 &) const
+	?OpenNewContext@RPacketContext@@QAEHAAVRPacketService@@AAVTDes16@@@Z @ 211 NONAME ; int RPacketContext::OpenNewContext(class RPacketService &, class TDes16 &)
+	?NewL@CMobilePhoneCBList@@SAPAV1@XZ @ 212 NONAME ; class CMobilePhoneCBList * CMobilePhoneCBList::NewL(void)
+	?GetUUSSetting@RMobilePhone@@QBEXAAVTRequestStatus@@AAW4TMobilePhoneUUSSetting@1@@Z @ 213 NONAME ; void RMobilePhone::GetUUSSetting(class TRequestStatus &, enum RMobilePhone::TMobilePhoneUUSSetting &) const
+	?GetStaticCaps@RPacketService@@QBEHAAIW4TProtocolType@RPacketContext@@@Z @ 214 NONAME ; int RPacketService::GetStaticCaps(unsigned int &, enum RPacketContext::TProtocolType) const
+	?GetSignalStrength@RMobilePhone@@QBEXAAVTRequestStatus@@AAJAAC@Z @ 215 NONAME ; void RMobilePhone::GetSignalStrength(class TRequestStatus &, long &, signed char &) const
+	?Set@RTelSubSessionBase@@IBEHHABVTDesC16@@0W4TReqPriorityType@1@@Z @ 216 NONAME ; int RTelSubSessionBase::Set(int, class TDesC16 const &, class TDesC16 const &, enum RTelSubSessionBase::TReqPriorityType) const
+	?NotifyHscsdInfoChange@RMobileCall@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 217 NONAME ; void RMobileCall::NotifyHscsdInfoChange(class TRequestStatus &, class TDes8 &) const
+	?SetDefaultContextParams@RPacketService@@QBEHABVTDesC8@@@Z @ 218 NONAME ; int RPacketService::SetDefaultContextParams(class TDesC8 const &) const
+	?Service@CSubSessionExtBase@@MAEHABVRMessage2@@PAVCReqEntry@@@Z @ 219 NONAME ; int CSubSessionExtBase::Service(class RMessage2 const &, class CReqEntry *)
+	?ConstructL@RMobileONStore@@IAEXXZ @ 220 NONAME ; void RMobileONStore::ConstructL(void)
+	?SendNetworkServiceRequest@RMobilePhone@@QBEXAAVTRequestStatus@@ABVTDesC16@@@Z @ 221 NONAME ; void RMobilePhone::SendNetworkServiceRequest(class TRequestStatus &, class TDesC16 const &) const
+	?GetMulticallParams@RMobilePhone@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 222 NONAME ; void RMobilePhone::GetMulticallParams(class TRequestStatus &, class TDes8 &) const
+	?ChangeSecurityCode@RMobilePhone@@QBEXAAVTRequestStatus@@W4TMobilePhoneSecurityCode@1@ABVTMobilePhonePasswordChangeV1@1@@Z @ 223 NONAME ; void RMobilePhone::ChangeSecurityCode(class TRequestStatus &, enum RMobilePhone::TMobilePhoneSecurityCode, class RMobilePhone::TMobilePhonePasswordChangeV1 const &) const
+	?StartRead@CPhoneBookBuffer@@QAEXXZ @ 224 NONAME ; void CPhoneBookBuffer::StartRead(void)
+	??1CRetrieveMobilePhoneBroadcastIdList@@UAE@XZ @ 225 NONAME ; CRetrieveMobilePhoneBroadcastIdList::~CRetrieveMobilePhoneBroadcastIdList(void)
+	?GetTsyVersionNumber@RTelServer@@QBEHABVTDesC16@@AAVTVersion@@@Z @ 226 NONAME ; int RTelServer::GetTsyVersionNumber(class TDesC16 const &, class TVersion &) const
+	?TerminateFaxSession@RFax@@QBEHXZ @ 227 NONAME ; int RFax::TerminateFaxSession(void) const
+	?GetValue@CPhoneBookBuffer@@QAEHAAE@Z @ 228 NONAME ; int CPhoneBookBuffer::GetValue(unsigned char &)
+	?GetCustomerServiceProfile@RMobilePhone@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 229 NONAME ; void RMobilePhone::GetCustomerServiceProfile(class TRequestStatus &, class TDes8 &) const
+	?AddRangeEntryL@CMobilePhoneBroadcastIdList@@QAEXABVTMobileBroadcastIdEntryV1@RMobileBroadcastMessaging@@0@Z @ 230 NONAME ; void CMobilePhoneBroadcastIdList::AddRangeEntryL(class RMobileBroadcastMessaging::TMobileBroadcastIdEntryV1 const &, class RMobileBroadcastMessaging::TMobileBroadcastIdEntryV1 const &)
+	?OpenNewObjectL@CFaxBase@@EAEPAVCTelObject@@AAVTDes16@@@Z @ 231 NONAME ; class CTelObject * CFaxBase::OpenNewObjectL(class TDes16 &)
+	?NotifyAlternatingCallSwitch@RMobileCall@@QBEXAAVTRequestStatus@@@Z @ 232 NONAME ; void RMobileCall::NotifyAlternatingCallSwitch(class TRequestStatus &) const
+	?AckSmsStored@RMobileSmsMessaging@@QBEXAAVTRequestStatus@@ABVTDesC8@@H@Z @ 233 NONAME ; void RMobileSmsMessaging::AckSmsStored(class TRequestStatus &, class TDesC8 const &, int) const
+	?RetrieveListL@CRetrieveMobilePhoneNamList@@QAEPAVCMobilePhoneNamList@@XZ @ 234 NONAME ; class CMobilePhoneNamList * CRetrieveMobilePhoneNamList::RetrieveListL(void)
+	?NumberOfSlotsL@CPhoneBase@@UAEHH@Z @ 235 NONAME ; int CPhoneBase::NumberOfSlotsL(int)
+	?NotifyNetworkRegistrationStatusChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAW4TMobilePhoneRegistrationStatus@1@@Z @ 236 NONAME ; void RMobilePhone::NotifyNetworkRegistrationStatusChange(class TRequestStatus &, enum RMobilePhone::TMobilePhoneRegistrationStatus &) const
+	?GetCaps@RPhone@@QBEHAAUTCaps@1@@Z @ 237 NONAME ; int RPhone::GetCaps(struct RPhone::TCaps &) const
+	??0RMobileCall@@QAE@XZ @ 238 NONAME ; RMobileCall::RMobileCall(void)
+	?NotifyCallAddedCancel@RLine@@QBEXXZ @ 239 NONAME ; void RLine::NotifyCallAddedCancel(void) const
+	?NotifyCapsChangeCancel@RLine@@QBEXXZ @ 240 NONAME ; void RLine::NotifyCapsChangeCancel(void) const
+	?ReqModeL@CLineBase@@UAEIH@Z @ 241 NONAME ; unsigned int CLineBase::ReqModeL(int)
+	?GetValue@CPhoneBookBuffer@@QAEHAAVTPtrC16@@@Z @ 242 NONAME ; int CPhoneBookBuffer::GetValue(class TPtrC16 &)
+	?SetMaxCostMeter@RMobilePhone@@QBEXAAVTRequestStatus@@I@Z @ 243 NONAME ; void RMobilePhone::SetMaxCostMeter(class TRequestStatus &, unsigned int) const
+	?GetPhoneStoreInfo@RMobilePhone@@QBEXAAVTRequestStatus@@AAVTDes8@@ABVTDesC16@@@Z @ 244 NONAME ; void RMobilePhone::GetPhoneStoreInfo(class TRequestStatus &, class TDes8 &, class TDesC16 const &) const
+	?SetAndGet@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@ABVTDesC8@@AAVTDes8@@W4TReqPriorityType@1@@Z @ 245 NONAME ; void RTelSubSessionBase::SetAndGet(int, class TRequestStatus &, class TDesC8 const &, class TDes8 &, enum RTelSubSessionBase::TReqPriorityType) const
+	?TriggerContextConfigRestore@RTelServer@@QAEHXZ @ 246 NONAME ; int RTelServer::TriggerContextConfigRestore(void)
+	?SetIncomingCallType@RMobilePhone@@QBEXAAVTRequestStatus@@W4TMobilePhoneIncomingCallType@1@AAVTDes8@@@Z @ 247 NONAME ; void RMobilePhone::SetIncomingCallType(class TRequestStatus &, enum RMobilePhone::TMobilePhoneIncomingCallType, class TDes8 &) const
+	?NotifyStoreEvent@RMobilePhoneStore@@QBEXAAVTRequestStatus@@AAKAAH@Z @ 248 NONAME ; void RMobilePhoneStore::NotifyStoreEvent(class TRequestStatus &, unsigned long &, int &) const
+	??0RMobileNamStore@@QAE@XZ @ 249 NONAME ; RMobileNamStore::RMobileNamStore(void)
+	?TransferOwnership@RCall@@QBEHXZ @ 250 NONAME ; int RCall::TransferOwnership(void) const
+	?ConstructL@RMobileBroadcastMessaging@@IAEXXZ @ 251 NONAME ; void RMobileBroadcastMessaging::ConstructL(void)
+	?GetDTMFCaps@RMobilePhone@@QBEHAAK@Z @ 252 NONAME ; int RMobilePhone::GetDTMFCaps(unsigned long &) const
+	?FlowControlSuspend@CTelObject@@UAEXXZ @ 253 NONAME ; void CTelObject::FlowControlSuspend(void)
+	?ConstructL@RMobileENStore@@IAEXXZ @ 254 NONAME ; void RMobileENStore::ConstructL(void)
+	?NotifyUUSSettingChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAW4TMobilePhoneUUSSetting@1@@Z @ 255 NONAME ; void RMobilePhone::NotifyUUSSettingChange(class TRequestStatus &, enum RMobilePhone::TMobilePhoneUUSSetting &) const
+	?Dial@RCall@@QAEXAAVTRequestStatus@@ABVTDesC8@@ABVTDesC16@@@Z @ 256 NONAME ; void RCall::Dial(class TRequestStatus &, class TDesC8 const &, class TDesC16 const &)
+	?Destruct@RLine@@MAEXXZ @ 257 NONAME ; void RLine::Destruct(void)
+	?SetActiveNam@RMobileNamStore@@QBEXAAVTRequestStatus@@H@Z @ 258 NONAME ; void RMobileNamStore::SetActiveNam(class TRequestStatus &, int) const
+	?NewL@CMobilePhoneCFList@@SAPAV1@XZ @ 259 NONAME ; class CMobilePhoneCFList * CMobilePhoneCFList::NewL(void)
+	?GetInfo@RMobilePhoneStore@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 260 NONAME ; void RMobilePhoneStore::GetInfo(class TRequestStatus &, class TDes8 &) const
+	??0TMobilePhoneLocationAreaV1@RMobilePhone@@QAE@XZ @ 261 NONAME ; RMobilePhone::TMobilePhoneLocationAreaV1::TMobilePhoneLocationAreaV1(void)
+	??0TMobileCallInfoV1@RMobileCall@@QAE@XZ @ 262 NONAME ; RMobileCall::TMobileCallInfoV1::TMobileCallInfoV1(void)
+	?OpenNewCall@RCall@@QAEHAAVRPhone@@ABVTDesC16@@@Z @ 263 NONAME ; int RCall::OpenNewCall(class RPhone &, class TDesC16 const &)
+	?Ptr2@TDataPackage@@QBEPAXXZ @ 264 NONAME ; void * TDataPackage::Ptr2(void) const
+	?NotifyFilterSettingChange@RMobileBroadcastMessaging@@QBEXAAVTRequestStatus@@AAW4TMobilePhoneBroadcastFilter@1@@Z @ 265 NONAME ; void RMobileBroadcastMessaging::NotifyFilterSettingChange(class TRequestStatus &, enum RMobileBroadcastMessaging::TMobilePhoneBroadcastFilter &) const
+	??0TMobilePhoneMulticallSettingsV1@RMobilePhone@@QAE@XZ @ 266 NONAME ; RMobilePhone::TMobilePhoneMulticallSettingsV1::TMobilePhoneMulticallSettingsV1(void)
+	?TriggerContextStatusChange@RTelServer@@QAEHXZ @ 267 NONAME ; int RTelServer::TriggerContextStatusChange(void)
+	?SetMaxNumberEntries@CMobilePhoneListBase@@QAEXH@Z @ 268 NONAME ; void CMobilePhoneListBase::SetMaxNumberEntries(int)
+	?SetALSLine@RMobilePhone@@QBEXAAVTRequestStatus@@W4TMobilePhoneALSLine@1@@Z @ 269 NONAME ; void RMobilePhone::SetALSLine(class TRequestStatus &, enum RMobilePhone::TMobilePhoneALSLine) const
+	?HangupWithUUI@RMobileCall@@QBEXAAVTRequestStatus@@ABV?$TBuf@$0IB@@@@Z @ 270 NONAME ; void RMobileCall::HangupWithUUI(class TRequestStatus &, class TBuf<129> const &) const
+	?CreateFaxProgressChunk@CCallBase@@UAEPAUTProgress@RFax@@XZ @ 271 NONAME ; struct RFax::TProgress * CCallBase::CreateFaxProgressChunk(void)
+	?Start@CRetrieveMobilePhoneCFList@@QAEXAAVTRequestStatus@@W4TMobilePhoneCFCondition@RMobilePhone@@W4TMobileInfoLocation@4@@Z @ 272 NONAME ; void CRetrieveMobilePhoneCFList::Start(class TRequestStatus &, enum RMobilePhone::TMobilePhoneCFCondition, enum RMobilePhone::TMobileInfoLocation)
+	?NewL@CMobilePhoneCWList@@SAPAV1@XZ @ 273 NONAME ; class CMobilePhoneCWList * CMobilePhoneCWList::NewL(void)
+	?NotifyModemDetected@RPhone@@QAEXAAVTRequestStatus@@AAW4TModemDetection@1@@Z @ 274 NONAME ; void RPhone::NotifyModemDetected(class TRequestStatus &, enum RPhone::TModemDetection &)
+	?ConstructL@RPhone@@MAEXXZ @ 275 NONAME ; void RPhone::ConstructL(void)
+	?Get@RTelSubSessionBase@@IBEHHAAVTDes16@@0W4TReqPriorityType@1@@Z @ 276 NONAME ; int RTelSubSessionBase::Get(int, class TDes16 &, class TDes16 &, enum RTelSubSessionBase::TReqPriorityType) const
+	?Set@RTelSubSessionBase@@IBEHHABVTDesC8@@W4TReqPriorityType@1@@Z @ 277 NONAME ; int RTelSubSessionBase::Set(int, class TDesC8 const &, enum RTelSubSessionBase::TReqPriorityType) const
+	?Destruct@RMobileConferenceCall@@IAEXXZ @ 278 NONAME ; void RMobileConferenceCall::Destruct(void)
+	?EnumerateCalls@RMobileConferenceCall@@QBEHAAH@Z @ 279 NONAME ; int RMobileConferenceCall::EnumerateCalls(int &) const
+	?Open@RMobileNamStore@@QAEHAAVRMobilePhone@@@Z @ 280 NONAME ; int RMobileNamStore::Open(class RMobilePhone &)
+	??0RMobileBroadcastMessaging@@QAE@XZ @ 281 NONAME ; RMobileBroadcastMessaging::RMobileBroadcastMessaging(void)
+	?GetProgress@RFax@@QAEHAAUTProgress@1@@Z @ 282 NONAME ; int RFax::GetProgress(struct RFax::TProgress &)
+	?Destruct@RPhone@@MAEXXZ @ 283 NONAME ; void RPhone::Destruct(void)
+	?GetCaps@RMobileUssdMessaging@@QBEHAAVTDes8@@@Z @ 284 NONAME ; int RMobileUssdMessaging::GetCaps(class TDes8 &) const
+	??0TMobilePhoneCCBSEntryV1@RMobilePhone@@QAE@XZ @ 285 NONAME ; RMobilePhone::TMobilePhoneCCBSEntryV1::TMobilePhoneCCBSEntryV1(void)
+	?Destruct@RMobileBroadcastMessaging@@IAEXXZ @ 286 NONAME ; void RMobileBroadcastMessaging::Destruct(void)
+	?Set@RTelSubSessionBase@@IBEHHABVTDesC16@@W4TReqPriorityType@1@@Z @ 287 NONAME ; int RTelSubSessionBase::Set(int, class TDesC16 const &, enum RTelSubSessionBase::TReqPriorityType) const
+	??1CRetrieveMobilePhoneNamList@@UAE@XZ @ 288 NONAME ; CRetrieveMobilePhoneNamList::~CRetrieveMobilePhoneNamList(void)
+	?NotifyPrivacyConfirmation@RMobileCall@@QBEXAAVTRequestStatus@@AAW4TMobilePhonePrivacy@RMobilePhone@@@Z @ 289 NONAME ; void RMobileCall::NotifyPrivacyConfirmation(class TRequestStatus &, enum RMobilePhone::TMobilePhonePrivacy &) const
+	?CTelObject_Reserved1@CTelObject@@EAEXXZ @ 290 NONAME ; void CTelObject::CTelObject_Reserved1(void)
+	??1CMobilePhoneCBList@@UAE@XZ @ 291 NONAME ; CMobilePhoneCBList::~CMobilePhoneCBList(void)
+	?CancelService@CLineBase@@UAEHHK@Z @ 292 NONAME ; int CLineBase::CancelService(int, unsigned long)
+	?ExtensionId@TPacketBase@@QBEHXZ @ 293 NONAME ; int TPacketBase::ExtensionId(void) const
+	??1CRetrieveMobilePhoneENList@@UAE@XZ @ 294 NONAME ; CRetrieveMobilePhoneENList::~CRetrieveMobilePhoneENList(void)
+	?NotifyCostCapsChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAK@Z @ 295 NONAME ; void RMobilePhone::NotifyCostCapsChange(class TRequestStatus &, unsigned long &) const
+	??0TLineInfo@RLine@@QAE@XZ @ 296 NONAME ; RLine::TLineInfo::TLineInfo(void)
+	?GetOwnershipStatus@RCall@@QBEHAAW4TOwnershipStatus@1@@Z @ 297 NONAME ; int RCall::GetOwnershipStatus(enum RCall::TOwnershipStatus &) const
+	?Dial@RCall@@QAEXAAVTRequestStatus@@ABVTDesC16@@@Z @ 298 NONAME ; void RCall::Dial(class TRequestStatus &, class TDesC16 const &)
+	??1CTelObject@@UAE@XZ @ 299 NONAME ; CTelObject::~CTelObject(void)
+	?HangUp@RMobileConferenceCall@@QBEXAAVTRequestStatus@@@Z @ 300 NONAME ; void RMobileConferenceCall::HangUp(class TRequestStatus &) const
+	??0TMobileSmsCapsV1@RMobileSmsMessaging@@QAE@XZ @ 301 NONAME ; RMobileSmsMessaging::TMobileSmsCapsV1::TMobileSmsCapsV1(void)
+	?ConstructL@RCall@@MAEXXZ @ 302 NONAME ; void RCall::ConstructL(void)
+	?SetCallBarringPassword@RMobilePhone@@QBEXAAVTRequestStatus@@ABVTMobilePhonePasswordChangeV1@1@@Z @ 303 NONAME ; void RMobilePhone::SetCallBarringPassword(class TRequestStatus &, class RMobilePhone::TMobilePhonePasswordChangeV1 const &) const
+	?OpenExistingContext@RPacketContext@@QAEHAAVRPacketService@@ABVTDesC16@@@Z @ 304 NONAME ; int RPacketContext::OpenExistingContext(class RPacketService &, class TDesC16 const &)
+	?ConstructL@RMobileSmsMessaging@@IAEXXZ @ 305 NONAME ; void RMobileSmsMessaging::ConstructL(void)
+	?RejectCCBS@RMobileCall@@QBEHXZ @ 306 NONAME ; int RMobileCall::RejectCCBS(void) const
+	??0TMobilePhoneNITZ@RMobilePhone@@QAE@HW4TMonth@@HHHHH@Z @ 307 NONAME ; RMobilePhone::TMobilePhoneNITZ::TMobilePhoneNITZ(int, enum TMonth, int, int, int, int, int)
+	?LoanDataPort@RCall@@QAEXAAVTRequestStatus@@AAUTCommPort@1@@Z @ 308 NONAME ; void RCall::LoanDataPort(class TRequestStatus &, struct RCall::TCommPort &)
+	?Close@RLine@@QAEXXZ @ 309 NONAME ; void RLine::Close(void)
+	??0TMobileCallCugV1@RMobileCall@@QAE@XZ @ 310 NONAME ; RMobileCall::TMobileCallCugV1::TMobileCallCugV1(void)
+	?PutTagAndValue@CPhoneBookBuffer@@QAEHEG@Z @ 311 NONAME ; int CPhoneBookBuffer::PutTagAndValue(unsigned char, unsigned short)
+	?Start@CRetrieveMobilePhoneCBList@@QAEXAAVTRequestStatus@@W4TMobilePhoneCBCondition@RMobilePhone@@W4TMobileInfoLocation@4@@Z @ 312 NONAME ; void CRetrieveMobilePhoneCBList::Start(class TRequestStatus &, enum RMobilePhone::TMobilePhoneCBCondition, enum RMobilePhone::TMobileInfoLocation)
+	??0RPacketQoS@@QAE@XZ @ 313 NONAME ; RPacketQoS::RPacketQoS(void)
+	?NotifyCapsChange@RMobileConferenceCall@@QBEXAAVTRequestStatus@@AAK@Z @ 314 NONAME ; void RMobileConferenceCall::NotifyCapsChange(class TRequestStatus &, unsigned long &) const
+	?Close@RPacketService@@QAEXXZ @ 315 NONAME ; void RPacketService::Close(void)
+	?Set@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@ABVTDesC16@@W4TReqPriorityType@1@@Z @ 316 NONAME ; void RTelSubSessionBase::Set(int, class TRequestStatus &, class TDesC16 const &, enum RTelSubSessionBase::TReqPriorityType) const
+	?SetLanguageFilter@RMobileBroadcastMessaging@@QBEXAAVTRequestStatus@@ABVTDesC16@@@Z @ 317 NONAME ; void RMobileBroadcastMessaging::SetLanguageFilter(class TRequestStatus &, class TDesC16 const &) const
+	?NewL@CRetrieveMobilePhoneCBList@@SAPAV1@AAVRMobilePhone@@@Z @ 318 NONAME ; class CRetrieveMobilePhoneCBList * CRetrieveMobilePhoneCBList::NewL(class RMobilePhone &)
+	?InitialiseCancel@RPhone@@QAEXXZ @ 319 NONAME ; void RPhone::InitialiseCancel(void)
+	?PanicClient@@YAXH@Z @ 320 NONAME ; void PanicClient(int)
+	?Start@CRetrieveMobilePhoneONList@@QAEXAAVTRequestStatus@@@Z @ 321 NONAME ; void CRetrieveMobilePhoneONList::Start(class TRequestStatus &)
+	?Service@CCallBase@@EAEHABVRMessage2@@PAVCReqEntry@@@Z @ 322 NONAME ; int CCallBase::Service(class RMessage2 const &, class CReqEntry *)
+	?Destruct@RPacketQoS@@MAEXXZ @ 323 NONAME ; void RPacketQoS::Destruct(void)
+	?OpenPostProcessing@CPhoneBase@@EAEXPAVCTelSession@@H@Z @ 324 NONAME ; void CPhoneBase::OpenPostProcessing(class CTelSession *, int)
+	?NotifyALSLineChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAW4TMobilePhoneALSLine@1@@Z @ 325 NONAME ; void RMobilePhone::NotifyALSLineChange(class TRequestStatus &, enum RMobilePhone::TMobilePhoneALSLine &) const
+	??0TMobileSmsReceiveAttributesV1@RMobileSmsMessaging@@QAE@XZ @ 326 NONAME ; RMobileSmsMessaging::TMobileSmsReceiveAttributesV1::TMobileSmsReceiveAttributesV1(void)
+	?InsertEntryL@CMobilePhoneEditableListBase@@IAEXHPBX@Z @ 327 NONAME ; void CMobilePhoneEditableListBase::InsertEntryL(int, void const *)
+	?AddNewEntryTag@CPhoneBookBuffer@@QAEHXZ @ 328 NONAME ; int CPhoneBookBuffer::AddNewEntryTag(void)
+	?SetReceiveMode@RMobileSmsMessaging@@QBEXAAVTRequestStatus@@W4TMobileSmsReceiveMode@1@@Z @ 329 NONAME ; void RMobileSmsMessaging::SetReceiveMode(class TRequestStatus &, enum RMobileSmsMessaging::TMobileSmsReceiveMode) const
+	?__DbgMarkHeap@RTelServer@@QAEHXZ @ 330 NONAME ; int RTelServer::__DbgMarkHeap(void)
+	?GetContextInfo@RPacketService@@QBEXAAVTRequestStatus@@HAAUTContextInfo@1@@Z @ 331 NONAME ; void RPacketService::GetContextInfo(class TRequestStatus &, int, struct RPacketService::TContextInfo &) const
+	?Get@RTelSubSessionBase@@IBEHHAAVTDes16@@W4TReqPriorityType@1@@Z @ 332 NONAME ; int RTelSubSessionBase::Get(int, class TDes16 &, enum RTelSubSessionBase::TReqPriorityType) const
+	??0TMobileCallRemotePartyInfoV1@RMobileCall@@QAE@XZ @ 333 NONAME ; RMobileCall::TMobileCallRemotePartyInfoV1::TMobileCallRemotePartyInfoV1(void)
+	?Blank@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@W4TReqPriorityType@1@@Z @ 334 NONAME ; void RTelSubSessionBase::Blank(int, class TRequestStatus &, enum RTelSubSessionBase::TReqPriorityType) const
+	?ReceiveMessage@RMobileBroadcastMessaging@@QBEXAAVTRequestStatus@@AAVTDes8@@1@Z @ 335 NONAME ; void RMobileBroadcastMessaging::ReceiveMessage(class TRequestStatus &, class TDes8 &, class TDes8 &) const
+	?Dial@RCall@@QBEHABVTDesC16@@@Z @ 336 NONAME ; int RCall::Dial(class TDesC16 const &) const
+	?Open@RPacketService@@QAEHAAVRPhone@@@Z @ 337 NONAME ; int RPacketService::Open(class RPhone &)
+	?Open@RMobileENStore@@QAEHAAVRMobilePhone@@@Z @ 338 NONAME ; int RMobileENStore::Open(class RMobilePhone &)
+	?__DbgFailNext@RTelServer@@QAEHH@Z @ 339 NONAME ; int RTelServer::__DbgFailNext(int)
+	?RemovePartialEntry@CPhoneBookBuffer@@QAEHXZ @ 340 NONAME ; int CPhoneBookBuffer::RemovePartialEntry(void)
+	??0TMobilePhoneNetworkSelectionV1@RMobilePhone@@QAE@XZ @ 341 NONAME ; RMobilePhone::TMobilePhoneNetworkSelectionV1::TMobilePhoneNetworkSelectionV1(void)
+	?TriggerQoSConfigDrop@RTelServer@@QAEHXZ @ 342 NONAME ; int RTelServer::TriggerQoSConfigDrop(void)
+	??0RTelServer@@QAE@XZ @ 343 NONAME ; RTelServer::RTelServer(void)
+	??0RCall@@QAE@XZ @ 344 NONAME ; RCall::RCall(void)
+	?GetIdentityServiceStatus@RMobilePhone@@QBEXAAVTRequestStatus@@W4TMobilePhoneIdService@1@AAW4TMobilePhoneIdServiceStatus@1@W4TMobileInfoLocation@1@@Z @ 345 NONAME ; void RMobilePhone::GetIdentityServiceStatus(class TRequestStatus &, enum RMobilePhone::TMobilePhoneIdService, enum RMobilePhone::TMobilePhoneIdServiceStatus &, enum RMobilePhone::TMobileInfoLocation) const
+	?RestoreL@CMobilePhoneListBase@@QAEXABVTDesC8@@@Z @ 346 NONAME ; void CMobilePhoneListBase::RestoreL(class TDesC8 const &)
+	??0TMobileENEntryV1@RMobileENStore@@QAE@XZ @ 347 NONAME ; RMobileENStore::TMobileENEntryV1::TMobileENEntryV1(void)
+	??0TMobilePhoneMessageWaitingV1@RMobilePhone@@QAE@XZ @ 348 NONAME ; RMobilePhone::TMobilePhoneMessageWaitingV1::TMobilePhoneMessageWaitingV1(void)
+	?NewL@CMobilePhoneNamList@@SAPAV1@XZ @ 349 NONAME ; class CMobilePhoneNamList * CMobilePhoneNamList::NewL(void)
+	?Open@RFax@@QAEHAAVRCall@@@Z @ 350 NONAME ; int RFax::Open(class RCall &)
+	?OpenNewCall@RCall@@QAEHAAVRLine@@@Z @ 351 NONAME ; int RCall::OpenNewCall(class RLine &)
+	?EnumerateContexts@RPacketService@@QBEXAAVTRequestStatus@@AAH1@Z @ 352 NONAME ; void RPacketService::EnumerateContexts(class TRequestStatus &, int &, int &) const
+	?Set@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@ABVTDesC8@@1W4TReqPriorityType@1@@Z @ 353 NONAME ; void RTelSubSessionBase::Set(int, class TRequestStatus &, class TDesC8 const &, class TDesC8 const &, enum RTelSubSessionBase::TReqPriorityType) const
+	?NotifyMoSmsBearerChange@RMobileSmsMessaging@@QAEXAAVTRequestStatus@@AAW4TMobileSmsBearer@1@@Z @ 354 NONAME ; void RMobileSmsMessaging::NotifyMoSmsBearerChange(class TRequestStatus &, enum RMobileSmsMessaging::TMobileSmsBearer &)
+	?SetFaxSettings@RCall@@QBEHABUTFaxSessionSettings@1@@Z @ 355 NONAME ; int RCall::SetFaxSettings(struct RCall::TFaxSessionSettings const &) const
+	?Close@RMobileUssdMessaging@@QAEXXZ @ 356 NONAME ; void RMobileUssdMessaging::Close(void)
+	?StoreSmspListL@RMobileSmsMessaging@@QBEXAAVTRequestStatus@@PAVCMobilePhoneSmspList@@@Z @ 357 NONAME ; void RMobileSmsMessaging::StoreSmspListL(class TRequestStatus &, class CMobilePhoneSmspList *) const
+	?RejectActivationRequest@RPacketService@@QBEXAAVTRequestStatus@@@Z @ 358 NONAME ; void RPacketService::RejectActivationRequest(class TRequestStatus &) const
+	?RetrieveListL@CRetrieveMobilePhoneDetectedNetworks@@QAEPAVCMobilePhoneNetworkList@@XZ @ 359 NONAME ; class CMobilePhoneNetworkList * CRetrieveMobilePhoneDetectedNetworks::RetrieveListL(void)
+	?NotifyCallDurationChange@RCall@@QAEXAAVTRequestStatus@@AAVTTimeIntervalSeconds@@@Z @ 360 NONAME ; void RCall::NotifyCallDurationChange(class TRequestStatus &, class TTimeIntervalSeconds &)
+	?GetMoSmsBearer@RMobileSmsMessaging@@QBEHAAW4TMobileSmsBearer@1@@Z @ 361 NONAME ; int RMobileSmsMessaging::GetMoSmsBearer(enum RMobileSmsMessaging::TMobileSmsBearer &) const
+	?GetMobileLineStatus@RMobileLine@@QBEHAAW4TMobileCallStatus@RMobileCall@@@Z @ 362 NONAME ; int RMobileLine::GetMobileLineStatus(enum RMobileCall::TMobileCallStatus &) const
+	?ConstructL@RPacketQoS@@MAEXXZ @ 363 NONAME ; void RPacketQoS::ConstructL(void)
+	??0RMobileONStore@@QAE@XZ @ 364 NONAME ; RMobileONStore::RMobileONStore(void)
+	?SwitchAlternatingCall@RMobileCall@@QBEXAAVTRequestStatus@@@Z @ 365 NONAME ; void RMobileCall::SwitchAlternatingCall(class TRequestStatus &) const
+	??1CLineBase@@UAE@XZ @ 366 NONAME ; CLineBase::~CLineBase(void)
+	?CancelService@CPhoneBase@@UAEHHK@Z @ 367 NONAME ; int CPhoneBase::CancelService(int, unsigned long)
+	?RetrieveListL@CRetrieveMobilePhoneBroadcastIdList@@QAEPAVCMobilePhoneBroadcastIdList@@XZ @ 368 NONAME ; class CMobilePhoneBroadcastIdList * CRetrieveMobilePhoneBroadcastIdList::RetrieveListL(void)
+	?NotifyIncomingCall@RLine@@QAEXAAVTRequestStatus@@AAV?$TBuf@$0IA@@@@Z @ 369 NONAME ; void RLine::NotifyIncomingCall(class TRequestStatus &, class TBuf<128> &)
+	?Get@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@AAVTDes16@@W4TReqPriorityType@1@@Z @ 370 NONAME ; void RTelSubSessionBase::Get(int, class TRequestStatus &, class TDes16 &, enum RTelSubSessionBase::TReqPriorityType) const
+	?GetValue@CPhoneBookBuffer@@QAEHAAG@Z @ 371 NONAME ; int CPhoneBookBuffer::GetValue(unsigned short &)
+	?SetMoSmsBearer@RMobileSmsMessaging@@QBEXAAVTRequestStatus@@W4TMobileSmsBearer@1@@Z @ 372 NONAME ; void RMobileSmsMessaging::SetMoSmsBearer(class TRequestStatus &, enum RMobileSmsMessaging::TMobileSmsBearer) const
+	?NotifyDTMFCapsChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAK@Z @ 373 NONAME ; void RMobilePhone::NotifyDTMFCapsChange(class TRequestStatus &, unsigned long &) const
+	?OpenNewCall@RCall@@QAEHAAVRPhone@@ABVTDesC16@@AAVTDes16@@@Z @ 374 NONAME ; int RCall::OpenNewCall(class RPhone &, class TDesC16 const &, class TDes16 &)
+	??0TQoSGPRSRequested@RPacketQoS@@QAE@XZ @ 375 NONAME ; RPacketQoS::TQoSGPRSRequested::TQoSGPRSRequested(void)
+	?Deflect@RMobileCall@@QBEXAAVTRequestStatus@@W4TMobileCallDeflect@1@ABVTMobileAddress@RMobilePhone@@@Z @ 376 NONAME ; void RMobileCall::Deflect(class TRequestStatus &, enum RMobileCall::TMobileCallDeflect, class RMobilePhone::TMobileAddress const &) const
+	?NotifySignalStrengthChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAJAAC@Z @ 377 NONAME ; void RMobilePhone::NotifySignalStrengthChange(class TRequestStatus &, long &, signed char &) const
+	?Open@RLine@@QAEHAAVRPhone@@ABVTDesC16@@@Z @ 378 NONAME ; int RLine::Open(class RPhone &, class TDesC16 const &)
+	??1CMobilePhoneENList@@UAE@XZ @ 379 NONAME ; CMobilePhoneENList::~CMobilePhoneENList(void)
+	??1CMobilePhoneSmspList@@UAE@XZ @ 380 NONAME ; CMobilePhoneSmspList::~CMobilePhoneSmspList(void)
+	?GetCallInfo@RLine@@QBEHHAAUTCallInfo@1@@Z @ 381 NONAME ; int RLine::GetCallInfo(int, struct RLine::TCallInfo &) const
+	?NewL@CMobilePhoneNetworkList@@SAPAV1@XZ @ 382 NONAME ; class CMobilePhoneNetworkList * CMobilePhoneNetworkList::NewL(void)
+	?ConstructL@RPacketService@@MAEXXZ @ 383 NONAME ; void RPacketService::ConstructL(void)
+	?GetMobileDataCallRLPRange@RMobileCall@@QBEXAAVTRequestStatus@@HAAVTDes8@@@Z @ 384 NONAME ; void RMobileCall::GetMobileDataCallRLPRange(class TRequestStatus &, int, class TDes8 &) const
+	??0CPhoneBookBuffer@@QAE@XZ @ 385 NONAME ; CPhoneBookBuffer::CPhoneBookBuffer(void)
+	?NotifyBroadcastIdListChange@RMobileBroadcastMessaging@@QBEXAAVTRequestStatus@@@Z @ 386 NONAME ; void RMobileBroadcastMessaging::NotifyBroadcastIdListChange(class TRequestStatus &) const
+	?NotifyContextActivationRequested@RPacketService@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 387 NONAME ; void RPacketService::NotifyContextActivationRequested(class TRequestStatus &, class TDes8 &) const
+	?StoreAllL@RMobileNamStore@@QBEXAAVTRequestStatus@@HPAVCMobilePhoneNamList@@@Z @ 388 NONAME ; void RMobileNamStore::StoreAllL(class TRequestStatus &, int, class CMobilePhoneNamList *) const
+	?RetrieveListL@CRetrieveMobilePhoneSmspList@@QAEPAVCMobilePhoneSmspList@@XZ @ 389 NONAME ; class CMobilePhoneSmspList * CRetrieveMobilePhoneSmspList::RetrieveListL(void)
+	?SkipValue@CPhoneBookBuffer@@QAEXW4TPhBkTagType@1@@Z @ 390 NONAME ; void CPhoneBookBuffer::SkipValue(enum CPhoneBookBuffer::TPhBkTagType)
+	?DeactivateAllCCBS@RMobilePhone@@QBEXAAVTRequestStatus@@@Z @ 391 NONAME ; void RMobilePhone::DeactivateAllCCBS(class TRequestStatus &) const
+	?GetSignalCaps@RMobilePhone@@QBEHAAK@Z @ 392 NONAME ; int RMobilePhone::GetSignalCaps(unsigned long &) const
+	??0RPacketContext@@QAE@XZ @ 393 NONAME ; RPacketContext::RPacketContext(void)
+	?NotifyHookChange@RCall@@QAEXAAVTRequestStatus@@AAW4THookStatus@1@@Z @ 394 NONAME ; void RCall::NotifyHookChange(class TRequestStatus &, enum RCall::THookStatus &)
+	?GetCaps@RLine@@QBEHAAUTCaps@1@@Z @ 395 NONAME ; int RLine::GetCaps(struct RLine::TCaps &) const
+	??0RMobileENStore@@QAE@XZ @ 396 NONAME ; RMobileENStore::RMobileENStore(void)
+	?GetFilterSetting@RMobileBroadcastMessaging@@QBEHAAW4TMobilePhoneBroadcastFilter@1@@Z @ 397 NONAME ; int RMobileBroadcastMessaging::GetFilterSetting(enum RMobileBroadcastMessaging::TMobilePhoneBroadcastFilter &) const
+	?NotifyChangeOfNtwkRegStatus@RPacketService@@QBEXAAVTRequestStatus@@AAW4TRegistrationStatus@1@@Z @ 398 NONAME ; void RPacketService::NotifyChangeOfNtwkRegStatus(class TRequestStatus &, enum RPacketService::TRegistrationStatus &) const
+	??1CMobilePhoneNetworkList@@UAE@XZ @ 399 NONAME ; CMobilePhoneNetworkList::~CMobilePhoneNetworkList(void)
+	?GetCostInfo@RMobilePhone@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 400 NONAME ; void RMobilePhone::GetCostInfo(class TRequestStatus &, class TDes8 &) const
+	?GetNtwkRegStatus@RPacketService@@QBEXAAVTRequestStatus@@AAW4TRegistrationStatus@1@@Z @ 401 NONAME ; void RPacketService::GetNtwkRegStatus(class TRequestStatus &, enum RPacketService::TRegistrationStatus &) const
+	?Destruct@RMobileLine@@MAEXXZ @ 402 NONAME ; void RMobileLine::Destruct(void)
+	?RecoverDataPort@RCall@@QBEHXZ @ 403 NONAME ; int RCall::RecoverDataPort(void) const
+	??0TQoSGPRSNegotiated@RPacketQoS@@QAE@XZ @ 404 NONAME ; RPacketQoS::TQoSGPRSNegotiated::TQoSGPRSNegotiated(void)
+	?NotifyStatusChange@RLine@@QAEXAAVTRequestStatus@@AAW4TStatus@RCall@@@Z @ 405 NONAME ; void RLine::NotifyStatusChange(class TRequestStatus &, enum RCall::TStatus &)
+	?GetIccMessageWaitingIndicators@RMobilePhone@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 406 NONAME ; void RMobilePhone::GetIccMessageWaitingIndicators(class TRequestStatus &, class TDes8 &) const
+	?TriggerContextConfigDrop@RTelServer@@QAEHXZ @ 407 NONAME ; int RTelServer::TriggerContextConfigDrop(void)
+	?Des1n@TDataPackage@@QBEPAVTDes8@@XZ @ 408 NONAME ; class TDes8 * TDataPackage::Des1n(void) const
+	?NewL@CRetrieveMobilePhoneCFList@@SAPAV1@AAVRMobilePhone@@@Z @ 409 NONAME ; class CRetrieveMobilePhoneCFList * CRetrieveMobilePhoneCFList::NewL(class RMobilePhone &)
+	?Open@RMobileConferenceCall@@QAEHAAVRMobilePhone@@@Z @ 410 NONAME ; int RMobileConferenceCall::Open(class RMobilePhone &)
+	??0TMobilePhoneCBInfoEntryV1@RMobilePhone@@QAE@XZ @ 411 NONAME ; RMobilePhone::TMobilePhoneCBInfoEntryV1::TMobilePhoneCBInfoEntryV1(void)
+	?Get@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@AAVTDes8@@1W4TReqPriorityType@1@@Z @ 412 NONAME ; void RTelSubSessionBase::Get(int, class TRequestStatus &, class TDes8 &, class TDes8 &, enum RTelSubSessionBase::TReqPriorityType) const
+	?ExtensionId@TMultimodeType@RMobilePhone@@QBEHXZ @ 413 NONAME ; int RMobilePhone::TMultimodeType::ExtensionId(void) const
+	?GetUUSCaps@RMobileCall@@QBEHAAK@Z @ 414 NONAME ; int RMobileCall::GetUUSCaps(unsigned long &) const
+	?GetLanguageFilter@RMobileBroadcastMessaging@@QBEXAAVTRequestStatus@@AAVTDes16@@@Z @ 415 NONAME ; void RMobileBroadcastMessaging::GetLanguageFilter(class TRequestStatus &, class TDes16 &) const
+	?Close@RMobileSmsStore@@QAEXXZ @ 416 NONAME ; void RMobileSmsStore::Close(void)
+	??0TMobilePhoneCFChangeV1@RMobilePhone@@QAE@XZ @ 417 NONAME ; RMobilePhone::TMobilePhoneCFChangeV1::TMobilePhoneCFChangeV1(void)
+	?AbortSecurityCode@RMobilePhone@@QBEHW4TMobilePhoneSecurityCode@1@@Z @ 418 NONAME ; int RMobilePhone::AbortSecurityCode(enum RMobilePhone::TMobilePhoneSecurityCode) const
+	?RetrieveListL@CRetrieveMobilePhoneENList@@QAEPAVCMobilePhoneENList@@XZ @ 419 NONAME ; class CMobilePhoneENList * CRetrieveMobilePhoneENList::RetrieveListL(void)
+	?NotifyCallForwardingActive@RMobilePhone@@QBEXAAVTRequestStatus@@AAW4TMobileService@1@AAW4TMobilePhoneCFActive@1@@Z @ 420 NONAME ; void RMobilePhone::NotifyCallForwardingActive(class TRequestStatus &, enum RMobilePhone::TMobileService &, enum RMobilePhone::TMobilePhoneCFActive &) const
+	??0CPhoneFactoryBase@@QAE@XZ @ 421 NONAME ; CPhoneFactoryBase::CPhoneFactoryBase(void)
+	?UnloadPhoneModule@RTelServer@@QBEHABVTDesC16@@@Z @ 422 NONAME ; int RTelServer::UnloadPhoneModule(class TDesC16 const &) const
+	?ReceiveMessage@RMobileUssdMessaging@@QBEXAAVTRequestStatus@@AAVTDes8@@1@Z @ 423 NONAME ; void RMobileUssdMessaging::ReceiveMessage(class TRequestStatus &, class TDes8 &, class TDes8 &) const
+	?GetCostCaps@RMobilePhone@@QBEHAAK@Z @ 424 NONAME ; int RMobilePhone::GetCostCaps(unsigned long &) const
+	?GetMultimodeAPIVersion@RMobilePhone@@QBEHAAH@Z @ 425 NONAME ; int RMobilePhone::GetMultimodeAPIVersion(int &) const
+	?NotifyStatusChange@RCall@@QAEXAAVTRequestStatus@@AAW4TStatus@1@@Z @ 426 NONAME ; void RCall::NotifyStatusChange(class TRequestStatus &, enum RCall::TStatus &)
+	??0CFaxBase@@QAE@XZ @ 427 NONAME ; CFaxBase::CFaxBase(void)
+	?DialEmergencyCall@RMobileCall@@QBEXAAVTRequestStatus@@ABVTDesC16@@@Z @ 428 NONAME ; void RMobileCall::DialEmergencyCall(class TRequestStatus &, class TDesC16 const &) const
+	?NewL@CRetrieveMobilePhoneSmsList@@SAPAV1@AAVRMobilePhoneStore@@W4TMobileSmsEntryExtensionId@RMobileSmsStore@@@Z @ 429 NONAME ; class CRetrieveMobilePhoneSmsList * CRetrieveMobilePhoneSmsList::NewL(class RMobilePhoneStore &, enum RMobileSmsStore::TMobileSmsEntryExtensionId)
+	?NotifyCallBarringStatusChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAW4TMobilePhoneCBCondition@1@@Z @ 430 NONAME ; void RMobilePhone::NotifyCallBarringStatusChange(class TRequestStatus &, enum RMobilePhone::TMobilePhoneCBCondition &) const
+	?NotifyStatusChange@RPacketService@@QBEXAAVTRequestStatus@@AAW4TStatus@1@@Z @ 431 NONAME ; void RPacketService::NotifyStatusChange(class TRequestStatus &, enum RPacketService::TStatus &) const
+	?PutTagAndValue@CPhoneBookBuffer@@QAEHEABVTDesC16@@@Z @ 432 NONAME ; int CPhoneBookBuffer::PutTagAndValue(unsigned char, class TDesC16 const &)
+	?LoanCommPort@RPacketContext@@QBEXAAVTRequestStatus@@AAUTCommPort@RCall@@@Z @ 433 NONAME ; void RPacketContext::LoanCommPort(class TRequestStatus &, struct RCall::TCommPort &) const
+	?AnswerIncomingCallWithUUI@RMobileCall@@QBEXAAVTRequestStatus@@ABVTDesC8@@ABV?$TBuf@$0IB@@@@Z @ 434 NONAME ; void RMobileCall::AnswerIncomingCallWithUUI(class TRequestStatus &, class TDesC8 const &, class TBuf<129> const &) const
+	?AnswerIncomingCallCancel@RCall@@QBEXXZ @ 435 NONAME ; void RCall::AnswerIncomingCallCancel(void) const
+	?IsDefault@TCallParams@RCall@@QAEHXZ @ 436 NONAME ; int RCall::TCallParams::IsDefault(void)
+	?NotifyRemotePartyInfoChange@RMobileCall@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 437 NONAME ; void RMobileCall::NotifyRemotePartyInfoChange(class TRequestStatus &, class TDes8 &) const
+	?GetMobileDataCallCaps@RMobileCall@@QBEHAAVTDes8@@@Z @ 438 NONAME ; int RMobileCall::GetMobileDataCallCaps(class TDes8 &) const
+	?Destruct@RPacketContext@@MAEXXZ @ 439 NONAME ; void RPacketContext::Destruct(void)
+	?IsSupportedByModule@RTelServer@@QBEHABVTDesC16@@HAAH@Z @ 440 NONAME ; int RTelServer::IsSupportedByModule(class TDesC16 const &, int, int &) const
+	?NewL@CRetrieveMobilePhoneCWList@@SAPAV1@AAVRMobilePhone@@@Z @ 441 NONAME ; class CRetrieveMobilePhoneCWList * CRetrieveMobilePhoneCWList::NewL(class RMobilePhone &)
+	?GetCallParams@RCall@@QBEHAAVTDes8@@@Z @ 442 NONAME ; int RCall::GetCallParams(class TDes8 &) const
+	?GetLineInfo@RPhone@@QBEHHAAUTLineInfo@1@@Z @ 443 NONAME ; int RPhone::GetLineInfo(int, struct RPhone::TLineInfo &) const
+	?NotifyCapsChangeCancel@RPhone@@QBEXXZ @ 444 NONAME ; void RPhone::NotifyCapsChangeCancel(void) const
+	?ConstructL@RMobileLine@@MAEXXZ @ 445 NONAME ; void RMobileLine::ConstructL(void)
+	?SendMessage@RMobileUssdMessaging@@QBEXAAVTRequestStatus@@ABVTDesC8@@1@Z @ 446 NONAME ; void RMobileUssdMessaging::SendMessage(class TRequestStatus &, class TDesC8 const &, class TDesC8 const &) const
+	?Close@RPhone@@QAEXXZ @ 447 NONAME ; void RPhone::Close(void)
+	??0TQoSCapsGPRS@RPacketQoS@@QAE@XZ @ 448 NONAME ; RPacketQoS::TQoSCapsGPRS::TQoSCapsGPRS(void)
+	?SetPrivacy@RMobileCall@@QBEHW4TMobilePhonePrivacy@RMobilePhone@@@Z @ 449 NONAME ; int RMobileCall::SetPrivacy(enum RMobilePhone::TMobilePhonePrivacy) const
+	?CancelService@CCallBase@@UAEHHK@Z @ 450 NONAME ; int CCallBase::CancelService(int, unsigned long)
+	?GetConnectionSpeed@RPacketContext@@QBEXAAVTRequestStatus@@AAI@Z @ 451 NONAME ; void RPacketContext::GetConnectionSpeed(class TRequestStatus &, unsigned int &) const
+	?SetAndGet@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@AAVTDes8@@ABVTDesC16@@W4TReqPriorityType@1@@Z @ 452 NONAME ; void RTelSubSessionBase::SetAndGet(int, class TRequestStatus &, class TDes8 &, class TDesC16 const &, enum RTelSubSessionBase::TReqPriorityType) const
+	?Read@RMobilePhoneStore@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 453 NONAME ; void RMobilePhoneStore::Read(class TRequestStatus &, class TDes8 &) const
+	?GetIdentityCaps@RMobilePhone@@QBEHAAK@Z @ 454 NONAME ; int RMobilePhone::GetIdentityCaps(unsigned long &) const
+	?NotifyConfigChanged@RPacketContext@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 455 NONAME ; void RPacketContext::NotifyConfigChanged(class TRequestStatus &, class TDes8 &) const
+	?Connect@RCall@@QBEHXZ @ 456 NONAME ; int RCall::Connect(void) const
+	?Get@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@AAVTDes8@@W4TReqPriorityType@1@@Z @ 457 NONAME ; void RTelSubSessionBase::Get(int, class TRequestStatus &, class TDes8 &, enum RTelSubSessionBase::TReqPriorityType) const
+	?OpenNewQoS@RPacketQoS@@QAEHAAVRPacketContext@@AAVTDes16@@@Z @ 458 NONAME ; int RPacketQoS::OpenNewQoS(class RPacketContext &, class TDes16 &)
+	?DownCallOption@CTelObject@@UAEHHPAX@Z @ 459 NONAME ; int CTelObject::DownCallOption(int, void *)
+	?GetLockInfo@RMobilePhone@@QBEXAAVTRequestStatus@@W4TMobilePhoneLock@1@AAVTDes8@@@Z @ 460 NONAME ; void RMobilePhone::GetLockInfo(class TRequestStatus &, enum RMobilePhone::TMobilePhoneLock, class TDes8 &) const
+	?ConstructL@RMobileConferenceCall@@IAEXXZ @ 461 NONAME ; void RMobileConferenceCall::ConstructL(void)
+	?Initialise@RPhone@@QAEXAAVTRequestStatus@@@Z @ 462 NONAME ; void RPhone::Initialise(class TRequestStatus &)
+	?SetConfig@RPacketContext@@QBEXAAVTRequestStatus@@ABVTDesC8@@@Z @ 463 NONAME ; void RPacketContext::SetConfig(class TRequestStatus &, class TDesC8 const &) const
+	?Set@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@ABVTDesC8@@ABVTDesC16@@W4TReqPriorityType@1@@Z @ 464 NONAME ; void RTelSubSessionBase::Set(int, class TRequestStatus &, class TDesC8 const &, class TDesC16 const &, enum RTelSubSessionBase::TReqPriorityType) const
+	?UpCallOption@CTelObject@@UAEHHPAX@Z @ 465 NONAME ; int CTelObject::UpCallOption(int, void *)
+	?ReqModeL@CPhoneBase@@UAEIH@Z @ 466 NONAME ; unsigned int CPhoneBase::ReqModeL(int)
+	?BufferLength@CPhoneBookBuffer@@QAEHXZ @ 467 NONAME ; int CPhoneBookBuffer::BufferLength(void)
+	?SetIccMessageWaitingIndicators@RMobilePhone@@QBEXAAVTRequestStatus@@ABVTDesC8@@@Z @ 468 NONAME ; void RMobilePhone::SetIccMessageWaitingIndicators(class TRequestStatus &, class TDesC8 const &) const
+	?SetFilterSetting@RMobileBroadcastMessaging@@QBEXAAVTRequestStatus@@W4TMobilePhoneBroadcastFilter@1@@Z @ 469 NONAME ; void RMobileBroadcastMessaging::SetFilterSetting(class TRequestStatus &, enum RMobileBroadcastMessaging::TMobilePhoneBroadcastFilter) const
+	?Deactivate@RPacketContext@@QBEXAAVTRequestStatus@@@Z @ 470 NONAME ; void RPacketContext::Deactivate(class TRequestStatus &) const
+	?RetrieveGsmListL@CRetrieveMobilePhoneSmsList@@QAEPAVCMobilePhoneGsmSmsList@@XZ @ 471 NONAME ; class CMobilePhoneGsmSmsList * CRetrieveMobilePhoneSmsList::RetrieveGsmListL(void)
+	?GetMultimodeCaps@RMobilePhone@@QBEHAAK@Z @ 472 NONAME ; int RMobilePhone::GetMultimodeCaps(unsigned long &) const
+	?StoreLC@CMobilePhoneListBase@@QAEPAVCBufBase@@XZ @ 473 NONAME ; class CBufBase * CMobilePhoneListBase::StoreLC(void)
+	?NewL@CMobilePhoneCcbsList@@SAPAV1@XZ @ 474 NONAME ; class CMobilePhoneCcbsList * CMobilePhoneCcbsList::NewL(void)
+	?OpenPostProcessing@CSubSessionExtBase@@MAEXPAVCTelSession@@H@Z @ 475 NONAME ; void CSubSessionExtBase::OpenPostProcessing(class CTelSession *, int)
+	?Write@RMobilePhoneStore@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 476 NONAME ; void RMobilePhoneStore::Write(class TRequestStatus &, class TDes8 &) const
+	?Set@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@ABVTDesC8@@W4TReqPriorityType@1@@Z @ 477 NONAME ; void RTelSubSessionBase::Set(int, class TRequestStatus &, class TDesC8 const &, enum RTelSubSessionBase::TReqPriorityType) const
+	??0TCallParams@RCall@@QAE@W4TMonitorSpeakerControl@1@W4TMonitorSpeakerVolume@1@IW4TWaitForDialTone@1@@Z @ 478 NONAME ; RCall::TCallParams::TCallParams(enum RCall::TMonitorSpeakerControl, enum RCall::TMonitorSpeakerVolume, unsigned int, enum RCall::TWaitForDialTone)
+	?CancelService@CFaxBase@@UAEHHK@Z @ 479 NONAME ; int CFaxBase::CancelService(int, unsigned long)
+	?LoanDataPortCancel@RCall@@QBEXXZ @ 480 NONAME ; void RCall::LoanDataPortCancel(void) const
+	??0RMobileSmsMessaging@@QAE@XZ @ 481 NONAME ; RMobileSmsMessaging::RMobileSmsMessaging(void)
+	??1CPhoneFactoryBase@@UAE@XZ @ 482 NONAME ; CPhoneFactoryBase::~CPhoneFactoryBase(void)
+	?CancelAsyncRequest@RTelSubSessionBase@@QBEXH@Z @ 483 NONAME ; void RTelSubSessionBase::CancelAsyncRequest(int) const
+	?NotifyContextAdded@RPacketService@@QBEXAAVTRequestStatus@@AAVTDes16@@@Z @ 484 NONAME ; void RPacketService::NotifyContextAdded(class TRequestStatus &, class TDes16 &) const
+	?NullMethod1@CSubSessionExtBase@@IAEXXZ @ 485 NONAME ; void CSubSessionExtBase::NullMethod1(void)
+	?NotifyHookChangeCancel@RLine@@QBEXXZ @ 486 NONAME ; void RLine::NotifyHookChangeCancel(void) const
+	?WaitForEndOfPage@RFax@@QBEXAAVTRequestStatus@@@Z @ 487 NONAME ; void RFax::WaitForEndOfPage(class TRequestStatus &) const
+	??0TMobilePhoneServiceTableV1@RMobilePhone@@QAE@XZ @ 488 NONAME ; RMobilePhone::TMobilePhoneServiceTableV1::TMobilePhoneServiceTableV1(void)
+	?Connect@RCall@@QAEXAAVTRequestStatus@@ABVTDesC8@@@Z @ 489 NONAME ; void RCall::Connect(class TRequestStatus &, class TDesC8 const &)
+	?NotifyStatusChangeCancel@RLine@@QBEXXZ @ 490 NONAME ; void RLine::NotifyStatusChangeCancel(void) const
+	??0TMobileCallUUSRequestV1@RMobileCall@@QAE@XZ @ 491 NONAME ; RMobileCall::TMobileCallUUSRequestV1::TMobileCallUUSRequestV1(void)
+	?NewL@CMobilePhoneSmspList@@SAPAV1@XZ @ 492 NONAME ; class CMobilePhoneSmspList * CMobilePhoneSmspList::NewL(void)
+	?GetValue@CPhoneBookBuffer@@QAEHAAVTPtrC8@@@Z @ 493 NONAME ; int CPhoneBookBuffer::GetValue(class TPtrC8 &)
+	?SetPreferredBearer@RPacketService@@QBEXAAVTRequestStatus@@W4TPreferredBearer@1@@Z @ 494 NONAME ; void RPacketService::SetPreferredBearer(class TRequestStatus &, enum RPacketService::TPreferredBearer) const
+	??0TMobilePhonePuctV1@RMobilePhone@@QAE@XZ @ 495 NONAME ; RMobilePhone::TMobilePhonePuctV1::TMobilePhonePuctV1(void)
+	??1CCallBase@@UAE@XZ @ 496 NONAME ; CCallBase::~CCallBase(void)
+	?HangUp@RCall@@QBEXAAVTRequestStatus@@@Z @ 497 NONAME ; void RCall::HangUp(class TRequestStatus &) const
+	?SetCallWaitingStatus@RMobilePhone@@QBEXAAVTRequestStatus@@W4TMobileService@1@W4TMobilePhoneServiceAction@1@@Z @ 498 NONAME ; void RMobilePhone::SetCallWaitingStatus(class TRequestStatus &, enum RMobilePhone::TMobileService, enum RMobilePhone::TMobilePhoneServiceAction) const
+	??0TMobileNamStoreInfoV1@RMobileNamStore@@QAE@XZ @ 499 NONAME ; RMobileNamStore::TMobileNamStoreInfoV1::TMobileNamStoreInfoV1(void)
+	?EnumerateLines@RPhone@@QBEHAAH@Z @ 500 NONAME ; int RPhone::EnumerateLines(int &) const
+	?NewL@CMobilePhoneONList@@SAPAV1@XZ @ 501 NONAME ; class CMobilePhoneONList * CMobilePhoneONList::NewL(void)
+	?AnswerIncomingCall@RCall@@QBEHABVTDesC8@@@Z @ 502 NONAME ; int RCall::AnswerIncomingCall(class TDesC8 const &) const
+	?Des1u@TDataPackage@@QBEPAVTDes16@@XZ @ 503 NONAME ; class TDes16 * TDataPackage::Des1u(void) const
+	?OpenExistingQoS@RPacketQoS@@QAEHAAVRPacketContext@@ABVTDesC16@@@Z @ 504 NONAME ; int RPacketQoS::OpenExistingQoS(class RPacketContext &, class TDesC16 const &)
+	?GetStatus@RCall@@QBEHAAW4TStatus@1@@Z @ 505 NONAME ; int RCall::GetStatus(enum RCall::TStatus &) const
+	?NewL@CRetrieveMobilePhoneCcbsList@@SAPAV1@AAVRMobilePhone@@@Z @ 506 NONAME ; class CRetrieveMobilePhoneCcbsList * CRetrieveMobilePhoneCcbsList::NewL(class RMobilePhone &)
+	?Set@RTelSubSessionBase@@IBEHHABVTDesC8@@ABVTDesC16@@W4TReqPriorityType@1@@Z @ 507 NONAME ; int RTelSubSessionBase::Set(int, class TDesC8 const &, class TDesC16 const &, enum RTelSubSessionBase::TReqPriorityType) const
+	?SendMessage@RMobileSmsMessaging@@QBEXAAVTRequestStatus@@ABVTDesC8@@AAVTDes8@@@Z @ 508 NONAME ; void RMobileSmsMessaging::SendMessage(class TRequestStatus &, class TDesC8 const &, class TDes8 &) const
+	??0TMobilePhoneCFInfoEntryV1@RMobilePhone@@QAE@XZ @ 509 NONAME ; RMobilePhone::TMobilePhoneCFInfoEntryV1::TMobilePhoneCFInfoEntryV1(void)
+	?ExtensionId@TCallParams@RCall@@QAEHXZ @ 510 NONAME ; int RCall::TCallParams::ExtensionId(void)
+	?NotifyConferenceEvent@RMobileConferenceCall@@QBEXAAVTRequestStatus@@AAW4TMobileConferenceEvent@1@AAV?$TBuf@$0IA@@@@Z @ 511 NONAME ; void RMobileConferenceCall::NotifyConferenceEvent(class TRequestStatus &, enum RMobileConferenceCall::TMobileConferenceEvent &, class TBuf<128> &) const
+	?SetUnowned@CCallBase@@UAEHXZ @ 512 NONAME ; int CCallBase::SetUnowned(void)
+	?Blank@RTelSubSessionBase@@IBEHHW4TReqPriorityType@1@@Z @ 513 NONAME ; int RTelSubSessionBase::Blank(int, enum RTelSubSessionBase::TReqPriorityType) const
+	?GetSubscriberId@RMobilePhone@@QBEXAAVTRequestStatus@@AAV?$TBuf@$0P@@@@Z @ 514 NONAME ; void RMobilePhone::GetSubscriberId(class TRequestStatus &, class TBuf<15> &) const
+	?GetReceiveMode@RMobileSmsMessaging@@QBEHAAW4TMobileSmsReceiveMode@1@@Z @ 515 NONAME ; int RMobileSmsMessaging::GetReceiveMode(enum RMobileSmsMessaging::TMobileSmsReceiveMode &) const
+	?GoOneToOne@RMobileCall@@QBEXAAVTRequestStatus@@@Z @ 516 NONAME ; void RMobileCall::GoOneToOne(class TRequestStatus &) const
+	?Resume@RMobileCall@@QBEXAAVTRequestStatus@@@Z @ 517 NONAME ; void RMobileCall::Resume(class TRequestStatus &) const
+	?Get@RTelSubSessionBase@@IBEXHAAVTRequestStatus@@AAVTDes16@@1W4TReqPriorityType@1@@Z @ 518 NONAME ; void RTelSubSessionBase::Get(int, class TRequestStatus &, class TDes16 &, class TDes16 &, enum RTelSubSessionBase::TReqPriorityType) const
+	?GetHomeNetwork@RMobilePhone@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 519 NONAME ; void RMobilePhone::GetHomeNetwork(class TRequestStatus &, class TDes8 &) const
+	?NotifyAlternatingCallCapsChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAK@Z @ 520 NONAME ; void RMobilePhone::NotifyAlternatingCallCapsChange(class TRequestStatus &, unsigned long &) const
+	?Ptr1@TDataPackage@@QBEPAXXZ @ 521 NONAME ; void * TDataPackage::Ptr1(void) const
+	?SelectNetwork@RMobilePhone@@QBEXAAVTRequestStatus@@HABUTMobilePhoneNetworkManualSelection@1@@Z @ 522 NONAME ; void RMobilePhone::SelectNetwork(class TRequestStatus &, int, struct RMobilePhone::TMobilePhoneNetworkManualSelection const &) const
+	?Destruct@RFax@@MAEXXZ @ 523 NONAME ; void RFax::Destruct(void)
+	?Activate@RPacketContext@@QBEXAAVTRequestStatus@@@Z @ 524 NONAME ; void RPacketContext::Activate(class TRequestStatus &) const
+	?NotifyCapsChange@RCall@@QAEXAAVTRequestStatus@@AAUTCaps@1@@Z @ 525 NONAME ; void RCall::NotifyCapsChange(class TRequestStatus &, struct RCall::TCaps &)
+	?FlowControlResume@CTelObject@@UAEXXZ @ 526 NONAME ; void CTelObject::FlowControlResume(void)
+	?Delete@RPacketContext@@QBEXAAVTRequestStatus@@@Z @ 527 NONAME ; void RPacketContext::Delete(class TRequestStatus &) const
+	?AcquireOwnershipCancel@RCall@@QBEXXZ @ 528 NONAME ; void RCall::AcquireOwnershipCancel(void) const
+	??0TMobilePhoneBatteryInfoV1@RMobilePhone@@QAE@XZ @ 529 NONAME ; RMobilePhone::TMobilePhoneBatteryInfoV1::TMobilePhoneBatteryInfoV1(void)
+	?CloseSubSessionPreProcessing@CFaxBase@@EAEXPAVCTelSession@@H@Z @ 530 NONAME ; void CFaxBase::CloseSubSessionPreProcessing(class CTelSession *, int)
+	??0RMobileLine@@QAE@XZ @ 531 NONAME ; RMobileLine::RMobileLine(void)
+	??1CRetrieveMobilePhoneCcbsList@@UAE@XZ @ 532 NONAME ; CRetrieveMobilePhoneCcbsList::~CRetrieveMobilePhoneCcbsList(void)
+	?NotifyCallEvent@RMobileCall@@QBEXAAVTRequestStatus@@AAW4TMobileCallEvent@1@@Z @ 533 NONAME ; void RMobileCall::NotifyCallEvent(class TRequestStatus &, enum RMobileCall::TMobileCallEvent &) const
+	?Attach@RPacketService@@QBEXAAVTRequestStatus@@@Z @ 534 NONAME ; void RPacketService::Attach(class TRequestStatus &) const
+	?NotifyCCBSStatusChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAW4TMobilePhoneCCBSStatus@1@@Z @ 535 NONAME ; void RMobilePhone::NotifyCCBSStatusChange(class TRequestStatus &, enum RMobilePhone::TMobilePhoneCCBSStatus &) const
+	?SetAlternatingCallMode@RMobilePhone@@QBEXAAVTRequestStatus@@W4TMobilePhoneAlternatingCallMode@1@W4TMobileService@1@@Z @ 536 NONAME ; void RMobilePhone::SetAlternatingCallMode(class TRequestStatus &, enum RMobilePhone::TMobilePhoneAlternatingCallMode, enum RMobilePhone::TMobileService) const
+	??0TMobilePhoneCspFileV1@RMobilePhone@@QAE@XZ @ 537 NONAME ; RMobilePhone::TMobilePhoneCspFileV1::TMobilePhoneCspFileV1(void)
+	?ConstructL@RFax@@MAEXXZ @ 538 NONAME ; void RFax::ConstructL(void)
+	?ConstructL@RMobileSmsStore@@IAEXXZ @ 539 NONAME ; void RMobileSmsStore::ConstructL(void)
+	?GetALSLine@RMobilePhone@@QBEHAAW4TMobilePhoneALSLine@1@@Z @ 540 NONAME ; int RMobilePhone::GetALSLine(enum RMobilePhone::TMobilePhoneALSLine &) const
+	?GetCallServiceCaps@RMobilePhone@@QBEHAAK@Z @ 541 NONAME ; int RMobilePhone::GetCallServiceCaps(unsigned long &) const
+	?GetNetworkRegistrationStatus@RMobilePhone@@QBEXAAVTRequestStatus@@AAW4TMobilePhoneRegistrationStatus@1@@Z @ 542 NONAME ; void RMobilePhone::GetNetworkRegistrationStatus(class TRequestStatus &, enum RMobilePhone::TMobilePhoneRegistrationStatus &) const
+	??1CRetrieveMobilePhoneCWList@@UAE@XZ @ 543 NONAME ; CRetrieveMobilePhoneCWList::~CRetrieveMobilePhoneCWList(void)
+	??0TMobileCallHscsdInfoV1@RMobileCall@@QAE@XZ @ 544 NONAME ; RMobileCall::TMobileCallHscsdInfoV1::TMobileCallHscsdInfoV1(void)
+	?GetPhoneInfo@RTelServer@@QBEHHAAUTPhoneInfo@1@@Z @ 545 NONAME ; int RTelServer::GetPhoneInfo(int, struct RTelServer::TPhoneInfo &) const
+	??0TMobilePhoneCWInfoEntryV1@RMobilePhone@@QAE@XZ @ 546 NONAME ; RMobilePhone::TMobilePhoneCWInfoEntryV1::TMobilePhoneCWInfoEntryV1(void)
+	?Start@CRetrieveMobilePhoneNamList@@QAEXAAVTRequestStatus@@H@Z @ 547 NONAME ; void CRetrieveMobilePhoneNamList::Start(class TRequestStatus &, int)
+	?CloseSubSessionPreProcessing@CLineBase@@EAEXPAVCTelSession@@H@Z @ 548 NONAME ; void CLineBase::CloseSubSessionPreProcessing(class CTelSession *, int)
+	?GetIndicator@RMobilePhone@@QBEXAAVTRequestStatus@@AAK@Z @ 549 NONAME ; void RMobilePhone::GetIndicator(class TRequestStatus &, unsigned long &) const
+	??0TMobileBroadcastAttributesV1@RMobileBroadcastMessaging@@QAE@XZ @ 550 NONAME ; RMobileBroadcastMessaging::TMobileBroadcastAttributesV1::TMobileBroadcastAttributesV1(void)
+	?NotifyUUSCapsChange@RMobileCall@@QBEXAAVTRequestStatus@@AAK@Z @ 551 NONAME ; void RMobileCall::NotifyUUSCapsChange(class TRequestStatus &, unsigned long &) const
+	?Transfer@RMobileCall@@QBEXAAVTRequestStatus@@@Z @ 552 NONAME ; void RMobileCall::Transfer(class TRequestStatus &) const
+	??1CFaxBase@@UAE@XZ @ 553 NONAME ; CFaxBase::~CFaxBase(void)
+	??0TMobileONEntryV1@RMobileONStore@@QAE@XZ @ 554 NONAME ; RMobileONStore::TMobileONEntryV1::TMobileONEntryV1(void)
+	?Connect@RTelServer@@QAEHH@Z @ 555 NONAME ; int RTelServer::Connect(int)
+	?ResolveSubSessionHandle@CCallBase@@UAEPAV1@KH@Z @ 556 NONAME ; class CCallBase * CCallBase::ResolveSubSessionHandle(unsigned long, int)
+	?HangUp@RCall@@QBEHXZ @ 557 NONAME ; int RCall::HangUp(void) const
+	?DeleteFaxProgressChunk@CCallBase@@UAEXXZ @ 558 NONAME ; void CCallBase::DeleteFaxProgressChunk(void)
+	?DeactivateCCBS@RMobileCall@@QBEXAAVTRequestStatus@@@Z @ 559 NONAME ; void RMobileCall::DeactivateCCBS(class TRequestStatus &) const
+	??0TMobilePhoneCostInfoV1@RMobilePhone@@QAE@XZ @ 560 NONAME ; RMobilePhone::TMobilePhoneCostInfoV1::TMobilePhoneCostInfoV1(void)
+	?Hold@RMobileCall@@QBEXAAVTRequestStatus@@@Z @ 561 NONAME ; void RMobileCall::Hold(class TRequestStatus &) const
+	?LoadPhoneModule@RTelServer@@QBEHABVTDesC16@@@Z @ 562 NONAME ; int RTelServer::LoadPhoneModule(class TDesC16 const &) const
+	?OpenNewObjectByNameL@CFaxBase@@EAEPAVCTelObject@@ABVTDesC16@@@Z @ 563 NONAME ; class CTelObject * CFaxBase::OpenNewObjectByNameL(class TDesC16 const &)
+	?Destruct@RMobilePhone@@MAEXXZ @ 564 NONAME ; void RMobilePhone::Destruct(void)
+	??0TMobileONStoreInfoV1@RMobileONStore@@QAE@XZ @ 565 NONAME ; RMobileONStore::TMobileONStoreInfoV1::TMobileONStoreInfoV1(void)
+	?Open@RLine@@QAEHAAVRTelServer@@ABVTDesC16@@@Z @ 566 NONAME ; int RLine::Open(class RTelServer &, class TDesC16 const &)
+	?StoreAllL@RMobileONStore@@QBEXAAVTRequestStatus@@PAVCMobilePhoneONList@@@Z @ 567 NONAME ; void RMobileONStore::StoreAllL(class TRequestStatus &, class CMobilePhoneONList *) const
+	??0TMobilePhoneBookInfoV1@RMobilePhoneBookStore@@QAE@XZ @ 568 NONAME ; RMobilePhoneBookStore::TMobilePhoneBookInfoV1::TMobilePhoneBookInfoV1(void)
+	?GetCurrentHscsdInfo@RMobileCall@@QBEHAAVTDes8@@@Z @ 569 NONAME ; int RMobileCall::GetCurrentHscsdInfo(class TDes8 &) const
+	?DeleteAll@RMobilePhoneStore@@QBEXAAVTRequestStatus@@@Z @ 570 NONAME ; void RMobilePhoneStore::DeleteAll(class TRequestStatus &) const
+	??0TCallParams@RCall@@QAE@XZ @ 571 NONAME ; RCall::TCallParams::TCallParams(void)
+	?Open@RMobileONStore@@QAEHAAVRMobilePhone@@@Z @ 572 NONAME ; int RMobileONStore::Open(class RMobilePhone &)
+	?NotifyIccAccessCapsChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAK@Z @ 573 NONAME ; void RMobilePhone::NotifyIccAccessCapsChange(class TRequestStatus &, unsigned long &) const
+	?CPhoneFactoryBase_Reserved1@CPhoneFactoryBase@@EAEXXZ @ 574 NONAME ; void CPhoneFactoryBase::CPhoneFactoryBase_Reserved1(void)
+	?NotifyCurrentNetworkChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAVTDes8@@AAVTMobilePhoneLocationAreaV1@1@@Z @ 575 NONAME ; void RMobilePhone::NotifyCurrentNetworkChange(class TRequestStatus &, class TDes8 &, class RMobilePhone::TMobilePhoneLocationAreaV1 &) const
+	?NotifySecurityEvent@RMobilePhone@@QBEXAAVTRequestStatus@@AAW4TMobilePhoneSecurityEvent@1@@Z @ 576 NONAME ; void RMobilePhone::NotifySecurityEvent(class TRequestStatus &, enum RMobilePhone::TMobilePhoneSecurityEvent &) const
+	??0TMobilePhoneNetworkInfoV1@RMobilePhone@@QAE@XZ @ 577 NONAME ; RMobilePhone::TMobilePhoneNetworkInfoV1::TMobilePhoneNetworkInfoV1(void)
+	??0TMobileDataRLPRangesV1@RMobileCall@@QAE@XZ @ 578 NONAME ; RMobileCall::TMobileDataRLPRangesV1::TMobileDataRLPRangesV1(void)
+	?Enumerate@CMobilePhoneListBase@@QBEHXZ @ 579 NONAME ; int CMobilePhoneListBase::Enumerate(void) const
+	?NotifyConnectionSpeedChange@RPacketContext@@QBEXAAVTRequestStatus@@AAI@Z @ 580 NONAME ; void RPacketContext::NotifyConnectionSpeedChange(class TRequestStatus &, unsigned int &) const
+	??1CRetrieveMobilePhoneDetectedNetworks@@UAE@XZ @ 581 NONAME ; CRetrieveMobilePhoneDetectedNetworks::~CRetrieveMobilePhoneDetectedNetworks(void)
+	?GetCaps@RCall@@QBEHAAUTCaps@1@@Z @ 582 NONAME ; int RCall::GetCaps(struct RCall::TCaps &) const
+	?RecoverCommPort@RPacketContext@@QBEXAAVTRequestStatus@@@Z @ 583 NONAME ; void RPacketContext::RecoverCommPort(class TRequestStatus &) const
+	?SetAttachMode@RPacketService@@QBEHW4TAttachMode@1@@Z @ 584 NONAME ; int RPacketService::SetAttachMode(enum RPacketService::TAttachMode) const
+	?Init@CLineBase@@EAEXXZ @ 585 NONAME ; void CLineBase::Init(void)
+	?CheckPriorityClient@CCallBase@@UBEHK@Z @ 586 NONAME ; int CCallBase::CheckPriorityClient(unsigned long) const
+	?LoanDataPort@RCall@@QBEHAAUTCommPort@1@@Z @ 587 NONAME ; int RCall::LoanDataPort(struct RCall::TCommPort &) const
+	?GetIncomingCallType@RMobilePhone@@QBEXAAVTRequestStatus@@AAW4TMobilePhoneIncomingCallType@1@AAVTDes8@@@Z @ 588 NONAME ; void RMobilePhone::GetIncomingCallType(class TRequestStatus &, enum RMobilePhone::TMobilePhoneIncomingCallType &, class TDes8 &) const
+	??0TMobilePhoneLockInfoV1@RMobilePhone@@QAE@XZ @ 589 NONAME ; RMobilePhone::TMobilePhoneLockInfoV1::TMobilePhoneLockInfoV1(void)
+	?Initialise@RPhone@@QAEHXZ @ 590 NONAME ; int RPhone::Initialise(void)
+	?GetIndicatorCaps@RMobilePhone@@QBEHAAK0@Z @ 591 NONAME ; int RMobilePhone::GetIndicatorCaps(unsigned long &, unsigned long &) const
+	??0TCallInfo@RCall@@QAE@XZ @ 592 NONAME ; RCall::TCallInfo::TCallInfo(void)
+	?Set@RTelSubSessionBase@@IBEHHABVTDesC8@@0W4TReqPriorityType@1@@Z @ 593 NONAME ; int RTelSubSessionBase::Set(int, class TDesC8 const &, class TDesC8 const &, enum RTelSubSessionBase::TReqPriorityType) const
+	?Start@CRetrieveMobilePhoneCcbsList@@QAEXAAVTRequestStatus@@@Z @ 594 NONAME ; void CRetrieveMobilePhoneCcbsList::Start(class TRequestStatus &)
+	?CloseSubSessionPreProcessing@CSubSessionExtBase@@MAEXPAVCTelSession@@H@Z @ 595 NONAME ; void CSubSessionExtBase::CloseSubSessionPreProcessing(class CTelSession *, int)
+	??0CLineBase@@QAE@XZ @ 596 NONAME ; CLineBase::CLineBase(void)
+	?Open@RMobilePhoneBookStore@@QAEHAAVRMobilePhone@@ABVTDesC16@@@Z @ 597 NONAME ; int RMobilePhoneBookStore::Open(class RMobilePhone &, class TDesC16 const &)
+	?AcquireOwnership@RCall@@QBEXAAVTRequestStatus@@@Z @ 598 NONAME ; void RCall::AcquireOwnership(class TRequestStatus &) const
+	?PutTagAndValue@CPhoneBookBuffer@@QAEHEK@Z @ 599 NONAME ; int CPhoneBookBuffer::PutTagAndValue(unsigned char, unsigned long)
+	?StoreL@CMobilePhoneListBase@@QAEXAAVTDes8@@@Z @ 600 NONAME ; void CMobilePhoneListBase::StoreL(class TDes8 &)
+	?VerifySecurityCode@RMobilePhone@@QBEXAAVTRequestStatus@@W4TMobilePhoneSecurityCode@1@ABV?$TBuf@$09@@2@Z @ 601 NONAME ; void RMobilePhone::VerifySecurityCode(class TRequestStatus &, enum RMobilePhone::TMobilePhoneSecurityCode, class TBuf<10> const &, class TBuf<10> const &) const
+	?ConstructL@RLine@@MAEXXZ @ 602 NONAME ; void RLine::ConstructL(void)
+	?NotifyLanguageFilterChange@RMobileBroadcastMessaging@@QBEXAAVTRequestStatus@@AAVTDes16@@@Z @ 603 NONAME ; void RMobileBroadcastMessaging::NotifyLanguageFilterChange(class TRequestStatus &, class TDes16 &) const
+	?GetProfileName@RPacketContext@@QBEHAAV?$TBuf@$0IA@@@@Z @ 604 NONAME ; int RPacketContext::GetProfileName(class TBuf<128> &) const
+	?Read@RFax@@QAEXAAVTRequestStatus@@AAVTDes8@@@Z @ 605 NONAME ; void RFax::Read(class TRequestStatus &, class TDes8 &)
+	?Destruct@RMobileUssdMessaging@@IAEXXZ @ 606 NONAME ; void RMobileUssdMessaging::Destruct(void)
+	?CloseSubSessionPreProcessing@CPhoneBase@@EAEXPAVCTelSession@@H@Z @ 607 NONAME ; void CPhoneBase::CloseSubSessionPreProcessing(class CTelSession *, int)
+	?Close@RPacketQoS@@QAEXXZ @ 608 NONAME ; void RPacketQoS::Close(void)
+	??0RPacketService@@QAE@XZ @ 609 NONAME ; RPacketService::RPacketService(void)
+	?NotifyDataTransferred@RPacketContext@@QBEXAAVTRequestStatus@@AAUTDataVolume@1@II@Z @ 610 NONAME ; void RPacketContext::NotifyDataTransferred(class TRequestStatus &, struct RPacketContext::TDataVolume &, unsigned int, unsigned int) const
+	?CreateConference@RMobileConferenceCall@@QBEXAAVTRequestStatus@@@Z @ 611 NONAME ; void RMobileConferenceCall::CreateConference(class TRequestStatus &) const
+	?GetMSClass@RPacketService@@QBEXAAVTRequestStatus@@AAW4TMSClass@1@1@Z @ 612 NONAME ; void RPacketService::GetMSClass(class TRequestStatus &, enum RPacketService::TMSClass &, enum RPacketService::TMSClass &) const
+	?GetServiceTable@RMobilePhone@@QBEXAAVTRequestStatus@@W4TMobilePhoneServiceTable@1@AAVTDes8@@@Z @ 613 NONAME ; void RMobilePhone::GetServiceTable(class TRequestStatus &, enum RMobilePhone::TMobilePhoneServiceTable, class TDes8 &) const
+	??0TMobileBroadcastCapsV1@RMobileBroadcastMessaging@@QAE@XZ @ 614 NONAME ; RMobileBroadcastMessaging::TMobileBroadcastCapsV1::TMobileBroadcastCapsV1(void)
+	?OpenExistingCall@RCall@@QAEHAAVRTelServer@@ABVTDesC16@@@Z @ 615 NONAME ; int RCall::OpenExistingCall(class RTelServer &, class TDesC16 const &)
+	?DialCancel@RCall@@QBEXXZ @ 616 NONAME ; void RCall::DialCancel(void) const
+	?OpenNewCall@RCall@@QAEHAAVRTelServer@@ABVTDesC16@@@Z @ 617 NONAME ; int RCall::OpenNewCall(class RTelServer &, class TDesC16 const &)
+	??0RTelSubSessionBase@@IAE@XZ @ 618 NONAME ; RTelSubSessionBase::RTelSubSessionBase(void)
+	?Connect@RCall@@QAEXAAVTRequestStatus@@@Z @ 619 NONAME ; void RCall::Connect(class TRequestStatus &)
+	?NotifyAlternatingCallModeChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAW4TMobilePhoneAlternatingCallMode@1@AAW4TMobileService@1@@Z @ 620 NONAME ; void RMobilePhone::NotifyAlternatingCallModeChange(class TRequestStatus &, enum RMobilePhone::TMobilePhoneAlternatingCallMode &, enum RMobilePhone::TMobileService &) const
+	?ConstructL@RMobilePhoneBookStore@@IAEXXZ @ 621 NONAME ; void RMobilePhoneBookStore::ConstructL(void)
+	?GetEntryL@CMobilePhoneListBase@@IBEPBXH@Z @ 622 NONAME ; void const * CMobilePhoneListBase::GetEntryL(int) const
+	?OpenPostProcessing@CFaxBase@@EAEXPAVCTelSession@@H@Z @ 623 NONAME ; void CFaxBase::OpenPostProcessing(class CTelSession *, int)
+	??1CMobilePhoneCWList@@UAE@XZ @ 624 NONAME ; CMobilePhoneCWList::~CMobilePhoneCWList(void)
+	?NotifyCallForwardingStatusChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAW4TMobilePhoneCFCondition@1@@Z @ 625 NONAME ; void RMobilePhone::NotifyCallForwardingStatusChange(class TRequestStatus &, enum RMobilePhone::TMobilePhoneCFCondition &) const
+	?Swap@RMobileCall@@QBEXAAVTRequestStatus@@@Z @ 626 NONAME ; void RMobileCall::Swap(class TRequestStatus &) const
+	?CancelSubSession@RTelSubSessionBase@@IBEHXZ @ 627 NONAME ; int RTelSubSessionBase::CancelSubSession(void) const
+	?GetAttachMode@RPacketService@@QBEHAAW4TAttachMode@1@@Z @ 628 NONAME ; int RPacketService::GetAttachMode(enum RPacketService::TAttachMode &) const
+	?QueryVersionSupported@CPhoneFactoryBase@@UBEHABVTVersion@@@Z @ 629 NONAME ; int CPhoneFactoryBase::QueryVersionSupported(class TVersion const &) const
+	?GetStatus@RPhone@@QBEHAAUTStatus@1@@Z @ 630 NONAME ; int RPhone::GetStatus(struct RPhone::TStatus &) const
+	??0RMobileSmsStore@@QAE@XZ @ 631 NONAME ; RMobileSmsStore::RMobileSmsStore(void)
+	?Get@RTelSubSessionBase@@IBEHHAAVTDes8@@0W4TReqPriorityType@1@@Z @ 632 NONAME ; int RTelSubSessionBase::Get(int, class TDes8 &, class TDes8 &, enum RTelSubSessionBase::TReqPriorityType) const
+	?RemainingReadLength@CPhoneBookBuffer@@QAEHXZ @ 633 NONAME ; int CPhoneBookBuffer::RemainingReadLength(void)
+	?Close@RFax@@QAEXXZ @ 634 NONAME ; void RFax::Close(void)
+	??1CRetrieveMobilePhoneSmsList@@UAE@XZ @ 635 NONAME ; CRetrieveMobilePhoneSmsList::~CRetrieveMobilePhoneSmsList(void)
+	??0TMobilePhoneNITZ@RMobilePhone@@QAE@XZ @ 636 NONAME ; RMobilePhone::TMobilePhoneNITZ::TMobilePhoneNITZ(void)
+	?NotifyIncomingCallTypeChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAW4TMobilePhoneIncomingCallType@1@AAVTDes8@@@Z @ 637 NONAME ; void RMobilePhone::NotifyIncomingCallTypeChange(class TRequestStatus &, enum RMobilePhone::TMobilePhoneIncomingCallType &, class TDes8 &) const
+	?NotifySmspListChange@RMobileSmsMessaging@@QBEXAAVTRequestStatus@@@Z @ 638 NONAME ; void RMobileSmsMessaging::NotifySmspListChange(class TRequestStatus &) const
+	?GetStatus@RPacketService@@QBEHAAW4TStatus@1@@Z @ 639 NONAME ; int RPacketService::GetStatus(enum RPacketService::TStatus &) const
+	??0RLine@@QAE@XZ @ 640 NONAME ; RLine::RLine(void)
+	?__DbgMarkEnd@RTelServer@@QAEHH@Z @ 641 NONAME ; int RTelServer::__DbgMarkEnd(int)
+	?SetUUSSetting@RMobilePhone@@QBEXAAVTRequestStatus@@W4TMobilePhoneUUSSetting@1@@Z @ 642 NONAME ; void RMobilePhone::SetUUSSetting(class TRequestStatus &, enum RMobilePhone::TMobilePhoneUUSSetting) const
+	?NullMethod2@CFaxBase@@AAEXXZ @ 643 NONAME ; void CFaxBase::NullMethod2(void)
+	?GetAlternatingCallCaps@RMobilePhone@@QBEHAAK@Z @ 644 NONAME ; int RMobilePhone::GetAlternatingCallCaps(unsigned long &) const
+	?Open@RMobileBroadcastMessaging@@QAEHAAVRMobilePhone@@@Z @ 645 NONAME ; int RMobileBroadcastMessaging::Open(class RMobilePhone &)
+	??0TMobileNamEntryV1@RMobileNamStore@@QAE@XZ @ 646 NONAME ; RMobileNamStore::TMobileNamEntryV1::TMobileNamEntryV1(void)
+	?AnswerIncomingCall@RCall@@QBEHXZ @ 647 NONAME ; int RCall::AnswerIncomingCall(void) const
+	?OpenNewCall@RCall@@QAEHAAVRLine@@AAVTDes16@@@Z @ 648 NONAME ; int RCall::OpenNewCall(class RLine &, class TDes16 &)
+	?Write@RFax@@QAEXAAVTRequestStatus@@ABVTDesC8@@@Z @ 649 NONAME ; void RFax::Write(class TRequestStatus &, class TDesC8 const &)
+	?Destruct@RPacketService@@MAEXXZ @ 650 NONAME ; void RPacketService::Destruct(void)
+	?DeleteEntryL@CMobilePhoneEditableListBase@@QAEXH@Z @ 651 NONAME ; void CMobilePhoneEditableListBase::DeleteEntryL(int)
+	?GetTagAndType@CPhoneBookBuffer@@QAEHAAEAAW4TPhBkTagType@1@@Z @ 652 NONAME ; int CPhoneBookBuffer::GetTagAndType(unsigned char &, enum CPhoneBookBuffer::TPhBkTagType &)
+	?GetValue@CPhoneBookBuffer@@QAEHAAK@Z @ 653 NONAME ; int CPhoneBookBuffer::GetValue(unsigned long &)
+	?StoreBroadcastIdListL@RMobileBroadcastMessaging@@QAEXAAVTRequestStatus@@PAVCMobilePhoneBroadcastIdList@@W4TMobileBroadcastIdType@1@@Z @ 654 NONAME ; void RMobileBroadcastMessaging::StoreBroadcastIdListL(class TRequestStatus &, class CMobilePhoneBroadcastIdList *, enum RMobileBroadcastMessaging::TMobileBroadcastIdType)
+	??0TMobileDataCallParamsV1@RMobileCall@@QAE@XZ @ 655 NONAME ; RMobileCall::TMobileDataCallParamsV1::TMobileDataCallParamsV1(void)
+	?NotifyProfileChanged@RPacketQoS@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 656 NONAME ; void RPacketQoS::NotifyProfileChanged(class TRequestStatus &, class TDes8 &) const
+	?NewL@CRetrieveMobilePhoneONList@@SAPAV1@AAVRMobilePhoneStore@@@Z @ 657 NONAME ; class CRetrieveMobilePhoneONList * CRetrieveMobilePhoneONList::NewL(class RMobilePhoneStore &)
+	?SetPriorityClient@RTelServer@@QBEHXZ @ 658 NONAME ; int RTelServer::SetPriorityClient(void) const
+	??0TMobileHscsdCallParamsV1@RMobileCall@@QAE@XZ @ 659 NONAME ; RMobileCall::TMobileHscsdCallParamsV1::TMobileHscsdCallParamsV1(void)
+	?EnumerateCall@RLine@@QBEHAAH@Z @ 660 NONAME ; int RLine::EnumerateCall(int &) const
+	?GetNITZInfo@RMobilePhone@@QBEHAAVTMobilePhoneNITZ@1@@Z @ 661 NONAME ; int RMobilePhone::GetNITZInfo(class RMobilePhone::TMobilePhoneNITZ &) const
+	?NotifyCostInfoChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAVTDes8@@@Z @ 662 NONAME ; void RMobilePhone::NotifyCostInfoChange(class TRequestStatus &, class TDes8 &) const
+	?OpenPostProcessing@CLineBase@@EAEXPAVCTelSession@@H@Z @ 663 NONAME ; void CLineBase::OpenPostProcessing(class CTelSession *, int)
+	?NotifyMobileCallStatusChange@RMobileCall@@QBEXAAVTRequestStatus@@AAW4TMobileCallStatus@1@@Z @ 664 NONAME ; void RMobileCall::NotifyMobileCallStatusChange(class TRequestStatus &, enum RMobileCall::TMobileCallStatus &) const
+	??0TDnsInfoV2@RPacketContext@@QAE@XZ @ 665 NONAME ; RPacketContext::TDnsInfoV2::TDnsInfoV2(void)
+	?SetOwnership@CCallBase@@UAEHK@Z @ 666 NONAME ; int CCallBase::SetOwnership(unsigned long)
+	??0TContextConfigGPRS@RPacketContext@@QAE@XZ @ 667 NONAME ; RPacketContext::TContextConfigGPRS::TContextConfigGPRS(void)
+	?ConstructL@RMobilePhone@@MAEXXZ @ 668 NONAME ; void RMobilePhone::ConstructL(void)
+	?Get@RTelSubSessionBase@@IBEHHAAVTDes8@@W4TReqPriorityType@1@@Z @ 669 NONAME ; int RTelSubSessionBase::Get(int, class TDes8 &, enum RTelSubSessionBase::TReqPriorityType) const
+	?SetNetworkSelectionSetting@RMobilePhone@@QBEXAAVTRequestStatus@@ABVTDes8@@@Z @ 670 NONAME ; void RMobilePhone::SetNetworkSelectionSetting(class TRequestStatus &, class TDes8 const &) const
+	?NotifyCapsChangeCancel@RCall@@QBEXXZ @ 671 NONAME ; void RCall::NotifyCapsChangeCancel(void) const
+	?GetFaxSettings@RCall@@QBEHAAUTFaxSessionSettings@1@@Z @ 672 NONAME ; int RCall::GetFaxSettings(struct RCall::TFaxSessionSettings &) const
+	?NewL@CMobilePhoneGsmSmsList@@SAPAV1@XZ @ 673 NONAME ; class CMobilePhoneGsmSmsList * CMobilePhoneGsmSmsList::NewL(void)
+	?BaseConstruct@RMobilePhoneStore@@IAEXPAVCMobilePhoneStorePtrHolder@@@Z @ 674 NONAME ; void RMobilePhoneStore::BaseConstruct(class CMobilePhoneStorePtrHolder *)
+	?GetConferenceStatus@RMobileConferenceCall@@QBEHAAW4TMobileConferenceStatus@1@@Z @ 675 NONAME ; int RMobileConferenceCall::GetConferenceStatus(enum RMobileConferenceCall::TMobileConferenceStatus &) const
+	?NotifyIndicatorChange@RMobilePhone@@QBEXAAVTRequestStatus@@AAK@Z @ 676 NONAME ; void RMobilePhone::NotifyIndicatorChange(class TRequestStatus &, unsigned long &) const
+	?RecoverDataPortAndRelinquishOwnershipCompleted@CCallBase@@UAEXH@Z @ 677 NONAME ; void CCallBase::RecoverDataPortAndRelinquishOwnershipCompleted(int)
+	?Connect@RCall@@QBEHABVTDesC8@@@Z @ 678 NONAME ; int RCall::Connect(class TDesC8 const &) const
+	??0RPhone@@QAE@XZ @ 679 NONAME ; RPhone::RPhone(void)
+	?CloseSubSessionPreProcessing@CCallBase@@EAEXPAVCTelSession@@H@Z @ 680 NONAME ; void CCallBase::CloseSubSessionPreProcessing(class CTelSession *, int)
+	?OpenExistingCall@RCall@@QAEHAAVRLine@@ABVTDesC16@@@Z @ 681 NONAME ; int RCall::OpenExistingCall(class RLine &, class TDesC16 const &)
+	?GetCaps@RMobileSmsMessaging@@QBEHAAVTDes8@@@Z @ 682 NONAME ; int RMobileSmsMessaging::GetCaps(class TDes8 &) const
+	?ClearCostMeter@RMobilePhone@@QBEXAAVTRequestStatus@@W4TMobilePhoneCostMeters@1@@Z @ 683 NONAME ; void RMobilePhone::ClearCostMeter(class TRequestStatus &, enum RMobilePhone::TMobilePhoneCostMeters) const
+	?ServerVersion@CTelObject@@UBEHXZ @ 684 NONAME ; int CTelObject::ServerVersion(void) const
+	?Start@CRetrieveMobilePhoneSmspList@@QAEXAAVTRequestStatus@@@Z @ 685 NONAME ; void CRetrieveMobilePhoneSmspList::Start(class TRequestStatus &)
+	?Destruct@RMobileSmsMessaging@@IAEXXZ @ 686 NONAME ; void RMobileSmsMessaging::Destruct(void)
+	?StopDTMFTone@RMobilePhone@@QBEHXZ @ 687 NONAME ; int RMobilePhone::StopDTMFTone(void) const
+	?Service@CPhoneBase@@EAEHABVRMessage2@@PAVCReqEntry@@@Z @ 688 NONAME ; int CPhoneBase::Service(class RMessage2 const &, class CReqEntry *)
+	?Close@RMobileSmsMessaging@@QAEXXZ @ 689 NONAME ; void RMobileSmsMessaging::Close(void)
+	?Destruct@RCall@@MAEXXZ @ 690 NONAME ; void RCall::Destruct(void)
+	?NotifyMSClassChange@RPacketService@@QBEXAAVTRequestStatus@@AAW4TMSClass@1@@Z @ 691 NONAME ; void RPacketService::NotifyMSClassChange(class TRequestStatus &, enum RPacketService::TMSClass &) const
+	??0CPhoneBase@@QAE@XZ @ 692 NONAME ; CPhoneBase::CPhoneBase(void)
+	?NewL@CRetrieveMobilePhoneENList@@SAPAV1@AAVRMobilePhoneStore@@@Z @ 693 NONAME ; class CRetrieveMobilePhoneENList * CRetrieveMobilePhoneENList::NewL(class RMobilePhoneStore &)
+

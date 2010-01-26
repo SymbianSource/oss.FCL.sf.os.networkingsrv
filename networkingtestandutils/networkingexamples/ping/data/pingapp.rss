@@ -1,0 +1,431 @@
+
+//	ping.rss
+
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// Toni Barrera Arboix - Nokia Research Center (antonio.barrera@research.nokia.com)
+//
+
+// AEH: define this if you want to compile for Crystal.
+//      this should be possible to do automagically, via the .mmp file ?
+//#define CRYSTAL
+
+NAME PAPP
+/*
+#include <eikdef.rh>
+#include <eiktbar.rh>
+#include <eikmenu.rh>
+#include <eikspace.rh>
+#include <eikclock.rh>
+#include <eikbutb.hrh>
+#include <eikdialg.rh>
+#include <eikedwin.rh>
+#include <eikgted.rh>
+#include <eiklabel.rh>
+#include <eikmfne.rh>
+#include <techview/eikon.rsg>
+*/
+#include <techview/eikon.rh>
+#include <techview/eikon.rsg>
+#include "const.h"
+
+#include "ping.hrh"
+
+RESOURCE RSS_SIGNATURE { }
+
+RESOURCE TBUF { buf=""; }
+
+RESOURCE EIK_APP_INFO
+	{
+	menubar=r_ping_menubar;
+	hotkeys=r_ping_hotkeys;
+#ifdef CRYSTAL
+	cba = r_ping_cba;
+#else
+	toolbar=r_ping_toolbar;
+#endif
+	}
+
+
+RESOURCE DIALOG r_ping_about	//About Dialog
+	{
+	title="About Ping";
+	buttons=R_EIK_BUTTONS_CONTINUE;
+	flags=EEikDialogFlagButtonsBelow;
+	items=
+		{
+		DLG_LINE
+			{
+			type=EEikCtLabel;
+			prompt="";
+			id=EPingAboutText;
+			control=LABEL
+				{
+				txt="EPOC32 Ping";
+				};				
+			},
+		DLG_LINE
+			{
+			type=EEikCtLabel;
+			prompt="";
+			id=EPingAboutText;
+			control=LABEL
+				{
+				txt="By Toni Barrera (NRC Helsinki)";
+				};				
+			},
+		DLG_LINE
+			{
+			type=EEikCtLabel;
+			prompt="";
+			id=EPingAboutText;
+			control=LABEL
+				{
+				txt="December 1998";
+				};				
+			}	
+		};
+	}
+
+
+
+RESOURCE DIALOG r_ping_info	//used to check some errors
+	{
+	title="Ping Info";
+	buttons=R_EIK_BUTTONS_CONTINUE;
+	flags=EEikDialogFlagButtonsRight;
+	items=
+		{
+		DLG_LINE
+			{
+			type=EEikCtLabel;
+			prompt="A number editor";
+			id=EPingLabel;
+			control=LABEL
+				{
+				txt="Label Ok";
+				};
+			}	
+		};
+	}
+
+
+RESOURCE DIALOG r_ping_hostname
+	{
+	title="EPOC32 Ping";
+	buttons=R_EIK_BUTTONS_CANCEL_OK;
+	flags=EEikDialogFlagWait|EEikDialogFlagButtonsBelow|EEikDialogFlagNotifyEsc;
+	items=
+		{
+		DLG_LINE
+			{
+			type=EEikCtEdwin;
+			prompt="Hostname";
+			id=EPingHostName;
+			control=EDWIN
+				{
+					width=15;
+					lines=1;
+					maxlength=KHostNameLimit;
+					flags=0;
+				};
+			}	
+		};
+	}
+
+
+
+RESOURCE DIALOG r_ping_options
+	{
+	title="EPOC32 Ping Options";
+	buttons=R_EIK_BUTTONS_CANCEL_OK;
+	flags=EEikDialogFlagWait|EEikDialogFlagButtonsRight|EEikDialogFlagDensePacking;
+	pages=r_ping_options_pages;
+	}
+
+
+RESOURCE ARRAY r_ping_options_pages
+	{
+	items=
+		{
+		PAGE { text="Easy"; id=EPingEasy; lines=r_ping_easy_options; },
+		PAGE { text="Advanced"; id=EPingAdvanced; lines=r_ping_advanced_options; }
+		};
+	}
+
+
+
+RESOURCE ARRAY r_ping_easy_options
+	{
+	items=
+		{
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Packet count";
+            id=EPingNumPackCheckBox;
+			},
+		DLG_LINE
+			{
+			type=EEikCtNumberEditor;
+			prompt="Number of packets";
+			id=EPingNumPackNum;
+			trailer="packets";
+			control=NUMBER_EDITOR
+				{
+					min= 1;
+					max= 1000;
+				};
+			},
+		DLG_LINE
+			{
+			type=EEikCtNumberEditor;
+			prompt="Sec between packets";
+			id=EPingSecNum;
+			trailer="seconds";
+			control=NUMBER_EDITOR
+				{
+					min= 1;
+					max= 65000;
+				};
+			},
+		DLG_LINE
+			{
+			type=EEikCtNumberEditor;
+			prompt="Last packet wait";
+			id=EPingLastSecNum;
+			trailer="seconds";
+			control=NUMBER_EDITOR
+				{
+					min= 1;
+					max= 65000;
+				};
+			},
+		DLG_LINE
+			{
+			type=EEikCtNumberEditor;
+			prompt="Packet Size";
+			id=EPingPackSizeNum;
+			trailer="bytes";
+			control=NUMBER_EDITOR
+				{
+					min= 0;
+					max= MAX_ICMP_PACKETSIZE;
+				};
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Quiet Output";
+            id=EPingQuietCheckBox;
+			}
+
+		};
+	}
+
+
+RESOURCE ARRAY r_ping_advanced_options
+	{
+	items=
+		{
+// HopLimit and Numeric Output Not used unless the socket is opened in 
+// IP mode and the packet is IP packet instead of ICMP packet like is now
+
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Set Hop Limit (Only multicast @)";
+            id=EPingHopLimitCheckBox;
+			},
+		DLG_LINE
+			{
+			type=EEikCtNumberEditor;
+			prompt="Hop Limit (time-to-live)";
+			id=EPingHopLimitNum;
+			trailer="hops";
+			control=NUMBER_EDITOR
+				{
+					min= 1;
+					max= 255;
+				};
+			},
+		DLG_LINE
+			{
+			type=EEikCtEdwin;
+			prompt="Pattern (empty=auto)";
+			id=EPingPatternNum;
+			control=EDWIN
+				{
+					width=8;
+					lines=1;
+					maxlength=16;
+					flags=0;
+				};
+			},
+
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Numeric Output Only";
+            id=EPingNoResolvCheckBox;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Verbose output";
+            id=EPingVerboseCheckBox;
+			},
+		DLG_LINE
+			{
+            type=EEikCtCheckBox;
+            prompt="Set SO_DEBUG option";
+            id=EPingDebugCheckBox;
+			}
+
+		};
+
+	}
+
+#ifdef CRYSTAL
+
+RESOURCE CBA r_ping_cba
+{
+	//LONG flags=EEikButtonGroupAddToStack;
+	//WORD breadth=80; // !!! make this accessible from LAF
+	//LLINK related_buttons=0;
+   	buttons = 
+	{
+		CBA_BUTTON
+		{
+			id=EPingStart;
+			txt="Start Ping ";
+		},
+		CBA_BUTTON
+		{
+			id=EPingStop;
+			txt="Stop Ping";
+		},
+		CBA_BUTTON
+		{
+			id=EPingapp2Options;
+			txt="Options";
+		},
+		CBA_BUTTON
+		{
+			id=EEikCmdExit;
+			txt="Exit";
+		}
+	};
+}
+
+#else
+
+RESOURCE TOOLBAR r_ping_toolbar
+	{
+	flags=EEikToolBarDistributeControlsEvenlyBetweenLines;
+	breadth=KEikStdToolBarWidth+8;
+	controls=
+		{
+		TBAR_CTRL 
+			{ 
+			id=EPingCmdFileName;
+			type=EEikCtFileNameLabel; 
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdFileNameLabelHeight;
+			},
+		TBAR_BUTTON
+			{
+			flags=EEikToolBarCtrlIsStretchable;
+			id=EPingStart;
+			txt="Start Ping ";
+			},
+		TBAR_BUTTON
+			{
+			flags=EEikToolBarCtrlIsStretchable;
+			id=EPingStop;
+			txt="Stop Ping";
+			},
+		TBAR_BUTTON
+			{
+			flags=EEikToolBarCtrlIsStretchable;
+			id=EPingapp2Options;
+			txt="Options";
+			},
+        TBAR_BUTTON
+			{
+			flags=EEikToolBarCtrlIsStretchable;
+			id=EEikCmdExit;
+			txt="Exit";
+			},
+		TBAR_CTRL
+			{
+			type=EEikCtClock;
+			control=CLOCK { digitalresourceid=R_EIK_DIGITAL_CLOCK; analogresourceid=R_EIK_ANALOG_CLOCK; };
+			},
+		TBAR_CTRL
+			{
+			type=EEikCtSpacer;
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdGapBelowClock;
+			control=SPACER;
+			}
+		};	
+	}  
+
+#endif // CRYSTAL
+
+RESOURCE HOTKEYS r_ping_hotkeys
+    {
+    control=
+        {
+        HOTKEY { command=EEikCmdExit; key='e'; },
+		HOTKEY { command=EPingapp2Options; key='o'; },
+		HOTKEY { command=EPingStart; key='s'; },
+		HOTKEY { command=EPingStop; key='c'; },
+		HOTKEY { command=EPingReset; key='r'; },
+		HOTKEY { command=EPingAbout; key='a'; }
+        };
+    }
+
+RESOURCE MENU_BAR r_ping_menubar
+    {
+    titles=
+        {
+        MENU_TITLE { menu_pane=r_ping_file_menu; txt="File"; },
+        MENU_TITLE { menu_pane=r_ping_tools_menu; txt="Tools"; }
+		};
+    }
+
+RESOURCE MENU_PANE r_ping_file_menu
+	{
+	items=
+		{
+		MENU_ITEM { command=EEikCmdExit; txt="Exit"; }
+        };
+    }
+
+RESOURCE MENU_PANE r_ping_tools_menu
+	{
+	items=
+		{
+		MENU_ITEM { command=EPingStart; txt="Start Ping"; },
+		MENU_ITEM { command=EPingStop; txt="Stop Ping"; },
+		MENU_ITEM { command=EPingapp2Options; txt="Options..."; },
+		MENU_ITEM { command=EPingReset; txt="Reset Screen"; },
+		MENU_ITEM { command=EPingAbout; txt="About Ping..."; }
+        };
+    }
+
+RESOURCE TBUF r_resolving_name { buf="Resolving name..."; }
+

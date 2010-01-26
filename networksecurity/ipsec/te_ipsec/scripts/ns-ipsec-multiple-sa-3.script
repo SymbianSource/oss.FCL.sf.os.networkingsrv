@@ -1,0 +1,98 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+/////////////////////////////////////////////////////////////////
+//! @file
+//! @SYMScriptAuthor        divakare
+//! @SYMTestSuiteName       ns-ipsec-multiple-sa
+//! @SYMScriptCreationDate  Fri Nov 14 16:04:14 IST 2008
+/////////////////////////////////////////////////////////////////
+
+PRINT Run test case(s) for suite ns-ipsec-multiple-sa
+
+// ToDo: Remember to load the relevant suite before starting any test case(s)
+LOAD_SUITE	t_ipsec  -SharedData
+RUN_UTILS CopyFile z:\testdata\configs\ethernetced1853.xml c:\ethernetced1853.xml
+RUN_UTILS MakeReadWrite c:\ethernetced1853.xml
+RUN_PROGRAM -1 ced c:\ethernetced1853.xml
+//Create private folder
+RUN_UTILS MkDir c:\private\101f7993\
+
+//copy linux_tunnel.pin file from data folder to private folder - one time job
+RUN_UTILS CopyFile z:\testdata\configs\linux_tunnel.pin c:\private\101f7993\linux_tunnel.pin
+RUN_UTILS MakeReadWrite c:\private\101f7993\linux_tunnel.pin
+
+//copy epoc2linux.xml file from data folder to c: drive - one time job
+RUN_UTILS CopyFile z:\testdata\configs\epoc2linux.xml c:\epoc2linux.xml
+RUN_UTILS MakeReadWrite c:\epoc2linux.xml
+
+
+START_TESTCASE NET-IPSec-Multiple_SA_Proposal-003
+//! @SYMTestCaseID          NET-IPSec-Multiple_SA_Proposal-003
+//! @SYMCreationDate        19-09-2008
+//! @SYMAuthor              divyadsouza
+//! @SYMTestCaseDesc        Test to check if the multiple SA proposal functionality works for the following.
+//!                         
+//!                         Multiple IKE SA proposals.
+//!                         Single IPSec SA proposal.
+//!                         
+//!                         The negotiation is carried out using,
+//!                         Phase 1 :Main mode
+//!                         Phase 2 :Quick mode
+//!                         
+//!                         Phase 2 Encapsulation Mode - Tunnel Mode
+//!                         Security Protocol - ESP
+//!                         
+//!                         This test case is to test if the IKE SA negotiation works for a different combination of algorithms provided.
+//!                         
+//!                         The last IKE SA proposal is the only one supported by the remote host.
+//!                         
+//!                         The last IKE SA proposal in the list is negotiated between the peers.
+//!                         
+//!                         The IPSec SA proposals in the policy file are for the security protocol ESP.
+//! @SYMTestExpectedResults The most preferred IKE SA proposal is stated in the beginning.
+//!                         
+//!                         The last IKE SA proposal should be negotiated between the peers. This is because the remote host supports the first proposal.
+//!                         
+//!                         There is only one IPSec SA proposal. This is the IPSec SA proposal negotiated between the peers.
+//! @SYMTestActions         There are multiple IKE SA proposals.
+//!                         
+//!                         There is only one IPSec SA proposal.
+//!                         
+//!                         The remote host is configured to support the last IKE SA proposal.
+//!                         
+//!                         The negotiation is carried out using,
+//!                         Aggressive mode and Quick mode
+//!                         
+//!                         Once the SA proposals are negotiated between the peers both for IKE and IPSec, this SA is compared with the expected result.
+//! @SYMREQ                 REQ10660
+//!                         REQ10661
+//!                         REQ10967
+	RUN_UTILS DeleteFile c:\private\101f7993\linux_tunnel.pol
+	RUN_UTILS CopyFile z:\TestData\configs\linux_tunnel15.pol c:\private\101f7993\linux_tunnel.pol
+	RUN_UTILS MakeReadWrite c:\private\101f7993\linux_tunnel.pol
+	
+	//run batch file to ping the linux machine. Pol file is change, so need ceding again.
+	RUN_PROGRAM -1 ced c:\epoc2linux.xml
+	
+	START_TEST_BLOCK    100     t_ipsec     z:\testdata\scripts\ns-ipsec-multiplesatest-ops.ini
+	        CREATE_OBJECT   IPSecMultipleSATestWrapper    MultipleSATestWrapperSection
+	        COMMAND     MultipleSATestWrapperSection  New
+	        COMMAND     MultipleSATestWrapperSection  TestMultipleSA MultipleSAParamSection
+	END_TEST_BLOCK
+END_TESTCASE NET-IPSec-Multiple_SA_Proposal-003
+
+RUN_UTILS DeleteFile c:\epoc2linux.xml
+RUN_UTILS DeleteFile c:\ethernetced1853.xml

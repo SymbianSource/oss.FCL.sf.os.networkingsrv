@@ -1,0 +1,454 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+@file
+
+ced -i Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.xml -o c:\ced.log
+
+// Load the test suite
+LOAD_SUITE te_esockteststepsSuite -SharedData
+
+// Load the socket server
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+// Set-up simtsy-configs, qos-policies etc.
+RUN_SCRIPT z:\TestData\scripts\CIT_P635_Setup_QosPolicies1.script
+
+START_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0101
+//! @SYMTestCaseID		NET-Integration-DedicatedSignalling1ryCtx-0101
+//! @SYMTestCaseDesc Locking IAP: Owning application CAN Start a connection
+//! @SYMREQ REQ6365 IAP Locking //! @SYMREQ REQ6366 Field addition in IAP table
+//! @SYMTestPriority High
+//! @SYMTestActions
+//!	1. Configure commsdat with the SID of the test application against an IAP.
+//!	2. Start a Connection from the test application on the above IAP.
+//! @SYMTestExpectedResults The connection must be started successfully
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersocketservStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite createrconnectionStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite connectrsocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite openrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+
+RUN_TEST_STEP 10 te_esockteststepsSuite startrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+
+RUN_TEST_STEP 10 te_esockteststepsSuite closerconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closersocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite cleanallStep
+
+// Stop the interface, else we wont be able to start it again
+RUN_SCRIPT z:\TestData\Scripts\te_esock_test_stopallinterfaces.script
+END_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0101
+
+START_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0102
+//! @SYMTestCaseID		NET-Integration-DedicatedSignalling1ryCtx-0102
+//! @SYMTestCaseDesc Locking IAP: Owning application CAN Stop a connection
+//! @SYMREQ REQ6365 IAP Locking //! @SYMREQ REQ6366 Field addition in IAP table
+//! @SYMTestPriority High
+//! @SYMTestActions
+//!	1. Configure commsdat with the SID of the test application against an IAP.
+//!	2. Start a Connection from the test application on the above IAP.
+//!	3. Stop the Connection from the test application on the above IAP.
+//! @SYMTestExpectedResults The connection must be stopped successfully
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersocketservStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite createrconnectionStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite connectrsocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite openrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite startrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+
+RUN_TEST_STEP 10 te_esockteststepsSuite stoprconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+
+RUN_TEST_STEP 10 te_esockteststepsSuite closerconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closersocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite cleanallStep
+END_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0102
+
+START_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0103
+//! @SYMTestCaseID		NET-Integration-DedicatedSignalling1ryCtx-0103
+//! @SYMTestCaseDesc Locking IAP: Owning application CAN Modify a connection
+//! @SYMREQ REQ6365 IAP Locking //! @SYMREQ REQ6366 Field addition in IAP table
+//! @SYMTestPriority High
+//! @SYMTestActions
+//!	1. Configure commsdat with the SID of the test application against an IAP.
+//!	2. Start a Connection from the test application on the above IAP.
+//!	3. Modify the Connection from the test application on the above IAP. For example, modify the QoS on the connection.
+//! @SYMTestExpectedResults The connection must be Modified successfully
+
+RUN_TEST_STEP 10 te_esockteststepsSuite startsimtsyStep
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite createrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersubconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnection0
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersubconparameterbundleStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParams0
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersubconparameterbundleStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParams1
+RUN_TEST_STEP 10 te_esockteststepsSuite connectrsocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite openrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite startrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite openrsubconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnection0
+
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersubconparameterfamilyStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParamsFamily0
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersubconparameterfamilyStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParamsFamily1
+
+RUN_TEST_STEP 10 te_esockteststepsSuite initialiseGenQosParameterSetStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini GenericQosSet0
+RUN_TEST_STEP 10 te_esockteststepsSuite initialiseExtIPLinkR5ParameterSetStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini ExtensionQosIPLinkR5Set0
+RUN_TEST_STEP 10 te_esockteststepsSuite initialiseExtIPLinkR5ParameterSetStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini ExtensionQosIPLinkR5Set1
+
+RUN_TEST_STEP 10 te_esockteststepsSuite registerforrsubconnectioneventsStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionEvents0
+RUN_TEST_STEP 10 te_esockteststepsSuite setrsubconparametersStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParams0
+
+RUN_TEST_STEP 10 te_esockteststepsSuite checkrsubconnectioneventsStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionEvents0
+RUN_TEST_STEP 10 te_esockteststepsSuite getrsubconparametersStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini GetSubConnParams0
+RUN_TEST_STEP 10 te_esockteststepsSuite compareextiplinkr5parametersetStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini CompareExtIPLink5Sets0
+
+RUN_TEST_STEP 10 te_esockteststepsSuite stoprconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closersubconparameterbundleStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParams0
+RUN_TEST_STEP 10 te_esockteststepsSuite closersubconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closerconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closersocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite stopsimtsyStep
+RUN_TEST_STEP 10 te_esockteststepsSuite cleanallStep
+END_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0103
+
+START_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0104
+//! @SYMTestCaseID		NET-Integration-DedicatedSignalling1ryCtx-0104
+//! @SYMTestCaseDesc Locking IAP: Non-owning application CAN Start a connection when IAP is not yet locked.
+//! @SYMREQ REQ6365 IAP Locking //! @SYMREQ REQ6366 Field addition in IAP table
+//! @SYMTestPriority High
+//! @SYMTestActions
+//!	1. Configure commsdat with a SID other than that of the test application against an IAP.
+//!	2. Start a Connection from the test application on the above IAP.
+//! @SYMTestExpectedResults The connection must be started successfully.
+
+ced -i Z:\testdata\configs\Te_DedicatedSignalling1ryCtx_ChangedSID.xml -o c:\ced.log
+
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersocketservStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite createrconnectionStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite connectrsocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite openrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+
+// as this IAP is not yet locked, we are allowed to Start a connection, no matter what SID is configured in comms dat.
+RUN_TEST_STEP 10 te_esockteststepsSuite startrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+
+RUN_TEST_STEP 10 te_esockteststepsSuite stoprconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closerconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closersocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite cleanallStep
+
+// revert to old settings
+ced -i Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.xml -o c:\ced.log
+END_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0104
+
+// Test case no. needs to be changed in the end
+START_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0105
+//! @SYMTestCaseID		NET-Integration-DedicatedSignalling1ryCtx-0105
+//! @SYMTestCaseDesc Locking IAP: Non-owning application CANNOT Start a connection when IAP is locked.
+//! @SYMREQ REQ6365 IAP Locking //! @SYMREQ REQ6366 Field addition in IAP table
+//! @SYMTestPriority High
+//! @SYMTestActions
+//!	1. Configure commsdat with the SID of the test application against an IAP.
+//!	2. Start a Connection from the test application on the above IAP.
+//!	2. Start a Connection from another test application that has a different SID.
+//! @SYMTestExpectedResults The connection must NOT be started successfully, as it is locked now.
+
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersocketservStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite createrconnectionStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite connectrsocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite openrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+
+// lock the IAP by starting a Connection on it.
+RUN_TEST_STEP 10 te_esockteststepsSuite startrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+
+// Try starting a Connection from a different application, it must Fail:
+// Create a copy of the test suite with a different SID
+// FFFFE = All - TCB. Esock test suite has this capability. So we set it to the copy too. We want only the SID changed
+RUN_PROGRAM -1 setcap te_esockteststepsSuite.exe FFFFE -SID A000119F C:\sys\bin\te_esockteststepsSuite_copy1.exe
+RUN_SCRIPT Z:\TestData\scripts\Te_DedicatedSignalling1ryCtx_Start_Conn_Fail.script
+
+RUN_TEST_STEP 10 te_esockteststepsSuite stoprconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closerconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closersocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite cleanallStep
+END_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0105
+
+
+
+START_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0106
+//! @SYMTestCaseID		NET-Integration-DedicatedSignalling1ryCtx-0106
+//! @SYMTestCaseDesc Locking IAP: Owning application CAN attach to a connection in both Normal and Monitor mode.
+//! @SYMREQ REQ6365 IAP Locking //! @SYMREQ REQ6366 Field addition in IAP table
+//! @SYMTestPriority High
+//! @SYMTestActions
+//!	1. Configure commsdat with the SID of the test application against an IAP.
+//!	2. Start a Connection (Connection1) from the test application on the above IAP.
+//!	3. Create another Connection (Connection2) and attach to the above Connection1 in Monitor mode
+//!	4. Create another Connection (Connection3) and attach to the above Connection1 in Normal mode
+//! @SYMTestExpectedResults Both the attaches must succeed.
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersocketservStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite createrconnectionStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite connectrsocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite openrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite startrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+
+RUN_TEST_STEP 10 te_esockteststepsSuite createrconnectionStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx_Attach_Normal.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite createrconnectionStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx_Attach_Monitor.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite openrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx_Attach_Normal.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite openrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx_Attach_Monitor.ini Connection0
+
+// attach 2 connections, one in Normal and another in Monitor mode
+RUN_TEST_STEP 10 te_esockteststepsSuite attachtorconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx_Attach_Normal.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite attachtorconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx_Attach_Monitor.ini Connection0
+
+RUN_TEST_STEP 10 te_esockteststepsSuite closerconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx_Attach_Normal.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closerconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx_Attach_Monitor.ini Connection0
+
+RUN_TEST_STEP 10 te_esockteststepsSuite stoprconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closerconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closersocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite cleanallStep
+END_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0106
+
+START_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0107
+//! @SYMTestCaseID		NET-Integration-DedicatedSignalling1ryCtx-0107
+//! @SYMTestCaseDesc Locking IAP: Non-Owning application CAN attach to a connection in both Normal and Monitor mode.
+//! @SYMREQ REQ6365 IAP Locking //! @SYMREQ REQ6366 Field addition in IAP table
+//! @SYMTestPriority High
+//! @SYMTestActions
+//!	1. Configure commsdat with the SID of the test application against an IAP.
+//!	2. Start a Connection (Connection1) from the test application on the above IAP.
+//!	3. From another application with a different SID, create a Connection (Connection2) and attach to the above Connection1 in Monitor mode.
+//!	3. From another application with a different SID, create a Connection (Connection3) and attach to the above Connection1 in Normal mode.
+//! @SYMTestExpectedResults Both attach in Monitor and Normal modes must succeed.
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersocketservStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite createrconnectionStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite connectrsocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite openrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite startrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+
+RUN_PROGRAM -1 setcap te_esockteststepsSuite.exe FFFFE -SID A000119F C:\sys\bin\te_esockteststepsSuite_copy1.exe
+RUN_SCRIPT Z:\TestData\scripts\Te_DedicatedSignalling1ryCtx_Attach_Monitor.script
+RUN_SCRIPT Z:\TestData\scripts\Te_DedicatedSignalling1ryCtx_Attach_Normal.script
+
+RUN_TEST_STEP 10 te_esockteststepsSuite stoprconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closerconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closersocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite cleanallStep
+END_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0107
+
+// Test case no. needs to be changed as 9 has been merged with 8 now.
+START_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0108
+//! @SYMTestCaseID		NET-Integration-DedicatedSignalling1ryCtx-0108
+//! @SYMTestCaseDesc Locking IAP: Multiple instances of Owning application CAN Start, Modify and Stop a connection
+//! @SYMREQ REQ6365 IAP Locking //! @SYMREQ REQ6366 Field addition in IAP table
+//! @SYMTestPriority High
+//! @SYMTestActions
+//!	1. Configure commsdat with the SID of the test application against an IAP.
+//!	2. Start, Modify and Stop the Connection on the above IAP from multiple instances of the test application running simultaneously.
+//! @SYMTestExpectedResults The connection must be started, modified and stopped successfully for each instance of the application.
+
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersocketservStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite createrconnectionStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite connectrsocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite openrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+
+// the current suite has a valid SID
+RUN_TEST_STEP 10 te_esockteststepsSuite startrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+
+// Modify the connection
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersubconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnection0
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersubconparameterbundleStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParams0
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersubconparameterbundleStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParams1
+RUN_TEST_STEP 10 te_esockteststepsSuite openrsubconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnection0
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersubconparameterfamilyStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParamsFamily0
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersubconparameterfamilyStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParamsFamily1
+RUN_TEST_STEP 10 te_esockteststepsSuite initialiseGenQosParameterSetStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini GenericQosSet0
+RUN_TEST_STEP 10 te_esockteststepsSuite initialiseExtIPLinkR5ParameterSetStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini ExtensionQosIPLinkR5Set0
+RUN_TEST_STEP 10 te_esockteststepsSuite initialiseExtIPLinkR5ParameterSetStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini ExtensionQosIPLinkR5Set1
+RUN_TEST_STEP 10 te_esockteststepsSuite registerforrsubconnectioneventsStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionEvents0
+RUN_TEST_STEP 10 te_esockteststepsSuite setrsubconparametersStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParams0
+RUN_TEST_STEP 10 te_esockteststepsSuite checkrsubconnectioneventsStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionEvents0
+RUN_TEST_STEP 10 te_esockteststepsSuite getrsubconparametersStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini GetSubConnParams0
+RUN_TEST_STEP 10 te_esockteststepsSuite compareextiplinkr5parametersetStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini CompareExtIPLink5Sets0
+RUN_TEST_STEP 10 te_esockteststepsSuite closersubconparameterbundleStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParams0
+RUN_TEST_STEP 10 te_esockteststepsSuite closersubconparameterbundleStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParams1
+RUN_TEST_STEP 10 te_esockteststepsSuite closersubconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnection0
+RUN_TEST_STEP 10 te_esockteststepsSuite stoprconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closerconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closersocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+
+// now test the same thing with another copy of the application, i.e., we dont change the SID.
+RUN_PROGRAM -1 setcap te_esockteststepsSuite.exe FFFFE C:\sys\bin\te_esockteststepsSuite_copy1.exe
+RUN_SCRIPT Z:\TestData\scripts\Te_DedicatedSignalling1ryCtx_Start_Modify_Stop.script
+
+RUN_TEST_STEP 10 te_esockteststepsSuite cleanallStep
+END_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0108
+
+START_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0109
+//! @SYMTestCaseID		NET-Integration-DedicatedSignalling1ryCtx-0109
+//! @SYMTestCaseDesc Locking IAP: If IAP is not owned by anyone, anyone CAN Start, Stop and Modify a connection
+//! @SYMREQ REQ6365 IAP Locking //! @SYMREQ REQ6366 Field addition in IAP table
+//! @SYMTestPriority High
+//! @SYMTestActions
+//!	1. Configure commsdat with no SID against an IAP.
+//!	2. Start, Modify and Stop the Connection on the above IAP from the test application when it has a valid SID.
+//!	3. Start, Modify and Stop the Connection on the above IAP from the test application when it has a SID of zero.
+//! @SYMTestExpectedResults The connection must be started, modified and stopped successfully in both cases.
+
+ced -i Z:\testdata\configs\Te_DedicatedSignalling1ryCtx_NoSID.xml -o c:\ced.log
+
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersocketservStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite createrconnectionStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite connectrsocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite openrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+
+// the current suite has a valid SID
+RUN_TEST_STEP 10 te_esockteststepsSuite startrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+
+// Modify the connection
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersubconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnection0
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersubconparameterbundleStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParams0
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersubconparameterbundleStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParams1
+RUN_TEST_STEP 10 te_esockteststepsSuite openrsubconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnection0
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersubconparameterfamilyStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParamsFamily0
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersubconparameterfamilyStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParamsFamily1
+RUN_TEST_STEP 10 te_esockteststepsSuite initialiseGenQosParameterSetStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini GenericQosSet0
+RUN_TEST_STEP 10 te_esockteststepsSuite initialiseExtIPLinkR5ParameterSetStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini ExtensionQosIPLinkR5Set0
+RUN_TEST_STEP 10 te_esockteststepsSuite initialiseExtIPLinkR5ParameterSetStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini ExtensionQosIPLinkR5Set1
+RUN_TEST_STEP 10 te_esockteststepsSuite registerforrsubconnectioneventsStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionEvents0
+RUN_TEST_STEP 10 te_esockteststepsSuite setrsubconparametersStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParams0
+RUN_TEST_STEP 10 te_esockteststepsSuite checkrsubconnectioneventsStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionEvents0
+RUN_TEST_STEP 10 te_esockteststepsSuite getrsubconparametersStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini GetSubConnParams0
+RUN_TEST_STEP 10 te_esockteststepsSuite compareextiplinkr5parametersetStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini CompareExtIPLink5Sets0
+RUN_TEST_STEP 10 te_esockteststepsSuite closersubconparameterbundleStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParams0
+RUN_TEST_STEP 10 te_esockteststepsSuite closersubconparameterbundleStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParams1
+RUN_TEST_STEP 10 te_esockteststepsSuite closersubconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnection0
+
+RUN_TEST_STEP 10 te_esockteststepsSuite stoprconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closerconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closersocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+
+// now test the same thing with SID = 0
+RUN_PROGRAM -1 setcap te_esockteststepsSuite.exe FFFFE -SID 0 C:\sys\bin\te_esockteststepsSuite_copy1.exe
+RUN_SCRIPT Z:\TestData\scripts\Te_DedicatedSignalling1ryCtx_Start_Modify_Stop.script
+
+RUN_TEST_STEP 10 te_esockteststepsSuite cleanallStep
+END_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0109
+
+//IMS SI Tests
+ced -i Z:\testdata\configs\Te_DedicatedSignalling1ryCtx_IMSSI.xml -o c:\ced.log
+
+START_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0110
+//! @SYMTestCaseID		NET-Integration-DedicatedSignalling1ryCtx-0110
+//! @SYMTestCaseDesc Dedicated Primary Context: SIP, DHCP and DNS CAN open socket.
+//! @SYMREQ REQ6367 Provide Dedicated primary PDP context functionality //! @SYMREQ REQ6368 IM CN Signalling Indicator Flag Implementation for PCO Buffer
+//! @SYMTestPriority High
+//! @SYMTestActions
+//!	1. Start a Connection with IM CN Signalling flag set.
+//!	2. Start a Sub-Connection on the above Connection.
+//!	3. Create a copy of the test application with its SID set to that of SIP using the setcap tool. The test application now impersonates the SIP server.
+//!	4. Open a socket on the above Connection / Sub-Connection.
+//!	5. Perform steps 4 and 5 with DHCP and DNS SIDs.
+//!	6. Check that all the three (SIP, DHCP, and DNS) are able to open a socket simultaneously.
+//! @SYMTestExpectedResults SIP, DHCP AND DNS must be able to open a socket on the Connection and Sub-Connection and send traffic.
+
+// DHCPServ.exe = 0x101FD9C5
+// dnd.exe = 0x10000882
+// SipServer.exe = 0x101F5D36
+
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersocketservStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite createrconnectionStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite connectrsocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite openrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite startrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+
+RUN_PROGRAM -1 setcap te_esockteststepsSuite.exe FFFFE -SID 101F5D36 C:\sys\bin\te_esockteststepsSuite_copy1.exe
+RUN_SCRIPT Z:\TestData\scripts\Te_DedicatedSignalling1ryCtx_SIP_Open_Sock.script
+
+RUN_TEST_STEP 10 te_esockteststepsSuite stoprconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closerconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closersocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite cleanallStep
+END_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0110
+
+START_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0111
+//! @SYMTestCaseID		NET-Integration-DedicatedSignalling1ryCtx-0111
+//! @SYMTestCaseDesc Dedicated Primary Context: Applications other than SIP, DHCP and DNS CANNOT open socket.
+//! @SYMREQ REQ6367 Provide Dedicated primary PDP context functionality
+//! @SYMREQ REQ6368 IM CN Signalling Indicator Flag Implementation for PCO Buffer
+//! @SYMTestPriority High
+//! @SYMTestActions
+//!	1. Start a Connection with IM CN Signalling flag set.
+//!	2. Start a Sub-Connection on the above Connection.
+//!	3. Open a socket using the above sub-connection directly from the test application.
+//! @SYMTestExpectedResults The test application must NOT be able to open a socket on the Connection / Sub-Connection.
+
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersocketservStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite createrconnectionStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersubconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnection0
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersocketStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Socket0
+RUN_TEST_STEP 10 te_esockteststepsSuite connectrsocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite openrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite startrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite openrsubconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnection0
+
+// expect error KErrPermissionDenied
+RUN_TEST_STEP !Error=-46 10 te_esockteststepsSuite openrsocketStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Socket0
+
+RUN_TEST_STEP 10 te_esockteststepsSuite stoprconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closersubconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closerconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closersocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite cleanallStep
+END_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0111
+
+START_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0112
+//! @SYMTestCaseID		NET-Integration-DedicatedSignalling1ryCtx-0112
+//! @SYMTestCaseDesc If IM CN Signalling is denied by network, the context is treated as a General Purpose Context.
+//! @SYMREQ REQ6367 Provide Dedicated primary PDP context functionality //! @SYMREQ REQ6368 IM CN Signalling Indicator Flag Implementation for PCO Buffer
+//! @SYMTestPriority High
+//! @SYMTestActions
+//!	1. Start a Connection with IM CN Signalling flag set during the connection request. 
+//!	2. Configure SIMTSY in such a way that the IM CN Signalling request is denied.
+//!	3. Open a socket using the above connection directly from the test application.
+//! @SYMTestExpectedResults The Connection must be created successfully, but it must be treated as a General Purpose Context, which means any application including the test application must be able to open a socket on the Connection.
+
+// Use a different simtsy config, with IMS SI = False
+RUN_SCRIPT z:\TestData\scripts\Restore_QosPolicies.script
+RUN_SCRIPT z:\TestData\scripts\CIT_P635_Setup_QosPolicies2.script
+
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersocketservStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite createrconnectionStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersubconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnection0
+RUN_TEST_STEP 10 te_esockteststepsSuite creatersocketStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Socket0
+RUN_TEST_STEP 10 te_esockteststepsSuite connectrsocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite openrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite startrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite openrsubconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnection0
+
+// this time no error
+RUN_TEST_STEP 10 te_esockteststepsSuite openrsocketStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Socket0
+RUN_TEST_STEP 10 te_esockteststepsSuite closersocketStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Socket0
+
+RUN_TEST_STEP 10 te_esockteststepsSuite stoprconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closersubconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closerconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite closersocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite cleanallStep
+END_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0112
+
+
+// Clean up
+RUN_SCRIPT z:\TestData\scripts\Restore_QosPolicies.script
+
+RUN_SCRIPT z:\TestData\Scripts\te_esock_test_stopallinterfaces.script
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+

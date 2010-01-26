@@ -1,0 +1,220 @@
+// Copyright (c) 2002-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRJ_EXPORTS
+
+PRJ_TESTEXPORTS
+
+../configs/te_QoSSuite_Mesh.cfg         z:/testdata/configs/te_qossuite_mesh.cfg
+../configs/te_QoSSuite_simtsy.txt		z:/testdata/configs/te_QoSSuite_simtsy.txt
+../configs/te_QoSSuite_LoopbackCsy.ini		z:/testdata/configs/te_QoSSuite_loopbackcsy.ini
+
+#ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+../configs/CIT_P192_Qos_SimTsy.xml		z:/testdata/configs/cit_p192_qos_simtsy.xml
+../configs/CIT_P192_Qos_SimTsy2.xml		z:/testdata/configs/cit_p192_qos_simtsy2.xml
+#else
+../configs/CIT_P192_Qos_SimTsy2.xml		z:/testdata/configs/cit_p192_qos_simtsy.xml
+#endif
+
+#ifdef SYMBIAN_NETWORKING_UMTSR5 
+../scripts/te_QoSR5Tests.script			z:/testdata/scripts/te_qossuite.script
+#else 
+../scripts/te_QoSSuite.script			z:/testdata/scripts/te_qossuite.script
+#endif
+
+../scripts/te_QoSCase1.script			z:/testdata/scripts/te_qoscase1.script
+../configs/te_QoSCase1.ini				z:/testdata/configs/te_qoscase1.ini
+
+../scripts/te_QoSCase1B.script			z:/testdata/scripts/te_qoscase1b.script
+../configs/te_QoSCase1B.ini				z:/testdata/configs/te_qoscase1b.ini
+
+../scripts/te_QoSCase2.script			z:/testdata/scripts/te_qoscase2.script
+../configs/te_QoSCase2.ini				z:/testdata/configs/te_qoscase2.ini
+
+../scripts/te_QoSCase3.script			z:/testdata/scripts/te_qoscase3.script
+../configs/te_QoSCase3.ini				z:/testdata/configs/te_qoscase3.ini
+
+
+../scripts/te_QoSCase4.script			z:/testdata/scripts/te_qoscase4.script
+../configs/te_QoSCase4.ini				z:/testdata/configs/te_qoscase4.ini
+
+
+../scripts/te_QoSCase5.script			z:/testdata/scripts/te_qoscase5.script
+../configs/te_QoSCase5.ini				z:/testdata/configs/te_qoscase5.ini
+
+
+../scripts/te_QoSCase6.script			z:/testdata/scripts/te_qoscase6.script
+../configs/te_QoSCase6.ini				z:/testdata/configs/te_qoscase6.ini
+
+
+../scripts/te_QoSCase7.script			z:/testdata/scripts/te_qoscase7.script
+../configs/te_QoSCase7.ini				z:/testdata/configs/te_qoscase7.ini
+
+../scripts/te_QoSCase9.script			z:/testdata/scripts/te_qoscase9.script
+../configs/te_QoSCase9.ini				z:/testdata/configs/te_qoscase9.ini
+
+
+../scripts/te_QoSCase10.script			z:/testdata/scripts/te_qoscase10.script
+../configs/te_QoSCase10.ini				z:/testdata/configs/te_qoscase10.ini
+
+
+../scripts/te_QoSCase11.script			z:/testdata/scripts/te_qoscase11.script
+../configs/te_QoSCase11.ini				z:/testdata/configs/te_qoscase11.ini
+
+../scripts/te_QoSCase12.script			z:/testdata/scripts/te_qoscase12.script
+../configs/te_QoSCase12.ini				z:/testdata/configs/te_qoscase12.ini
+
+../scripts/te_QoSCase13.script			z:/testdata/scripts/te_qoscase13.script
+../configs/te_QoSCase13.ini				z:/testdata/configs/te_qoscase13.ini
+
+../scripts/te_QoSCase14.script			z:/testdata/scripts/te_qoscase14.script
+../configs/te_QoSCase14.ini				z:/testdata/configs/te_qoscase14.ini
+
+../scripts/te_QoSCase15.script			z:/testdata/scripts/te_qoscase15.script
+../configs/te_QoSCase15.ini				z:/testdata/configs/te_qoscase15.ini
+
+../scripts/te_QoSCase16.script			z:/testdata/scripts/te_qoscase16.script
+../configs/te_QoSCase16.ini				z:/testdata/configs/te_qoscase16.ini
+
+../scripts/te_QoSCase17.script			z:/testdata/scripts/te_qoscase17.script
+../configs/te_QoSCase17.ini				z:/testdata/configs/te_qoscase17.ini
+
+../scripts/te_QoSCase18.script			z:/testdata/scripts/te_qoscase18.script
+../configs/te_QoSCase18.ini				z:/testdata/configs/te_qoscase18.ini
+
+
+../scripts/te_QoSCase19.script			z:/testdata/scripts/te_qoscase19.script
+../configs/te_QoSCase19.ini				z:/testdata/configs/te_qoscase19.ini
+
+
+../scripts/te_QoSCase20.script			z:/testdata/scripts/te_qoscase20.script
+../configs/te_QoSCase20.ini				z:/testdata/configs/te_qoscase20.ini
+
+
+../scripts/te_QoSCase21.script			z:/testdata/scripts/te_qoscase21.script
+../configs/te_QoSCase21.ini				z:/testdata/configs/te_qoscase21.ini
+
+
+../scripts/te_QoSCase22.script			z:/testdata/scripts/te_qoscase22.script
+../configs/te_QoSCase22.ini				z:/testdata/configs/te_qoscase22.ini
+
+../scripts/te_QoSCase27.script			z:/testdata/scripts/te_qoscase27.script
+../configs/te_QoSCase27.ini				z:/testdata/configs/te_qoscase27.ini
+
+../scripts/te_QoSCase28.script			z:/testdata/scripts/te_qoscase28.script
+../configs/te_QoSCase28.ini				z:/testdata/configs/te_qoscase28.ini
+../scripts/te_QoSCase29.script			z:/testdata/scripts/te_qoscase29.script
+../configs/te_QoSCase29.ini				z:/testdata/configs/te_qoscase29.ini
+
+
+../scripts/te_QoSCase30.script			z:/testdata/scripts/te_qoscase30.script
+../configs/te_QoSCase30.ini				z:/testdata/configs/te_qoscase30.ini
+
+
+../scripts/te_QoSCase32.script			z:/testdata/scripts/te_qoscase32.script
+../configs/te_QoSCase32.ini				z:/testdata/configs/te_qoscase32.ini
+
+
+#ifdef SYMBIAN_NETWORKING_UMTSR5
+
+#ifndef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+../configs/version1/CIT_P192_qospolicies.ini		z:/testdata/configs/cit_p192_qospolicies.ini
+../configs/version1/CIT_P192_Qos_config.txt		z:/testdata/configs/cit_p192_qos_config.txt
+#else
+../configs/CIT_P192_Qos_config.txt		z:/testdata/configs/cit_p192_qos_config.txt
+../configs/CIT_P192_Qos_config1.txt		z:/testdata/configs/cit_p192_qos_config1.txt
+#endif
+../configs/CIT_P192_Qos_config_noqospolicy.txt		z:/testdata/configs/cit_p192_qos_config_noqospolicy.txt
+../configs/CIT_P192_Qos_LoopbackCSY.ini	z:/testdata/configs/cit_p192_qos_loopbackcsy.ini
+../configs/te_CIT_P192_simtsy.ini		z:/testdata/configs/te_cit_p192_simtsy.ini
+
+../scripts/CIT_P192_Qos_33.script		z:/testdata/scripts/cit_p192_qos_33.script
+../configs/CIT_P192_QoS_33.ini			z:/testdata/configs/cit_p192_qos_33.ini
+
+../scripts/CIT_P192_Qos_34.script		z:/testdata/scripts/cit_p192_qos_34.script
+../configs/CIT_P192_QoS_34.ini			z:/testdata/configs/cit_p192_qos_34.ini
+
+../scripts/CIT_P192_Qos_35.script		z:/testdata/scripts/cit_p192_qos_35.script
+../configs/CIT_P192_QoS_35.ini			z:/testdata/configs/cit_p192_qos_35.ini
+
+../scripts/CIT_P192_Qos_36.script		z:/testdata/scripts/cit_p192_qos_36.script
+../configs/CIT_P192_QoS_36.ini			z:/testdata/configs/cit_p192_qos_36.ini
+
+../scripts/CIT_P192_Qos_37.script		z:/testdata/scripts/cit_p192_qos_37.script
+../configs/CIT_P192_QoS_37.ini			z:/testdata/configs/cit_p192_qos_37.ini
+
+../scripts/CIT_P192_Qos_38.script		z:/testdata/scripts/cit_p192_qos_38.script
+../configs/CIT_P192_QoS_38.ini			z:/testdata/configs/cit_p192_qos_38.ini
+
+../scripts/CIT_P192_Qos_39.script		z:/testdata/scripts/cit_p192_qos_39.script
+../configs/CIT_P192_QoS_39.ini			z:/testdata/configs/cit_p192_qos_39.ini
+
+../scripts/CIT_P192_Qos_40.script		z:/testdata/scripts/cit_p192_qos_40.script
+../configs/CIT_P192_QoS_40.ini			z:/testdata/configs/cit_p192_qos_40.ini
+
+#ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+../scripts/CIT_P192_Qos_41.script		z:/testdata/scripts/cit_p192_qos_41.script
+../configs/CIT_P192_QoS_41.ini			z:/testdata/configs/cit_p192_qos_41.ini
+
+../scripts/CIT_P192_Qos_43.script		z:/testdata/scripts/cit_p192_qos_43.script
+../configs/CIT_P192_QoS_43.ini			z:/testdata/configs/cit_p192_qos_43.ini
+
+../scripts/CIT_P192_Qos_44.script		z:/testdata/scripts/cit_p192_qos_44.script
+../configs/CIT_P192_QoS_44.ini			z:/testdata/configs/cit_p192_qos_44.ini
+
+../scripts/CIT_P192_Qos_45.script		z:/testdata/scripts/cit_p192_qos_45.script
+../configs/CIT_P192_QoS_45.ini			z:/testdata/configs/cit_p192_qos_45.ini
+#else
+../scripts/version1/CIT_P192_Qos_41.script		z:/testdata/scripts/cit_p192_qos_41.script
+../configs/version1/CIT_P192_QoS_41.ini			z:/testdata/configs/cit_p192_qos_41.ini
+
+// With removal of IMS flags from spud/simtsy test, this test becomes a duplicate of 41
+//..\scripts\version1/CIT_P192_Qos_42.script		z:\testdata\scripts\CIT_P192_Qos_42.script
+//..\configs\version1/CIT_P192_QoS_42.ini			z:\testdata\configs\CIT_P192_QoS_42.ini
+
+../scripts/version1/CIT_P192_Qos_43.script		z:/testdata/scripts/cit_p192_qos_43.script
+../configs/version1/CIT_P192_QoS_43.ini			z:/testdata/configs/cit_p192_qos_43.ini
+
+../scripts/version1/CIT_P192_Qos_44.script		z:/testdata/scripts/cit_p192_qos_44.script
+../configs/version1/CIT_P192_QoS_44.ini			z:/testdata/configs/cit_p192_qos_44.ini
+
+../scripts/version1/CIT_P192_Qos_45.script		z:/testdata/scripts/cit_p192_qos_45.script
+../configs/version1/CIT_P192_QoS_45.ini			z:/testdata/configs/cit_p192_qos_45.ini
+#endif
+
+../scripts/CIT_P192_Qos_46.script		z:/testdata/scripts/cit_p192_qos_46.script
+../configs/CIT_P192_QoS_46.ini			z:/testdata/configs/cit_p192_qos_46.ini
+
+../scripts/CIT_P192_Qos_47.script		z:/testdata/scripts/cit_p192_qos_47.script
+../configs/CIT_P192_QoS_47.ini			z:/testdata/configs/cit_p192_qos_47.ini
+
+#ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+../scripts/CIT_P192_Qos_SimTsy.script	z:/testdata/scripts/cit_p192_qos_simtsy.script
+#else
+../scripts/version1/CIT_P192_Qos_SimTsy.script	z:/testdata/scripts/cit_p192_qos_simtsy.script
+#endif
+
+../scripts/CIT_P192_Qos_SimTsy2.script	z:/testdata/scripts/cit_p192_qos_simtsy2.script
+../scripts/CIT_P192_Qos_SimTsy2_Target.script	z:/testdata/scripts/cit_p192_qos_simtsy2_target.script
+
+#endif
+// SYMBIAN_NETWORKING_UMTSR5
+
+./te_QoSSuite.iby   				/epoc32/rom/include/te_qossuite.iby
+
+
+PRJ_MMPFILES
+
+PRJ_TESTMMPFILES

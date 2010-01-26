@@ -1,0 +1,87 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+PRJ_TESTEXPORTS
+
+// ISIMSG
+
+.\epoc32\release\winscw\udeb\isimsg.lib              \epoc32\release\winscw\udeb\isimsg.lib
+.\epoc32\release\winscw\udeb\isimsg.dll              \epoc32\release\winscw\udeb\isimsg.dll
+.\epoc32\release\winscw\urel\isimsg.dll              \epoc32\release\winscw\urel\isimsg.dll
+
+.\epoc32\release\armv5\udeb\isimsg.dll                \epoc32\release\armv5\udeb\isimsg.dll
+.\epoc32\release\armv5\urel\isimsg.lib                \epoc32\release\armv5\urel\isimsg.lib
+.\epoc32\release\armv5\urel\isimsg.dll                \epoc32\release\armv5\urel\isimsg.dll
+
+
+// PEP
+
+.\data\system\data\pep.ini                           \epoc32\wins\c\system\data\pep.ini
+.\data\system\data\pepchannels.ini                   \epoc32\wins\c\system\data\pepchannels.ini
+
+.\data\system\data\pep.ini                           \epoc32\winscw\c\system\data\pep.ini
+.\data\system\data\pepchannels.ini                   \epoc32\winscw\c\system\data\pepchannels.ini
+
+.\epoc32\release\winscw\udeb\pep.lib                 \epoc32\release\winscw\udeb\pep.lib
+.\epoc32\release\winscw\udeb\pep.dll                 \epoc32\release\winscw\udeb\pep.dll
+.\epoc32\release\winscw\urel\pep.dll                 \epoc32\release\winscw\urel\pep.dll
+
+.\data\system\data\pep.ini                           \epoc32\data\z\system\data\pep.ini
+.\data\system\data\pepchannels.ini                   \epoc32\data\z\system\data\pepchannels.ini
+
+.\epoc32\release\armv5\udeb\pep.dll                   \epoc32\release\armv5\udeb\pep.dll
+.\epoc32\release\armv5\urel\pep.lib                   \epoc32\release\armv5\urel\pep.lib
+.\epoc32\release\armv5\urel\pep.dll                   \epoc32\release\armv5\urel\pep.dll
+
+// PHONET
+
+.\epoc32\release\winscw\udeb\phonet.lib              \epoc32\release\winscw\udeb\phonet.lib
+.\epoc32\release\winscw\udeb\phonet.dll              \epoc32\release\winscw\udeb\phonet.dll
+.\epoc32\release\winscw\urel\phonet.dll              \epoc32\release\winscw\urel\phonet.dll
+
+.\epoc32\release\armv5\udeb\phonet.dll                \epoc32\release\armv5\udeb\phonet.dll
+.\epoc32\release\armv5\urel\phonet.lib                \epoc32\release\armv5\urel\phonet.lib
+.\epoc32\release\armv5\urel\phonet.dll                \epoc32\release\armv5\urel\phonet.dll
+
+// PNMSG
+
+.\epoc32\release\winscw\udeb\pnmsg.lib               \epoc32\release\winscw\udeb\pnmsg.lib
+.\epoc32\release\winscw\udeb\pnmsg.dll               \epoc32\release\winscw\udeb\pnmsg.dll
+.\epoc32\release\winscw\urel\pnmsg.dll               \epoc32\release\winscw\urel\pnmsg.dll
+
+.\epoc32\release\armv5\udeb\pnmsg.dll                 \epoc32\release\armv5\udeb\pnmsg.dll
+.\epoc32\release\armv5\urel\pnmsg.lib                 \epoc32\release\armv5\urel\pnmsg.lib
+.\epoc32\release\armv5\urel\pnmsg.dll                 \epoc32\release\armv5\urel\pnmsg.dll
+
+// PNMSGFIFO
+
+.\epoc32\release\winscw\udeb\pnmsgfifo.lib           \epoc32\release\winscw\udeb\pnmsgfifo.lib
+.\epoc32\release\winscw\udeb\pnmsgfifo.dll           \epoc32\release\winscw\udeb\pnmsgfifo.dll
+.\epoc32\release\winscw\urel\pnmsgfifo.dll           \epoc32\release\winscw\urel\pnmsgfifo.dll
+
+.\epoc32\release\armv5\udeb\pnmsgfifo.dll             \epoc32\release\armv5\udeb\pnmsgfifo.dll
+.\epoc32\release\armv5\urel\pnmsgfifo.lib             \epoc32\release\armv5\urel\pnmsgfifo.lib
+.\epoc32\release\armv5\urel\pnmsgfifo.dll             \epoc32\release\armv5\urel\pnmsgfifo.dll
+
+// TESTNIF
+
+.\epoc32\release\winscw\udeb\testnif.lib             \epoc32\release\winscw\udeb\testnif.lib
+.\epoc32\release\winscw\udeb\testnif.nif             \epoc32\release\winscw\udeb\testnif.nif
+
+.\epoc32\release\armv5\urel\testnif.lib               \epoc32\release\armv5\urel\testnif.lib
+.\epoc32\release\armv5\urel\testnif.nif               \epoc32\release\armv5\urel\testnif.nif
+.\epoc32\release\armv5\udeb\testnif.nif               \epoc32\release\armv5\udeb\testnif.nif
+

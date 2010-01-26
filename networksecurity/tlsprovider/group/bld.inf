@@ -1,0 +1,57 @@
+// Copyright (c) 2001-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// Specifies TLS provider and tokens project specification files
+// 
+//
+
+/**
+ @file
+*/
+
+//#include "..\..\..\..\unref\orphan\comgen\security\securitybld.inf"
+//#include "..\..\..\..\unref\orphan\comgen\security\bld.inf"
+
+PRJ_PLATFORMS
+DEFAULT
+
+PRJ_EXPORTS
+../inc/tlstypedef.h 		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(tlstypedef.h)
+../inc/tlstypedef_internal.h 	SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(tlstypedef_internal.h)
+../inc/tlsprovtokeninterfaces.h SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(tlsprovtokeninterfaces.h)
+../inc/tlsprovtokeninterfaces_internal.h SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(tlsprovtokeninterfaces_internal.h)
+../inc/Tlsprovinterface.h SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(tlsprovinterface.h)
+
+../group/tlsprovider.iby    /epoc32/rom/include/tlsprovider.iby
+../config/tlsproviderpolicy.ini z:/resource/tlsproviderpolicy.ini
+../group/tlsproviderconfig.iby /epoc32/rom/include/tlsproviderconfig.iby
+../config/tlsproviderpolicy.ini /epoc32/winscw/c/ttlsprovider/policy/tlsproviderpolicy.ini
+
+
+PRJ_TESTEXPORTS
+#include "../Test/group/bld.inf"
+
+PRJ_MMPFILES
+#ifndef TOOLS
+#ifndef TOOLS2
+tlsprovider.mmp
+swtlstokentypeplugin.mmp
+tlscacheclient.mmp
+tlscacheserver.mmp
+tlsproviderconfig.mmp
+#endif
+#endif
+
+PRJ_TESTMMPFILES
+
+

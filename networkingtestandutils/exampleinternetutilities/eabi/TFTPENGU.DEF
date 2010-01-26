@@ -1,0 +1,14 @@
+EXPORTS
+	_ZN11CTftpEngine10SetTimeOutEi @ 1 NONAME
+	_ZN11CTftpEngine12TimerExpiredEv @ 2 NONAME
+	_ZN11CTftpEngine3GetERK7TDesC16S2_S2_ @ 3 NONAME
+	_ZN11CTftpEngine3PutERK7TDesC16S2_S2_ @ 4 NONAME
+	_ZN11CTftpEngine4NewLEiR13MTftpNotifier @ 5 NONAME
+	_ZN11CTftpEngineD0Ev @ 6 NONAME
+	_ZN11CTftpEngineD1Ev @ 7 NONAME
+	_ZN11CTftpEngineD2Ev @ 8 NONAME
+	_ZTI10CTftpTimer @ 9 NONAME ; #<TI>#
+	_ZTI11CTftpEngine @ 10 NONAME ; #<TI>#
+	_ZTV10CTftpTimer @ 11 NONAME ; #<VT>#
+	_ZTV11CTftpEngine @ 12 NONAME ; #<VT>#
+

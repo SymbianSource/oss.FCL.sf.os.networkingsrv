@@ -1,0 +1,64 @@
+// Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// ipsec6.mmp - IPv6/IPv4 IPSEC MMP file
+// ipsec6.prt IPSec socket server protocol plug-in
+//
+
+
+
+/**
+ @file
+*/
+
+TARGET          ipsec6.prt
+TARGETTYPE      dll
+NOEXPORTLIBRARY
+
+UID             0x10003D38 0x10000847
+
+SOURCEPATH  ../src
+
+//
+// Shared Family
+//
+SOURCE  ipsec.cpp
+//
+// Security Policy (secpol) Source Files
+//
+SOURCE  spdb.cpp sc_sap.cpp
+SOURCE  sc_prt6.cpp
+//
+// PFKEY Source Files
+//
+SOURCE  key_prt.cpp key_msg.cpp key_sap.cpp key_sa.cpp
+SOURCE  ah_eng6.cpp esp_eng6.cpp ipip_eng6.cpp natt_eng6.cpp 
+SOURCE  sadb.cpp sa_crypt.cpp circular.cpp ipaddress.cpp
+SOURCE  pfkeymsg.cpp epdb.cpp
+//
+// Shared files (secpol and pfkey)
+//
+SOURCE      sa_spec.cpp tunlintunl_const.cpp
+
+USERINCLUDE     ../inc ../include ../../ipseccrypto/inc ../../../../../security/crypto/weakcryptospi/inc/spi
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+LIBRARY         euser.lib esock.lib esocksvr.lib mbufmgr.lib insock.lib inhook6.lib cryptospi.lib
+
+VENDORID	0x70000001
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+
+#include <cflog.mmh>
+UNPAGED
+
+SMPSAFE

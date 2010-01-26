@@ -1,0 +1,151 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+#
+#	Script file for DHCP testing on IPv6
+#
+#   This is to run against the Dell DHCP server box or colinux.
+#
+#   It won't yet run on the corporate LAN (as there's no IPv6)
+#
+#   ORDER IS IMPORTANT! SetIAPToUse and SetAddressMode lines affect the operation of the subsequent commands
+
+load_suite DhcpTestServer
+
+# Load esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+START_TESTCASE          NET-Dhcp-0401
+//! @SYMTestCaseID      NET-Dhcp-0401
+run_test_step 5 DhcpTestServer SetAddressMode z:\TestData\configs\DHCP\dhcptest.ini IPv6
+END_TESTCASE            NET-Dhcp-0401
+
+START_TESTCASE          NET-Dhcp-0402
+//! @SYMTestCaseID      NET-Dhcp-0402
+////////////////////////
+// SET IAP TO DYNAMIC //
+delay 1000 // To avoid locking on commsdat
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet1
+////////////////////////
+END_TESTCASE            NET-Dhcp-0402
+
+START_TESTCASE          NET-Dhcp-0403
+//! @SYMTestCaseID      NET-Dhcp-0403
+run_test_step 50 DhcpTestServer 2_1	z:\TestData\configs\DHCP\dhcptest.ini
+run_test_step 50 DhcpTestServer 2_2	z:\TestData\configs\DHCP\dhcptest.ini
+run_test_step 50 DhcpTestServer 2_4	z:\TestData\configs\DHCP\dhcptest.ini
+run_test_step 50 DhcpTestServer 2_5	z:\TestData\configs\DHCP\dhcptest.ini
+run_test_step 50 DhcpTestServer 2_6	z:\TestData\configs\DHCP\dhcptest.ini
+run_test_step 50 DhcpTestServer 2_7	z:\TestData\configs\DHCP\dhcptest.ini
+run_test_step 50 DhcpTestServer 2_8	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-0403
+
+// Test 2_10 - this it the test for getting raw dhcp option data...
+START_TESTCASE          NET-Dhcp-0404
+//! @SYMTestCaseID      NET-Dhcp-0404
+delay 1000 // To avoid locking on commsdat
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet1
+run_test_step 50 DhcpTestServer 2_GetRaw	z:\TestData\configs\DHCP\dhcptest.ini ExpectImmediateCompletion
+END_TESTCASE            NET-Dhcp-0404
+
+START_TESTCASE          NET-Dhcp-0405
+//! @SYMTestCaseID      NET-Dhcp-0405
+run_test_step 50 DhcpTestServer 2_11	z:\TestData\configs\DHCP\dhcptest.ini
+run_test_step 50 DhcpTestServer 2_12	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-0405
+
+// Test 2_13 - for receiving SIP address option
+START_TESTCASE          NET-Dhcp-0406
+//! @SYMTestCaseID      NET-Dhcp-0406
+run_test_step 50 DhcpTestServer 2_GetSIPAddrViaDHCP z:\TestData\configs\DHCP\dhcptest.ini ExpectImmediateCompletion
+END_TESTCASE            NET-Dhcp-0406
+
+// Test 2_14 - for receiving SIP domain option
+START_TESTCASE          NET-Dhcp-0407
+//! @SYMTestCaseID      NET-Dhcp-0407
+run_test_step 50 DhcpTestServer 2_GetSIPDomain	z:\TestData\configs\DHCP\dhcptest.ini ExpectImmediateCompletion
+END_TESTCASE            NET-Dhcp-0407
+
+// Test 2_15 - to catch recurrence of INC059922 - get raw option data in INFORM mode
+//   (also forces stateless mode in IPv6)
+START_TESTCASE          NET-Dhcp-0408
+//! @SYMTestCaseID      NET-Dhcp-0408
+delay 1000 // To avoid locking on commsdat
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemon_StaticAddr_DynamicDNS
+run_test_step 50 DhcpTestServer 2_GetRaw	z:\TestData\configs\DHCP\dhcptest.ini ExpectDHCPResponseBeforeCompletion
+END_TESTCASE            NET-Dhcp-0408
+
+START_TESTCASE          NET-Dhcp-0409
+//! @SYMTestCaseID      NET-Dhcp-0409
+///////////////////////////////////////////////////////
+// SET IAP TO STATIC IP STATIC DNS (DHCP STILL RUNS) //
+delay 1000 // To avoid locking on commsdat
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemon_StaticAddr_StaticDNS
+///////////////////////////////////////////////////////
+END_TESTCASE            NET-Dhcp-0409
+
+// Test 2_16 - after defect 69825 (INFORM mode must return immediately when IP address and DNS address are static)
+START_TESTCASE          NET-Dhcp-0410
+//! @SYMTestCaseID      NET-Dhcp-0410
+run_test_step 50 DhcpTestServer 2_GetRaw	z:\TestData\configs\DHCP\dhcptest.ini ExpectImmediateCompletion
+END_TESTCASE            NET-Dhcp-0410
+
+// Test 2_17 - INFORM Test for receiving SIP address option
+START_TESTCASE          NET-Dhcp-0411
+//! @SYMTestCaseID      NET-Dhcp-0411
+run_test_step 50 DhcpTestServer 2_GetSIPAddrViaDHCP	z:\TestData\configs\DHCP\dhcptest.ini ExpectImmediateCompletion
+END_TESTCASE            NET-Dhcp-0411
+
+// Test 2_18 - INFORM Test for receiving SIP domain option
+START_TESTCASE          NET-Dhcp-0412
+//! @SYMTestCaseID      NET-Dhcp-0412
+run_test_step 50 DhcpTestServer 2_GetSIPDomain	z:\TestData\configs\DHCP\dhcptest.ini ExpectImmediateCompletion
+END_TESTCASE            NET-Dhcp-0412
+
+
+
+// Test 2_19 - ensure static configuration works when no subnet mask is specified
+START_TESTCASE          NET-Dhcp-0413
+//! @SYMTestCaseID      NET-Dhcp-0413
+// SET IAP TO STATIC IP STATIC DNS WITH NO SUBNET MASK (DHCP STILL RUNS)
+delay 1000 // To avoid locking on commsdat
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemon_StaticAddr_NoMask
+run_test_step 50 DhcpTestServer 2_GetRaw	z:\TestData\configs\DHCP\dhcptest.ini ExpectImmediateCompletion
+END_TESTCASE            NET-Dhcp-0413
+
+// Test 2_20 - ensure static configuration works when no gateway is specified
+START_TESTCASE          NET-Dhcp-0414
+//! @SYMTestCaseID      NET-Dhcp-0414
+// SET IAP TO STATIC IP STATIC DNS WITH NO GATEWAY (DHCP STILL RUNS)
+delay 1000 // To avoid locking on commsdat
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemon_StaticAddr_NoGateway
+run_test_step 50 DhcpTestServer 2_GetRaw	z:\TestData\configs\DHCP\dhcptest.ini ExpectImmediateCompletion
+END_TESTCASE            NET-Dhcp-0414
+
+
+// Test 2_21 - ensure static configuration works when no DNS servers are specified
+START_TESTCASE          NET-Dhcp-0415
+//! @SYMTestCaseID      NET-Dhcp-0415
+// SET IAP TO STATIC IP STATIC DNS WITH NO DNS SERVERS (DHCP STILL RUNS)
+delay 1000 // To avoid locking on commsdat
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemon_StaticAddr_NoDNSServers
+run_test_step 50 DhcpTestServer 2_GetRaw	z:\TestData\configs\DHCP\dhcptest.ini ExpectImmediateCompletion
+END_TESTCASE            NET-Dhcp-0415
+
+# Stop all interfaces
+RUN_SCRIPT Z:\TestData\Scripts\te_esock_test_stopallinterfaces.script
+
+# Unload esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script

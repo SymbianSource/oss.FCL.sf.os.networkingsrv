@@ -1,0 +1,55 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+///
+PRINT Integration test scripts section 5 Infrared + CSD bearer
+//
+
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+RUN_SCRIPT z:\testdata\scripts\te_esock_test_loadesock.script
+
+// load the required dlls
+LOAD_SUITE TE_Esock
+
+
+// configure commdb for InfraRed and CSD bearer
+// use ced to make the required database
+run_script z:\testdata\scripts\integration\itest_s5\load_ircsd.script
+
+run_script z:\testdata\scripts\integration\itest_s5\itest5_01.script
+run_script z:\testdata\scripts\integration\itest_s5\itest5_02.script
+run_script z:\testdata\scripts\integration\itest_s5\itest5_03.script
+run_script z:\testdata\scripts\integration\itest_s5\itest5_04.script
+run_script z:\testdata\scripts\integration\itest_s5\itest5_05.script
+run_script z:\testdata\scripts\integration\itest_s5\itest5_05b.script
+run_script z:\testdata\scripts\integration\itest_s5\itest5_05c.script
+run_script z:\testdata\scripts\integration\itest_s5\itest5_06.script
+run_script z:\testdata\scripts\integration\itest_s5\itest5_07.script
+run_script z:\testdata\scripts\integration\itest_s5\itest5_08.script
+run_script z:\testdata\scripts\integration\itest_s5\itest5_09.script
+run_script z:\testdata\scripts\integration\itest_s5\itest5_10.script
+run_script z:\testdata\scripts\integration\itest_s5\itest5_11.script
+run_script z:\testdata\scripts\integration\itest_s5\itest5_12.script
+
+run_script z:\testdata\scripts\integration\itest_s5\itest5_17.script
+run_script z:\testdata\scripts\integration\itest_s5\itest5_18.script
+run_script z:\testdata\scripts\integration\itest_s5\itest5_19.script
+
+run_script z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+print End of section 5 Infrared + CSD bearer
+
+

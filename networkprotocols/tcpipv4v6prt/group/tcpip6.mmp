@@ -1,0 +1,63 @@
+// Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// tcpip6.mmp - dual IPv6/IPv4 stack MMP file
+// tcpip6.prt IPv4/v6 protocol plug-in for socket server
+//
+
+
+
+/**
+ @file
+*/
+
+TARGET		tcpip6.prt
+TARGETTYPE	dll
+NOEXPORTLIBRARY
+
+// speed optimisations 
+#ifdef MARM_ARMV5
+ OPTION ARMCC -O3 -Otime
+#endif
+
+UID		0x10003d38 0x1000088D
+
+SOURCEPATH	../src
+
+SOURCE		in_fmly.cpp inet.cpp in_trans.cpp in_net.cpp 
+SOURCE		in_flow.cpp addr46.cpp
+
+SOURCE		res.cpp
+SOURCE		tcp.cpp tcp_sap.cpp frag.cpp
+SOURCE		udp.cpp udp_sap.cpp
+SOURCE		icmp.cpp icmp_sap.cpp
+SOURCE		rawip.cpp rawip_sap.cpp
+SOURCE		ip6.cpp ip6_sap.cpp ip6_frag.cpp ip6_rth.cpp ip6_doh.cpp iface.cpp
+SOURCE		loop6.cpp
+
+USERINCLUDE	../inc ../../iphook/inhook6/inc
+
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+LIBRARY		euser.lib esock.lib esocksvr.lib mbufmgr.lib insock.lib inhook6.lib nifman.lib 
+	
+
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+
+VENDORID	0x70000001
+
+#include <cflog.mmh>
+
+UNPAGED
+
+SMPSAFE

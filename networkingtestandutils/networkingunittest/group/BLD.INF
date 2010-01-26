@@ -1,0 +1,106 @@
+// Copyright (c) 1999-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+#define SYMBIAN_NETWORKING_UPS
+
+PRJ_PLATFORMS
+
+DEFAULT
+
+PRJ_EXPORTS
+
+PRJ_TESTEXPORTS
+
+#ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+
+../group/tunittest.iby                 /epoc32/rom/include/tunittest.iby
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+../tdummyetel/dummyEtel.h              /epoc32/include/dummyetel.h
+#else
+../tdummyetel/dummyEtel.h              SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(dummyetel.h)
+#endif
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+../tdummydlgsvr/dummyagentdialog.h     /epoc32/include/dummyagentdialog.h
+#else
+../tdummydlgsvr/dummyagentdialog.h      SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(dummyagentdialog.h)
+#endif
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+../tdummynif/TNifNotify.h              /epoc32/include/tnifnotify.h
+#else
+../tdummynif/TNifNotify.h              SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(tnifnotify.h)
+#endif
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+../DummyNifProtos/inc/dummynifvar.h              /epoc32/include/dummynifvar.h
+#else
+../DummyNifProtos/inc/dummynifvar.h              SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(dummynifvar.h)
+#endif
+../dummynif_params/group/dummynif_params.iby	 /epoc32/rom/include/dummynif_params.iby
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+../dummynif_params/inc/dummynif_params.h		 /epoc32/include/dummynif_params.h
+#else
+../dummynif_params/inc/dummynif_params.h		 SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(dummynif_params.h)
+#endif
+
+#else
+
+../version1/group/tunittest.iby                 /epoc32/rom/include/tunittest.iby
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+../version1/tdummyetel/dummyetel.h              /epoc32/include/dummyetel.h
+#endif
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+../version1/tdummydlgsvr/dummyagentdialog.h     /epoc32/include/dummyagentdialog.h
+#endif
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+../version1/tdummynif/tnifnotify.h              /epoc32/include/tnifnotify.h
+#endif
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+../version1/dummynif/dummynifvar.h              /epoc32/include/dummynifvar.h
+#endif
+
+#endif
+
+PRJ_TESTMMPFILES
+
+#ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+
+../group/tdummydlgsvr.mmp 
+../group/dummyetel.mmp 
+//../group/tdummynif.mmp 
+//../group/dummynif.mmp
+../group/hungrynif.mmp
+//../group/t_nifman.mmp
+//../group/t_dummynifman.mmp
+../group/DummyNifProtos.mmp
+../dummynif_params/group/dummynif_params.mmp
+
+#else
+
+../version1/group/tdummydlgsvr.mmp 
+../version1/group/dummyetel.mmp 
+../version1/group/tdummynif.mmp 
+../version1/group/dummynif.mmp
+../version1/group/hungrynif.mmp
+../version1/group/t_nifman.mmp
+../version1/group/t_dummynifman.mmp
+
+#endif
+
+#ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+#include "../te_echo/group/bld.inf"
+#endif
+
+#ifdef SYMBIAN_NETWORKING_UPS
+#include "../upstestnotifier/group/bld.inf"
+#endif

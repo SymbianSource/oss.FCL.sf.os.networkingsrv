@@ -1,0 +1,183 @@
+// Copyright (c) 1999-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+
+PRJ_TESTEXPORTS
+// for wins
+../config/ccp.ini           /epoc32/wins/c/private/101f777c/ccp.ini
+../scripts/te_pppcomp.script            /epoc32/release/wins/udeb/z/testdata/scripts/te_pppcomp.script
+../scripts/te_pppcomp.script            /epoc32/release/wins/urel/z/testdata/scripts/te_pppcomp.script
+../config/bib.txt			/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/bib.txt
+../config/bib.txt			/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/bib.txt
+../config/book1.txt			/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/book1.txt
+../config/book1.txt			/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/book1.txt
+../config/book2.txt			/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/book2.txt
+../config/book2.txt			/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/book2.txt
+../config/geo.txt			/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/geo.txt
+../config/geo.txt			/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/geo.txt
+../config/news.txt			/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/news.txt
+../config/news.txt			/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/news.txt
+../config/obj1.txt			/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/obj1.txt
+../config/obj1.txt			/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/obj1.txt
+../config/obj2.txt			/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/obj2.txt
+../config/obj2.txt			/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/obj2.txt
+../config/paper1.txt			/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper1.txt
+../config/paper1.txt			/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper1.txt
+../config/paper2.txt			/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper2.txt
+../config/paper2.txt			/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper2.txt
+../config/paper3.txt			/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper3.txt
+../config/paper3.txt			/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper3.txt
+../config/paper4.txt			/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper4.txt
+../config/paper4.txt			/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper4.txt
+../config/paper5.txt			/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper5.txt
+../config/paper5.txt			/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper5.txt
+../config/paper6.txt			/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper6.txt
+../config/paper6.txt			/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper6.txt
+../config/pic.txt		        /epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/pic.txt
+../config/pic.txt			/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/pic.txt
+../config/progc.txt			/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/progc.txt
+../config/progc.txt			/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/progc.txt
+../config/progl.txt			/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/progl.txt
+../config/progl.txt			/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/progl.txt
+../config/progp.txt			/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/progp.txt
+../config/progp.txt			/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/progp.txt
+../config/trans.txt			/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/trans.txt
+../config/trans.txt			/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/trans.txt
+../config/zero.bin			/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/zero.bin
+../config/zero.bin			/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/zero.bin
+../config/zero4k.bin			/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/zero4k.bin
+../config/zero4k.bin			/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/zero4k.bin
+
+../config/te_pppcomp.ini                /epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/te_pppcomp.ini
+../config/te_pppcomp.ini                /epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/te_pppcomp.ini
+
+../config/te_pppcomp.xml                /epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/te_pppcomp.xml
+../config/te_pppcomp.xml                /epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/te_pppcomp.xml
+
+// for winscw
+../config/ccp.ini           /epoc32/winscw/c/private/101f777c/ccp.ini
+../scripts/te_pppcomp.script            /epoc32/release/winscw/udeb/z/testdata/scripts/te_pppcomp.script
+../scripts/te_pppcomp.script            /epoc32/release/winscw/urel/z/testdata/scripts/te_pppcomp.script
+
+../config/bib.txt			/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/bib.txt
+../config/bib.txt			/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/bib.txt
+../config/book1.txt			/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/book1.txt
+../config/book1.txt			/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/book1.txt
+../config/book2.txt			/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/book2.txt
+../config/book2.txt			/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/book2.txt
+../config/geo.txt			/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/geo.txt
+../config/geo.txt			/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/geo.txt
+../config/news.txt			/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/news.txt
+../config/news.txt			/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/news.txt
+../config/obj1.txt			/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/obj1.txt
+../config/obj1.txt			/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/obj1.txt
+../config/obj2.txt			/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/obj2.txt
+../config/obj2.txt			/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/obj2.txt
+../config/paper1.txt			/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper1.txt
+../config/paper1.txt			/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper1.txt
+../config/paper2.txt			/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper2.txt
+../config/paper2.txt			/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper2.txt
+../config/paper3.txt			/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper3.txt
+../config/paper3.txt			/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper3.txt
+../config/paper4.txt			/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper4.txt
+../config/paper4.txt			/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper4.txt
+../config/paper5.txt			/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper5.txt
+../config/paper5.txt			/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper5.txt
+../config/paper6.txt			/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper6.txt
+../config/paper6.txt			/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper6.txt
+../config/pic.txt			/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/pic.txt
+../config/pic.txt			/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/pic.txt
+../config/progc.txt			/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/progc.txt
+../config/progc.txt			/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/progc.txt
+../config/progl.txt			/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/progl.txt
+../config/progl.txt			/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/progl.txt
+../config/progp.txt			/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/progp.txt
+../config/progp.txt			/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/progp.txt
+../config/trans.txt			/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/trans.txt
+../config/trans.txt			/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/trans.txt
+../config/zero.bin			/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/zero.bin
+../config/zero.bin			/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/zero.bin
+../config/zero4k.bin			/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/zero4k.bin
+../config/zero4k.bin			/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/zero4k.bin
+
+../config/te_pppcomp.ini                /epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/te_pppcomp.ini
+../config/te_pppcomp.ini                /epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/te_pppcomp.ini
+
+../config/te_pppcomp.xml    /epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/te_pppcomp.xml
+../config/te_pppcomp.xml    /epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/te_pppcomp.xml
+
+// for thumb
+../config/ccp.ini           /epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/ccp.ini
+../scripts/te_pppcomp.script            /epoc32/release/thumb/udeb/z/testdata/scripts/te_pppcomp.script
+../scripts/te_pppcomp.script            /epoc32/release/thumb/urel/z/testdata/scripts/te_pppcomp.script
+../config/bib.txt			/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/bib.txt
+../config/bib.txt			/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/bib.txt
+../config/book1.txt			/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/book1.txt
+../config/book1.txt			/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/book1.txt
+../config/book2.txt			/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/book2.txt
+../config/book2.txt			/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/book2.txt
+../config/geo.txt			/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/geo.txt
+../config/geo.txt			/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/geo.txt
+../config/news.txt			/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/news.txt
+../config/news.txt			/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/news.txt
+../config/obj1.txt			/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/obj1.txt
+../config/obj1.txt			/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/obj1.txt
+../config/obj2.txt			/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/obj2.txt
+../config/obj2.txt			/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/obj2.txt
+../config/paper1.txt			/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper1.txt
+../config/paper1.txt			/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper1.txt
+../config/paper2.txt			/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper2.txt
+../config/paper2.txt			/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper2.txt
+../config/paper3.txt			/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper3.txt
+../config/paper3.txt			/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper3.txt
+../config/paper4.txt			/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper4.txt
+../config/paper4.txt			/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper4.txt
+../config/paper5.txt			/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper5.txt
+../config/paper5.txt			/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper5.txt
+../config/paper6.txt			/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper6.txt
+../config/paper6.txt			/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/paper6.txt
+../config/pic.txt			/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/pic.txt
+../config/pic.txt			/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/pic.txt
+../config/progc.txt			/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/progc.txt
+../config/progc.txt			/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/progc.txt
+../config/progl.txt			/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/progl.txt
+../config/progl.txt			/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/progl.txt
+../config/progp.txt			/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/progp.txt
+../config/progp.txt			/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/progp.txt
+../config/trans.txt			/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/trans.txt
+../config/trans.txt			/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/trans.txt
+../config/zero.bin			/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/zero.bin
+../config/zero.bin			/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/zero.bin
+../config/zero4k.bin			/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/zero4k.bin
+../config/zero4k.bin			/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/zero4k.bin
+
+../config/te_pppcomp.ini                /epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/te_pppcomp.ini
+../config/te_pppcomp.ini                /epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/te_pppcomp.ini
+
+../config/te_pppcomp.xml                /epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_pppcomp/te_pppcomp.xml
+../config/te_pppcomp.xml                /epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_pppcomp/te_pppcomp.xml
+
+
+//PRJ_EXPORTS
+// for ROM
+TE_pppcomp.iby	/epoc32/rom/include/te_pppcomp.iby
+
+PRJ_MMPFILES
+
+PRJ_TESTMMPFILES
+te_pppcomp.mmp
+
+
+

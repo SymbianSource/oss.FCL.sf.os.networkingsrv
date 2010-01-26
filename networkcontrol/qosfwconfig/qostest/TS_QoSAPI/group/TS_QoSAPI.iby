@@ -1,0 +1,328 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+#ifndef __TS_QoSAPI_IBY__
+#define __TS_QoSAPI_IBY__
+
+// IntegrationTest required by TS_QoS test suite
+
+#include <integrationtest.iby>
+#include <ppp.iby>
+#include <network.iby>
+#include <telephony.iby>
+#include <testconfigfileparser.iby>
+#include <ts_esockutil.iby>
+
+// Include the dll
+file=ABI_DIR\DEBUG_DIR\TS_QoSAPI.dll	System\Libs\TS_QoSAPI.dll
+file=ABI_DIR\DEBUG_DIR\qosppp.nif		System\Libs\qosppp.nif
+
+// Testnif
+data=EPOCROOT##epoc32\data\z\testdata\configs\PdpConfig.txt testdata\configs\pdpconfig.txt
+
+// Database file
+data=EPOCROOT##epoc32\data\z\testdata\configs\ts_qosapi.xml	Testdata\configs\ts_qosapi.xml
+
+// Test All IP4   
+data=EPOCROOT##epoc32\data\z\Test_All_QoS_ip4_ExplicitUdp_Join1.script	Testdata\scripts\Test_All_QoS_ip4_ExplicitUdp_Join1.script
+data=EPOCROOT##epoc32\data\z\Test_All_QoS_ip4_ExplicitUdp_Join2.script	Testdata\scripts\Test_All_QoS_ip4_ExplicitUdp_Join2.script
+data=EPOCROOT##epoc32\data\z\Test_All_QoS_ip4_ExplicitUdp_Join3.script	Testdata\scripts\Test_All_QoS_ip4_ExplicitUdp_Join3.script
+
+data=EPOCROOT##epoc32\data\z\Test_All_QoS_ip4_ImplicitUdp_Join1.script	Testdata\scripts\Test_All_QoS_ip4_ImplicitUdp_Join1.script
+data=EPOCROOT##epoc32\data\z\Test_All_QoS_ip4_ImplicitUdp_Join2.script	Testdata\scripts\Test_All_QoS_ip4_ImplicitUdp_Join2.script
+data=EPOCROOT##epoc32\data\z\Test_All_QoS_ip4_ImplicitUdp_Join3.script	Testdata\scripts\Test_All_QoS_ip4_ImplicitUdp_Join3.script
+                            
+data=EPOCROOT##epoc32\data\z\Test_All_QoS_ip4_ImplicitTcp.script		Testdata\scripts\Test_All_QoS_ip4_ImplicitTcp.script
+data=EPOCROOT##epoc32\data\z\Test_All_QoS_ip4_ImplicitUdp.script		Testdata\scripts\Test_All_QoS_ip4_ImplicitUdp.script
+data=EPOCROOT##epoc32\data\z\Test_All_QoS_ip4_ExplicitTcp.script		Testdata\scripts\Test_All_QoS_ip4_ExplicitTcp.script
+data=EPOCROOT##epoc32\data\z\Test_All_QoS_ip4_ExplicitUdp.script		Testdata\scripts\Test_All_QoS_ip4_ExplicitUdp.script
+
+data=EPOCROOT##epoc32\data\z\Test_All_QoS_ip4_Implicit.ini		Testdata\configs\Test_All_QoS_ip4_Implicit.ini
+data=EPOCROOT##epoc32\data\z\Test_All_QoS_ip4_Explicit.ini		Testdata\configs\Test_All_QoS_ip4_Explicit.ini
+
+/////////
+// TCP //
+/////////
+
+// for wins IP4 Implicit
+data=EPOCROOT##epoc32\data\z\testdata\scripts\Implicittcp\Qos_Scenario_1_HLR5_1_1.script		Testdata\scripts\implicittcp\Qos_Scenario_1_HLR5_1_1.script              
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_1_HLR5_1_1.ini 		Testdata\scripts\implicittcp\Qos_Scenario_1_HLR5_1_1.ini              
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_2_HLR5_1_2.script		Testdata\scripts\implicittcp\Qos_Scenario_2_HLR5_1_2.script             
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_2_HLR5_1_2.ini        Testdata\scripts\implicittcp\Qos_Scenario_2_HLR5_1_2.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_3_HLR5_2_1.script		Testdata\scripts\implicittcp\Qos_Scenario_3_HLR5_2_1.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_3_HLR5_2_1.ini		Testdata\scripts\implicittcp\Qos_Scenario_3_HLR5_2_1.ini             
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_4_HLR5_2_2.script     Testdata\scripts\implicittcp\Qos_Scenario_4_HLR5_2_2.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_4_HLR5_2_2.ini		Testdata\scripts\implicittcp\Qos_Scenario_4_HLR5_2_2.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_5_HLR5_2_3.script		Testdata\scripts\implicittcp\Qos_Scenario_5_HLR5_2_3.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_5_HLR5_2_3.ini        Testdata\scripts\implicittcp\Qos_Scenario_5_HLR5_2_3.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_6_HLR5_2_4.script     Testdata\scripts\implicittcp\Qos_Scenario_6_HLR5_2_4.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_6_HLR5_2_4.ini        Testdata\scripts\implicittcp\Qos_Scenario_6_HLR5_2_4.ini      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_7_HLR5_2_5.script       Testdata\scripts\implicittcp\Qos_Scenario_7_HLR5_2_5.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_7_HLR5_2_5.ini		Testdata\scripts\implicittcp\Qos_Scenario_7_HLR5_2_5.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_8_HLR5_2_6.script       Testdata\scripts\implicittcp\Qos_Scenario_8_HLR5_2_6.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_8_HLR5_2_6.ini		Testdata\scripts\implicittcp\Qos_Scenario_8_HLR5_2_6.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_9_HLR5_3_1.script       Testdata\scripts\implicittcp\Qos_Scenario_9_HLR5_3_1.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_9_HLR5_3_1.ini		Testdata\scripts\implicittcp\Qos_Scenario_9_HLR5_3_1.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_10_HLR5_3_2.script      Testdata\scripts\implicittcp\Qos_Scenario_10_HLR5_3_2.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_10_HLR5_3_2.ini		Testdata\scripts\implicittcp\Qos_Scenario_10_HLR5_3_2.ini                
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_11_HLR5_4_1.script      Testdata\scripts\implicittcp\Qos_Scenario_11_HLR5_4_1.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_11_HLR5_4_1.ini 		Testdata\scripts\implicittcp\Qos_Scenario_11_HLR5_4_1.ini               
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_12_HLR5_4_2.script      Testdata\scripts\implicittcp\Qos_Scenario_12_HLR5_4_2.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_12_HLR5_4_2.ini         Testdata\scripts\implicittcp\Qos_Scenario_12_HLR5_4_2.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_13_HLR5_4_3.script      Testdata\scripts\implicittcp\Qos_Scenario_13_HLR5_4_3.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_13_HLR5_4_3.ini		Testdata\scripts\implicittcp\Qos_Scenario_13_HLR5_4_3.ini                 
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_14_HLR5_4_4.script      Testdata\scripts\implicittcp\Qos_Scenario_14_HLR5_4_4.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_14_HLR5_4_4.ini         Testdata\scripts\implicittcp\Qos_Scenario_14_HLR5_4_4.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_15_HLR5_5_1.script	Testdata\scripts\implicittcp\Qos_Scenario_15_HLR5_5_1.script              
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_15_HLR5_5_1.ini         Testdata\scripts\implicittcp\Qos_Scenario_15_HLR5_5_1.ini      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_16_HLR5_5_2.script      Testdata\scripts\implicittcp\Qos_Scenario_16_HLR5_5_2.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_16_HLR5_5_2.ini         Testdata\scripts\implicittcp\Qos_Scenario_16_HLR5_5_2.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_17_HLR5_5_3.script 	Testdata\scripts\implicittcp\Qos_Scenario_17_HLR5_5_3.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_17_HLR5_5_3.ini         Testdata\scripts\implicittcp\Qos_Scenario_17_HLR5_5_3.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_18_HLR5_5_4.script      Testdata\scripts\implicittcp\Qos_Scenario_18_HLR5_5_4.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_18_HLR5_5_4.ini         Testdata\scripts\implicittcp\Qos_Scenario_18_HLR5_5_4.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_19_HLR5_5_5.script      Testdata\scripts\implicittcp\Qos_Scenario_19_HLR5_5_5.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_19_HLR5_5_5.ini         Testdata\scripts\implicittcp\Qos_Scenario_19_HLR5_5_5.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_20_HLR5_6_1.script      Testdata\scripts\implicittcp\Qos_Scenario_20_HLR5_6_1.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_20_HLR5_6_1.ini         Testdata\scripts\implicittcp\Qos_Scenario_20_HLR5_6_1.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_21_HLR5_6_2.script      Testdata\scripts\implicittcp\Qos_Scenario_21_HLR5_6_2.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_21_HLR5_6_2.ini         Testdata\scripts\implicittcp\Qos_Scenario_21_HLR5_6_2.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_22_HLR5_6_3.script      Testdata\scripts\implicittcp\Qos_Scenario_22_HLR5_6_3.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_22_HLR5_6_3.ini         Testdata\scripts\implicittcp\Qos_Scenario_22_HLR5_6_3.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_23_HLR5_6_4.script  	Testdata\scripts\implicittcp\Qos_Scenario_23_HLR5_6_4.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_23_HLR5_6_4.ini		Testdata\scripts\implicittcp\Qos_Scenario_23_HLR5_6_4.ini            
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_24_HLR5_6_5.script   	Testdata\scripts\implicittcp\Qos_Scenario_24_HLR5_6_5.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_24_HLR5_6_5.ini         Testdata\scripts\implicittcp\Qos_Scenario_24_HLR5_6_5.ini                  
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_25_HLR5_6_6.script      Testdata\scripts\implicittcp\Qos_Scenario_25_HLR5_6_6.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_25_HLR5_6_6.ini         Testdata\scripts\implicittcp\Qos_Scenario_25_HLR5_6_6.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_26_HLR5_6_7.script      Testdata\scripts\implicittcp\Qos_Scenario_26_HLR5_6_7.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_26_HLR5_6_7.ini         Testdata\scripts\implicittcp\Qos_Scenario_26_HLR5_6_7.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_27_HLR5_6_8.script      Testdata\scripts\implicittcp\Qos_Scenario_27_HLR5_6_8.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_27_HLR5_6_8.ini         Testdata\scripts\implicittcp\Qos_Scenario_27_HLR5_6_8.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_28_HLR5_6_9.script      Testdata\scripts\implicittcp\Qos_Scenario_28_HLR5_6_9.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_28_HLR5_6_9.ini         Testdata\scripts\implicittcp\Qos_Scenario_28_HLR5_6_9.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_29_HLR5_6_10.script     Testdata\scripts\implicittcp\Qos_Scenario_29_HLR5_6_10.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_29_HLR5_6_10.ini        Testdata\scripts\implicittcp\Qos_Scenario_29_HLR5_6_10.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_30_HLR5_6_11.script     Testdata\scripts\implicittcp\Qos_Scenario_30_HLR5_6_11.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_30_HLR5_6_11.ini        Testdata\scripts\implicittcp\Qos_Scenario_30_HLR5_6_11.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_31_HLR5_7_1.script      Testdata\scripts\implicittcp\Qos_Scenario_31_HLR5_7_1.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_31_HLR5_7_1.ini         Testdata\scripts\implicittcp\Qos_Scenario_31_HLR5_7_1.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_32_HLR5_7_2.script      Testdata\scripts\implicittcp\Qos_Scenario_32_HLR5_7_2.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\implicittcp\Qos_Scenario_32_HLR5_7_2.ini		Testdata\scripts\implicittcp\Qos_Scenario_32_HLR5_7_2.ini
+
+// for wins IP4 Explicit
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_1_HLR5_1_1.script	Testdata\scripts\Explicittcp\Qos_Scenario_1_HLR5_1_1.script              
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_1_HLR5_1_1.ini 		Testdata\scripts\Explicittcp\Qos_Scenario_1_HLR5_1_1.ini              
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_2_HLR5_1_2.script	Testdata\scripts\Explicittcp\Qos_Scenario_2_HLR5_1_2.script             
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_2_HLR5_1_2.ini          Testdata\scripts\Explicittcp\Qos_Scenario_2_HLR5_1_2.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_3_HLR5_2_1.script	Testdata\scripts\Explicittcp\Qos_Scenario_3_HLR5_2_1.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_3_HLR5_2_1.ini		Testdata\scripts\Explicittcp\Qos_Scenario_3_HLR5_2_1.ini             
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_4_HLR5_2_2.script       Testdata\scripts\Explicittcp\Qos_Scenario_4_HLR5_2_2.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_4_HLR5_2_2.ini		Testdata\scripts\Explicittcp\Qos_Scenario_4_HLR5_2_2.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_5_HLR5_2_3.script	Testdata\scripts\Explicittcp\Qos_Scenario_5_HLR5_2_3.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_5_HLR5_2_3.ini          Testdata\scripts\Explicittcp\Qos_Scenario_5_HLR5_2_3.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_6_HLR5_2_4.script       Testdata\scripts\Explicittcp\Qos_Scenario_6_HLR5_2_4.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_6_HLR5_2_4.ini          Testdata\scripts\Explicittcp\Qos_Scenario_6_HLR5_2_4.ini      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_7_HLR5_2_5.script       Testdata\scripts\Explicittcp\Qos_Scenario_7_HLR5_2_5.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_7_HLR5_2_5.ini		Testdata\scripts\Explicittcp\Qos_Scenario_7_HLR5_2_5.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_8_HLR5_2_6.script       Testdata\scripts\Explicittcp\Qos_Scenario_8_HLR5_2_6.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_8_HLR5_2_6.ini		Testdata\scripts\Explicittcp\Qos_Scenario_8_HLR5_2_6.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_9_HLR5_3_1.script       Testdata\scripts\Explicittcp\Qos_Scenario_9_HLR5_3_1.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_9_HLR5_3_1.ini		Testdata\scripts\Explicittcp\Qos_Scenario_9_HLR5_3_1.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_10_HLR5_3_2.script      Testdata\scripts\Explicittcp\Qos_Scenario_10_HLR5_3_2.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_10_HLR5_3_2.ini		Testdata\scripts\Explicittcp\Qos_Scenario_10_HLR5_3_2.ini                
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_11_HLR5_4_1.script      Testdata\scripts\Explicittcp\Qos_Scenario_11_HLR5_4_1.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_11_HLR5_4_1.ini 		Testdata\scripts\Explicittcp\Qos_Scenario_11_HLR5_4_1.ini               
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_12_HLR5_4_2.script      Testdata\scripts\Explicittcp\Qos_Scenario_12_HLR5_4_2.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_12_HLR5_4_2.ini         Testdata\scripts\Explicittcp\Qos_Scenario_12_HLR5_4_2.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_13_HLR5_4_3.script      Testdata\scripts\Explicittcp\Qos_Scenario_13_HLR5_4_3.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_13_HLR5_4_3.ini		  Testdata\scripts\Explicittcp\Qos_Scenario_13_HLR5_4_3.ini                 
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_14_HLR5_4_4.script      Testdata\scripts\Explicittcp\Qos_Scenario_14_HLR5_4_4.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_14_HLR5_4_4.ini         Testdata\scripts\Explicittcp\Qos_Scenario_14_HLR5_4_4.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_15_HLR5_5_1.script	  Testdata\scripts\Explicittcp\Qos_Scenario_15_HLR5_5_1.script              
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_15_HLR5_5_1.ini         Testdata\scripts\Explicittcp\Qos_Scenario_15_HLR5_5_1.ini      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_16_HLR5_5_2.script      Testdata\scripts\Explicittcp\Qos_Scenario_16_HLR5_5_2.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_16_HLR5_5_2.ini         Testdata\scripts\Explicittcp\Qos_Scenario_16_HLR5_5_2.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_17_HLR5_5_3.script 	  Testdata\scripts\Explicittcp\Qos_Scenario_17_HLR5_5_3.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_17_HLR5_5_3.ini         Testdata\scripts\Explicittcp\Qos_Scenario_17_HLR5_5_3.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_18_HLR5_5_4.script      Testdata\scripts\Explicittcp\Qos_Scenario_18_HLR5_5_4.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_18_HLR5_5_4.ini         Testdata\scripts\Explicittcp\Qos_Scenario_18_HLR5_5_4.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_19_HLR5_5_5.script      Testdata\scripts\Explicittcp\Qos_Scenario_19_HLR5_5_5.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_19_HLR5_5_5.ini         Testdata\scripts\Explicittcp\Qos_Scenario_19_HLR5_5_5.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_20_HLR5_6_1.script      Testdata\scripts\Explicittcp\Qos_Scenario_20_HLR5_6_1.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_20_HLR5_6_1.ini         Testdata\scripts\Explicittcp\Qos_Scenario_20_HLR5_6_1.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_21_HLR5_6_2.script      Testdata\scripts\Explicittcp\Qos_Scenario_21_HLR5_6_2.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_21_HLR5_6_2.ini         Testdata\scripts\Explicittcp\Qos_Scenario_21_HLR5_6_2.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_22_HLR5_6_3.script      Testdata\scripts\Explicittcp\Qos_Scenario_22_HLR5_6_3.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_22_HLR5_6_3.ini         Testdata\scripts\Explicittcp\Qos_Scenario_22_HLR5_6_3.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_23_HLR5_6_4.script  	Testdata\scripts\Explicittcp\Qos_Scenario_23_HLR5_6_4.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_23_HLR5_6_4.ini		Testdata\scripts\Explicittcp\Qos_Scenario_23_HLR5_6_4.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_24_HLR5_6_5.script   	Testdata\scripts\Explicittcp\Qos_Scenario_24_HLR5_6_5.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_24_HLR5_6_5.ini         Testdata\scripts\Explicittcp\Qos_Scenario_24_HLR5_6_5.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_25_HLR5_6_6.script      Testdata\scripts\Explicittcp\Qos_Scenario_25_HLR5_6_6.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_25_HLR5_6_6.ini         Testdata\scripts\Explicittcp\Qos_Scenario_25_HLR5_6_6.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_26_HLR5_6_7.script      Testdata\scripts\Explicittcp\Qos_Scenario_26_HLR5_6_7.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_26_HLR5_6_7.ini         Testdata\scripts\Explicittcp\Qos_Scenario_26_HLR5_6_7.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_27_HLR5_6_8.script      Testdata\scripts\Explicittcp\Qos_Scenario_27_HLR5_6_8.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_27_HLR5_6_8.ini         Testdata\scripts\Explicittcp\Qos_Scenario_27_HLR5_6_8.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_28_HLR5_6_9.script      Testdata\scripts\Explicittcp\Qos_Scenario_28_HLR5_6_9.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_28_HLR5_6_9.ini         Testdata\scripts\Explicittcp\Qos_Scenario_28_HLR5_6_9.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_29_HLR5_6_10.script     Testdata\scripts\Explicittcp\Qos_Scenario_29_HLR5_6_10.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_29_HLR5_6_10.ini        Testdata\scripts\Explicittcp\Qos_Scenario_29_HLR5_6_10.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_30_HLR5_6_11.script     Testdata\scripts\Explicittcp\Qos_Scenario_30_HLR5_6_11.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_30_HLR5_6_11.ini        Testdata\scripts\Explicittcp\Qos_Scenario_30_HLR5_6_11.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_31_HLR5_7_1.script      Testdata\scripts\Explicittcp\Qos_Scenario_31_HLR5_7_1.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_31_HLR5_7_1.ini         Testdata\scripts\Explicittcp\Qos_Scenario_31_HLR5_7_1.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_32_HLR5_7_2.script      Testdata\scripts\Explicittcp\Qos_Scenario_32_HLR5_7_2.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicittcp\Qos_Scenario_32_HLR5_7_2.ini		Testdata\scripts\Explicittcp\Qos_Scenario_32_HLR5_7_2.ini
+
+/////////
+// UDP //
+/////////
+
+// for wins IP4 Implicit
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_1_HLR5_1_1.script		Testdata\scripts\Implicitudp\Qos_Scenario_1_HLR5_1_1.script              
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_1_HLR5_1_1.ini 		Testdata\scripts\Implicitudp\Qos_Scenario_1_HLR5_1_1.ini              
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_2_HLR5_1_2.script		Testdata\scripts\Implicitudp\Qos_Scenario_2_HLR5_1_2.script             
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_2_HLR5_1_2.ini          Testdata\scripts\Implicitudp\Qos_Scenario_2_HLR5_1_2.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_3_HLR5_2_1.script		Testdata\scripts\Implicitudp\Qos_Scenario_3_HLR5_2_1.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_3_HLR5_2_1.ini		Testdata\scripts\Implicitudp\Qos_Scenario_3_HLR5_2_1.ini             
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_4_HLR5_2_2.script       Testdata\scripts\Implicitudp\Qos_Scenario_4_HLR5_2_2.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_4_HLR5_2_2.ini		Testdata\scripts\Implicitudp\Qos_Scenario_4_HLR5_2_2.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_5_HLR5_2_3.script		Testdata\scripts\Implicitudp\Qos_Scenario_5_HLR5_2_3.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_5_HLR5_2_3.ini          Testdata\scripts\Implicitudp\Qos_Scenario_5_HLR5_2_3.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_6_HLR5_2_4.script       Testdata\scripts\Implicitudp\Qos_Scenario_6_HLR5_2_4.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_6_HLR5_2_4.ini          Testdata\scripts\Implicitudp\Qos_Scenario_6_HLR5_2_4.ini      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_7_HLR5_2_5.script       Testdata\scripts\Implicitudp\Qos_Scenario_7_HLR5_2_5.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_7_HLR5_2_5.ini		Testdata\scripts\Implicitudp\Qos_Scenario_7_HLR5_2_5.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_8_HLR5_2_6.script       Testdata\scripts\Implicitudp\Qos_Scenario_8_HLR5_2_6.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_8_HLR5_2_6.ini		Testdata\scripts\Implicitudp\Qos_Scenario_8_HLR5_2_6.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_9_HLR5_3_1.script       Testdata\scripts\Implicitudp\Qos_Scenario_9_HLR5_3_1.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_9_HLR5_3_1.ini		Testdata\scripts\Implicitudp\Qos_Scenario_9_HLR5_3_1.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_10_HLR5_3_2.script      Testdata\scripts\Implicitudp\Qos_Scenario_10_HLR5_3_2.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_10_HLR5_3_2.ini		Testdata\scripts\Implicitudp\Qos_Scenario_10_HLR5_3_2.ini                
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_11_HLR5_4_1.script      Testdata\scripts\Implicitudp\Qos_Scenario_11_HLR5_4_1.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_11_HLR5_4_1.ini 		Testdata\scripts\Implicitudp\Qos_Scenario_11_HLR5_4_1.ini               
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_12_HLR5_4_2.script      Testdata\scripts\Implicitudp\Qos_Scenario_12_HLR5_4_2.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_12_HLR5_4_2.ini         Testdata\scripts\Implicitudp\Qos_Scenario_12_HLR5_4_2.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_13_HLR5_4_3.script      Testdata\scripts\Implicitudp\Qos_Scenario_13_HLR5_4_3.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_13_HLR5_4_3.ini		Testdata\scripts\Implicitudp\Qos_Scenario_13_HLR5_4_3.ini                 
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_14_HLR5_4_4.script      Testdata\scripts\Implicitudp\Qos_Scenario_14_HLR5_4_4.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_14_HLR5_4_4.ini         Testdata\scripts\Implicitudp\Qos_Scenario_14_HLR5_4_4.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_15_HLR5_5_1.script	Testdata\scripts\Implicitudp\Qos_Scenario_15_HLR5_5_1.script              
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_15_HLR5_5_1.ini         Testdata\scripts\Implicitudp\Qos_Scenario_15_HLR5_5_1.ini      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_16_HLR5_5_2.script      Testdata\scripts\Implicitudp\Qos_Scenario_16_HLR5_5_2.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_16_HLR5_5_2.ini         Testdata\scripts\Implicitudp\Qos_Scenario_16_HLR5_5_2.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_17_HLR5_5_3.script 	Testdata\scripts\Implicitudp\Qos_Scenario_17_HLR5_5_3.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_17_HLR5_5_3.ini         Testdata\scripts\Implicitudp\Qos_Scenario_17_HLR5_5_3.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_18_HLR5_5_4.script      Testdata\scripts\Implicitudp\Qos_Scenario_18_HLR5_5_4.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_18_HLR5_5_4.ini         Testdata\scripts\Implicitudp\Qos_Scenario_18_HLR5_5_4.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_19_HLR5_5_5.script      Testdata\scripts\Implicitudp\Qos_Scenario_19_HLR5_5_5.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_19_HLR5_5_5.ini         Testdata\scripts\Implicitudp\Qos_Scenario_19_HLR5_5_5.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_20_HLR5_6_1.script      Testdata\scripts\Implicitudp\Qos_Scenario_20_HLR5_6_1.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_20_HLR5_6_1.ini         Testdata\scripts\Implicitudp\Qos_Scenario_20_HLR5_6_1.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_21_HLR5_6_2.script      Testdata\scripts\Implicitudp\Qos_Scenario_21_HLR5_6_2.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_21_HLR5_6_2.ini         Testdata\scripts\Implicitudp\Qos_Scenario_21_HLR5_6_2.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_22_HLR5_6_3.script      Testdata\scripts\Implicitudp\Qos_Scenario_22_HLR5_6_3.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_22_HLR5_6_3.ini         Testdata\scripts\Implicitudp\Qos_Scenario_22_HLR5_6_3.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_23_HLR5_6_4.script  	Testdata\scripts\Implicitudp\Qos_Scenario_23_HLR5_6_4.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_23_HLR5_6_4.ini		Testdata\scripts\Implicitudp\Qos_Scenario_23_HLR5_6_4.ini            
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_24_HLR5_6_5.script   	Testdata\scripts\Implicitudp\Qos_Scenario_24_HLR5_6_5.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_24_HLR5_6_5.ini         Testdata\scripts\Implicitudp\Qos_Scenario_24_HLR5_6_5.ini                  
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_25_HLR5_6_6.script      Testdata\scripts\Implicitudp\Qos_Scenario_25_HLR5_6_6.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_25_HLR5_6_6.ini         Testdata\scripts\Implicitudp\Qos_Scenario_25_HLR5_6_6.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_26_HLR5_6_7.script      Testdata\scripts\Implicitudp\Qos_Scenario_26_HLR5_6_7.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_26_HLR5_6_7.ini         Testdata\scripts\Implicitudp\Qos_Scenario_26_HLR5_6_7.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_27_HLR5_6_8.script      Testdata\scripts\Implicitudp\Qos_Scenario_27_HLR5_6_8.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_27_HLR5_6_8.ini         Testdata\scripts\Implicitudp\Qos_Scenario_27_HLR5_6_8.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_28_HLR5_6_9.script      Testdata\scripts\Implicitudp\Qos_Scenario_28_HLR5_6_9.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_28_HLR5_6_9.ini         Testdata\scripts\Implicitudp\Qos_Scenario_28_HLR5_6_9.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_29_HLR5_6_10.script     Testdata\scripts\Implicitudp\Qos_Scenario_29_HLR5_6_10.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_29_HLR5_6_10.ini        Testdata\scripts\Implicitudp\Qos_Scenario_29_HLR5_6_10.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_30_HLR5_6_11.script     Testdata\scripts\Implicitudp\Qos_Scenario_30_HLR5_6_11.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_30_HLR5_6_11.ini        Testdata\scripts\Implicitudp\Qos_Scenario_30_HLR5_6_11.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_31_HLR5_7_1.script      Testdata\scripts\Implicitudp\Qos_Scenario_31_HLR5_7_1.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_31_HLR5_7_1.ini         Testdata\scripts\Implicitudp\Qos_Scenario_31_HLR5_7_1.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_32_HLR5_7_2.script      Testdata\scripts\Implicitudp\Qos_Scenario_32_HLR5_7_2.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Implicitudp\Qos_Scenario_32_HLR5_7_2.ini		Testdata\scripts\Implicitudp\Qos_Scenario_32_HLR5_7_2.ini
+
+// for wins IP4 Explicit
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_1_HLR5_1_1.script	Testdata\scripts\Explicitudp\Qos_Scenario_1_HLR5_1_1.script              
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_1_HLR5_1_1.ini 		Testdata\scripts\Explicitudp\Qos_Scenario_1_HLR5_1_1.ini              
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_2_HLR5_1_2.script	Testdata\scripts\Explicitudp\Qos_Scenario_2_HLR5_1_2.script             
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_2_HLR5_1_2.ini          Testdata\scripts\Explicitudp\Qos_Scenario_2_HLR5_1_2.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_3_HLR5_2_1.script	Testdata\scripts\Explicitudp\Qos_Scenario_3_HLR5_2_1.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_3_HLR5_2_1.ini		Testdata\scripts\Explicitudp\Qos_Scenario_3_HLR5_2_1.ini             
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_4_HLR5_2_2.script       Testdata\scripts\Explicitudp\Qos_Scenario_4_HLR5_2_2.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_4_HLR5_2_2.ini		Testdata\scripts\Explicitudp\Qos_Scenario_4_HLR5_2_2.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_5_HLR5_2_3.script	Testdata\scripts\Explicitudp\Qos_Scenario_5_HLR5_2_3.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_5_HLR5_2_3.ini          Testdata\scripts\Explicitudp\Qos_Scenario_5_HLR5_2_3.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_6_HLR5_2_4.script       Testdata\scripts\Explicitudp\Qos_Scenario_6_HLR5_2_4.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_6_HLR5_2_4.ini          Testdata\scripts\Explicitudp\Qos_Scenario_6_HLR5_2_4.ini      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_7_HLR5_2_5.script       Testdata\scripts\Explicitudp\Qos_Scenario_7_HLR5_2_5.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_7_HLR5_2_5.ini		Testdata\scripts\Explicitudp\Qos_Scenario_7_HLR5_2_5.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_8_HLR5_2_6.script       Testdata\scripts\Explicitudp\Qos_Scenario_8_HLR5_2_6.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_8_HLR5_2_6.ini		Testdata\scripts\Explicitudp\Qos_Scenario_8_HLR5_2_6.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_9_HLR5_3_1.script       Testdata\scripts\Explicitudp\Qos_Scenario_9_HLR5_3_1.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_9_HLR5_3_1.ini		Testdata\scripts\Explicitudp\Qos_Scenario_9_HLR5_3_1.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_10_HLR5_3_2.script      Testdata\scripts\Explicitudp\Qos_Scenario_10_HLR5_3_2.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_10_HLR5_3_2.ini		Testdata\scripts\Explicitudp\Qos_Scenario_10_HLR5_3_2.ini                
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_11_HLR5_4_1.script      Testdata\scripts\Explicitudp\Qos_Scenario_11_HLR5_4_1.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_11_HLR5_4_1.ini 	Testdata\scripts\Explicitudp\Qos_Scenario_11_HLR5_4_1.ini               
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_12_HLR5_4_2.script      Testdata\scripts\Explicitudp\Qos_Scenario_12_HLR5_4_2.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_12_HLR5_4_2.ini         Testdata\scripts\Explicitudp\Qos_Scenario_12_HLR5_4_2.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_13_HLR5_4_3.script      Testdata\scripts\Explicitudp\Qos_Scenario_13_HLR5_4_3.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_13_HLR5_4_3.ini		Testdata\scripts\Explicitudp\Qos_Scenario_13_HLR5_4_3.ini                 
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_14_HLR5_4_4.script      Testdata\scripts\Explicitudp\Qos_Scenario_14_HLR5_4_4.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_14_HLR5_4_4.ini         Testdata\scripts\Explicitudp\Qos_Scenario_14_HLR5_4_4.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_15_HLR5_5_1.script	Testdata\scripts\Explicitudp\Qos_Scenario_15_HLR5_5_1.script              
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_15_HLR5_5_1.ini         Testdata\scripts\Explicitudp\Qos_Scenario_15_HLR5_5_1.ini      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_16_HLR5_5_2.script      Testdata\scripts\Explicitudp\Qos_Scenario_16_HLR5_5_2.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_16_HLR5_5_2.ini         Testdata\scripts\Explicitudp\Qos_Scenario_16_HLR5_5_2.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_17_HLR5_5_3.script 	Testdata\scripts\Explicitudp\Qos_Scenario_17_HLR5_5_3.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_17_HLR5_5_3.ini         Testdata\scripts\Explicitudp\Qos_Scenario_17_HLR5_5_3.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_18_HLR5_5_4.script      Testdata\scripts\Explicitudp\Qos_Scenario_18_HLR5_5_4.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_18_HLR5_5_4.ini         Testdata\scripts\Explicitudp\Qos_Scenario_18_HLR5_5_4.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_19_HLR5_5_5.script      Testdata\scripts\Explicitudp\Qos_Scenario_19_HLR5_5_5.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_19_HLR5_5_5.ini         Testdata\scripts\Explicitudp\Qos_Scenario_19_HLR5_5_5.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_20_HLR5_6_1.script      Testdata\scripts\Explicitudp\Qos_Scenario_20_HLR5_6_1.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_20_HLR5_6_1.ini         Testdata\scripts\Explicitudp\Qos_Scenario_20_HLR5_6_1.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_21_HLR5_6_2.script      Testdata\scripts\Explicitudp\Qos_Scenario_21_HLR5_6_2.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_21_HLR5_6_2.ini         Testdata\scripts\Explicitudp\Qos_Scenario_21_HLR5_6_2.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_22_HLR5_6_3.script      Testdata\scripts\Explicitudp\Qos_Scenario_22_HLR5_6_3.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_22_HLR5_6_3.ini         Testdata\scripts\Explicitudp\Qos_Scenario_22_HLR5_6_3.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_23_HLR5_6_4.script  	Testdata\scripts\Explicitudp\Qos_Scenario_23_HLR5_6_4.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_23_HLR5_6_4.ini		Testdata\scripts\Explicitudp\Qos_Scenario_23_HLR5_6_4.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_24_HLR5_6_5.script   	Testdata\scripts\Explicitudp\Qos_Scenario_24_HLR5_6_5.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_24_HLR5_6_5.ini         Testdata\scripts\Explicitudp\Qos_Scenario_24_HLR5_6_5.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_25_HLR5_6_6.script      Testdata\scripts\Explicitudp\Qos_Scenario_25_HLR5_6_6.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_25_HLR5_6_6.ini         Testdata\scripts\Explicitudp\Qos_Scenario_25_HLR5_6_6.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_26_HLR5_6_7.script      Testdata\scripts\Explicitudp\Qos_Scenario_26_HLR5_6_7.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_26_HLR5_6_7.ini         Testdata\scripts\Explicitudp\Qos_Scenario_26_HLR5_6_7.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_27_HLR5_6_8.script      Testdata\scripts\Explicitudp\Qos_Scenario_27_HLR5_6_8.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_27_HLR5_6_8.ini         Testdata\scripts\Explicitudp\Qos_Scenario_27_HLR5_6_8.ini
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_28_HLR5_6_9.script      Testdata\scripts\Explicitudp\Qos_Scenario_28_HLR5_6_9.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_28_HLR5_6_9.ini         Testdata\scripts\Explicitudp\Qos_Scenario_28_HLR5_6_9.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_29_HLR5_6_10.script     Testdata\scripts\Explicitudp\Qos_Scenario_29_HLR5_6_10.script
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_29_HLR5_6_10.ini        Testdata\scripts\Explicitudp\Qos_Scenario_29_HLR5_6_10.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_30_HLR5_6_11.script     Testdata\scripts\Explicitudp\Qos_Scenario_30_HLR5_6_11.script      
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_30_HLR5_6_11.ini        Testdata\scripts\Explicitudp\Qos_Scenario_30_HLR5_6_11.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_31_HLR5_7_1.script      Testdata\scripts\Explicitudp\Qos_Scenario_31_HLR5_7_1.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_31_HLR5_7_1.ini         Testdata\scripts\Explicitudp\Qos_Scenario_31_HLR5_7_1.ini       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_32_HLR5_7_2.script      Testdata\scripts\Explicitudp\Qos_Scenario_32_HLR5_7_2.script       
+data=EPOCROOT##epoc32\data\z\Testdata\scripts\Explicitudp\Qos_Scenario_32_HLR5_7_2.ini		Testdata\scripts\Explicitudp\Qos_Scenario_32_HLR5_7_2.ini
+
+#endif

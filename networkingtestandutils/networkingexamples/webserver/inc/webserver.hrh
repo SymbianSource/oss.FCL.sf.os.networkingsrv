@@ -1,0 +1,64 @@
+// Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// webserver.hrh - http server UI constants
+//
+
+
+
+/**
+ @internalComponent
+*/
+#ifndef __WEBSERVER_HRH
+#define __WEBSERVER_HRH
+
+enum
+	{
+	EWSCmdFileName=0x6000,
+	EWSCmdStart=0x06001,
+	EWSCmdCancel=0x06002,
+	EWSCmdClearConsole,
+	EWSCmdSetHistorySize,
+	EWSCmdResetTotalCounter,
+	EWSCmdDir,
+	EWSCmdHttpMethods,
+	EWSCmdMiscData,
+	EWSCmdMimeTypes,
+	EWSCmdConsole,
+	EWSCmdAbout,
+	EWSCmdHelp,
+// [SvV] Changed some menu options
+	EWSCmdOption,
+// [/SvV]
+	EWSSetHistorySize,
+	EWSHttpResp,
+	EWSHttpReq,
+	EWSMiscData,
+	EWSDeleteMethod,
+	EWSPutMethod,
+	EWSDefaultResource,
+	EWSCGIPath,
+	EWSServerPath,
+	EWSBackupPath,
+	EWSErrorPath,
+	EWSPort,
+	EWSMimeTypesList,
+	EWSBidAdd,
+	EWSBidEdit,
+	EWSBidDel,
+	EWSExtension,
+	EWSMimeType,
+	EWSAboutText
+	};
+
+#endif

@@ -1,0 +1,71 @@
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRJ_TESTEXPORTS
+
+../data/ipsec_start.bat        z:/testdata/configs/ts_ipsec/ipsec_start.bat
+../data/ipsec_end.bat	       z:/testdata/configs/ts_ipsec/ipsec_end.bat
+../data/comsdbg.ini	       z:/testdata/configs/ts_ipsec/comsdbg.ini
+
+../data/ts_ipsec.ini           z:/testdata/configs/ts_ipsec.ini
+../data/ts_ipsec2.ini          z:/testdata/configs/ts_ipsec2.ini
+../data/ts_ipsec3.ini          z:/testdata/configs/ts_ipsec3.ini
+../data/ts_ipsec4.ini          z:/testdata/configs/ts_ipsec4.ini
+../data/ts_ipsec_mh1.ini       z:/testdata/configs/ts_ipsec_mh1.ini
+../data/ts_ipsec_mh2.ini       z:/testdata/configs/ts_ipsec_mh2.ini
+../data/ts_ipsec_mh3.ini       z:/testdata/configs/ts_ipsec_mh3.ini
+../data/ts_ipsec_mh4.ini       z:/testdata/configs/ts_ipsec_mh4.ini
+
+
+../data/algorithms.conf		z:/testdata/configs/algorithms.conf
+../data/fbsd_tull.pol		z:/testdata/configs/fbsd_tull.pol
+../data/fbsd_tull.pin		z:/testdata/configs/fbsd_tull.pin
+../data/fbsd_tull_v6.pol	z:/testdata/configs/fbsd_tull_v6.pol
+../data/cisco_all.pol		z:/testdata/configs/cisco_all.pol
+../data/cisco_all.pin		z:/testdata/configs/cisco_all.pin
+../data/linux_trans.pol		z:/testdata/configs/linux_trans.pol
+../data/linux_trans.pin		z:/testdata/configs/linux_trans.pin
+../data/linux_trans_gw.pol	z:/testdata/configs/linux_trans_gw.pol
+../data/linux_trans-ca.cer	z:/testdata/configs/linux_trans-ca.cer
+../data/linux_trans-peer.cer	z:/testdata/configs/linux_trans-peer.cer
+../data/linux_trans-user.cer	z:/testdata/configs/linux_trans-user.cer
+../data/linux_trans-user.key	z:/testdata/configs/linux_trans-user.key
+../data/linux_tull.pol		z:/testdata/configs/linux_tull.pol
+../data/linux_tull.pin		z:/testdata/configs/linux_tull.pin
+../data/1ipsec_onlypol		z:/testdata/configs/1ipsec_onlypol
+../data/2ipsec_onlypol		z:/testdata/configs/2ipsec_onlypol
+../data/pix-3des-md5-tunnel-psk.pin    z:/testdata/configs/pix-3des-md5-tunnel-psk.pin
+../data/pix-3des-md5-tunnel-psk.pol    z:/testdata/configs/pix-3des-md5-tunnel-psk.pol
+../data/racoon-3des-md5-tunnel-psk.pin    z:/testdata/configs/racoon-3des-md5-tunnel-psk.pin
+../data/racoon-3des-md5-tunnel-psk.pol    z:/testdata/configs/racoon-3des-md5-tunnel-psk.pol
+
+../data/ipsec_ced.cfg		z:/testdata/configs/ipsec_ced.cfg
+../data/ts_ipsec.script z:/testdata/scripts/ts_ipsec_lubbock.script
+../data/ts_ipsec_removed.script z:/testdata/scripts/ts_ipsec_removed.script
+
+// The main ts_ipsec script has two variants - the location to which policy files are copied varies
+// depending on whether data caging is active (c:\private\101f7993 or c:\system\data\security\secfiles).
+
+../data/ts_ipsec_sd.script	z:/testdata/scripts/ts_ipsec.script
+
+ts_ipsec.iby	/epoc32/rom/include/ts_ipsec.iby
+
+
+PRJ_TESTMMPFILES
+
+ts_ipsec.mmp
+//tipsec_inter.mmp
+//..\notif\fake_ipsecnotif.mmp
+

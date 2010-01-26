@@ -1,0 +1,53 @@
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of the License "Symbian Foundation License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.symbianfoundation.org/legal/sfl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// T_VJUNCOMP_21
+// TCP ECN bits are set
+// tcsim input file to generate test data for VJ compression tests.
+// 
+//
+
+#include "packet.def"
+#include "ports.tc"
+
+dev eth0 100 Mbps {
+    egress {
+    }
+}
+
+// Packet to prime the compressor
+send TCP_PCK($ip_id=1 $ip_sum=0x66cc $tcp_sport = PORT_FTP_DATA $tcp_dport = 1234 $tcp_ACK=1 $tcp_seq=0 $tcp_sum=0x65eb)
+     0x31
+
+// Packet with TCP ECN ECE bit set
+send IP_HDR($ip_proto = IPPROTO_TCP $ip_id=2 $ip_sum=0x66cb)
+    TCP_HDR($tcp_sport = PORT_FTP_DATA $tcp_dport = 1234 $tcp_ACK=1 $tcp_seq=1 $tcp_flags=0x40 $tcp_sum=0x64aa)
+     0x32
+
+// Another packet with TCP ECN ECE bit set
+send IP_HDR($ip_proto = IPPROTO_TCP $ip_id=3 $ip_sum=0x66ca)
+    TCP_HDR($tcp_sport = PORT_FTP_DATA $tcp_dport = 1234 $tcp_ACK=1 $tcp_seq=1 $tcp_flags=0x40 $tcp_sum=0x63aa)
+     0x33
+
+// Packet with TCP ECN CWR bit set
+send IP_HDR($ip_proto = IPPROTO_TCP $ip_id=4 $ip_sum=0x66c9)
+    TCP_HDR($tcp_sport = PORT_FTP_DATA $tcp_dport = 1234 $tcp_ACK=1 $tcp_seq=2 $tcp_flags=0x80 $tcp_sum=0x6269)
+     0x34
+
+// Another packet with TCP ECN CWR bit set
+send IP_HDR($ip_proto = IPPROTO_TCP $ip_id=5 $ip_sum=0x66c8)
+    TCP_HDR($tcp_sport = PORT_FTP_DATA $tcp_dport = 1234 $tcp_ACK=1 $tcp_seq=3 $tcp_flags=0x80 $tcp_sum=0x6168)
+     0x35
+
+
+end

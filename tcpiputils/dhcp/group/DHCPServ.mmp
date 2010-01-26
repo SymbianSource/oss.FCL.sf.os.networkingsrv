@@ -1,0 +1,80 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+//#define __FLOGGER_FORCE_LIBRARY
+#include                "comms-infras/commsdebugutility.mmh"
+#include        <cflog.mmh>
+
+TARGET		dhcpserv.exe	// Automagically DhcpServ.dll (thread) on EKA1 emulators
+
+#ifdef EKA2
+TARGETTYPE  	exe
+UID             0x1000007A 0x101FD9C5
+VENDORID 0x70000001
+#else
+TARGETTYPE  	exedll
+UID             0x1000008d 0x101FD9C5
+VENDORID 0x70000001
+#endif
+
+SOURCEPATH		../src
+SOURCE			DHCPServer.cpp DHCPSess.cpp 
+SOURCE			DHCPControl.cpp DHCPMsg.cpp DHCPStateMachine.cpp DHCPStates.cpp DHCPDb.cpp
+SOURCE			DHCPIP4Control.cpp DHCPIP4Msg.cpp DHCPIP4StateMachine.cpp DHCPIP4States.cpp
+SOURCE			DHCPIP6Control.cpp DHCPIP6Msg.cpp DHCPIP6StateMachine.cpp DHCPIP6States.cpp
+SOURCE			DhcpIP6MsgRcvr.cpp DHCPIP6MsgSender.cpp DHCPIP6IA.cpp DHCPAuthentication.cpp
+SOURCE			MsgSender.cpp ExpireTimer.cpp DNSUpdateIf.cpp DomainNameDecoder.cpp DHCPConfigListener.cpp
+#ifdef SYMBIAN_NETWORKING_DHCPSERVER
+SOURCE			DHCPIP4ServerControl.cpp
+#endif // SYMBIAN_NETWORKING_DHCPSERVER
+#ifdef SYMBIAN_NETWORKING_ADDRESS_PROVISION
+SOURCE dhcphwaddrmanager.cpp
+#endif //SYMBIAN_NETWORKING_ADDRESS_PROVISION
+
+USERINCLUDE		../include
+USERINCLUDE             ../../../networkprotocols/dnsproxy/dnsproxyclient/inc
+USERINCLUDE             ../NetCfgExtnDhcp/inc
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+LIBRARY			euser.lib
+LIBRARY			esock.lib
+LIBRARY			insock.lib
+LIBRARY			commsfw.lib
+
+#ifdef SYMBIAN_DNS_PROXY
+LIBRARY		dnsproxyclient.lib
+#endif // SYMBIAN_NETWORKING_DHCPSERVER
+#ifndef SYMBIAN_COMMS_REPOSITORY
+LIBRARY			commdb.lib
+#else
+LIBRARY			commsdat.lib
+#endif
+LIBRARY			netsm.lib
+LIBRARY			netmsg.lib
+LIBRARY			netmeta.lib
+LIBRARY			ecom.lib
+
+#ifdef SYMBIAN_ESOCK_V3
+LIBRARY			c32root.lib
+LIBRARY			netsubscribe.lib
+#endif
+#ifdef SYMBIAN_NETWORKING_PLATSEC
+LIBRARY			efsrv.lib
+#endif
+
+CAPABILITY ProtServ NetworkServices NetworkControl ReadDeviceData WriteDeviceData
+
+SMPSAFE

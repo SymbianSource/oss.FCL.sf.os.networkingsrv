@@ -1,0 +1,134 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//!//////////////////////////////////////////////////////////////////
+//! @file
+//! @SYMTestSuiteName	 	  	NET-DHCP-CIT
+//! @SYMScriptTestEnvironment	TestExecuteFramework (TEF).
+//! @SYMScriptPurpose			Script file for DHCP testing on IPv4.
+//! @SYMScriptInfo				1.Here we use CommsDB with ipv4 settings.
+//!								2.ORDER IS IMPORTANT! SetIAPToUse and SetAddressMode lines affect the operation of the subsequent commands.
+//!//////////////////////////////////////////////////////////////////
+
+
+//Load the Server
+LOAD_SUITE DhcpTestServer
+
+//Load esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+RUN_TEST_STEP 5 DhcpTestServer SetAddressMode z:\TestData\configs\DHCP\dhcptest.ini IPv4
+
+//Set IAP to dynamic
+RUN_TEST_STEP 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet1
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID			DHCP-7-1
+//! @SYMTestCaseDesc 		Opens one connection and starts it, then stops and restarts the connection several times to test the behaviour
+//! @SYMFssID 				Networking/DHCP/DHCP-7-1
+//! @SYMREQ 				2197
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults KErrNone
+//! @SYMTestType 			CIT
+//! @SYMTestActions
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-7-1
+RUN_TEST_STEP 50 DhcpTestServer 5_5	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-7-1
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-7-2
+//! @SYMTestCaseDesc 		Waits for Renew timeout to expire and check that renewed lease is longer than current lease, some of which has been used up.
+//! @SYMFssID 				Networking/DHCP/DHCP-7-2
+//! @SYMREQ 				2197
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults EPass
+//! @SYMTestType 			CIT
+//! @SYMTestActions
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-7-2
+RUN_TEST_STEP 150 DhcpTestServer 5_6	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-7-2
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-7-3
+//! @SYMTestCaseDesc 		Opens a connection and issues two subsequent requests 
+//! @SYMFssID 				Networking/DHCP/DHCP-7-3
+//! @SYMREQ 				2197
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults KErrInUse
+//! @SYMTestType 			CIT
+//! @SYMTestActions
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-7-3
+RUN_TEST_STEP 50 DhcpTestServer 4_1	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-7-3
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-7-4
+//! @SYMTestCaseDesc 		Start a connection, issue a request and stop the connection
+//! @SYMFssID 				Networking/DHCP/DHCP-7-4
+//! @SYMREQ 				2197
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults KErrCancel
+//! @SYMTestType 			CIT
+//! @SYMTestActions
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-7-4
+RUN_TEST_STEP 50 DhcpTestServer 4_2	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-7-4
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-7-5
+//! @SYMTestCaseDesc 		Cancel request from an ioctl
+//! @SYMFssID 				Networking/DHCP/DHCP-7-5
+//! @SYMREQ 				2197
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults KErrNone
+//! @SYMTestType 			CIT
+//! @SYMTestActions
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE DHCP-7-5
+RUN_TEST_STEP 50 DhcpTestServer 4_3	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE DHCP-7-5
+
+
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_stopallinterfaces.script
+
+# Stop all interfaces and unload esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_stopallinterfaces.script
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script

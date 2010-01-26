@@ -1,0 +1,13 @@
+EXPORTS
+	NewApplication__Fv @ 1 NONAME ; NewApplication(void)
+; NEW:
+	WebServerBusyL__13CWebServerCon @ 2 NONAME ; CWebServerCon::WebServerBusyL(void)
+	NewL__13CWebServerConP13CWebServerEng @ 3 NONAME ; CWebServerCon::NewL(CWebServerEng *)
+	NewL__13CWebServerEng @ 4 NONAME ; CWebServerEng::NewL(void)
+	Reset__13CWebServerEng @ 5 NONAME ; CWebServerEng::Reset(void)
+	SetObserver__13CWebServerConP18MWebServerObserver @ 6 NONAME ; CWebServerCon::SetObserver(MWebServerObserver *)
+	SetObserver__13CWebServerEngP18MWebServerObserver @ 7 NONAME ; CWebServerEng::SetObserver(MWebServerObserver *)
+	StartConnection__13CWebServerCon @ 8 NONAME ; CWebServerCon::StartConnection(void)
+	StartWebServerL__13CWebServerEng @ 9 NONAME ; CWebServerEng::StartWebServerL(void)
+	DestroyConnection__13CWebServerEngP13CWebServerCon @ 10 NONAME ; CWebServerEng::DestroyConnection(CWebServerCon *)
+

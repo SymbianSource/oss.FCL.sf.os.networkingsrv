@@ -1,0 +1,37 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+/**
+@file
+
+@SYMPurpose 
+*/
+
+
+PRJ_EXPORTS
+
+../data/ip.addressinfo_tcpip.esk	        /epoc32/data/z/private/101f7989/esock/ip.addressinfo_tcpip.esk
+../data/ip.addressinfo_tcpip.esk	        /epoc32/winscw/c/private/101f7989/esock/ip.addressinfo_tcpip.esk
+
+../group/addressinfohook.iby /epoc32/rom/include/addressinfohook.iby
+
+PRJ_MMPFILES
+
+addressinfohook.mmp
+
+
+

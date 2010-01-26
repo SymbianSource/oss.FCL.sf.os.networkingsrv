@@ -1,0 +1,42 @@
+// Copyright (c) 1997-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// ipcpr.mmp
+// 
+//
+
+TARGET        		ipaddrinfoparams.dll
+TARGETTYPE    		PLUGIN
+
+UID 			0x10009D8D 0x102822D2
+VENDORID 		0x70000001
+
+SOURCEPATH		../src
+SOURCE        		ipaddrinfoparams.cpp
+SOURCE        		ipaddrinfoparams_factory.cpp
+
+USERINCLUDE   		../inc
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+START RESOURCE 102822D2.rss
+TARGET ipaddrinfoparams.rsc
+END
+
+LIBRARY       		euser.lib esock.lib netmeta.lib
+LIBRARY nodemessages.lib
+
+CAPABILITY All -TCB
+
+UNPAGED
+
+SMPSAFE

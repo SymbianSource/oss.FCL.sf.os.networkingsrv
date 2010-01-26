@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<relnotes schema="1.0.0" name="IP Hook Examples" purpose="" type="component">
+  <revision major="1" functional="0" minor="0" date="20071207">
+    <ref name="DEF110594" type="defect"/>
+    <description>Publishing TAccessPointInfo to partners.  TAccessPointInfo is now a class rather than a struct since it has no public data.  All functions remain inline as it is not intended to be extensible.</description>
+  </revision>
+  <purpose>
+  </purpose>
+</relnotes>

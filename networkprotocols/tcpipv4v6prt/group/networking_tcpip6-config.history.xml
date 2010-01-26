@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relnotes name="TCP/IPv4/v6 PRT">
+  <purpose>
+    IPv4/v6 protocol implementation PRT plugin to ESock Socket Server, TCP/IP stack and plugin extension architecture.
+  </purpose>
+</relnotes>

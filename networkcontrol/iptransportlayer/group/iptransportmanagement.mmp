@@ -1,0 +1,50 @@
+// Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// iptransport.mmp
+// iptransport.mmp TCP/UDP Connection Provider ECOM plugin
+// 
+//
+
+/**
+ @file
+*/
+
+#define SYMBIAN_NETWORKING_UPS
+
+#include <cflog.mmh>
+
+TARGET          iptransportmanagement.dll
+TARGETTYPE      PLUGIN
+UID             0x10009D8D 0x102866C3
+VENDORID        0x70000001
+
+USERINCLUDE	../inc
+
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+
+SOURCEPATH      ../src
+SOURCE		ecom_impl_management.cpp
+
+START RESOURCE 102866C3.rss
+TARGET iptransportmanagement.rsc
+END
+
+LIBRARY	euser.lib
+LIBRARY iptransportimpl.lib
+LIBRARY nodemessages.lib
+
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+
+SMPSAFE

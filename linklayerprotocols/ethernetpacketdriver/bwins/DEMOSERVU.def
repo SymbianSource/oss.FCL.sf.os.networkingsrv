@@ -1,0 +1,7 @@
+EXPORTS
+; NEW:
+	?Connect@RDemoSession@@QAEHH@Z @ 1 NONAME ; public: int __thiscall RDemoSession::Connect(int)
+	?ReadLine@RDemoSession@@QBEXABVTDesC8@@AAVTRequestStatus@@@Z @ 2 NONAME ; public: void __thiscall RDemoSession::ReadLine(class TDesC8 const &,class TRequestStatus &)const 
+	?Version@RDemoSession@@QBE?AVTVersion@@XZ @ 3 NONAME ; public: class TVersion  __thiscall RDemoSession::Version(void)const 
+	?WriteLine@RDemoSession@@QBEXABVTDesC8@@AAVTRequestStatus@@@Z @ 4 NONAME ; public: void __thiscall RDemoSession::WriteLine(class TDesC8 const &,class TRequestStatus &)const 
+

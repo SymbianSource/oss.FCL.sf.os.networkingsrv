@@ -1,0 +1,3 @@
+EXPORTS
+	NewTestSuiteQoSL__Fv @ 1 NONAME R3UNUSED ; NewTestSuiteQoSL(void)
+

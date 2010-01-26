@@ -1,0 +1,31 @@
+This document describes how to test CDMA with the SIMTSY
+
+Requirements
+------------
+* A recent Mainline (>= build 583)
+* The SIMTSY (should be in the build)
+* The integrationtest harness (should be in the build)
+
+Setting up the environment
+--------------------------
+Copy everything in and under the folder integrationtest\it_script_files to c:\ on Epoc.
+
+Running the tests
+-----------------
+To run the whole suite type "scheduletest \itest_s4" from either a command 
+promt in NT for WINS or in ESHELL on ARM. This will set up COMMDB and copy the config
+file for the SIMTSY to its correct location. Once this is done individual scripts
+can be run like e.g "scheduletest \itest_s4\itest4_01.
+
+Test results will end up in c:\logs\testresults, this folder must be created if it does
+not already exist.
+
+Changing PSD/CSD
+----------------
+By default the tests are using PSD. To change this edit load_cdma.script and rerun 
+"scheduletest \itest_s4" to regenerate COMMDB. Also, for test 17 edit \itest_s4\itest4_17.
+
+Changing the TSY
+----------------
+To change the TSY edit cdma-xsd.cfg and change TSYName under the Modem section and regenerate
+COMMDB.

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relnotes name="Tunnel NIF">
+  <purpose>
+    Implements the polymorphic plug-in interface defined by the Network interface manager (Nifman) framework to provide tunnelling capability. It's part of the VPN client and is used when running IPSec in tunnel mode.
+  </purpose>
+</relnotes>

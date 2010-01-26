@@ -1,0 +1,28 @@
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+#ifndef __TE_DND_UNITTEST_IBY__
+#define __TE_DND_UNITTEST_IBY__
+
+#include <testexecute.iby>
+#include <dnd.iby>
+
+file=ABI_DIR\DEBUG_DIR\te_dndServer.exe				System\bin\te_dndServer.exe
+data=EPOCROOT##epoc32\data\z\testdata\scripts\te_unittestdnd.script 	testdata\scripts\te_unittestdnd.script
+data=EPOCROOT##epoc32\data\z\testdata\configs\te_ipv6config.cfg         testdata\configs\te_ipv6config.cfg
+data=EPOCROOT##epoc32\data\z\testdata\configs\te_unittestdnd.xml	testdata\configs\te_unittestdnd.xml
+data=EPOCROOT##epoc32\data\z\testdata\configs\resolver_test1.ini        testdata\configs\resolver_test1.ini
+data=EPOCROOT##epoc32\data\z\testdata\configs\resolver_test2.ini        testdata\configs\resolver_test2.ini
+#endif //__TE_IDNA_SERVER_IBY__

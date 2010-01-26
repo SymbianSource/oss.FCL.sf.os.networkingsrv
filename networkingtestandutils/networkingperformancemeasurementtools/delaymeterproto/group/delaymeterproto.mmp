@@ -1,0 +1,75 @@
+// Copyright (c) 2008-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// Protocol used by netperfte to insert timestamps on incoming packets, 
+// and record delays of outgoing packets which it reports back to netperfte
+// 
+//
+
+/**
+ @file
+ @internalTechnology
+*/
+
+TARGET      delaymeterproto.dll
+TARGETTYPE  PLUGIN
+UID         0x10009D8D 	0x10285DAB
+						
+
+SOURCEPATH  ../src
+
+SOURCE  ecom_impl.cpp delaymeterflow.cpp delaymeterprotofactory.cpp
+
+//MACRO			_NETPERF_TRACE
+
+USERINCLUDE		../inc
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+SYSTEMINCLUDE  /epoc32/include
+SYSTEMINCLUDE  /epoc32/include/comms-infras
+SYSTEMINCLUDE  /epoc32/include/networking
+#else
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+SYSTEMINCLUDE	/epoc32/include/platform
+USERINCLUDE 	../../delaymeterlibrary/inc
+USERINCLUDE 	../../netperftefplugin/inc
+#endif
+
+START RESOURCE 10285dab.rss
+	TARGET delaymeterproto.rsc
+END
+
+#include <elements/sd_mintercept.mmh>
+
+LIBRARY	euser.lib 
+LIBRARY	esock.lib
+LIBRARY	esocksvr.lib
+LIBRARY	etelpckt.lib 
+LIBRARY	netmeta.lib 
+LIBRARY	mbufmgr.lib 
+LIBRARY	insock.lib
+LIBRARY	commsfw.lib 
+LIBRARY agentdialog.lib
+LIBRARY commsdat.lib
+LIBRARY coreproviders.lib
+LIBRARY agentprcore.lib
+LIBRARY delaymeter.lib
+LIBRARY netinterfaces.lib
+LIBRARY nodemessages.lib
+
+// A plugin for the comms stack so needs at least the same capabilities as the comms process
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+VENDORID 0x70000001
+
+UNPAGED
+
+SMPSAFE

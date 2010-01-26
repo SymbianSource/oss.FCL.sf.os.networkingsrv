@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relnotes name="TLS">
+  <purpose>
+    Implements SSL3.0 and TLS1.0 ptotocols, comprising ssl, adaptor, and secsock DLLs. Depends on certman and crypto.
+  </purpose>
+
+  <preq number="23" title="TLS with client authentication" revision="001">
+    The old version of TLS has been moved to a Version1 subfolder and is relevant only for releases until 8.0. The new version of TLS also uses a new security component called TlsProvider.
+  </preq>
+</relnotes>

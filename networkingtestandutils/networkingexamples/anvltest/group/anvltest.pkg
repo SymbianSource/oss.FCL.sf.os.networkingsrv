@@ -1,0 +1,20 @@
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// anvltest.pkg - ANVL test stub
+//
+
+#{"ANVLTEST (ANVL test stub)"},(0x10000883),1,1,0
+"\epoc32\release\marm\urel\anvltest.app"-"!:\system\apps\anvltest\anvltest.app"
+"\epoc32\release\marm\urel\anvltest.rsc"-"!:\system\apps\anvltest\anvltest.rsc"
+"\epoc32\release\wins\udeb\z\system\apps\anvltest\anvltest.hlp"-"!:\system\apps\anvltest\anvltest.hlp"

@@ -1,0 +1,104 @@
+// Copyright (c) 1999-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// Network interface manager
+// 
+//
+
+/**
+ @file
+*/
+
+PRJ_PLATFORMS
+
+DEFAULT
+
+PRJ_EXPORTS
+
+../inc/NIFVAR.H 				SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(nifvar.h)
+../inc/nifvar_internal.h 			SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(nifvar_internal.h)
+../inc/NIFUTL.H 				SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(nifutl.h)
+../inc/NIFMAN.H 				SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(nifman.h)
+../inc/nifman_internal.h			SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(nifman_internal.h)
+../inc/AgentErrors.h 				SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(agenterrors.h)
+../inc/NetConError.h 						SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(netconerror.h)
+
+../inc/NIFAGT.H					SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/nifagt.h)
+../inc/nifagt_internal.h			SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/nifagt_internal.h)
+../inc/NIFIF.H					SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/nifif.h)
+../inc/nifif_internal.h				SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/nifif_internal.h)
+../inc/NIFPRVAR.H				SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/nifprvar.h)
+../inc/nifprvar_internal.h					SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/nifprvar_internal.h)
+
+../inc/NIF_VER.H               				SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/nif_ver.h)
+../inc/NifmanIPC.h            				SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/nifmanipc.h)
+
+../inc/EventLogger.h                   		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/eventlogger.h)
+../inc/ConnectionSettings.h            		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/connectionsettings.h)
+../inc/CAgentBase.h                    		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/cagentbase.h)
+../inc/CStateMachineAgentBase.h        		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/cstatemachineagentbase.h)
+../inc/CAgentSMBase.h                  		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/cagentsmbase.h)
+../inc/CAgentSMBase.inl                		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/cagentsmbase.inl)
+../inc/Ni_Log.h                        		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/ni_log.h)
+
+../inc/CNetworkControllerBase.h        		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/cnetworkcontrollerbase.h)
+
+../inc/DbAccess.h                      		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/dbaccess.h)
+../inc/MDbAccess.h                     		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/mdbaccess.h)
+../inc/dialogprocessor.h               		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/dialogprocessor.h)
+
+NIFMAN.IBY                    		/epoc32/rom/include/nifman.iby
+
+../bwins/Agentu.def                    		/epoc32/release/wins/agentu.def
+../bmarm/Agentu.def                    		/epoc32/release/marm/agentu.def
+../eabi/AGENTU.DEF				/epoc32/include/def/eabi/agentu.def
+
+
+// ---------------- Agent PR Core exports ----------------
+
+agentpr.iby                    	/epoc32/rom/include/agentpr.iby
+agentprcore.iby                	/epoc32/rom/include/agentprcore.iby
+
+../agentprcore/inc/agentprconst.h      		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/agentprconst.h)
+../agentprcore/inc/agentmessages.h     		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/agentmessages.h)
+../agentprcore/inc/agentmessages.inl   		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/agentmessages.inl)
+
+../agentprcore/inc/agentmcpr.h      		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/agentmcpr.h)
+../agentprcore/inc/agentmcpractivities.h    SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/agentmcpractivities.h)
+
+../agentprcore/inc/agentscpr.h      		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/agentscpr.h)
+../agentprcore/inc/agentscprstates.h    	SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/agentscprstates.h)
+../agentprcore/inc/agentscpractivities.h    SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/agentscpractivities.h)
+../agentprcore/inc/CAgentAdapter.h 			SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/cagentadapter.h)
+
+../agentprcore/inc/LinkProvision.h      	SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/linkprovision.h)
+../agentprcore/inc/LinkProvision.inl    	SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/linkprovision.inl)
+
+../agentprcore/inc/agentcpr.h      			SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/agentcpr.h)
+../agentprcore/inc/agentcprstates.h    		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/agentcprstates.h)
+
+../agentprcore/inc/tunnelagentcpr.h			SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/tunnelagentcpr.h)
+../agentprcore/inc/tunnelagentcprstates.h	SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/tunnelagentcprstates.h)
+
+#ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
+../inc/cfbearers.h 							SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/cfbearers.h)
+#endif // SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
+
+PRJ_MMPFILES
+
+NIFMAN.MMP        
+agentpr.mmp
+agentprcore.mmp
+
+#include "../netcfgext/group/bld.inf"
+

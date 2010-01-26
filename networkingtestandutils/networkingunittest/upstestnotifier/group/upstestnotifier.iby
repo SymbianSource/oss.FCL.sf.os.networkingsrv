@@ -1,0 +1,31 @@
+// Copyright (c) 2008-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// UPS Test Notifier
+// 
+//
+
+#ifndef UPSTESTNOTIFIER_IBY__
+#define UPSTESTNOTIFIER_IBY__
+
+#define SYMBIAN_NETWORKING_UPS
+
+#ifdef SYMBIAN_NETWORKING_UPS
+
+file=ABI_DIR\DEBUG_DIR\upstestnotifier.dll				sys\bin\tnotifiers\upstestnotifier.dll
+data=EPOCROOT##epoc32\data\z\testdata\configs\upstestnotifier.txt	testdata\configs\upstestnotifier.txt
+
+#endif
+
+#endif
+

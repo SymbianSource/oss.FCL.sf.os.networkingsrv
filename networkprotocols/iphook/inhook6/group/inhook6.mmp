@@ -1,0 +1,59 @@
+// Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// inhook6.mmp - IPv6 "hook library"
+// inhook6.dll IPV6 hook library
+//
+
+
+
+/**
+ @file
+*/
+
+TARGET		inhook6.dll
+TARGETTYPE	dll
+
+UID		0x1000008D 0x10000890
+
+SOURCEPATH	../src
+SOURCE		inhook6.cpp in_bind.cpp posthook.cpp
+SOURCE		in_pkt.cpp flow.cpp
+SOURCE		in_chk.cpp tcp_hdr.cpp sbque.cpp
+SOURCE		timeout.cpp event.cpp dstcache.cpp
+
+USERINCLUDE	../include ../inc
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+LIBRARY		euser.lib esock.lib esocksvr.lib mbufmgr.lib insock.lib
+
+#ifdef SYMBIAN_TCPIPDHCP_UPDATE
+deffile			inhook6.DEF
+#else
+deffile			inhook6_v1.DEF
+#endif //SYMBIAN_TCPIPDHCP_UPDATE
+
+SOURCEPATH 			../data
+START	RESOURCE	tcpip6err.rss
+TARGETPATH			/resource/errors
+LANG				01
+END
+
+CAPABILITY ALL -Tcb
+
+VENDORID	0x70000001
+
+#include <cflog.mmh>
+UNPAGED
+
+SMPSAFE

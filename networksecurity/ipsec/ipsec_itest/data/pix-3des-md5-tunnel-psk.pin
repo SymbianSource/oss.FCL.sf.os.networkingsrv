@@ -1,0 +1,12 @@
+[TYPE]
+0
+[POLICYNAME]
+pix-3des-md5-tunnel-psk
+[POLICYVERSION]
+1.0
+[POLICYDESCRIPTION]
+PIX Tunnel using PSK
+[ISSUERNAME]
+test.intra
+[CONTACTINFO]
+ipsec@symbian.com

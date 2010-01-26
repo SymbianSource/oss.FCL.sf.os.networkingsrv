@@ -1,0 +1,176 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+LOAD_SUITE ttlscertcache
+
+
+//! @SYMTestCaseID 	SEC-TLSP-CACHE-0001
+//! @SYMTestCaseDesc 	Test synchronous certificate approval/disapproval
+//!			(Single socket reconnect, or multiple sockets serially talking to the same server)
+//!			(SYNC_CERT_STATUS_UPDATE)
+
+RUN_UTILS MkDir c:\ttlscertcache
+RUN_UTILS MkDir c:\ttlscertcache\scripts
+RUN_UTILS MkDir c:\ttlscertcache\data\
+RUN_UTILS CopyFile z:\ttlscertcache\scripts\ttlscache.ini c:\ttlscertcache\scripts\ttlscache.ini
+RUN_UTILS MakeReadWrite c:\ttlscertcache\scripts\ttlscache.ini
+RUN_UTILS CopyFile z:\ttlscertcache\data\tlscertone.cer c:\ttlscertcache\data\tlscertone.cer
+RUN_UTILS MakeReadWrite c:\ttlscertcache\data\tlscertone.cer
+RUN_UTILS CopyFile z:\ttlscertcache\data\tlscerttwo.cer c:\ttlscertcache\data\tlscerttwo.cer
+RUN_UTILS MakeReadWrite c:\ttlscertcache\data\tlscerttwo.cer
+RUN_UTILS CopyFile z:\ttlscertcache\data\tlscertthree.cer c:\ttlscertcache\data\tlscertthree.cer
+RUN_UTILS MakeReadWrite c:\ttlscertcache\data\tlscertthree.cer
+
+START_TESTCASE SEC-TLSP-CACHE-0001
+
+// just create a new entry, approve it and check it is approved
+
+RUN_TEST_STEP 100 ttlscertcache UpdateEntry c:\ttlscertcache\scripts\ttlscache.ini ApproveCertOne
+RUN_TEST_STEP 100 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertOneExistsApproved
+
+
+// Now slightly more complex, create two new entries approve one, deny the other and check all three.
+RUN_TEST_STEP 100 ttlscertcache UpdateEntry c:\ttlscertcache\scripts\ttlscache.ini ApproveCertThree
+RUN_TEST_STEP 100 ttlscertcache UpdateEntry c:\ttlscertcache\scripts\ttlscache.ini DenyCertTwo
+
+RUN_TEST_STEP 100 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertOneExistsApproved
+RUN_TEST_STEP 100 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertTwoExistsDenied
+RUN_TEST_STEP 100 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertThreeExistsApproved
+
+// Pause 120 seconds while all the cache entries expire.
+DELAY 120000
+
+// Check that the entries are considered new.
+RUN_TEST_STEP 10 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertOneNewEntry
+RUN_TEST_STEP 10 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertTwoNewEntry
+RUN_TEST_STEP 10 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertThreeNewEntry
+
+// Check again to prove that the entries are still considered new (for INC081226.)
+RUN_TEST_STEP 10 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertOneNewEntry
+RUN_TEST_STEP 10 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertTwoNewEntry
+RUN_TEST_STEP 10 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertThreeNewEntry
+
+END_TESTCASE SEC-TLSP-CACHE-0001
+
+
+//! @SYMTestCaseID 	SEC-TLSP-CACHE-0002
+//! @SYMTestCaseDesc 	Test if we do the right thing if the user takes a very long time to respond
+//!			(SYNC_CERT_STATUS_DELAYED_RESPONSE)
+
+START_TESTCASE SEC-TLSP-CACHE-0002
+
+// positive test
+RUN_TEST_STEP 160 ttlscertcache UpdateEntry c:\ttlscertcache\scripts\ttlscache.ini ApproveCertOneSlowly
+RUN_TEST_STEP 10 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertOneExistsApproved
+
+// negative test
+RUN_TEST_STEP 160 ttlscertcache UpdateEntry c:\ttlscertcache\scripts\ttlscache.ini DenyCertTwoSlowly
+RUN_TEST_STEP 10 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertTwoExistsDenied
+
+END_TESTCASE SEC-TLSP-CACHE-0002
+
+// Delete cert cache to avoid waiting for expiry again.
+RUN_UTILS DeleteFile c:\private\200008d1\10274c3a.cce
+
+
+//! @SYMTestCaseID 	SEC-TLSP-CACHE-0003
+//! @SYMTestCaseDesc 	Test that the cache works in concurrent mode, where multiple sockets are
+//!			updating and querying status at the same time
+//!			(CONCURRENT_CERT_STATUS_UPDATE)
+
+START_TESTCASE SEC-TLSP-CACHE-0003
+
+CONCURRENT
+// update all three and wait on two
+RUN_TEST_STEP 10 ttlscertcache UpdateEntry c:\ttlscertcache\scripts\ttlscache.ini ApproveCertThree
+RUN_TEST_STEP 10 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertThreeExistsApprovedNotify
+RUN_TEST_STEP 10 ttlscertcache UpdateEntry c:\ttlscertcache\scripts\ttlscache.ini DenyCertTwo
+RUN_TEST_STEP 10 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertTwoExistsDeniedNotify
+RUN_TEST_STEP 10 ttlscertcache UpdateEntry c:\ttlscertcache\scripts\ttlscache.ini ApproveCertOne
+CONSECUTIVE
+
+// check all three again in consecutive mode for good measure
+RUN_TEST_STEP 10 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertOneExistsApproved
+RUN_TEST_STEP 10 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertTwoExistsDenied
+RUN_TEST_STEP 10 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertThreeExistsApproved
+
+// Check that notify requests for already approved or denied certs will complete quickly.
+RUN_TEST_STEP 10 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertOneApprovedNotifyNonPending
+RUN_TEST_STEP 10 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertTwoDeniedNotifyNonPending
+
+
+
+END_TESTCASE SEC-TLSP-CACHE-0003
+
+// Delete cert cache to avoid waiting for expiry again.
+RUN_UTILS DeleteFile c:\private\200008d1\10274c3a.cce
+
+//! @SYMTestCaseID 	SEC-TLSP-CACHE-0004
+//! @SYMTestCaseDesc 	Test cancellation of status enquiries.
+//!			(CACHE_STATUS_CANCEL_TESTS)
+//! @SYMREQ 		INC081226
+//! @SYMTestPriority	 High
+//! @SYMTestActions  	Cancel outstanding requests or terminate open sessions and ensure that other sessions behave correctly.
+//! @SYMTestExpectedResults the client authentication successfully 
+//! @SYMDevelopedForRelease Mike
+
+START_TESTCASE SEC-TLSP-CACHE-0004
+
+// Test that cancelling a newly opened session does nothing
+RUN_TEST_STEP 10 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertOneCancelAfterOpenNewEntry
+
+// Test that cancelling after first GetState does nothing if there are no other outstanding requests for notification
+RUN_TEST_STEP 15 ttlscertcache UpdateEntry c:\ttlscertcache\scripts\ttlscache.ini CertOneUpdateCancel
+RUN_TEST_STEP 10 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertOneNewEntry
+
+// Test that cancelling session which created cache entry will complete outstanding notification request
+CONCURRENT
+RUN_TEST_STEP 15 ttlscertcache UpdateEntry c:\ttlscertcache\scripts\ttlscache.ini CertOneUpdateCancel
+RUN_TEST_STEP 10 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertOneAwaitingApproval
+RUN_TEST_STEP 10 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertOneNotifyCancelled
+// This next step should always pass, but helps convince testexecute to run the previous three concurrently.
+RUN_TEST_STEP 5 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertTwoNewEntry
+CONSECUTIVE
+
+// Test that cancelling session after get state or awaiting notification will not affect other sessions.
+CONCURRENT
+RUN_TEST_STEP 15 ttlscertcache UpdateEntry c:\ttlscertcache\scripts\ttlscache.ini DenyCertTwo10Seconds
+RUN_TEST_STEP 15 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertTwoExistsDeniedNotify
+RUN_TEST_STEP 5 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertTwoCancelAfterGetStateAwaitingApproval
+RUN_TEST_STEP 5 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertTwoCancelNotifyAwaitingApproval
+RUN_TEST_STEP 5 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertOneNewEntry
+CONSECUTIVE
+
+// Delete cert cache to avoid waiting for expiry again.
+RUN_UTILS DeleteFile c:\private\200008d1\10274c3a.cce
+
+// Test that death of session which created cache entry will complete outstanding notifications
+CONCURRENT
+RUN_TEST_STEP_RESULT -39 5 ttlscertcache UpdateEntry c:\ttlscertcache\scripts\ttlscache.ini ApproveCertOneSlowly
+RUN_TEST_STEP 10 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertOneAwaitingApproval
+RUN_TEST_STEP 10 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertOneNotifyCancelled
+RUN_TEST_STEP 5 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertTwoNewEntry
+CONSECUTIVE
+
+// Test that death of session awaiting update on entry will not affect other sessions
+CONCURRENT
+RUN_TEST_STEP 15 ttlscertcache UpdateEntry c:\ttlscertcache\scripts\ttlscache.ini DenyCertTwo10Seconds
+RUN_TEST_STEP_RESULT -39 5 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertTwoExistsDeniedNotify
+RUN_TEST_STEP 15 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertTwoExistsDeniedNotify
+RUN_TEST_STEP 5 ttlscertcache EntryStatus c:\ttlscertcache\scripts\ttlscache.ini CertOneNewEntry
+CONSECUTIVE
+
+END_TESTCASE SEC-TLSP-CACHE-0004

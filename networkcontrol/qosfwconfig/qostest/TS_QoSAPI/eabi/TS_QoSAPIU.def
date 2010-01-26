@@ -1,0 +1,45 @@
+EXPORTS
+	_Z21NewTestSuiteSelfTestLv @ 1 NONAME
+	_ZTI11CTS_QoSStep @ 2 NONAME ; #<TI>#
+	_ZTI12CQoSListener @ 3 NONAME ; #<TI>#
+	_ZTI12CTS_QoSSuite @ 4 NONAME ; #<TI>#
+	_ZTI14CMultipleArray @ 5 NONAME ; #<TI>#
+	_ZTI17CTS_QoSOpenServer @ 6 NONAME ; #<TI>#
+	_ZTI18CTS_QoSCloseServer @ 7 NONAME ; #<TI>#
+	_ZTI23CTS_QoSSocketSection1_3 @ 8 NONAME ; #<TI>#
+	_ZTI25CTS_CEsockSendAndRecvData @ 9 NONAME ; #<TI>#
+	_ZTI26CTS_QoSOperationSection2_0 @ 10 NONAME ; #<TI>#
+	_ZTI26CTS_QoSOperationSection2_1 @ 11 NONAME ; #<TI>#
+	_ZTI26CTS_QoSOperationSection2_2 @ 12 NONAME ; #<TI>#
+	_ZTI26CTS_QoSOperationSection2_3 @ 13 NONAME ; #<TI>#
+	_ZTI26CTS_QoSOperationSection2_4 @ 14 NONAME ; #<TI>#
+	_ZTI26CTS_QoSOperationSection2_5 @ 15 NONAME ; #<TI>#
+	_ZTI26CTS_QoSOperationSection2_6 @ 16 NONAME ; #<TI>#
+	_ZTI26CTS_QoSOperationSection2_7 @ 17 NONAME ; #<TI>#
+	_ZTI26CTS_QoSOperationSection2_8 @ 18 NONAME ; #<TI>#
+	_ZTI26CTS_QoSOperationSection2_9 @ 19 NONAME ; #<TI>#
+	_ZTI27CTS_QoSOperationSection2_10 @ 20 NONAME ; #<TI>#
+	_ZTI27CTS_QoSOperationSection2_11 @ 21 NONAME ; #<TI>#
+	_ZTI27CTS_QoSOperationSection2_12 @ 22 NONAME ; #<TI>#
+	_ZTV11CTS_QoSStep @ 23 NONAME ; #<VT>#
+	_ZTV12CQoSListener @ 24 NONAME ; #<VT>#
+	_ZTV12CTS_QoSSuite @ 25 NONAME ; #<VT>#
+	_ZTV14CMultipleArray @ 26 NONAME ; #<VT>#
+	_ZTV17CTS_QoSOpenServer @ 27 NONAME ; #<VT>#
+	_ZTV18CTS_QoSCloseServer @ 28 NONAME ; #<VT>#
+	_ZTV23CTS_QoSSocketSection1_3 @ 29 NONAME ; #<VT>#
+	_ZTV25CTS_CEsockSendAndRecvData @ 30 NONAME ; #<VT>#
+	_ZTV26CTS_QoSOperationSection2_0 @ 31 NONAME ; #<VT>#
+	_ZTV26CTS_QoSOperationSection2_1 @ 32 NONAME ; #<VT>#
+	_ZTV26CTS_QoSOperationSection2_2 @ 33 NONAME ; #<VT>#
+	_ZTV26CTS_QoSOperationSection2_3 @ 34 NONAME ; #<VT>#
+	_ZTV26CTS_QoSOperationSection2_4 @ 35 NONAME ; #<VT>#
+	_ZTV26CTS_QoSOperationSection2_5 @ 36 NONAME ; #<VT>#
+	_ZTV26CTS_QoSOperationSection2_6 @ 37 NONAME ; #<VT>#
+	_ZTV26CTS_QoSOperationSection2_7 @ 38 NONAME ; #<VT>#
+	_ZTV26CTS_QoSOperationSection2_8 @ 39 NONAME ; #<VT>#
+	_ZTV26CTS_QoSOperationSection2_9 @ 40 NONAME ; #<VT>#
+	_ZTV27CTS_QoSOperationSection2_10 @ 41 NONAME ; #<VT>#
+	_ZTV27CTS_QoSOperationSection2_11 @ 42 NONAME ; #<VT>#
+	_ZTV27CTS_QoSOperationSection2_12 @ 43 NONAME ; #<VT>#
+

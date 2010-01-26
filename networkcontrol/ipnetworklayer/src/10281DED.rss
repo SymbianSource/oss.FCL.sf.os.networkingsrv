@@ -1,0 +1,137 @@
+// Copyright (c) 2005-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// Registry info for IP Protocol Meta and Connection Provider Factory plug-in
+// 
+//
+
+/**
+ @file 10281DED.RSS
+*/
+
+#include <ecom/registryinfo.rh>
+
+RESOURCE REGISTRY_INFO theInfo
+{
+dll_uid =  0x10281DED;
+interfaces =
+    {
+    INTERFACE_INFO
+        {
+        interface_uid =  0x10281DD7;
+        implementations =
+            {
+           IMPLEMENTATION_INFO
+                {
+                implementation_uid = 0x10281DF0;
+                version_no = 1;
+                display_name = "IPProto Tier Manager";
+                default_data = "IPProtoTierManager";
+                opaque_data = "";
+                }
+            };
+        },
+    INTERFACE_INFO
+        {
+        interface_uid =  0x10274546;
+        implementations =
+            {
+           IMPLEMENTATION_INFO
+                {
+                implementation_uid = 0x10281DEE;
+                version_no = 1;
+                display_name = "IPProto Meta Connection Provider Factory";
+                default_data = "IPProtoMCprFactory";
+                opaque_data = "";
+                }
+            };
+        },
+    INTERFACE_INFO
+        {
+        interface_uid = 0x102070EE;
+        implementations =
+            {
+           IMPLEMENTATION_INFO
+                {
+                implementation_uid = 0x10281DD3;
+                version_no = 1;
+                display_name = "IPProto Connection Provider Factory";
+                default_data = "IPProtoConnProvdFactory";
+                opaque_data = "";
+                }
+            };
+        },
+    INTERFACE_INFO
+        {
+        interface_uid = 0x10204301;
+        implementations =
+            {
+           IMPLEMENTATION_INFO
+                {
+                implementation_uid = 0x10281DD1;
+                version_no = 1;
+                display_name = "IPProto Sub-Connection Provider Factory";
+                default_data = "IPProtoSubConnProvdFactory";
+                opaque_data = "";
+                }
+            };
+        },
+    INTERFACE_INFO
+        {
+        interface_uid = 0x10281C33;
+        implementations =
+            {
+           IMPLEMENTATION_INFO
+                {
+                implementation_uid = 0x10281C36;
+                version_no = 1;
+                display_name = "IPShim4 Flow Factory";
+                default_data = "IPShim4";
+                opaque_data = "";
+                }
+            };
+        },
+
+    INTERFACE_INFO
+        {
+        interface_uid = 0x10281C33;
+        implementations =
+            {
+           IMPLEMENTATION_INFO
+                {
+                implementation_uid = 0x10281C38;
+                version_no = 1;
+                display_name = "IPShim6 Flow Factory";
+                default_data = "IPShim6";
+                opaque_data = "";
+                }
+            };
+        },
+    INTERFACE_INFO
+        {
+        interface_uid = 0x10204303;
+        implementations =
+            {
+           IMPLEMENTATION_INFO
+                {
+				implementation_uid = 0x1028300A;
+                version_no = 1;
+                display_name = "CSubConnection TFT parameter set extension";
+                default_data = "text/wml";
+                opaque_data = "";
+                }
+            };
+        }
+
+    };
+}

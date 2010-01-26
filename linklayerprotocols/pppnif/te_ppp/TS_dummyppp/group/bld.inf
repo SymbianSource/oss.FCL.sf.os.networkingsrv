@@ -1,0 +1,39 @@
+// Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+
+PRJ_PLATFORMS
+
+PRJ_EXPORTS
+
+PRJ_TESTEXPORTS
+
+TS_dummyppp.iby	/epoc32/rom/include/ts_dummyppp.iby
+
+../config/ts_dummy.ini  z:/testdata/configs/ts_dummy.ini
+../config/ts_dummy.xml  z:/testdata/configs/ts_dummy.xml
+
+../config/ppp.ini	 	z:/private/101f7989/esock/ts_dummyppp_overall_ppp.ini
+
+../config/ts_dummyoveralltest.script  z:/testdata/scripts/ts_dummyoveralltest.script
+
+
+PRJ_MMPFILES
+
+//\comms-infras\esock\group\esock.mmp
+
+PRJ_TESTMMPFILES
+
+./ts_dummyppp.mmp

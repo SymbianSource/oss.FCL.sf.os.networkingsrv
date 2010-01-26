@@ -1,0 +1,40 @@
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of the License "Symbian Foundation License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.symbianfoundation.org/legal/sfl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// T_VJUNCOMP_3
+// Packet is an IP fragment with the more fragment bit set
+// tcsim input file to generate test data for VJ compression tests.
+// 
+//
+
+#include "packet.def"
+#include "ports.tc"
+
+dev eth0 100 Mbps {
+    egress {
+    }
+}
+
+// Unfragmented packet to prime the compressor
+send TCP_PCK($ip_id=1 $ip_MF=0 $ip_off=0 $ip_sum=0x66cc $tcp_sport = PORT_FTP_DATA $tcp_dport = 1234 $tcp_ACK=1 $tcp_seq=0 $tcp_sum=0x35eb)
+     0x61
+
+// Fragmented packet
+send TCP_PCK($ip_id=2 $ip_MF=1 $ip_off=0 $ip_sum=0x46c8 $tcp_sport = PORT_FTP_DATA $tcp_dport = 1234 $tcp_ACK=1 $tcp_seq=1 $tcp_sum=0xc804)
+     0x30 0x31 0x32 0x33
+send IP_PCK($ip_id=2 $ip_MF=1 $ip_off=3 $ip_sum=0x46d5)
+     0x34 0x35 0x36 0x37 0x38 0x39 0x41 0x42
+send IP_PCK($ip_id=2 $ip_MF=0 $ip_off=4 $ip_sum=0x66d8)
+     0x43 0x44 0x45 0x46
+
+end

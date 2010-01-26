@@ -1,0 +1,139 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRINT **********************
+PRINT Explicit Socket Tests
+PRINT **********************
+
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_expSocket_gprs1.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_expSocket_gprs2.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_expSocket_gprs3.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_expSocket_edge1.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_expSocket_edge1_user.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_expSocket_edge2.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_expSocket_edge3.script
+PRINT ================================================================================
+
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_expSocket_umts1.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_expSocket_umts2.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_expSocket_umts3.script
+PRINT ================================================================================
+
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_expSocket_hsdpa1.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_expSocket_hsdpa2.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_expSocket_hsdpa3.script
+PRINT ================================================================================
+
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_expSocket_ethernet1.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_expSocket_ethernet2.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_expSocket_ethernet3.script
+PRINT ================================================================================
+
+PRINT ********************************
+PRINT Completed Explicit Socket Tests
+PRINT ********************************
+
+PRINT **********************
+PRINT Modulation Tests
+PRINT **********************
+
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_Modulation_Gprs_Edge.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_Modulation_Gprs_Umts.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_Modulation_Gprs_Hsdpa.script
+PRINT ================================================================================
+
+
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_Modulation_Edge_Gprs.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6adapwnd_modulation_edge_gprs_user_set.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_Modulation_Edge_Umts.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_Modulation_Edge_Hsdpa.script
+PRINT ================================================================================
+
+
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_Modulation_Umts_Gprs.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_Modulation_Umts_Edge.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_Modulation_Umts_Hsdpa.script
+PRINT ================================================================================
+
+
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_Modulation_Hsdpa_Gprs.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_Modulation_Hsdpa_Edge.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_Modulation_Hsdpa_Umts.script
+PRINT ================================================================================
+
+PRINT **********************
+PRINT Completed Modulation Tests
+PRINT **********************
+
+PRINT **********************
+PRINT VPN Modulation Tests
+PRINT **********************
+
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_VPNModulation_Gprs_Edge.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_VPNModulation_Gprs_Umts.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_VPNModulation_Gprs_Hsdpa.script
+PRINT ================================================================================
+
+
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_VPNModulation_Edge_Gprs.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_VPNModulation_Edge_Umts.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_VPNModulation_Edge_Hsdpa.script
+PRINT ================================================================================
+
+
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_VPNModulation_Umts_Gprs.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_VPNModulation_Umts_Edge.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_VPNModulation_Umts_Hsdpa.script
+PRINT ================================================================================
+
+
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_VPNModulation_Hsdpa_Gprs.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_VPNModulation_Hsdpa_Edge.script
+PRINT ================================================================================
+RUN_SCRIPT z:\testdata\scripts\te_tcpip6AdapWnd_VPNModulation_Hsdpa_Umts.script
+PRINT ================================================================================
+
+PRINT *******************************
+PRINT Completed VPN Modulation Tests
+PRINT *******************************

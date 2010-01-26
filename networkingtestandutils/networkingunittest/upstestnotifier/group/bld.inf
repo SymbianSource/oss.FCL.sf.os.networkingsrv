@@ -1,0 +1,39 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRJ_TESTEXPORTS
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+../inc/upstestnotifierproperties.h	/epoc32/include/test/upstestnotifierproperties.h
+#else
+../inc/upstestnotifierproperties.h	SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(test/upstestnotifierproperties.h)
+#endif
+../group/upstestnotifier.iby		/epoc32/rom/include/upstestnotifier.iby
+
+// The upstestnotifier.txt file contents are editted by the overnight build scripts according to the UPS
+// configuration of the build.  A default blank file is used to avoid any possibility of ROM builds errors
+// as the file is listed in upstestnotifier.iby.
+../group/upstestnotifier.txt		z:/testdata/configs/upstestnotifier.txt
+
+PRJ_TESTMMPFILES
+
+#ifndef TOOLS
+#ifndef TOOLS2
+#ifndef GCCXML
+
+upstestnotifier.mmp
+
+#endif
+#endif
+#endif

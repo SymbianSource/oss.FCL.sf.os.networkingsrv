@@ -1,0 +1,83 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+//iTests modified from above by Adrian Mayes 9th Nov 2005
+// setup
+LOAD_SUITE TE_Esock
+
+// open socket server 
+RUN_TEST_STEP 100 TE_Esock OpenServer   
+
+
+START_TESTCASE			NET-Integration-Csd-1401
+//! @SYMTestCaseID		NET-Integration-Csd-1401
+
+// open, send some UDP data and close
+RUN_TEST_STEP 100 TE_Esock Test1.2 z:\testdata\configs\integration\itest_s1\itest.ini
+RUN_TEST_STEP 1000 TE_Esock SendData z:\testdata\configs\integration\itest_s1\Big_ipv4.ini
+RUN_TEST_STEP 100 TE_Esock Test1.15 z:\testdata\configs\integration\itest_s1\itest.ini
+END_TESTCASE			NET-Integration-Csd-1401
+
+
+START_TESTCASE			NET-Integration-Csd-1402
+//! @SYMTestCaseID		NET-Integration-Csd-1402
+
+// open, send some UDP data and close
+RUN_TEST_STEP 100 TE_Esock Test1.2 z:\testdata\configs\integration\itest_s1\itest.ini
+RUN_TEST_STEP 1000 TE_Esock SendData z:\testdata\configs\integration\itest_s1\Big_ipv4.ini
+RUN_TEST_STEP 100 TE_Esock Test1.15 z:\testdata\configs\integration\itest_s1\itest.ini
+END_TESTCASE			NET-Integration-Csd-1402
+
+
+START_TESTCASE			NET-Integration-Csd-1403
+//! @SYMTestCaseID		NET-Integration-Csd-1403
+
+// open, send some UDP data and close
+RUN_TEST_STEP 100 TE_Esock Test1.2 z:\testdata\configs\integration\itest_s1\itest.ini
+RUN_TEST_STEP 1000 TE_Esock SendData z:\testdata\configs\integration\itest_s1\Big_ipv4.ini
+RUN_TEST_STEP 100 TE_Esock Test1.15 z:\testdata\configs\integration\itest_s1\itest.ini
+END_TESTCASE			NET-Integration-Csd-1403
+
+
+START_TESTCASE			NET-Integration-Csd-1404
+//! @SYMTestCaseID		NET-Integration-Csd-1404
+
+// open, send some UDP data and close
+RUN_TEST_STEP 100 TE_Esock Test1.2 z:\testdata\configs\integration\itest_s1\itest.ini
+RUN_TEST_STEP 1000 TE_Esock SendData z:\testdata\configs\integration\itest_s1\Big_ipv4.ini
+RUN_TEST_STEP 100 TE_Esock Test1.15 z:\testdata\configs\integration\itest_s1\itest.ini
+END_TESTCASE			NET-Integration-Csd-1404
+
+
+START_TESTCASE			NET-Integration-Csd-1405
+//! @SYMTestCaseID		NET-Integration-Csd-1405
+
+// open, send some UDP data and close
+RUN_TEST_STEP 100 TE_Esock Test1.2 z:\testdata\configs\integration\itest_s1\itest.ini
+RUN_TEST_STEP 1000 TE_Esock SendData z:\testdata\configs\integration\itest_s1\Big_ipv4.ini
+RUN_TEST_STEP 100 TE_Esock Test1.15 z:\testdata\configs\integration\itest_s1\itest.ini
+TEST_COMPLETE Load_Test
+END_TESTCASE			NET-Integration-Csd-1405
+
+
+// close socket server 
+RUN_TEST_STEP 100 TE_Esock CloseServer   
+
+// log result
+PRINT end of log test 
+
+
+

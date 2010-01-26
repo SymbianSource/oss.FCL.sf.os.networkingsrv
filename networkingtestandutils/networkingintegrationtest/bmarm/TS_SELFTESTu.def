@@ -1,0 +1,4 @@
+EXPORTS
+; NEW:
+	NewTestSuiteSelfTestL__Fv @ 1 NONAME ; NewTestSuiteSelfTestL(void)
+

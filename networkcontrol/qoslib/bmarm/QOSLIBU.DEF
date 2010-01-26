@@ -1,0 +1,116 @@
+EXPORTS
+	__eq__C12TQoSSelectorRC12TQoSSelector @ 1 NONAME R3UNUSED ; TQoSSelector::operator==(TQoSSelector const &) const
+	AddExtensionL__14CQoSParametersR14CExtensionBase @ 2 NONAME R3UNUSED ; CQoSParameters::AddExtensionL(CExtensionBase &)
+	CancelNotifyEvent__10RQoSPolicyR12MQoSObserver @ 3 NONAME R3UNUSED ; RQoSPolicy::CancelNotifyEvent(MQoSObserver &)
+	CancelNotifyEvent__11RQoSChannelR12MQoSObserver @ 4 NONAME R3UNUSED ; RQoSChannel::CancelNotifyEvent(MQoSObserver &)
+	Close__10RQoSPolicy @ 5 NONAME R3UNUSED ; RQoSPolicy::Close(void)
+	Close__11RQoSChannel @ 6 NONAME R3UNUSED ; RQoSChannel::Close(void)
+	CopyL__14CQoSParametersR14CQoSParameters @ 7 NONAME R3UNUSED ; CQoSParameters::CopyL(CQoSParameters &)
+	EventType__C13CQoSEventBase @ 8 NONAME R3UNUSED ; CQoSEventBase::EventType(void) const
+	Extensions__14CQoSParameters @ 9 NONAME R3UNUSED ; CQoSParameters::Extensions(void)
+	FileName__C13CQoSLoadEvent @ 10 NONAME R3UNUSED ; CQoSLoadEvent::FileName(void) const
+	FindExtension__14CQoSParametersi @ 11 NONAME R3UNUSED ; CQoSParameters::FindExtension(int)
+	GetCapabilities__11RQoSChannelRUi @ 12 NONAME R3UNUSED ; RQoSChannel::GetCapabilities(unsigned int &)
+	GetDownLinkAveragePacketSize__C14CQoSParameters @ 13 NONAME R3UNUSED ; CQoSParameters::GetDownLinkAveragePacketSize(void) const
+	GetDownLinkDelay__C14CQoSParameters @ 14 NONAME R3UNUSED ; CQoSParameters::GetDownLinkDelay(void) const
+	GetDownLinkMaximumBurstSize__C14CQoSParameters @ 15 NONAME R3UNUSED ; CQoSParameters::GetDownLinkMaximumBurstSize(void) const
+	GetDownLinkMaximumPacketSize__C14CQoSParameters @ 16 NONAME R3UNUSED ; CQoSParameters::GetDownLinkMaximumPacketSize(void) const
+	GetDownLinkPriority__C14CQoSParameters @ 17 NONAME R3UNUSED ; CQoSParameters::GetDownLinkPriority(void) const
+	GetDownlinkBandwidth__C14CQoSParameters @ 18 NONAME R3UNUSED ; CQoSParameters::GetDownlinkBandwidth(void) const
+	GetDstMask__C12TQoSSelector @ 19 NONAME R3UNUSED ; TQoSSelector::GetDstMask(void) const
+	GetDst__C12TQoSSelector @ 20 NONAME R3UNUSED ; TQoSSelector::GetDst(void) const
+	GetHeaderMode__C14CQoSParameters @ 21 NONAME R3UNUSED ; CQoSParameters::GetHeaderMode(void) const
+	GetName__C14CQoSParameters @ 22 NONAME R3UNUSED ; CQoSParameters::GetName(void) const
+	GetQoS__10RQoSPolicy @ 23 NONAME R3UNUSED ; RQoSPolicy::GetQoS(void)
+	GetSrcMask__C12TQoSSelector @ 24 NONAME R3UNUSED ; TQoSSelector::GetSrcMask(void) const
+	GetSrc__C12TQoSSelector @ 25 NONAME R3UNUSED ; TQoSSelector::GetSrc(void) const
+	GetUpLinkAveragePacketSize__C14CQoSParameters @ 26 NONAME R3UNUSED ; CQoSParameters::GetUpLinkAveragePacketSize(void) const
+	GetUpLinkDelay__C14CQoSParameters @ 27 NONAME R3UNUSED ; CQoSParameters::GetUpLinkDelay(void) const
+	GetUpLinkMaximumBurstSize__C14CQoSParameters @ 28 NONAME R3UNUSED ; CQoSParameters::GetUpLinkMaximumBurstSize(void) const
+	GetUpLinkMaximumPacketSize__C14CQoSParameters @ 29 NONAME R3UNUSED ; CQoSParameters::GetUpLinkMaximumPacketSize(void) const
+	GetUpLinkPriority__C14CQoSParameters @ 30 NONAME R3UNUSED ; CQoSParameters::GetUpLinkPriority(void) const
+	GetUplinkBandwidth__C14CQoSParameters @ 31 NONAME R3UNUSED ; CQoSParameters::GetUplinkBandwidth(void) const
+	IapId__C12TQoSSelector @ 32 NONAME R3UNUSED ; TQoSSelector::IapId(void) const
+	Join__11RQoSChannelR7RSocket @ 33 NONAME R3UNUSED ; RQoSChannel::Join(RSocket &)
+	Leave__11RQoSChannelR7RSocket @ 34 NONAME R3UNUSED ; RQoSChannel::Leave(RSocket &)
+	LoadPolicyFile__10RQoSPolicyRC7TDesC16 @ 35 NONAME R3UNUSED ; RQoSPolicy::LoadPolicyFile(TDesC16 const &)
+	Match__C12TQoSSelectorR7RSocket @ 36 NONAME R3UNUSED ; TQoSSelector::Match(RSocket &) const
+	MaxPortDst__C12TQoSSelector @ 37 NONAME R3UNUSED ; TQoSSelector::MaxPortDst(void) const
+	MaxPortSrc__C12TQoSSelector @ 38 NONAME R3UNUSED ; TQoSSelector::MaxPortSrc(void) const
+	NotifyEvent__10RQoSPolicyR12MQoSObserverUi @ 39 NONAME R3UNUSED ; RQoSPolicy::NotifyEvent(MQoSObserver &, unsigned int)
+	NotifyEvent__11RQoSChannelR12MQoSObserverUi @ 40 NONAME R3UNUSED ; RQoSChannel::NotifyEvent(MQoSObserver &, unsigned int)
+	Open__10RQoSPolicyRC12TQoSSelector @ 41 NONAME R3UNUSED ; RQoSPolicy::Open(TQoSSelector const &)
+	Open__11RQoSChannelR7RSocket @ 42 NONAME R3UNUSED ; RQoSChannel::Open(RSocket &)
+	Parameters__C12CQoSAddEvent @ 43 NONAME R3UNUSED ; CQoSAddEvent::Parameters(void) const
+	Parameters__C12CQoSGetEvent @ 44 NONAME R3UNUSED ; CQoSGetEvent::Parameters(void) const
+	Parameters__C14CQoSAdaptEvent @ 45 NONAME R3UNUSED ; CQoSAdaptEvent::Parameters(void) const
+	Parameters__C16CQoSChannelEvent @ 46 NONAME R3UNUSED ; CQoSChannelEvent::Parameters(void) const
+	Parameters__C16CQoSConfirmEvent @ 47 NONAME R3UNUSED ; CQoSConfirmEvent::Parameters(void) const
+	Parameters__C16CQoSFailureEvent @ 48 NONAME R3UNUSED ; CQoSFailureEvent::Parameters(void) const
+	Protocol__C12TQoSSelector @ 49 NONAME R3UNUSED ; TQoSSelector::Protocol(void) const
+	Reason__C12CQoSAddEvent @ 50 NONAME R3UNUSED ; CQoSAddEvent::Reason(void) const
+	Reason__C12CQoSGetEvent @ 51 NONAME R3UNUSED ; CQoSGetEvent::Reason(void) const
+	Reason__C13CQoSJoinEvent @ 52 NONAME R3UNUSED ; CQoSJoinEvent::Reason(void) const
+	Reason__C13CQoSLoadEvent @ 53 NONAME R3UNUSED ; CQoSLoadEvent::Reason(void) const
+	Reason__C14CQoSAdaptEvent @ 54 NONAME R3UNUSED ; CQoSAdaptEvent::Reason(void) const
+	Reason__C14CQoSLeaveEvent @ 55 NONAME R3UNUSED ; CQoSLeaveEvent::Reason(void) const
+	Reason__C15CQoSDeleteEvent @ 56 NONAME R3UNUSED ; CQoSDeleteEvent::Reason(void) const
+	Reason__C16CQoSChannelEvent @ 57 NONAME R3UNUSED ; CQoSChannelEvent::Reason(void) const
+	Reason__C16CQoSFailureEvent @ 58 NONAME R3UNUSED ; CQoSFailureEvent::Reason(void) const
+	RemoveExtension__14CQoSParametersi @ 59 NONAME R3UNUSED ; CQoSParameters::RemoveExtension(int)
+	Selector__C13CQoSJoinEvent @ 60 NONAME R3UNUSED ; CQoSJoinEvent::Selector(void) const
+	Selector__C14CQoSLeaveEvent @ 61 NONAME R3UNUSED ; CQoSLeaveEvent::Selector(void) const
+	SetAdaptMode__14CQoSParametersi @ 62 NONAME R3UNUSED ; CQoSParameters::SetAdaptMode(int)
+	SetAddr__12TQoSSelectorR7RSocket @ 63 NONAME R3UNUSED ; TQoSSelector::SetAddr(RSocket &)
+	SetAddr__12TQoSSelectorRC9TInetAddrN31UiUiUi @ 64 NONAME ; TQoSSelector::SetAddr(TInetAddr const &, TInetAddr const &, TInetAddr const &, TInetAddr const &, unsigned int, unsigned int, unsigned int)
+	SetDownLinkAveragePacketSize__14CQoSParametersi @ 65 NONAME R3UNUSED ; CQoSParameters::SetDownLinkAveragePacketSize(int)
+	SetDownLinkDelay__14CQoSParametersi @ 66 NONAME R3UNUSED ; CQoSParameters::SetDownLinkDelay(int)
+	SetDownLinkMaximumBurstSize__14CQoSParametersi @ 67 NONAME R3UNUSED ; CQoSParameters::SetDownLinkMaximumBurstSize(int)
+	SetDownLinkMaximumPacketSize__14CQoSParametersi @ 68 NONAME R3UNUSED ; CQoSParameters::SetDownLinkMaximumPacketSize(int)
+	SetDownLinkPriority__14CQoSParametersi @ 69 NONAME R3UNUSED ; CQoSParameters::SetDownLinkPriority(int)
+	SetDownlinkBandwidth__14CQoSParametersi @ 70 NONAME R3UNUSED ; CQoSParameters::SetDownlinkBandwidth(int)
+	SetDstMask__12TQoSSelectorRC9TInetAddr @ 71 NONAME R3UNUSED ; TQoSSelector::SetDstMask(TInetAddr const &)
+	SetDst__12TQoSSelectorRC9TInetAddr @ 72 NONAME R3UNUSED ; TQoSSelector::SetDst(TInetAddr const &)
+	SetHeaderMode__14CQoSParametersi @ 73 NONAME R3UNUSED ; CQoSParameters::SetHeaderMode(int)
+	SetIapId__12TQoSSelectori @ 74 NONAME R3UNUSED ; TQoSSelector::SetIapId(int)
+	SetMaxPortDst__12TQoSSelectorUi @ 75 NONAME R3UNUSED ; TQoSSelector::SetMaxPortDst(unsigned int)
+	SetMaxPortSrc__12TQoSSelectorUi @ 76 NONAME R3UNUSED ; TQoSSelector::SetMaxPortSrc(unsigned int)
+	SetName__14CQoSParametersRCt4TBuf1i128 @ 77 NONAME R3UNUSED ; CQoSParameters::SetName(TBuf<128> const &)
+	SetProtocol__12TQoSSelectorUi @ 78 NONAME R3UNUSED ; TQoSSelector::SetProtocol(unsigned int)
+	SetQoS__10RQoSPolicyR14CQoSParameters @ 79 NONAME R3UNUSED ; RQoSPolicy::SetQoS(CQoSParameters &)
+	SetQoS__11RQoSChannelR14CQoSParameters @ 80 NONAME R3UNUSED ; RQoSChannel::SetQoS(CQoSParameters &)
+	SetSrcMask__12TQoSSelectorRC9TInetAddr @ 81 NONAME R3UNUSED ; TQoSSelector::SetSrcMask(TInetAddr const &)
+	SetSrc__12TQoSSelectorRC9TInetAddr @ 82 NONAME R3UNUSED ; TQoSSelector::SetSrc(TInetAddr const &)
+	SetUpLinkAveragePacketSize__14CQoSParametersi @ 83 NONAME R3UNUSED ; CQoSParameters::SetUpLinkAveragePacketSize(int)
+	SetUpLinkDelay__14CQoSParametersi @ 84 NONAME R3UNUSED ; CQoSParameters::SetUpLinkDelay(int)
+	SetUpLinkMaximumBurstSize__14CQoSParametersi @ 85 NONAME R3UNUSED ; CQoSParameters::SetUpLinkMaximumBurstSize(int)
+	SetUpLinkMaximumPacketSize__14CQoSParametersi @ 86 NONAME R3UNUSED ; CQoSParameters::SetUpLinkMaximumPacketSize(int)
+	SetUpLinkPriority__14CQoSParametersi @ 87 NONAME R3UNUSED ; CQoSParameters::SetUpLinkPriority(int)
+	SetUplinkBandwidth__14CQoSParametersi @ 88 NONAME R3UNUSED ; CQoSParameters::SetUplinkBandwidth(int)
+	UnloadPolicyFile__10RQoSPolicyRC7TDesC16 @ 89 NONAME R3UNUSED ; RQoSPolicy::UnloadPolicyFile(TDesC16 const &)
+	"_._10RQoSPolicy" @ 90 NONAME R3UNUSED ; RQoSPolicy::~RQoSPolicy(void)
+	"_._11RQoSChannel" @ 91 NONAME R3UNUSED ; RQoSChannel::~RQoSChannel(void)
+	"_._14CExtensionBase" @ 92 NONAME R3UNUSED ; CExtensionBase::~CExtensionBase(void)
+	"_._14CQoSParameters" @ 93 NONAME R3UNUSED ; CQoSParameters::~CQoSParameters(void)
+	__10RQoSPolicy @ 94 NONAME R3UNUSED ; RQoSPolicy::RQoSPolicy(void)
+	__11RQoSChannel @ 95 NONAME R3UNUSED ; RQoSChannel::RQoSChannel(void)
+	__12CQoSAddEventP14CQoSParametersi @ 96 NONAME R3UNUSED ; CQoSAddEvent::CQoSAddEvent(CQoSParameters *, int)
+	__12CQoSGetEventP14CQoSParametersi @ 97 NONAME R3UNUSED ; CQoSGetEvent::CQoSGetEvent(CQoSParameters *, int)
+	__12TQoSSelector @ 98 NONAME R3UNUSED ; TQoSSelector::TQoSSelector(void)
+	__13CQoSEventBasei @ 99 NONAME R3UNUSED ; CQoSEventBase::CQoSEventBase(int)
+	__13CQoSJoinEventRC12TQoSSelectori @ 100 NONAME R3UNUSED ; CQoSJoinEvent::CQoSJoinEvent(TQoSSelector const &, int)
+	__13CQoSLoadEventRC9TQoSEventiRC7TDesC16 @ 101 NONAME ; CQoSLoadEvent::CQoSLoadEvent(TQoSEvent const &, int, TDesC16 const &)
+	__14CExtensionBase @ 102 NONAME R3UNUSED ; CExtensionBase::CExtensionBase(void)
+	__14CQoSAdaptEventR14CQoSParametersi @ 103 NONAME R3UNUSED ; CQoSAdaptEvent::CQoSAdaptEvent(CQoSParameters &, int)
+	__14CQoSLeaveEventRC12TQoSSelectori @ 104 NONAME R3UNUSED ; CQoSLeaveEvent::CQoSLeaveEvent(TQoSSelector const &, int)
+	__14CQoSParameters @ 105 NONAME R3UNUSED ; CQoSParameters::CQoSParameters(void)
+	__15CQoSDeleteEventi @ 106 NONAME R3UNUSED ; CQoSDeleteEvent::CQoSDeleteEvent(int)
+	__16CQoSChannelEventP14CQoSParametersi @ 107 NONAME R3UNUSED ; CQoSChannelEvent::CQoSChannelEvent(CQoSParameters *, int)
+	__16CQoSConfirmEventR14CQoSParameters @ 108 NONAME R3UNUSED ; CQoSConfirmEvent::CQoSConfirmEvent(CQoSParameters &)
+	__16CQoSFailureEventR14CQoSParametersi @ 109 NONAME R3UNUSED ; CQoSFailureEvent::CQoSFailureEvent(CQoSParameters &, int)
+	AdaptMode__C14CQoSParameters @ 110 NONAME R3UNUSED ; CQoSParameters::AdaptMode(void) const
+	GetDownLinkDelayVariation__C14CQoSParameters @ 111 NONAME R3UNUSED ; CQoSParameters::GetDownLinkDelayVariation(void) const
+	GetUpLinkDelayVariation__C14CQoSParameters @ 112 NONAME R3UNUSED ; CQoSParameters::GetUpLinkDelayVariation(void) const
+	SetDownLinkDelayVariation__14CQoSParametersi @ 113 NONAME R3UNUSED ; CQoSParameters::SetDownLinkDelayVariation(int)
+	SetUpLinkDelayVariation__14CQoSParametersi @ 114 NONAME R3UNUSED ; CQoSParameters::SetUpLinkDelayVariation(int)
+

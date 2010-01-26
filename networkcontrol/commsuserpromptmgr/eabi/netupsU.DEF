@@ -1,0 +1,15 @@
+EXPORTS
+	_ZN6NetUps14KUpsIpDisabledE @ 1 NONAME DATA 4
+	_ZN6NetUps15KUpsSessionTypeE @ 2 NONAME DATA 4
+	_ZN6NetUps7CNetUps11UpsDisabledEl @ 3 NONAME
+	_ZN6NetUps7CNetUps13CancelRequestERKN8Messages7TNodeIdERKm @ 4 NONAME
+	_ZN6NetUps7CNetUps25DecrementConnectionCountLERKN8Messages7TNodeIdE @ 5 NONAME
+	_ZN6NetUps7CNetUps25IncrementConnectionCountLERKN8Messages7TNodeIdE @ 6 NONAME
+	_ZN6NetUps7CNetUps26ProcessPolicyCheckRequestLERNS_23TPolicyCheckRequestDataERm @ 7 NONAME
+	_ZN6NetUps7CNetUps4NewLEl @ 8 NONAME
+	_ZTIN6NetUps16CConnectionEntryE @ 9 NONAME
+	_ZTIN6NetUps7CNetUpsE @ 10 NONAME
+	_ZTVN6NetUps16CConnectionEntryE @ 11 NONAME
+	_ZTVN6NetUps7CNetUpsE @ 12 NONAME
+	_ZN6NetUps7CNetUps25DecrementConnectionCountLERKN8Messages7TNodeIdER10TProcessIdR9TThreadId @ 13 NONAME
+

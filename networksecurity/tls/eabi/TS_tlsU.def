@@ -1,0 +1,41 @@
+EXPORTS
+	_Z15NewTestSuiteTlsv @ 1 NONAME
+	_ZTI11CController @ 2 NONAME ; #<TI>#
+	_ZTI11CTlsOomTest @ 3 NONAME ; #<TI>#
+	_ZTI12CTestStepTls @ 4 NONAME ; #<TI>#
+	_ZTI13CTestSuiteTls @ 5 NONAME ; #<TI>#
+	_ZTI13ClientOOMTest @ 6 NONAME ; #<TI>#
+	_ZTI14CTestStepT_Tls @ 7 NONAME ; #<TI>#
+	_ZTI14TLog16Overflow @ 8 NONAME ; #<TI>#
+	_ZTI18CTlsCancelRecvTest @ 9 NONAME ; #<TI>#
+	_ZTI18CTlsOldGetOptsTest @ 10 NONAME ; #<TI>#
+	_ZTI18CTlsOpenConnection @ 11 NONAME ; #<TI>#
+	_ZTI18CTlsTestSection2_1 @ 12 NONAME ; #<TI>#
+	_ZTI18CTlsTestSection3_1 @ 13 NONAME ; #<TI>#
+	_ZTI19CTlsCloseConnection @ 14 NONAME ; #<TI>#
+	_ZTI19CTlsRenegotiateTest @ 15 NONAME ; #<TI>#
+	_ZTI22CTlsFailSuiteSelection @ 16 NONAME ; #<TI>#
+	_ZTI8CTLSTest @ 17 NONAME ; #<TI>#
+	_ZTV11CController @ 18 NONAME ; #<VT>#
+	_ZTV11CTlsOomTest @ 19 NONAME ; #<VT>#
+	_ZTV12CTestStepTls @ 20 NONAME ; #<VT>#
+	_ZTV13CTestSuiteTls @ 21 NONAME ; #<VT>#
+	_ZTV13ClientOOMTest @ 22 NONAME ; #<VT>#
+	_ZTV14CTestStepT_Tls @ 23 NONAME ; #<VT>#
+	_ZTV14TLog16Overflow @ 24 NONAME ; #<VT>#
+	_ZTV18CTlsCancelRecvTest @ 25 NONAME ; #<VT>#
+	_ZTV18CTlsOldGetOptsTest @ 26 NONAME ; #<VT>#
+	_ZTV18CTlsOpenConnection @ 27 NONAME ; #<VT>#
+	_ZTV18CTlsTestSection2_1 @ 28 NONAME ; #<VT>#
+	_ZTV18CTlsTestSection3_1 @ 29 NONAME ; #<VT>#
+	_ZTV19CTlsCloseConnection @ 30 NONAME ; #<VT>#
+	_ZTV19CTlsRenegotiateTest @ 31 NONAME ; #<VT>#
+	_ZTV22CTlsFailSuiteSelection @ 32 NONAME ; #<VT>#
+	_ZTV8CTLSTest @ 33 NONAME ; #<VT>#
+	_ZTI23CTestStepDialogMode_Tls @ 34 NONAME ; #<TI>#
+	_ZTV23CTestStepDialogMode_Tls @ 35 NONAME ; #<VT>#
+	_ZTI11CTlsPskTest @ 36 NONAME
+	_ZTI15CTlsPskTestStep @ 37 NONAME
+	_ZTV11CTlsPskTest @ 38 NONAME
+	_ZTV15CTlsPskTestStep @ 39 NONAME
+

@@ -1,0 +1,310 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+#ifndef __NETWORKING_TEST_IBY__
+#define __NETWORKING_TEST_IBY__
+
+// *****************************************************************************
+// From 9.5 onwards ROM space is becoming a little tight
+// Rom builds from 9.5 onwards should specify the subset of tests to be
+// included with the -D flag. E.g. -DNW_TEST_ROM1 
+// 
+// If a subset of tests is not specified all will be included - maintaining 
+// compatibility for unaware rom builds
+// *****************************************************************************
+
+#if !(defined(NW_TEST_ROM_1) || defined(NW_TEST_ROM_2) || defined(NW_TEST_ROM_3) \
+	|| defined(CI_TEST_ROM_1) || defined(CI_TEST_ROM_2) || defined(CI_TEST_ROM_3))
+
+// Rom build hasn't explicitly defined a subset of tests to include so to avoid
+// disappointment we'll include the whole shebang
+#define NW_TEST_ROM_1
+#define NW_TEST_ROM_2
+#define NW_TEST_ROM_3
+
+#define CI_TEST_ROM_1
+#define CI_TEST_ROM_2
+#define CI_TEST_ROM_3
+
+#endif
+
+#ifdef NW_TEST_ROM_1
+REM "NW_TEST_ROM_1": Generated ROM will include test components for running nw1 test group
+#endif
+#ifdef NW_TEST_ROM_2
+REM "NW_TEST_ROM_2": Generated ROM will include test components for running nw2 test group
+#endif
+#ifdef NW_TEST_ROM_3
+REM "NW_TEST_ROM_3": Generated ROM will include test components for running nw3 test group
+#endif
+
+#ifdef CI_TEST_ROM_1
+REM "CI_TEST_ROM_1": Generated ROM will include test components for running ci1 test group
+#endif
+#ifdef CI_TEST_ROM_2
+REM "CI_TEST_ROM_2": Generated ROM will include test components for running ci2 test group
+#endif
+#ifdef CI_TEST_ROM_3
+REM "CI_TEST_ROM_3": Generated ROM will include test components for running ci3 test group
+#endif
+
+// This iby file contains all Networking Test Harnesses.
+
+REM ---------- General ---------------
+
+// Scheduletest Test
+file=ABI_DIR\DEBUG_DIR\ts_selftest.dll		System\Libs\ts_selftest.dll
+
+// Initialisation before any tests are run
+data=EPOCROOT##epoc32\data\z\testdata\scripts\te_initialiseboard.script		TestData\scripts\te_initialiseboard.script
+
+REM ---------- Comms-Infras ----------
+
+// ced is not included in release builds by default (in commdb.iby)
+// so we include it explicitly here if _DEBUG is NOT defined
+#ifndef _DEBUG
+#include <XmlFramework.iby>
+#include <ced.iby>
+#include <ceddump.iby>
+#endif
+
+// ESOCK Tests - All test roms
+// (CI_TEST_ROM_1-te_ini,te_ipc,te_socket,etc)
+// (CI_TEST_ROM_2-te_eintsock,te_esock)
+// (NW_TEST_ROM_3-te_rconnectionsuite,te_rsubconnectionsuite)
+// (Anything using esock test steps)
+#include <esock_test.iby>
+
+// Commselements tools
+#include <messageintercept.iby>
+
+// Nifman Tests
+// The following #ifndef ensures this is not in 9.5 onwards, so no need for specific ROM ifdef
+#ifndef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+#include <te_nifman.iby>
+#endif
+
+REM ---------- Networking ----------
+
+//Ethernet nif - Any roms with ethernet tests (this is ensuring ethernet support, these aren't tests)
+#include <ether802.iby>
+
+// CSD AGT Tests
+// The following #ifndef ensures this is not in 9.5 onwards, so no need for specific ROM ifdef
+#ifndef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+#include <tcsdagt.iby>
+#endif
+
+// TE_DHCP Tests
+#ifdef NW_TEST_ROM_2
+#include <te_dhcpTestServer.iby>
+#endif
+
+#ifdef NW_TEST_ROM_2
+#ifdef SYMBIAN_NETWORKING_ADDRESS_PROVISION
+//Unit test code to launch DHCP server
+#include <te_dhcpservtest.iby>
+#endif //SYMBIAN_NETWORKING_ADDRESS_PROVISION
+#endif
+
+// IP Event Notifier Tests
+// Can't see this running in 9.5netmnt, not sure what rom its suppossed to be in so put it in all to be safe
+#include <te_ipeventnotifiersuite.iby>
+
+#ifdef NW_TEST_ROM_2
+//Napt tests
+#include <te_napt.iby>
+#include <te_naptunittest.iby>
+#endif //NW_TEST_ROM_2
+
+// FTP Tests
+#include <tftp_e.iby>
+
+// IntegrationTest framework
+#ifdef NW_TEST_ROM_1
+#include <integrationtest.iby>
+#endif
+
+// NULL AGT Tests
+#ifdef NW_TEST_ROM_1
+#include <nullagttests.iby>
+#endif
+
+// Useful  Internet Utilities for all test roms
+#include <ipconfig.iby>
+#include <route.iby>
+#include <Tftp.iby>
+#include <Tracert.iby>
+#include <ping.iby>
+#if !defined(TEXT_ONLY_ROM)
+#include <pingapp.iby>
+#endif // TEXT_ONLY_ROM
+
+//Some handy tools for all test roms
+#include <ftp_e.iby>
+#include <telnet_e.iby>
+
+
+// PPP Tests
+#ifdef NW_TEST_ROM_1
+#ifndef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+#include <te_ppp.iby>
+#endif
+#include <te_pppsize.iby>
+#include <ts_dummyppp.iby>
+
+#include <te_pppcomp.iby>
+#include <te_vjcomp.iby>
+#include <te_incoming_ppp.iby>
+#endif
+
+
+// SPUD Tests
+#ifdef NW_TEST_ROM_1
+#include <TE_spudNetworkSide.iby>
+#include <TE_spudrsubconn.iby>
+#ifndef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+#include <TE_SpudUnit.iby>
+#include <sockbench_spud.iby>
+#endif
+#endif
+
+
+// UmtsGprsSCPR Tests
+#ifdef NW_TEST_ROM_3
+#ifdef SYMBIAN_NETWORKING_3GPPDEFAULTQOS
+#include <te_UmtsGprsScpr.iby>
+#endif
+#endif
+
+// PSD AGT Tests
+// The following #ifndef ensures this is not in 9.5 onwards, so no need for specific ROM ifdef
+#ifndef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+#include <tpsdagt.iby>
+#endif
+
+// QoS Tests
+//////#include <qostesting.iby>
+
+#ifdef CI_TEST_ROM_2
+#include <sockbench.iby>
+#endif
+
+// TLS (SSL) Tests
+#ifdef NW_TEST_ROM_2
+#include <ts_tls.iby>
+#include <TlsProvtestServer.iby>
+#endif
+
+//-- DND LLMNR test
+#include <TE_LlmnrServer.iby>
+
+// agent dummy notifier
+#include <agentdummynotifier.iby>
+
+//Ipsec tests
+#ifdef NW_TEST_ROM_2
+#include <ts_ipsec.iby>
+#endif
+
+//-- additional optional protocols
+#include <probe.iby>
+#include <6to4.iby>
+
+// tests introduced by CDMA team (MS3.7)
+// The following #ifndef ensures this is not in 9.5 onwards, so no need for specific ROM ifdef
+#ifndef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+#include <TE_ConnectionControl.iby>
+#include <te_mobileiptosimpleipfallback.iby>
+#endif
+
+
+// additional files needed to run tests submitted by CDMA team
+// The following #ifndef ensures this is not in 9.5 onwards, so no need for specific ROM ifdef
+#ifndef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+#include <ConfigDaemon.iby>
+#endif
+
+// Not test components - maybe shouldn't be in here?? On all roms
+#include <netStSrv.iby>	
+#include <DHCPServ.iby>
+#include <elements.iby>
+#include <ipeventnotifier.iby>
+
+
+#ifdef NW_TEST_ROM_3
+#include <te_qossuite.iby>
+#endif
+
+#ifdef NW_TEST_ROM_1
+#include <TE_C32Bca.iby>
+#endif
+
+#include <TE_PacketLoopback.iby>
+#include <packetloopback.iby>
+
+// Needed by several tests
+#include <simtsy.iby>
+
+#include <te_AnvlClient.iby>
+
+REM ---------- WAP-Stack ----------
+
+// SWS test
+#ifdef NW_TEST_ROM_3
+#include <wapstacksuite.iby>
+#endif
+
+REM --- NEEDED FOR THE SECURITY TESTS ---
+#include <swi.iby>
+//#include <plpvariant.iby>
+
+REM --- NETSTEB PERFORMANCE TEST FRAMEWORK ---
+#include <te_STEBTestSuite.iby>
+
+REM --- EAP Tests ---
+REM #include <te_eap.iby>
+
+REM --- MBMS Broadcast Tests ---
+#include <TE_MbmsUnit.iby>
+
+REM --- UPS ---
+#include <upstestnotifier.iby>
+#include <netups_test.iby>
+
+#ifdef CI_TEST_ROM_3
+#include <te_ipups.iby>
+#endif
+
+#ifdef NW_TEST_ROM_2
+#ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
+#include <te_tcpip6suite.iby>
+#endif
+#endif
+
+#ifdef NW_TEST_ROM_2
+#ifdef SYMBIAN_INCLUDE_PUNYCODE
+#include <te_punycodeconverter.iby>
+#include <te_unittestidna.iby>
+#endif //SYMBIAN_INCLUDE_PUNYCODE
+#endif //NW_TEST_ROM_2
+
+REM --- DNS Proxy test
+#ifndef SYMBIAN_EXCLUDE_DNS_Proxy 
+#include <t_dnsproxy.iby>
+#endif 
+
+#endif

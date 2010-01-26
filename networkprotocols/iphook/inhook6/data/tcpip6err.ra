@@ -1,0 +1,543 @@
+// Copyright (c) 2001-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+RESOURCE ARRAY  r_error_res_tcpip6_errors
+	{
+	items=
+		{
+		SINGLE_ERROR
+			{
+			text=r_tcpip6_error_NoDestination;	// -5100
+			},
+		SINGLE_ERROR
+			{
+			text=r_tcpip6_error_NoPathMtu;			
+			},
+		SINGLE_ERROR
+			{
+			text=r_tcpip6_error_ShortPacket;
+			},
+		SINGLE_ERROR
+			{
+			text=r_tcpip6_error_DuplicateAddress;
+			},
+		SINGLE_ERROR
+			{
+			text=r_tcpip6_error_AddressExpired;				
+			}, 
+		SINGLE_ERROR
+			{
+			text=r_tcpip6_error_NoRoute;
+			},
+		SINGLE_ERROR
+			{
+			text=r_tcpip6_error_SourceAddress;
+			},
+		SINGLE_ERROR
+			{
+			text=r_tcpip6_error_UnsupportedApi;
+			},
+		SINGLE_ERROR
+			{
+			text=r_tcpip6_error_UnsupportedApiVersion;
+			},
+		SINGLE_ERROR
+			{
+			text=r_tcpip6_error_NoDnsResolver;
+			}
+		};
+	}
+
+
+RESOURCE ARRAY  r_error_res_dnd_errors
+	{
+	items=
+		{
+		SINGLE_ERROR
+			{
+			text=r_dnd_error_DndNameNotFound;	// -5120
+			},
+		SINGLE_ERROR
+			{
+			text=r_dnd_error_DndAddrNotFound;			
+			},
+		SINGLE_ERROR
+			{
+			text=r_dnd_error_DndNoServers;
+			},
+		SINGLE_ERROR
+			{
+			text=r_dnd_error_DndNoRoute;
+			},
+		SINGLE_ERROR
+			{
+			text=r_dnd_error_DndCache;
+			},
+		SINGLE_ERROR
+			{
+			text=r_dnd_error_DndFormat;			
+			},
+		SINGLE_ERROR
+			{
+			text=r_dnd_error_DndServerFailure;
+			},
+		SINGLE_ERROR
+			{
+			text=r_dnd_error_DndBadName;			
+			},
+		SINGLE_ERROR
+			{
+			text=r_dnd_error_DndNotImplemented;
+			},
+		SINGLE_ERROR
+			{
+			text=r_dnd_error_DndRefused;			
+			},
+		SINGLE_ERROR
+			{
+			text=r_dnd_error_Dnd_5130;
+			},
+		SINGLE_ERROR
+			{
+			text=r_dnd_error_DndNoRecord;			
+			},
+		SINGLE_ERROR
+			{
+			text=r_dnd_error_DndNameTooBig;
+			},
+		SINGLE_ERROR
+			{
+			text=r_dnd_error_DndUnknown;			
+			},
+		SINGLE_ERROR
+			{
+			text=r_dnd_error_DndServerUnusable;
+			}
+		};
+	}
+
+
+RESOURCE ARRAY  r_error_res_ipsec6_errors
+	{
+	items=
+		{
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_NotANATTPacket;	// -5154
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_NoInnerSource;	//- 5155
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_LostSA;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_IcmpError;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_PolicyUnknownSelector;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_PolicyInboundOutbound;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_PolicyIpMaskExpected;
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_PolicyIpAddressExpected;
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_PolicyInvalidIpAddress;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_PolicyRightParen;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_PolicyLeftParen;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_PolicySpecNotFound;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_PolicySyntaxError;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_PolicySpecName;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_PolicyNoEncryptAlgorithm;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_PolicyNoAuthAlgorithm;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_PolicyTooManyTypes;	 // -5170
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_PolicyNoType;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_PolicyCloseBraceExpected;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_PolicyNumberExpected;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_PolicyUnknownSpec;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_PolicyInvalidIdentity;
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_PolicyIdentityDefined;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_PolicyUnknownAuth;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_PolicyUnknownEncrypt;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_UnavailableDigest;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_UnavailableCipher;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_UnknownDigestNumber;
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_UnknownCipherNumber;
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_BadCipherKey;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_MismatchDestinationIdentity;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_MismatchSourceIdentity;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_MismatchProtocol;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_MismatchDestinationPort;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_MismatchSourcePort;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_MismatchProxy;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_MismatchSource;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_MismatchReplayWindow;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_MismatchedEncryptAlg;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_MismatchedAuthAlg;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_MismatchedPFS;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_MismatchedType;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_MismatchedDestination;
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_AcquireFailed;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_EspBadCipherBlockSize;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_EspSequenceWrap;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_AhSequenceWrap;
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_AhPacketTooLong;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_AhRMBufSplit;
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_NoBundle;
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_TooManyTransforms;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_UnrequiredSA;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_MismatchedSA;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_TunnelMismatch;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_TooFewTransforms;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_MaxTransforms;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_NoSelectorMatch;		// -5210
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_OutboundPending;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_OutboundNotFound;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_ReplayDuplicate;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_EspPadLength;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_EspPadByte;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_DataAlignment;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_PacketLength;
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_AhAuthentication;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_AhIcvLength;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_AhInboundSA;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_AhAuthAlg;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_EspEncrAlg;		
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_EspAuthAlg;
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_EspAuthentication;
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_EspInboundSA;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_CorruptPacketOut;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_CorruptPacketIn;	
+			},
+		SINGLE_ERROR
+			{
+			text=r_error_EIpsec_RMBUF;	
+			}
+		};
+	}
+
+
+RESOURCE TBUF r_tcpip6_error_NoDestination { buf = STRING_r_tcpip6_error_NoDestination; }	
+RESOURCE TBUF r_tcpip6_error_NoPathMtu { buf = STRING_r_tcpip6_error_NoPathMtu ; }		
+RESOURCE TBUF r_tcpip6_error_ShortPacket { buf = STRING_r_tcpip6_error_ShortPacket; }		
+RESOURCE TBUF r_tcpip6_error_DuplicateAddress { buf = STRING_r_tcpip6_error_DuplicateAddress; }	
+RESOURCE TBUF r_tcpip6_error_AddressExpired { buf = STRING_r_tcpip6_error_AddressExpired; }	
+RESOURCE TBUF r_tcpip6_error_NoRoute { buf = STRING_r_tcpip6_error_NoRoute; }	
+RESOURCE TBUF r_tcpip6_error_SourceAddress { buf = STRING_r_tcpip6_error_SourceAddress; }	
+RESOURCE TBUF r_tcpip6_error_UnsupportedApi { buf = STRING_r_tcpip6_error_UnsupportedApi; }	
+RESOURCE TBUF r_tcpip6_error_UnsupportedApiVersion { buf = STRING_r_tcpip6_error_UnsupportedApiVersion; }	
+RESOURCE TBUF r_tcpip6_error_NoDnsResolver { buf = STRING_r_tcpip6_error_NoDnsResolver; }	
+
+
+RESOURCE TBUF r_dnd_error_DndNameNotFound { buf = STRING_r_dnd_error_DndNameNotFound ; }
+RESOURCE TBUF r_dnd_error_DndAddrNotFound { buf = STRING_r_dnd_error_DndAddrNotFound ; }
+RESOURCE TBUF r_dnd_error_DndNoServers { buf = STRING_r_dnd_error_DndNoServers ; }
+RESOURCE TBUF r_dnd_error_DndNoRoute { buf = STRING_r_dnd_error_DndNoRoute ; }
+RESOURCE TBUF r_dnd_error_DndCache { buf = STRING_r_dnd_error_DndCache ; }
+RESOURCE TBUF r_dnd_error_DndFormat { buf = STRING_r_dnd_error_DndFormat ; }
+RESOURCE TBUF r_dnd_error_DndServerFailure { buf = STRING_r_dnd_error_DndServerFailure  ; }
+RESOURCE TBUF r_dnd_error_DndBadName { buf = STRING_r_dnd_error_DndBadName  ; }
+RESOURCE TBUF r_dnd_error_DndNotImplemented { buf = STRING_r_dnd_error_DndNotImplemented  ; }
+RESOURCE TBUF r_dnd_error_DndRefused { buf = STRING_r_dnd_error_DndRefused ; }
+RESOURCE TBUF r_dnd_error_Dnd_5130 { buf = STRING_r_dnd_error_Dnd_5130 ; }
+RESOURCE TBUF r_dnd_error_DndNoRecord { buf = STRING_r_dnd_error_DndNoRecord ; }
+RESOURCE TBUF r_dnd_error_DndNameTooBig { buf = STRING_r_dnd_error_DndNameTooBig ; }
+RESOURCE TBUF r_dnd_error_DndUnknown { buf = STRING_r_dnd_error_DndUnknown ; }
+RESOURCE TBUF r_dnd_error_DndServerUnusable  { buf = STRING_r_dnd_error_DndServerUnusable ; }
+
+
+RESOURCE TBUF r_error_EIpsec_NotANATTPacket          { buf = STRING_r_error_EIpsec_NotANATTPacket ;}
+RESOURCE TBUF r_error_EIpsec_NoInnerSource           { buf = STRING_r_error_EIpsec_NoInnerSource  ;}
+RESOURCE TBUF r_error_EIpsec_LostSA                  { buf = STRING_r_error_EIpsec_LostSA  ;}
+RESOURCE TBUF r_error_EIpsec_IcmpError               { buf = STRING_r_error_EIpsec_IcmpError  ;}
+RESOURCE TBUF r_error_EIpsec_PolicyUnknownSelector   { buf = STRING_r_error_EIpsec_PolicyUnknownSelector  ;}
+RESOURCE TBUF r_error_EIpsec_PolicyInboundOutbound   { buf = STRING_r_error_EIpsec_PolicyInboundOutbound  ;}
+RESOURCE TBUF r_error_EIpsec_PolicyIpMaskExpected    { buf = STRING_r_error_EIpsec_PolicyIpMaskExpected  ;}
+RESOURCE TBUF r_error_EIpsec_PolicyIpAddressExpected { buf = STRING_r_error_EIpsec_PolicyIpAddressExpected  ;}
+RESOURCE TBUF r_error_EIpsec_PolicyInvalidIpAddress  { buf = STRING_r_error_EIpsec_PolicyInvalidIpAddress  ;}
+RESOURCE TBUF r_error_EIpsec_PolicyRightParen        { buf = STRING_r_error_EIpsec_PolicyRightParen  ;}
+RESOURCE TBUF r_error_EIpsec_PolicyLeftParen         { buf = STRING_r_error_EIpsec_PolicyLeftParen  ;}
+RESOURCE TBUF r_error_EIpsec_PolicySpecNotFound      { buf = STRING_r_error_EIpsec_PolicySpecNotFound  ;}
+RESOURCE TBUF r_error_EIpsec_PolicySyntaxError       { buf = STRING_r_error_EIpsec_PolicySyntaxError  ;}
+RESOURCE TBUF r_error_EIpsec_PolicySpecName          { buf = STRING_r_error_EIpsec_PolicySpecName  ;}
+RESOURCE TBUF r_error_EIpsec_PolicyNoEncryptAlgorithm{ buf = STRING_r_error_EIpsec_PolicyNoEncryptAlgorithm  ;}
+RESOURCE TBUF r_error_EIpsec_PolicyNoAuthAlgorithm   { buf = STRING_r_error_EIpsec_PolicyNoAuthAlgorithm  ;}
+RESOURCE TBUF r_error_EIpsec_PolicyTooManyTypes      { buf = STRING_r_error_EIpsec_PolicyTooManyTypes  ;}
+RESOURCE TBUF r_error_EIpsec_PolicyNoType            { buf = STRING_r_error_EIpsec_PolicyNoType  ;}
+RESOURCE TBUF r_error_EIpsec_PolicyCloseBraceExpected{ buf = STRING_r_error_EIpsec_PolicyCloseBraceExpected  ;}
+RESOURCE TBUF r_error_EIpsec_PolicyNumberExpected    { buf = STRING_r_error_EIpsec_PolicyNumberExpected  ;}
+RESOURCE TBUF r_error_EIpsec_PolicyUnknownSpec       { buf = STRING_r_error_EIpsec_PolicyUnknownSpec  ;}
+RESOURCE TBUF r_error_EIpsec_PolicyInvalidIdentity   { buf = STRING_r_error_EIpsec_PolicyInvalidIdentity  ;}
+RESOURCE TBUF r_error_EIpsec_PolicyIdentityDefined   { buf = STRING_r_error_EIpsec_PolicyIdentityDefined  ;}
+RESOURCE TBUF r_error_EIpsec_PolicyUnknownAuth       { buf = STRING_r_error_EIpsec_PolicyUnknownAuth  ;}
+RESOURCE TBUF r_error_EIpsec_PolicyUnknownEncrypt    { buf = STRING_r_error_EIpsec_PolicyUnknownEncrypt  ;}
+RESOURCE TBUF r_error_EIpsec_UnavailableDigest       { buf = STRING_r_error_EIpsec_UnavailableDigest  ;}
+RESOURCE TBUF r_error_EIpsec_UnavailableCipher       { buf = STRING_r_error_EIpsec_UnavailableCipher  ;}
+RESOURCE TBUF r_error_EIpsec_UnknownDigestNumber     { buf = STRING_r_error_EIpsec_UnknownDigestNumber  ;}
+RESOURCE TBUF r_error_EIpsec_UnknownCipherNumber     { buf = STRING_r_error_EIpsec_UnknownCipherNumber  ;}
+RESOURCE TBUF r_error_EIpsec_BadCipherKey            { buf = STRING_r_error_EIpsec_BadCipherKey ;}
+RESOURCE TBUF r_error_EIpsec_MismatchDestinationIdentity	{ buf = STRING_r_error_EIpsec_MismatchDestinationIdentity  ;}
+RESOURCE TBUF r_error_EIpsec_MismatchSourceIdentity  { buf = STRING_r_error_EIpsec_MismatchSourceIdentity  ;}
+RESOURCE TBUF r_error_EIpsec_MismatchProtocol        { buf = STRING_r_error_EIpsec_MismatchProtocol  ;}
+RESOURCE TBUF r_error_EIpsec_MismatchDestinationPort { buf = STRING_r_error_EIpsec_MismatchDestinationPort  ;}
+RESOURCE TBUF r_error_EIpsec_MismatchSourcePort      { buf = STRING_r_error_EIpsec_MismatchSourcePort  ;}
+RESOURCE TBUF r_error_EIpsec_MismatchProxy           { buf = STRING_r_error_EIpsec_MismatchProx  ;}
+RESOURCE TBUF r_error_EIpsec_MismatchSource          { buf = STRING_r_error_EIpsec_MismatchSource  ;}
+RESOURCE TBUF r_error_EIpsec_MismatchReplayWindow    { buf = STRING_r_error_EIpsec_MismatchReplayWindow  ;}
+RESOURCE TBUF r_error_EIpsec_MismatchedEncryptAlg    { buf = STRING_r_error_EIpsec_MismatchedEncryptAlg  ;}
+RESOURCE TBUF r_error_EIpsec_MismatchedAuthAlg       { buf = STRING_r_error_EIpsec_MismatchedAuthAlg  ;}
+RESOURCE TBUF r_error_EIpsec_MismatchedPFS           { buf = STRING_r_error_EIpsec_MismatchedPFS  ;}
+RESOURCE TBUF r_error_EIpsec_MismatchedType          { buf = STRING_r_error_EIpsec_MismatchedType  ;}
+RESOURCE TBUF r_error_EIpsec_MismatchedDestination   { buf = STRING_r_error_EIpsec_MismatchedDestination  ;}
+RESOURCE TBUF r_error_EIpsec_AcquireFailed           { buf = STRING_r_error_EIpsec_AcquireFailed  ;}
+RESOURCE TBUF r_error_EIpsec_EspBadCipherBlockSize   { buf = STRING_r_error_EIpsec_EspBadCipherBlockSize  ;}
+RESOURCE TBUF r_error_EIpsec_EspSequenceWrap         { buf = STRING_r_error_EIpsec_EspSequenceWrap  ;}
+RESOURCE TBUF r_error_EIpsec_AhSequenceWrap          { buf = STRING_r_error_EIpsec_AhSequenceWrap  ;}
+RESOURCE TBUF r_error_EIpsec_AhPacketTooLong         { buf = STRING_r_error_EIpsec_AhPacketTooLong  ;}
+RESOURCE TBUF r_error_EIpsec_AhRMBufSplit            { buf = STRING_r_error_EIpsec_AhRMBufSplit  ;}
+RESOURCE TBUF r_error_EIpsec_NoBundle                { buf = STRING_r_error_EIpsec_NoBundle  ;}
+RESOURCE TBUF r_error_EIpsec_TooManyTransforms       { buf = STRING_r_error_EIpsec_TooManyTransforms  ;}
+RESOURCE TBUF r_error_EIpsec_UnrequiredSA            { buf = STRING_r_error_EIpsec_UnrequiredSA  ;}
+RESOURCE TBUF r_error_EIpsec_MismatchedSA            { buf = STRING_r_error_EIpsec_MismatchedSA  ;}
+RESOURCE TBUF r_error_EIpsec_TunnelMismatch          { buf = STRING_r_error_EIpsec_TunnelMismatch  ;}
+RESOURCE TBUF r_error_EIpsec_TooFewTransforms        { buf = STRING_r_error_EIpsec_TooFewTransforms  ;}
+RESOURCE TBUF r_error_EIpsec_MaxTransforms           { buf = STRING_r_error_EIpsec_MaxTransforms  ;}
+RESOURCE TBUF r_error_EIpsec_NoSelectorMatch         { buf = STRING_r_error_EIpsec_NoSelectorMatch  ;}
+RESOURCE TBUF r_error_EIpsec_OutboundPending         { buf = STRING_r_error_EIpsec_OutboundPending  ;}
+RESOURCE TBUF r_error_EIpsec_OutboundNotFound        { buf = STRING_r_error_EIpsec_OutboundNotFound  ;}
+RESOURCE TBUF r_error_EIpsec_ReplayDuplicate         { buf = STRING_r_error_EIpsec_ReplayDuplicate  ;}
+RESOURCE TBUF r_error_EIpsec_EspPadLength            { buf = STRING_r_error_EIpsec_EspPadLength  ;}
+RESOURCE TBUF r_error_EIpsec_EspPadByte              { buf = STRING_r_error_EIpsec_EspPadByt  ;}
+RESOURCE TBUF r_error_EIpsec_DataAlignment           { buf = STRING_r_error_EIpsec_DataAlignment  ;}
+RESOURCE TBUF r_error_EIpsec_PacketLength            { buf = STRING_r_error_EIpsec_PacketLength  ;}
+RESOURCE TBUF r_error_EIpsec_AhAuthentication        { buf = STRING_r_error_EIpsec_AhAuthentication  ;}
+RESOURCE TBUF r_error_EIpsec_AhIcvLength             { buf = STRING_r_error_EIpsec_AhIcvLength  ;}
+RESOURCE TBUF r_error_EIpsec_AhInboundSA             { buf = STRING_r_error_EIpsec_AhInboundSA  ;}
+RESOURCE TBUF r_error_EIpsec_AhAuthAlg               { buf = STRING_r_error_EIpsec_AhAuthAlg  ;}
+RESOURCE TBUF r_error_EIpsec_EspEncrAlg              { buf = STRING_r_error_EIpsec_EspEncrAlg  ;}
+RESOURCE TBUF r_error_EIpsec_EspAuthAlg              { buf = STRING_r_error_EIpsec_EspAuthAlg  ;}
+RESOURCE TBUF r_error_EIpsec_EspAuthentication       { buf = STRING_r_error_EIpsec_EspAuthentication  ;}
+RESOURCE TBUF r_error_EIpsec_EspInboundSA            { buf = STRING_r_error_EIpsec_EspInboundSA  ;}
+RESOURCE TBUF r_error_EIpsec_CorruptPacketOut        { buf = STRING_r_error_EIpsec_CorruptPacketOu  ;}
+RESOURCE TBUF r_error_EIpsec_CorruptPacketIn         { buf = STRING_r_error_EIpsec_CorruptPacketIn  ;}
+RESOURCE TBUF r_error_EIpsec_RMBUF	             { buf = STRING_r_error_EIpsec_RMBUF  ;}

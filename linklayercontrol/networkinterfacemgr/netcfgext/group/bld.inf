@@ -1,0 +1,41 @@
+// Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// Network Config Extension
+// 
+//
+
+/**
+ @file
+*/
+
+PRJ_PLATFORMS
+
+DEFAULT
+
+PRJ_EXPORTS
+../inc/netcfgextprov.h					SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/netcfgextprov.h)
+../inc/netcfgextnotify.h				SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/netcfgextnotify.h)
+../inc/nifconfigurationcontrol.h			SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/nifconfigurationcontrol.h)
+../inc/networkconfigextensionbase.h			SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/networkconfigextensionbase.h)
+../inc/rconfigdaemon.h					SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/rconfigdaemon.h)
+../inc/rconfigdaemonmess.h				SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/rconfigdaemonmess.h)
+netcfgext.iby          			/epoc32/rom/include/netcfgext.iby
+
+
+PRJ_MMPFILES
+netcfgext.mmp
+
+
+
+

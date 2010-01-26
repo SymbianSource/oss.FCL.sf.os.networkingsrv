@@ -1,0 +1,87 @@
+EXPORTS
+	__9TInetAddrUlUi @ 1 NONAME R3UNUSED ; TInetAddr::TInetAddr(unsigned long, unsigned int)
+	CmpAddr__C9TInetAddrRC9TInetAddr @ 2 NONAME R3UNUSED ; TInetAddr::CmpAddr(TInetAddr const &) const
+	Input__9TInetAddrRC7TDesC16 @ 3 NONAME R3UNUSED ; TInetAddr::Input(TDesC16 const &)
+	Match__C9TInetAddrRC9TInetAddr @ 4 NONAME R3UNUSED ; TInetAddr::Match(TInetAddr const &) const
+	Match__C9TInetAddrRC9TInetAddrT1 @ 5 NONAME R3UNUSED ; TInetAddr::Match(TInetAddr const &, TInetAddr const &) const
+	NetBroadcast__9TInetAddrRC9TInetAddr @ 6 NONAME R3UNUSED ; TInetAddr::NetBroadcast(TInetAddr const &)
+	NetMask__9TInetAddrRC9TInetAddr @ 7 NONAME R3UNUSED ; TInetAddr::NetMask(TInetAddr const &)
+	Net__9TInetAddrRC9TInetAddr @ 8 NONAME R3UNUSED ; TInetAddr::Net(TInetAddr const &)
+	Output__C9TInetAddrR6TDes16 @ 9 NONAME R3UNUSED ; TInetAddr::Output(TDes16 &) const
+	SetAddress__9TInetAddrUl @ 10 NONAME R3UNUSED ; TInetAddr::SetAddress(unsigned long)
+	SubNetBroadcast__9TInetAddrRC9TInetAddrT1 @ 11 NONAME R3UNUSED ; TInetAddr::SubNetBroadcast(TInetAddr const &, TInetAddr const &)
+	SubNet__9TInetAddrRC9TInetAddrT1 @ 12 NONAME R3UNUSED ; TInetAddr::SubNet(TInetAddr const &, TInetAddr const &)
+	__9TInetAddr @ 13 NONAME R3UNUSED ; TInetAddr::TInetAddr(void)
+	__9TInetAddrRC9TSockAddr @ 14 NONAME R3UNUSED ; TInetAddr::TInetAddr(TSockAddr const &)
+	__9TInetAddrUi @ 15 NONAME R3UNUSED ; TInetAddr::TInetAddr(unsigned int)
+	Address__C9TInetAddr @ 16 NONAME R3UNUSED ; TInetAddr::Address(void) const
+	ConvertToV4Compat__9TInetAddr @ 17 NONAME R3UNUSED ; TInetAddr::ConvertToV4Compat(void)
+	ConvertToV4Mapped__9TInetAddr @ 18 NONAME R3UNUSED ; TInetAddr::ConvertToV4Mapped(void)
+	ConvertToV4__9TInetAddr @ 19 NONAME R3UNUSED ; TInetAddr::ConvertToV4(void)
+	FlowLabel__C9TInetAddr @ 20 NONAME R3UNUSED ; TInetAddr::FlowLabel(void) const
+	Ip6Address__C9TInetAddr @ 21 NONAME R3UNUSED ; TInetAddr::Ip6Address(void) const
+	IsEqual__C8TIp6AddrRC8TIp6Addr @ 22 NONAME R3UNUSED ; TIp6Addr::IsEqual(TIp6Addr const &) const
+	IsLinkLocal__C8TIp6Addr @ 23 NONAME R3UNUSED ; TIp6Addr::IsLinkLocal(void) const
+	IsLinkLocal__C9TInetAddr @ 24 NONAME R3UNUSED ; TInetAddr::IsLinkLocal(void) const
+	IsLoopback__C8TIp6Addr @ 25 NONAME R3UNUSED ; TIp6Addr::IsLoopback(void) const
+	IsLoopback__C9TInetAddr @ 26 NONAME R3UNUSED ; TInetAddr::IsLoopback(void) const
+	IsMulticast__C8TIp6Addr @ 27 NONAME R3UNUSED ; TIp6Addr::IsMulticast(void) const
+	IsMulticast__C9TInetAddr @ 28 NONAME R3UNUSED ; TInetAddr::IsMulticast(void) const
+	IsSiteLocal__C8TIp6Addr @ 29 NONAME R3UNUSED ; TIp6Addr::IsSiteLocal(void) const
+	IsSiteLocal__C9TInetAddr @ 30 NONAME R3UNUSED ; TInetAddr::IsSiteLocal(void) const
+	IsUnicast__C8TIp6Addr @ 31 NONAME R3UNUSED ; TIp6Addr::IsUnicast(void) const
+	IsUnicast__C9TInetAddr @ 32 NONAME R3UNUSED ; TInetAddr::IsUnicast(void) const
+	IsUnspecified__C8TIp6Addr @ 33 NONAME R3UNUSED ; TIp6Addr::IsUnspecified(void) const
+	IsUnspecified__C9TInetAddr @ 34 NONAME R3UNUSED ; TInetAddr::IsUnspecified(void) const
+	IsV4Compat__C8TIp6Addr @ 35 NONAME R3UNUSED ; TIp6Addr::IsV4Compat(void) const
+	IsV4Compat__C9TInetAddr @ 36 NONAME R3UNUSED ; TInetAddr::IsV4Compat(void) const
+	IsV4Mapped__C8TIp6Addr @ 37 NONAME R3UNUSED ; TIp6Addr::IsV4Mapped(void) const
+	IsV4Mapped__C9TInetAddr @ 38 NONAME R3UNUSED ; TInetAddr::IsV4Mapped(void) const
+	Match__C8TIp6AddrRC8TIp6Addr @ 39 NONAME R3UNUSED ; TIp6Addr::Match(TIp6Addr const &) const
+	Match__C9TInetAddrRC9TInetAddri @ 40 NONAME R3UNUSED ; TInetAddr::Match(TInetAddr const &, int) const
+	PrefixMask__9TInetAddri @ 41 NONAME R3UNUSED ; TInetAddr::PrefixMask(int)
+	Prefix__9TInetAddrRC9TInetAddri @ 42 NONAME R3UNUSED ; TInetAddr::Prefix(TInetAddr const &, int)
+	Scope__C8TIp6Addr @ 43 NONAME R3UNUSED ; TIp6Addr::Scope(void) const
+	SetAddress__9TInetAddrRC8TIp6Addr @ 44 NONAME R3UNUSED ; TInetAddr::SetAddress(TIp6Addr const &)
+	SetFlowLabel__9TInetAddri @ 45 NONAME R3UNUSED ; TInetAddr::SetFlowLabel(int)
+	SetV4CompatAddress__9TInetAddrUl @ 46 NONAME R3UNUSED ; TInetAddr::SetV4CompatAddress(unsigned long)
+	SetV4MappedAddress__9TInetAddrUl @ 47 NONAME R3UNUSED ; TInetAddr::SetV4MappedAddress(unsigned long)
+	__9TInetAddrRC8TIp6AddrUi @ 48 NONAME R3UNUSED ; TInetAddr::TInetAddr(TIp6Addr const &, unsigned int)
+	Scope__C9TInetAddr @ 49 NONAME R3UNUSED ; TInetAddr::Scope(void) const
+	SetScope__9TInetAddrUl @ 50 NONAME R3UNUSED ; TInetAddr::SetScope(unsigned long)
+	AddrLen__8TE64Addr @ 51 NONAME R3UNUSED ; TE64Addr::AddrLen(void)
+	AddrPtrC__C8TE64Addr @ 52 NONAME R3UNUSED ; TE64Addr::AddrPtrC(void) const
+	AddrPtr__8TE64Addr @ 53 NONAME R3UNUSED ; TE64Addr::AddrPtr(void)
+	AddrPtr__C10TEui64Addr @ 54 NONAME R3UNUSED ; TEui64Addr::AddrPtr(void) const
+	Address__C10TEui64Addr @ 55 NONAME R3UNUSED ; TEui64Addr::Address(void) const
+	Cast__10TEui64AddrPC9TSockAddr @ 56 NONAME R3UNUSED ; TEui64Addr::Cast(TSockAddr const *)
+	Cast__10TEui64AddrRC9TSockAddr @ 57 NONAME R3UNUSED ; TEui64Addr::Cast(TSockAddr const &)
+	Init__10TEui64Addr @ 58 NONAME R3UNUSED ; TEui64Addr::Init(void)
+	IsGroup__C8TE64Addr @ 59 NONAME R3UNUSED ; TE64Addr::IsGroup(void) const
+	IsUniversal__C8TE64Addr @ 60 NONAME R3UNUSED ; TE64Addr::IsUniversal(void) const
+	IsZero__C10TEui64Addr @ 61 NONAME R3UNUSED ; TEui64Addr::IsZero(void) const
+	IsZero__C8TE64Addr @ 62 NONAME R3UNUSED ; TE64Addr::IsZero(void) const
+	Match__C10TEui64AddrRC10TEui64Addr @ 63 NONAME R3UNUSED ; TEui64Addr::Match(TEui64Addr const &) const
+	Match__C8TE64AddrRC8TE64Addr @ 64 NONAME R3UNUSED ; TE64Addr::Match(TE64Addr const &) const
+	Output__C8TE64AddrR6TDes16 @ 65 NONAME R3UNUSED ; TE64Addr::Output(TDes16 &) const
+	SetAddrFromEUI48__8TE64AddrPCUc @ 66 NONAME R3UNUSED ; TE64Addr::SetAddrFromEUI48(unsigned char const *)
+	SetAddrRandomNZButNot__8TE64AddrRC8TE64Addr @ 67 NONAME R3UNUSED ; TE64Addr::SetAddrRandomNZButNot(TE64Addr const &)
+	SetAddrRandomNZ__8TE64Addr @ 68 NONAME R3UNUSED ; TE64Addr::SetAddrRandomNZ(void)
+	SetAddrRandom__8TE64Addr @ 69 NONAME R3UNUSED ; TE64Addr::SetAddrRandom(void)
+	SetAddrZero__8TE64Addr @ 70 NONAME R3UNUSED ; TE64Addr::SetAddrZero(void)
+	SetAddr__8TE64AddrPCUcUi @ 71 NONAME R3UNUSED ; TE64Addr::SetAddr(unsigned char const *, unsigned int)
+	SetAddr__8TE64AddrRCx @ 72 NONAME R3UNUSED ; TE64Addr::SetAddr(long long const &)
+	SetAddr__8TE64AddrRC8TE64Addr @ 73 NONAME R3UNUSED ; TE64Addr::SetAddr(TE64Addr const &)
+	SetAddress__10TEui64AddrRC8TE64Addr @ 74 NONAME R3UNUSED ; TEui64Addr::SetAddress(TE64Addr const &)
+	SetGroupBit__8TE64Addri @ 75 NONAME R3UNUSED ; TE64Addr::SetGroupBit(int)
+	SetUniversalBit__8TE64Addri @ 76 NONAME R3UNUSED ; TE64Addr::SetUniversalBit(int)
+	__10TEui64Addr @ 77 NONAME R3UNUSED ; TEui64Addr::TEui64Addr(void)
+	__10TEui64AddrRC9TSockAddr @ 78 NONAME R3UNUSED ; TEui64Addr::TEui64Addr(TSockAddr const &)
+	__8TE64Addr @ 79 NONAME R3UNUSED ; TE64Addr::TE64Addr(void)
+	__8TE64AddrPCUcUi @ 80 NONAME R3UNUSED ; TE64Addr::TE64Addr(unsigned char const *, unsigned int)
+	__8TE64AddrRCx @ 81 NONAME R3UNUSED ; TE64Addr::TE64Addr(long long const &)
+	__8TE64AddrRC8TE64Addr @ 82 NONAME R3UNUSED ; TE64Addr::TE64Addr(TE64Addr const &)
+	AddrLen__10TEui64Addr @ 83 NONAME R3UNUSED ; TEui64Addr::AddrLen(void)
+	Init__9TInetAddrUi @ 84 NONAME R3UNUSED ; TInetAddr::Init(unsigned int)
+	OutputWithScope__C9TInetAddrR6TDes16 @ 85 NONAME R3UNUSED ; TInetAddr::OutputWithScope(TDes16 &) const
+

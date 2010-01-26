@@ -1,0 +1,38 @@
+// Copyright (c) 2005-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// bld.inf - Hook API for TCP/IP stack
+// IPSEC Hook
+//
+
+
+
+/**
+ @file
+*/
+
+PRJ_EXPORTS
+
+../data/ip.ipsec6.esk /epoc32/winscw/c/private/101f7989/esock/ip.ipsec6.esk
+../data/ip.ipsec6.esk /epoc32/data/z/private/101f7989/esock/ip.ipsec6.esk
+
+../group/ipsec6.iby /epoc32/rom/include/ipsec6.iby
+
+../include/crypto.h     SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/crypto.h)
+../include/in6_ipsec.h  SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/in6_ipsec.h)
+../include/ipsecerr.h   SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/ipsecerr.h)
+../include/pfkeyext.h   SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/pfkeyext.h)
+../include/pfkeyv2.h    SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/pfkeyv2.h)
+
+PRJ_MMPFILES
+ipsec6.mmp

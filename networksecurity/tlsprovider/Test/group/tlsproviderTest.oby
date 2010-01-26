@@ -1,0 +1,191 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+#ifndef __TLSPROVIDER_TEST_OBY__
+#define __TLSPROVIDER_TEST_OBY__
+#define __NETWORKING_TEST_OBY__
+
+
+// This OBY File is used to build TLSPROVIDER Test ROM Images.
+
+// To build a tlsprovider test ROM enter the following:
+//
+//
+//   Building for Lubbock - CF Card loader
+//      1) buildrom lubbock tlsproviderTest.oby 
+//      2) buildrom -D_DEBUG lubbock tlsproviderTest.oby 
+//      3) buildrom -DTEXT_ONLY_ROM lubbock tlsproviderTest.oby 
+//      4) buildrom -DTEXT_ONLY_ROM -D_DEBUG lubbock tlsproviderTest.oby 
+//
+//   Building for Lubbock - Ethernet TFTP loader
+//      1) Create a rom using the above then rombuild --no-header (Output *.oby file from the above) 
+//
+// _DEBUG results in debug ROMS and TEXT_ONLY_ROM generates text only ROMS.  The above 
+// shows all combinations.
+
+#if defined(ESHELL_ONLY)
+	// ALSO remove SCDV.dll, <gdbstub.iby> and <metrotrk.iby> from base.iby
+	define OBEYFILE NetworkTestEshell
+#else
+	#if defined(TEXT_ONLY_ROM)
+		#if defined(_DEBUG)
+			define OBEYFILE TlsProviderTestTextDebug
+		#else
+			define OBEYFILE TlsProviderTestText
+		#endif // _DEBUG
+	#else
+		define ROMMEGS			16		/* !! HEX !! */
+		#if defined(_DEBUG)
+			#define techview TlsProviderTestGUIDebug
+		#else
+			#define techview TlsProviderTestGUI
+		#endif // _DEBUG
+	#endif // TEXT_ONLY_ROM
+#endif // ESHELL_ONLY
+
+define ROMDATE	##TODAY##
+
+#define __TCPIP_IBY__ // HACK to avoid including the old IP4 TCPIP.IBY via PLP.IBY
+#define NO_METROTRK_APP // don't want metrotrk application
+#define EXCLUDE_JAVA
+
+
+/////////////////////////////////////////ESHELL Only Support
+#if defined(TEXT_ONLY_ROM)
+
+	#include <header.iby>				/* ROM header definitions */
+	#include <base.iby>					/* The lowest-level of the operating system */
+
+	#include <debug.iby>
+	file=ABI_DIR\DEBUG_DIR\RUNTESTS.EXE					System\Programs\RUNTESTS.EXE
+
+	REM Networking Test Text ROM Specific Files
+
+	kerneltrace 0x80000000
+
+		file=ABI_DIR\DEBUG_DIR\EDISP.DLL				System\Libs\EDISP.DLL
+		file=ABI_DIR\DEBUG_DIR\ELOCL_base.DLL			System\Libs\ELOCL_base.DLL	
+
+	file=ABI_DIR\DEBUG_DIR\ECONS.DLL					System\Libs\ECONS.DLL	
+
+	file=ABI_DIR\DEBUG_DIR\EWSRV.EXE					System\Libs\EWSRV.EXE	fixed
+
+	file=ABI_DIR\DEBUG_DIR\ESHELL.EXE					System\Libs\ESHELL.EXE heapmin=0x8000
+
+	////////////////////////////////////////// Full Text Support
+	#if !defined(ESHELL_ONLY)
+
+		file=ABI_DIR\DEBUG_DIR\form.DLL					System\Libs\form.dll
+		file=ABI_DIR\DEBUG_DIR\tagma.DLL				System\Libs\tagma.DLL
+
+		file=ABI_DIR\BUILD_DIR\ws32.dll					System\Libs\Ws32.dll
+
+		file=ABI_DIR\BUILD_DIR\VIEWCLI.DLL				System\Libs\VIEWCLI.DLL
+		file=ABI_DIR\BUILD_DIR\VIEWSRV.DLL				System\Libs\VIEWSRV.DLL
+		file=ABI_DIR\BUILD_DIR\UIKLAF.DLL				System\Libs\UIKLAF.DLL
+		file=ABI_DIR\BUILD_DIR\EXPARSER.DLL				System\Libs\EXPARSER.DLL
+		file=ABI_DIR\BUILD_DIR\Eikcore.DLL				System\Libs\Eikcore.dll
+		file=ABI_DIR\BUILD_DIR\EIKSRVC.DLL				System\Libs\EIKSRVC.DLL
+		file=ABI_DIR\BUILD_DIR\Sysamob.exe				System\Libs\Sysamob.exe
+
+		/* extras */
+		#include "mmfsounddev.iby"
+		#include "ezlib.iby"
+		#include <http.iby>
+
+			#include <crypto.iby>
+
+		#include <c32.iby>			/* standard Sockets components */
+		#include <irda.iby>			/* standard Sockets components */
+		#include <bluetooth.iby>	/* standard Sockets components */
+		#include <gdi.iby>			/* standard Graphics components */
+		#include <fntstore.iby>		/* standard Graphics components */
+		#include <fbserv.iby>		/* standard Graphics components */
+		#include <bitgdi.iby>		/* standard Graphics components */
+
+		#include <apparc.iby>		/* Application architecture DLLs */
+		#include <emime.iby>		/* Mime recognition */
+
+		#include <fepbase.iby>		/* Front end processor base classes */
+
+		#include <mmf.iby> 			/* Multimedia Framework */
+
+		#include <sysagent.iby>		/* System Agent client and server */
+
+		#include <network.iby>
+
+		
+
+		#include <ecom.iby>
+
+		/* Store */
+		#include "Store.iby"
+
+		/* Etext */
+		#include "EText.iby"
+
+		/* Clock */
+		file=ABI_DIR\BUILD_DIR\clock.dll				System\Libs\Clock.dll
+
+		/* Print */
+		file=ABI_DIR\BUILD_DIR\print.dll				System\Libs\Print.dll
+
+		/* Pwrcli */
+		#include "PwrCli.iby"
+
+		/* Bafl */
+		#include "Bafl.iby"
+
+		/* Cone */
+		file=ABI_DIR\DEBUG_DIR\cone.dll					System\Libs\Cone.dll
+
+		/* NumberConversion */
+		#include "NumberConversion.iby"
+
+		/* EGUL */
+		file=ABI_DIR\DEBUG_DIR\egul.dll					System\Libs\Egul.dll
+
+		/* Dial */
+		file=ABI_DIR\BUILD_DIR\dial.dll					System\Libs\Dial.dll
+
+
+	#endif // !ESHELL_ONLY
+#endif // TEXT_ONLY_ROM
+
+///////////////////////////////////////////// Full GUI ROM
+
+#if !defined(TEXT_ONLY_ROM)
+	#include "techview.oby"
+#endif // !TEXT_ONLY_ROM
+
+
+	// ================== Misc =======================================
+	#if !defined(TEXT_ONLY_ROM)
+	#include <gtemailmtm.iby>
+	#include <stdlib.iby>
+	#endif // TEXT_ONLY_ROM
+
+	#include <ecom.iby>
+
+#include <certman.iby>
+// DEF139848 fix - Forward Propogation from Symtb9.1 - Illegal dependency from OCSP to HTTP.
+#include <ocsp.iby>
+
+#include <tlsprovider.iby>
+#include <TlsProvtestServer.iby>
+
+
+#endif

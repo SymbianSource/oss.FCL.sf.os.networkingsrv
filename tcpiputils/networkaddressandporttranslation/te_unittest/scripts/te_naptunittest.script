@@ -1,0 +1,419 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//! @file
+//! @SYMTestSUTeName       NET-tcpiputils-networkaddressandporttranslation-UT
+//! @SYMScriptTestEnvironment TestExecuteFramework
+//
+//Unload esock forcefully
+RUN_SCRIPT z:\testdata\scripts\te_esock_test_unloadesockForced.script
+
+//Configure commdb.
+ced -i z:\testdata\configs\te_naptunittest_ced.xml
+
+RUN_SCRIPT z:\testdata\scripts\te_esock_test_loadesock.script
+
+//Load the Server
+LOAD_SERVER te_naptunittest
+
+START_TESTCASE                NET-tcpiputils-networkaddressandporttranslation-test1
+//! @SYMTestCaseID              NET-tcpiputils-networkaddressandporttranslation-test1
+//! @SYMTestCaseDesc            Start Public and Private interfaces
+//! @SYMTestPriority            Low
+//! @SYMTestActions             Load te_naptunittest test server
+//!                             Issue the commands as mentioned below.
+//! @SYMTestExpectedResults     Public and Private interfaces started successfully.
+//! @SYMTestType                UT
+//! @SYMCreationDate            15/07/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_naptunittest 100 z:\testdata\configs\te_naptunittest.ini
+		CREATE_OBJECT NaptUnitTestTestWrapper naptunittest_test1
+		COMMAND naptunittest_test1 BringUpIfs test1
+		COMMAND naptunittest_test1 OpenSockets test1
+		COMMAND naptunittest_test1 ConfigureNapt test1
+		COMMAND naptunittest_test1 CloseSockets test1
+		COMMAND naptunittest_test1 CloseIfs test1
+	END_TEST_BLOCK
+END_TESTCASE                  NET-tcpiputils-networkaddressandporttranslation-test1
+
+START_TESTCASE                NET-tcpiputils-networkaddressandporttranslation-test2
+//! @SYMTestCaseID              NET-tcpiputils-networkaddressandporttranslation-test2
+//! @SYMTestCaseDesc            Disable Uplink using SetOpt
+//! @SYMTestPriority            Low
+//! @SYMTestActions             Load te_naptunittest test server
+//!                             Issue the commands as mentioned below.
+//! @SYMTestExpectedResults     Uplink access disabled.
+//! @SYMTestType                UT
+//! @SYMCreationDate            15/07/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_naptunittest 100 z:\testdata\configs\te_naptunittest.ini
+		CREATE_OBJECT NaptUnitTestTestWrapper naptunittest_test2
+		COMMAND naptunittest_test2 BringUpIfs test2
+		COMMAND naptunittest_test2 OpenSockets test2
+		COMMAND naptunittest_test2 ConfigureNaptCustom test2
+		COMMAND naptunittest_test2 CloseSockets test2
+		COMMAND naptunittest_test2 CloseIfs test2
+	END_TEST_BLOCK
+END_TESTCASE                  NET-tcpiputils-networkaddressandporttranslation-test2
+
+START_TESTCASE                NET-tcpiputils-networkaddressandporttranslation-test3
+//! @SYMTestCaseID              NET-tcpiputils-networkaddressandporttranslation-test3
+//! @SYMTestCaseDesc            Change Option Name from  KSoNaptSetup to KSoNaptUplink
+//! @SYMTestPriority            Low
+//! @SYMTestActions             Load te_naptunittest test server
+//!                             Issue the commands as mentioned below.
+//! @SYMTestExpectedResults     Since it is not supported Expect KerrArgument.
+//! @SYMTestType                UT
+//! @SYMCreationDate            15/07/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_naptunittest 100 z:\testdata\configs\te_naptunittest.ini
+		CREATE_OBJECT NaptUnitTestTestWrapper naptunittest_test3
+		COMMAND naptunittest_test3 BringUpIfs test3
+		COMMAND naptunittest_test3 OpenSockets test3
+		COMMAND !Error=-6 naptunittest_test3 ConfigureNaptCustom test3
+		COMMAND naptunittest_test3 CloseSockets test3
+		COMMAND naptunittest_test3 CloseIfs test3
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-tcpiputils-networkaddressandporttranslation-test3
+
+START_TESTCASE                NET-tcpiputils-networkaddressandporttranslation-test4
+//! @SYMTestCaseID              NET-tcpiputils-networkaddressandporttranslation-test4
+//! @SYMTestCaseDesc            Change Option Name from  KSoNaptSetup to KSoNaptProvision
+//! @SYMTestPriority            Low
+//! @SYMTestActions             Load te_naptunittest test server
+//!                             Issue the commands as mentioned below.
+//! @SYMTestExpectedResults     SetOpt must complete with KErrNone.
+//! @SYMTestType                UT
+//! @SYMCreationDate            15/07/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_naptunittest 100 z:\testdata\configs\te_naptunittest.ini
+		CREATE_OBJECT NaptUnitTestTestWrapper naptunittest_test4
+		COMMAND naptunittest_test4 BringUpIfs test4
+		COMMAND naptunittest_test4 OpenSockets test4
+		COMMAND naptunittest_test4 ConfigureNaptCustom test4
+		COMMAND naptunittest_test4 CloseSockets test4
+		COMMAND naptunittest_test4 CloseIfs test4
+	END_TEST_BLOCK
+END_TESTCASE                  NET-tcpiputils-networkaddressandporttranslation-test4
+
+START_TESTCASE                NET-tcpiputils-networkaddressandporttranslation-test5
+//! @SYMTestCaseID              NET-tcpiputils-networkaddressandporttranslation-test5
+//! @SYMTestCaseDesc            Test GetOpt
+//! @SYMTestPriority            Low
+//! @SYMTestActions             Load te_naptunittest test server
+//!                             Issue the commands as mentioned below.
+//! @SYMTestExpectedResults     GetOpt must complete with KErrNone.
+//! @SYMTestType                UT
+//! @SYMCreationDate            15/07/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_naptunittest 100 z:\testdata\configs\te_naptunittest.ini
+		CREATE_OBJECT NaptUnitTestTestWrapper naptunittest_test5
+		COMMAND naptunittest_test5 BringUpIfs test5
+		COMMAND naptunittest_test5 OpenSockets test5
+		COMMAND naptunittest_test5 ConfigureNaptCustom test5
+		COMMAND naptunittest_test5 GetOpt test5
+		COMMAND naptunittest_test5 CloseSockets test5
+		COMMAND naptunittest_test5 CloseIfs test5
+	END_TEST_BLOCK
+END_TESTCASE                  NET-tcpiputils-networkaddressandporttranslation-test5
+
+START_TESTCASE                NET-tcpiputils-networkaddressandporttranslation-test6
+//! @SYMTestCaseID              NET-tcpiputils-networkaddressandporttranslation-test6
+//! @SYMTestCaseDesc            Test GetOpt, NAPT configured with unavailable private IAP.
+//! @SYMTestPriority            Low
+//! @SYMTestActions             Load te_naptunittest test server
+//!                             Issue the commands as mentioned below.
+//! @SYMTestExpectedResults     GetOpt must complete with KErrNotFound.
+//! @SYMTestType                UT
+//! @SYMCreationDate            15/07/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_naptunittest 100 z:\testdata\configs\te_naptunittest.ini
+		CREATE_OBJECT NaptUnitTestTestWrapper naptunittest_test6
+		COMMAND naptunittest_test6 BringUpIfs test6
+		COMMAND naptunittest_test6 OpenSockets test6
+		COMMAND naptunittest_test6 ConfigureNapt test6
+		COMMAND !Error=-1 naptunittest_test6 GetOpt test6_1
+		COMMAND naptunittest_test6 CloseSockets test6
+		COMMAND naptunittest_test6 CloseIfs test6
+	END_TEST_BLOCK
+END_TESTCASE                  NET-tcpiputils-networkaddressandporttranslation-test6
+
+
+START_TESTCASE                NET-tcpiputils-networkaddressandporttranslation-test7
+//! @SYMTestCaseID              NET-tcpiputils-networkaddressandporttranslation-test7
+//! @SYMTestCaseDesc            Test GetOpt, pass invalid name to GetOpt.
+//! @SYMTestPriority            Low
+//! @SYMTestActions             Load te_naptunittest test server
+//!                             Issue the commands as mentioned below.
+//! @SYMTestExpectedResults     GetOpt must complete with KErrArgument.
+//! @SYMTestType                UT
+//! @SYMCreationDate            15/07/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_naptunittest 100 z:\testdata\configs\te_naptunittest.ini
+		CREATE_OBJECT NaptUnitTestTestWrapper naptunittest_test7
+		COMMAND naptunittest_test7 BringUpIfs test7
+		COMMAND naptunittest_test7 OpenSockets test7
+		COMMAND naptunittest_test7 ConfigureNapt test7
+		COMMAND !Error=-6 naptunittest_test7 GetOpt test7
+		COMMAND naptunittest_test7 CloseSockets test7
+		COMMAND naptunittest_test7 CloseIfs test7
+	END_TEST_BLOCK
+END_TESTCASE                  NET-tcpiputils-networkaddressandporttranslation-test7
+
+
+START_TESTCASE                NET-tcpiputils-networkaddressandporttranslation-test8
+//! @SYMTestCaseID              NET-tcpiputils-networkaddressandporttranslation-test8
+//! @SYMTestCaseDesc            Pass invalid size buffer as argument to NAPT SetOpt.
+//! @SYMTestPriority            Low
+//! @SYMTestActions             Load te_naptunittest test server
+//!                             Issue the commands as mentioned below.
+//! @SYMTestExpectedResults     Expect KErrArgument error.
+//! @SYMTestType                UT
+//! @SYMCreationDate            15/07/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_naptunittest 100 z:\testdata\configs\te_naptunittest.ini
+		CREATE_OBJECT NaptUnitTestTestWrapper naptunittest_test1
+		COMMAND naptunittest_test1 BringUpIfs test1
+		COMMAND naptunittest_test1 OpenSockets test1
+		COMMAND !Error=-6 naptunittest_test1 ConfigureNaptWithInvalidBuffer test1
+		COMMAND naptunittest_test1 CloseSockets test1
+		COMMAND naptunittest_test1 CloseIfs test1
+	END_TEST_BLOCK
+END_TESTCASE                  NET-tcpiputils-networkaddressandporttranslation-test8
+
+
+START_TESTCASE                NET-tcpiputils-networkaddressandporttranslation-test9
+//! @SYMTestCaseID              NET-tcpiputils-networkaddressandporttranslation-test9
+//! @SYMTestCaseDesc            Call SAP GetOpt before configuring.
+//! @SYMTestPriority            Low
+//! @SYMTestActions             Load te_naptunittest test server
+//!                             Issue the commands as mentioned below.
+//! @SYMTestExpectedResults     Expect KErrArgument error.
+//! @SYMTestType                UT
+//! @SYMCreationDate            15/07/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_naptunittest 100 z:\testdata\configs\te_naptunittest.ini
+		CREATE_OBJECT NaptUnitTestTestWrapper naptunittest_test1
+		COMMAND naptunittest_test1 ConnectSocketServ test1
+		COMMAND naptunittest_test1 OpenNaptSocket test1
+		COMMAND !Error=-1 naptunittest_test1 GetOpt test1
+		COMMAND naptunittest_test1 CloseSockets test1
+		COMMAND naptunittest_test1 CloseSocketServ test1
+	END_TEST_BLOCK
+END_TESTCASE                  NET-tcpiputils-networkaddressandporttranslation-test9
+
+START_TESTCASE                NET-tcpiputils-networkaddressandporttranslation-test10
+//! @SYMTestCaseID              NET-tcpiputils-networkaddressandporttranslation-test10
+//! @SYMTestCaseDesc            Pass invalid size buffer as argument to NAPT GetOpt.
+//! @SYMTestPriority            Low
+//! @SYMTestActions             Load te_naptunittest test server
+//!                             Issue the commands as mentioned below.
+//! @SYMTestExpectedResults     Expect KErrArgument error.
+//! @SYMTestType                UT
+//! @SYMCreationDate            15/07/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_naptunittest 100 z:\testdata\configs\te_naptunittest.ini
+		CREATE_OBJECT NaptUnitTestTestWrapper naptunittest_test1
+		COMMAND naptunittest_test1 ConnectSocketServ test1
+		COMMAND naptunittest_test1 OpenNaptSocket test1
+		COMMAND !Error=-6 naptunittest_test1 GetOptWithInvalidBuffer test1
+		COMMAND naptunittest_test1 CloseSockets test1
+		COMMAND naptunittest_test1 CloseSocketServ test1
+	END_TEST_BLOCK
+END_TESTCASE                  NET-tcpiputils-networkaddressandporttranslation-test10
+
+START_TESTCASE                NET-tcpiputils-networkaddressandporttranslation-test11
+//! @SYMTestCaseID              NET-tcpiputils-networkaddressandporttranslation-test11
+//! @SYMTestCaseDesc            Load NAPT using default time out value.
+//! @SYMTestPriority            Low
+//! @SYMTestActions             Load te_naptunittest test server
+																Remove the ini file from c:\private\101f7989\esock\napt.ini.
+//!                             Issue the commands as mentioned below.
+//! @SYMTestExpectedResults     Napt must be loaded successfully with default timer value.
+//! @SYMTestType                UT
+//! @SYMCreationDate            15/07/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+RUN_UTILS  MkDir c:\NaptTemp\
+RUN_UTILS  MakeReadWrite c:\private\101F7989\esock\napt.ini
+RUN_UTILS  CopyFile c:\private\101f7989\ESock\napt.ini c:\NaptTemp\napt.ini
+RUN_UTILS  DeleteFile c:\private\101f7989\ESock\napt.ini
+
+	START_TEST_BLOCK te_naptunittest 100 z:\testdata\configs\te_naptunittest.ini
+		CREATE_OBJECT NaptUnitTestTestWrapper naptunittest_test1
+		COMMAND naptunittest_test1 BringUpIfs test1
+		COMMAND naptunittest_test1 OpenSockets test1
+		COMMAND naptunittest_test1 ConfigureNapt test1
+		COMMAND naptunittest_test1 CloseSockets test1
+		COMMAND naptunittest_test1 CloseIfs test1
+	END_TEST_BLOCK
+
+RUN_UTILS  CopyFile c:\NaptTemp\napt.ini c:\private\101F7989\esock\napt.ini
+RUN_UTILS  DeleteFile c:\NaptTemp\napt.ini
+END_TESTCASE                  NET-tcpiputils-networkaddressandporttranslation-test11
+
+START_TESTCASE                NET-tcpiputils-networkaddressandporttranslation-test12
+//! @SYMTestCaseID              NET-tcpiputils-networkaddressandporttranslation-test12
+//! @SYMTestCaseDesc            Load NAPT using default time out value.
+//! @SYMTestPriority            Low
+//! @SYMTestActions             Load te_naptunittest test server
+																Remove all the contents from c:\private\101f7989\esock\napt.ini.
+//!                             Issue the commands as mentioned below.
+//! @SYMTestExpectedResults     Napt must be loaded successfully with default timer value.
+//! @SYMTestType                UT
+//! @SYMCreationDate            15/07/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+RUN_UTILS  MakeReadWrite c:\private\101F7989\esock\napt.ini
+RUN_UTILS  CopyFile c:\private\101f7989\ESock\napt.ini c:\NaptTemp\napt.ini
+RUN_UTILS  CopyFile z:\testdata\configs\te_naptunitest_empty.ini c:\private\101f7989\ESock\napt.ini
+
+	START_TEST_BLOCK te_naptunittest 100 z:\testdata\configs\te_naptunittest.ini
+		CREATE_OBJECT NaptUnitTestTestWrapper naptunittest_test1
+		COMMAND naptunittest_test1 BringUpIfs test1
+		COMMAND naptunittest_test1 OpenSockets test1
+		COMMAND naptunittest_test1 ConfigureNapt test1
+		COMMAND naptunittest_test1 CloseSockets test1
+		COMMAND naptunittest_test1 CloseIfs test1
+	END_TEST_BLOCK
+
+RUN_UTILS  CopyFile c:\NaptTemp\napt.ini c:\private\101F7989\esock\napt.ini
+RUN_UTILS  DeleteFile c:\NaptTemp\napt.ini
+END_TESTCASE                  NET-tcpiputils-networkaddressandporttranslation-test12
+
+START_TESTCASE                NET-tcpiputils-networkaddressandporttranslation-test13
+//! @SYMTestCaseID              NET-tcpiputils-networkaddressandporttranslation-test13
+//! @SYMTestCaseDesc            Load NAPT using default time out value.
+//! @SYMTestPriority            Low
+//! @SYMTestActions             Load te_naptunittest test server
+																Initialize few timers to 0 and few to 0x80000000 c:\private\101f7989\esock\napt.ini.
+//!                             Issue the commands as mentioned below.
+//! @SYMTestExpectedResults     Napt must be loaded successfully with default timer value.
+//! @SYMTestType                UT
+//! @SYMCreationDate            15/07/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+RUN_UTILS  MakeReadWrite c:\private\101F7989\esock\napt.ini
+RUN_UTILS  CopyFile c:\private\101f7989\ESock\napt.ini c:\NaptTemp\napt.ini
+RUN_UTILS  CopyFile z:\testdata\configs\te_naptunittest_min_max.ini c:\private\101f7989\ESock\napt.ini
+
+	START_TEST_BLOCK te_naptunittest 100 z:\testdata\configs\te_naptunittest.ini
+		CREATE_OBJECT NaptUnitTestTestWrapper naptunittest_test1
+		COMMAND naptunittest_test1 BringUpIfs test1
+		COMMAND naptunittest_test1 OpenSockets test1
+		COMMAND naptunittest_test1 ConfigureNapt test1
+		COMMAND naptunittest_test1 CloseSockets test1
+		COMMAND naptunittest_test1 CloseIfs test1
+	END_TEST_BLOCK
+
+RUN_UTILS  CopyFile c:\NaptTemp\napt.ini c:\private\101F7989\esock\napt.ini
+RUN_UTILS  DeleteFile c:\NaptTemp\napt.ini
+END_TESTCASE                  NET-tcpiputils-networkaddressandporttranslation-test13
+
+START_TESTCASE                NET-tcpiputils-networkaddressandporttranslation-test14
+//! @SYMTestCaseID              NET-tcpiputils-networkaddressandporttranslation-test14
+//! @SYMTestCaseDesc            Configure NAPT for wrong IAP
+//! @SYMTestPriority            Low
+//! @SYMTestActions             Load te_naptunittest test server
+//!                             Issue the commands as mentioned below.
+//! @SYMTestExpectedResults     Expect KErrBadName error, because wrong IAP name would be found.
+//! @SYMTestType                UT
+//! @SYMCreationDate            15/07/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_naptunittest 100 z:\testdata\configs\te_naptunittest.ini
+		CREATE_OBJECT NaptUnitTestTestWrapper naptunittest_test14
+		COMMAND naptunittest_test14 ConnectSocketServ test14
+		COMMAND naptunittest_test14 OpenNaptSocket test14
+		COMMAND !Error=-28 naptunittest_test14 ConfigureNaptCustom test14
+		COMMAND naptunittest_test14 CloseSockets test14
+		COMMAND naptunittest_test14 CloseSocketServ test14
+	END_TEST_BLOCK
+END_TESTCASE                  NET-tcpiputils-networkaddressandporttranslation-test14
+
+START_TESTCASE                NET-tcpiputils-networkaddressandporttranslation-test15
+//! @SYMTestCaseID              NET-tcpiputils-networkaddressandporttranslation-test15
+//! @SYMTestCaseDesc            Configure NAPT with wrong OptionLevel
+//! @SYMTestPriority            Low
+//! @SYMTestActions             Load te_naptunittest test server
+//!                             Issue the commands as mentioned below.
+//! @SYMTestExpectedResults     Expect KErrArgument error.
+//! @SYMTestType                UT
+//! @SYMCreationDate            15/07/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_naptunittest 100 z:\testdata\configs\te_naptunittest.ini
+		CREATE_OBJECT NaptUnitTestTestWrapper naptunittest_test15
+		COMMAND naptunittest_test15 ConnectSocketServ test15
+		COMMAND naptunittest_test15 OpenNaptSocket test15
+		COMMAND !Error=-6 naptunittest_test15 ConfigureNaptCustom test15
+		COMMAND naptunittest_test15 CloseSockets test15
+		COMMAND naptunittest_test15 CloseSocketServ test15
+	END_TEST_BLOCK
+END_TESTCASE                  NET-tcpiputils-networkaddressandporttranslation-test15
+
+START_TESTCASE                NET-tcpiputils-networkaddressandporttranslation-test16
+//! @SYMTestCaseID              NET-tcpiputils-networkaddressandporttranslation-test16
+//! @SYMTestCaseDesc            Configure NAPT, again configure with same interface index.
+//! @SYMTestPriority            Low
+//! @SYMTestActions             Load te_naptunittest test server
+//!                             Issue the commands as mentioned below.
+//! @SYMTestExpectedResults     Expect KErrNone error.
+//! @SYMTestType                UT
+//! @SYMCreationDate            15/07/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_naptunittest 100 z:\testdata\configs\te_naptunittest.ini
+		CREATE_OBJECT NaptUnitTestTestWrapper naptunittest_test1
+		COMMAND naptunittest_test1 ConnectSocketServ test1
+		COMMAND naptunittest_test1 OpenNaptSocket test1
+		COMMAND naptunittest_test1 ConfigureNaptCustom test1
+		COMMAND naptunittest_test1 ConfigureNaptCustom test1
+		COMMAND naptunittest_test1 CloseSockets test1
+		COMMAND naptunittest_test1 CloseSocketServ test1
+	END_TEST_BLOCK
+END_TESTCASE                  NET-tcpiputils-networkaddressandporttranslation-test16
+
+
+# Stop all interfaces and unload esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_stopallinterfaces.script
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script

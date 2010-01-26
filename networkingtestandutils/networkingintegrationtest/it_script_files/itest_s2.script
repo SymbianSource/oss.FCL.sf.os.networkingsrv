@@ -1,0 +1,35 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+
+///
+PRINT Integration test scripts section 2 HSCSD bearer
+
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+RUN_SCRIPT z:\testdata\scripts\te_esock_test_loadesock.script
+
+// load the required dlls
+LOAD_SUITE TE_Esock
+
+
+// configure commdb for HSCSD bearer
+// use ced to make the required database
+run_script z:\testdata\scripts\integration\itest_s2\load_hscsd.script
+
+run_script z:\testdata\scripts\integration\itest_s2\itest2_01.script
+
+run_script z:\TestData\scripts\te_esock_test_unloadesockForced.script
+

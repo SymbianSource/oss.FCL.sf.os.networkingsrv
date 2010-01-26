@@ -1,0 +1,181 @@
+EXPORTS
+	_ZN10RPacketQoS10OpenNewQoSER14RPacketContextR6TDes16 @ 1 NONAME
+	_ZN10RPacketQoS12TQoSCapsGPRSC1Ev @ 2 NONAME
+	_ZN10RPacketQoS12TQoSCapsGPRSC2Ev @ 3 NONAME
+	_ZN10RPacketQoS14TQoSCapsR99_R4C1Ev @ 4 NONAME
+	_ZN10RPacketQoS14TQoSCapsR99_R4C2Ev @ 5 NONAME
+	_ZN10RPacketQoS15OpenExistingQoSER14RPacketContextR7TDesC16 @ 6 NONAME
+	_ZN10RPacketQoS17TQoSGPRSRequestedC1Ev @ 7 NONAME
+	_ZN10RPacketQoS17TQoSGPRSRequestedC2Ev @ 8 NONAME
+	_ZN10RPacketQoS19TQoSR99_R4RequestedC1Ev @ 9 NONAME
+	_ZN10RPacketQoS19TQoSR99_R4RequestedC2Ev @ 10 NONAME
+	_ZN10RPacketQoS5CloseEv @ 11 NONAME
+	_ZN10RPacketQoSC1Ev @ 12 NONAME
+	_ZN10RPacketQoSC2Ev @ 13 NONAME
+	_ZN10RPacketQoSD1Ev @ 14 NONAME
+	_ZN10RPacketQoSD2Ev @ 15 NONAME
+	_ZN12RUmtsSimServ5CloseEv @ 16 NONAME
+	_ZN12RUmtsSimServ7ConnectEv @ 17 NONAME
+	_ZN12RUmtsSimServC1Ev @ 18 NONAME
+	_ZN12RUmtsSimServC2Ev @ 19 NONAME
+	_ZN14RPacketContext10TDnsInfoV2C1Ev @ 20 NONAME
+	_ZN14RPacketContext10TDnsInfoV2C2Ev @ 21 NONAME
+	_ZN14RPacketContext14OpenNewContextER14RPacketServiceR6TDes16 @ 22 NONAME
+	_ZN14RPacketContext18NotifyStatusChangeER14TRequestStatusRNS_14TContextStatusE @ 23 NONAME
+	_ZN14RPacketContext18TContextConfigGPRSC1Ev @ 24 NONAME
+	_ZN14RPacketContext18TContextConfigGPRSC2Ev @ 25 NONAME
+	_ZN14RPacketContext19OpenExistingContextER14RPacketServiceRK7TDesC16 @ 26 NONAME
+	_ZN14RPacketContext23OpenNewSecondaryContextER14RPacketServiceRK7TDesC16R6TDes16 @ 27 NONAME
+	_ZN14RPacketContext23TProtocolConfigOptionV2C1Ev @ 28 NONAME
+	_ZN14RPacketContext23TProtocolConfigOptionV2C2Ev @ 29 NONAME
+	_ZN14RPacketContext5CloseEv @ 30 NONAME
+	_ZN14RPacketContextC1Ev @ 31 NONAME
+	_ZN14RPacketContextC2Ev @ 32 NONAME
+	_ZN14RPacketContextD1Ev @ 33 NONAME
+	_ZN14RPacketContextD2Ev @ 34 NONAME
+	_ZN14RPacketService4OpenER12RUmtsSimServ @ 35 NONAME
+	_ZN14RPacketService5CloseEv @ 36 NONAME
+	_ZN14RPacketServiceC1Ev @ 37 NONAME
+	_ZN14RPacketServiceC2Ev @ 38 NONAME
+	_ZN14RPacketServiceD1Ev @ 39 NONAME
+	_ZN14RPacketServiceD2Ev @ 40 NONAME
+	_ZN17CControlNotifyAll11MakeRequestEPFvRK7TDesC16PvES3_ @ 41 NONAME
+	_ZN17CControlNotifyAll13CancelRequestEv @ 42 NONAME
+	_ZN17CControlNotifyAll4NewLEP8RControl @ 43 NONAME
+	_ZN17CControlNotifyAllD0Ev @ 44 NONAME
+	_ZN17CControlNotifyAllD1Ev @ 45 NONAME
+	_ZN17CControlNotifyAllD2Ev @ 46 NONAME
+	_ZN20CPacketServiceStatus11MakeRequestEPFvRKN14RPacketService7TStatusEPvES4_ @ 47 NONAME
+	_ZN20CPacketServiceStatus13CancelRequestEv @ 48 NONAME
+	_ZN20CPacketServiceStatus4NewLEP14RPacketService @ 49 NONAME
+	_ZN20CPacketServiceStatusD0Ev @ 50 NONAME
+	_ZN20CPacketServiceStatusD1Ev @ 51 NONAME
+	_ZN20CPacketServiceStatusD2Ev @ 52 NONAME
+	_ZN8RControl4OpenER12RUmtsSimServ @ 53 NONAME
+	_ZN8RControl5CloseEv @ 54 NONAME
+	_ZN8RControlC1Ev @ 55 NONAME
+	_ZN8RControlC2Ev @ 56 NONAME
+	_ZN8RControlD1Ev @ 57 NONAME
+	_ZN8RControlD2Ev @ 58 NONAME
+	_ZNK10RPacketQoS18CancelAsyncRequestEi @ 59 NONAME
+	_ZNK10RPacketQoS20GetProfileParametersER14TRequestStatusR5TDes8 @ 60 NONAME
+	_ZNK10RPacketQoS20NotifyProfileChangedER14TRequestStatusR5TDes8 @ 61 NONAME
+	_ZNK10RPacketQoS20SetProfileParametersER14TRequestStatusR5TDes8 @ 62 NONAME
+	_ZNK12RUmtsSimServ7VersionEv @ 63 NONAME
+	_ZNK14RPacketContext10DeactivateER14TRequestStatus @ 64 NONAME
+	_ZNK14RPacketContext15AddPacketFilterER14TRequestStatusRK6TDesC8 @ 65 NONAME
+	_ZNK14RPacketContext17InitialiseContextER14TRequestStatusR5TDes8 @ 66 NONAME
+	_ZNK14RPacketContext18CancelAsyncRequestEi @ 67 NONAME
+	_ZNK14RPacketContext18RemovePacketFilterER14TRequestStatusi @ 68 NONAME
+	_ZNK14RPacketContext19GetPacketFilterInfoER14TRequestStatusiR5TDes8 @ 69 NONAME
+	_ZNK14RPacketContext19ModifyActiveContextER14TRequestStatus @ 70 NONAME
+	_ZNK14RPacketContext19NotifyConfigChangedER14TRequestStatusR5TDes8 @ 71 NONAME
+	_ZNK14RPacketContext22EnumeratePacketFiltersER14TRequestStatusRi @ 72 NONAME
+	_ZNK14RPacketContext6DeleteER14TRequestStatus @ 73 NONAME
+	_ZNK14RPacketContext8ActivateER14TRequestStatus @ 74 NONAME
+	_ZNK14RPacketContext9GetConfigER14TRequestStatusR5TDes8 @ 75 NONAME
+	_ZNK14RPacketContext9GetStatusERNS_14TContextStatusE @ 76 NONAME
+	_ZNK14RPacketContext9SetConfigER14TRequestStatusRK6TDesC8 @ 77 NONAME
+	_ZNK14RPacketService10GetNifInfoER14TRequestStatusiR5TDes8 @ 78 NONAME
+	_ZNK14RPacketService13EnumerateNifsER14TRequestStatusRi @ 79 NONAME
+	_ZNK14RPacketService14GetContextInfoER14TRequestStatusiRNS_12TContextInfoE @ 80 NONAME
+	_ZNK14RPacketService17EnumerateContextsER14TRequestStatusRiS2_ @ 81 NONAME
+	_ZNK14RPacketService18CancelAsyncRequestEi @ 82 NONAME
+	_ZNK14RPacketService18NotifyContextAddedER14TRequestStatusR6TDes16 @ 83 NONAME
+	_ZNK14RPacketService18NotifyStatusChangeER14TRequestStatusRNS_7TStatusE @ 84 NONAME
+	_ZNK14RPacketService19GetContextNameInNifER14TRequestStatusRK7TDesC16iR6TDes16 @ 85 NONAME
+	_ZNK14RPacketService22EnumerateContextsInNifER14TRequestStatusRK7TDesC16Ri @ 86 NONAME
+	_ZNK14RPacketService6AttachER14TRequestStatus @ 87 NONAME
+	_ZNK14RPacketService6DetachER14TRequestStatus @ 88 NONAME
+	_ZNK14RPacketService9GetStatusERNS_7TStatusE @ 89 NONAME
+	_ZNK8RControl14ConfigureEventERK7TDesC16 @ 90 NONAME
+	_ZNK8RControl18CancelAsyncRequestEi @ 91 NONAME
+	_ZNK8RControl20ReconfigureSimulatorERK7TDesC16i @ 92 NONAME
+	_ZNK8RControl20ReconfigureSimulatorEi @ 93 NONAME
+	_ZNK8RControl23ConfigureRequestHandlerERK7TDesC16 @ 94 NONAME
+	_ZNK8RControl9NotifyAllER14TRequestStatusR6TDes16 @ 95 NONAME
+	_ZTI17CControlNotifyAll @ 96 NONAME ; #<TI>#
+	_ZTI20CPacketServiceStatus @ 97 NONAME ; #<TI>#
+	_ZTI22CPacketQoSInternalData @ 98 NONAME ; #<TI>#
+	_ZTI26CPacketContextInternalData @ 99 NONAME ; #<TI>#
+	_ZTI26CPacketServiceInternalData @ 100 NONAME ; #<TI>#
+	_ZTV17CControlNotifyAll @ 101 NONAME ; #<VT>#
+	_ZTV20CPacketServiceStatus @ 102 NONAME ; #<VT>#
+	_ZTV22CPacketQoSInternalData @ 103 NONAME ; #<VT>#
+	_ZTV26CPacketContextInternalData @ 104 NONAME ; #<VT>#
+	_ZTV26CPacketServiceInternalData @ 105 NONAME ; #<VT>#
+	_ZN14RPacketContext24CTFTMediaAuthorizationV312InternalizeLER5TDes8 @ 106 NONAME
+	_ZN14RPacketContext24CTFTMediaAuthorizationV34NewLEv @ 107 NONAME
+	_ZN14RPacketContext24CTFTMediaAuthorizationV3D0Ev @ 108 NONAME
+	_ZN14RPacketContext24CTFTMediaAuthorizationV3D1Ev @ 109 NONAME
+	_ZN14RPacketContext24CTFTMediaAuthorizationV3D2Ev @ 110 NONAME
+	_ZNK14RPacketContext24CTFTMediaAuthorizationV311ExtensionIdEv @ 111 NONAME
+	_ZNK14RPacketContext24CTFTMediaAuthorizationV312ExternalizeLERP6HBufC8 @ 112 NONAME
+	_ZTIN14RPacketContext24CTFTMediaAuthorizationV3E @ 113 NONAME ; #<TI>#
+	_ZTVN14RPacketContext24CTFTMediaAuthorizationV3E @ 114 NONAME ; #<VT>#
+	_Z11PanicClienti @ 115 NONAME
+	_ZN14RPacketContext18TPcoItemDataLength12InternalizeLER6TDesC8 @ 116 NONAME
+	_ZN14RPacketContext18TPcoItemDataLength13SetDataLengthEj @ 117 NONAME
+	_ZN14RPacketContext18TPcoItemDataLengthC1Eh @ 118 NONAME
+	_ZN14RPacketContext18TPcoItemDataLengthC1Ev @ 119 NONAME
+	_ZN14RPacketContext18TPcoItemDataLengthC2Eh @ 120 NONAME
+	_ZN14RPacketContext18TPcoItemDataLengthC2Ev @ 121 NONAME
+	_ZN14RPacketContext6TPcoId12InternalizeLER6TDesC8 @ 122 NONAME
+	_ZN14RPacketContext6TPcoId5SetIdEt @ 123 NONAME
+	_ZN14RPacketContext6TPcoIdC1Et @ 124 NONAME
+	_ZN14RPacketContext6TPcoIdC1Ev @ 125 NONAME
+	_ZN14RPacketContext6TPcoIdC2Et @ 126 NONAME
+	_ZN14RPacketContext6TPcoIdC2Ev @ 127 NONAME
+	_ZN14TTlvStructBase11AppendItemLER14MTlvItemIdTypeR22MTlvItemDataLengthTypeRK5TPtr8 @ 128 NONAME
+	_ZN14TTlvStructBase12AnyNextItemLER14MTlvItemIdTypeR5TPtr8S1_R22MTlvItemDataLengthType @ 129 NONAME
+	_ZN14TTlvStructBase14ResetCursorPosEv @ 130 NONAME
+	_ZN14TTlvStructBase15RemoveNextItemLER14MTlvItemIdTypeS1_R22MTlvItemDataLengthType @ 131 NONAME
+	_ZN14TTlvStructBase9NextItemLERK14MTlvItemIdTypeR5TPtr8RS0_R22MTlvItemDataLengthType @ 132 NONAME
+	_ZN14TTlvStructBaseC1ER5TPtr8h @ 133 NONAME
+	_ZN14TTlvStructBaseC2ER5TPtr8h @ 134 NONAME
+	_ZN18RTelSubSessionBaseC1Ev @ 135 NONAME
+	_ZN18RTelSubSessionBaseC2Ev @ 136 NONAME
+	_ZNK14RPacketContext18TPcoItemDataLength10DataLengthEv @ 137 NONAME
+	_ZNK14RPacketContext18TPcoItemDataLength12ExternalizeLER5TDes8 @ 138 NONAME
+	_ZNK14RPacketContext18TPcoItemDataLength16SerializedLengthEv @ 139 NONAME
+	_ZNK14RPacketContext6TPcoId12ExternalizeLER5TDes8 @ 140 NONAME
+	_ZNK14RPacketContext6TPcoId16SerializedLengthEv @ 141 NONAME
+	_ZNK14RPacketContext6TPcoId2IdEv @ 142 NONAME
+	_ZNK14RPacketContext6TPcoId7IsEqualERK14MTlvItemIdType @ 143 NONAME
+	_ZNK18RTelSubSessionBase16CancelSubSessionEv @ 144 NONAME
+	_ZNK18RTelSubSessionBase18CancelAsyncRequestEi @ 145 NONAME
+	_ZNK18RTelSubSessionBase3GetEiR14TRequestStatusR5TDes8NS_16TReqPriorityTypeE @ 146 NONAME
+	_ZNK18RTelSubSessionBase3GetEiR14TRequestStatusR5TDes8R6TDes16NS_16TReqPriorityTypeE @ 147 NONAME
+	_ZNK18RTelSubSessionBase3GetEiR14TRequestStatusR5TDes8S3_NS_16TReqPriorityTypeE @ 148 NONAME
+	_ZNK18RTelSubSessionBase3GetEiR14TRequestStatusR6TDes16NS_16TReqPriorityTypeE @ 149 NONAME
+	_ZNK18RTelSubSessionBase3GetEiR14TRequestStatusR6TDes16S3_NS_16TReqPriorityTypeE @ 150 NONAME
+	_ZNK18RTelSubSessionBase3GetEiR5TDes8NS_16TReqPriorityTypeE @ 151 NONAME
+	_ZNK18RTelSubSessionBase3GetEiR5TDes8R6TDes16NS_16TReqPriorityTypeE @ 152 NONAME
+	_ZNK18RTelSubSessionBase3GetEiR5TDes8S1_NS_16TReqPriorityTypeE @ 153 NONAME
+	_ZNK18RTelSubSessionBase3GetEiR6TDes16NS_16TReqPriorityTypeE @ 154 NONAME
+	_ZNK18RTelSubSessionBase3GetEiR6TDes16S1_NS_16TReqPriorityTypeE @ 155 NONAME
+	_ZNK18RTelSubSessionBase3SetEiR14TRequestStatusRK6TDesC8NS_16TReqPriorityTypeE @ 156 NONAME
+	_ZNK18RTelSubSessionBase3SetEiR14TRequestStatusRK6TDesC8RK7TDesC16NS_16TReqPriorityTypeE @ 157 NONAME
+	_ZNK18RTelSubSessionBase3SetEiR14TRequestStatusRK6TDesC8S4_NS_16TReqPriorityTypeE @ 158 NONAME
+	_ZNK18RTelSubSessionBase3SetEiR14TRequestStatusRK7TDesC16NS_16TReqPriorityTypeE @ 159 NONAME
+	_ZNK18RTelSubSessionBase3SetEiR14TRequestStatusRK7TDesC16S4_NS_16TReqPriorityTypeE @ 160 NONAME
+	_ZNK18RTelSubSessionBase3SetEiRK5RFileNS_16TReqPriorityTypeE @ 161 NONAME
+	_ZNK18RTelSubSessionBase3SetEiRK6TDesC8NS_16TReqPriorityTypeE @ 162 NONAME
+	_ZNK18RTelSubSessionBase3SetEiRK6TDesC8RK7TDesC16NS_16TReqPriorityTypeE @ 163 NONAME
+	_ZNK18RTelSubSessionBase3SetEiRK6TDesC8S2_NS_16TReqPriorityTypeE @ 164 NONAME
+	_ZNK18RTelSubSessionBase3SetEiRK7TDesC16NS_16TReqPriorityTypeE @ 165 NONAME
+	_ZNK18RTelSubSessionBase3SetEiRK7TDesC16S2_NS_16TReqPriorityTypeE @ 166 NONAME
+	_ZNK18RTelSubSessionBase5BlankEiNS_16TReqPriorityTypeE @ 167 NONAME
+	_ZNK18RTelSubSessionBase5BlankEiR14TRequestStatusNS_16TReqPriorityTypeE @ 168 NONAME
+	_ZNK18RTelSubSessionBase9CancelReqEii @ 169 NONAME
+	_ZNK18RTelSubSessionBase9SetAndGetEiR14TRequestStatusR5TDes8RK7TDesC16NS_16TReqPriorityTypeE @ 170 NONAME
+	_ZNK18RTelSubSessionBase9SetAndGetEiR14TRequestStatusRK6TDesC8R5TDes8NS_16TReqPriorityTypeE @ 171 NONAME
+	_ZNK18RTelSubSessionBase9SetAndGetEiR14TRequestStatusRK6TDesC8R6TDes16NS_16TReqPriorityTypeE @ 172 NONAME
+	_ZNK18RTelSubSessionBase9SetAndGetEiR14TRequestStatusRK7TDesC16R6TDes16NS_16TReqPriorityTypeE @ 173 NONAME
+	_ZTIN14RPacketContext18TPcoItemDataLengthE @ 174 NONAME ; #<TI>#
+	_ZTIN14RPacketContext6TPcoIdE @ 175 NONAME ; #<TI>#
+	_ZTVN14RPacketContext18TPcoItemDataLengthE @ 176 NONAME ; #<VT>#
+	_ZTVN14RPacketContext6TPcoIdE @ 177 NONAME ; #<VT>#
+	_ZN10RPacketQoS15TQoSR5RequestedC1Ev @ 178 NONAME
+	_ZN10RPacketQoS15TQoSR5RequestedC2Ev @ 179 NONAME
+

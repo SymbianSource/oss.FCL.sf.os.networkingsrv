@@ -1,0 +1,49 @@
+// Copyright (c) 2002-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+TARGET                  NTRAS.AGT
+TARGETTYPE              DLL
+UID                     0x10003D39      0x1000022E
+VENDORID 0x70000001
+
+NOEXPORTLIBRARY  /* Ensures that DEF file can be safely shared 
+                    for RVCT builds                            */
+
+SOURCEPATH              ..\ntras
+SOURCE                  chat.cpp commutil.cpp connd.cpp logind.cpp
+SOURCE                  rascon.cpp rasdb.cpp rasdll.cpp rasnif.cpp
+
+USERINCLUDE             ..\ntras
+SYSTEMINCLUDE           \epoc32\include
+
+LIBRARY                 euser.lib esock.lib esocksvr.lib nifman.lib c32.lib
+
+#if defined(WINS)
+deffile    \epoc32\release\wins\agent.def
+#elif defined(GCC32)
+deffile    \epoc32\release\marm\agent.def
+#else
+deffile    \epoc32\include\def\EABI\agent.def
+#endif
+
+START WINS
+BASEADDRESS             0x44600000
+END
+
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+
+UNPAGED
+
+SMPSAFE

@@ -1,0 +1,47 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//
+PRINT Run all Te_Http TestS
+//
+RUN_UTILS MkDir c:\System\
+RUN_UTILS MkDir c:\System\data\
+RUN_UTILS CopyFile z:\TestData\Configs\hosts.te_http c:\System\data\hosts
+RUN_UTILS MakeReadWrite	c:\System\data\hosts
+//
+run_script z:\TestData\scripts\te_esock_test_unloadesockForced.script
+//
+ced -i z:\testdata\configs\te_http.xml te_http.log
+//
+run_script z:\TestData\scripts\te_esock_test_loadesock.script
+//
+LOAD_SUITE Te_Http
+RUN_TEST_STEP 100 Te_Http Init z:\testdata\configs\te_http.ini
+
+START_TESTCASE			NET-Integration-Http-0101
+//! @SYMTestCaseID		NET-Integration-Http-0101
+
+CONCURRENT
+RUN_TEST_STEP 100 Te_Http ServerListen z:\testdata\configs\te_http.ini
+RUN_TEST_STEP 100 Te_Http ClientConnect z:\testdata\configs\te_http.ini
+CONSECUTIVE
+END_TESTCASE			NET-Integration-Http-0101
+
+//
+RUN_UTILS DeleteFile c:\System\data\hosts
+//
+run_script z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+

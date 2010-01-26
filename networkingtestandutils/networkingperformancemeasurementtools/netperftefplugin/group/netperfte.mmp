@@ -1,0 +1,85 @@
+// Copyright (c) 2008-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// Netperf plugin for TEF. Sends/receives data, measures CPU usage, controls profiler
+// 
+//
+
+/**
+ @file
+ @internalTechnology  
+*/
+
+TARGET			netperfte.exe
+
+// NetworkServices because it's using sockets.
+// WriteDeviceData because it needs to define pub/sub properties
+CAPABILITY 		NetworkServices WriteDeviceData
+TARGETTYPE		exe
+UID				0x1000007A 0x10272F46
+VENDORID		0x70000001
+
+SOURCEPATH		../src
+SOURCE			netperfserver.cpp
+SOURCE			netperftest.cpp
+SOURCE			netperfteststep.cpp
+SOURCE			cpusponge.cpp
+SOURCE			netperfreceiver.cpp
+SOURCE			netperfsender.cpp
+SOURCE			iperfudpheader.cpp
+SOURCE			iperfprotocol.cpp
+
+//MACRO			_NETPERF_TRACE
+
+
+USERINCLUDE		../inc
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+SYSTEMINCLUDE	/epoc32/include
+SYSTEMINCLUDE	/epoc32/include/test
+SYSTEMINCLUDE	/epoc32/include/libc
+SYSTEMINCLUDE	/epoc32/include/nkern
+#else
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+SYSTEMINCLUDE	/epoc32/include/platform
+SYSTEMINCLUDE	/epoc32/include/platform/test
+SYSTEMINCLUDE	/epoc32/include/libc
+SYSTEMINCLUDE	/epoc32/include/nkern
+SYSTEMINCLUDE	/epoc32/include/platform/nkern
+USERINCLUDE	../inc
+USERINCLUDE	../../delaymeterproto/inc
+USERINCLUDE	../../delaymeterlibrary/inc
+#endif
+
+LIBRARY			estlib.lib 
+LIBRARY			euser.lib
+LIBRARY			testexecuteutils.lib
+LIBRARY			testexecutelogclient.lib
+
+LIBRARY			esock.lib
+LIBRARY			insock.lib
+LIBRARY 		commdb.lib
+LIBRARY 		hal.lib
+LIBRARY			efsrv.lib
+LIBRARY			netmeta.lib
+LIBRARY			commsfw.lib
+
+LIBRARY commsdat.lib
+
+#ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+LIBRARY nodemessages.lib
+LIBRARY delaymeter.lib
+SMPSAFE
+#endif
+
+// Define this macro to build NetPerf using code more typical of a well-written but not carefully tuned app
+// MACRO SUBOPTIMAL_APP

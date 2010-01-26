@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<relnotes schema="1.0.0" name="Generic Connection Provider Library" purpose="" type="component">
+  <preq number="1405" title="Support for MBMS Broadcast" osproject="Sphinx" revision="001">
+    Generic Parameter Library for SubConnection
+  </preq>
+</relnotes>

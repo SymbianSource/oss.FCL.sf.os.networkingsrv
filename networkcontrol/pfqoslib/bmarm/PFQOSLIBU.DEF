@@ -1,0 +1,129 @@
+EXPORTS
+	__eq__C14TQoSParametersRC14TQoSParameters @ 1 NONAME R3UNUSED ; TQoSParameters::operator==(TQoSParameters const &) const
+	AddAddress__12CPfqosStreamRC9TInetAddrT1UcUs @ 2 NONAME ; CPfqosStream::AddAddress(TInetAddr const &, TInetAddr const &, unsigned char, unsigned short)
+	AddChannel__12CPfqosStreamUl @ 3 NONAME R3UNUSED ; CPfqosStream::AddChannel(unsigned long)
+	AddConfigFile__12CPfqosStreamRC7TDesC16 @ 4 NONAME R3UNUSED ; CPfqosStream::AddConfigFile(TDesC16 const &)
+	AddDstAddress__12CPfqosStreamRC9TInetAddrT1Us @ 5 NONAME ; CPfqosStream::AddDstAddress(TInetAddr const &, TInetAddr const &, unsigned short)
+	AddExtensionHeader__12CPfqosStreamUs @ 6 NONAME R3UNUSED ; CPfqosStream::AddExtensionHeader(unsigned short)
+	AddExtensionL__13TPfqosMessageRC6TDesC8i @ 7 NONAME R3UNUSED ; TPfqosMessage::AddExtensionL(TDesC8 const &, int)
+	AddExtensionL__16CExtensionPolicyR10CExtension @ 8 NONAME R3UNUSED ; CExtensionPolicy::AddExtensionL(CExtension &)
+	AddExtensionL__16CExtensionPolicyRC6TDesC8 @ 9 NONAME R3UNUSED ; CExtensionPolicy::AddExtensionL(TDesC8 const &)
+	AddExtensionPolicy__12CPfqosStreamR6TDesC8 @ 10 NONAME R3UNUSED ; CPfqosStream::AddExtensionPolicy(TDesC8 &)
+	AddExtension__13TPfqosMessageR16CPfqosPolicyData @ 11 NONAME R3UNUSED ; TPfqosMessage::AddExtension(CPfqosPolicyData &)
+	AddIntegerL__10CExtensionRC7TDesC16i @ 12 NONAME R3UNUSED ; CExtension::AddIntegerL(TDesC16 const &, int)
+	AddModuleL__13TPfqosMessageR14T_pfqos_moduleRC6TDesC8 @ 13 NONAME R3UNUSED ; TPfqosMessage::AddModuleL(T_pfqos_module &, TDesC8 const &)
+	AddModulespec__12CPfqosStreamUlUlRC7TDesC16T3RC6TDesC8 @ 14 NONAME ; CPfqosStream::AddModulespec(unsigned long, unsigned long, TDesC16 const &, TDesC16 const &, TDesC8 const &)
+	AddQoSParameters__12CPfqosStreamRC14TQoSParameters @ 15 NONAME R3UNUSED ; CPfqosStream::AddQoSParameters(TQoSParameters const &)
+	AddRealL__10CExtensionRC7TDesC16d @ 16 NONAME ; CExtension::AddRealL(TDesC16 const &, double)
+	AddSelector__12CPfqosStreamUcRC8TUidTypeUlUlUlRC7TDesC16 @ 17 NONAME ; CPfqosStream::AddSelector(unsigned char, TUidType const &, unsigned long, unsigned long, unsigned long, TDesC16 const &)
+	AddSrcAddress__12CPfqosStreamRC9TInetAddrT1Us @ 18 NONAME ; CPfqosStream::AddSrcAddress(TInetAddr const &, TInetAddr const &, unsigned short)
+	AddStringL__10CExtensionRC7TDesC16T1 @ 19 NONAME R3UNUSED ; CExtension::AddStringL(TDesC16 const &, TDesC16 const &)
+	Add__13TPfqosMessageR12TPfqosModule @ 20 NONAME R3UNUSED ; TPfqosMessage::Add(TPfqosModule &)
+	ByteStreamL__13TPfqosMessageR10RMBufChain @ 21 NONAME R3UNUSED ; TPfqosMessage::ByteStreamL(RMBufChain &)
+	ByteStream__C10TPfqosBaseR10RMBufChaini @ 22 NONAME R3UNUSED ; TPfqosBase::ByteStream(RMBufChain &, int) const
+	ByteStream__C11TPfqosEventR10RMBufChaini @ 23 NONAME R3UNUSED ; TPfqosEvent::ByteStream(RMBufChain &, int) const
+	ByteStream__C12TPfqosModuleR10RMBufChaini @ 24 NONAME R3UNUSED ; TPfqosModule::ByteStream(RMBufChain &, int) const
+	ByteStream__C13TPfqosAddressR10RMBufChaini @ 25 NONAME R3UNUSED ; TPfqosAddress::ByteStream(RMBufChain &, int) const
+	ByteStream__C13TPfqosChannelR10RMBufChaini @ 26 NONAME R3UNUSED ; TPfqosChannel::ByteStream(RMBufChain &, int) const
+	ByteStream__C14TPfqosFlowSpecR10RMBufChaini @ 27 NONAME R3UNUSED ; TPfqosFlowSpec::ByteStream(RMBufChain &, int) const
+	ByteStream__C14TPfqosSelectorR10RMBufChaini @ 28 NONAME R3UNUSED ; TPfqosSelector::ByteStream(RMBufChain &, int) const
+	ByteStream__C15TPfqosConfigureR10RMBufChaini @ 29 NONAME R3UNUSED ; TPfqosConfigure::ByteStream(RMBufChain &, int) const
+	ByteStream__C16CPfqosPolicyDataR10RMBufChaini @ 30 NONAME R3UNUSED ; CPfqosPolicyData::ByteStream(RMBufChain &, int) const
+	ByteStream__C16TPfqosConfigFileR10RMBufChaini @ 31 NONAME R3UNUSED ; TPfqosConfigFile::ByteStream(RMBufChain &, int) const
+	ConstructL__12CPfqosStreamUi @ 32 NONAME R3UNUSED ; CPfqosStream::ConstructL(unsigned int)
+	ConstructL__16CPfqosPolicyData @ 33 NONAME R3UNUSED ; CPfqosPolicyData::ConstructL(void)
+	CopyL__10CExtensionR10CExtension @ 34 NONAME R3UNUSED ; CExtension::CopyL(CExtension &)
+	CopyL__10CExtensionRC6TDesC8 @ 35 NONAME R3UNUSED ; CExtension::CopyL(TDesC8 const &)
+	CopyL__16CPfqosPolicyDataPCUci @ 36 NONAME R3UNUSED ; CPfqosPolicyData::CopyL(unsigned char const *, int)
+	Copy__10CExtensionR5TDes8 @ 37 NONAME R3UNUSED ; CExtension::Copy(TDes8 &)
+	Copy__14TQoSParametersR10CExtension @ 38 NONAME R3UNUSED ; TQoSParameters::Copy(CExtension &)
+	Data__10CExtension @ 39 NONAME R3UNUSED ; CExtension::Data(void)
+	Data__16CPfqosPolicyData @ 40 NONAME R3UNUSED ; CPfqosPolicyData::Data(void)
+	ExtensionLength__13TPfqosMessage @ 41 NONAME R3UNUSED ; TPfqosMessage::ExtensionLength(void)
+	FindVariable__10CExtensionRC7TDesC16 @ 42 NONAME R3UNUSED ; CExtension::FindVariable(TDesC16 const &)
+	GetUid__14TPfqosSelectorR11TCheckedUid @ 43 NONAME R3UNUSED ; TPfqosSelector::GetUid(TCheckedUid &)
+	HeaderMode__C14TQoSParameters @ 44 NONAME R3UNUSED ; TQoSParameters::HeaderMode(void) const
+	Init__12CPfqosStreamUcUl @ 45 NONAME R3UNUSED ; CPfqosStream::Init(unsigned char, unsigned long)
+	Length64__13TPfqosMessage @ 46 NONAME R3UNUSED ; TPfqosMessage::Length64(void)
+	Length__C10CExtension @ 47 NONAME R3UNUSED ; CExtension::Length(void) const
+	Length__C10TPfqosBase @ 48 NONAME R3UNUSED ; TPfqosBase::Length(void) const
+	Length__C11TPfqosEvent @ 49 NONAME R3UNUSED ; TPfqosEvent::Length(void) const
+	Length__C12TPfqosModule @ 50 NONAME R3UNUSED ; TPfqosModule::Length(void) const
+	Length__C13TPfqosAddress @ 51 NONAME R3UNUSED ; TPfqosAddress::Length(void) const
+	Length__C13TPfqosChannel @ 52 NONAME R3UNUSED ; TPfqosChannel::Length(void) const
+	Length__C14TPfqosFlowSpec @ 53 NONAME R3UNUSED ; TPfqosFlowSpec::Length(void) const
+	Length__C14TPfqosSelector @ 54 NONAME R3UNUSED ; TPfqosSelector::Length(void) const
+	Length__C15TPfqosConfigure @ 55 NONAME R3UNUSED ; TPfqosConfigure::Length(void) const
+	Length__C16CPfqosPolicyData @ 56 NONAME R3UNUSED ; CPfqosPolicyData::Length(void) const
+	Length__C16TPfqosConfigFile @ 57 NONAME R3UNUSED ; TPfqosConfigFile::Length(void) const
+	ModuleLength__13TPfqosMessage @ 58 NONAME R3UNUSED ; TPfqosMessage::ModuleLength(void)
+	NewL__10CExtension @ 59 NONAME R3UNUSED ; CExtension::NewL(void)
+	NewL__10CExtensionRC6TDesC8 @ 60 NONAME R3UNUSED ; CExtension::NewL(TDesC8 const &)
+	NewL__12CPfqosStreamUi @ 61 NONAME R3UNUSED ; CPfqosStream::NewL(unsigned int)
+	NewL__16CPfqosPolicyDatai @ 62 NONAME R3UNUSED ; CPfqosPolicyData::NewL(int)
+	NewL__16CPfqosPolicyDataiPCUci @ 63 NONAME R3UNUSED ; CPfqosPolicyData::NewL(int, unsigned char const *, int)
+	ParseL__13TPolicyParser @ 64 NONAME R3UNUSED ; TPolicyParser::ParseL(void)
+	RemovePolicyData__13TPfqosMessage @ 65 NONAME R3UNUSED ; TPfqosMessage::RemovePolicyData(void)
+	Send__12CPfqosStreamR7RSocket @ 66 NONAME R3UNUSED ; CPfqosStream::Send(RSocket &)
+	Send__12CPfqosStreamR7RSocketR14TRequestStatus @ 67 NONAME R3UNUSED ; CPfqosStream::Send(RSocket &, TRequestStatus &)
+	SetAdaptMode__14TQoSParametersi @ 68 NONAME R3UNUSED ; TQoSParameters::SetAdaptMode(int)
+	SetDelayDownlink__14TQoSParametersUl @ 69 NONAME R3UNUSED ; TQoSParameters::SetDelayDownlink(unsigned long)
+	SetDelayUplink__14TQoSParametersUl @ 70 NONAME R3UNUSED ; TQoSParameters::SetDelayUplink(unsigned long)
+	SetHeaderMode__14TQoSParametersi @ 71 NONAME R3UNUSED ; TQoSParameters::SetHeaderMode(int)
+	SetMaxPacketSizeDownlink__14TQoSParametersUl @ 72 NONAME R3UNUSED ; TQoSParameters::SetMaxPacketSizeDownlink(unsigned long)
+	SetMaxPacketSizeUplink__14TQoSParametersUl @ 73 NONAME R3UNUSED ; TQoSParameters::SetMaxPacketSizeUplink(unsigned long)
+	SetMinPolicedUnitDownlink__14TQoSParametersUl @ 74 NONAME R3UNUSED ; TQoSParameters::SetMinPolicedUnitDownlink(unsigned long)
+	SetMinPolicedUnitUplink__14TQoSParametersUl @ 75 NONAME R3UNUSED ; TQoSParameters::SetMinPolicedUnitUplink(unsigned long)
+	SetName__10CExtensionRC7TDesC16 @ 76 NONAME R3UNUSED ; CExtension::SetName(TDesC16 const &)
+	SetName__14TQoSParametersRC7TDesC16 @ 77 NONAME R3UNUSED ; TQoSParameters::SetName(TDesC16 const &)
+	SetPriorityDownlink__14TQoSParametersUs @ 78 NONAME R3UNUSED ; TQoSParameters::SetPriorityDownlink(unsigned short)
+	SetPriorityUplink__14TQoSParametersUs @ 79 NONAME R3UNUSED ; TQoSParameters::SetPriorityUplink(unsigned short)
+	SetQoSParameters__C13TPfqosMessageR14TQoSParameters @ 80 NONAME R3UNUSED ; TPfqosMessage::SetQoSParameters(TQoSParameters &) const
+	SetTokenBucketSizeDownlink__14TQoSParametersUl @ 81 NONAME R3UNUSED ; TQoSParameters::SetTokenBucketSizeDownlink(unsigned long)
+	SetTokenBucketSizeUplink__14TQoSParametersUl @ 82 NONAME R3UNUSED ; TQoSParameters::SetTokenBucketSizeUplink(unsigned long)
+	SetTokenRateDownlink__14TQoSParametersUl @ 83 NONAME R3UNUSED ; TQoSParameters::SetTokenRateDownlink(unsigned long)
+	SetTokenRateUplink__14TQoSParametersUl @ 84 NONAME R3UNUSED ; TQoSParameters::SetTokenRateUplink(unsigned long)
+	Size__C16CPfqosPolicyData @ 85 NONAME R3UNUSED ; CPfqosPolicyData::Size(void) const
+	Type__16CPfqosPolicyData @ 86 NONAME R3UNUSED ; CPfqosPolicyData::Type(void)
+	"_._10CExtension" @ 87 NONAME R3UNUSED ; CExtension::~CExtension(void)
+	"_._12CPfqosStream" @ 88 NONAME R3UNUSED ; CPfqosStream::~CPfqosStream(void)
+	"_._13CSelectorBase" @ 89 NONAME R3UNUSED ; CSelectorBase::~CSelectorBase(void)
+	"_._13TPfqosMessage" @ 90 NONAME R3UNUSED ; TPfqosMessage::~TPfqosMessage(void)
+	"_._13TPolicyParser" @ 91 NONAME R3UNUSED ; TPolicyParser::~TPolicyParser(void)
+	"_._13TVariableBase" @ 92 NONAME R3UNUSED ; TVariableBase::~TVariableBase(void)
+	"_._16CExtensionPolicy" @ 93 NONAME R3UNUSED ; CExtensionPolicy::~CExtensionPolicy(void)
+	"_._16CPfqosPolicyData" @ 94 NONAME R3UNUSED ; CPfqosPolicyData::~CPfqosPolicyData(void)
+	__10TPfqosBase @ 95 NONAME R3UNUSED ; TPfqosBase::TPfqosBase(void)
+	__11TPfqosEvent @ 96 NONAME R3UNUSED ; TPfqosEvent::TPfqosEvent(void)
+	__11T_pfqos_msgUcUl @ 97 NONAME R3UNUSED ; T_pfqos_msg::T_pfqos_msg(unsigned char, unsigned long)
+	__12CPfqosStream @ 98 NONAME R3UNUSED ; CPfqosStream::CPfqosStream(void)
+	__12TIntVariableRC7TDesC16i @ 99 NONAME R3UNUSED ; TIntVariable::TIntVariable(TDesC16 const &, int)
+	__12TPfqosModule @ 100 NONAME R3UNUSED ; TPfqosModule::TPfqosModule(void)
+	__13CSelectorBaseR10TPfqosBaseR14TPfqosSelectorR13TPfqosAddressT3Ui @ 101 NONAME ; CSelectorBase::CSelectorBase(TPfqosBase &, TPfqosSelector &, TPfqosAddress &, TPfqosAddress &, unsigned int)
+	__13CSelectorBaseR13CSelectorBase @ 102 NONAME R3UNUSED ; CSelectorBase::CSelectorBase(CSelectorBase &)
+	__13CSelectorBaseUi @ 103 NONAME R3UNUSED ; CSelectorBase::CSelectorBase(unsigned int)
+	__13TPfqosAddress @ 104 NONAME R3UNUSED ; TPfqosAddress::TPfqosAddress(void)
+	__13TPfqosChannel @ 105 NONAME R3UNUSED ; TPfqosChannel::TPfqosChannel(void)
+	__13TPfqosMessage @ 106 NONAME R3UNUSED ; TPfqosMessage::TPfqosMessage(void)
+	__13TPfqosMessageRC6TDesC8 @ 107 NONAME R3UNUSED ; TPfqosMessage::TPfqosMessage(TDesC8 const &)
+	__13TPolicyParserRC7TDesC16 @ 108 NONAME R3UNUSED ; TPolicyParser::TPolicyParser(TDesC16 const &)
+	__13TRealVariableRC7TDesC16d @ 109 NONAME ; TRealVariable::TRealVariable(TDesC16 const &, double)
+	__13T_pfqos_eventUcUsUs @ 110 NONAME ; T_pfqos_event::T_pfqos_event(unsigned char, unsigned short, unsigned short)
+	__14TPfqosFlowSpec @ 111 NONAME R3UNUSED ; TPfqosFlowSpec::TPfqosFlowSpec(void)
+	__14TPfqosSelector @ 112 NONAME R3UNUSED ; TPfqosSelector::TPfqosSelector(void)
+	__14TQoSParameters @ 113 NONAME R3UNUSED ; TQoSParameters::TQoSParameters(void)
+	__14T_pfqos_moduleUiUlRC7TDesC16T3i @ 114 NONAME ; T_pfqos_module::T_pfqos_module(unsigned int, unsigned long, TDesC16 const &, TDesC16 const &, int)
+	__15TPfqosConfigure @ 115 NONAME R3UNUSED ; TPfqosConfigure::TPfqosConfigure(void)
+	__15TStringVariableRC7TDesC16T1 @ 116 NONAME R3UNUSED ; TStringVariable::TStringVariable(TDesC16 const &, TDesC16 const &)
+	__15T_pfqos_addressUiUs @ 117 NONAME R3UNUSED ; T_pfqos_address::T_pfqos_address(unsigned int, unsigned short)
+	__15T_pfqos_channelUl @ 118 NONAME R3UNUSED ; T_pfqos_channel::T_pfqos_channel(unsigned long)
+	__16CExtensionPolicy @ 119 NONAME R3UNUSED ; CExtensionPolicy::CExtensionPolicy(void)
+	__16CExtensionPolicyR10TPfqosBaseR14TPfqosSelectorR13TPfqosAddressT3i @ 120 NONAME ; CExtensionPolicy::CExtensionPolicy(TPfqosBase &, TPfqosSelector &, TPfqosAddress &, TPfqosAddress &, int)
+	__16CPfqosPolicyDatai @ 121 NONAME R3UNUSED ; CPfqosPolicyData::CPfqosPolicyData(int)
+	__16TPfqosConfigFile @ 122 NONAME R3UNUSED ; TPfqosConfigFile::TPfqosConfigFile(void)
+	__16T_pfqos_flowspecRC14TQoSParameters @ 123 NONAME R3UNUSED ; T_pfqos_flowspec::T_pfqos_flowspec(TQoSParameters const &)
+	__16T_pfqos_selectorP13CSelectorBase @ 124 NONAME R3UNUSED ; T_pfqos_selector::T_pfqos_selector(CSelectorBase *)
+	__17T_pfqos_configureUs @ 125 NONAME R3UNUSED ; T_pfqos_configure::T_pfqos_configure(unsigned short)
+	__as__14TQoSParametersRC14TQoSParameters @ 126 NONAME R3UNUSED ; TQoSParameters::operator=(TQoSParameters const &)
+	AdaptMode__C14TQoSParameters @ 127 NONAME R3UNUSED ; TQoSParameters::AdaptMode(void) const
+

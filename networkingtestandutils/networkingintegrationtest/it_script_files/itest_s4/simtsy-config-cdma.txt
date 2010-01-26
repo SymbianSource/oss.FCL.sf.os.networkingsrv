@@ -1,0 +1,29 @@
+# Config file for SIMTSY - the CDMA version. 
+# The name must be config.txt and the location c:\
+[test0]
+PacketRegStatus= 5,1
+
+# PacketRegStatus = <Duration>, <RegStatus>
+
+SetContextConfigCDMA= 4, 0
+GetContextConfigCDMA= 4, 0
+
+# SetContextConfigCDMA = <ServiceOption>, <ProtocolType>
+
+DefaultContextparamCDMA= 4, 0
+# DefaultContextparamCDMA= <ServiceOption>, <ProtocolType>
+
+QosProfileReqCDMA= 0x01, 0x01, 0x0010, 0x02, 0x01, 0x02, 0x01, 0x01, 0x01, 0x02, 0x02, 0x20, 0x20, 0x40, 0x40
+#QosProfileNegCDMA= 0x0, 0x08, 0x0002, 0x04, 0x04, 0x04, 0x04, 0x20, 0x20
+#QosProfileCapsCDMA= 0x0002, 0x04, 0x04, 0x04, 0x04, 0x20, 0x20		
+
+# QosProfileReqCDMA = <TBool>, <TRLPMode>, <TQoSLinkPriority>, <TQoSDataRate>, <TQoSDataRate>, <TQoSDataRate>, 
+#		      	<TQoSDataRate>, <TQoSDataLoss>, <TQoSDataLoss>, <TQoSDataLoss>, <TQoSDataLoss>, <TQoSDelay>, 
+#			<TQoSDelay>, <TQoSDelay>, <TQoSDelay>
+
+# QosProfileNegCDMA = <TBool>, <TRLPMode>, <TQoSLinkPriority>, <TQoSDataRate>, <TQoSDataRate>, <TQoSDataLoss>, 
+#			<TQoSDataLoss>, <TQoSDelay>, <TQoSDelay>
+
+CommSetup= ECUART.CSY, COMM::0, 18, 20
+
+NetworkMode= 5

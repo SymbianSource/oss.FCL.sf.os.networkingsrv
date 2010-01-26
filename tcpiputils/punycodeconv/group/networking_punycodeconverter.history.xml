@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<relnotes schema="1.0.0" name="Punycode conversion Library" purpose="" type="component">
+  <preq number="2296" title="DNS resolution of International Domain Names" osproject="Diran" revision="001">
+    Punycode Conversion Library
+  </preq>
+</relnotes>

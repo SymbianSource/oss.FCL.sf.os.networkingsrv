@@ -1,0 +1,11 @@
+EXPORTS
+	_Z20NewInterfaceFactoryLv @ 1 NONAME
+	_ZTI12CDummyIfLink @ 2 NONAME ; #<TI>#
+	_ZTI15CDummyIfFactory @ 3 NONAME ; #<TI>#
+	_ZTI9CDummyIf4 @ 4 NONAME ; #<TI>#
+	_ZTI9CDummyIf6 @ 5 NONAME ; #<TI>#
+	_ZTV12CDummyIfLink @ 6 NONAME ; #<VT>#
+	_ZTV15CDummyIfFactory @ 7 NONAME ; #<VT>#
+	_ZTV9CDummyIf4 @ 8 NONAME ; #<VT>#
+	_ZTV9CDummyIf6 @ 9 NONAME ; #<VT>#
+

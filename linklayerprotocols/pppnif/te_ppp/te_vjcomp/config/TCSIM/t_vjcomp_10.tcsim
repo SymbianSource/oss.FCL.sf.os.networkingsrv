@@ -1,0 +1,42 @@
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of the License "Symbian Foundation License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.symbianfoundation.org/legal/sfl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// T_VJCOMP_10
+// Changes in PacketID; The difference is smaller than zero
+// tcsim input file to generate test data for VJ compression tests.
+// 
+//
+
+#include "packet.def"
+#include "ports.tc"
+
+dev eth0 100 Mbps {
+    egress {
+    }
+}
+
+// Packet to prime the compressor
+send TCP_PCK($ip_id=1 $ip_sum=0x66cc $tcp_sport = PORT_FTP_DATA $tcp_dport = 1234 $tcp_ACK=1 $tcp_seq=0 $tcp_sum=0x65eb)
+     0x31
+
+// Change IP ID negative. Also change Window so it doesn't look like a
+// retransmission.
+send TCP_PCK($ip_id=0 $ip_sum=0x66cd $tcp_sport = PORT_FTP_DATA $tcp_dport = 1234 $tcp_ACK=1 $tcp_seq=0 $tcp_win=1 $tcp_sum=0x65ea)
+     0x31
+
+// Change IP ID negative, wrapping back around 0. Also change Window so it
+// doesn't look like a retransmission.
+send TCP_PCK($ip_id=0xffff $ip_sum=0x66cd $tcp_sport = PORT_FTP_DATA $tcp_dport = 1234 $tcp_ACK=1 $tcp_seq=0 $tcp_win=2 $tcp_sum=0x65e9)
+     0x31
+
+end

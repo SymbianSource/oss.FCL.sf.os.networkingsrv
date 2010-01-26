@@ -1,0 +1,9 @@
+EXPORTS
+	StartCGI__8CExecCGI @ 1 NONAME ; CExecCGI::StartCGI(void)
+	ConstructL__8CExecCGIRCt4TBuf1i256T1RC11CCommandArgRC7TCgiEnv @ 2 NONAME ; CExecCGI::ConstructL(TBuf<256> const &, TBuf<256> const &, CCommandArg const &, TCgiEnv const &)
+	Read__C8CExecCGIR5TDes8 @ 3 NONAME ; CExecCGI::Read(TDes8 &) const
+	CloseCGI__8CExecCGI @ 4 NONAME ; CExecCGI::CloseCGI(void)
+	Write__8CExecCGIRC6TDesC8 @ 5 NONAME ; CExecCGI::Write(TDesC8 const &)
+	"_._11CCommandArg" @ 6 NONAME ; CCommandArg::~CCommandArg(void)
+	__11CCommandArg @ 7 NONAME ; CCommandArg::CCommandArg(void)
+

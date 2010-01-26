@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<relnotes schema="1.0.0" name="IPSec" purpose="" type="component">
+  <revision major="1" functional="0" minor="0" date="20071119">
+    <ref name="kmdserver.exe" type="binary"/>
+    <ref name="ipsec6.prt" type="binary"/>
+    <ref name="JIME-764C6U" type="devcr"/>
+    <description>The PF_KEY interface (supported constants) is extended to include all supported IPSec.prt encryption and authentication algorithms.</description>
+  </revision>
+  <revision major="1" functional="0" minor="0" date="20071207">
+    <ref name="PDEF111569" type="defect"/>
+    <description>Adding new KSoIp6InterfaceUnicastHops flow option so interface TTL can be retrieved excluding the effect of any socket options.  If no interface has been selected for the flow, the TCP/IP 6 stack default value will be returned.  This value is used to set the correct TTL for the outer packet header in ipsec ipip_eng6.cpp.</description>
+  </revision>
+  <purpose>
+    IPSec key negotiation for IPv4/v6. Depends on security components.
+  </purpose>
+  <preq number="1223" title="IPSec modifications for UMA" revision="001">
+    IPSec modifications for UMA
+  </preq>
+</relnotes>

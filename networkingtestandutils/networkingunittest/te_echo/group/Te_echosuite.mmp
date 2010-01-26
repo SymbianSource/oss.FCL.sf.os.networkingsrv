@@ -1,0 +1,49 @@
+// Copyright (c) 2002-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+TARGET      Te_echo.exe
+TARGETTYPE  exe
+UID             0x1000007A 0x10283012
+
+//Please add any change under here
+SOURCEPATH  ../src
+SOURCE	              Te_echoSuiteServer.cpp
+SOURCE	              Te_echoSuiteStepBase.cpp
+SOURCE              StartEchoDaemonStep.cpp
+SOURCE              StopAllEchoDaemonsStep.cpp
+SOURCE              StopEchoDaemonStep.cpp
+	
+
+USERINCLUDE   ../src
+
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+SYSTEMINCLUDE	/epoc32/include
+SYSTEMINCLUDE	/epoc32/include/test
+#else
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+SYSTEMINCLUDE	/epoc32/include/platform/test
+SYSTEMINCLUDE	/epoc32/include/platform
+#endif
+
+//Please add your system include under here. 
+
+LIBRARY     euser.lib
+LIBRARY		testexecuteutils.lib 
+LIBRARY		testexecutelogclient.lib 
+
+//Please add your libraries under here. For example:
+LIBRARY      echodaemon.lib
+
+SMPSAFE

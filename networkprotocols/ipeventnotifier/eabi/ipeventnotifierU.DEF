@@ -1,0 +1,19 @@
+EXPORTS
+	_Z7Installv @ 1 NONAME
+	_ZTI16CIPEventListener @ 2 NONAME ; #<TI>#
+	_ZTI16CIPEventNotifier @ 3 NONAME ; #<TI>#
+	_ZTI30CIPEventNotifierProtocolFamily @ 4 NONAME ; #<TI>#
+	_ZTV16CIPEventListener @ 5 NONAME ; #<VT>#
+	_ZTV16CIPEventNotifier @ 6 NONAME ; #<VT>#
+	_ZTV30CIPEventNotifierProtocolFamily @ 7 NONAME ; #<VT>#
+	_ZTIN4Meta11TMetaVarLenI5RBuf8EE @ 8 NONAME ABSENT; #<TI>#
+	_ZTIN4Meta11TMetaVarLenI6RBuf16EE @ 9 NONAME ABSENT; #<TI>#
+	_ZTIN4Meta12TMetaVarLen8I5RBuf8EE @ 10 NONAME ABSENT; #<TI>#
+	_ZTIN4Meta13TMetaVarLen16I6RBuf16EE @ 11 NONAME ABSENT; #<TI>#
+	_ZTVN4Meta11TMetaVarLenI5RBuf8EE @ 12 NONAME ABSENT; #<VT>#
+	_ZTVN4Meta11TMetaVarLenI6RBuf16EE @ 13 NONAME ABSENT; #<VT>#
+	_ZTVN4Meta12TMetaVarLen8I5RBuf8EE @ 14 NONAME ABSENT; #<VT>#
+	_ZTVN4Meta13TMetaVarLen16I6RBuf16EE @ 15 NONAME ABSENT; #<VT>#
+	_ZTI22CDHCPUnicastTranslator @ 16 NONAME ; #<TI>#
+	_ZTV22CDHCPUnicastTranslator @ 17 NONAME ; #<VT>#
+

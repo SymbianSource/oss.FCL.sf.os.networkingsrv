@@ -1,0 +1,52 @@
+// Copyright (c) 2000-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// ping.hrh - icmp echo client UI constants
+// This software has been implemented in the 6PACK
+// project at the Mobile Networks Laboratory (MNW)
+// http://www.research.nokia.com/projects/6pack/
+//
+
+enum TPingMenuCommands
+	{
+	EPingStart=100,
+	EPingStop=101,
+	EPingapp2Options=102,
+	EPingReceivedData=103,
+	EPingLabel=104,
+	EPingHostName=105,
+	EPingAbout=106,
+	EPingReset=107,
+	EPingSave=108, 
+	EPingCancel=109, 
+
+	EPingCmdFileName=110,
+
+	EPingEasy=120,		// Multipage dialogs id's
+	EPingAdvanced=121,
+
+	// Controls
+	EPingNumPackCheckBox=200,
+	EPingNumPackNum=201,
+	EPingSecNum=202,
+	EPingNoResolvCheckBox=203,
+	EPingPackSizeNum=204,
+	EPingQuietCheckBox=205,
+	EPingHopLimitCheckBox=206,
+	EPingHopLimitNum=207,
+	EPingVerboseCheckBox=208,
+	EPingDebugCheckBox=209,
+	EPingLastSecNum=210,
+	EPingPatternNum=211,
+	EPingAboutText=215
+	};

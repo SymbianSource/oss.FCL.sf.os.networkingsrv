@@ -1,0 +1,62 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+
+PRJ_PLATFORMS
+
+PRJ_EXPORTS
+
+PRJ_MMPFILES
+
+
+
+PRJ_TESTMMPFILES
+
+#ifdef SYMBIAN_DNS_PROXY 
+t_dnsproxy.mmp
+tdndexe.mmp
+#endif 
+
+PRJ_TESTEXPORTS
+
+#ifdef SYMBIAN_DNS_PROXY 
+//-- iby file for the test
+t_dnsproxy.iby	/epoc32/rom/include/t_dnsproxy.iby
+
+//-- test script files
+../scripts/ns-dnsproxy-main-ops.script		/epoc32/release/winscw/udeb/z/testdata/scripts/ns-dnsproxy-main-ops.script
+../testdata/ns-dnsproxy-maintest-ops.ini	/epoc32/release/winscw/udeb/z/testdata/scripts/ns-dnsproxy-maintest-ops.ini
+../testdata/tcpip_4dnxproxy.ini				/epoc32/release/winscw/udeb/z/testdata/configs/tcpip_4dnxproxy.ini
+../testdata/testdnsproxy.xml				/epoc32/release/winscw/udeb/z/testdata/configs/testdnsproxy.xml
+../testdata/testdnsproxy2.xml				/epoc32/release/winscw/udeb/z/testdata/configs/testdnsproxy2.xml
+../testdata/testdnsproxy3.xml				/epoc32/release/winscw/udeb/z/testdata/configs/testdnsproxy3.xml
+../testdata/resolver01.ini				/epoc32/release/winscw/udeb/z/testdata/configs/resolver01.ini
+../testdata/resolver02.ini				/epoc32/release/winscw/udeb/z/testdata/configs/resolver02.ini
+../testdata/resolver03.ini				/epoc32/release/winscw/udeb/z/testdata/configs/resolver03.ini
+
+//urel
+../scripts/ns-dnsproxy-main-ops.script		/epoc32/release/winscw/urel/z/testdata/scripts/ns-dnsproxy-main-ops.script
+../testdata/ns-dnsproxy-maintest-ops.ini	/epoc32/release/winscw/urel/z/testdata/scripts/ns-dnsproxy-maintest-ops.ini
+../testdata/tcpip_4dnxproxy.ini				/epoc32/release/winscw/urel/z/testdata/configs/tcpip_4dnxproxy.ini
+../testdata/testdnsproxy.xml				/epoc32/release/winscw/urel/z/testdata/configs/testdnsproxy.xml
+../testdata/testdnsproxy2.xml				/epoc32/release/winscw/urel/z/testdata/configs/testdnsproxy2.xml
+../testdata/testdnsproxy3.xml				/epoc32/release/winscw/urel/z/testdata/configs/testdnsproxy3.xml
+../testdata/resolver01.ini						/epoc32/release/winscw/urel/z/testdata/configs/resolver01.ini
+../testdata/resolver02.ini						/epoc32/release/winscw/urel/z/testdata/configs/resolver02.ini
+../testdata/resolver03.ini				/epoc32/release/winscw/urel/z/testdata/configs/resolver03.ini
+
+#endif 

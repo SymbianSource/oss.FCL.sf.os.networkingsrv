@@ -1,0 +1,160 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//! @file
+//! @SYMTestSuiteName      NET-DND-PUNYCODECONVERTER-UNITTEST
+//! @SYMScriptTestEnvironment TEF
+
+PRINT TE_UNITTESTIDNA: Testing International Domain Name Resolution
+
+run_script z:\TestData\scripts\te_esock_test_unloadesockForced.script
+//Configure commdb.
+ced z:\testdata\configs\te_unittestidna.xml
+run_script z:\TestData\scripts\te_esock_test_loadesock.script
+
+LOAD_SUITE testidnserver -SharedData
+
+
+
+START_TESTCASE                NET-DND-punycodeconverter-unittest01
+//! @SYMTestCaseID              NET-DND-punycodeconverter-unittest01
+//! @SYMTestCaseDesc            PREQ2296 - REQ11948
+//!                             Resolve International Domain Name.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load testidnserver test server.
+//!                             Test GetByName(IDN) without IDN Enabled
+//! @SYMTestExpectedResults     Domain name resolved with KErrDndNameNotFound.
+//! @SYMTestType                UT
+//! @SYMCreationDate            6/2/2009
+//! @SYMAuthor                  ahamedrafik
+//! @SYMTestStatus              3. Released
+RUN_TEST_STEP  			testidnserver TestIdna01
+END_TESTCASE            	NET-DND-punycodeconverter-unittest01
+
+
+START_TESTCASE                NET-DND-punycodeconverter-unittest02
+//! @SYMTestCaseID              NET-DND-punycodeconverter-unittest02
+//! @SYMTestCaseDesc            PREQ2296 - REQ11948, REQ 12163
+//!                             Resolve International Domain Name.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load testidnserver test server.
+//!                             Test GetByName(IDN) with IDN Enabled
+//! @SYMTestExpectedResults     Domain name resolved successfully.
+//! @SYMTestType                UT
+//! @SYMCreationDate            6/2/2009
+//! @SYMAuthor                  ahamedrafik
+//! @SYMTestStatus              3. Released
+RUN_TEST_STEP  			testidnserver  TestIdna02
+END_TESTCASE            	NET-DND-punycodeconverter-unittest02
+
+
+START_TESTCASE                NET-DND-punycodeconverter-unittest03
+//! @SYMTestCaseID              NET-DND-punycodeconverter-unittest03
+//! @SYMTestCaseDesc            PREQ2296 - REQ11948
+//!                             Resolve Address for IDN.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load testidnserver test server.
+//!                             Test GetByAddress for an IDN without IDN Enabled
+//! @SYMTestExpectedResults     Address resolved successfully.
+//! @SYMTestType                UT
+//! @SYMCreationDate            6/2/2009
+//! @SYMAuthor                  ahamedrafik
+//! @SYMTestStatus              3. Released
+RUN_TEST_STEP  			testidnserver  TestIdna03
+END_TESTCASE            	NET-DND-punycodeconverter-unittest03
+
+
+START_TESTCASE                NET-DND-punycodeconverter-unittest04
+//! @SYMTestCaseID              NET-DND-punycodeconverter-unittest04
+//! @SYMTestCaseDesc            PREQ2296 - REQ11948, REQ 12163
+//!                             Resolve Address for IDN.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load testidnserver test server.
+//!                             Test GetByAddress for an IDN with IDN Enabled
+//! @SYMTestExpectedResults     Address resolved successfully.
+//! @SYMTestType                UT
+//! @SYMCreationDate            6/2/2009
+//! @SYMAuthor                  ahamedrafik
+//! @SYMTestStatus              3. Released
+RUN_TEST_STEP  			testidnserver  TestIdna04
+END_TESTCASE            	NET-DND-punycodeconverter-unittest04
+
+
+START_TESTCASE                NET-DND-punycodeconverter-unittest05
+//! @SYMTestCaseID              NET-DND-punycodeconverter-unittest05
+//! @SYMTestCaseDesc            PREQ2296 - REQ12162
+//!                             Resolve IDN in UTF16 encoding
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load testidnserver test server.
+//!                             Test GetByName(IDN in UTF-16) without IDN Enabled
+//! @SYMTestExpectedResults     Domain name resolved successfully.
+//! @SYMTestType                UT
+//! @SYMCreationDate            6/2/2009
+//! @SYMAuthor                  ahamedrafik
+//! @SYMTestStatus              3. Released
+RUN_TEST_STEP  			testidnserver  TestIdna05
+END_TESTCASE            	NET-DND-punycodeconverter-unittest05
+
+
+START_TESTCASE                NET-DND-punycodeconverter-unittest06
+//! @SYMTestCaseID              NET-DND-punycodeconverter-unittest06
+//! @SYMTestCaseDesc            PREQ2296 - 11950
+//!                             Convert UCS2.0 encoding to Punycode.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load testidnserver test server.
+//!                             Test IDN to Punycode Conversion functionality.
+//! @SYMTestExpectedResults     Conversion done successfully.
+//! @SYMTestType                UT
+//! @SYMCreationDate            6/2/2009
+//! @SYMAuthor                  ahamedrafik
+//! @SYMTestStatus              3. Released
+RUN_TEST_STEP  			testidnserver  TestIdna06
+END_TESTCASE            	NET-DND-punycodeconverter-unittest06
+
+
+START_TESTCASE                NET-DND-punycodeconverter-unittest07
+//! @SYMTestCaseID              NET-DND-punycodeconverter-unittest07
+//! @SYMTestCaseDesc            PREQ2296 - REQ11951
+//!                             Convert punycode to UCS2.0 encoding.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load testidnserver test server.
+//!                             Test Punycode to IDN Conversion functionality.
+//! @SYMTestExpectedResults     Domain name resolved successfully.
+//! @SYMTestType                UT
+//! @SYMCreationDate            6/2/2009
+//! @SYMAuthor                  ahamedrafik
+//! @SYMTestStatus              3. Released
+RUN_TEST_STEP  			testidnserver  TestIdna07
+END_TESTCASE            	NET-DND-punycodeconverter-unittest07
+
+
+START_TESTCASE                NET-DND-punycodeconverter-unittest08
+//! @SYMTestCaseID              NET-DND-punycodeconverter-unittest08
+//! @SYMTestCaseDesc            PREQ2296 - REQ11949
+//!                             Load the New library.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_punycodeconverter test server
+//!                             Load the punycodeconverter library.
+//! @SYMTestExpectedResults     Punycodeconverter library loaded succesfully.
+//! @SYMTestType                UT
+//! @SYMCreationDate            6/2/2009
+//! @SYMAuthor                  ahamedrafik
+//! @SYMTestStatus              3. Released
+RUN_TEST_STEP  			testidnserver  TestIdna08
+END_TESTCASE            	NET-DND-punycodeconverter-unittest08
+
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_stopallinterfaces.script
+RUN_SCRIPT z:\testdata\scripts\te_esock_test_unloadesockForced.script
+

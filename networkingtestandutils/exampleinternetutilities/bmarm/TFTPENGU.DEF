@@ -1,0 +1,8 @@
+EXPORTS
+	Get__11CTftpEngineRC7TDesC16N21 @ 1 NONAME ; CTftpEngine::Get(TDesC16 const &, TDesC16 const &, TDesC16 const &)
+	NewL__11CTftpEngineiR13MTftpNotifier @ 2 NONAME ; CTftpEngine::NewL(int, MTftpNotifier &)
+	Put__11CTftpEngineRC7TDesC16N21 @ 3 NONAME ; CTftpEngine::Put(TDesC16 const &, TDesC16 const &, TDesC16 const &)
+	SetTimeOut__11CTftpEnginei @ 4 NONAME ; CTftpEngine::SetTimeOut(int)
+	TimerExpired__11CTftpEngine @ 5 NONAME ; CTftpEngine::TimerExpired(void)
+	"_._11CTftpEngine" @ 6 NONAME ; CTftpEngine::~CTftpEngine(void)
+

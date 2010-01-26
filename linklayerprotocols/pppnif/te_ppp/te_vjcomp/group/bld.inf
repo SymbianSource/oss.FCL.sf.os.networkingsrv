@@ -1,0 +1,470 @@
+// Copyright (c) 1999-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+
+PRJ_TESTEXPORTS
+// for wins
+../scripts/te_vjcomp.script	/epoc32/release/wins/udeb/z/testdata/scripts/te_vjcomp.script
+../scripts/te_vjcomp.script	/epoc32/release/wins/urel/z/testdata/scripts/te_vjcomp.script
+
+// for wins VJUNCOMP cases
+../config/t_vjuncomp_1.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_1.pcap
+../config/t_vjuncomp_1.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_1.pcap
+../config/t_vjuncomp_2.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_2.pcap
+../config/t_vjuncomp_2.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_2.pcap
+../config/t_vjuncomp_3.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_3.pcap
+../config/t_vjuncomp_3.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_3.pcap
+../config/t_vjuncomp_4.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_4.pcap
+../config/t_vjuncomp_4.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_4.pcap
+../config/t_vjuncomp_5.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_5.pcap
+../config/t_vjuncomp_5.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_5.pcap
+../config/t_vjuncomp_6.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_6.pcap
+../config/t_vjuncomp_6.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_6.pcap
+../config/t_vjuncomp_7.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_7.pcap
+../config/t_vjuncomp_7.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_7.pcap
+../config/t_vjuncomp_8.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_8.pcap
+../config/t_vjuncomp_8.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_8.pcap
+../config/t_vjuncomp_9.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_9.pcap
+../config/t_vjuncomp_9.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_9.pcap
+../config/t_vjuncomp_10.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_10.pcap
+../config/t_vjuncomp_10.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_10.pcap
+../config/t_vjuncomp_11.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_11.pcap
+../config/t_vjuncomp_11.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_11.pcap
+../config/t_vjuncomp_12.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_12.pcap
+../config/t_vjuncomp_12.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_12.pcap
+../config/t_vjuncomp_13.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_13.pcap
+../config/t_vjuncomp_13.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_13.pcap
+../config/t_vjuncomp_14.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_14.pcap
+../config/t_vjuncomp_14.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_14.pcap
+//..\config\t_vjuncomp_15.pcap		\epoc32\release\wins\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_15.pcap
+//..\config\t_vjuncomp_15.pcap		\epoc32\release\wins\urel\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_15.pcap
+//..\config\t_vjuncomp_16.pcap		\epoc32\release\wins\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_16.pcap
+//..\config\t_vjuncomp_16.pcap		\epoc32\release\wins\urel\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_16.pcap
+../config/t_vjuncomp_17.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_17.pcap
+../config/t_vjuncomp_17.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_17.pcap
+../config/t_vjuncomp_18.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_18.pcap
+../config/t_vjuncomp_18.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_18.pcap
+../config/t_vjuncomp_19.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_19.pcap
+../config/t_vjuncomp_19.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_19.pcap
+../config/t_vjuncomp_20.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_20.pcap
+../config/t_vjuncomp_20.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_20.pcap
+../config/t_vjuncomp_21.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_21.pcap
+../config/t_vjuncomp_21.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_21.pcap
+../config/t_vjuncomp_22.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_22.pcap
+../config/t_vjuncomp_22.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_22.pcap
+../config/t_vjuncomp_23.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_23.pcap
+../config/t_vjuncomp_23.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_23.pcap
+
+
+//for wins VJCOMP cases
+../config/t_vjcomp_1.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_1.pcap
+../config/t_vjcomp_1.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_1.pcap
+../config/t_vjcomp_2.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_2.pcap
+../config/t_vjcomp_2.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_2.pcap
+../config/t_vjcomp_3.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_3.pcap
+../config/t_vjcomp_3.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_3.pcap
+../config/t_vjcomp_4.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_4.pcap
+../config/t_vjcomp_4.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_4.pcap
+../config/t_vjcomp_5.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_5.pcap
+../config/t_vjcomp_5.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_5.pcap
+../config/t_vjcomp_6.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_6.pcap
+../config/t_vjcomp_6.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_6.pcap
+../config/t_vjcomp_7.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_7.pcap
+../config/t_vjcomp_7.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_7.pcap
+../config/t_vjcomp_8.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_8.pcap
+../config/t_vjcomp_8.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_8.pcap
+../config/t_vjcomp_9.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_9.pcap
+../config/t_vjcomp_9.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_9.pcap
+../config/t_vjcomp_10.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_10.pcap
+../config/t_vjcomp_10.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_10.pcap
+../config/t_vjcomp_11.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_11.pcap
+../config/t_vjcomp_11.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_11.pcap
+../config/t_vjcomp_12.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_12.pcap
+../config/t_vjcomp_12.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_12.pcap
+../config/t_vjcomp_13.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_13.pcap
+../config/t_vjcomp_13.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_13.pcap
+
+//for wins VJDECOMP ERR cases
+../config/t_vjdecomp_err_1.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_err_1.pcap
+../config/t_vjdecomp_err_1.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_err_1.pcap
+../config/t_vjdecomp_err_2.pcap		/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_err_2.pcap
+../config/t_vjdecomp_err_2.pcap		/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_err_2.pcap
+
+//for wins VJDECOMP UNCOMP cases
+../config/t_vjdecomp_uncomp_1.pcap	/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_uncomp_1.pcap
+../config/t_vjdecomp_uncomp_1.pcap	/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_uncomp_1.pcap
+../config/t_vjdecomp_uncomp_2.pcap	/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_uncomp_2.pcap
+../config/t_vjdecomp_uncomp_2.pcap	/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_uncomp_2.pcap
+../config/t_vjdecomp_uncomp_3.pcap	/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_uncomp_3.pcap
+../config/t_vjdecomp_uncomp_3.pcap	/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_uncomp_3.pcap
+
+//for wins VJDECOMP COMP cases
+../config/t_vjdecomp_comp_1.pcap	/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_comp_1.pcap
+../config/t_vjdecomp_comp_1.pcap	/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_comp_1.pcap
+../config/t_vjdecomp_comp_2.pcap	/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_comp_2.pcap
+../config/t_vjdecomp_comp_2.pcap	/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_comp_2.pcap
+../config/t_vjdecomp_comp_14.pcap	/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_comp_14.pcap
+../config/t_vjdecomp_comp_14.pcap	/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_comp_14.pcap
+
+../config/t_vjsearch_1.pcap	/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjsearch_1.pcap
+../config/t_vjsearch_1.pcap	/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjsearch_1.pcap
+../config/t_vjsearch_2.pcap	/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjsearch_2.pcap
+../config/t_vjsearch_2.pcap	/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjsearch_2.pcap
+../config/t_vjsearch_3.pcap	/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjsearch_3.pcap
+../config/t_vjsearch_3.pcap	/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjsearch_3.pcap
+../config/t_vjsearch_4.pcap	/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjsearch_4.pcap
+../config/t_vjsearch_4.pcap	/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjsearch_4.pcap
+
+../config/t_vjbound_1.pcap	/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_1.pcap
+../config/t_vjbound_1.pcap	/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_1.pcap
+../config/t_vjbound_2.pcap	/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_2.pcap
+../config/t_vjbound_2.pcap	/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_2.pcap
+../config/t_vjbound_3.pcap	/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_3.pcap
+../config/t_vjbound_3.pcap	/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_3.pcap
+../config/t_vjbound_4.pcap	/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_4.pcap
+../config/t_vjbound_4.pcap	/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_4.pcap
+../config/t_vjbound_5.pcap	/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_5.pcap
+../config/t_vjbound_5.pcap	/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_5.pcap
+../config/t_vjbound_6.pcap	/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_6.pcap
+../config/t_vjbound_6.pcap	/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_6.pcap
+../config/t_vjbound_7.pcap	/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_7.pcap
+../config/t_vjbound_7.pcap	/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_7.pcap
+../config/t_vjbound_8.pcap	/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_8.pcap
+../config/t_vjbound_8.pcap	/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_8.pcap
+../config/t_vjbound_9.pcap	/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_9.pcap
+../config/t_vjbound_9.pcap	/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_9.pcap
+../config/t_vjbound_10.pcap	/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_10.pcap
+../config/t_vjbound_10.pcap	/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_10.pcap
+../config/t_vjbound_11.pcap	/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_11.pcap
+../config/t_vjbound_11.pcap	/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_11.pcap
+../config/t_vjbound_12.pcap	/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_12.pcap
+../config/t_vjbound_12.pcap	/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_12.pcap
+../config/t_vjbound_13.pcap	/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_13.pcap
+../config/t_vjbound_13.pcap	/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_13.pcap
+../config/t_vjbound_14.pcap	/epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_14.pcap
+../config/t_vjbound_14.pcap	/epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_14.pcap
+
+../config/te_vjcomp.ini         /epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/te_vjcomp.ini
+../config/te_vjcomp.ini         /epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/te_vjcomp.ini
+
+../config/te_vjcomp.xml         /epoc32/release/wins/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/te_vjcomp.xml
+../config/te_vjcomp.xml         /epoc32/release/wins/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/te_vjcomp.xml
+
+// for winscw
+../scripts/te_vjcomp.script     /epoc32/release/winscw/udeb/z/testdata/scripts/te_vjcomp.script
+../scripts/te_vjcomp.script     /epoc32/release/winscw/urel/z/testdata/scripts/te_vjcomp.script
+
+// for winscw VJUNCOMP cases
+../config/t_vjuncomp_1.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_1.pcap
+../config/t_vjuncomp_1.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_1.pcap
+../config/t_vjuncomp_2.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_2.pcap
+../config/t_vjuncomp_2.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_2.pcap
+../config/t_vjuncomp_3.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_3.pcap
+../config/t_vjuncomp_3.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_3.pcap
+../config/t_vjuncomp_4.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_4.pcap
+../config/t_vjuncomp_4.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_4.pcap
+../config/t_vjuncomp_5.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_5.pcap
+../config/t_vjuncomp_5.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_5.pcap
+../config/t_vjuncomp_6.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_6.pcap
+../config/t_vjuncomp_6.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_6.pcap
+../config/t_vjuncomp_7.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_7.pcap
+../config/t_vjuncomp_7.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_7.pcap
+../config/t_vjuncomp_8.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_8.pcap
+../config/t_vjuncomp_8.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_8.pcap
+../config/t_vjuncomp_9.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_9.pcap
+../config/t_vjuncomp_9.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_9.pcap
+../config/t_vjuncomp_10.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_10.pcap
+../config/t_vjuncomp_10.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_10.pcap
+../config/t_vjuncomp_11.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_11.pcap
+../config/t_vjuncomp_11.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_11.pcap
+../config/t_vjuncomp_12.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_12.pcap
+../config/t_vjuncomp_12.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_12.pcap
+../config/t_vjuncomp_13.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_13.pcap
+../config/t_vjuncomp_13.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_13.pcap
+../config/t_vjuncomp_14.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_14.pcap
+../config/t_vjuncomp_14.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_14.pcap
+//..\config\t_vjuncomp_15.pcap		\epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_15.pcap
+//..\config\t_vjuncomp_15.pcap		\epoc32\release\winscw\urel\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_15.pcap
+//..\config\t_vjuncomp_16.pcap		\epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_16.pcap
+//..\config\t_vjuncomp_16.pcap		\epoc32\release\winscw\urel\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_16.pcap
+../config/t_vjuncomp_17.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_17.pcap
+../config/t_vjuncomp_17.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_17.pcap
+../config/t_vjuncomp_18.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_18.pcap
+../config/t_vjuncomp_18.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_18.pcap
+../config/t_vjuncomp_19.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_19.pcap
+../config/t_vjuncomp_19.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_19.pcap
+../config/t_vjuncomp_20.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_20.pcap
+../config/t_vjuncomp_20.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_20.pcap
+../config/t_vjuncomp_21.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_21.pcap
+../config/t_vjuncomp_21.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_21.pcap
+../config/t_vjuncomp_22.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_22.pcap
+../config/t_vjuncomp_22.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_22.pcap
+../config/t_vjuncomp_23.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_23.pcap
+../config/t_vjuncomp_23.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_23.pcap
+
+//for winscw VJCOMP cases
+../config/t_vjcomp_1.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_1.pcap
+../config/t_vjcomp_1.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_1.pcap
+../config/t_vjcomp_2.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_2.pcap
+../config/t_vjcomp_2.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_2.pcap
+../config/t_vjcomp_3.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_3.pcap
+../config/t_vjcomp_3.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_3.pcap
+../config/t_vjcomp_4.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_4.pcap
+../config/t_vjcomp_4.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_4.pcap
+../config/t_vjcomp_5.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_5.pcap
+../config/t_vjcomp_5.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_5.pcap
+../config/t_vjcomp_6.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_6.pcap
+../config/t_vjcomp_6.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_6.pcap
+../config/t_vjcomp_7.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_7.pcap
+../config/t_vjcomp_7.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_7.pcap
+../config/t_vjcomp_8.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_8.pcap
+../config/t_vjcomp_8.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_8.pcap
+../config/t_vjcomp_9.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_9.pcap
+../config/t_vjcomp_9.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_9.pcap
+../config/t_vjcomp_10.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_10.pcap
+../config/t_vjcomp_10.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_10.pcap
+../config/t_vjcomp_11.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_11.pcap
+../config/t_vjcomp_11.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_11.pcap
+../config/t_vjcomp_12.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_12.pcap
+../config/t_vjcomp_12.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_12.pcap
+../config/t_vjcomp_13.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_13.pcap
+../config/t_vjcomp_13.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_13.pcap
+
+
+//for winscw VJDECOMP ERR cases
+../config/t_vjdecomp_err_1.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_err_1.pcap
+../config/t_vjdecomp_err_1.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_err_1.pcap
+../config/t_vjdecomp_err_2.pcap		/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_err_2.pcap
+../config/t_vjdecomp_err_2.pcap		/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_err_2.pcap
+
+//for winscw VJDECOMP UNCOMP cases
+../config/t_vjdecomp_uncomp_1.pcap	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_uncomp_1.pcap
+../config/t_vjdecomp_uncomp_1.pcap	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_uncomp_1.pcap
+../config/t_vjdecomp_uncomp_2.pcap	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_uncomp_2.pcap
+../config/t_vjdecomp_uncomp_2.pcap	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_uncomp_2.pcap
+../config/t_vjdecomp_uncomp_3.pcap	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_uncomp_3.pcap
+../config/t_vjdecomp_uncomp_3.pcap	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_uncomp_3.pcap
+
+//for winscw VJDECOMP COMP cases
+../config/t_vjdecomp_comp_1.pcap	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_comp_1.pcap
+../config/t_vjdecomp_comp_1.pcap	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_comp_1.pcap
+../config/t_vjdecomp_comp_2.pcap	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_comp_2.pcap
+../config/t_vjdecomp_comp_2.pcap	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_comp_2.pcap
+../config/t_vjdecomp_comp_14.pcap	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_comp_14.pcap
+../config/t_vjdecomp_comp_14.pcap	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_comp_14.pcap
+
+../config/t_vjsearch_1.pcap	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjsearch_1.pcap
+../config/t_vjsearch_1.pcap	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjsearch_1.pcap
+../config/t_vjsearch_2.pcap	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjsearch_2.pcap
+../config/t_vjsearch_2.pcap	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjsearch_2.pcap
+../config/t_vjsearch_3.pcap	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjsearch_3.pcap
+../config/t_vjsearch_3.pcap	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjsearch_3.pcap
+../config/t_vjsearch_4.pcap	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjsearch_4.pcap
+../config/t_vjsearch_4.pcap	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjsearch_4.pcap
+
+../config/t_vjbound_1.pcap	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_1.pcap
+../config/t_vjbound_1.pcap	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_1.pcap
+../config/t_vjbound_2.pcap	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_2.pcap
+../config/t_vjbound_2.pcap	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_2.pcap
+../config/t_vjbound_3.pcap	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_3.pcap
+../config/t_vjbound_3.pcap	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_3.pcap
+../config/t_vjbound_4.pcap	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_4.pcap
+../config/t_vjbound_4.pcap	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_4.pcap
+../config/t_vjbound_5.pcap	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_5.pcap
+../config/t_vjbound_5.pcap	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_5.pcap
+../config/t_vjbound_6.pcap	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_6.pcap
+../config/t_vjbound_6.pcap	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_6.pcap
+../config/t_vjbound_7.pcap	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_7.pcap
+../config/t_vjbound_7.pcap	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_7.pcap
+../config/t_vjbound_8.pcap	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_8.pcap
+../config/t_vjbound_8.pcap	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_8.pcap
+../config/t_vjbound_9.pcap	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_9.pcap
+../config/t_vjbound_9.pcap	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_9.pcap
+../config/t_vjbound_10.pcap	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_10.pcap
+../config/t_vjbound_10.pcap	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_10.pcap
+../config/t_vjbound_11.pcap	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_11.pcap
+../config/t_vjbound_11.pcap	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_11.pcap
+../config/t_vjbound_12.pcap	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_12.pcap
+../config/t_vjbound_12.pcap	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_12.pcap
+../config/t_vjbound_13.pcap	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_13.pcap
+../config/t_vjbound_13.pcap	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_13.pcap
+../config/t_vjbound_14.pcap	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_14.pcap
+../config/t_vjbound_14.pcap	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_14.pcap
+
+../config/te_vjcomp.ini         /epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/te_vjcomp.ini
+../config/te_vjcomp.ini         /epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/te_vjcomp.ini
+
+../config/te_vjcomp.xml    	/epoc32/release/winscw/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/te_vjcomp.xml
+../config/te_vjcomp.xml    	/epoc32/release/winscw/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/te_vjcomp.xml
+
+// for thumb
+../scripts/te_vjcomp.script     /epoc32/release/thumb/udeb/z/testdata/scripts/te_vjcomp.script
+../scripts/te_vjcomp.script     /epoc32/release/thumb/urel/z/testdata/scripts/te_vjcomp.script
+
+// for thumb VJUNCOMP cases
+../config/t_vjuncomp_1.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_1.pcap
+../config/t_vjuncomp_1.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_1.pcap
+../config/t_vjuncomp_2.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_2.pcap
+../config/t_vjuncomp_2.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_2.pcap
+../config/t_vjuncomp_3.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_3.pcap
+../config/t_vjuncomp_3.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_3.pcap
+../config/t_vjuncomp_4.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_4.pcap
+../config/t_vjuncomp_4.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_4.pcap
+../config/t_vjuncomp_5.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_5.pcap
+../config/t_vjuncomp_5.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_5.pcap
+../config/t_vjuncomp_6.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_6.pcap
+../config/t_vjuncomp_6.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_6.pcap
+../config/t_vjuncomp_7.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_7.pcap
+../config/t_vjuncomp_7.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_7.pcap
+../config/t_vjuncomp_8.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_8.pcap
+../config/t_vjuncomp_8.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_8.pcap
+../config/t_vjuncomp_9.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_9.pcap
+../config/t_vjuncomp_9.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_9.pcap
+../config/t_vjuncomp_10.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_10.pcap
+../config/t_vjuncomp_10.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_10.pcap
+../config/t_vjuncomp_11.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_11.pcap
+../config/t_vjuncomp_11.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_11.pcap
+../config/t_vjuncomp_12.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_12.pcap
+../config/t_vjuncomp_12.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_12.pcap
+../config/t_vjuncomp_13.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_13.pcap
+../config/t_vjuncomp_13.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_13.pcap
+../config/t_vjuncomp_14.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_14.pcap
+../config/t_vjuncomp_14.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_14.pcap
+//..\config\t_vjuncomp_15.pcap		\epoc32\release\thumb\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_15.pcap
+//..\config\t_vjuncomp_15.pcap		\epoc32\release\thumb\urel\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_15.pcap
+//..\config\t_vjuncomp_16.pcap		\epoc32\release\thumb\udeb\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_16.pcap
+//..\config\t_vjuncomp_16.pcap		\epoc32\release\thumb\urel\z\testdata\configs\ppp\te_ppp\te_vjcomp\t_vjuncomp_16.pcap
+../config/t_vjuncomp_17.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_17.pcap
+../config/t_vjuncomp_17.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_17.pcap
+../config/t_vjuncomp_18.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_18.pcap
+../config/t_vjuncomp_18.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_18.pcap
+../config/t_vjuncomp_19.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_19.pcap
+../config/t_vjuncomp_19.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_19.pcap
+../config/t_vjuncomp_20.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_20.pcap
+../config/t_vjuncomp_20.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_20.pcap
+../config/t_vjuncomp_21.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_21.pcap
+../config/t_vjuncomp_21.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_21.pcap
+../config/t_vjuncomp_22.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_22.pcap
+../config/t_vjuncomp_22.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_22.pcap
+../config/t_vjuncomp_23.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_23.pcap
+../config/t_vjuncomp_23.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjuncomp_23.pcap
+
+// for thumb VJCOMP cases
+../config/t_vjcomp_1.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_1.pcap
+../config/t_vjcomp_1.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_1.pcap
+../config/t_vjcomp_2.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_2.pcap
+../config/t_vjcomp_2.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_2.pcap
+../config/t_vjcomp_3.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_3.pcap
+../config/t_vjcomp_3.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_3.pcap
+../config/t_vjcomp_4.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_4.pcap
+../config/t_vjcomp_4.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_4.pcap
+../config/t_vjcomp_5.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_5.pcap
+../config/t_vjcomp_5.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_5.pcap
+../config/t_vjcomp_6.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_6.pcap
+../config/t_vjcomp_6.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_6.pcap
+../config/t_vjcomp_7.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_7.pcap
+../config/t_vjcomp_7.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_7.pcap
+../config/t_vjcomp_8.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_8.pcap
+../config/t_vjcomp_8.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_8.pcap
+../config/t_vjcomp_9.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_9.pcap
+../config/t_vjcomp_9.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_9.pcap
+../config/t_vjcomp_10.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_10.pcap
+../config/t_vjcomp_10.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_10.pcap
+../config/t_vjcomp_11.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_11.pcap
+../config/t_vjcomp_11.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_11.pcap
+../config/t_vjcomp_12.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_12.pcap
+../config/t_vjcomp_12.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_12.pcap
+../config/t_vjcomp_13.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_13.pcap
+../config/t_vjcomp_13.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjcomp_13.pcap
+
+
+//for thumb VJDECOMP ERR cases
+../config/t_vjdecomp_err_1.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_err_1.pcap
+../config/t_vjdecomp_err_1.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_err_1.pcap
+../config/t_vjdecomp_err_2.pcap		/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_err_2.pcap
+../config/t_vjdecomp_err_2.pcap		/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_err_2.pcap
+
+//for thumb VJDECOMP UNCOMP cases
+../config/t_vjdecomp_uncomp_1.pcap	/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_uncomp_1.pcap
+../config/t_vjdecomp_uncomp_1.pcap	/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_uncomp_1.pcap
+../config/t_vjdecomp_uncomp_2.pcap	/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_uncomp_2.pcap
+../config/t_vjdecomp_uncomp_2.pcap	/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_uncomp_2.pcap
+../config/t_vjdecomp_uncomp_3.pcap	/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_uncomp_3.pcap
+../config/t_vjdecomp_uncomp_3.pcap	/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_uncomp_3.pcap
+
+//for thumb VJDECOMP COMP cases
+../config/t_vjdecomp_comp_1.pcap	/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_comp_1.pcap
+../config/t_vjdecomp_comp_1.pcap	/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_comp_1.pcap
+../config/t_vjdecomp_comp_2.pcap	/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_comp_2.pcap
+../config/t_vjdecomp_comp_2.pcap	/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_comp_2.pcap
+../config/t_vjdecomp_comp_14.pcap	/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_comp_14.pcap
+../config/t_vjdecomp_comp_14.pcap	/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjdecomp_comp_14.pcap
+
+../config/t_vjsearch_1.pcap	/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjsearch_1.pcap
+../config/t_vjsearch_1.pcap	/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjsearch_1.pcap
+../config/t_vjsearch_2.pcap	/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjsearch_2.pcap
+../config/t_vjsearch_2.pcap	/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjsearch_2.pcap
+../config/t_vjsearch_3.pcap	/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjsearch_3.pcap
+../config/t_vjsearch_3.pcap	/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjsearch_3.pcap
+../config/t_vjsearch_4.pcap	/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjsearch_4.pcap
+../config/t_vjsearch_4.pcap	/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjsearch_4.pcap
+
+../config/t_vjbound_1.pcap	/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_1.pcap
+../config/t_vjbound_1.pcap	/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_1.pcap
+../config/t_vjbound_2.pcap	/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_2.pcap
+../config/t_vjbound_2.pcap	/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_2.pcap
+../config/t_vjbound_3.pcap	/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_3.pcap
+../config/t_vjbound_3.pcap	/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_3.pcap
+../config/t_vjbound_4.pcap	/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_4.pcap
+../config/t_vjbound_4.pcap	/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_4.pcap
+../config/t_vjbound_5.pcap	/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_5.pcap
+../config/t_vjbound_5.pcap	/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_5.pcap
+../config/t_vjbound_6.pcap	/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_6.pcap
+../config/t_vjbound_6.pcap	/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_6.pcap
+../config/t_vjbound_7.pcap	/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_7.pcap
+../config/t_vjbound_7.pcap	/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_7.pcap
+../config/t_vjbound_8.pcap	/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_8.pcap
+../config/t_vjbound_8.pcap	/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_8.pcap
+../config/t_vjbound_9.pcap	/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_9.pcap
+../config/t_vjbound_9.pcap	/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_9.pcap
+../config/t_vjbound_10.pcap	/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_10.pcap
+../config/t_vjbound_10.pcap	/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_10.pcap
+../config/t_vjbound_11.pcap	/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_11.pcap
+../config/t_vjbound_11.pcap	/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_11.pcap
+../config/t_vjbound_12.pcap	/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_12.pcap
+../config/t_vjbound_12.pcap	/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_12.pcap
+../config/t_vjbound_13.pcap	/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_13.pcap
+../config/t_vjbound_13.pcap	/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_13.pcap
+../config/t_vjbound_14.pcap	/epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_14.pcap
+../config/t_vjbound_14.pcap	/epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/t_vjbound_14.pcap
+
+../config/te_vjcomp.ini         /epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/te_vjcomp.ini
+../config/te_vjcomp.ini         /epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/te_vjcomp.ini
+
+../config/te_vjcomp.xml         /epoc32/release/thumb/udeb/z/testdata/configs/ppp/te_ppp/te_vjcomp/te_vjcomp.xml
+../config/te_vjcomp.xml         /epoc32/release/thumb/urel/z/testdata/configs/ppp/te_ppp/te_vjcomp/te_vjcomp.xml
+
+
+//PRJ_EXPORTS
+// for ROM
+te_vjcomp.iby	/epoc32/rom/include/te_vjcomp.iby
+
+PRJ_MMPFILES
+
+PRJ_TESTMMPFILES
+te_vjcomp.mmp
+
+
+

@@ -1,0 +1,3 @@
+EXPORTS
+	CreateTestSuite__Fv @ 1 NONAME R3UNUSED ; CreateTestSuite(void)
+

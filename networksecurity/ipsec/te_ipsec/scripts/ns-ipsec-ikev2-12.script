@@ -1,0 +1,86 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+/////////////////////////////////////////////////////////////////
+//! @file
+//! @SYMScriptAuthor        divakare
+//! @SYMTestSuiteName       ns-ipsec-ikev2
+//! @SYMScriptCreationDate  Fri Nov 14 16:07:30 IST 2008
+/////////////////////////////////////////////////////////////////
+
+PRINT Run test case(s) for suite ns-ipsec-ikev2
+
+// ToDo: Remember to load the relevant suite before starting any test case(s)
+LOAD_SUITE	t_ipsec  -SharedData
+RUN_UTILS CopyFile z:\testdata\configs\ethernetced1853.xml c:\ethernetced1853.xml
+RUN_UTILS MakeReadWrite c:\ethernetced1853.xml
+RUN_PROGRAM -1 ced c:\ethernetced1853.xml
+
+//Create private folder
+RUN_UTILS MkDir c:\private\101f7993\
+
+//copy linux_tunnel.pin file from data folder to private folder - one time job
+RUN_UTILS CopyFile z:\testdata\configs\linux_tunnel.pin c:\private\101f7993\linux_tunnel.pin
+RUN_UTILS MakeReadWrite c:\private\101f7993\linux_tunnel.pin
+
+//copy epoc2linux.xml file from data folder to c: drive - one time job
+RUN_UTILS CopyFile z:\testdata\configs\epoc2linux.xml c:\epoc2linux.xml
+RUN_UTILS MakeReadWrite c:\epoc2linux.xml
+
+
+START_TESTCASE NET-IPSec-NewAlg_IKEV2_IPsec_SA-012
+//! @SYMTestCaseID          NET-IPSec-NewAlg_IKEV2_IPsec_SA-012
+//! @SYMCreationDate        19-09-2008
+//! @SYMAuthor              divyadsouza
+//! @SYMTestCaseDesc        IPSec ESP profiles/IKEv2 to support new crypto algorithms.
+//!                         
+//!                         This test is to check if the implementation adheres to the 3 GPP specification (3GPP TS 43.318)
+//!                         
+//!                         DUT should act as the Initiator for Phase 1.
+//!                         
+//!                         Phase 1
+//!                         Mode - Main
+//!                         Encryption Algorithm - AES with fixed key length in CBC mode. The key length is set to 128 bits
+//!                         Pseudo Random Function - HMAC-SHA1
+//!                         Hash Algorithm - HMAC-SHA1
+//!                         Authentication Method - RSA Encryption
+//!                         DH Group - 2
+//!                         
+//!                         Phase 2
+//!                         Security Protocol - ESP
+//!                         Encapsulation Mode - Tunnel
+//!                         Encryption Algorithm - AES with fixed key length in CBC mode. The key length is set to 128 bits
+//!                         Authentication Algorithm - HMAC-SHA1
+//! @SYMREQ                 REQ10662
+	//copy linux_tunnel.pol file from data folder to private folder
+	RUN_UTILS DeleteFile c:\private\101f7993\linux_tunnel.pol
+	RUN_UTILS CopyFile z:\TestData\configs\linux_tunnel12.pol c:\private\101f7993\linux_tunnel.pol
+	RUN_UTILS MakeReadWrite c:\private\101f7993\linux_tunnel.pol
+	
+	//run batch file to ping the linux machine. Pol file is change, so need ceding again.
+	RUN_PROGRAM -1 ced c:\epoc2linux.xml
+	
+	START_TEST_BLOCK    100     t_ipsec     z:\testdata\scripts\ns-ipsec-ikev2test-ops.ini
+	        CREATE_OBJECT   IPSecIKEv2TestWrapper    IKEv2TestWrapperSection
+	        COMMAND     IKEv2TestWrapperSection  New
+	        COMMAND !Error=-5197  IKEv2TestWrapperSection  NegativeTestIKEv2 Value1ParamSection
+	END_TEST_BLOCK
+END_TESTCASE NET-IPSec-NewAlg_IKEV2_IPsec_SA-012
+
+RUN_UTILS DeleteFile c:\epoc2linux.xml
+RUN_UTILS DeleteFile c:\ethernetced1853.xml
+
+
+

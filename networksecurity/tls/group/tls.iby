@@ -1,0 +1,39 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+#ifndef __TLS_IBY__
+#define __TLS_IBY__
+
+#include <certman.iby>
+// DEF139848 fix - Forward Propogation from Symtb9.1 - Illegal dependency from OCSP to HTTP.
+#include <ocsp.iby>
+
+#include <tlsprovider.iby>
+#include <NETSM.iby>
+#include <NETMSG.iby>
+
+REM ssl dll implementing ssl/tls secure socket layer protocol
+
+REM Make sure the error strings appear in the ROM
+
+data=MULTI_LINGUIFY(RSC ZRESOURCE\Errors\SSLERR	Resource\Errors\sslerr)
+
+file=ABI_DIR\DEBUG_DIR\ssl.dll	System\Libs\ssl.dll
+
+file=ABI_DIR\DEBUG_DIR\securesocket.DLL	System\Libs\securesocket.DLL
+
+#endif

@@ -1,0 +1,195 @@
+// Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// iprotor.hrh - protocol analyzer UI constants
+// This file defines commands for use in the resource file and
+// in the C++ source file.
+//
+
+
+
+/**
+ @internalComponent
+*/
+
+enum
+	{
+	ERotorCmdFileName=0x10,
+	ERotorHelp,
+	ERotorAbout,
+	EHelpButton,
+	ESetButton,
+	EClearButton,
+
+	ERotorStart,
+	ERotorStop,
+	ERotorOptions,
+	ERotorProtocolChoiceList,
+	ERotorPortNumEd,
+	ERotorMode,
+	ERotorViewIPHdr,
+	ERotorDumpIPv4,
+	ERotorDumpIPv6,
+	ERotorDumpIPSEC,
+	ERotorBladesNumEd,
+	ERotorIPv4View,
+	ERotorIPv6View,
+	ERotorIPv6ExtView,
+	
+	ERotorIPPage,	//Some Page ids are used twice
+	ERotorIPPage2,
+	ERotorICMPPage,
+	ERotorTCPPage,
+	ERotorTCPPage2,
+	ERotorUDPPage,
+	ERotorHOPPage,
+	ERotorDSTPage,
+	ERotorRTPage,
+	ERotorFRAGPage,
+	ERotorAHPage,
+	ERotorESPPage,
+
+	ERotorIPVersion,
+	ERotorIPHdrLen,
+	ERotorIPTOS,
+	ERotorIPTotalLen,
+	ERotorIPId,
+	ERotorIPFlags,
+	ERotorIPOffset,
+	ERotorIPTTL,
+	ERotorIPProtocol,
+	ERotorIPChksum,
+	ERotorIPSrcAddr,
+	ERotorIPDstAddr,
+
+	ERotorICMPType,
+	ERotorICMPCode,
+	ERotorICMPChksum,
+	
+
+	ERotorTCPSrcPort,
+	ERotorTCPDstPort,
+	ERotorTCPSeq,
+	ERotorTCPAckNum,
+	ERotorTCPHdrLen,
+	ERotorTCPFlags,
+	ERotorTCPHdrWinSize,
+	ERotorTCPChksum,
+	ERotorTCPHdrUrgPtr,
+	
+
+	ERotorUDPSrcPort,
+	ERotorUDPDstPort,
+	ERotorUDPLen,
+	ERotorUDPChksum,
+
+	ERotorAHProtocol,
+	ERotorAHHdrLen,
+	ERotorAHSPI,
+	ERotorAHSeq,
+
+	ERotorESPSPI,
+	ERotorESPSeq,
+
+
+	ERotorIPTraffic,
+	ERotorIPFlowLabel,
+	ERotorIPPayloadLen,
+	ERotorIPNextHdr,
+	ERotorIPHopLimit,
+
+	ERotorTCPOptions,
+	ERotorICMPParameter,
+
+	ERotorHOPNextHdr,
+	ERotorHOPHdrExtLen,
+	ERotorHOPOptionType,
+	ERotorHOPOptionLen,
+
+	ERotorDSTNextHdr,
+	ERotorDSTHdrExtLen,
+	ERotorDSTHomeAddr,
+	ERotorDSTBindingUpdate,
+	ERotorDSTBindingRequest,
+	ERotorDSTBindingAck,
+	ERotorDSTPad,
+	ERotorDSTUnknown,
+
+	ERotorRTNextHdr,
+	ERotorRTHdrExtLen,
+	ERotorRTRoutingType,
+	ERotorRTSegLeft,
+	ERotorRTSLBitMap,
+	ERotorRTAddresses,
+
+	ERotorFRAGNextHdr,
+	ERotorFRAGFragOffset,
+	ERotorFRAGMFlag,
+	ERotorFRAGId,
+
+	ERotorHistory,
+
+ERotorNoRotor,
+ERotorClearScreen,
+
+ERotorFontDialog,
+
+ERotorHistoryDialog,
+
+
+ERotorScrollNone,
+ERotorScrollHor,
+ERotorScrollVert,
+ERotorScrollBoth,
+
+
+EMenuCommandLongLine,
+
+EMenuScreenSize,
+EMenuCursorSize,
+EMenuWindowType	,
+EMenuCommandFileExit,
+
+EMenuCommandHideCursor,
+EMenuCommandIgnoreCursor,
+EMenuCommandScrollLock,
+EMenuCommandPrintable,
+
+EMenuCommandEditCopy,
+EMenuCommandEditPaste,
+
+EMenuCommandInverse,
+EMenuCommandBold,
+EMenuCommandItalic,
+EMenuCommandUnderline,
+EMenuCommandColor
+
+	};
+
+
+//To access the header types list in the dialog and class
+enum {
+		IP=0,
+		ICMP=1,
+		TCP=2,
+		UDP=3,
+		ESP=4,
+		AH=5
+};
+		
+//To access the protocol type list in the dialog and class
+enum {
+		IPv4=0,
+		IPv6=1,
+		Both=2
+};

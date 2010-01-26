@@ -1,0 +1,17 @@
+TDummyDlgSvr - 7/12/01
+
+The TDummyDlgSvr project was created for PSD.AGX, Genconn.AGT and CSD.AGX unit test cases. It simulates the behavior of AgentDialog.dll. The main purpose of the dummy dialog server is to automatically respond to "dialog boxes" presented by CSDAGX, GENCONN and PSDAGX.
+
+The required response is set by the test harness, when a dialog box is requested, the dialog server simply replies with the pre-determined response to suit the test case.
+
+
+Maintaining DummyDlgSvr as changes are made
+
+There should not be too many changes to DummyDlgSvr. Most of the functionality is tied up in QoSWarning dialog presentation which is quite simple and hard to see any need to change at this stage.
+
+Test Harnesses that use DummyDlgSvr
+
+\networking\csdagx\ts_csdagx
+\networking\genconn\ts_utgenconn
+\networking\psdagx\ts_psdagx
+

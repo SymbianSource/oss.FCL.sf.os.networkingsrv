@@ -1,0 +1,371 @@
+// Copyright (c) 2001-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+RESOURCE ARRAY  r_error_res_ssl_handshake_errors
+	{
+	items=
+		{
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_default;	//-7400	
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_NoSharedCipher;			
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_SocketBusy;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_InvalidCipherSuite;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_InvalidCert;				
+			}, 
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_NoClientCert;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_UnsupportedKeySize;					
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_UnsupportedKey;					
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_BadRecordHeader;					
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_BadProtocolVersion;				
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_2ServerOnly;
+			},
+		SINGLE_ERROR
+			{
+			text= r_ssl_error_UnexpectedMessage;			
+			},
+		SINGLE_ERROR
+			{
+			text= r_ssl_error_UnsupportedCipher;				
+			},
+		SINGLE_ERROR
+			{
+			text= r_ssl_error_BadMAC;					
+			},
+		SINGLE_ERROR
+			{
+			text= r_ssl_error_RecivedAlert;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_RecvNotSupportedHS;  // -7415
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_HSRecordFieldTooBig;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_RecordHeaderTooBig;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_SendDataToBig;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_NoCertificate;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_InvalidHash;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_SendCanceled;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_RecvCanceled;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_RecvCanceled;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_HandshakeCanceled;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_WriteFailed;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_DisconnectIndication;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_DllLeave;
+			}
+		};
+	}
+
+
+RESOURCE ARRAY  r_error_res_ssl_alert_errors
+	{
+	items=
+		{
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_AlertCloseNotify;		//-7500
+			}
+		};
+	}
+
+RESOURCE ARRAY  r_error_res_ssl_alert_UnexpectedMessage
+	{
+	items=
+		{
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_AlertUnexpectedMessage;		//-7510
+			}
+		};
+	}
+
+RESOURCE ARRAY  r_error_res_ssl_alert_mac
+	{
+	items=
+		{
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_AlertBadReordMac;		//-7520
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_AlertDecryptionFailed;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_AlertRecordOverflow;
+			}
+		};
+	}
+
+RESOURCE ARRAY  r_error_res_ssl_alert_DecompressionFailure
+	{
+	items=
+		{
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_AlertDecompressionFailure;		//-7530
+			}
+		};
+	}
+
+RESOURCE ARRAY  r_error_res_ssl_alert_handshake
+	{
+	items=
+		{
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_AlertHandshakeFailure;		//-7540
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_AlertNoCertificate;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_AlertBadCertificate;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_AlertUnsupportedCertificate;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_AlertCertificateRevoked;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_AlertCertificateExpired;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_AlertCertificateUnknown;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_AlertIllegalParameter;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_AlertUnknownCA;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_AlertAccessDenied;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_AlertDecodeError;
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_AlertDecryptError;
+			}
+		};
+	}
+
+RESOURCE ARRAY  r_error_res_ssl_alert_ExportRestriction
+	{
+	items=
+		{
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_AlertExportRestriction;		//-7560
+			}
+		};
+	}
+
+RESOURCE ARRAY  r_error_res_ssl_alert_Security
+	{
+	items=
+		{
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_AlertProtocolVersion;		//-7570
+			},
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_AlertInsufficientSecurity;
+			}
+		};
+	}
+
+
+RESOURCE ARRAY  r_error_res_ssl_alert_InternalError
+	{
+	items=
+		{
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_AlertInternalError;		//-7580
+			}
+		};
+	}
+
+RESOURCE ARRAY  r_error_res_ssl_alert_UserCanceled
+	{
+	items=
+		{
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_AlertUserCanceled;		//-7590
+			}
+		};
+	}
+
+RESOURCE ARRAY  r_error_res_ssl_alert_NoRenegotiation
+	{
+	items=
+		{
+		SINGLE_ERROR
+			{
+			text=r_ssl_error_ssl_AlertNoRenegotiation;		//-7600
+			}
+		};
+	}
+
+RESOURCE TBUF r_ssl_error_ssl_default { buf = STRING_r_ssl_error_ssl_default; }			// -7400
+RESOURCE TBUF r_ssl_error_NoSharedCipher { buf = STRING_r_ssl_error_NoSharedCipher ; }		// -7401
+RESOURCE TBUF r_ssl_error_SocketBusy { buf = STRING_r_ssl_error_SocketBusy; }			// -7402
+RESOURCE TBUF r_ssl_error_InvalidCipherSuite { buf = STRING_r_ssl_error_InvalidCipherSuite; }	// -7403
+RESOURCE TBUF r_ssl_error_InvalidCert { buf = STRING_r_ssl_error_InvalidCert; }			// -7404
+RESOURCE TBUF r_ssl_error_NoClientCert { buf = STRING_r_ssl_error_NoClientCert; }		// -7405
+RESOURCE TBUF r_ssl_error_UnsupportedKeySize { buf = STRING_r_ssl_error_UnsupportedKeySize; }	// -7406
+RESOURCE TBUF r_ssl_error_UnsupportedKey { buf = STRING_r_ssl_error_UnsupportedKey; }		// -7407
+RESOURCE TBUF r_ssl_error_BadRecordHeader { buf = STRING_r_ssl_error_BadRecordHeader; }		// -7408
+RESOURCE TBUF r_ssl_error_BadProtocolVersion { buf = STRING_r_ssl_error_BadProtocolVersion; }	// -7409
+RESOURCE TBUF r_ssl_error_2ServerOnly { buf = STRING_r_ssl_error_2ServerOnly; }			// -7410
+RESOURCE TBUF  r_ssl_error_UnexpectedMessage { buf = STRING_r_ssl_error_UnexpectedMessage; }
+RESOURCE TBUF  r_ssl_error_UnsupportedCipher { buf = STRING_r_ssl_error_UnsupportedCipher; }
+RESOURCE TBUF  r_ssl_error_BadMAC { buf = STRING_r_ssl_error_BadMAC; }
+RESOURCE TBUF  r_ssl_error_RecivedAlert { buf = STRING_r_ssl_error_RecivedAlert; }
+RESOURCE TBUF r_ssl_error_RecvNotSupportedHS { buf = STRING_r_ssl_error_RecvNotSupportedHS ; } // -7415
+RESOURCE TBUF r_ssl_error_HSRecordFieldTooBig { buf = STRING_r_ssl_error_HSRecordFieldTooBig; }
+RESOURCE TBUF r_ssl_error_RecordHeaderTooBig { buf = STRING_r_ssl_error_RecordHeaderTooBig; }
+RESOURCE TBUF r_ssl_error_SendDataToBig { buf = STRING_r_ssl_error_SendDataToBig; }
+RESOURCE TBUF r_ssl_error_NoCertificate { buf = STRING_r_ssl_error_NoCertificate; }
+RESOURCE TBUF r_ssl_error_InvalidHash { buf = STRING_r_ssl_error_InvalidHash; }			// -7420
+RESOURCE TBUF r_ssl_error_SendCanceled { buf = STRING_r_ssl_error_SendCanceled; }
+RESOURCE TBUF r_ssl_error_RecvCanceled { buf = STRING_r_ssl_error_RecvCanceled; }
+RESOURCE TBUF r_ssl_error_HandshakeCanceled { buf = STRING_r_ssl_error_HandshakeCanceled; }
+RESOURCE TBUF r_ssl_error_WriteFailed { buf = STRING_r_ssl_error_WriteFailed; }
+RESOURCE TBUF r_ssl_error_FailedToLoad { buf = STRING_r_ssl_error_FailedToLoad; }
+RESOURCE TBUF r_ssl_error_DisconnectIndication { buf = STRING_r_ssl_error_DisconnectIndication; }
+RESOURCE TBUF r_ssl_error_DllLeave { buf = STRING_r_ssl_error_DllLeave; }			// -7427
+
+
+RESOURCE TBUF r_ssl_error_ssl_AlertCloseNotify { buf = STRING_r_ssl_error_ssl_AlertCloseNotify; }		//-7500
+
+
+RESOURCE TBUF r_ssl_error_ssl_AlertUnexpectedMessage { buf = STRING_r_ssl_error_ssl_AlertUnexpectedMessage; }		//-7510
+
+RESOURCE TBUF r_ssl_error_ssl_AlertBadReordMac { buf = STRING_r_ssl_error_ssl_AlertBadReordMac; }		//-7520
+RESOURCE TBUF r_ssl_error_ssl_AlertDecryptionFailed { buf = STRING_r_ssl_error_ssl_AlertDecryptionFailed; }
+RESOURCE TBUF r_ssl_error_ssl_AlertRecordOverflow { buf = STRING_r_ssl_error_ssl_AlertRecordOverflow; }
+
+
+RESOURCE TBUF r_ssl_error_ssl_AlertDecompressionFailure { buf = STRING_r_ssl_error_ssl_AlertDecompressionFailure; }		//-7530
+
+
+RESOURCE TBUF r_ssl_error_ssl_AlertHandshakeFailure { buf = STRING_r_ssl_error_ssl_AlertHandshakeFailure; }		//-7540
+RESOURCE TBUF r_ssl_error_ssl_AlertNoCertificate { buf = STRING_r_ssl_error_ssl_AlertNoCertificate; }
+RESOURCE TBUF r_ssl_error_ssl_AlertBadCertificate { buf = STRING_r_ssl_error_ssl_AlertBadCertificate; }
+RESOURCE TBUF r_ssl_error_ssl_AlertUnsupportedCertificate { buf = STRING_r_ssl_error_ssl_AlertUnsupportedCertificate; }
+RESOURCE TBUF r_ssl_error_ssl_AlertCertificateRevoked { buf = STRING_r_ssl_error_ssl_AlertCertificateRevoked; }
+RESOURCE TBUF r_ssl_error_ssl_AlertCertificateExpired { buf = STRING_r_ssl_error_ssl_AlertCertificateExpired; }
+RESOURCE TBUF r_ssl_error_ssl_AlertCertificateUnknown { buf = STRING_r_ssl_error_ssl_AlertCertificateUnknown; }
+RESOURCE TBUF r_ssl_error_ssl_AlertIllegalParameter { buf = STRING_r_ssl_error_ssl_AlertIllegalParameter; }
+RESOURCE TBUF r_ssl_error_ssl_AlertUnknownCA { buf = STRING_r_ssl_error_ssl_AlertUnknownCA; }
+RESOURCE TBUF r_ssl_error_ssl_AlertAccessDenied { buf = STRING_r_ssl_error_ssl_AlertAccessDenied; }
+RESOURCE TBUF r_ssl_error_ssl_AlertDecodeError { buf = STRING_r_ssl_error_ssl_AlertDecodeError; }
+RESOURCE TBUF r_ssl_error_ssl_AlertDecryptError { buf = STRING_r_ssl_error_ssl_AlertDecryptError; }
+
+RESOURCE TBUF r_ssl_error_ssl_AlertExportRestriction { buf = STRING_r_ssl_error_ssl_AlertExportRestriction; }		//-7560
+
+
+RESOURCE TBUF r_ssl_error_ssl_AlertProtocolVersion { buf = STRING_r_ssl_error_ssl_AlertProtocolVersion; }		//-7570
+RESOURCE TBUF r_ssl_error_ssl_AlertInsufficientSecurity { buf = STRING_r_ssl_error_ssl_AlertInsufficientSecurity; }
+
+
+RESOURCE TBUF r_ssl_error_ssl_AlertInternalError { buf = STRING_r_ssl_error_ssl_AlertInternalError; }		//-7580
+
+RESOURCE TBUF r_ssl_error_ssl_AlertUserCanceled { buf = STRING_r_ssl_error_ssl_AlertUserCanceled; }		//-7590
+
+
+RESOURCE TBUF r_ssl_error_ssl_AlertNoRenegotiation { buf = STRING_r_ssl_error_ssl_AlertNoRenegotiation; }		//-7600

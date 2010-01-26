@@ -1,0 +1,22 @@
+EXPORTS
+	_ZN10DelayMeter13CSendRecorder11RecordDelayER10RMBufChaini @ 1 NONAME
+	_ZN10DelayMeter13CSendRecorderC1Ev @ 2 NONAME
+	_ZN10DelayMeter13CSendRecorderC2Ev @ 3 NONAME
+	_ZN10DelayMeter16CReceiveRecorder11RecordDelayER6TDesC8 @ 4 NONAME
+	_ZN10DelayMeter16CReceiveRecorder4NewLERKNS_16TDelayMeterPrefsE @ 5 NONAME
+	_ZN10DelayMeter16CSendTimestamper11GetResultsLERiRPNS_15TDelaySampleSetE @ 6 NONAME
+	_ZN10DelayMeter16CSendTimestamper4NewLER7RSocketRKNS_16TDelayMeterPrefsE @ 7 NONAME
+	_ZN10DelayMeter16CSendTimestamper6SetupLEv @ 8 NONAME
+	_ZN10DelayMeter16CSendTimestamper9TimestampER5TDes8 @ 9 NONAME
+	_ZN10DelayMeter17DefinePubSubKeysLEv @ 10 NONAME
+	_ZN10DelayMeter18UndefinePubSubKeysEv @ 11 NONAME
+	_ZN10DelayMeter19CReceiveTimestamper9TimestampER10RMBufChaini @ 12 NONAME
+	_ZN10DelayMeter19CReceiveTimestamperC1Ev @ 13 NONAME
+	_ZN10DelayMeter19CReceiveTimestamperC2Ev @ 14 NONAME
+	_ZN10DelayMeter9CRecorder10StoreDelayEi @ 15 NONAME
+	_ZNK10DelayMeter15TDelaySampleSet13GetTimeValuesEfRdS1_S1_ @ 16 NONAME
+	_ZTIN10DelayMeter16CReceiveRecorderE @ 17 NONAME
+	_ZTIN10DelayMeter9CRecorderE @ 18 NONAME
+	_ZTVN10DelayMeter16CReceiveRecorderE @ 19 NONAME
+	_ZTVN10DelayMeter9CRecorderE @ 20 NONAME
+

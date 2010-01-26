@@ -1,0 +1,7 @@
+[sockman]
+protocols= 6to4
+
+[6to4]
+filename= 6to4.prt
+bindfrom= ip6
+index= 1

@@ -1,0 +1,183 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRINT TLS PSK tests
+
+LOAD_SUITE TS_tls.dll
+
+PAUSE_AT_END
+RUN_SCRIPT z:\TestData\scripts\esock_test_unloadesockForced.script
+ced z:\testdata\configs\Tls_ethernet.xml
+RUN_SCRIPT z:\TestData\scripts\esock_test_loadesock.script
+RUN_UTILS CopyFile  z:\TestData\Configs\tls_t_secdlg_in.dat c:\t_secdlg_in.dat
+RUN_UTILS MakeReadWrite c:\t_secdlg_in.dat
+RUN_TEST_STEP 100000, TS_TLS, t_tls_DialogMode
+TEST_COMPLETE TLS_test_1
+
+RUN_UTILS MkDir c:\Private\101f72a6\
+RUN_UTILS Delete c:\Private\101f72a6\cacerts.dat
+RUN_UTILS Delete c:\Private\101f72a6\certclients.dat
+RUN_UTILS Delete c:\Private\101f72a6\keys.dat
+RUN_UTILS CopyFile z:\testdata\configs\cacerts_psk.dat c:\private\101f72a6\cacerts.dat
+RUN_UTILS CopyFile z:\testdata\configs\certclients_psk.dat c:\private\101f72a6\certclients.dat 
+RUN_UTILS CopyFile z:\testdata\configs\keys_psk.dat c:\private\101f72a6\keys.dat
+
+
+
+
+
+// TLS handshake with TLS_PSK_WITH_AES_128_CBC_SHA cipher suit
+// Preconditions:
+// There is a TLS test server that can perform TLS handshakes using the cipher suit specific to this test.  
+// Test Actions:
+// Repeat sequence below including and not including identity hint in server hello message.
+// Launch test client that uses instance of symbian CSecureSocket to negotiate handshake with TLS test server. 
+// Set appropriate values to instance of TConnectSettings associated to instance of CSecureSocket.
+// Instruct test client to connect to TLS test server.
+// Set test environment in a way that TLS_PSK_WITH_AES_128_CBC_SHA is set in “ServerHello” message.
+// Check that instance CSecureSocket was able to execute complete success handshake with test server 
+// using the cipher suit specified. 
+
+RUN_UTILS Delete c:\t_secdlg_out.dat
+print Tests for TLS_PSK_WITH_AES_128_CBC_SHA
+RUN_TEST_STEP 100000 TS_TLS, TLSPSK, z:\testdata\configs\TLS_PSK_WITH_AES_128_CBC_SHA.ini
+TEST_COMPLETE TLS_PSK_test_2
+RUN_UTILS Delete c:\t_secdlg_out.dat
+print Tests for TLS_PSK_WITH_AES_128_CBC_SHA NoCallBack
+RUN_TEST_STEP 100000 TS_TLS, TLSPSK, z:\testdata\configs\TLS_PSK_WITH_AES_128_CBC_SHA_NOCALLBACK.ini
+TEST_COMPLETE TLS_PSK_test_3
+
+
+
+
+
+
+// TLS handshake with TLS_PSK_WITH_3DES_EDE_CBC_SHA cipher suit
+// Preconditions:
+// There is a TLS test server that can perform TLS handshakes using the cipher suit specific to this test.  
+// Test Actions:
+// Repeat sequence below including and not including identity hint in server hello message.
+// Launch test client that uses instance of symbian CSecureSocket to negotiate handshake with TLS test server. 
+// Set appropriate values to instance of TConnectSettings associated to instance of CSecureSocket.
+// Instruct test client to connect to TLS test server.
+// Set test environment in a way that TLS_PSK_WITH_3DES_EDE_CBC_SHA is set in “ServerHello” message.
+// Check that instance CSecureSocket was able to execute complete success handshake with test server 
+// using the cipher suit specified. 
+
+RUN_UTILS Delete c:\t_secdlg_out.dat
+print Tests for TLS_PSK_WITH_3DES_EDE_CBC_SHA
+RUN_TEST_STEP 100000 TS_TLS, TLSPSK, z:\testdata\configs\TLS_PSK_WITH_3DES_EDE_CBC_SHA.ini
+TEST_COMPLETE TLS_PSK_test_4
+
+
+
+
+
+// TLS handshake with TLS_PSK_WITH_RC4_128_SHA cipher suit
+// Preconditions:
+// There is a TLS test server that can perform TLS handshakes using the cipher suit specific to this test.  
+// Test Actions:
+// Repeat sequence below including and not including identity hint in server hello message.
+// Launch test client that uses instance of symbian CSecureSocket to negotiate handshake with TLS test server. 
+// Set appropriate values to instance of TConnectSettings associated to instance of CSecureSocket.
+// Instruct test client to connect to TLS test server.
+// Set test environment in a way that TLS_PSK_WITH_RC4_128_SHA is set in “ServerHello” message.
+// Check that instance CSecureSocket was able to execute complete success handshake with test server 
+// using the cipher suit specified. 
+
+RUN_UTILS Delete c:\t_secdlg_out.dat
+print Tests for TLS_PSK_WITH_RC4_128_SHA
+RUN_TEST_STEP 100000 TS_TLS, TLSPSK, z:\testdata\configs\TLS_PSK_WITH_RC4_128_SHA.ini
+TEST_COMPLETE TLS_PSK_test_5
+
+
+
+
+
+// TLS handshake with TLS_PSK_WITH_AES_256_CBC_SHA cipher suit
+// Preconditions:
+// There is a TLS test server that can perform TLS handshakes using the cipher suit specific to this test.  
+// Test Actions:
+// Repeat sequence below including and not including identity hint in server hello message.
+// Launch test client that uses instance of symbian CSecureSocket to negotiate handshake with TLS test server. 
+// Set appropriate values to instance of TConnectSettings associated to instance of CSecureSocket.
+// Instruct test client to connect to TLS test server.
+// Set test environment in a way that TLS_PSK_WITH_AES_256_CBC_SHA is set in “ServerHello” message.
+// Check that instance CSecureSocket was able to execute complete success handshake with test server 
+// using the cipher suit specified. 
+
+RUN_UTILS Delete c:\t_secdlg_out.dat
+print Tests for TLS_PSK_WITH_AES_256_CBC_SHA
+RUN_TEST_STEP 100000 TS_TLS, TLSPSK, z:\testdata\configs\TLS_PSK_WITH_AES_256_CBC_SHA.ini
+TEST_COMPLETE TLS_PSK_test_6
+
+
+
+
+
+// TLS handshake with Null cipher suites
+// Preconditions:
+// There is a TLS test server that can perform TLS handshakes using the cipher suit specific to this test.  
+// Test Actions:
+// Repeat sequence below including and not including identity hint in server hello message.
+// Launch test client that uses instance of symbian CSecureSocket to negotiate handshake with TLS test server. 
+// Set appropriate values to instance of TConnectSettings associated to instance of CSecureSocket.
+// Instruct test client to connect to TLS test server.
+// Set test environment in a way that TLS_NULL_CIPHER_NOCLIENT_AUT_RSA_MD5 is set in “ServerHello” message.
+// Check that instance CSecureSocket was able to execute complete success handshake with test server 
+// using the cipher suit specified.
+
+RUN_UTILS Delete c:\t_secdlg_out.dat
+print Tests for TLS_RSA_WITH_NULL_MD5
+RUN_TEST_STEP 100000 TS_TLS, TLSPSK, z:\testdata\configs\TLS_RSA_WITH_NULL_MD5.ini
+TEST_COMPLETE TLS_PSK_test_7
+RUN_UTILS Delete c:\t_secdlg_out.dat
+print Tests for TLS_RSA_WITH_NULL_SHA
+RUN_TEST_STEP 100000 TS_TLS, TLSPSK, z:\testdata\configs\TLS_RSA_WITH_NULL_SHA.ini
+TEST_COMPLETE TLS_PSK_test_8
+
+
+
+
+// To ensure that TLS provider can send server name extensions in TLS handshake.  
+// Preconditions:
+// There is a TLS test server that can perform TLS handshakes using server name extensions.    
+// Test Actions:
+// Launch test client that uses instance of symbian CSecureSocket to negotiate handshake with 
+// TLS test server. 
+// Set appropriate values to instance of TConnectSettings associated to instance of CSecureSocket.
+// Instruct test client to connect to TLS test server.
+// Set test environment in a way that server name extensions is set in “ServerHello” message.
+// Check that instance CSecureSocket was able to execute complete success handshake with test 
+//server using the cipher suit specified. 
+
+RUN_UTILS Delete c:\t_secdlg_out.dat 
+RUN_TEST_STEP 100000 TS_TLS, TLSPSK, z:\testdata\configs\TLS_SNE_SINGLE_SERVER.ini
+TEST_COMPLETE TLS_PSK_test_9
+RUN_UTILS Delete c:\t_secdlg_out.dat
+RUN_TEST_STEP 100000 TS_TLS, TLSPSK, z:\testdata\configs\TLS_SNE_MULTIPLE_SERVER.ini
+TEST_COMPLETE TLS_PSK_test_10
+RUN_UTILS Delete c:\t_secdlg_out.dat
+RUN_TEST_STEP 100000 TS_TLS, TLSPSK, z:\testdata\configs\TLS_SNE_SINGLE_SERVER_NEG.ini
+TEST_COMPLETE TLS_PSK_test_11
+
+RUN_UTILS Delete c:\t_secdlg_out.dat
+RUN_UTILS Delete c:\private\101f72a6\cacerts.dat
+RUN_UTILS Delete c:\private\101f72a6\certclients.dat
+RUN_UTILS Delete c:\private\101f72a6\keys.dat
+
+RUN_SCRIPT Z:\TestData\Scripts\esock_test_stopallinterfaces.script
+RUN_SCRIPT Z:\TestData\scripts\esock_test_unloadesockForced.script

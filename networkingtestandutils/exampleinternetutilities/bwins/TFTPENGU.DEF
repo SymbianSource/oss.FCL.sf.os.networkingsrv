@@ -1,0 +1,8 @@
+EXPORTS
+	??1CTftpEngine@@UAE@XZ @ 1 NONAME ; public: virtual __thiscall CTftpEngine::~CTftpEngine(void)
+	?Get@CTftpEngine@@QAEXABVTDesC16@@00@Z @ 2 NONAME ; public: void __thiscall CTftpEngine::Get(class TDesC16 const &,class TDesC16 const &,class TDesC16 const &)
+	?NewL@CTftpEngine@@SAPAV1@HAAVMTftpNotifier@@@Z @ 3 NONAME ; public: static class CTftpEngine * __cdecl CTftpEngine::NewL(int,class MTftpNotifier &)
+	?Put@CTftpEngine@@QAEXABVTDesC16@@00@Z @ 4 NONAME ; public: void __thiscall CTftpEngine::Put(class TDesC16 const &,class TDesC16 const &,class TDesC16 const &)
+	?SetTimeOut@CTftpEngine@@QAEXH@Z @ 5 NONAME ; public: void __thiscall CTftpEngine::SetTimeOut(int)
+	?TimerExpired@CTftpEngine@@QAEXXZ @ 6 NONAME ; public: void __thiscall CTftpEngine::TimerExpired(void)
+

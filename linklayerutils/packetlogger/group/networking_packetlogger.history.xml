@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relnotes name="Packet Logger">
+  <purpose>
+    Used for logging networking layer packets in predefined formats
+  </purpose>
+</relnotes>

@@ -1,0 +1,51 @@
+SECURITY_FILE_VERSION: 3
+[INFO]
+EPOC to WINDOWS XP
+[POLICY]
+sa tunnel_1 = {
+ identity_remote 192.168.70.2
+ src_specific
+ proposal { esp encrypt_alg 2 auth_alg 3 hard_lifetime_addtime 2800 hard_lifetime_usetime 2800 }
+ proposal { esp encrypt_alg 3 auth_alg 3 hard_lifetime_addtime 3600 hard_lifetime_usetime 3600 }
+ proposal { esp encrypt_alg 4 auth_alg 3 hard_lifetime_addtime 3600 hard_lifetime_usetime 3600 }
+ proposal { esp encrypt_alg 13 auth_alg 3 hard_lifetime_addtime 3600 hard_lifetime_usetime 3600 }
+ proposal { esp encrypt_alg 2 auth_alg 3 hard_lifetime_addtime 3600 hard_lifetime_usetime 3600 }
+ proposal { esp encrypt_alg 3 auth_alg 3 hard_lifetime_addtime 3600 hard_lifetime_usetime 3600 }
+ proposal { esp encrypt_alg 4 auth_alg 3 hard_lifetime_addtime 3600 hard_lifetime_usetime 3600 }
+ proposal { esp encrypt_alg 12 auth_alg 3 hard_lifetime_addtime 3600 hard_lifetime_usetime 3600 }
+
+ }
+
+remote 192.168.70.2 255.255.255.255 = { tunnel_1(192.168.70.2)  }
+inbound = { }
+outbound = { }
+
+[IKE]
+IKE_VERSION: 2
+ADDR: 192.168.70.2 255.255.255.255
+MODE: Main
+SEND_NOTIFICATION: FALSE
+GROUP_DESCRIPTION_II: MODP_1536
+USE_COMMIT: FALSE
+IPSEC_EXPIRE: TRUE
+SEND_CERT: FALSE
+INITIAL_CONTACT: TRUE
+RESPONDER_LIFETIME: FALSE
+REPLAY_STATUS: FALSE
+CRACK_LAM_TYPE: OTP
+USE_INTERNAL_ADDR: FALSE
+USE_NAT_PROBE: FALSE
+PROPOSALS: 1
+ENC_ALG: AES256-CBC
+AUTH_METHOD: PRE-SHARED
+MAC_ALG: AES-XCBC-96
+GROUP_DESCRIPTION: MODP_1536
+GROUP_TYPE: DEFAULT
+LIFETIME_KBYTES: 5000
+LIFETIME_SECONDS: 3600
+PRF: PRF-AES-XCBC
+PRESHARED_KEYS:
+FORMAT: STRING_FORMAT
+KEY: 9 IPSEC_IOT
+
+

@@ -1,0 +1,102 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//! @file
+//! @SYMTestSuiteName NET-VPNMODULATION01_TCPADAPTIVEWNDSIZE
+//! @SYMScriptTestEnvironment Standard Symbian HRP or emulator environment
+
+PRINT NET_VPNModulation01_TCPADAPTIVEWNDSIZE:
+PRINT Set AP(4) to be up.
+PRINT Start connect with snap with one as GPRS.
+PRINT Modulation changes to UMTS
+PRINT Stop connection
+
+// Load the test suite
+LOAD_SUITE te_esockteststepsSuite -SharedData
+
+// Set up the comms database and start esock in preparation for the test
+RUN_SCRIPT Z:\TestData\scripts\te_esock_test_unloadesockForced.script
+CED -i z:\testdata\configs\tcpip6AdapWnd_vpn.ced.cfg c:\tcpip6AdapWnd_vpn.ced.cfg.log
+
+
+PRINT Initialising test environment
+RUN_UTILS  MkDir c:\simtsy\
+RUN_UTILS  MakeReadWrite c:\simtsy\config.txt
+RUN_UTILS  MakeReadWrite c:\config.txt
+RUN_UTILS  MakeReadWrite c:\loopback.ini
+RUN_UTILS  DeleteFile c:\simtsy\config.txt
+RUN_UTILS  DeleteFile c:\config.txt
+RUN_UTILS  DeleteFile c:\loopback.ini
+RUN_UTILS  CopyFile z:\TestData\Configs\tcpip6AdapWnd_LoopbackCSY.ini c:\loopback.ini
+
+RUN_UTILS  CopyFile z:\TestData\Configs\te_tcpip6AdapWnd_Modulation_Gprs_Umts_config.txt c:\simtsy\config.txt
+RUN_UTILS  CopyFile z:\TestData\Configs\te_tcpip6AdapWnd_Modulation_Gprs_Umts_config.txt c:\config.txt
+
+
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+
+START_TESTCASE			NS-TCPIP6-VPNModulation-WndSize-01
+//! @SYMTestCaseID		NS-TCPIP6-VPNModulation-WndSize-01
+//!@SYMTestCaseDesc           	TODO_CDG
+//!@SYMPREQ                   	PREQ1854
+//!@SYMAPI
+// TODO_CDG
+//!@SYMTestPriority           	Critical
+//!@SYMTestActions
+// TODO_CDG
+//!@SYMTestType               	CIT
+//!@SYMTestExpectedResults    	TODO_CDG
+
+
+// Create and connect socketserver and connectionserver instances
+RUN_TEST_STEP 150 te_esockteststepsSuite creatersocketservStep z:\testdata\configs\te_tcpip6AdapWnd.ini CreateSockSvr
+RUN_TEST_STEP 150 te_esockteststepsSuite connectrsocketservStep z:\testdata\configs\te_tcpip6AdapWnd.ini ConnectSockSvr
+
+// Create and open a connection (conn1)
+RUN_TEST_STEP 150 te_esockteststepsSuite createrconnectionStep z:\testdata\configs\te_tcpip6AdapWnd.ini CreateConn
+RUN_TEST_STEP 150 te_esockteststepsSuite openrconnectionStep z:\testdata\configs\te_tcpip6AdapWnd.ini OpenConn
+// Make bearer1 available and connect with associated snap
+RUN_TEST_STEP 150 te_esockteststepsSuite SetAccessPointAvailabilityStep z:\testdata\configs\te_tcpip6AdapWnd.ini ChangeAvailabilityUpAp5
+
+RUN_TEST_STEP 150 te_esockteststepsSuite startrconnectionStep z:\testdata\configs\te_tcpip6AdapWnd.ini StartConnSnap53
+
+// Create and open a Socket(TcpSock1)
+RUN_TEST_STEP 150 te_esockteststepsSuite CreateRSocketStep z:\testdata\configs\te_tcpip6AdapWnd.ini CreateTcpSock1
+RUN_TEST_STEP 150 te_esockteststepsSuite OpenRSocketStep z:\testdata\configs\te_tcpip6AdapWnd.ini OpenTcpSock1
+
+
+//Retrieve the TCP Window size for GPRS
+RUN_TEST_STEP 150 te_esockteststepsSuite SocketGetOptionStep z:\testdata\configs\te_tcpip6AdapWnd.ini GetOptOnSocketGPRS
+
+DELAY 20000
+
+//Retrieve the TCP Window size for UMTS
+RUN_TEST_STEP 150 te_esockteststepsSuite SocketGetOptionStep z:\testdata\configs\te_tcpip6AdapWnd.ini GetOptOnSocketUMTS
+
+// Clean up what we used
+RUN_TEST_STEP 150 te_esockteststepsSuite StopRConnectionStep z:\testdata\configs\te_tcpip6AdapWnd.ini StopConn
+RUN_TEST_STEP 100 te_esockteststepsSuite closersocketStep z:\testdata\configs\te_tcpip6AdapWnd.ini CloseTcpSock1
+RUN_TEST_STEP 150 te_esockteststepsSuite CloseRConnectionStep z:\testdata\configs\te_tcpip6AdapWnd.ini CloseConn
+RUN_TEST_STEP 150 te_esockteststepsSuite closersocketservStep z:\testdata\configs\te_tcpip6AdapWnd.ini CloseSocketSvr
+
+END_TESTCASE			NS-TCPIP6-VPNModulation-WndSize-01
+
+
+// Clean up
+RUN_SCRIPT Z:\TestData\Scripts\te_esock_test_stopallinterfaces.script
+RUN_SCRIPT Z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+PRINT Completed NET_VPNModulation01_TCPADAPTIVEWNDSIZE

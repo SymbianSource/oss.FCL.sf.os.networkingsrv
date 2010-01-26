@@ -1,0 +1,59 @@
+/*
+* Copyright (c) 2008 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+
+CAPABILITY 		ALL -TCB AllFiles
+//CAPABILITY TCB CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData	WriteUserData
+//CAPABILITY AllFiles CommDD DRM DiskAdmin LocalServices Location MultimediaDD NetworkControl NetworkServices PowerMgmt ProtServ ReadDeviceData ReadUserData SurroundingsDD SwEvent TCB TrustedUI WriteDeviceData WriteUserData
+// MultimediaDD DRM DiskAdmin AllFiles SwEvent Location SurroundingsDD UserEnvironment TCB
+
+TARGET			t_ipsec.exe
+TARGETTYPE		exe
+UID				0x1000007A 0xA000953B
+VENDORID		0x70000001
+
+
+SOURCEPATH		..\src
+SOURCE			t_ipsectestserver.cpp
+SOURCE			t_ipsecikev2.cpp t_ipsecmultiplesa.cpp
+
+
+USERINCLUDE		..\inc
+
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+SYSTEMINCLUDE	\epoc32\include
+SYSTEMINCLUDE	\epoc32\include\test
+SYSTEMINCLUDE   \epoc32\include\ecom
+SYSTEMINCLUDE   \epoc32\include\comms-infras
+SYSTEMINCLUDE   \epoc32\include\networking
+#else
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+SYSTEMINCLUDE 	\epoc32\include\platform\test
+SYSTEMINCLUDE   \epoc32\include\platform\ecom
+SYSTEMINCLUDE   \epoc32\include\platform\comms-infras
+SYSTEMINCLUDE   \epoc32\include\platform\networking
+#endif
+
+LIBRARY euser.lib
+LIBRARY esock.lib
+LIBRARY commdb.lib
+LIBRARY netmeta.lib
+LIBRARY insock.lib
+LIBRARY	testexecuteutils.lib
+
+SMPSAFE
+

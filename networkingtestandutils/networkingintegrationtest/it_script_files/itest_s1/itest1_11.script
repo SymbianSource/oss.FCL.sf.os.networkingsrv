@@ -1,0 +1,71 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+
+PRINT Integration test 1.11 - CSD Outgoing terminated By Rnif::Stop with Ipv6,Ipv4 
+
+// setup
+LOAD_SUITE TE_Esock
+LOAD_SUITE te_esockutil
+
+
+// open socket server 
+RUN_TEST_STEP 100 TE_Esock OpenServer   
+
+
+START_TESTCASE			NET-Integration-Csd-0701
+//! @SYMTestCaseID		NET-Integration-Csd-0701
+
+// open Ipv4 socket
+RUN_TEST_STEP 100 TE_Esock Test1.2 z:\testdata\configs\integration\itest_s1\itest.ini
+
+// use Ipv4 socket
+RUN_TEST_STEP 1000 TE_Esock SendData z:\testdata\configs\integration\itest_s1\ipv4.ini
+
+// close socket
+RUN_TEST_STEP 100 TE_Esock Test1.15 z:\testdata\configs\integration\itest_s1\itest.ini
+
+// open Ipv6 socket
+RUN_TEST_STEP 100 TE_Esock Test1.2 z:\testdata\configs\integration\itest_s1\itest.ini
+
+// use Ipv6 socket
+RUN_TEST_STEP 1000 TE_Esock SendData z:\testdata\configs\integration\itest_s1\ipv6.ini
+
+// close using rnif::stop 
+RUN_TEST_STEP 3000 te_esockutil TE_ESockUtilStopAllInterfaces
+
+
+// short delay
+run_test_step -1 te_esockutil TE_ESockUtilDelay z:\testdata\configs\integration\itest_s1\rnif_timeout.ini
+
+
+
+// check the network is NOT active
+RUN_TEST_STEP 100 te_esockutil TE_ESockUtilIsNetworkNotActive
+
+// close socket
+RUN_TEST_STEP 100 TE_Esock Test1.15 z:\testdata\configs\integration\itest_s1\itest.ini
+TEST_COMPLETE CSD_test1_11
+END_TESTCASE			NET-Integration-Csd-0701
+
+
+// close socket server 
+RUN_TEST_STEP 100 TE_Esock CloseServer   
+
+// log result
+PRINT Result for Integration test 1.11 - CSD Outgoing terminated By Rnif::Stop with Ipv6,Ipv4 
+
+

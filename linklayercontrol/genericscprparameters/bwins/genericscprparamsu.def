@@ -1,0 +1,4 @@
+EXPORTS
+	??0TChannel@GenericScprParameters@@QAE@XZ @ 1 NONAME ; GenericScprParameters::TChannel::TChannel(void)
+	?SetUserLength@TChannel@GenericScprParameters@@QAEXH@Z @ 2 NONAME ; void GenericScprParameters::TChannel::SetUserLength(int)
+

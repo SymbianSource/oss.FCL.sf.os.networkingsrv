@@ -1,0 +1,55 @@
+//
+//    readme.txt - introduction to the CGI library
+//
+//    Portions Copyright (c) Symbian Software Ltd. 2007.
+//    Portions Copyright (C) 1999-2004 Nokia. * Nokia Core OS *
+//    Save as expressly licensed to you by Symbian Software Ltd, all rights reserved.
+//
+////////////////////////////////////////////////////////////////
+// WS_CGI.DLL
+// Deriving a DLL from CExecCGI
+
+CExecCGI is an abstract class, inteded for derivation in a polymorphic interface DLL. This abstract class has some
+static functions which are implemented in a static interface DLL. When the polymorphic interface DLL is loaded
+any static interface DLL requiered by the polymorphic DLL are also loaded. So you do not have to worry about this.
+
+Mainly, the CGI programmer has only to implement the pure virtual function ExecCGI(). The enviroment variables are
+defined as a class (TCgiEnv). The command-line arguments are also implented as a class (CCommandArg). Their values are set by the 
+WebServer.
+
+The communication with the webserver is done through two functions: Read and Write.
+(*) TInt Read(TDes& aBuffer)
+
+Note: This functions reads data from the WebServer.
+
+Arguments
+=========
+
+TDes& aBuffer
+-------------
+Descriptor into which characters are read. Any existing contents are overwritten. 
+On return, its length is set to the number of characters read. The length is set to zero when there are no more
+characters to be read.
+
+
+Return
+======
+
+TInt
+----
+An error code.
+
+(*) TInt Write(TDesC& aBuffer)
+
+Note: This functions sends data to the webserver.
+
+Arguments
+=========
+Descriptor from which characters are written.
+
+Return
+======
+
+TInt
+----
+An error code.

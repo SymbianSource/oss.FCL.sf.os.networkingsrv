@@ -1,0 +1,27 @@
+EXPORTS
+	_Z21NewTestSuiteSelfTestLv @ 1 NONAME
+	_ZTI10CPanicTest @ 2 NONAME ; #<TI>#
+	_ZTI10CTimerTest @ 3 NONAME ; #<TI>#
+	_ZTI12CExampleTest @ 4 NONAME ; #<TI>#
+	_ZTI13CExampleTest2 @ 5 NONAME ; #<TI>#
+	_ZTI13CExampleTest3 @ 6 NONAME ; #<TI>#
+	_ZTI13CExampleTest4 @ 7 NONAME ; #<TI>#
+	_ZTI13CExampleTest5 @ 8 NONAME ; #<TI>#
+	_ZTI14CErrorCodeTest @ 9 NONAME ; #<TI>#
+	_ZTI14CSchedulerTest @ 10 NONAME ; #<TI>#
+	_ZTI17CTestStepSelfTest @ 11 NONAME ; #<TI>#
+	_ZTI18CTestSuiteSelfTest @ 12 NONAME ; #<TI>#
+	_ZTI9CFlogTest @ 13 NONAME ; #<TI>#
+	_ZTV10CPanicTest @ 14 NONAME ; #<VT>#
+	_ZTV10CTimerTest @ 15 NONAME ; #<VT>#
+	_ZTV12CExampleTest @ 16 NONAME ; #<VT>#
+	_ZTV13CExampleTest2 @ 17 NONAME ; #<VT>#
+	_ZTV13CExampleTest3 @ 18 NONAME ; #<VT>#
+	_ZTV13CExampleTest4 @ 19 NONAME ; #<VT>#
+	_ZTV13CExampleTest5 @ 20 NONAME ; #<VT>#
+	_ZTV14CErrorCodeTest @ 21 NONAME ; #<VT>#
+	_ZTV14CSchedulerTest @ 22 NONAME ; #<VT>#
+	_ZTV17CTestStepSelfTest @ 23 NONAME ; #<VT>#
+	_ZTV18CTestSuiteSelfTest @ 24 NONAME ; #<VT>#
+	_ZTV9CFlogTest @ 25 NONAME ; #<VT>#
+

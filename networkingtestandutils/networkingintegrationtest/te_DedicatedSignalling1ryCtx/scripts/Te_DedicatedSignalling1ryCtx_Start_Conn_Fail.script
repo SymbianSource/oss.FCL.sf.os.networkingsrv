@@ -1,0 +1,37 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+// Load the test suite (The copy with a different SID)
+LOAD_SUITE te_esockteststepsSuite_copy1 -SharedData
+
+
+START_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0801
+//! @SYMTestCaseID		NET-Integration-DedicatedSignalling1ryCtx-0801
+
+
+RUN_TEST_STEP 10 te_esockteststepsSuite_copy1 creatersocketservStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx_Start_Conn_Fail.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite_copy1 createrconnectionStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx_Start_Conn_Fail.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite_copy1 connectrsocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx_Start_Conn_Fail.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite_copy1 openrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx_Start_Conn_Fail.ini Connection0
+
+// Start a Connection. Must fail, as IAP is supposed to be locked by te_esockteststepsSuite.exe
+RUN_TEST_STEP 10 te_esockteststepsSuite_copy1 startrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx_Start_Conn_Fail.ini Connection0
+
+RUN_TEST_STEP 10 te_esockteststepsSuite_copy1 closerconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx_Start_Conn_Fail.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite_copy1 closersocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx_Start_Conn_Fail.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite_copy1 cleanallStep
+
+END_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0801
+

@@ -1,0 +1,87 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+#ifndef __TS_TLS_IBY__
+#define __TS_TLS_IBY__
+
+#include <certman.iby>
+#include <tls.iby>
+#include <integrationtest.iby>
+
+file=ABI_DIR\DEBUG_DIR\ts_tls.dll					system\libs\ts_tls.dll
+
+#if defined(TEXT_ONLY_ROM)
+	file=ABI_DIR\DEBUG_DIR\tsecdlg_text.dll				sys\bin\tnotifiers\tsecdlg_text.dll 
+#else
+	file=ABI_DIR\DEBUG_DIR\tsecdlg.dll				sys\bin\notifiers\tsecdlg.dll
+#endif    
+
+//cacerts.dat placed to ROM by certman.iby
+
+data=EPOCROOT##epoc32\data\Z\private\101f72a6\keys.dat			private\101f72a6\keys.dat
+
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls_ntras.cfg			testdata\configs\tls_ntras.cfg
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls_ethernet.xml		testdata\configs\tls_ethernet.xml
+data=EPOCROOT##epoc32\data\Z\testdata\scripts\tls_oom.script		testdata\scripts\tls_oom.script
+data=EPOCROOT##epoc32\data\Z\testdata\scripts\tls_psk.script 		testdata\scripts\tls_psk.script
+data=EPOCROOT##epoc32\data\Z\testdata\scripts\ssl_ntras_30.script	testdata\scripts\ssl_ntras_30.script
+data=EPOCROOT##epoc32\data\Z\testdata\scripts\ssl_ntras_31.script	testdata\scripts\ssl_ntras_31.script
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls_t_secdlg_in.dat	testdata\configs\tls_t_secdlg_in.dat
+data=EPOCROOT##epoc32\data\Z\testdata\configs\cacerts_psk.dat		testdata\configs\cacerts_psk.dat
+data=EPOCROOT##epoc32\data\Z\testdata\configs\certclients_psk.dat	testdata\configs\certclients_psk.dat
+data=EPOCROOT##epoc32\data\Z\testdata\configs\keys_psk.dat			testdata\configs\keys_psk.dat
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls3.ini			testdata\configs\tls3.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls4.ini			testdata\configs\tls4.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls5.ini			testdata\configs\tls5.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls8.ini			testdata\configs\tls8.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls9.ini			testdata\configs\tls9.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls11.ini			testdata\configs\tls11.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls12.ini			testdata\configs\tls12.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls13.ini			testdata\configs\tls13.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls14.ini			testdata\configs\tls14.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls16.ini			testdata\configs\tls16.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls19.ini			testdata\configs\tls19.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls20.ini			testdata\configs\tls20.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls21.ini			testdata\configs\tls21.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls22.ini			testdata\configs\tls22.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls23.ini			testdata\configs\tls23.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls24.ini			testdata\configs\tls24.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls25.ini			testdata\configs\tls25.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls26.ini			testdata\configs\tls26.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls28.ini			testdata\configs\tls28.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls5b.ini			testdata\configs\tls5b.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tlsA.ini			testdata\configs\tlsA.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tlssa.ini			testdata\configs\tlssa.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls2f.ini			testdata\configs\tls2f.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls35.ini			testdata\configs\tls35.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls36.ini			testdata\configs\tls36.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls37.ini			testdata\configs\tls37.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls38.ini			testdata\configs\tls38.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls_oom.ini		testdata\configs\tls_oom.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls1.ini			testdata\configs\tls1.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls2.ini			testdata\configs\tls2.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\TLS_RSA_WITH_NULL_SHA.ini						testdata\configs\TLS_RSA_WITH_NULL_SHA.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\TLS_RSA_WITH_NULL_MD5.ini						testdata\configs\TLS_RSA_WITH_NULL_MD5.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\TLS_SNE_SINGLE_SERVER.ini						testdata\configs\TLS_SNE_SINGLE_SERVER.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\TLS_SNE_MULTIPLE_SERVER.ini					testdata\configs\TLS_SNE_MULTIPLE_SERVER.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\TLS_PSK_WITH_RC4_128_SHA.ini					testdata\configs\TLS_PSK_WITH_RC4_128_SHA.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\TLS_SNE_SINGLE_SERVER_NEG.ini					testdata\configs\TLS_SNE_SINGLE_SERVER_NEG.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\TLS_PSK_WITH_AES_128_CBC_SHA.ini				testdata\configs\TLS_PSK_WITH_AES_128_CBC_SHA.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\TLS_PSK_WITH_AES_256_CBC_SHA.ini				testdata\configs\TLS_PSK_WITH_AES_256_CBC_SHA.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\TLS_PSK_WITH_3DES_EDE_CBC_SHA.ini				testdata\configs\TLS_PSK_WITH_3DES_EDE_CBC_SHA.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\TLS_PSK_WITH_AES_128_CBC_SHA_NOCALLBACK.ini	testdata\configs\TLS_PSK_WITH_AES_128_CBC_SHA_NOCALLBACK.ini
+
+#endif

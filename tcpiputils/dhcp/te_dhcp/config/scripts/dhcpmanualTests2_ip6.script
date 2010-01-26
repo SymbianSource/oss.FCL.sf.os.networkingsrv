@@ -1,0 +1,242 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+ 
+# Configure commdb
+# This config file has explicit settings for IPv6
+ced -i z:\TestData\configs\DHCP\DHCPced_ip6.xml
+
+load_suite DhcpTestServer
+
+# Unload esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+
+# remove esk file
+RUN_UTILS DeleteFile c:\private\101F7989\esock\ip.ramod.esk
+
+
+# Load esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+START_TESTCASE          NET-Dhcp-1001
+//! @SYMTestCaseID      NET-Dhcp-1001
+run_test_step 5 DhcpTestServer SetAddressMode z:\TestData\configs\DHCP\dhcptest.ini IPv6
+END_TESTCASE            NET-Dhcp-1001
+
+START_TESTCASE          NET-Dhcp-1002
+//! @SYMTestCaseID      NET-Dhcp-1002
+////////////////////////
+// SET IAP TO DYNAMIC //
+delay 1000 // To avoid locking on commsdat
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet1
+////////////////////////
+END_TESTCASE            NET-Dhcp-1002
+
+//!@file
+START_TESTCASE          NET-Dhcp-1003
+//! @SYMTestCaseID      NET-Dhcp-1003
+//! @SYMTestCaseDesc Set M flag in RA
+//! @SYMFssID Networking/DHCP/DHCP-14-1
+//! @SYMTestStatus Implemented
+//! @SYMTestPriority Critical
+//! @SYMTestActions Execute test case 2_2 
+//! Test starts a new connection then queries it for the configured address.
+//! @SYMTestExpectedResults IP address retrieved is valid and returns KErrNone
+//! @SYMTestType Integration
+run_test_step 50 DhcpTestServer 2_2	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-1003
+
+# Stop all interfaces
+RUN_SCRIPT Z:\TestData\Scripts\te_esock_test_stopallinterfaces.script
+
+# Unload esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+//
+// loads prt which clears M flag and sets O flag in RA
+//
+
+
+RUN_UTILS MkDir c:\private\
+RUN_UTILS MkDir c:\private\101f7989\
+RUN_UTILS MkDir c:\private\101f7989\ESock\
+RUN_UTILS CopyFile z:\testdata\configs\dhcp\TestDHCPv6Config1\ip.ramod.esk c:\private\101F7989\esock\ip.ramod.esk
+RUN_UTILS MakeReadWrite c:\private\101F7989\esock\ip.ramod.esk
+
+
+# Load esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+START_TESTCASE          NET-Dhcp-1004
+//! @SYMTestCaseID      NET-Dhcp-1004
+run_test_step 5 DhcpTestServer SetAddressMode z:\TestData\configs\DHCP\dhcptest.ini IPv6
+END_TESTCASE            NET-Dhcp-1004
+
+//!@file
+START_TESTCASE          NET-Dhcp-1005
+//! @SYMTestCaseID      NET-Dhcp-1005
+//! @SYMTestCaseDesc Clear M flag and Set O flag in RA
+//! @SYMFssID Networking/DHCP/DHCP-14-2
+//! @SYMTestStatus Implemented
+//! @SYMTestPriority Critical
+//! @SYMTestActions Execute test case 2_13
+//! Test starts a new connection then queries it for the configured address.
+//! @SYMTestExpectedResults KErrNone, "200::300� (ip6) is passed up from the Ioctl call
+//! @SYMTestType Integration
+// Test 2_13 - for receiving SIP address option
+run_test_step 50 DhcpTestServer 2_GetSIPAddrViaDHCP z:\TestData\configs\DHCP\dhcptest.ini ExpectImmediateCompletion
+END_TESTCASE            NET-Dhcp-1005
+
+# Stop all interfaces
+RUN_SCRIPT Z:\TestData\Scripts\te_esock_test_stopallinterfaces.script
+
+# Unload esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+//
+// copies prt which modifies RA and clears M and O flags
+//
+
+
+
+RUN_UTILS MkDir c:\private\
+RUN_UTILS MkDir c:\private\101f7989\
+RUN_UTILS MkDir c:\private\101f7989\ESock\
+RUN_UTILS CopyFile z:\testdata\configs\dhcp\TestDHCPv6Config2\ip.ramod.esk c:\private\101F7989\esock\ip.ramod.esk
+RUN_UTILS MakeReadWrite c:\private\101F7989\esock\ip.ramod.esk
+
+
+# Load esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+START_TESTCASE          NET-Dhcp-1006
+//! @SYMTestCaseID      NET-Dhcp-1006
+run_test_step 5 DhcpTestServer SetAddressMode z:\TestData\configs\DHCP\dhcptest.ini IPv6
+END_TESTCASE            NET-Dhcp-1006
+
+
+//!@file
+START_TESTCASE          NET-Dhcp-1007
+//! @SYMTestCaseID      NET-Dhcp-1007
+//! @SYMTestCaseDesc Clear M and O Flags
+//! @SYMFssID Networking/DHCP/DHCP-14-3
+//! @SYMTestStatus Implemented
+//! @SYMTestPriority Critical
+//! @SYMTestActions Execute test case 2_ClearMOFlag after clearing the M and O flag in RA. 
+//! Test starts a new connection then queries it for the configured address.
+//! @SYMTestExpectedResults KErrNotReady
+//! @SYMTestType Integration
+run_test_step 50 DhcpTestServer 2_ClearMOFlag	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-1007
+
+# Stop all interfaces
+RUN_SCRIPT Z:\TestData\Scripts\te_esock_test_stopallinterfaces.script
+
+# Unload esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+//
+// copies prt which drops RA, by corrupting the checksum
+//
+
+RUN_UTILS MkDir c:\private\
+RUN_UTILS MkDir c:\private\101f7989\
+RUN_UTILS MkDir c:\private\101f7989\ESock\
+RUN_UTILS CopyFile z:\testdata\configs\dhcp\TestDHCPv6Config3\ip.ramod.esk c:\private\101F7989\esock\ip.ramod.esk
+RUN_UTILS MakeReadWrite c:\private\101F7989\esock\ip.ramod.esk
+
+
+# Load esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+START_TESTCASE          NET-Dhcp-1008
+//! @SYMTestCaseID      NET-Dhcp-1008
+run_test_step 5 DhcpTestServer SetAddressMode z:\TestData\configs\DHCP\dhcptest.ini IPv6
+END_TESTCASE            NET-Dhcp-1008
+
+
+//!@file
+START_TESTCASE          NET-Dhcp-1009
+//! @SYMTestCaseID      NET-Dhcp-1009
+//! @SYMTestCaseDesc No Router Advertisement
+//! @SYMFssID Networking/DHCP/DHCP-14-4
+//! @SYMTestStatus Implemented
+//! @SYMTestPriority Critical
+//! @SYMTestActions Execute test case 2_2 
+//! Test starts a new connection then queries it for the configured address.
+//! @SYMTestExpectedResults IP address retrieved is valid and returns KErrNone
+//! @SYMTestType Integration
+run_test_step 50 DhcpTestServer 2_2	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-1009
+
+# Stop all interfaces
+RUN_SCRIPT Z:\TestData\Scripts\te_esock_test_stopallinterfaces.script
+
+# Unload esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+
+//
+// loads prt which drops RA, by corrupting the checksum
+//
+
+RUN_UTILS MkDir c:\private\
+RUN_UTILS MkDir c:\private\101f7989\
+RUN_UTILS MkDir c:\private\101f7989\ESock\
+RUN_UTILS CopyFile z:\testdata\configs\dhcp\TestDHCPv6Config3\ip.ramod.esk c:\private\101F7989\esock\ip.ramod.esk
+RUN_UTILS MakeReadWrite c:\private\101F7989\esock\ip.ramod.esk
+
+
+# Load esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+START_TESTCASE          NET-Dhcp-1010
+//! @SYMTestCaseID      NET-Dhcp-1010
+run_test_step 5 DhcpTestServer SetAddressMode z:\TestData\configs\DHCP\dhcptest.ini IPv6
+END_TESTCASE            NET-Dhcp-1010
+
+START_TESTCASE          NET-Dhcp-1011
+//! @SYMTestCaseID      NET-Dhcp-1011
+////////////////////////
+// SET IAP TO DYNAMIC //
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet1
+////////////////////////
+END_TESTCASE            NET-Dhcp-1011
+
+
+//!@file
+START_TESTCASE          NET-Dhcp-1012
+//! @SYMTestCaseID      NET-Dhcp-1012
+//! @SYMTestCaseDesc No RA and No DHCP Server on the link.
+//! @SYMFssID Networking/DHCP/DHCP-14-5
+//! @SYMTestStatus Implemented
+//! @SYMTestPriority Critical
+//! @SYMTestActions Implemented by running test case 2_NoRAandDHCPServ without RA. 
+//! Test starts a new connection then queries it for the configured address.
+//! @SYMTestExpectedResults KErrNone. The DHCP Client keeps on sending the SOLICIT message in the background.
+//! @SYMTestType Integration
+run_test_step 50 DhcpTestServer 2_NoRAandDHCPServ	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-1012
+
+# Stop all interfaces
+RUN_SCRIPT Z:\TestData\Scripts\te_esock_test_stopallinterfaces.script
+
+# Unload esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+
+#remove esk file
+RUN_UTILS DeleteFile c:\private\101F7989\esock\ip.ramod.esk

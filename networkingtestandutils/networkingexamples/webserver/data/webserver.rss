@@ -1,0 +1,536 @@
+// Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// webserver.rss - http server resource file
+//
+
+NAME WS
+
+#include <techview/eikon.rh>
+#include <eikcoctl.rsg>
+
+#include "webserver.hrh"
+
+RESOURCE RSS_SIGNATURE { }
+
+RESOURCE TBUF { buf=""; }
+
+RESOURCE EIK_APP_INFO
+	{
+	menubar=r_epoc_ws_menubar;
+	hotkeys=r_epoc_ws_hotkeys;
+	toolbar=r_epoc_ws_toolbar;
+//	cba = r_epoc_ws_cba; // For ER6, not Hurricane
+	}
+
+RESOURCE TOOLBAR r_epoc_ws_toolbar
+    {
+    controls=
+		{
+		TBAR_CTRL	
+			{
+			id=EWSCmdFileName;
+			type=EEikCtFileNameLabel;
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdFileNameLabelHeight;
+			},
+		TBAR_BUTTON
+			{
+			id=EWSCmdStart;
+			txt="Start\n";
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdToolBarButtonHeight;
+			},
+		TBAR_BUTTON
+			{
+			id=EWSCmdCancel;
+			txt="Stop";
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdToolBarButtonHeight;
+			},
+		TBAR_BUTTON
+			{
+			id=EEikCmdExit;
+			txt="Exit";
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdToolBarButtonHeight;
+			},
+		TBAR_CTRL
+			{
+			type=EEikCtSpacer;
+			flags=EEikToolBarCtrlHasSetMinLength|EEikToolBarCtrlIsStretchable;
+			length=0;
+			control=SPACER;
+			},
+//		TBAR_CTRL
+//			{
+//			type=EEikCtClock;
+//			control=CLOCK { digitalresourceid=R_EIK_DIGITAL_CLOCK; analogresourceid=R_EIK_ANALOG_CLOCK; };
+//			},
+		TBAR_CTRL
+			{
+			type=EEikCtSpacer;
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdGapBelowClock;
+			control=SPACER;
+			}
+		};
+    }
+
+#if 0
+// This is for Crystal (ER6), not for Hurricane
+RESOURCE CBA r_epoc_ws_cba
+{
+	buttons = 
+	{
+		CBA_BUTTON
+		{
+			id=EWSCmdStart;
+			txt="Start";
+		},
+		CBA_BUTTON
+		{
+			id=EWSCmdCancel;
+			txt="Stop";
+		},
+		CBA_BUTTON
+		{
+			id=0xbeef;
+			txt="";
+		},
+		CBA_BUTTON
+		{
+			id=EEikCmdExit;
+			txt="Exit";
+		}
+	};
+}
+#endif
+
+RESOURCE HOTKEYS r_epoc_ws_hotkeys
+    {
+    control=
+        {
+        HOTKEY { command=EEikCmdExit; key='e'; },
+		HOTKEY { command=EWSCmdStart; key='s'; },
+		HOTKEY { command=EWSCmdCancel; key='c'; }	
+		};
+	}
+
+RESOURCE MENU_BAR r_epoc_ws_menubar
+    {
+    titles=
+        {
+        MENU_TITLE
+			{
+			menu_pane=r_ws_file;
+			txt="Epoc-WS";
+			},
+	    MENU_TITLE
+			{
+			menu_pane=r_ws_view;
+			txt="View";
+			},
+	    MENU_TITLE
+			{
+			menu_pane=r_ws_options;
+			txt="Options";
+			},
+	    MENU_TITLE
+			{
+			menu_pane=r_ws_help;
+			txt="Help";
+			}		
+		};
+    }
+
+RESOURCE MENU_PANE r_ws_file
+	{
+	items=
+		{
+		MENU_ITEM
+			{
+			command=EWSCmdStart;
+			txt="Start WebServer";
+			},
+		MENU_ITEM
+			{
+			command=EWSCmdCancel;
+			txt="Stop WebServer";
+			},
+		MENU_ITEM
+			{
+			command=EEikCmdExit;
+			txt="Exit WebServer";
+			}
+        };
+	}
+
+RESOURCE MENU_PANE r_ws_view
+	{
+	items=
+		{
+		MENU_ITEM
+			{
+			command=EWSCmdConsole;
+			txt="Console...";
+			},
+/*		MENU_ITEM
+			{
+			command=EWSCmdSetHistorySize;
+			txt="Set History...";
+			},*/
+		MENU_ITEM
+			{
+			command=EWSCmdResetTotalCounter;
+			txt="Reset Total Counter";
+			},
+		MENU_ITEM
+			{
+			command=EWSCmdClearConsole;
+			txt="Clear Console";
+			}
+        };
+	}
+
+RESOURCE MENU_PANE r_ws_options
+	{
+	items=
+		{
+		MENU_ITEM
+			{
+			command=EWSCmdDir;
+			txt="Directories...";
+			},
+		MENU_ITEM
+			{
+			command=EWSCmdHttpMethods;
+			txt="HTTP Methods...";
+			},
+		MENU_ITEM
+			{
+			command=EWSCmdMiscData;
+			txt="Miscellaneous...";
+			},
+		MENU_ITEM
+			{
+			command=EWSCmdMimeTypes;
+			txt="MIME-Types...";
+			}/*,
+		MENU_ITEM
+			{
+			flags=EEikMenuItemDimmed;
+			txt="Security...";
+			}*/
+        };
+	}
+
+
+RESOURCE MENU_PANE r_ws_help
+	{
+	items=
+		{
+		MENU_ITEM
+			{
+			command=EWSCmdAbout;	
+			txt="About WebServer...";
+			}
+        };
+	}
+
+
+RESOURCE DIALOG r_ws_about_webserver	
+	{
+	title="About WebServer";
+	buttons=R_EIK_BUTTONS_CONTINUE;
+	flags=EEikDialogFlagButtonsBelow;
+	items=
+		{
+		DLG_LINE
+			{
+			type=EEikCtLabel;
+			prompt="";
+			id=EWSAboutText;
+			control=LABEL
+				{
+				txt="EPOC WebServer (EPOC-WS)";
+				};				
+			},
+		DLG_LINE
+			{
+			type=EEikCtLabel;
+			prompt="";
+			id=EWSAboutText;
+			control=LABEL
+				{
+				txt="By Carlos Chinea";
+				};				
+			},
+		DLG_LINE
+			{
+			type=EEikCtLabel;
+			prompt="";
+			id=EWSAboutText;
+			control=LABEL
+				{
+				txt="Nokia Research Center, Helsinki (Finland)";
+				};				
+			},
+	
+		DLG_LINE
+			{
+			type=EEikCtLabel;
+			prompt="";
+			id=EWSAboutText;
+			control=LABEL
+				{
+				txt="March 2000";
+				};				
+			}	
+		};
+	}
+
+
+
+RESOURCE DIALOG r_ws_mime_types_dialog
+{
+	title="MIME Types";
+	buttons=r_ws_mime_types_buttons;
+	flags = EEikDialogFlagWait;
+	items =
+	{
+		DLG_LINE
+		{
+		type = EEikCtColListBox;
+		control = LISTBOX { };
+		id = EWSMimeTypesList;
+		}
+	};	
+
+}
+
+RESOURCE DIALOG r_ws_add_mime_types_dialog
+{
+	title="Adding Extension/MIME-type";
+	buttons=R_EIK_BUTTONS_CANCEL_OK;
+	flags = EEikDialogFlagWait;
+
+	items =
+	{
+		DLG_LINE
+		{
+		type = EEikCtEdwin;
+		prompt = "Extension";
+		id=EWSExtension;
+		control = EDWIN { width = 8; maxlength = 8; };
+		},
+		DLG_LINE
+		{
+		type = EEikCtEdwin;
+		prompt = "MIME-type";
+		id=EWSMimeType;
+		control = EDWIN { width = 30; maxlength = 64; };
+		}
+		
+	};
+}
+
+
+RESOURCE DLG_BUTTONS r_ws_mime_types_buttons
+{
+	buttons=
+	{
+	DLG_BUTTON { id = EWSBidAdd; button = CMBUT {txt="Add";}; hotkey='A'; flags = 0;},
+	DLG_BUTTON { id = EWSBidDel; button = CMBUT {txt="Delete";}; hotkey='D'; flags = 0;},
+	DLG_BUTTON { id = EEikBidCancel; button = CMBUT {txt="Cancel";}; hotkey=EEikBidCancel; flags = 0;},
+	DLG_BUTTON { id = EEikBidOk; button = CMBUT {txt="Ok";}; hotkey=EEikBidOk; flags = 0;}
+	};
+
+}
+
+
+RESOURCE DIALOG r_ws_console_dialog
+{
+	title="Console configuration";
+	buttons=R_EIK_BUTTONS_CANCEL_OK;
+	flags = EEikDialogFlagWait;
+	items =
+	{
+		DLG_LINE
+		{
+		type = EEikCtCheckBox;
+		prompt = "HTTP Request";
+		id=EWSHttpReq;
+		},
+		DLG_LINE
+		{
+		type = EEikCtCheckBox;
+		prompt = "HTTP Response";
+		id=EWSHttpResp;
+		},
+		DLG_LINE
+		{
+		type = EEikCtCheckBox;
+		prompt = "Miscellaneous Data";
+		id=EWSMiscData;
+		}
+	};
+}
+
+RESOURCE DIALOG r_ws_set_history_size_dialog
+{
+	title="Set History Size";
+	buttons=R_EIK_BUTTONS_CANCEL_OK;
+	flags = EEikDialogFlagWait;
+	items =
+	{
+		DLG_LINE
+		{
+		type = EEikCtNumberEditor;
+		prompt = "History Size";
+		id=EWSSetHistorySize;
+		control = NUMBER_EDITOR { min = 0; max = 9999; };
+		}
+		
+	};
+
+}
+
+
+
+
+RESOURCE DIALOG r_ws_dir_dialog
+{
+	title="Directories";
+	buttons=R_EIK_BUTTONS_CANCEL_OK;
+	flags = EEikDialogFlagWait;
+
+	items =
+	{
+		DLG_LINE
+		{
+		type = EEikCtEdwin;
+		prompt = "Server Path";
+		id=EWSServerPath;
+		control = EDWIN { width = 20; maxlength = 190; };
+		},
+		DLG_LINE
+		{
+		type = EEikCtEdwin;
+		prompt = "CGI Path";
+		id=EWSCGIPath;
+		control = EDWIN { width = 20; maxlength = 190; };
+		},
+		DLG_LINE
+		{
+		type = EEikCtEdwin;
+		prompt = "Backup Path";
+		id=EWSBackupPath;
+		control = EDWIN { width = 20; maxlength = 190; };
+		},
+		DLG_LINE
+		{
+		type = EEikCtEdwin;
+		prompt = "Error Path";
+		id=EWSErrorPath;
+		control = EDWIN { width = 20; maxlength = 190; };
+		}
+	};
+}
+
+RESOURCE DIALOG r_ws_http_methods_dialog
+{
+	title="HTTP Methods";
+	buttons=R_EIK_BUTTONS_CANCEL_OK;
+	flags = EEikDialogFlagWait;
+
+	items =
+	{
+		DLG_LINE
+		{
+		type = EEikCtCheckBox;
+		prompt = "Delete Method";
+		id=EWSDeleteMethod;
+		},
+		DLG_LINE
+		{
+		type = EEikCtCheckBox;
+		prompt = "Put Method";
+		id=EWSPutMethod;
+		}
+	};
+}
+
+RESOURCE DIALOG r_ws_misc_data_dialog
+{
+	title="Miscellaneous Data";
+	buttons=R_EIK_BUTTONS_CANCEL_OK;
+	flags = EEikDialogFlagWait;
+
+	items =
+	{
+		DLG_LINE
+		{
+		type = EEikCtEdwin;
+		prompt = "Default Resource";
+		id=EWSDefaultResource;
+		control = EDWIN { width = 20; maxlength = 64; };
+		},
+		DLG_LINE
+		{
+		type = EEikCtNumberEditor;
+		prompt = "Server Port";
+		id=EWSPort;
+		control = NUMBER_EDITOR { min = 0; max = 9999; };
+		}
+		
+	};
+}
+
+//Querys
+RESOURCE TBUF r_ws_delete_mimetype_confirm { buf="Delete this entry ?";}
+	
+
+// Warnings
+RESOURCE TBUF r_config_file_missing_war { buf="Config File missing\nSetting default values";}
+RESOURCE TBUF r_types_file_missing_war { buf="Http-Types File missing\nSetting default values";}
+RESOURCE TBUF r_socket_accept_war { buf= "Error accepting current connection";}
+RESOURCE TBUF r_warning { buf = "Warning"; }
+
+//Errors
+RESOURCE TBUF r_netdial_open_err { buf= "Error opening Network"; }
+RESOURCE TBUF r_ws_no_extension_specified { buf = "No Extension specified"; }
+RESOURCE TBUF r_ws_extension_already_exists { buf = "Extension is already defined"; }
+RESOURCE TBUF r_ws_no_mimetype_specified { buf = "No MIME-Type specified"; }
+RESOURCE TBUF r_ws_saving_http_types_error { buf = "Error saving changes in MIME-Types file"; }
+RESOURCE TBUF R_WS_NO_DEFAULT_RESOURCE_SPECIFIED { buf = "No Default resource specified";}
+RESOURCE TBUF R_WS_DEFAULT_RESOURCE_FILENAME_INVALID { buf = "Default resource filename invalid";}
+RESOURCE TBUF R_WS_ERROR_PATH_INVALID { buf = "Error Path invalid";}
+RESOURCE TBUF R_WS_BACKUP_PATH_INVALID { buf = "Backup Path invalid";}
+RESOURCE TBUF R_WS_SERVER_PATH_INVALID { buf = "Server Path invalid";}
+RESOURCE TBUF R_WS_CGI_PATH_INVALID { buf = "CGI Path invalid";}
+RESOURCE TBUF R_WS_NO_ERROR_PATH_SPECIFIED { buf = "No Error Path specified";}
+RESOURCE TBUF R_WS_NO_BACKUP_PATH_SPECIFIED { buf = "No Backup Path specified";}
+RESOURCE TBUF R_WS_NO_SERVER_PATH_SPECIFIED { buf = "No Server Path specified";}
+RESOURCE TBUF R_WS_NO_CGI_PATH_SPECIFIED { buf = "No CGI Path specified";}
+RESOURCE TBUF R_WS_ERROR_PATH_DOES_NOT_EXIST { buf = "Error Path does not exist";}
+RESOURCE TBUF R_WS_BACKUP_PATH_DOES_NOT_EXIST { buf = "Backup Path does not exist";}
+RESOURCE TBUF R_WS_SERVER_PATH_DOES_NOT_EXIST { buf = "Server Path does not exist";}
+RESOURCE TBUF R_WS_CGI_PATH_DOES_NOT_EXIST { buf = "CGI Path does not exist";}
+//Console Messages
+
+// Top Label messages
+RESOURCE TBUF r_top_title { buf="WebServer";}
+
+// Bottom Label messages
+RESOURCE TBUF r_bottom_title { buf="Current Connections: %4d Total Connections: %6d";}

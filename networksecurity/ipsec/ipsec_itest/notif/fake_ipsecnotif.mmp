@@ -1,0 +1,53 @@
+// Copyright (c) 2002-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+/**
+ @file fake_ipsecnotif.mmp fake ipsec notifier for testing
+*/
+
+TARGETTYPE     TEXTNOTIFIER2
+
+#ifdef __SECURE_BIN__
+TARGETPATH     \sys\bin\tnotifiers
+#else
+TARGETPATH     \system\tnotifiers
+#endif
+
+#if defined( __KEYSTORE_API_V2__ )
+
+TARGET         fake_secdlgnotif.dll
+UID			   0x101fe38b 0x10001234
+VENDORID 0x70000001
+SOURCE         fake_secdlgnotif.cpp
+
+#else
+
+TARGET         fake_ipsecnotif.dll
+UID            0x101fe38b  0x101FAE08
+VENDORID 0x70000001
+SOURCE         fake_ipsecnotif.cpp
+
+#endif
+
+SOURCEPATH     ..\notif
+
+SYSTEMINCLUDE  \epoc32\include 
+SYSTEMINCLUDE  \epoc32\include\techview
+
+LIBRARY        euser.lib
+
+CAPABILITY ALL -Tcb
+
+SMPSAFE

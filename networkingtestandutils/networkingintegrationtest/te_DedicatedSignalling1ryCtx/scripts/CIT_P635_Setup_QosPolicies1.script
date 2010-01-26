@@ -1,0 +1,49 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRINT Initialising test environment
+PREFIX RUN_UTILS
+MkDir c:\simtsy\
+MakeReadWrite c:\simtsy\config.txt
+MakeReadWrite c:\config.txt
+MakeReadWrite c:\loopback.ini
+DeleteFile c:\simtsy\config.txt
+DeleteFile c:\config.txt
+DeleteFile c:\loopback.ini
+CopyFile z:\TestData\Configs\CIT_P635_Loopback.ini c:\loopback.ini
+REMOVE_PREFIX 
+
+PRINT Backing up existing qospolicies.ini file
+PREFIX RUN_UTILS
+MkDir c:\qosbak\
+MakeReadWrite c:\qosbak\qospolicies.ini
+DeleteFile c:\qosbak\qospolicies.ini
+DeleteFile c:\qosbak\ip.qos.esk
+CopyFile c:\private\101F7989\esock\qospolicies.ini c:\qosbak\qospolicies.ini
+CopyFile c:\private\101f7989\ESock\ip.qos.esk c:\qosbak\ip.qos.esk
+MakeReadWrite c:\private\101F7989\esock\qospolicies.ini
+MakeReadWrite c:\qospolicies.ini
+DeleteFile c:\private\101F7989\esock\qospolicies.ini
+DeleteFile c:\qospolicies.ini
+REMOVE_PREFIX 
+
+PRINT Setting up environment for tests using qospolicies.ini file
+PREFIX RUN_UTILS
+CopyFile z:\TestData\Configs\CIT_P635_qospolicies.ini c:\qospolicies.ini
+CopyFile z:\TestData\Configs\CIT_P635_qospolicies.ini c:\private\101F7989\esock\qospolicies.ini
+CopyFile z:\TestData\Configs\CIT_P635_simtsy_config1.txt c:\simtsy\config.txt
+CopyFile z:\TestData\Configs\CIT_P635_simtsy_config1.txt c:\config.txt
+REMOVE_PREFIX 

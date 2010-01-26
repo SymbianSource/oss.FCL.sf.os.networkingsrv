@@ -1,0 +1,74 @@
+// Copyright (c) 2002-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+TARGET      te_vjcomp.exe
+TARGETTYPE  exe
+UID             0x1000007A 0x101FFE5B
+VENDORID 0x70000001
+
+
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+SYSTEMINCLUDE /epoc32/include
+SYSTEMINCLUDE /epoc32/include/test
+SYSTEMINCLUDE /epoc32/include/libc
+#else
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+SYSTEMINCLUDE /epoc32/include/platform/test
+SYSTEMINCLUDE /epoc32/include/libc
+#endif
+
+USERINCLUDE  ../inc
+USERINCLUDE  ../../../SPPP
+USERINCLUDE ../../../INC
+
+
+SOURCEPATH ../../../SPPP
+SOURCE          CCPINI.CPP
+SOURCE          PPPCFG.CPP
+
+SOURCEPATH  ../src
+SOURCE		TE_VJComp.cpp
+SOURCE		TE_VJCompStepBase.cpp
+SOURCE          VJCompressTest.cpp
+SOURCE		VJDecompressTypeErrorTest.cpp
+SOURCE          VJandRefDecompressTest.cpp
+SOURCE		VJDecompressTest.cpp
+SOURCE		dummyNCPIP.CPP
+SOURCE		dummyPppMisc.cpp
+SOURCE		dummyPppFsm.cpp
+SOURCE          VJRefComp.c
+SOURCE          filepcap.cpp
+
+LIBRARY     	euser.lib 
+LIBRARY         esock.lib 
+LIBRARY         esocksvr.lib
+LIBRARY         mbufmgr.lib
+LIBRARY         estlib.lib
+LIBRARY         nifman.lib
+LIBRARY		testexecuteutils.lib
+LIBRARY		efsrv.lib
+LIBRARY		testexecutelogclient.lib
+LIBRARY         nodemessages.lib
+#ifdef SYMBIAN_ZERO_COPY_NETWORKING
+LIBRARY		commsbufs.lib
+#endif // SYMBIAN_ZERO_COPY_NETWORKING
+
+#include "cflog.mmh"
+
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+
+SMPSAFE

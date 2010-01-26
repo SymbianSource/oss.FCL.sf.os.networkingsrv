@@ -1,0 +1,41 @@
+EXPORTS
+	Install @ 1 NONAME
+	_ZTI11CEtelSetQoS @ 2 NONAME ; #<TI>#
+	_ZTI11CNifContext @ 3 NONAME ; #<TI>#
+	_ZTI12CEtelRequest @ 4 NONAME ; #<TI>#
+	_ZTI12CUmtsNifLink @ 5 NONAME ; #<TI>#
+	_ZTI15CEtelSubRequest @ 6 NONAME ; #<TI>#
+	_ZTI17CUmtsNifIfFactory @ 7 NONAME ; #<TI>#
+	_ZTI18CEtelContextDelete @ 8 NONAME ; #<TI>#
+	_ZTI18CUmtsNifController @ 9 NONAME ; #<TI>#
+	_ZTI20CEtelContextActivate @ 10 NONAME ; #<TI>#
+	_ZTI22CEtelContextQoSChanged @ 11 NONAME ; #<TI>#
+	_ZTI24CEtelContextModifyActive @ 12 NONAME ; #<TI>#
+	_ZTI24CEtelContextTFTOperation @ 13 NONAME ; #<TI>#
+	_ZTI24CEtelServiceStatusChange @ 14 NONAME ; #<TI>#
+	_ZTI25CEtelContextStartupCreate @ 15 NONAME ; #<TI>#
+	_ZTI25CEtelContextStatusChanged @ 16 NONAME ; #<TI>#
+	_ZTI29CEtelContextCreateSecondPhase @ 17 NONAME ; #<TI>#
+	_ZTI31CEtelContextNotificationRequest @ 18 NONAME ; #<TI>#
+	_ZTI31CEtelServiceNotificationRequest @ 19 NONAME ; #<TI>#
+	_ZTI8CUmtsNif @ 20 NONAME ; #<TI>#
+	_ZTV11CEtelSetQoS @ 21 NONAME ; #<VT>#
+	_ZTV11CNifContext @ 22 NONAME ; #<VT>#
+	_ZTV12CEtelRequest @ 23 NONAME ; #<VT>#
+	_ZTV12CUmtsNifLink @ 24 NONAME ; #<VT>#
+	_ZTV15CEtelSubRequest @ 25 NONAME ; #<VT>#
+	_ZTV17CUmtsNifIfFactory @ 26 NONAME ; #<VT>#
+	_ZTV18CEtelContextDelete @ 27 NONAME ; #<VT>#
+	_ZTV18CUmtsNifController @ 28 NONAME ; #<VT>#
+	_ZTV20CEtelContextActivate @ 29 NONAME ; #<VT>#
+	_ZTV22CEtelContextQoSChanged @ 30 NONAME ; #<VT>#
+	_ZTV24CEtelContextModifyActive @ 31 NONAME ; #<VT>#
+	_ZTV24CEtelContextTFTOperation @ 32 NONAME ; #<VT>#
+	_ZTV24CEtelServiceStatusChange @ 33 NONAME ; #<VT>#
+	_ZTV25CEtelContextStartupCreate @ 34 NONAME ; #<VT>#
+	_ZTV25CEtelContextStatusChanged @ 35 NONAME ; #<VT>#
+	_ZTV29CEtelContextCreateSecondPhase @ 36 NONAME ; #<VT>#
+	_ZTV31CEtelContextNotificationRequest @ 37 NONAME ; #<VT>#
+	_ZTV31CEtelServiceNotificationRequest @ 38 NONAME ; #<VT>#
+	_ZTV8CUmtsNif @ 39 NONAME ; #<VT>#
+

@@ -1,0 +1,72 @@
+// Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+/**
+ @file ipeventnotifier.mmp
+*/
+
+VENDORID 	0x70000001
+
+TARGET		ipeventnotifier.prt
+TARGETTYPE	dll
+
+UID		0x10003D38 0x102045B9
+
+SOURCEPATH	../src
+
+SOURCE		ipeventnotifierfamily.cpp
+SOURCE		ipeventnotifier.cpp
+SOURCE		ipeventlistener.cpp
+SOURCE		DHCPUnicastTranslator.cpp
+SOURCE		HookLog.cpp
+
+USERINCLUDE		../inc
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+
+LIBRARY		euser.lib
+LIBRARY		inhook6.lib
+LIBRARY		esocksvr.lib
+LIBRARY		netmeta.lib
+LIBRARY		insock.lib
+#ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+LIBRARY		commsfw.lib
+LIBRARY         nodemessages.lib
+#endif
+
+#ifndef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+#if defined(WINS)
+DEFFILE IPEventNotifier_v1.DEF
+#elif defined(GCC32)
+DEFFILE ipeventnotifier_v1.def
+#else
+DEFFILE ipeventnotifier_v1.DEF
+#endif
+#endif 
+
+#ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+#include	<cflog.mmh>
+#else
+#include	<comms-infras/commsdebugutility.mmh>
+#endif
+
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+
+
+
+
+UNPAGED
+
+SMPSAFE

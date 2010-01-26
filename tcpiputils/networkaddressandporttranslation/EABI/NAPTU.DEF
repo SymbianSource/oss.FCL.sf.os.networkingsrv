@@ -1,0 +1,5 @@
+EXPORTS
+	Install @ 1 NONAME
+	_ZTI19CProtocolFamilyNapt @ 2 NONAME
+	_ZTV19CProtocolFamilyNapt @ 3 NONAME
+

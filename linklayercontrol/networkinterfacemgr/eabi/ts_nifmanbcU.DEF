@@ -1,0 +1,27 @@
+EXPORTS
+	_Z21NewNifmanBCTestSuiteLv @ 1 NONAME ; NewNifmanBCTestSuiteL(void)
+	_ZTI12CTestStep1_1 @ 2 NONAME ; #<TI>#
+	_ZTI12CTestStep1_2 @ 3 NONAME ; #<TI>#
+	_ZTI12CTestStep1_3 @ 4 NONAME ; #<TI>#
+	_ZTI12CTestStep1_4 @ 5 NONAME ; #<TI>#
+	_ZTI12CTestStep1_5 @ 6 NONAME ; #<TI>#
+	_ZTI12CTestStep1_6 @ 7 NONAME ; #<TI>#
+	_ZTI12CTestStep1_7 @ 8 NONAME ; #<TI>#
+	_ZTI12CTestStep2_1 @ 9 NONAME ; #<TI>#
+	_ZTI12CTestStep2_2 @ 10 NONAME ; #<TI>#
+	_ZTI12CTestStep2_3 @ 11 NONAME ; #<TI>#
+	_ZTI12CTestStep2_4 @ 12 NONAME ; #<TI>#
+	_ZTI18CNifmanBCTestSuite @ 13 NONAME ; #<TI>#
+	_ZTV12CTestStep1_1 @ 14 NONAME ; #<VT>#
+	_ZTV12CTestStep1_2 @ 15 NONAME ; #<VT>#
+	_ZTV12CTestStep1_3 @ 16 NONAME ; #<VT>#
+	_ZTV12CTestStep1_4 @ 17 NONAME ; #<VT>#
+	_ZTV12CTestStep1_5 @ 18 NONAME ; #<VT>#
+	_ZTV12CTestStep1_6 @ 19 NONAME ; #<VT>#
+	_ZTV12CTestStep1_7 @ 20 NONAME ; #<VT>#
+	_ZTV12CTestStep2_1 @ 21 NONAME ; #<VT>#
+	_ZTV12CTestStep2_2 @ 22 NONAME ; #<VT>#
+	_ZTV12CTestStep2_3 @ 23 NONAME ; #<VT>#
+	_ZTV12CTestStep2_4 @ 24 NONAME ; #<VT>#
+	_ZTV18CNifmanBCTestSuite @ 25 NONAME ; #<VT>#
+

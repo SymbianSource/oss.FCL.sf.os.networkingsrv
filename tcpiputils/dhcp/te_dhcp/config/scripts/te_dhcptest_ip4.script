@@ -1,0 +1,97 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//!//////////////////////////////////////////////////////////////////
+//! @file
+//! @SYMTestSuiteName	 	  	NET-DHCP-CIT
+//! @SYMScriptTestEnvironment	TestExecuteFramework (TEF).
+//! @SYMScriptPurpose			Script file for DHCP testing on IPv4.
+//! @SYMScriptInfo				1.Here we use CommsDB with ipv4 settings.
+//!//////////////////////////////////////////////////////////////////
+
+//Unload esock forcefully
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+//Configure commdb.This config file has explicit settings for IPv4
+ced -i z:\TestData\configs\DHCP\DHCPced_ip4.xml
+
+//Load the Server
+LOAD_SUITE DhcpTestServer
+
+RUN_UTILS  MkDir c:\private
+RUN_UTILS  MkDir c:\private\101f7989
+RUN_UTILS  MkDir c:\private\101f7989\esock
+RUN_UTILS  MakeReadWrite c:\private\101f7989\esock\tcpip.ini
+RUN_UTILS  DeleteFile c:\private\101f7989\esock\tcpip.ini
+RUN_UTILS  CopyFile z:\private\101f7989\esock\tcpip.ini c:\private\101f7989\esock\tcpip.ini
+RUN_UTILS  MakeReadWrite c:\private\101f7989\esock\tcpip.ini
+
+# Test the IPv4 DHCP client using the disabled linklocal option.
+run_test_step 1 DhcpTestServer SetIPv4LinkLocal z:\TestData\configs\DHCP\dhcptest.ini IPv4LinkLocalDisabled
+
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPBasicInteractions1_ip4.script
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPConfiguration2_ip4.script
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPPREQ1647_48_ip4.script
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPRenewAndRelease3_ip4.script
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPDynamicInteraction4_ip4.script
+RUN_SCRIPT z:\TestData\scripts\DHCP\dhcpmanualtests5_ip4.script
+
+# Unload esock forcefully
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+//Load the Server
+LOAD_SUITE DhcpTestServer
+
+# Test the IPv4 DHCP client using the always linklocal option.
+run_test_step 1 DhcpTestServer SetIPv4LinkLocal z:\TestData\configs\DHCP\dhcptest.ini IPv4LinkLocalAlways
+
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPBasicInteractions1_ip4.script
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPConfiguration2_ip4.script
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPPREQ1647_48_ip4.script
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPRenewAndRelease3_ip4.script
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPDynamicInteraction4_ip4.script
+RUN_SCRIPT z:\TestData\scripts\DHCP\dhcpmanualtests5_ip4.script
+
+# Unload esock forcefully
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+//Load the Server
+LOAD_SUITE DhcpTestServer
+
+# Test the IPv4 DHCP client using the conditional linklocal option.
+run_test_step 1 DhcpTestServer SetIPv4LinkLocal z:\TestData\configs\DHCP\dhcptest.ini IPv4LinkLocalConditional
+
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPBasicInteractions1_ip4.script
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPConfiguration2_ip4.script
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPPREQ1647_48_ip4.script
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPRenewAndRelease3_ip4.script
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPDynamicInteraction4_ip4.script
+RUN_SCRIPT z:\TestData\scripts\DHCP\dhcpmanualtests5_ip4.script
+
+# Unload esock forcefully
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+//Load the Server
+LOAD_SUITE DhcpTestServer
+
+# Test the IPv4 DHCP client using the config daemon controlled linklocal option.
+run_test_step 1 DhcpTestServer SetIPv4LinkLocal z:\TestData\configs\DHCP\dhcptest.ini IPv4LinkLocalConfigDaemonControlled
+
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPBasicInteractions1_ip4.script
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPConfiguration2_ip4.script
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPPREQ1647_48_ip4.script
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPRenewAndRelease3_ip4.script
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPDynamicInteraction4_ip4.script
+RUN_SCRIPT z:\TestData\scripts\DHCP\dhcpmanualtests5_ip4.script

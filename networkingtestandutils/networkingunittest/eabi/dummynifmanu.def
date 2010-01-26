@@ -1,0 +1,14 @@
+EXPORTS
+	_ZN12CNifAgentRefD1Ev @ 1 NONAME ; CNifAgentRef::~CNifAgentRef(void)
+	_ZN12CNifAgentRef10DisconnectEv @ 2 NONAME ; CNifAgentRef::Disconnect(void)
+	_ZN12CNifAgentRef17GetCompletionCodeERi @ 3 NONAME ; CNifAgentRef::GetCompletionCode(int&)
+	_ZN12CNifAgentRef16GetProgressStageERi @ 4 NONAME ; CNifAgentRef::GetProgressStage(int&)
+	_ZN12CNifAgentRef4NewLEP27MDummyNifToAgtHarnessNotifyi @ 5 NONAME ; CNifAgentRef::NewL(MDummyNifToAgtHarnessNotify*, int)
+	_ZN12CNifAgentRef9ReConnectEv @ 6 NONAME ; CNifAgentRef::ReConnect(void)
+	_ZN12CNifAgentRef15WaitForIncomingEv @ 7 NONAME ; CNifAgentRef::WaitForIncoming(void)
+	_ZN12CNifAgentRef7ConnectEv @ 8 NONAME ; CNifAgentRef::Connect(void)
+	_ZN12CNifAgentRefD0Ev @ 9 NONAME ; CNifAgentRef::~CNifAgentRef [in-charge deleting](void)
+	_ZN12CNifAgentRefD2Ev @ 10 NONAME ; CNifAgentRef::~CNifAgentRef [not-in-charge](void)
+	_ZTI12CNifAgentRef @ 11 NONAME ; #<TI>#
+	_ZTV12CNifAgentRef @ 12 NONAME ; #<VT>#
+

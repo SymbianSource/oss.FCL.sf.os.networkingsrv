@@ -1,0 +1,10 @@
+EXPORTS
+	??1CNifAgentRef@@UAE@XZ @ 1 NONAME ; public: virtual __thiscall CNifAgentRef::~CNifAgentRef(void)
+	?Connect@CNifAgentRef@@QAEXXZ @ 2 NONAME ; public: void __thiscall CNifAgentRef::Connect(void)
+	?Disconnect@CNifAgentRef@@QAEXXZ @ 3 NONAME ; public: void __thiscall CNifAgentRef::Disconnect(void)
+	?GetCompletionCode@CNifAgentRef@@QAEXAAH@Z @ 4 NONAME ; public: void __thiscall CNifAgentRef::GetCompletionCode(int &)
+	?GetProgressStage@CNifAgentRef@@QAEXAAH@Z @ 5 NONAME ; public: void __thiscall CNifAgentRef::GetProgressStage(int &)
+	?NewL@CNifAgentRef@@SAPAV1@PAVMDummyNifToAgtHarnessNotify@@H@Z @ 6 NONAME ; public: static class CNifAgentRef * __cdecl CNifAgentRef::NewL(class MDummyNifToAgtHarnessNotify *,int)
+	?ReConnect@CNifAgentRef@@QAEXXZ @ 7 NONAME ; public: void __thiscall CNifAgentRef::ReConnect(void)
+	?WaitForIncoming@CNifAgentRef@@QAEXXZ @ 8 NONAME ; public: void __thiscall CNifAgentRef::WaitForIncoming(void)
+

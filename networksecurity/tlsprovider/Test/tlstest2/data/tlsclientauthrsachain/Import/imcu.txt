@@ -1,0 +1,99 @@
+<action>
+	<actionname>Opening a certificate store manager</actionname>
+	<actiontype>init</actiontype>
+	<actionbody>
+		<mode>write</mode>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+<actionname>Import a RSA key</actionname>
+	<actiontype>importkey</actiontype>
+	<actionbody>
+		<ImportData>EU-0-key.txt</ImportData>
+		<keyusage>allusagesbutNR</keyusage>
+		<keysize>1024</keysize>
+		<keylabel>EU-0</keylabel>
+		<keyalgorithm>RSA</keyalgorithm>
+		<keyaccesstype>Extractable</keyaccesstype>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>Add the certificate for the SSL server CA</actionname>
+	<actiontype>addcert</actiontype>
+	<actionbody>
+		<format>X509</format>
+		<label>EU-0</label>
+		<issuerkey></issuerkey>
+		<subjectkey>272b563f3fe2e558d5ad80cfc9671f1fea7ce90c</subjectkey>
+		<certstore>0</certstore>
+		<certfile>\tcertstore\data\EU-0-cert.der</certfile>
+		<certowner>User</certowner>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>Set TLS application for the EU-0 certificate</actionname>
+	<actiontype>setapplications</actiontype>
+	<actionbody>
+		<label>EU-0</label>
+		<uid>1073744081</uid>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>Set TLS application for the EU-0 certificate</actionname>
+	<actiontype>setapplications</actiontype>
+	<actionbody>
+		<label>EU-0</label>
+		<uid>0x400008D1</uid>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>set the trust for EU-0 certificate</actionname>
+	<actiontype>settrust</actiontype>
+	<actionbody>
+		<label>EU-0</label>
+		<trust>1</trust>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>Deleting the writable certificate store manager</actionname>
+	<actiontype>delete</actiontype>
+	<actionbody></actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>Sleep 5 seconds so server exits</actionname>
+	<actiontype>sleep</actiontype>
+	<actionbody>
+          <seconds>5</seconds>
+        </actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>

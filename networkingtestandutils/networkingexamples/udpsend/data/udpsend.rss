@@ -1,0 +1,538 @@
+// Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// udpsend.rss - udp packet sender resource file
+//
+
+NAME UDPS
+/*
+#include <eikdef.rh>
+#include <eiktbar.rh>
+#include <eikmenu.rh>
+#include <eikctrls.hrh>
+#include <eikspace.rh>
+#include <eikclock.rh>
+#include <eikcmbut.rh>
+#include <eikdialg.rh>
+#include <eikchlst.rh>
+#include <eikmfne.rh>
+#include <eiklabel.rh>
+#include <eikedwin.rh>
+#include <techview/eikon.rsg>
+*/
+#include <techview/eikon.rh>
+#include <techview/eikon.rsg>
+
+#include "udpsend.hrh"
+
+RESOURCE RSS_SIGNATURE { }
+
+RESOURCE TBUF { buf=""; }
+
+RESOURCE EIK_APP_INFO
+	{
+	menubar=r_rotor_menubar;
+	hotkeys=r_rotor_hotkeys;
+	toolbar=r_rotor_toolbar;
+//	cba=r_rotor_cba;
+	}
+
+#if 0  //Not in Hurricane
+
+RESOURCE CBA r_rotor_cba
+{
+	//LONG flags=EEikButtonGroupAddToStack;
+	//WORD breadth=80; // !!! make this accessible from LAF
+	//LLINK related_buttons=0;
+   	buttons = 
+	{
+		CBA_BUTTON
+		{
+			id=EUDPSendStart;
+			txt="Start";
+		},
+		CBA_BUTTON
+		{
+			id=EUDPSendStop;
+			txt="Stop";
+		},
+		CBA_BUTTON
+		{
+			id=EUDPSendOptions;
+			txt="Options";
+		},
+		CBA_BUTTON
+		{
+			id=EEikCmdExit;
+			txt="Exit";
+		}
+	};
+}
+
+#endif
+
+RESOURCE TOOLBAR r_rotor_toolbar
+    {
+    controls=
+		{
+		TBAR_CTRL
+			{
+			id=EUDPSendCmdFileName;
+			type=EEikCtFileNameLabel;
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdFileNameLabelHeight;
+			},
+		TBAR_BUTTON
+			{
+			id=EUDPSendStart;
+			txt="Start";
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdToolBarButtonHeight;
+			},
+		TBAR_BUTTON
+			{
+			id=EUDPSendStop;
+			txt="Stop";
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdToolBarButtonHeight;
+			},
+		TBAR_BUTTON
+			{
+			id=EUDPSendOptions;
+			txt="Options";
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdToolBarButtonHeight;
+			},
+		TBAR_BUTTON
+			{
+			id=EEikCmdExit;
+			txt="Exit";
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdToolBarButtonHeight;
+			},
+		TBAR_CTRL
+			{
+			type=EEikCtSpacer;
+			flags=EEikToolBarCtrlHasSetMinLength|EEikToolBarCtrlIsStretchable;
+			length=0;
+			control=SPACER;
+			},
+		TBAR_CTRL
+			{
+			type=EEikCtClock;
+			control=CLOCK { digitalresourceid=R_EIK_DIGITAL_CLOCK; analogresourceid=R_EIK_ANALOG_CLOCK; };
+			},
+		TBAR_CTRL
+			{
+			type=EEikCtSpacer;
+			flags=EEikToolBarCtrlHasSetMinLength;
+			length=KEikStdGapBelowClock;
+			control=SPACER;
+			}
+		};
+    }
+
+
+RESOURCE HOTKEYS r_rotor_hotkeys
+    {
+    control=
+	{
+	HOTKEY { command=EEikCmdExit; key='e'; },
+		HOTKEY { command=EUDPSendStart; key='s'; },
+		HOTKEY { command=EUDPSendStop; key='c'; },
+		HOTKEY { command=EUDPSendOptions; key='o'; },
+		HOTKEY { command=ERotorFontDialog; key='f'; },
+		HOTKEY { command=EUDPSendClearScreen; key='c'; },
+		HOTKEY { command=ERotorHistory; key='t'; },
+		HOTKEY { command=EUDPSendAbout; key='a'; }
+	};
+
+	shift_control=
+		{
+			HOTKEY { command=EUDPSendHelp; key='h'; }
+		};
+
+    }
+
+RESOURCE MENU_BAR r_rotor_menubar
+    {
+    titles=
+	{
+	MENU_TITLE { menu_pane=r_rotor_file_menu; txt="File"; },
+	MENU_TITLE { menu_pane=r_rotor_tools_menu; txt="Tools"; },
+		MENU_TITLE { menu_pane=r_rotor_view_menu; txt="View"; },
+		MENU_TITLE { menu_pane=r_rotor_console_menu; txt="Console"; },
+		MENU_TITLE { menu_pane=r_rotor_help_menu; txt="Help"; }
+		};
+    }
+
+RESOURCE MENU_PANE r_rotor_file_menu
+	{
+	items=
+		{
+		MENU_ITEM { command=EEikCmdExit; txt="Close"; }
+	};
+    }
+
+RESOURCE MENU_PANE r_rotor_tools_menu
+	{
+	items=
+		{
+		MENU_ITEM { command=EUDPSendStart; txt="Start"; },
+		MENU_ITEM { command=EUDPSendStop; txt="Stop"; }         
+	};
+    }
+
+RESOURCE MENU_PANE r_rotor_view_menu
+	{
+	items=
+		{
+		MENU_ITEM { command=EUDPSendOptions; txt="Options…"; }
+		};
+	}
+
+RESOURCE MENU_PANE r_rotor_console_menu
+	{
+	items=
+	{
+		MENU_ITEM
+	    {
+	    command=EUDPSendClearScreen;
+	    txt="ClearScreen";
+	    },
+	MENU_ITEM
+	    {
+	    command=ERotorFontDialog;
+	    txt="Set font…";
+	    },
+		MENU_ITEM
+	    {
+	    command=ERotorHistory;
+	    txt="History size…";
+			},
+
+		MENU_ITEM
+	    {
+	    cascade=r_rotor_scrollbars_menu;
+		txt="Scrollbars";
+	    }
+		};
+	}
+
+RESOURCE MENU_PANE r_rotor_help_menu
+	{
+	items=
+	{
+	MENU_ITEM
+	    {
+	    command=EUDPSendAbout;
+	    txt="About UDPSend…";
+	    }
+		};
+	}
+
+
+RESOURCE MENU_PANE r_rotor_scrollbars_menu
+    {
+    items=
+	{
+	MENU_ITEM
+	    {
+	    command=ERotorScrollNone;
+	    txt="None";
+	    },
+	MENU_ITEM
+	    {
+	    command=ERotorScrollHor;
+	    txt="Horiz only";
+	    },
+	MENU_ITEM
+	    {
+	    command=ERotorScrollVert;
+	    txt="Vert only";
+	    },
+	MENU_ITEM
+	    {
+	    command=ERotorScrollBoth;
+	    txt="Both scrollbars";
+	    }
+	};
+    }
+
+
+
+RESOURCE DIALOG r_rotor_history_dialog  //About Dialog
+	{
+	title="Set History";
+	buttons=R_EIK_BUTTONS_CANCEL_OK;
+	flags=EEikDialogFlagWait|EEikDialogFlagButtonsBelow;
+	items=
+		{
+		DLG_LINE
+			{
+			type=EEikCtNumberEditor;
+			prompt="Size";
+			id=ERotorHistory;
+			control=NUMBER_EDITOR
+				{
+					min= 0;
+					max= 2000;
+				};
+			}
+		};
+	}
+
+
+RESOURCE DLG_BUTTONS r_eik_buttons_help_cancel_ok
+    {
+    buttons=
+	{
+		DLG_BUTTON { id=EHelpButton; button=CMBUT {txt="Help";}; hotkey='H';},
+	DLG_BUTTON { id=EEikBidCancel; button=CMBUT {txt="Cancel";}; hotkey=EEikBidCancel; flags=0; },
+	DLG_BUTTON { id=EEikBidOk; button=CMBUT {txt="OK";}; hotkey=EEikBidOk; flags=0; }
+	};
+    }
+
+RESOURCE DLG_BUTTONS r_eik_buttons_set_clear_cancel_ok
+    {
+    buttons=
+	{
+		DLG_BUTTON { id=ESetButton; button=CMBUT {txt="Set all";}; hotkey='S';},
+		DLG_BUTTON { id=EClearButton; button=CMBUT {txt="Clear all";}; hotkey='C';},
+	DLG_BUTTON { id=EEikBidCancel; button=CMBUT {txt="Cancel";}; hotkey=EEikBidCancel; flags=0; },
+	DLG_BUTTON { id=EEikBidOk; button=CMBUT {txt="OK";}; hotkey=EEikBidOk; flags=0; }
+	};
+    }
+
+RESOURCE DIALOG r_rotor_options_dialog
+	{
+	title="UDP Send Options";
+	buttons=R_EIK_BUTTONS_CANCEL_OK;        //r_eik_buttons_help_cancel_ok;
+	flags=EEikDialogFlagWait|EEikDialogFlagDensePacking;    //|EEikDialogFlagNotifyEsc|EEikDialogFlagButtonsRight
+	items=
+		{
+		DLG_LINE
+			{
+	    type=EEikCtChoiceList;
+	    prompt="Protocol";
+	    id=EUDPSendProtocol;
+			control=CHOICELIST
+				{
+				array_id=r_protocol_list;
+				};
+			},
+		DLG_LINE
+			{
+			type=EEikCtNumberEditor;
+	    prompt="Destination Port";
+	    id=EUDPSendDestPort;
+			control=NUMBER_EDITOR
+				{
+					min= 1;
+					max= 65535;
+				};
+			},
+/*
+		DLG_LINE
+			{
+			type=EEikCtNumberEditor;
+	    prompt="Source Port";
+	    id=EUDPSendSrcPort;
+			control=NUMBER_EDITOR
+				{
+					min= 1;
+					max= 65535;
+				};
+			},
+*/
+		DLG_LINE
+			{
+			type=EEikCtNumberEditor;
+	    prompt="Packets";
+	    id=EUDPSendPacketNum;
+			control=NUMBER_EDITOR
+				{
+					min= 1;
+					max= 65535;
+				};
+			},
+		DLG_LINE
+			{
+			type=EEikCtNumberEditor;
+			prompt="Delay between Packets";
+			id=EUDPSendDelay;
+			trailer="ms.";
+			control=NUMBER_EDITOR
+				{
+					min= 0;
+					max= 65535;
+				};
+			},
+		DLG_LINE
+			{
+			type=EEikCtNumberEditor;
+	    prompt="Packet Size";
+	    id=EUDPSendPacketSize;
+			control=NUMBER_EDITOR
+				{
+					min= 0;
+					max= 65400;
+				};
+			},
+		DLG_LINE
+			{
+			type=EEikCtCheckBox;
+			prompt="Synch Send";
+			id=EUDPSendSynch;
+			},
+		DLG_LINE
+			{
+			type=EEikCtNumberEditor;
+			prompt="TCP Linger";
+			id=ETCPLinger;
+			control=NUMBER_EDITOR
+				{
+				min= -1;
+				max= 65535;
+				};
+			},
+		DLG_LINE
+			{
+			type=EEikCtChoiceList;
+			prompt="TCP Nagling";
+			id=ETCPNagling;
+			itemflags=EEikDlgItemSeparatorAfter;
+			control=CHOICELIST
+				{
+				array_id=r_tcpnagling_list;
+				};
+			},
+		DLG_LINE
+			{
+			type=EEikCtLabel;
+			control=LABEL
+				{
+				txt="Ipv6-specific options";
+				horiz_align=EEikLabelAlignHLeft;
+				standard_font=EEikLabelFontLegend;
+				};
+			},
+		DLG_LINE
+			{
+			type=EEikCtNumberEditor;
+	    prompt="TrafficClass";
+	    id=EUDPSendPriority;
+			control=NUMBER_EDITOR
+				{
+					min= 0;
+					max= 255;
+				};
+			},
+		DLG_LINE
+			{
+			type=EEikCtNumberEditor;
+	    prompt="Flow label";
+	    id=EUDPSendFlowLabel;
+			control=NUMBER_EDITOR
+				{
+					min= 0;
+					max= 65535;
+				};
+			}
+		};
+	}
+
+RESOURCE DIALOG r_udpsend_hostname
+	{
+	title="UDPSend";
+	buttons=R_EIK_BUTTONS_CANCEL_OK;
+	flags=EEikDialogFlagWait|EEikDialogFlagButtonsBelow;
+	items=
+		{
+		DLG_LINE
+			{
+			type=EEikCtEdwin;
+			prompt="Hostname";
+			id=EUDPSendHostName;
+			control=EDWIN
+				{
+					width=20;
+					lines=1;
+					maxlength=80;
+				};
+			}       
+		};
+	}
+
+RESOURCE DIALOG r_rotor_about   //About Dialog
+	{
+	title="About UDPSend v1.0";
+	buttons=R_EIK_BUTTONS_CONTINUE;
+	flags=EEikDialogFlagButtonsBelow;
+	items=
+		{
+		DLG_LINE
+			{
+			type=EEikCtLabel;
+			prompt="";
+			control=LABEL
+				{
+				txt="EPOC32 UDP Sender ";
+				};                              
+			},
+		DLG_LINE
+			{
+			type=EEikCtLabel;
+			prompt="";
+			control=LABEL
+				{
+				txt="By Toni Barrera Arboix ";
+				};                              
+			},
+		DLG_LINE
+			{
+			type=EEikCtLabel;
+			prompt="";
+			control=LABEL
+				{
+				txt=" COPYRIGHT (c) Nokia Research Center 1999";
+				};                              
+			}       
+		};
+	}
+
+RESOURCE ARRAY r_protocol_list
+	{
+	items=
+		{
+		LBUF { txt="UDP"; },
+		LBUF { txt="TCP"; }
+		};
+	}
+
+RESOURCE ARRAY r_tcpnagling_list
+	{
+	items=
+		{
+		LBUF { txt="No Delay"; },
+		LBUF { txt="Nagle"; },
+		LBUF { txt="Cork"; }
+		};
+	}
+
+
+RESOURCE TBUF r_rotor_net_open_error { buf="Error opening Network"; }
+RESOURCE TBUF r_rotor_net_disable_error { buf="Error disabling network timers"; }
+RESOURCE TBUF r_not_implemented { buf="Not available yet"; }
+RESOURCE TBUF r_show_rotor { buf="Show Rotor"; }
+RESOURCE TBUF r_busy { buf="Busy…"; }

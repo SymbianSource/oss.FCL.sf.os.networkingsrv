@@ -1,0 +1,43 @@
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+TARGET          CSDaemon.dll
+TARGETTYPE		ECOMIIC
+UID             0x10009D8D 0x101FDDE1
+VENDORID 0x70000001
+
+#include                "comms-infras\commsdebugutility.mmh"
+
+SOURCEPATH      ..\CS_Config
+SOURCE          CS_Daemon.cpp CS_DaemonControl.cpp
+
+RESOURCE		..\CS_Config\101FDDE1.rss
+
+USERINCLUDE     ..\inc
+SYSTEMINCLUDE 	\epoc32\include\comms-infras
+SYSTEMINCLUDE	\epoc32\include
+SYSTEMINCLUDE	\epoc32\include\ecom
+
+LIBRARY			euser.lib netstsrv.lib
+LIBRARY			ecom.lib
+
+LIBRARY			nifman.lib
+
+// def files not used and not allowed to override for ECOMIIC plugins
+//DEFFILE			CS_Daemon.def
+
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+
+SMPSAFE

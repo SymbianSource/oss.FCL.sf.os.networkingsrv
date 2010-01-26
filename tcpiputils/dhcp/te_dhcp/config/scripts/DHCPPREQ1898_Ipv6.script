@@ -1,0 +1,183 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:This script is used for DHCPV6 options testing
+#
+#	Script file for DHCP testing on IPv6
+#
+#   This is to run against the Dell DHCP server box or colinux.
+#
+#   It won't yet run on the corporate LAN (as there's no IPv6)
+#
+#   ORDER IS IMPORTANT! SetIAPToUse and SetAddressMode lines affect the operation of the subsequent commands
+
+
+//Load the Server
+LOAD_SUITE DhcpTestServer
+
+//Load esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+RUN_TEST_STEP 5 DhcpTestServer SetAddressMode z:\TestData\configs\DHCP\dhcptest.ini IPv6
+
+//Set IAP to Dynamic
+RUN_TEST_STEP 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet1
+
+START_TESTCASE          NET-Dhcp-1101
+//! @SYMTestCaseID      NET-Dhcp-1101
+run_test_step 5 DhcpTestServer SetAddressMode z:\TestData\configs\DHCP\dhcptest.ini IPv6
+END_TESTCASE            NET-Dhcp-1101
+
+START_TESTCASE          NET-Dhcp-1102
+//! @SYMTestCaseID      NET-Dhcp-1102
+////////////////////////
+// SET IAP TO DYNAMIC //
+delay 1000 // To avoid locking on commsdat
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet1
+////////////////////////
+END_TESTCASE            NET-Dhcp-1102
+
+START_TESTCASE          NET-Dhcp-1103
+//! @SYMTestCaseID      NET-Dhcp-1103
+// Test 2_DomainSearchList_Test1 - this test is for retrieving the domain names from the domain search list option
+//(option 24).
+run_test_step 50 DhcpTestServer 2_DomainSearchList_Test1	z:\TestData\configs\DHCP\dhcptest.ini ExpectedDHCPV6Options
+END_TESTCASE            NET-Dhcp-1103
+
+
+START_TESTCASE          NET-Dhcp-1104
+//! @SYMTestCaseID      NET-Dhcp-1104
+// Test 2_DomainSearchList_Test2 - this test is for retrieving domain name from the domain serach list option by passing //index as -1.
+run_test_step 50 DhcpTestServer 2_DomainSearchList_Test2	z:\TestData\configs\DHCP\dhcptest.ini ExpectDHCPResponseBeforeCompletion
+END_TESTCASE            NET-Dhcp-1104
+
+
+START_TESTCASE          NET-Dhcp-1105
+//! @SYMTestCaseID      NET-Dhcp-1105
+// Test 2_DomainSearchList_Test3 - this test is for retrieving the search list domain name from the 
+// sip domain option
+run_test_step 50 DhcpTestServer 2_DomainSearchList_Test3	z:\TestData\configs\DHCP\dhcptest.ini ExpectedDHCPV6Options
+END_TESTCASE            NET-Dhcp-1105
+
+
+START_TESTCASE          NET-Dhcp-1106
+//! @SYMTestCaseID      NET-Dhcp-1106
+// Test 2_DomainSearchList_Test4 - this test is for retrieving domain name from the domain serach list option 
+// by using sipdomain structure
+run_test_step 50 DhcpTestServer 2_DomainSearchList_Test4	z:\TestData\configs\DHCP\dhcptest.ini ExpectedDHCPV6Options
+END_TESTCASE            NET-Dhcp-1106
+
+
+START_TESTCASE          NET-Dhcp-1107
+//! @SYMTestCaseID      NET-Dhcp-1107
+// Test 2_DomainSearchList_Test5 - this test is for retrieving domain name from the domain serach list option 
+// by passing the index as 500
+run_test_step 50 DhcpTestServer 2_DomainSearchList_Test5	z:\TestData\configs\DHCP\dhcptest.ini ExpectDHCPResponseBeforeCompletion
+END_TESTCASE            NET-Dhcp-1107
+
+
+START_TESTCASE          NET-Dhcp-1108
+//! @SYMTestCaseID      NET-Dhcp-1108
+// Test 2_DNSServerList_Test1- Retrieve DNS Server address from the DNS Server list option(option 23)
+run_test_step 50 DhcpTestServer 2_DNSServerList_Test1	z:\TestData\configs\DHCP\dhcptest.ini ExpectedDHCPV6Options
+END_TESTCASE            NET-Dhcp-1108
+
+
+START_TESTCASE          NET-Dhcp-1109
+//! @SYMTestCaseID      NET-Dhcp-1109
+// Test 2_DNSServerList_Test2 - Retrieve DNS Server address from the DNS Server list 
+// option(option 23)by passing index as -1
+run_test_step 50 DhcpTestServer 2_DNSServerList_Test2	z:\TestData\configs\DHCP\dhcptest.ini ExpectDHCPResponseBeforeCompletion
+END_TESTCASE            NET-Dhcp-1109
+
+
+START_TESTCASE          NET-Dhcp-1110
+//! @SYMTestCaseID      NET-Dhcp-1110
+// Test 2_DNSServerList_Test3 - Retrieve DNS Server address from the Sip Server
+// address option.
+run_test_step 50 DhcpTestServer 2_DNSServerList_Test3	z:\TestData\configs\DHCP\dhcptest.ini ExpectedDHCPV6Options
+END_TESTCASE            NET-Dhcp-1110
+
+
+START_TESTCASE          NET-Dhcp-1111
+//! @SYMTestCaseID      NET-Dhcp-1111
+// Test 2_DNSServerList_Test4 - Retrieve DNS Server address from the DNS server list
+// option by passing sip server address structure.
+run_test_step 50 DhcpTestServer 2_DNSServerList_Test4	z:\TestData\configs\DHCP\dhcptest.ini ExpectedDHCPV6Options
+END_TESTCASE            NET-Dhcp-1111
+
+START_TESTCASE          NET-Dhcp-1112
+//! @SYMTestCaseID      NET-Dhcp-1112
+// Test 2_DNSServerList_Test4 - Retrieve DNS Server address from the DNS server list
+// option by passing the invalid index.
+run_test_step 50 DhcpTestServer 2_DNSServerList_Test5	z:\TestData\configs\DHCP\dhcptest.ini ExpectDHCPResponseBeforeCompletion
+END_TESTCASE            NET-Dhcp-1112
+
+
+START_TESTCASE          NET-Dhcp-1113
+//! @SYMTestCaseID      NET-Dhcp-1113
+//Test 2_MultipleParams_Test1 - Retrieves Multiple options from the server by using the option 6(ORO)
+run_test_step 50 DhcpTestServer 2_MultipleParams_Test1	z:\TestData\configs\DHCP\dhcptest.ini ExpectedDHCPV6Options
+END_TESTCASE            NET-Dhcp-1113
+
+START_TESTCASE          NET-Dhcp-1114
+//! @SYMTestCaseID      NET-Dhcp-1114
+//Test 2_MultipleParams_Test2 - Try to retireve the option from the server which is not added (using the option 6(ORO))
+run_test_step 50 DhcpTestServer 2_MultipleParams_Test2	z:\TestData\configs\DHCP\dhcptest.ini ExpectDHCPResponseBeforeCompletion
+END_TESTCASE            NET-Dhcp-1114
+
+
+START_TESTCASE          NET-Dhcp-1115
+//! @SYMTestCaseID      NET-Dhcp-1115
+//Test 2_MultipleParams_Test3 - Retrieve the option data from the server and compare with unexpected data and see whether 
+// the test case is failing (using the option 6(ORO))
+run_test_step 50 DhcpTestServer 2_MultipleParams_Test3	z:\TestData\configs\DHCP\dhcptest.ini ExpectedDHCPV6Options
+END_TESTCASE            NET-Dhcp-1115
+
+
+START_TESTCASE          NET-Dhcp-1116
+//! @SYMTestCaseID      NET-Dhcp-1116
+//Test 2_MultipleParams_Test4 - Retrieve the option data from the server without adding the 
+// option before Ioctl (using the option 6(ORO))
+run_test_step 50 DhcpTestServer 2_MultipleParams_Test4	z:\TestData\configs\DHCP\dhcptest.ini ExpectDHCPResponseBeforeCompletion
+END_TESTCASE            NET-Dhcp-1116
+
+
+START_TESTCASE          NET-Dhcp-1117
+//! @SYMTestCaseID      NET-Dhcp-1117
+//Test 2_MultipleParams_Test5 - Test case description : Try to retireve the option data from the server by passing the buffer 
+//of smaller size(using the option 6(ORO))
+run_test_step 50 DhcpTestServer 2_MultipleParams_Test5	z:\TestData\configs\DHCP\dhcptest.ini ExpectDHCPResponseBeforeCompletion
+END_TESTCASE            NET-Dhcp-1117
+
+
+START_TESTCASE          NET-Dhcp-1118
+//! @SYMTestCaseID      NET-Dhcp-1118
+//Test 2_GetRaw_Test1 - Try to retrieve the option 30 from server using GetRawOption 
+// which internall calls Inform request. 
+run_test_step 50 DhcpTestServer 2_GetRaw_Test1	z:\TestData\configs\DHCP\dhcptest.ini ExpectedDHCPV6Options
+END_TESTCASE            NET-Dhcp-1118
+
+
+START_TESTCASE          NET-Dhcp-1119
+//! @SYMTestCaseID      NET-Dhcp-1119
+//Test 2_GetRaw_Test2 - Try to retireve the option data from the server by passing the buffer 
+// of smaller size by using GetRawOption
+run_test_step 50 DhcpTestServer 2_GetRaw_Test2	z:\TestData\configs\DHCP\dhcptest.ini ExpectDHCPResponseBeforeCompletion
+END_TESTCASE            NET-Dhcp-1119
+
+# Stop all interfaces
+RUN_SCRIPT Z:\TestData\Scripts\te_esock_test_stopallinterfaces.script
+
+# Unload esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script

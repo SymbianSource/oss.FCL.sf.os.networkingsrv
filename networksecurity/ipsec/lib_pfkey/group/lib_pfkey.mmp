@@ -1,0 +1,61 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+/**
+@file
+lib_pfkey.mmp 
+
+@SYMPurpose LIB_PFKEY.DLL Library providing access to the IPsec Security Association Database
+*/
+
+TARGET          lib_pfkey.dll
+TARGETTYPE      dll
+
+UID             0x1000008D 0x10090890
+VENDORID 0x70000001
+
+SOURCEPATH     	../src
+SOURCE          lib_pfkey.cpp
+SOURCE          pfkey_ext.cpp
+
+USERINCLUDE   	../../ipsec6/inc
+USERINCLUDE   	../include
+USERINCLUDE	../../ipsec6/include
+
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+LIBRARY         euser.lib esock.lib
+CAPABILITY ALL -Tcb
+
+#ifdef EKA2
+#ifdef SYMBIAN_NETWORKING_IPSEC_IKE_V2
+#if defined(WINS)
+deffile		LIB_PFKEY_IKEV2.DEF
+#elif defined(GCC32)
+deffile		LIB_PFKEY_IKEV2.DEF
+#else
+deffile		lib_pfkey_ikev2.DEF
+#endif
+#else
+deffile		lib_pfkey.def
+#endif //SYMBIAN_NETWORKING_IPSEC_IKE_V2
+#else
+deffile		lib_pfkey_v8xa.def
+#endif //EKA2
+
+UNPAGED
+
+SMPSAFE

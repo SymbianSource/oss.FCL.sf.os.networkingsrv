@@ -1,0 +1,324 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+#ifndef __NETWORKING_TEST_OBY__
+#define __NETWORKING_TEST_OBY__
+
+// This OBY File is used to build Networking Test ROM Images.
+
+// Building a ROM Image generates a number of files.  Thus it is better to run this
+// from a separate directory.  To build a networking test ROM enter the following:
+//
+//   Building for Assabet
+//      1) buildrom assabet NetworkTest.oby 
+//      2) buildrom -D_DEBUG assabet NetworkTest.oby 
+//      3) buildrom -DTEXT_ONLY_ROM assabet NetworkTest.oby 
+//      4) buildrom -DTEXT_ONLY_ROM -D_DEBUG assabet NetworkTest.oby 
+//
+//   Building for Lubbock - CF Card loader
+//      1) buildrom lubbock NetworkTest.oby 
+//      2) buildrom -D_DEBUG lubbock NetworkTest.oby 
+//      3) buildrom -DTEXT_ONLY_ROM lubbock NetworkTest.oby 
+//      4) buildrom -DTEXT_ONLY_ROM -D_DEBUG lubbock NetworkTest.oby 
+//
+//   Building for Lubbock - Ethernet TFTP loader
+//      1) Create a rom using the above then rombuild --no-header (Output *.oby file from the above) 
+//
+// _DEBUG results in debug ROMS and TEXT_ONLY_ROM generates text only ROMS.  The above 
+// shows all combinations.
+//
+#if defined(ESHELL_ONLY)
+	// ALSO remove SCDV.dll, <gdbstub.iby> and <metrotrk.iby> from base.iby
+	define OBEYFILE NetworkTest
+#else
+	#if defined(TEXT_ONLY_ROM)
+		define OBEYFILE NetworkTest
+	#else
+		define ROMMEGS			28		/* !! HEX !! */
+		#define techview NetworkTest
+	#endif // TEXT_ONLY_ROM
+#endif // ESHELL_ONLY
+
+define ROMDATE	##TODAY##
+
+#define __TCPIP_IBY__ // HACK to avoid including the old IP4 TCPIP.IBY via PLP.IBY
+#define NO_METROTRK_APP // don't want metrotrk application
+#define HAS_ETHERNET	// include etherDrv, ether802, DHCP
+#define __INCLUDE_SW_KEYSTORE__ // Put sw implementation of keystore into v8.0a ROM
+
+#define _SDIO
+#define USE_SDIO_SD_MMC 
+
+// We remap the H4/H2 debugport to 3 and the NaviEngine debugport to 1 because it has only two
+// available serial ports on the basic variant.  The x86 PC only supports two debugport settings:
+// 0 and 2 so we use 2.
+#ifdef __NE1_TB__
+	debugport 1
+#else
+	#ifdef __X86PCHRP__
+		debugport 2
+	#else
+		debugport 3
+	#endif
+#endif
+
+#include <NoWatcher.iby>
+
+/////////////////////////////////////////ESHELL Only Support
+#if defined(TEXT_ONLY_ROM)
+
+#ifdef SYMBIAN_SYSTEM_STATE_MANAGEMENT
+    #define _SSMSTARTUPMODE 1	// for ssma boot up
+    #undef _STARTUPMODE1        // sanity - override possible definition on ROM build command line
+#else
+    #define _STARTUPMODE1		// for sysstart.iby
+#endif
+
+	#include <header.iby>				/* ROM header definitions */
+	#include <base.iby>					/* The lowest-level of the operating system */
+
+#ifdef SYMBIAN_SYSTEM_STATE_MANAGEMENT
+    #include <ssma.iby>                 /* System State Management Architecture */
+    #include <ssplugins.iby>            /* System State Management Plugins */
+    #include <aplp.iby>
+    #include <shma.iby>
+    #include <amastart.iby>
+    #include <ssrefplugins.iby>
+    data=MULTI_LINGUIFY(RSC EPOCROOT##epoc32\data\z\private\2000d75b\startup\0\eshell		private\2000d75b\startup\0\eshell)
+#else
+    #include <sysstart.iby>
+    #include <sysstartconfig.iby>
+#endif // SYMBIAN_SYSTEM_STATE_MANAGEMENT
+		
+	REM *** SIF ***
+	#include <sif.iby>
+
+	#include <debug.iby>
+	file=ABI_DIR\DEBUG_DIR\RUNTESTS.EXE					System\Programs\RUNTESTS.EXE
+
+	REM Networking Test Text ROM Specific Files
+
+	kerneltrace 0x80000000
+
+	REM *** EIkon ***
+	file=ABI_DIR\DEBUG_DIR\EDISP.DLL					System\Libs\EDISP.DLL
+
+	file=ABI_DIR\BUILD_DIR\eikcoctl.dll 				System\Libs\EikCoctl.dll
+
+	file=ABI_DIR\DEBUG_DIR\ECONS.DLL					System\Libs\ECONS.DLL	
+
+	file=ABI_DIR\DEBUG_DIR\EWSRV.EXE					System\Libs\EWSRV.EXE	fixed
+
+	#include <eshell.iby>
+
+	////////////////////////////////////////// Full Text Support
+	#if !defined(ESHELL_ONLY)
+
+		file=ABI_DIR\DEBUG_DIR\form.DLL					System\Libs\form.dll
+		file=ABI_DIR\DEBUG_DIR\tagma.DLL				System\Libs\tagma.DLL
+
+		#ifdef SYMBIAN_GRAPHICS_USE_GCE
+			file=ABI_DIR\BUILD_DIR\ws32_nga.dll				System\Libs\Ws32.dll
+			file=ABI_DIR\BUILD_DIR\surfaceupdateclient.dll	System\Libs\surfaceupdateclient.dll
+		#else
+			file=ABI_DIR\BUILD_DIR\ws32_nonnga.dll			sys\bin\Ws32.dll
+		#endif
+
+		file=ABI_DIR\BUILD_DIR\VIEWCLI.DLL				System\Libs\VIEWCLI.DLL
+		file=ABI_DIR\BUILD_DIR\VIEWSRV.DLL				System\Libs\VIEWSRV.DLL
+		file=ABI_DIR\BUILD_DIR\UIKLAF.DLL				System\Libs\UIKLAF.DLL
+		file=ABI_DIR\BUILD_DIR\EXPARSER.DLL				System\Libs\EXPARSER.DLL
+		file=ABI_DIR\BUILD_DIR\Eikcore.DLL				System\Libs\Eikcore.dll
+		file=ABI_DIR\BUILD_DIR\EIKSRVC.DLL				System\Libs\EIKSRVC.DLL
+
+		/* extras */
+
+// Latest NaviEngine CBR has multimedia change which replaces mmfsounddev.iby.
+	/* Multimedia Framework */	
+			#include <mmf.iby>			/* Multimedia Framework */
+			#include <mmcommon.iby>		/* Shared multimedia components  */
+			#include <imageconversion.iby>	/* Image conversion library */
+			#include <mdf.iby>			/* Media Device Framework */
+			#include <devvideo.iby>		/* devvideo generic */
+			#include <asr.iby>			/* speech recognition */
+			#include <ecam.iby>			/* Camera API */
+			#include <devsound_pluginsupport.iby>
+			#include <devsound_refplugin.iby>
+	#ifdef SYMBIAN_MULTIMEDIA_A3FDEVSOUND
+				#include <acf.iby>
+				#include <a3fdevsound.iby>
+				#include <acl.iby>
+				#include <devsoundadaptationinfo.iby>
+				#include <refacladaptation.iby>
+				#include <refmmrc.iby>
+				#include <a3fserverstart.iby>
+				#include <traces.iby>
+	#endif // SYMBIAN_MULTIMEDIA_A3FDEVSOUND
+			#include <mmf_plugin.iby>
+			#include <omxilcompref.iby>
+			#include <omxilcore.iby>
+			#include <omxilcomp.iby>
+
+		#include "ezlib.iby"
+		#include <centralrepository.iby>
+
+		file=ABI_DIR\BUILD_DIR\abclient.dll			System\libs\abclient.dll
+		
+		#include <http.iby>
+
+
+		//*** #include <timezoneserver.iby> ***
+
+		// OG 07/10/08
+		// timezoneserver.iby is now including two SWI files that cause a duplicate file error in Telephony ROM builds.
+		// I changed TelephonyTest.oby to include the contents of timezoneserver.iby minus the SWI files.
+		// When (or if) PIM fixes this problem, we need to #include again timezoneserver.iby.
+		//
+
+		#include <sql.iby>
+
+		REM *** TimeZone Client and Server ***
+
+		file=ABI_DIR\BUILD_DIR\tzserver.exe		System\Programs\tzserver.exe
+		file=ABI_DIR\BUILD_DIR\tzclient.dll		System\Libs\tzclient.dll
+
+		// This is breaking TelephonyTest.oby (it already includes swi.iby)
+		//#ifndef __TECHVIEWBASE_IBY__
+		//file=ABI_DIR\BUILD_DIR\swiobservedinfo.dll		sys\bin\swiobservedinfo.dll
+		//file=ABI_DIR\BUILD_DIR\swiobserverplugin.dll		sys\bin\swiobserverplugin.dll
+		//#endif
+
+
+		REM *** SWI Plugin ***
+		ECOM_PLUGIN(tzswiobserverplugin.dll,1028649C.rsc)
+
+		REM *** TZ Database ***
+		data=EPOCROOT##epoc32\data\z\private\1020383E\tzdb.dbz	private\1020383E\tzdb.dbz
+		data=EPOCROOT##epoc32\data\Z\private\10202BE9\1020383e.txt	private\10202be9\1020383e.txt
+		data=EPOCROOT##epoc32\data\Z\private\1020383E\backup_registration.xml	private\1020383E\backup_registration.xml
+		data=EPOCROOT##epoc32\data\Z\system\install\timezone_stub.sis	system\install\timezone_stub.sis
+
+		/* end of timezoneserver.iby */
+		/****************/
+
+
+		#include <crypto.iby>
+#ifdef SYMBIAN_USER_PROMPT_SERVICE
+		#include <ups.iby>
+#endif
+		#include <c32.iby>			/* standard Sockets components */
+    #include <ecuart.iby>				/* standard Sockets components */
+		#include <irda.iby>			/* standard Sockets components */
+		#include <bluetooth.iby>	/* standard Sockets components */
+		#include <gdi.iby>			/* standard Graphics components */
+		#include <fntstore.iby>		/* standard Graphics components */
+		#include <fbserv.iby>		/* standard Graphics components */
+		#include <bitgdi.iby>		/* standard Graphics components */
+
+		#include <apparc.iby>		/* Application architecture DLLs */
+		#include <emime.iby>		/* Mime recognition */
+
+		#include <featmgr.iby>
+
+		#include <fepbase.iby>		/* Front end processor base classes */
+
+		#include <mmf.iby> 			/* Multimedia Framework */
+
+		#include <sysagent.iby>		/* System Agent client and server */
+
+		#include <network.iby>		/* Networking Components */
+		
+		#include <wapmessage.iby>       	/* Wap Stack Components  */
+		#include <securitycommonutils.iby>
+		
+		// ============== Software Transaction Services from Security=====================
+		#ifdef SYMBIAN_UNIVERSAL_INSTALL_FRAMEWORK
+		#include <scr.iby>
+		#include <sts.iby>
+		#endif // SYMBIAN_UNIVERSAL_INSTALL_FRAMEWORK
+
+		// ============== Telephony Core Components =============
+		#include <etel.iby>
+		#include <smsstack.iby>
+		#include <etelmm.iby>
+		#include <etelpckt.iby>
+		#include <mmtsy.iby>
+		#include <phbksync.iby>
+		#include <etelsat.iby>
+		#include <sysawatcher.iby>
+
+		#include <ecom.iby>
+
+		/* Store */
+		#include "Store.iby"
+
+		/* Etext */
+		#include "EText.iby"
+
+		/* Clock */
+		file=ABI_DIR\BUILD_DIR\clock.dll				System\Libs\Clock.dll
+
+		/* Print */
+		file=ABI_DIR\BUILD_DIR\print.dll				System\Libs\Print.dll
+
+		/* Pwrcli */
+		#include "PwrCli.iby"
+
+		/* Bafl */
+		#include "Bafl.iby"
+
+		/* Cone */
+		file=ABI_DIR\DEBUG_DIR\cone.dll					System\Libs\Cone.dll
+
+		/* NumberConversion */
+		#include "NumberConversion.iby"
+
+		/* EGUL */
+		file=ABI_DIR\DEBUG_DIR\egul.dll					System\Libs\Egul.dll
+
+		/* Dial */
+		file=ABI_DIR\BUILD_DIR\dial.dll					System\Libs\Dial.dll
+
+
+	#endif // !ESHELL_ONLY
+#endif // TEXT_ONLY_ROM
+
+///////////////////////////////////////////// Full GUI ROM
+
+#if !defined(TEXT_ONLY_ROM)
+	#include <techview.oby>
+#endif // !TEXT_ONLY_ROM
+
+
+///////////////////////////////////////////// Include Our Test Code
+#if !defined(ESHELL_ONLY)
+	#include <networktest.iby>
+#endif // !ESHELL_ONLY
+
+// We remap the H4/H2 debugport to 3 and the NaviEngine debugport to 1 because it has only two
+// available serial ports on the basic variant.  The x86 PC only supports two debugport settings:
+// 0 and 2 so we use 2.
+#ifdef __NE1_TB__
+	debugport 1
+#else
+	#ifdef __X86PCHRP__
+		debugport 2
+	#else
+		debugport 3
+	#endif
+#endif
+
+#endif

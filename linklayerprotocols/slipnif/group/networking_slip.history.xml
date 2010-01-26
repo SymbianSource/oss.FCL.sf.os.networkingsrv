@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relnotes name="SLIP NIF">
+  <purpose>
+    Reference implementation, SLIP (Serial Line Internet Protocol) protocol NIF plugin to Network Interface Manager providing TCP/IP over serial comms via modem dialup.
+  </purpose>
+</relnotes>

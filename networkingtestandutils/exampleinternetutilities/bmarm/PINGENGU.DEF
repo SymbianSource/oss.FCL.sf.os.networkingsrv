@@ -1,0 +1,9 @@
+EXPORTS
+	SetPriorities__8CPingEngiii @ 1 NONAME ; CPingEng::SetPriorities(int, int, int)
+	Cancel__8CPingEng @ 2 NONAME R3UNUSED ; CPingEng::Cancel(void)
+	NewL__8CPingEngR24MPingNotificationHandler @ 3 NONAME R3UNUSED ; CPingEng::NewL(MPingNotificationHandler &)
+	CancelAndFinished__8CPingEng @ 4 NONAME R3UNUSED ; CPingEng::CancelAndFinished(void)
+	Start__8CPingEngRC12TPingOptions @ 5 NONAME R3UNUSED ; CPingEng::Start(TPingOptions const &)
+	"_._8CPingEng" @ 6 NONAME R3UNUSED ; CPingEng::~CPingEng(void)
+	__12TPingOptions @ 7 NONAME R3UNUSED ; TPingOptions::TPingOptions(void)
+

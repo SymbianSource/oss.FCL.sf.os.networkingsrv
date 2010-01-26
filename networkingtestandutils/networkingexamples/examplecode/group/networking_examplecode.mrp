@@ -1,0 +1,37 @@
+#
+# Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+# All rights reserved.
+# This component and the accompanying materials are made available
+# under the terms of "Eclipse Public License v1.0"
+# which accompanies this distribution, and is available
+# at the URL "http://www.eclipse.org/legal/epl-v10.html".
+#
+# Initial Contributors:
+# Nokia Corporation - initial contribution.
+#
+# Contributors:
+#
+# Description: 
+#
+
+component	networking_examplecode
+source	\sf\os\networkingsrv\networkingtestandutils\networkingexamples\examplecode
+
+source	\sf\os\networkingsrv\networkingtestandutils\networkingexamples\anvltest
+source	\sf\os\networkingsrv\networkingtestandutils\networkingexamples\cgi
+source	\sf\os\networkingsrv\networkingtestandutils\networkingexamples\ping
+source	\sf\os\networkingsrv\networkingtestandutils\networkingexamples\udpecho
+source	\sf\os\networkingsrv\networkingtestandutils\networkingexamples\udpsend
+source	\sf\os\networkingsrv\networkingtestandutils\networkingexamples\webserver
+
+notes_source	\component_defs\release.src
+
+ipr F 
+ipr T \sf\os\networkingsrv\networkingtestandutils\networkingexamples\examplecode\inetd
+ipr T \sf\os\networkingsrv\networkingtestandutils\networkingexamples\anvltest
+ipr T \sf\os\networkingsrv\networkingtestandutils\networkingexamples\cgi
+ipr T \sf\os\networkingsrv\networkingtestandutils\networkingexamples\ping
+ipr T \sf\os\networkingsrv\networkingtestandutils\networkingexamples\webserver
+ipr T \sf\os\networkingsrv\networkingtestandutils\networkingexamples\udpecho
+ipr T \sf\os\networkingsrv\networkingtestandutils\networkingexamples\udpsend
+

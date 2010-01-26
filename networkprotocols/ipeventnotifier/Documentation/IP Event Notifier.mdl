@@ -1,0 +1,3377 @@
+
+(object Petal
+    version    	43
+    _written   	"Rose 6.5.9232.10"
+    charSet    	0)
+
+(object Design "Logical View"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    quid       	"41344D7E01D6"
+    defaults   	(object defaults
+	rightMargin 	0.250000
+	leftMargin 	0.250000
+	topMargin  	0.250000
+	bottomMargin 	0.500000
+	pageOverlap 	0.250000
+	clipIconLabels 	TRUE
+	autoResize 	TRUE
+	snapToGrid 	TRUE
+	gridX      	16
+	gridY      	16
+	defaultFont 	(object Font
+	    size       	10
+	    face       	"Arial"
+	    bold       	FALSE
+	    italics    	FALSE
+	    underline  	FALSE
+	    strike     	FALSE
+	    color      	0
+	    default_color 	TRUE)
+	showMessageNum 	1
+	showClassOfObject 	TRUE
+	notation   	"Unified")
+    root_usecase_package 	(object Class_Category "Use Case View"
+	quid       	"41344D7E01E7"
+	exportControl 	"Public"
+	global     	TRUE
+	logical_models 	(list unit_reference_list)
+	logical_presentations 	(list unit_reference_list
+	    (object UseCaseDiagram "Main"
+		quid       	"41344D80013B"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list))))
+    root_category 	(object Class_Category "Logical View"
+	quid       	"41344D7E01E6"
+	exportControl 	"Public"
+	global     	TRUE
+	subsystem  	"Component View"
+	quidu      	"41344D7E01F5"
+	logical_models 	(list unit_reference_list
+	    (object Class "CIP6Hook"
+		quid       	"4134A51D0161")
+	    (object Class "CIPEventNotifier"
+		quid       	"4134A5710028"
+		superclasses 	(list inheritance_relationship_list
+		    (object Inheritance_Relationship
+			quid       	"4134A59F0113"
+			supplier   	"Logical View::CIP6Hook"
+			quidu      	"4134A51D0161"))
+		realized_interfaces 	(list realize_rel_list
+		    (object Realize_Relationship
+			quid       	"41405C81004D"
+			supplier   	"Logical View::CIPEventNotifierFlowHook"
+			quidu      	"41405B1101B5"))
+		operations 	(list Operations
+		    (object Operation "GetOption_overridden"
+			quid       	"415C22E40145"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "OpenSessionL"
+			quid       	"415AF72A0369"
+			result     	"TUint32Handle"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "CloseSession"
+			quid       	"415AF80B033A"
+			parameters 	(list Parameters
+			    (object Parameter "iHandle"
+				type       	"TUint32"))
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "AddInterface"
+			quid       	"415D340A0184"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "PublishToHandle"
+			quid       	"415C193001A3"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)))
+	    (object Class "CIPEventNotifierFlowHook"
+		quid       	"41405B1101B5")
+	    (object Class "SMetaDataECom"
+		quid       	"4140636C0176")
+	    (object Class "CIPEventNotifierFamily"
+		quid       	"41406627034B"
+		used_nodes 	(list uses_relationship_list
+		    (object Uses_Relationship
+			quid       	"414067A3002E"
+			supplier   	"Logical View::CIPEventNotifier"
+			quidu      	"4134A5710028")))
+	    (object Class "Protocol Install"
+		quid       	"41406657035B"
+		stereotype 	"Interface"
+		used_nodes 	(list uses_relationship_list
+		    (object Uses_Relationship
+			quid       	"414066710399"
+			supplier   	"Logical View::CIPEventNotifierFamily"
+			quidu      	"41406627034B")))
+	    (object Class "HookLog"
+		quid       	"4140675003E7")
+	    (object Class "CIPEventPublisher<MsgType>"
+		quid       	"4140681A037A")
+	    (object Class "CMFlagReceived"
+		quid       	"41406B03007C"
+		superclasses 	(list inheritance_relationship_list
+		    (object Inheritance_Relationship
+			quid       	"41406B390176"
+			supplier   	"Logical View::SMetaDataECom"
+			quidu      	"4140636C0176"))
+		class_attributes 	(list class_attribute_list
+		    (object ClassAttribute "iMFlag"
+			quid       	"415AF8CD02CD"
+			type       	"TBool")))
+	    (object Class "CIPReady"
+		quid       	"41406B3A03E7"
+		superclasses 	(list inheritance_relationship_list
+		    (object Inheritance_Relationship
+			quid       	"41406B6C03D8"
+			supplier   	"Logical View::SMetaDataECom"
+			quidu      	"4140636C0176"))
+		class_attributes 	(list class_attribute_list
+		    (object ClassAttribute "iIPAddress"
+			quid       	"415AF8DB02FC"
+			type       	"TInetAddr")
+		    (object ClassAttribute "iAddressValid"
+			quid       	"415B119500C3"
+			type       	"TBool")))
+	    (object Class "CLinklocalAddressKnown"
+		quid       	"41406B510399"
+		superclasses 	(list inheritance_relationship_list
+		    (object Inheritance_Relationship
+			quid       	"41406B6F02AF"
+			supplier   	"Logical View::SMetaDataECom"
+			quidu      	"4140636C0176"))
+		class_attributes 	(list class_attribute_list
+		    (object ClassAttribute "iIPAddress"
+			quid       	"415AFA380117"
+			type       	"TInetAddr")))
+	    (object Class "RProperty"
+		quid       	"41406F750128"
+		used_nodes 	(list uses_relationship_list
+		    (object Uses_Relationship
+			quid       	"4140721502CE"
+			supplier   	"Logical View::RProperty"
+			quidu      	"41406F750128")
+		    (object Uses_Relationship
+			quid       	"41407314029F"
+			supplier   	"Logical View::RProperty"
+			quidu      	"41406F750128")))
+	    (object Class "CIPEventListener"
+		quid       	"415837520159")
+	    (object Class "TIPEventNotifierInterface"
+		quid       	"415AC0CF03A8"
+		class_attributes 	(list class_attribute_list
+		    (object ClassAttribute "iInterfaceIndex"
+			quid       	"415AC0E70146"
+			type       	"TUint32")
+		    (object ClassAttribute "iInterfaceName"
+			quid       	"415D31B9023F"
+			type       	"TName")
+		    (object ClassAttribute "iRefCount"
+			quid       	"415AC0F80379"
+			type       	"TUint32")))
+	    (object Association "$UNNAMED$0"
+		quid       	"41405C170128"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$1"
+			quid       	"41405C17030C"
+			supplier   	"Logical View::CIPEventNotifierFlowHook"
+			quidu      	"41405B1101B5"
+			client_cardinality 	(value cardinality "0..n")
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$2"
+			quid       	"41405C17030D"
+			supplier   	"Logical View::CIPEventNotifier"
+			quidu      	"4134A5710028"
+			client_cardinality 	(value cardinality "1"))))
+	    (object Association "$UNNAMED$3"
+		quid       	"4140653601E4"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$4"
+			quid       	"41406537003E"
+			supplier   	"Logical View::CIPEventNotifierFlowHook"
+			quidu      	"41405B1101B5"
+			client_cardinality 	(value cardinality "0..n")
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$5"
+			quid       	"41406537003F"
+			supplier   	"Logical View::CIPEventNotifier"
+			quidu      	"4134A5710028"
+			is_navigable 	TRUE
+			is_aggregate 	TRUE)))
+	    (object Association "RA"
+		quid       	"4140683701E4"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$6"
+			quid       	"41406838005D"
+			supplier   	"Logical View::CIPEventPublisher<MsgType>"
+			quidu      	"4140681A037A"
+			client_cardinality 	(value cardinality "0..1")
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$7"
+			quid       	"41406838005E"
+			supplier   	"Logical View::CIPEventNotifier"
+			quidu      	"4134A5710028"
+			is_navigable 	TRUE
+			is_aggregate 	TRUE)))
+	    (object Association "LL addr"
+		quid       	"4140688601E4"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$8"
+			quid       	"4140688700F9"
+			supplier   	"Logical View::CIPEventPublisher<MsgType>"
+			quidu      	"4140681A037A"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$9"
+			quid       	"414068870109"
+			supplier   	"Logical View::CIPEventNotifier"
+			quidu      	"4134A5710028"
+			is_navigable 	TRUE
+			is_aggregate 	TRUE)))
+	    (object Association "IP ready"
+		quid       	"414068AB034B"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$10"
+			quid       	"414068AC0270"
+			supplier   	"Logical View::CIPEventPublisher<MsgType>"
+			quidu      	"4140681A037A"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$11"
+			quid       	"414068AC0271"
+			supplier   	"Logical View::CIPEventNotifier"
+			quidu      	"4134A5710028"
+			is_navigable 	TRUE
+			is_aggregate 	TRUE)))
+	    (object Association "M-fflag"
+		quid       	"41406AF800CA"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$12"
+			quid       	"41406AF800CB"
+			supplier   	"Logical View::CIPEventPublisher<MsgType>"
+			quidu      	"4140681A037A"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$13"
+			quid       	"41406AF800CC"
+			supplier   	"Logical View::CIPEventNotifier"
+			quidu      	"4134A5710028"
+			is_navigable 	TRUE
+			is_aggregate 	TRUE)))
+	    (object Association "$UNNAMED$14"
+		quid       	"41406B2B0176"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$15"
+			quid       	"41406B2C009B"
+			supplier   	"Logical View::SMetaDataECom"
+			quidu      	"4140636C0176"
+			client_cardinality 	(value cardinality "1")
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$16"
+			quid       	"41406B2C009C"
+			supplier   	"Logical View::CIPEventPublisher<MsgType>"
+			quidu      	"4140681A037A"
+			is_aggregate 	TRUE)))
+	    (object Association "$UNNAMED$17"
+		quid       	"41406F7F004D"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$18"
+			quid       	"41406F7F0241"
+			supplier   	"Logical View::RProperty"
+			quidu      	"41406F750128"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$19"
+			quid       	"41406F7F0242"
+			supplier   	"Logical View::CIPEventPublisher<MsgType>"
+			quidu      	"4140681A037A"
+			is_aggregate 	TRUE)))
+	    (object Association "IP ready"
+		quid       	"4158379D0188"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$20"
+			quid       	"4158379D0189"
+			supplier   	"Logical View::CIPEventPublisher<MsgType>"
+			quidu      	"4140681A037A"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$21"
+			quid       	"4158379D018A"
+			supplier   	"Logical View::TIPEventNotifierInterface"
+			quidu      	"415AC0CF03A8"
+			is_navigable 	TRUE
+			is_aggregate 	TRUE)))
+	    (object Association "M-flag"
+		quid       	"415837A602EF"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$22"
+			quid       	"415837A602F0"
+			supplier   	"Logical View::CIPEventPublisher<MsgType>"
+			quidu      	"4140681A037A"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$23"
+			quid       	"415837A602F1"
+			supplier   	"Logical View::TIPEventNotifierInterface"
+			quidu      	"415AC0CF03A8"
+			is_navigable 	TRUE
+			is_aggregate 	TRUE)))
+	    (object Association "$UNNAMED$24"
+		quid       	"4158387001C6"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$25"
+			quid       	"41583871008E"
+			supplier   	"Logical View::CIPEventListener"
+			quidu      	"415837520159"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$26"
+			quid       	"41583871008F"
+			supplier   	"Logical View::CIPEventNotifier"
+			quidu      	"4134A5710028"
+			is_navigable 	TRUE
+			is_aggregate 	TRUE)))
+	    (object Association "$UNNAMED$27"
+		quid       	"415ADC1C0369"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$28"
+			quid       	"415ADC1D00AA"
+			supplier   	"Logical View::TIPEventNotifierInterface"
+			quidu      	"415AC0CF03A8"
+			client_cardinality 	(value cardinality "0..n")
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$29"
+			quid       	"415ADC1D00BA"
+			supplier   	"Logical View::CIPEventNotifier"
+			quidu      	"4134A5710028"
+			is_navigable 	TRUE
+			is_aggregate 	TRUE)))
+	    (object Association "LLaddr"
+		quid       	"415ADC85006C"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$30"
+			quid       	"415ADC870117"
+			supplier   	"Logical View::CIPEventPublisher<MsgType>"
+			quidu      	"4140681A037A"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$31"
+			quid       	"415ADC870118"
+			supplier   	"Logical View::TIPEventNotifierInterface"
+			quidu      	"415AC0CF03A8"
+			is_navigable 	TRUE
+			is_aggregate 	TRUE)))
+	    (object Association "$UNNAMED$32"
+		quid       	"415BDDB202A2"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$33"
+			quid       	"415BDDB3007F"
+			supplier   	"Logical View::CMFlagReceived"
+			quidu      	"41406B03007C"
+			client_cardinality 	(value cardinality "0..1")
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$34"
+			quid       	"415BDDB30080"
+			supplier   	"Logical View::TIPEventNotifierInterface"
+			quidu      	"415AC0CF03A8"
+			is_navigable 	TRUE
+			is_aggregate 	TRUE)))
+	    (object Association "$UNNAMED$35"
+		quid       	"415BDDB50198"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$36"
+			quid       	"415BDDB6038C"
+			supplier   	"Logical View::CLinklocalAddressKnown"
+			quidu      	"41406B510399"
+			client_cardinality 	(value cardinality "0..1")
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$37"
+			quid       	"415BDDB6038D"
+			supplier   	"Logical View::TIPEventNotifierInterface"
+			quidu      	"415AC0CF03A8"
+			is_navigable 	TRUE
+			is_aggregate 	TRUE)))
+	    (object Association "$UNNAMED$38"
+		quid       	"415BDDB9006F"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$39"
+			quid       	"415BDDB901F6"
+			supplier   	"Logical View::CIPReady"
+			quidu      	"41406B3A03E7"
+			client_cardinality 	(value cardinality "0..1")
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$40"
+			quid       	"415BDDB901F7"
+			supplier   	"Logical View::TIPEventNotifierInterface"
+			quidu      	"415AC0CF03A8"
+			is_navigable 	TRUE
+			is_aggregate 	TRUE)))
+	    (object Association "$UNNAMED$41"
+		quid       	"415BDDF2034E"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$42"
+			quid       	"415BDDF301B8"
+			supplier   	"Logical View::RProperty"
+			quidu      	"41406F750128"
+			client_cardinality 	(value cardinality "1")
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$43"
+			quid       	"415BDDF301B9"
+			supplier   	"Logical View::TIPEventNotifierInterface"
+			quidu      	"415AC0CF03A8"
+			is_aggregate 	TRUE)))
+	    (object Association "$UNNAMED$44"
+		quid       	"415BDE3A01C7"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$45"
+			quid       	"415BDE3B0021"
+			supplier   	"Logical View::CMFlagReceived"
+			quidu      	"41406B03007C"
+			client_cardinality 	(value cardinality "0..1")
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$46"
+			quid       	"415BDE3B0022"
+			supplier   	"Logical View::CIPEventNotifier"
+			quidu      	"4134A5710028"
+			is_navigable 	TRUE
+			is_aggregate 	TRUE)))
+	    (object Association "$UNNAMED$47"
+		quid       	"415BDE3F006F"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$48"
+			quid       	"415BDE3F02F0"
+			supplier   	"Logical View::CLinklocalAddressKnown"
+			quidu      	"41406B510399"
+			client_cardinality 	(value cardinality "0..1")
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$49"
+			quid       	"415BDE3F02F1"
+			supplier   	"Logical View::CIPEventNotifier"
+			quidu      	"4134A5710028"
+			is_navigable 	TRUE
+			is_aggregate 	TRUE)))
+	    (object Association "$UNNAMED$50"
+		quid       	"415BDE410060"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$51"
+			quid       	"415BDE41037D"
+			supplier   	"Logical View::CIPReady"
+			quidu      	"41406B3A03E7"
+			client_cardinality 	(value cardinality "0..1")
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$52"
+			quid       	"415BDE41037E"
+			supplier   	"Logical View::CIPEventNotifier"
+			quidu      	"4134A5710028"
+			is_navigable 	TRUE
+			is_aggregate 	TRUE)))
+	    (object Association "$UNNAMED$53"
+		quid       	"415BDE5900AE"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$54"
+			quid       	"415BDE59030F"
+			supplier   	"Logical View::RProperty"
+			quidu      	"41406F750128"
+			client_cardinality 	(value cardinality "1")
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$55"
+			quid       	"415BDE590310"
+			supplier   	"Logical View::CIPEventNotifier"
+			quidu      	"4134A5710028"
+			is_navigable 	TRUE
+			is_aggregate 	TRUE)))
+	    (object Mechanism @1
+		logical_models 	(list unit_reference_list
+		    (object Object "DHCP"
+			quid       	"415BD387032F"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"415BD3A602C1"
+				supplier   	"IPEventNotifier"
+				quidu      	"415BD38D03BB"
+				messages   	(list Messages
+				    (object Message "Register for IP ready"
+					quid       	"415BD3A602C2"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"FromClientToSupplier"
+					sequence   	"1"
+					ordinal    	0)
+				    (object Message "IP not ready"
+					quid       	"415BD785015A"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"ToClientFromSupplier"
+					sequence   	"2.2.1.1.1.1"
+					ordinal    	9)))
+			    (object Link
+				quid       	"415BD3B701A8"
+				supplier   	"Stack"
+				quidu      	"415BD391034E"
+				messages   	(list Messages
+				    (object Message "Set Provisional Address"
+					quid       	"415BD3B701A9"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"FromClientToSupplier"
+					sequence   	"2"
+					ordinal    	1))))
+			persistence 	"Transient"
+			multi      	FALSE)
+		    (object Object "IPEventNotifier"
+			quid       	"415BD38D03BB"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"415BD67F006F"
+				supplier   	"IPEventNotifier"
+				quidu      	"415BD38D03BB"
+				messages   	(list Messages
+				    (object Message "Remember tentative address"
+					quid       	"415BD70B031F"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"2.1.1.1"
+					ordinal    	4))))
+			persistence 	"Transient"
+			multi      	FALSE)
+		    (object Object "Stack"
+			quid       	"415BD391034E"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"415BD3CE00BE"
+				supplier   	"IPEventNotifier"
+				quidu      	"415BD38D03BB")
+			    (object Link
+				quid       	"415BD6A2007F"
+				supplier   	"Network"
+				quidu      	"415BD396014A"
+				messages   	(list Messages
+				    (object Message "Duplicate Address?"
+					quid       	"415BD6A20080"
+					frequency  	"Aperiodic"
+					synchronization 	"Timeout"
+					dir        	"FromClientToSupplier"
+					sequence   	"2.2"
+					ordinal    	5)
+				    (object Message "Yes!"
+					quid       	"415BD6B20189"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"ToClientFromSupplier"
+					sequence   	"2.2.1"
+					ordinal    	6)))
+			    (object Link
+				quid       	"415BD6E5014A"
+				supplier   	"IPEventListener"
+				quidu      	"415BD3DB03DA"
+				messages   	(list Messages
+				    (object Message "NotifyAddressChange(tentative)"
+					quid       	"415BD6EE03DA"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"FromClientToSupplier"
+					sequence   	"2.1"
+					ordinal    	2)
+				    (object Message "NotifyAddressChange(failed)"
+					quid       	"415BD75602E0"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"FromClientToSupplier"
+					sequence   	"2.2.1.1"
+					ordinal    	7))))
+			persistence 	"Transient"
+			multi      	FALSE)
+		    (object Object "Network"
+			quid       	"415BD396014A"
+			persistence 	"Transient"
+			multi      	FALSE)
+		    (object Object "IPEventListener"
+			quid       	"415BD3DB03DA"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"415BD6FE013B"
+				supplier   	"IPEventNotifier"
+				quidu      	"415BD38D03BB"
+				messages   	(list Messages
+				    (object Message "DAD started"
+					quid       	"415BD6FE013C"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"FromClientToSupplier"
+					sequence   	"2.1.1"
+					ordinal    	3)
+				    (object Message "Found duplicate"
+					quid       	"415BD77C02C1"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"FromClientToSupplier"
+					sequence   	"2.2.1.1.1"
+					ordinal    	8))))
+			persistence 	"Transient"
+			multi      	FALSE)))
+	    (object Mechanism @2
+		logical_models 	(list unit_reference_list
+		    (object Object "DHCP"
+			quid       	"415BD7D600AE"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"415BD7D600AF"
+				supplier   	"IPEventNotifier"
+				quidu      	"415BD7D600B4"
+				messages   	(list Messages
+				    (object Message "Register for IP ready"
+					quid       	"415BD7D600B0"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"FromClientToSupplier"
+					sequence   	"1"
+					ordinal    	0)
+				    (object Message "IP is ready"
+					quid       	"415BD81E030F"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"ToClientFromSupplier"
+					sequence   	"3.1.1"
+					ordinal    	8)))
+			    (object Link
+				quid       	"415BD7D600B2"
+				supplier   	"Stack"
+				quidu      	"415BD7D600BD"
+				messages   	(list Messages
+				    (object Message "Set Provisional Address"
+					quid       	"415BD7D600B3"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"FromClientToSupplier"
+					sequence   	"2"
+					ordinal    	1))))
+			persistence 	"Transient"
+			multi      	FALSE)
+		    (object Object "IPEventNotifier"
+			quid       	"415BD7D600B4"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"415BD7D600B5"
+				supplier   	"IPEventNotifier"
+				quidu      	"415BD7D600B4"
+				messages   	(list Messages
+				    (object Message "Remember tentative address"
+					quid       	"415BD7D600B6"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"2.1.1.1"
+					ordinal    	4))))
+			persistence 	"Transient"
+			multi      	FALSE)
+		    (object Object "Stack"
+			quid       	"415BD7D600BD"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"415BD7D600BF"
+				supplier   	"Network"
+				quidu      	"415BD7D600C3"
+				messages   	(list Messages
+				    (object Message "Duplicate Address?"
+					quid       	"415BD7D600C0"
+					frequency  	"Aperiodic"
+					synchronization 	"Timeout"
+					dir        	"FromClientToSupplier"
+					sequence   	"2.2"
+					ordinal    	5)))
+			    (object Link
+				quid       	"415BD7D600BC"
+				supplier   	"IPEventListener"
+				quidu      	"415BD7D600B9"
+				messages   	(list Messages
+				    (object Message "NotifyAddressChange(tentative)"
+					quid       	"415BD7D600BB"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"FromClientToSupplier"
+					sequence   	"2.1"
+					ordinal    	2)
+				    (object Message "NotifyAddressChange(assigned)"
+					quid       	"415BD7F002C1"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"FromClientToSupplier"
+					sequence   	"3"
+					ordinal    	6))))
+			persistence 	"Transient"
+			multi      	FALSE)
+		    (object Object "Network"
+			quid       	"415BD7D600C3"
+			persistence 	"Transient"
+			multi      	FALSE)
+		    (object Object "IPEventListener"
+			quid       	"415BD7D600B9"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"415BD7D600B8"
+				supplier   	"IPEventNotifier"
+				quidu      	"415BD7D600B4"
+				messages   	(list Messages
+				    (object Message "DAD started"
+					quid       	"415BD7D600B7"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"FromClientToSupplier"
+					sequence   	"2.1.1"
+					ordinal    	3)
+				    (object Message "No duplicates"
+					quid       	"415BD812010C"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"FromClientToSupplier"
+					sequence   	"3.1"
+					ordinal    	7))))
+			persistence 	"Transient"
+			multi      	FALSE)))
+	    (object Mechanism @3
+		logical_models 	(list unit_reference_list
+		    (object Object "DHCP"
+			quid       	"415BE1DA0254"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"415BE1DA0255"
+				supplier   	"IPEventNotifier"
+				quidu      	"415BE1DA025A"
+				messages   	(list Messages
+				    (object Message "Register for IP ready"
+					quid       	"415BE1DA0256"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"FromClientToSupplier"
+					sequence   	"1"
+					ordinal    	0)
+				    (object Message "IP not ready"
+					quid       	"415BE3170179"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"ToClientFromSupplier"
+					sequence   	"2.2.1.1.1"
+					ordinal    	10)))
+			    (object Link
+				quid       	"415BE1DA0258"
+				supplier   	"Stack"
+				quidu      	"415BE1DA0263"
+				messages   	(list Messages
+				    (object Message "Set Provisional Address"
+					quid       	"415BE1DA0259"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"FromClientToSupplier"
+					sequence   	"2"
+					ordinal    	1))))
+			persistence 	"Transient"
+			multi      	FALSE)
+		    (object Object "IPEventNotifier"
+			quid       	"415BE1DA025A"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"415BE1DA025B"
+				supplier   	"IPEventNotifier"
+				quidu      	"415BE1DA025A"
+				messages   	(list Messages
+				    (object Message "Remember tentative address"
+					quid       	"415BE1DA025C"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"2.1.1.2"
+					ordinal    	6)))
+			    (object Link
+				quid       	"415BE20D015A"
+				supplier   	"Stack"
+				quidu      	"415BE1DA0263"
+				messages   	(list Messages
+				    (object Message "Create blocking route"
+					quid       	"415BE20D015B"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"FromClientToSupplier"
+					sequence   	"2.1.1.1"
+					ordinal    	4)
+				    (object Message "Route request failed"
+					quid       	"415BE307010C"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"ToClientFromSupplier"
+					sequence   	"2.2.1.1"
+					ordinal    	9))))
+			persistence 	"Transient"
+			multi      	FALSE)
+		    (object Object "Stack"
+			quid       	"415BE1DA0263"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"415BE1DA0265"
+				supplier   	"Network"
+				quidu      	"415BE1DA0269"
+				messages   	(list Messages
+				    (object Message "Duplicate Address?"
+					quid       	"415BE1DA0266"
+					frequency  	"Aperiodic"
+					synchronization 	"Timeout"
+					dir        	"FromClientToSupplier"
+					sequence   	"2.2"
+					ordinal    	7)
+				    (object Message "Yes!"
+					quid       	"415BE1DA0267"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"ToClientFromSupplier"
+					sequence   	"2.2.1"
+					ordinal    	8)))
+			    (object Link
+				quid       	"415BE1DA0262"
+				supplier   	"IPEventListener"
+				quidu      	"415BE1DA025F"
+				messages   	(list Messages
+				    (object Message "NotifyAddressChange(tentative)"
+					quid       	"415BE1DA0261"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"FromClientToSupplier"
+					sequence   	"2.1"
+					ordinal    	2)))
+			    (object Link
+				quid       	"415BE2E2035D"
+				supplier   	"Stack"
+				quidu      	"415BE1DA0263"
+				messages   	(list Messages
+				    (object Message "Hold route in queue"
+					quid       	"415BE2E2035E"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"2.1.1.1.1"
+					ordinal    	5))))
+			persistence 	"Transient"
+			multi      	FALSE)
+		    (object Object "Network"
+			quid       	"415BE1DA0269"
+			persistence 	"Static"
+			multi      	FALSE)
+		    (object Object "IPEventListener"
+			quid       	"415BE1DA025F"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"415BE1DA025E"
+				supplier   	"IPEventNotifier"
+				quidu      	"415BE1DA025A"
+				messages   	(list Messages
+				    (object Message "DAD started"
+					quid       	"415BE1DA025D"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"FromClientToSupplier"
+					sequence   	"2.1.1"
+					ordinal    	3))))
+			persistence 	"Transient"
+			multi      	FALSE)))
+	    (object Mechanism @4
+		logical_models 	(list unit_reference_list
+		    (object Object "DHCP"
+			quid       	"415BE5AE013B"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"415BE5AE013C"
+				supplier   	"IPEventNotifier"
+				quidu      	"415BE5AE0141"
+				messages   	(list Messages
+				    (object Message "Register for IP ready"
+					quid       	"415BE5AE013D"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"FromClientToSupplier"
+					sequence   	"1"
+					ordinal    	0)
+				    (object Message "IP is ready"
+					quid       	"415BE5F2009E"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"ToClientFromSupplier"
+					sequence   	"2.3.1"
+					ordinal    	9)))
+			    (object Link
+				quid       	"415BE5AE013F"
+				supplier   	"Stack"
+				quidu      	"415BE5AE014C"
+				messages   	(list Messages
+				    (object Message "Set Provisional Address"
+					quid       	"415BE5AE0140"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"FromClientToSupplier"
+					sequence   	"2"
+					ordinal    	1))))
+			persistence 	"Transient"
+			multi      	FALSE)
+		    (object Object "IPEventNotifier"
+			quid       	"415BE5AE0141"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"415BE5AE0142"
+				supplier   	"IPEventNotifier"
+				quidu      	"415BE5AE0141"
+				messages   	(list Messages
+				    (object Message "Remember tentative address"
+					quid       	"415BE5AE0143"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"2.1.1.2"
+					ordinal    	6)))
+			    (object Link
+				quid       	"415BE5AE0144"
+				supplier   	"Stack"
+				quidu      	"415BE5AE014C"
+				messages   	(list Messages
+				    (object Message "Create blocking route"
+					quid       	"415BE5AE0145"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"FromClientToSupplier"
+					sequence   	"2.1.1.1"
+					ordinal    	4)
+				    (object Message "Route released"
+					quid       	"415BE5ED03BB"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"ToClientFromSupplier"
+					sequence   	"2.3"
+					ordinal    	8))))
+			persistence 	"Transient"
+			multi      	FALSE)
+		    (object Object "Stack"
+			quid       	"415BE5AE014C"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"415BE5AE014D"
+				supplier   	"Network"
+				quidu      	"415BE5AE0152"
+				messages   	(list Messages
+				    (object Message "Duplicate Address?"
+					quid       	"415BE5AE014E"
+					frequency  	"Aperiodic"
+					synchronization 	"Timeout"
+					dir        	"FromClientToSupplier"
+					sequence   	"2.2"
+					ordinal    	7)))
+			    (object Link
+				quid       	"415BE5AE0150"
+				supplier   	"IPEventListener"
+				quidu      	"415BE5AE0149"
+				messages   	(list Messages
+				    (object Message "NotifyAddressChange(tentative)"
+					quid       	"415BE5AE0151"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"FromClientToSupplier"
+					sequence   	"2.1"
+					ordinal    	2)))
+			    (object Link
+				quid       	"415BE5AE014B"
+				supplier   	"Stack"
+				quidu      	"415BE5AE014C"
+				messages   	(list Messages
+				    (object Message "Hold route in queue"
+					quid       	"415BE5AE014A"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"2.1.1.1.1"
+					ordinal    	5))))
+			persistence 	"Transient"
+			multi      	FALSE)
+		    (object Object "Network"
+			quid       	"415BE5AE0152"
+			persistence 	"Static"
+			multi      	FALSE)
+		    (object Object "IPEventListener"
+			quid       	"415BE5AE0149"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"415BE5AE0148"
+				supplier   	"IPEventNotifier"
+				quidu      	"415BE5AE0141"
+				messages   	(list Messages
+				    (object Message "DAD started"
+					quid       	"415BE5AE0147"
+					frequency  	"Aperiodic"
+					synchronization 	"Asynchronous"
+					dir        	"FromClientToSupplier"
+					sequence   	"2.1.1"
+					ordinal    	3))))
+			persistence 	"Transient"
+			multi      	FALSE))))
+	logical_presentations 	(list unit_reference_list
+	    (object ClassDiagram "Main"
+		quid       	"41344D80014A"
+		title      	"Main"
+		zoom       	95
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list
+		    (object ClassView "Class" "Logical View::CIPEventNotifierFamily" @5
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(416, 432)
+			label      	(object ItemLabel
+			    Parent_View 	@5
+			    location   	(199, 386)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	434
+			    justify    	0
+			    label      	"CIPEventNotifierFamily")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"41406627034B"
+			width      	452
+			height     	114
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::Protocol Install" @6
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(256, 208)
+			label      	(object ItemLabel
+			    Parent_View 	@6
+			    location   	(255, 316)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	232
+			    justify    	0
+			    label      	"Protocol Install")
+			icon       	"Interface"
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"41406657035B"
+			width      	58
+			height     	58
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::HookLog" @7
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(1552, 896)
+			label      	(object ItemLabel
+			    Parent_View 	@7
+			    location   	(1448, 850)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	208
+			    justify    	0
+			    label      	"HookLog")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"4140675003E7"
+			width      	226
+			height     	114
+			annotation 	8
+			autoResize 	TRUE)
+		    (object UsesView "" @8
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"414066710399"
+			client     	@6
+			supplier   	@5
+			vertices   	(list Points
+			    (282, 208)
+			    (361, 208)
+			    (401, 374))
+			line_style 	0)
+		    (object ClassView "Class" "Logical View::CIP6Hook" @9
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(976, 128)
+			label      	(object ItemLabel
+			    Parent_View 	@9
+			    location   	(863, 82)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	226
+			    justify    	0
+			    label      	"CIP6Hook")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"4134A51D0161"
+			width      	244
+			height     	114
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::CIPEventListener" @10
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(1504, 432)
+			label      	(object ItemLabel
+			    Parent_View 	@10
+			    location   	(1332, 386)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	344
+			    justify    	0
+			    label      	"CIPEventListener")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"415837520159"
+			width      	362
+			height     	114
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::TIPEventNotifierInterface" @11
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(432, 848)
+			label      	(object ItemLabel
+			    Parent_View 	@11
+			    location   	(202, 730)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	460
+			    justify    	0
+			    label      	"TIPEventNotifierInterface")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"415AC0CF03A8"
+			compartment 	(object Compartment
+			    Parent_View 	@11
+			    location   	(202, 783)
+			    icon_style 	"Icon"
+			    fill_color 	13434879
+			    anchor     	2
+			    nlines     	4
+			    max_width  	467)
+			width      	478
+			height     	258
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::RProperty" @12
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(1040, 896)
+			label      	(object ItemLabel
+			    Parent_View 	@12
+			    location   	(937, 850)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	206
+			    justify    	0
+			    label      	"RProperty")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"41406F750128"
+			width      	224
+			height     	114
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::CIPEventNotifier" @13
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(976, 432)
+			label      	(object ItemLabel
+			    Parent_View 	@13
+			    location   	(754, 269)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	444
+			    justify    	0
+			    label      	"CIPEventNotifier")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"4134A5710028"
+			compartment 	(object Compartment
+			    Parent_View 	@13
+			    location   	(754, 322)
+			    icon_style 	"Icon"
+			    fill_color 	16777215
+			    anchor     	2
+			    nlines     	6
+			    max_width  	457)
+			width      	462
+			height     	348
+			annotation 	8
+			autoResize 	TRUE)
+		    (object UsesView "" @14
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"414067A3002E"
+			client     	@5
+			supplier   	@13
+			line_style 	0)
+		    (object AssociationViewNew "$UNNAMED$24" @15
+			location   	(1264, 432)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"4158387001C6"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$25" @16
+				Parent_View 	@15
+				location   	(32, -32)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"41583871008E"
+				client     	@15
+				supplier   	@10
+				line_style 	0)
+			    (object RoleView "$UNNAMED$26" @17
+				Parent_View 	@15
+				location   	(32, -32)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"41583871008F"
+				client     	@15
+				supplier   	@13
+				line_style 	0)))
+		    (object AssociationViewNew "$UNNAMED$27" @18
+			location   	(673, 662)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"415ADC1C0369"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$28" @19
+				Parent_View 	@18
+				location   	(-463, 6)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"415ADC1D00AA"
+				client     	@18
+				supplier   	@11
+				line_style 	0
+				label      	(object SegLabel @20
+				    Parent_View 	@19
+				    location   	(588, 692)
+				    anchor     	2
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	63
+				    justify    	0
+				    label      	"0..*"
+				    pctDist    	0.936304
+				    height     	29
+				    orientation 	1))
+			    (object RoleView "$UNNAMED$29" @21
+				Parent_View 	@18
+				location   	(-463, 6)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"415ADC1D00BA"
+				client     	@18
+				supplier   	@13
+				line_style 	0)))
+		    (object InheritView "" @22
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"4134A59F0113"
+			client     	@13
+			supplier   	@9
+			line_style 	0)
+		    (object AssociationViewNew "$UNNAMED$53" @23
+			location   	(1016, 722)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"415BDE5900AE"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$54" @24
+				Parent_View 	@23
+				location   	(40, 290)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"415BDE59030F"
+				client     	@23
+				supplier   	@12
+				line_style 	0
+				label      	(object SegLabel @25
+				    Parent_View 	@24
+				    location   	(1065, 827)
+				    anchor     	2
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	21
+				    justify    	0
+				    label      	"1"
+				    pctDist    	0.941523
+				    height     	34
+				    orientation 	0))
+			    (object RoleView "$UNNAMED$55" @26
+				Parent_View 	@23
+				location   	(40, 290)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"415BDE590310"
+				client     	@23
+				supplier   	@13
+				line_style 	0)))))
+	    (object ClassDiagram "IP event types"
+		quid       	"415AF66B009A"
+		title      	"IP event types"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	1023
+		items      	(list diagram_item_list
+		    (object ClassView "Class" "Logical View::CMFlagReceived" @27
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(272, 1584)
+			label      	(object ItemLabel
+			    Parent_View 	@27
+			    location   	(103, 1511)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	338
+			    justify    	0
+			    label      	"CMFlagReceived")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"41406B03007C"
+			width      	356
+			height     	168
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::CIPReady" @28
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(608, 1808)
+			label      	(object ItemLabel
+			    Parent_View 	@28
+			    location   	(391, 1713)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	434
+			    justify    	0
+			    label      	"CIPReady")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"41406B3A03E7"
+			width      	452
+			height     	212
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::SMetaDataECom" @29
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(608, 1280)
+			label      	(object ItemLabel
+			    Parent_View 	@29
+			    location   	(428, 1234)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	360
+			    justify    	0
+			    label      	"SMetaDataECom")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"4140636C0176"
+			width      	378
+			height     	114
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::CLinklocalAddressKnown" @30
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(960, 1584)
+			label      	(object ItemLabel
+			    Parent_View 	@30
+			    location   	(713, 1511)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	494
+			    justify    	0
+			    label      	"CLinklocalAddressKnown")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"41406B510399"
+			width      	512
+			height     	168
+			annotation 	8
+			autoResize 	TRUE)
+		    (object InheritView "" @31
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"41406B390176"
+			client     	@27
+			supplier   	@29
+			line_style 	0)
+		    (object InheritView "" @32
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"41406B6C03D8"
+			client     	@28
+			supplier   	@29
+			line_style 	0)
+		    (object InheritView "" @33
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"41406B6F02AF"
+			client     	@30
+			supplier   	@29
+			line_style 	0)))
+	    (object InteractionDiagram "IPReady 1b: Notify Fail"
+		mechanism_ref 	@1
+		quid       	"415BD36A00BE"
+		title      	"IPReady 1b: Notify Fail"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list
+		    (object InterObjView "DHCP" @34
+			location   	(224, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@34
+			    location   	(224, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	282
+			    justify    	0
+			    label      	"DHCP")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"415BD387032F"
+			width      	300
+			height     	1581
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @35
+			    location   	(224, 368)
+			    line_color 	3342489
+			    InterObjView 	@34
+			    height     	1348
+			    y_coord    	1288
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @36
+			    location   	(224, 1296)
+			    line_color 	3342489
+			    InterObjView 	@34
+			    height     	60
+			    y_coord    	0
+			    Nested     	TRUE))
+		    (object InterObjView "IPEventNotifier" @37
+			location   	(560, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@37
+			    location   	(560, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	314
+			    justify    	0
+			    label      	"IPEventNotifier")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"415BD38D03BB"
+			width      	332
+			height     	1581
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @38
+			    location   	(560, 368)
+			    line_color 	3342489
+			    InterObjView 	@37
+			    height     	60
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @39
+			    location   	(560, 688)
+			    line_color 	3342489
+			    InterObjView 	@37
+			    height     	200
+			    y_coord    	140
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @40
+			    location   	(560, 768)
+			    line_color 	3342489
+			    InterObjView 	@37
+			    height     	60
+			    y_coord    	0
+			    Nested     	TRUE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @41
+			    location   	(560, 1264)
+			    line_color 	3342489
+			    InterObjView 	@37
+			    height     	152
+			    y_coord    	92
+			    Nested     	FALSE))
+		    (object InterObjView "Stack" @42
+			location   	(1232, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@42
+			    location   	(1232, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	282
+			    justify    	0
+			    label      	"Stack")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"415BD391034E"
+			width      	300
+			height     	1581
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @43
+			    location   	(1232, 528)
+			    line_color 	3342489
+			    InterObjView 	@42
+			    height     	1128
+			    y_coord    	1068
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @44
+			    location   	(1232, 1120)
+			    line_color 	3342489
+			    InterObjView 	@42
+			    height     	416
+			    y_coord    	356
+			    Nested     	TRUE))
+		    (object InterObjView "Network" @45
+			location   	(1568, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@45
+			    location   	(1568, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	282
+			    justify    	0
+			    label      	"Network")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"415BD396014A"
+			width      	300
+			height     	1581
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @46
+			    location   	(1568, 848)
+			    line_color 	3342489
+			    InterObjView 	@45
+			    height     	748
+			    y_coord    	688
+			    Nested     	FALSE))
+		    (object InterObjView "IPEventListener" @47
+			location   	(896, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@47
+			    location   	(896, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	282
+			    justify    	0
+			    label      	"IPEventListener")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"415BD3DB03DA"
+			width      	300
+			height     	1581
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @48
+			    location   	(896, 624)
+			    line_color 	3342489
+			    InterObjView 	@47
+			    height     	324
+			    y_coord    	264
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @49
+			    location   	(896, 1200)
+			    line_color 	3342489
+			    InterObjView 	@47
+			    height     	276
+			    y_coord    	216
+			    Nested     	FALSE))
+		    (object InterMessView "" @50
+			location   	(16, 368)
+			label      	(object SegLabel @51
+			    Parent_View 	@50
+			    location   	(391, 324)
+			    quidu      	"415BD3A602C2"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	355
+			    justify    	0
+			    label      	"Register for IP ready"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@34
+			supplier   	@37
+			Focus_Src  	@35
+			Focus_Entry 	@38
+			origin     	(239, 368)
+			terminus   	(544, 368)
+			ordinal    	0)
+		    (object InterMessView "" @52
+			location   	(16, 528)
+			label      	(object SegLabel @53
+			    Parent_View 	@52
+			    location   	(727, 484)
+			    quidu      	"415BD3B701A9"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	448
+			    justify    	0
+			    label      	"Set Provisional Address"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@34
+			supplier   	@42
+			Focus_Src  	@35
+			Focus_Entry 	@43
+			origin     	(239, 528)
+			terminus   	(1216, 528)
+			ordinal    	1)
+		    (object InterMessView "" @54
+			location   	(16, 848)
+			label      	(object SegLabel @55
+			    Parent_View 	@54
+			    location   	(1413, 805)
+			    quidu      	"415BD6A20080"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	345
+			    justify    	0
+			    label      	"Duplicate Address?"
+			    pctDist    	0.547541
+			    height     	44
+			    orientation 	0)
+			line_color 	3342489
+			client     	@42
+			supplier   	@45
+			Focus_Src  	@43
+			Focus_Entry 	@46
+			origin     	(1247, 848)
+			terminus   	(1552, 848)
+			ordinal    	5)
+		    (object InterMessView "" @56
+			location   	(16, 1120)
+			label      	(object SegLabel @57
+			    Parent_View 	@56
+			    location   	(1400, 1076)
+			    quidu      	"415BD6B20189"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	84
+			    justify    	0
+			    label      	"Yes!"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	1)
+			line_color 	3342489
+			client     	@45
+			supplier   	@42
+			Focus_Src  	@46
+			Focus_Entry 	@44
+			origin     	(1552, 1120)
+			terminus   	(1248, 1120)
+			ordinal    	6)
+		    (object InterMessView "" @58
+			location   	(16, 624)
+			label      	(object SegLabel @59
+			    Parent_View 	@58
+			    location   	(1064, 581)
+			    quidu      	"415BD6EE03DA"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	562
+			    justify    	0
+			    label      	"NotifyAddressChange(tentative)"
+			    pctDist    	0.500000
+			    height     	44
+			    orientation 	1)
+			line_color 	3342489
+			client     	@42
+			supplier   	@47
+			Focus_Src  	@43
+			Focus_Entry 	@48
+			origin     	(1216, 624)
+			terminus   	(912, 624)
+			ordinal    	2)
+		    (object InterMessView "" @60
+			location   	(16, 688)
+			label      	(object SegLabel @61
+			    Parent_View 	@60
+			    location   	(728, 644)
+			    quidu      	"415BD6FE013C"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	229
+			    justify    	0
+			    label      	"DAD started"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	1)
+			line_color 	3342489
+			client     	@47
+			supplier   	@37
+			Focus_Src  	@48
+			Focus_Entry 	@39
+			origin     	(880, 688)
+			terminus   	(576, 688)
+			ordinal    	3)
+		    (object SelfMessView "" @62
+			location   	(16, 768)
+			label      	(object SegLabel @63
+			    Parent_View 	@62
+			    location   	(811, 740)
+			    quidu      	"415BD70B031F"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	486
+			    justify    	0
+			    label      	"Remember tentative address"
+			    pctDist    	1.566667
+			    height     	29
+			    orientation 	0)
+			line_color 	3342489
+			client     	@37
+			supplier   	@37
+			Focus_Src  	@39
+			Focus_Entry 	@40
+			origin     	(576, 768)
+			terminus   	(726, 768)
+			ordinal    	4)
+		    (object InterMessView "" @64
+			location   	(16, 1200)
+			label      	(object SegLabel @65
+			    Parent_View 	@64
+			    location   	(984, 1157)
+			    quidu      	"415BD75602E0"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	485
+			    justify    	0
+			    label      	"NotifyAddressChange(failed)"
+			    pctDist    	0.763158
+			    height     	44
+			    orientation 	1)
+			line_color 	3342489
+			client     	@42
+			supplier   	@47
+			Focus_Src  	@44
+			Focus_Entry 	@49
+			origin     	(1216, 1200)
+			terminus   	(912, 1200)
+			ordinal    	7)
+		    (object InterMessView "" @66
+			location   	(16, 1264)
+			label      	(object SegLabel @67
+			    Parent_View 	@66
+			    location   	(728, 1220)
+			    quidu      	"415BD77C02C1"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	278
+			    justify    	0
+			    label      	"Found duplicate"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	1)
+			line_color 	3342489
+			client     	@47
+			supplier   	@37
+			Focus_Src  	@49
+			Focus_Entry 	@41
+			origin     	(880, 1264)
+			terminus   	(576, 1264)
+			ordinal    	8)
+		    (object InterMessView "" @68
+			location   	(16, 1296)
+			label      	(object SegLabel @69
+			    Parent_View 	@68
+			    location   	(392, 1252)
+			    quidu      	"415BD785015A"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	226
+			    justify    	0
+			    label      	"IP not ready"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	1)
+			line_color 	3342489
+			client     	@37
+			supplier   	@34
+			Focus_Src  	@41
+			Focus_Entry 	@36
+			origin     	(544, 1296)
+			terminus   	(240, 1296)
+			ordinal    	9)))
+	    (object InteractionDiagram "IPReady 1a Notify Success"
+		mechanism_ref 	@2
+		quid       	"415BD79E01B8"
+		title      	"IPReady 1a Notify Success"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list
+		    (object InterObjView "DHCP" @70
+			location   	(224, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@70
+			    location   	(224, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	282
+			    justify    	0
+			    label      	"DHCP")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"415BD7D600AE"
+			width      	300
+			height     	1401
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @71
+			    location   	(224, 368)
+			    line_color 	3342489
+			    InterObjView 	@70
+			    height     	660
+			    y_coord    	600
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @72
+			    location   	(224, 1296)
+			    line_color 	3342489
+			    InterObjView 	@70
+			    height     	60
+			    y_coord    	0
+			    Nested     	FALSE))
+		    (object InterObjView "IPEventNotifier" @73
+			location   	(576, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@73
+			    location   	(576, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	314
+			    justify    	0
+			    label      	"IPEventNotifier")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"415BD7D600B4"
+			width      	332
+			height     	1401
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @74
+			    location   	(576, 368)
+			    line_color 	3342489
+			    InterObjView 	@73
+			    height     	60
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @75
+			    location   	(576, 688)
+			    line_color 	3342489
+			    InterObjView 	@73
+			    height     	200
+			    y_coord    	140
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @76
+			    location   	(576, 768)
+			    line_color 	3342489
+			    InterObjView 	@73
+			    height     	60
+			    y_coord    	0
+			    Nested     	TRUE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @77
+			    location   	(576, 1248)
+			    line_color 	3342489
+			    InterObjView 	@73
+			    height     	168
+			    y_coord    	108
+			    Nested     	FALSE))
+		    (object InterObjView "Stack" @78
+			location   	(1248, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@78
+			    location   	(1248, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	282
+			    justify    	0
+			    label      	"Stack")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"415BD7D600BD"
+			width      	300
+			height     	1401
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @79
+			    location   	(1248, 528)
+			    line_color 	3342489
+			    InterObjView 	@78
+			    height     	440
+			    y_coord    	380
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @80
+			    location   	(1248, 1088)
+			    line_color 	3342489
+			    InterObjView 	@78
+			    height     	448
+			    y_coord    	388
+			    Nested     	FALSE))
+		    (object InterObjView "Network" @81
+			location   	(1584, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@81
+			    location   	(1584, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	282
+			    justify    	0
+			    label      	"Network")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"415BD7D600C3"
+			width      	300
+			height     	1401
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @82
+			    location   	(1584, 848)
+			    line_color 	3342489
+			    InterObjView 	@81
+			    height     	60
+			    y_coord    	0
+			    Nested     	FALSE))
+		    (object InterObjView "IPEventListener" @83
+			location   	(912, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@83
+			    location   	(912, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	282
+			    justify    	0
+			    label      	"IPEventListener")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"415BD7D600B9"
+			width      	300
+			height     	1401
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @84
+			    location   	(912, 624)
+			    line_color 	3342489
+			    InterObjView 	@83
+			    height     	324
+			    y_coord    	264
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @85
+			    location   	(912, 1168)
+			    line_color 	3342489
+			    InterObjView 	@83
+			    height     	308
+			    y_coord    	248
+			    Nested     	FALSE))
+		    (object InterMessView "" @86
+			location   	(16, 368)
+			label      	(object SegLabel @87
+			    Parent_View 	@86
+			    location   	(399, 324)
+			    quidu      	"415BD7D600B0"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	355
+			    justify    	0
+			    label      	"Register for IP ready"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@70
+			supplier   	@73
+			Focus_Src  	@71
+			Focus_Entry 	@74
+			origin     	(239, 368)
+			terminus   	(560, 368)
+			ordinal    	0)
+		    (object InterMessView "" @88
+			location   	(16, 528)
+			label      	(object SegLabel @89
+			    Parent_View 	@88
+			    location   	(735, 484)
+			    quidu      	"415BD7D600B3"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	420
+			    justify    	0
+			    label      	"Set Provisional Address"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@70
+			supplier   	@78
+			Focus_Src  	@71
+			Focus_Entry 	@79
+			origin     	(239, 528)
+			terminus   	(1232, 528)
+			ordinal    	1)
+		    (object InterMessView "" @90
+			location   	(16, 848)
+			label      	(object SegLabel @91
+			    Parent_View 	@90
+			    location   	(1443, 806)
+			    quidu      	"415BD7D600C0"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	345
+			    justify    	0
+			    label      	"Duplicate Address?"
+			    pctDist    	0.593443
+			    height     	43
+			    orientation 	0)
+			line_color 	3342489
+			client     	@78
+			supplier   	@81
+			Focus_Src  	@79
+			Focus_Entry 	@82
+			origin     	(1263, 848)
+			terminus   	(1568, 848)
+			ordinal    	5)
+		    (object InterMessView "" @92
+			location   	(16, 624)
+			label      	(object SegLabel @93
+			    Parent_View 	@92
+			    location   	(1080, 582)
+			    quidu      	"415BD7D600BB"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	562
+			    justify    	0
+			    label      	"NotifyAddressChange(tentative)"
+			    pctDist    	0.500000
+			    height     	43
+			    orientation 	1)
+			line_color 	3342489
+			client     	@78
+			supplier   	@83
+			Focus_Src  	@79
+			Focus_Entry 	@84
+			origin     	(1232, 624)
+			terminus   	(928, 624)
+			ordinal    	2)
+		    (object InterMessView "" @94
+			location   	(16, 688)
+			label      	(object SegLabel @95
+			    Parent_View 	@94
+			    location   	(744, 644)
+			    quidu      	"415BD7D600B7"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	218
+			    justify    	0
+			    label      	"DAD started"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	1)
+			line_color 	3342489
+			client     	@83
+			supplier   	@73
+			Focus_Src  	@84
+			Focus_Entry 	@75
+			origin     	(896, 688)
+			terminus   	(592, 688)
+			ordinal    	3)
+		    (object SelfMessView "" @96
+			location   	(16, 768)
+			label      	(object SegLabel @97
+			    Parent_View 	@96
+			    location   	(827, 740)
+			    quidu      	"415BD7D600B6"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	503
+			    justify    	0
+			    label      	"Remember tentative address"
+			    pctDist    	1.566667
+			    height     	29
+			    orientation 	0)
+			line_color 	3342489
+			client     	@73
+			supplier   	@73
+			Focus_Src  	@75
+			Focus_Entry 	@76
+			origin     	(592, 768)
+			terminus   	(742, 768)
+			ordinal    	4)
+		    (object InterMessView "" @98
+			location   	(16, 1168)
+			label      	(object SegLabel @99
+			    Parent_View 	@98
+			    location   	(968, 1125)
+			    quidu      	"415BD7F002C1"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	525
+			    justify    	0
+			    label      	"NotifyAddressChange(assigned)"
+			    pctDist    	0.868421
+			    height     	44
+			    orientation 	1)
+			line_color 	3342489
+			client     	@78
+			supplier   	@83
+			Focus_Src  	@80
+			Focus_Entry 	@85
+			origin     	(1232, 1168)
+			terminus   	(928, 1168)
+			ordinal    	6)
+		    (object InterMessView "" @100
+			location   	(16, 1248)
+			label      	(object SegLabel @101
+			    Parent_View 	@100
+			    location   	(744, 1204)
+			    quidu      	"415BD812010C"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	273
+			    justify    	0
+			    label      	"No duplicates"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	1)
+			line_color 	3342489
+			client     	@83
+			supplier   	@73
+			Focus_Src  	@85
+			Focus_Entry 	@77
+			origin     	(896, 1248)
+			terminus   	(592, 1248)
+			ordinal    	7)
+		    (object InterMessView "" @102
+			location   	(16, 1296)
+			label      	(object SegLabel @103
+			    Parent_View 	@102
+			    location   	(400, 1252)
+			    quidu      	"415BD81E030F"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	183
+			    justify    	0
+			    label      	"IP is ready"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	1)
+			line_color 	3342489
+			client     	@73
+			supplier   	@70
+			Focus_Src  	@77
+			Focus_Entry 	@72
+			origin     	(560, 1296)
+			terminus   	(240, 1296)
+			ordinal    	8)
+		    (object NoteView @104
+			location   	(1280, 1027)
+			label      	(object ItemLabel
+			    Parent_View 	@104
+			    location   	(1120, 966)
+			    fill_color 	13434879
+			    nlines     	2
+			    max_width  	285
+			    label      	
+|Timeout
+|expires
+			    )
+			line_color 	3342489
+			fill_color 	13434879
+			width      	345
+			height     	135)))
+	    (object InteractionDiagram "IPReady 2b: Flows Fail"
+		mechanism_ref 	@3
+		quid       	"415BE1C502E0"
+		title      	"IPReady 2b: Flows Fail"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list
+		    (object InterObjView "DHCP" @105
+			location   	(224, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@105
+			    location   	(224, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	282
+			    justify    	0
+			    label      	"DHCP")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"415BE1DA0254"
+			width      	300
+			height     	1697
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @106
+			    location   	(224, 368)
+			    line_color 	3342489
+			    InterObjView 	@105
+			    height     	1464
+			    y_coord    	1404
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @107
+			    location   	(224, 1472)
+			    line_color 	3342489
+			    InterObjView 	@105
+			    height     	60
+			    y_coord    	0
+			    Nested     	TRUE))
+		    (object InterObjView "IPEventNotifier" @108
+			location   	(560, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@108
+			    location   	(560, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	314
+			    justify    	0
+			    label      	"IPEventNotifier")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"415BE1DA025A"
+			width      	332
+			height     	1697
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @109
+			    location   	(560, 368)
+			    line_color 	3342489
+			    InterObjView 	@108
+			    height     	60
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @110
+			    location   	(560, 688)
+			    line_color 	3342489
+			    InterObjView 	@108
+			    height     	376
+			    y_coord    	316
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @111
+			    location   	(560, 944)
+			    line_color 	3342489
+			    InterObjView 	@108
+			    height     	60
+			    y_coord    	0
+			    Nested     	TRUE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @112
+			    location   	(560, 1424)
+			    line_color 	3342489
+			    InterObjView 	@108
+			    height     	168
+			    y_coord    	108
+			    Nested     	FALSE))
+		    (object InterObjView "Stack" @113
+			location   	(1232, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@113
+			    location   	(1232, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	282
+			    justify    	0
+			    label      	"Stack")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"415BE1DA0263"
+			width      	300
+			height     	1697
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @114
+			    location   	(1232, 528)
+			    line_color 	3342489
+			    InterObjView 	@113
+			    height     	1244
+			    y_coord    	1184
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @115
+			    location   	(1232, 800)
+			    line_color 	3342489
+			    InterObjView 	@113
+			    height     	152
+			    y_coord    	92
+			    Nested     	TRUE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @116
+			    location   	(1232, 832)
+			    line_color 	3342489
+			    InterObjView 	@113
+			    height     	60
+			    y_coord    	0
+			    Nested     	TRUE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @117
+			    location   	(1232, 1392)
+			    line_color 	3342489
+			    InterObjView 	@113
+			    height     	260
+			    y_coord    	200
+			    Nested     	TRUE))
+		    (object InterObjView "Network" @118
+			location   	(1568, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@118
+			    location   	(1568, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	282
+			    justify    	0
+			    label      	"Network")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"415BE1DA0269"
+			width      	300
+			height     	1697
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @119
+			    location   	(1568, 1120)
+			    line_color 	3342489
+			    InterObjView 	@118
+			    height     	592
+			    y_coord    	532
+			    Nested     	FALSE))
+		    (object InterObjView "IPEventListener" @120
+			location   	(896, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@120
+			    location   	(896, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	282
+			    justify    	0
+			    label      	"IPEventListener")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"415BE1DA025F"
+			width      	300
+			height     	1697
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @121
+			    location   	(896, 624)
+			    line_color 	3342489
+			    InterObjView 	@120
+			    height     	500
+			    y_coord    	440
+			    Nested     	FALSE))
+		    (object InterMessView "" @122
+			location   	(16, 368)
+			label      	(object SegLabel @123
+			    Parent_View 	@122
+			    location   	(391, 324)
+			    quidu      	"415BE1DA0256"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	355
+			    justify    	0
+			    label      	"Register for IP ready"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@105
+			supplier   	@108
+			Focus_Src  	@106
+			Focus_Entry 	@109
+			origin     	(239, 368)
+			terminus   	(544, 368)
+			ordinal    	0)
+		    (object InterMessView "" @124
+			location   	(16, 528)
+			label      	(object SegLabel @125
+			    Parent_View 	@124
+			    location   	(727, 484)
+			    quidu      	"415BE1DA0259"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	448
+			    justify    	0
+			    label      	"Set Provisional Address"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@105
+			supplier   	@113
+			Focus_Src  	@106
+			Focus_Entry 	@114
+			origin     	(239, 528)
+			terminus   	(1216, 528)
+			ordinal    	1)
+		    (object InterMessView "" @126
+			location   	(16, 1120)
+			label      	(object SegLabel @127
+			    Parent_View 	@126
+			    location   	(1413, 1077)
+			    quidu      	"415BE1DA0266"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	345
+			    justify    	0
+			    label      	"Duplicate Address?"
+			    pctDist    	0.547541
+			    height     	44
+			    orientation 	0)
+			line_color 	3342489
+			client     	@113
+			supplier   	@118
+			Focus_Src  	@114
+			Focus_Entry 	@119
+			origin     	(1247, 1120)
+			terminus   	(1552, 1120)
+			ordinal    	7)
+		    (object InterMessView "" @128
+			location   	(16, 1392)
+			label      	(object SegLabel @129
+			    Parent_View 	@128
+			    location   	(1400, 1348)
+			    quidu      	"415BE1DA0267"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	84
+			    justify    	0
+			    label      	"Yes!"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	1)
+			line_color 	3342489
+			client     	@118
+			supplier   	@113
+			Focus_Src  	@119
+			Focus_Entry 	@117
+			origin     	(1552, 1392)
+			terminus   	(1248, 1392)
+			ordinal    	8)
+		    (object InterMessView "" @130
+			location   	(16, 624)
+			label      	(object SegLabel @131
+			    Parent_View 	@130
+			    location   	(1064, 581)
+			    quidu      	"415BE1DA0261"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	562
+			    justify    	0
+			    label      	"NotifyAddressChange(tentative)"
+			    pctDist    	0.500000
+			    height     	44
+			    orientation 	1)
+			line_color 	3342489
+			client     	@113
+			supplier   	@120
+			Focus_Src  	@114
+			Focus_Entry 	@121
+			origin     	(1216, 624)
+			terminus   	(912, 624)
+			ordinal    	2)
+		    (object InterMessView "" @132
+			location   	(16, 688)
+			label      	(object SegLabel @133
+			    Parent_View 	@132
+			    location   	(728, 644)
+			    quidu      	"415BE1DA025D"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	229
+			    justify    	0
+			    label      	"DAD started"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	1)
+			line_color 	3342489
+			client     	@120
+			supplier   	@108
+			Focus_Src  	@121
+			Focus_Entry 	@110
+			origin     	(880, 688)
+			terminus   	(576, 688)
+			ordinal    	3)
+		    (object SelfMessView "" @134
+			location   	(16, 944)
+			label      	(object SegLabel @135
+			    Parent_View 	@134
+			    location   	(811, 916)
+			    quidu      	"415BE1DA025C"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	503
+			    justify    	0
+			    label      	"Remember tentative address"
+			    pctDist    	1.566667
+			    height     	29
+			    orientation 	0)
+			line_color 	3342489
+			client     	@108
+			supplier   	@108
+			Focus_Src  	@110
+			Focus_Entry 	@111
+			origin     	(576, 944)
+			terminus   	(726, 944)
+			ordinal    	6)
+		    (object InterMessView "" @136
+			location   	(16, 800)
+			label      	(object SegLabel @137
+			    Parent_View 	@136
+			    location   	(844, 772)
+			    quidu      	"415BE20D015B"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	393
+			    justify    	0
+			    label      	"Create blocking route"
+			    pctDist    	0.421217
+			    height     	29
+			    orientation 	0)
+			line_color 	3342489
+			client     	@108
+			supplier   	@113
+			Focus_Src  	@110
+			Focus_Entry 	@115
+			origin     	(575, 800)
+			terminus   	(1216, 800)
+			ordinal    	4)
+		    (object SelfMessView "" @138
+			location   	(16, 832)
+			label      	(object SegLabel @139
+			    Parent_View 	@138
+			    location   	(1404, 807)
+			    quidu      	"415BE2E2035E"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	313
+			    justify    	0
+			    label      	"Hold route in queue"
+			    pctDist    	1.046667
+			    height     	26
+			    orientation 	0)
+			line_color 	3342489
+			client     	@113
+			supplier   	@113
+			Focus_Src  	@115
+			Focus_Entry 	@116
+			origin     	(1248, 832)
+			terminus   	(1398, 832)
+			ordinal    	5)
+		    (object InterMessView "" @140
+			location   	(16, 1424)
+			label      	(object SegLabel @141
+			    Parent_View 	@140
+			    location   	(896, 1380)
+			    quidu      	"415BE307010C"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	348
+			    justify    	0
+			    label      	"Route request failed"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	1)
+			line_color 	3342489
+			client     	@113
+			supplier   	@108
+			Focus_Src  	@117
+			Focus_Entry 	@112
+			origin     	(1216, 1424)
+			terminus   	(576, 1424)
+			ordinal    	9)
+		    (object InterMessView "" @142
+			location   	(16, 1472)
+			label      	(object SegLabel @143
+			    Parent_View 	@142
+			    location   	(392, 1428)
+			    quidu      	"415BE3170179"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	205
+			    justify    	0
+			    label      	"IP not ready"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	1)
+			line_color 	3342489
+			client     	@108
+			supplier   	@105
+			Focus_Src  	@112
+			Focus_Entry 	@107
+			origin     	(544, 1472)
+			terminus   	(240, 1472)
+			ordinal    	10)))
+	    (object InteractionDiagram "IPReady 2a: Flows Success"
+		mechanism_ref 	@4
+		quid       	"415BE39901B8"
+		title      	"IPReady 2a: Flows Success"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list
+		    (object InterObjView "DHCP" @144
+			location   	(224, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@144
+			    location   	(224, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	282
+			    justify    	0
+			    label      	"DHCP")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"415BE5AE013B"
+			width      	300
+			height     	1561
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @145
+			    location   	(224, 368)
+			    line_color 	3342489
+			    InterObjView 	@144
+			    height     	1328
+			    y_coord    	1268
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @146
+			    location   	(224, 1456)
+			    line_color 	3342489
+			    InterObjView 	@144
+			    height     	60
+			    y_coord    	0
+			    Nested     	TRUE))
+		    (object InterObjView "IPEventNotifier" @147
+			location   	(560, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@147
+			    location   	(560, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	314
+			    justify    	0
+			    label      	"IPEventNotifier")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"415BE5AE0141"
+			width      	332
+			height     	1561
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @148
+			    location   	(560, 368)
+			    line_color 	3342489
+			    InterObjView 	@147
+			    height     	60
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @149
+			    location   	(560, 688)
+			    line_color 	3342489
+			    InterObjView 	@147
+			    height     	376
+			    y_coord    	316
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @150
+			    location   	(560, 944)
+			    line_color 	3342489
+			    InterObjView 	@147
+			    height     	60
+			    y_coord    	0
+			    Nested     	TRUE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @151
+			    location   	(560, 1408)
+			    line_color 	3342489
+			    InterObjView 	@147
+			    height     	168
+			    y_coord    	108
+			    Nested     	FALSE))
+		    (object InterObjView "Stack" @152
+			location   	(1232, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@152
+			    location   	(1232, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	282
+			    justify    	0
+			    label      	"Stack")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"415BE5AE014C"
+			width      	300
+			height     	1561
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @153
+			    location   	(1232, 528)
+			    line_color 	3342489
+			    InterObjView 	@152
+			    height     	1108
+			    y_coord    	1048
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @154
+			    location   	(1232, 800)
+			    line_color 	3342489
+			    InterObjView 	@152
+			    height     	152
+			    y_coord    	92
+			    Nested     	TRUE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @155
+			    location   	(1232, 832)
+			    line_color 	3342489
+			    InterObjView 	@152
+			    height     	60
+			    y_coord    	0
+			    Nested     	TRUE))
+		    (object InterObjView "Network" @156
+			location   	(1568, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@156
+			    location   	(1568, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	282
+			    justify    	0
+			    label      	"Network")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"415BE5AE0152"
+			width      	300
+			height     	1561
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @157
+			    location   	(1568, 1120)
+			    line_color 	3342489
+			    InterObjView 	@156
+			    height     	60
+			    y_coord    	0
+			    Nested     	FALSE))
+		    (object InterObjView "IPEventListener" @158
+			location   	(896, 224)
+			font       	(object Font
+			    underline  	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@158
+			    location   	(896, 224)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	282
+			    justify    	0
+			    label      	"IPEventListener")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"415BE5AE0149"
+			width      	300
+			height     	1561
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @159
+			    location   	(896, 624)
+			    line_color 	3342489
+			    InterObjView 	@158
+			    height     	500
+			    y_coord    	440
+			    Nested     	FALSE))
+		    (object InterMessView "" @160
+			location   	(16, 368)
+			label      	(object SegLabel @161
+			    Parent_View 	@160
+			    location   	(391, 324)
+			    quidu      	"415BE5AE013D"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	355
+			    justify    	0
+			    label      	"Register for IP ready"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@144
+			supplier   	@147
+			Focus_Src  	@145
+			Focus_Entry 	@148
+			origin     	(239, 368)
+			terminus   	(544, 368)
+			ordinal    	0)
+		    (object InterMessView "" @162
+			location   	(16, 528)
+			label      	(object SegLabel @163
+			    Parent_View 	@162
+			    location   	(727, 484)
+			    quidu      	"415BE5AE0140"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	448
+			    justify    	0
+			    label      	"Set Provisional Address"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@144
+			supplier   	@152
+			Focus_Src  	@145
+			Focus_Entry 	@153
+			origin     	(239, 528)
+			terminus   	(1216, 528)
+			ordinal    	1)
+		    (object InterMessView "" @164
+			location   	(16, 1120)
+			label      	(object SegLabel @165
+			    Parent_View 	@164
+			    location   	(1413, 1077)
+			    quidu      	"415BE5AE014E"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	345
+			    justify    	0
+			    label      	"Duplicate Address?"
+			    pctDist    	0.547541
+			    height     	44
+			    orientation 	0)
+			line_color 	3342489
+			client     	@152
+			supplier   	@156
+			Focus_Src  	@153
+			Focus_Entry 	@157
+			origin     	(1247, 1120)
+			terminus   	(1552, 1120)
+			ordinal    	7)
+		    (object InterMessView "" @166
+			location   	(16, 624)
+			label      	(object SegLabel @167
+			    Parent_View 	@166
+			    location   	(1064, 581)
+			    quidu      	"415BE5AE0151"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	562
+			    justify    	0
+			    label      	"NotifyAddressChange(tentative)"
+			    pctDist    	0.500000
+			    height     	44
+			    orientation 	1)
+			line_color 	3342489
+			client     	@152
+			supplier   	@158
+			Focus_Src  	@153
+			Focus_Entry 	@159
+			origin     	(1216, 624)
+			terminus   	(912, 624)
+			ordinal    	2)
+		    (object InterMessView "" @168
+			location   	(16, 688)
+			label      	(object SegLabel @169
+			    Parent_View 	@168
+			    location   	(728, 644)
+			    quidu      	"415BE5AE0147"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	229
+			    justify    	0
+			    label      	"DAD started"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	1)
+			line_color 	3342489
+			client     	@158
+			supplier   	@147
+			Focus_Src  	@159
+			Focus_Entry 	@149
+			origin     	(880, 688)
+			terminus   	(576, 688)
+			ordinal    	3)
+		    (object SelfMessView "" @170
+			location   	(16, 944)
+			label      	(object SegLabel @171
+			    Parent_View 	@170
+			    location   	(811, 916)
+			    quidu      	"415BE5AE0143"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	503
+			    justify    	0
+			    label      	"Remember tentative address"
+			    pctDist    	1.566667
+			    height     	29
+			    orientation 	0)
+			line_color 	3342489
+			client     	@147
+			supplier   	@147
+			Focus_Src  	@149
+			Focus_Entry 	@150
+			origin     	(576, 944)
+			terminus   	(726, 944)
+			ordinal    	6)
+		    (object InterMessView "" @172
+			location   	(16, 800)
+			label      	(object SegLabel @173
+			    Parent_View 	@172
+			    location   	(844, 772)
+			    quidu      	"415BE5AE0145"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	393
+			    justify    	0
+			    label      	"Create blocking route"
+			    pctDist    	0.421217
+			    height     	29
+			    orientation 	0)
+			line_color 	3342489
+			client     	@147
+			supplier   	@152
+			Focus_Src  	@149
+			Focus_Entry 	@154
+			origin     	(575, 800)
+			terminus   	(1216, 800)
+			ordinal    	4)
+		    (object SelfMessView "" @174
+			location   	(16, 832)
+			label      	(object SegLabel @175
+			    Parent_View 	@174
+			    location   	(1404, 807)
+			    quidu      	"415BE5AE014A"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	335
+			    justify    	0
+			    label      	"Hold route in queue"
+			    pctDist    	1.046667
+			    height     	26
+			    orientation 	0)
+			line_color 	3342489
+			client     	@152
+			supplier   	@152
+			Focus_Src  	@154
+			Focus_Entry 	@155
+			origin     	(1248, 832)
+			terminus   	(1398, 832)
+			ordinal    	5)
+		    (object NoteView @176
+			location   	(1248, 1264)
+			label      	(object ItemLabel
+			    Parent_View 	@176
+			    location   	(1088, 1203)
+			    fill_color 	13434879
+			    nlines     	2
+			    max_width  	285
+			    label      	
+|Timeout
+|expires
+			    )
+			line_color 	3342489
+			fill_color 	13434879
+			width      	345
+			height     	135)
+		    (object InterMessView "" @177
+			location   	(16, 1408)
+			label      	(object SegLabel @178
+			    Parent_View 	@177
+			    location   	(896, 1364)
+			    quidu      	"415BE5ED03BB"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	265
+			    justify    	0
+			    label      	"Route released"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	1)
+			line_color 	3342489
+			client     	@152
+			supplier   	@147
+			Focus_Src  	@153
+			Focus_Entry 	@151
+			origin     	(1216, 1408)
+			terminus   	(576, 1408)
+			ordinal    	8)
+		    (object InterMessView "" @179
+			location   	(16, 1456)
+			label      	(object SegLabel @180
+			    Parent_View 	@179
+			    location   	(392, 1412)
+			    quidu      	"415BE5F2009E"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	183
+			    justify    	0
+			    label      	"IP is ready"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	1)
+			line_color 	3342489
+			client     	@147
+			supplier   	@144
+			Focus_Src  	@151
+			Focus_Entry 	@146
+			origin     	(544, 1456)
+			terminus   	(240, 1456)
+			ordinal    	9)))))
+    root_subsystem 	(object SubSystem "Component View"
+	quid       	"41344D7E01F5"
+	physical_models 	(list unit_reference_list
+	    (object module "NewComponent" "NotAModuleType" "NotAModulePart"
+		quid       	"4140716E0147"
+		stereotype 	"")
+	    (object module "NewPackageSpec" "PackageType" "Specification"
+		quid       	"41407180006D"
+		stereotype 	"Package Specification")
+	    (object module "NewTaskSpec" "TaskType" "Specification"
+		quid       	"414071820212"
+		stereotype 	"Task Specification")
+	    (object module "NewTaskBody" "TaskType" "Body"
+		quid       	"41407185030C"
+		stereotype 	"Task Body")
+	    (object module "NewTaskSpec2" "TaskType" "Specification"
+		quid       	"4140718701B5"
+		stereotype 	"Task Specification")
+	    (object SubSystem "NewPackage"
+		quid       	"414071930222"
+		physical_models 	(list unit_reference_list)
+		physical_presentations 	(list unit_reference_list)))
+	physical_presentations 	(list unit_reference_list
+	    (object Module_Diagram "Main"
+		quid       	"41344D80013A"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list
+		    (object SubSysView "Component View::NewPackage" @181
+			location   	(544, 544)
+			label      	(object ItemLabel
+			    Parent_View 	@181
+			    location   	(400, 475)
+			    fill_color 	13434879
+			    nlines     	2
+			    max_width  	288
+			    justify    	0
+			    label      	"NewPackage")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"414071930222"
+			width      	300
+			height     	150)
+		    (object NoteView @182
+			location   	(880, 816)
+			label      	(object ItemLabel
+			    Parent_View 	@182
+			    location   	(742, 756)
+			    fill_color 	13434879
+			    nlines     	2
+			    max_width  	240
+			    label      	"")
+			line_color 	3342489
+			fill_color 	13434879
+			width      	300
+			height     	132)
+		    (object AttachView "" @183
+			stereotype 	TRUE
+			line_color 	3342489
+			client     	@181
+			supplier   	@182
+			line_style 	0)))))
+    process_structure 	(object Processes
+	quid       	"41344D7E01F6"
+	ProcsNDevs 	(list
+	    (object Process_Diagram "Deployment View"
+		quid       	"41344D7E01F8"
+		title      	"Deployment View"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list))))
+    properties 	(object Properties
+	attributes 	(list Attribute_Set
+	    (object Attribute
+		tool       	"DDL"
+		name       	"propertyId"
+		value      	"809135966")
+	    (object Attribute
+		tool       	"DDL"
+		name       	"default__Project"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"DDL"
+			name       	"Directory"
+			value      	"AUTO GENERATE")
+		    (object Attribute
+			tool       	"DDL"
+			name       	"DataBase"
+			value      	("DataBaseSet" 800))
+		    (object Attribute
+			tool       	"DDL"
+			name       	"DataBaseSet"
+			value      	(list Attribute_Set
+			    (object Attribute
+				tool       	"DDL"
+				name       	"ANSI"
+				value      	800)
+			    (object Attribute
+				tool       	"DDL"
+				name       	"Oracle"
+				value      	801)
+			    (object Attribute
+				tool       	"DDL"
+				name       	"SQLServer"
+				value      	802)
+			    (object Attribute
+				tool       	"DDL"
+				name       	"Sybase"
+				value      	803)
+			    (object Attribute
+				tool       	"DDL"
+				name       	"Watcom"
+				value      	804)))
+		    (object Attribute
+			tool       	"DDL"
+			name       	"PrimaryKeyColumnName"
+			value      	"Id")
+		    (object Attribute
+			tool       	"DDL"
+			name       	"PrimaryKeyColumnType"
+			value      	"NUMBER(5)")
+		    (object Attribute
+			tool       	"DDL"
+			name       	"ViewName"
+			value      	"V_")
+		    (object Attribute
+			tool       	"DDL"
+			name       	"TableName"
+			value      	"T_")
+		    (object Attribute
+			tool       	"DDL"
+			name       	"InheritSuffix"
+			value      	"_V")
+		    (object Attribute
+			tool       	"DDL"
+			name       	"DropClause"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"DDL"
+			name       	"BaseViews"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"DDL"
+			name       	"DDLScriptFilename"
+			value      	"DDL1.SQL")))
+	    (object Attribute
+		tool       	"DDL"
+		name       	"default__Attribute"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"DDL"
+			name       	"ColumnType"
+			value      	"VARCHAR")
+		    (object Attribute
+			tool       	"DDL"
+			name       	"Length"
+			value      	"")
+		    (object Attribute
+			tool       	"DDL"
+			name       	"NullsOK"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"DDL"
+			name       	"PrimaryKey"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"DDL"
+			name       	"Unique"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"DDL"
+			name       	"CompositeUnique"
+			value      	FALSE)
+		    (object Attribute
+			tool       	"DDL"
+			name       	"CheckConstraint"
+			value      	"")))
+	    (object Attribute
+		tool       	"DDL"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"RequisitePro"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"Rose Model Integrator"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"Rose Web Publisher"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"Version Control"
+		name       	"HiddenTool"
+		value      	FALSE))
+	quid       	"41344D7E01F7"))

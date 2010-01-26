@@ -1,0 +1,71 @@
+// Copyright (c) 2005-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// pppqostest.MMP ECOM plugin. PPP QoS test CFProtocol
+// 
+//
+
+/**
+ @file pppqostest.MMP
+*/
+
+MACRO		EPOC_SDK=0x08000000
+
+TARGET          pppqostest.dll
+TARGETTYPE      PLUGIN
+
+UID             0x10009D8D 0x10281C53
+VENDORID        0x70000001
+
+SOURCEPATH      ../../SPPP
+SOURCE		    QoSTestFactories.cpp QosTestLcp.cpp QoSTestEventBase.cpp
+SOURCE		    QosTestNcp.cpp NifPdpBase.cpp NifPdpNif.cpp QoSTestLog.cpp
+#ifdef _NIFSIMTSY 
+SOURCE		    NifPdpTsy.cpp
+#endif
+
+USERINCLUDE		../../INC
+USERINCLUDE     ../../../../../../linklayerprotocols/pppnif/INC
+
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+SYSTEMINCLUDE   /epoc32/include
+SYSTEMINCLUDE   /epoc32/include/ecom
+SYSTEMINCLUDE   /epoc32/include/comms-infras
+SYSTEMINCLUDE   /epoc32/include/networking
+#else
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+SYSTEMINCLUDE   /epoc32/include/platform/ecom
+SYSTEMINCLUDE   /epoc32/include/platform/comms-infras
+SYSTEMINCLUDE   /epoc32/include/platform/networking
+#endif
+
+START RESOURCE 10281C53.rss
+TARGET pppqostest.rsc
+END
+
+LIBRARY         euser.lib esock.lib esocksvr.lib 
+LIBRARY         netmeta.lib insock.lib inhook6.lib pppmain.lib
+LIBRARY         efsrv.lib c32.lib nifman.lib
+LIBRARY		    random.lib mbufmgr.lib
+LIBRARY		    etelpckt.lib umtsif.lib 
+LIBRARY		    etel.lib testconfigfileparser.lib commsfw.lib
+LIBRARY		    netinterfaces.lib
+LIBRARY		    nodemessages.lib
+
+//REMEK - linking NifMan for MTimer only
+
+#include	    "comms-infras/commsdebugutility.mmh"
+
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+
+SMPSAFE

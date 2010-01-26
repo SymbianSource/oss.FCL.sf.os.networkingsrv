@@ -1,0 +1,53 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+// Ensure that the default config is present if no cleverer one has been put there already
+RUN_SCRIPT z:\testdata\scripts\exec_esock_default_to_config_1.script
+
+PRINT Run all te_QoS Suite Tests
+
+RUN_SCRIPT Z:\TestData\scripts\te_esock_test_unloadesockForced.script
+CED -i z:\testdata\configs\te_QoS.xml -o c:\te_QoS.xml.log
+
+LOAD_SUITE te_esockteststepsSuite -SharedData
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase1.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase1B.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase2.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase3.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase4.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase5.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase6.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase7.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase9.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase10.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase11.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase12.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase13.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase14.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase15.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase16.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase17.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase18.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase19.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase20.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase21.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase22.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase27.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase28.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase29.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase30.script
+RUN_SCRIPT Z:\TestData\Scripts\te_QoSCase32.script
+
+PRINT Complete_te_QoS_Tests

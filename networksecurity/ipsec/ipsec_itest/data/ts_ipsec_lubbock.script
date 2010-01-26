@@ -1,0 +1,125 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+#
+# ts_ipsec.script
+#
+
+PRINT IPSec test
+PRINT 
+
+PRINT Loading ts_ipsec.dll
+LOAD_SUITE ts_ipsec.dll
+
+PRINT Testing Crypto Strength
+RUN_TEST_STEP 100, ts_ipsec, IpsecTestCypto
+TEST_COMPLETE 
+
+# create the directorys needed for logging and ipsec
+# log dirs
+run_utils mkdir c:\Logs\
+run_utils mkdir c:\Logs\testresults\
+
+#use ced to make the required database for ipsec
+ced z:\TestData\configs\ipsec_ced.cfg
+
+# ipsec dirs
+run_utils mkdir c:\system\
+run_utils mkdir c:\system\data\
+run_utils mkdir c:\system\data\security\
+
+# prepare for the vpn api test 1
+run_utils mkdir c:\installPolicy\
+# copy required files
+run_utils copyfile z:\TestData\configs\linux_trans.pin c:\installPolicy\linux_trans.pin
+run_utils copyfile z:\TestData\configs\linux_trans.pol c:\installPolicy\linux_trans.pol
+run_utils copyfile z:\TestData\configs\linux_trans-ca.cer c:\installPolicy\linux_trans-ca.cer
+#run_utils copyfile z:\TestData\configs\linux_trans-peer.cer c:\installPolicy\linux_trans-peer.cer
+run_utils copyfile z:\TestData\configs\linux_trans-user.cer c:\installPolicy\linux_trans-user.cer
+run_utils copyfile z:\TestData\configs\linux_trans-user.key c:\installPolicy\linux_trans-user.key
+
+# make read/write
+run_utils MakeReadWrite c:\installPolicy\linux_trans.pol
+run_utils MakeReadWrite c:\installPolicy\linux_trans.pin
+run_utils MakeReadWrite c:\installPolicy\linux_trans-ca.cer
+#run_utils MakeReadWrite c:\installPolicy\linux_trans-peer.cer
+run_utils MakeReadWrite c:\installPolicy\linux_trans-user.cer
+run_utils MakeReadWrite c:\installPolicy\linux_trans-user.key
+
+PRINT vpnapi test1
+RUN_TEST_STEP 100, ts_ipsec, IpsecVpnApiTest1, z:\testdata\configs\ts_ipsec.ini
+TEST_COMPLETE 
+
+run_utils mkdir c:\system\data\security\secfiles\
+run_utils copyfile z:\TestData\configs\algorithms.conf c:\system\data\security\secfiles\algorithms.conf
+run_utils MakeReadWrite c:\system\data\security\secfiles\algorithms.conf
+
+PRINT Ipsec policy test1
+RUN_TEST_STEP 100, ts_ipsec, IpsecPolicyTest1, z:\testdata\configs\ts_ipsec.ini
+TEST_COMPLETE 
+
+PRINT Ipsec policy test2
+#RUN_TEST_STEP 100, ts_ipsec, IpsecPolicyTest2, z:\testdata\configs\ts_ipsec.ini
+TEST_COMPLETE 
+
+# vpn test 1, the IAPs need to be configured for this in advance
+
+run_utils copyfile z:\TestData\configs\fbsd_tull.pol c:\system\data\security\secfiles\fbsd_tull.pol
+run_utils copyfile z:\TestData\configs\fbsd_tull.pin c:\system\data\security\secfiles\fbsd_tull.pin
+run_utils copyfile z:\TestData\configs\cisco_all.pol c:\system\data\security\secfiles\cisco_all.pol
+run_utils copyfile z:\TestData\configs\cisco_all.pin c:\system\data\security\secfiles\cisco_all.pin
+run_utils copyfile z:\TestData\configs\linux_trans_gw.pol c:\system\data\security\secfiles\linux_trans.pol
+run_utils copyfile z:\TestData\configs\linux_trans.pin c:\system\data\security\secfiles\linux_trans.pin
+run_utils copyfile z:\TestData\configs\linux_tull.pol c:\system\data\security\secfiles\linux_tull.pol
+run_utils copyfile z:\TestData\configs\linux_tull.pin c:\system\data\security\secfiles\linux_tull.pin
+
+run_utils MakeReadWrite c:\system\data\security\secfiles\fbsd_tull.pin
+run_utils MakeReadWrite c:\system\data\security\secfiles\fbsd_tull.pol
+run_utils MakeReadWrite c:\system\data\security\secfiles\cisco_all.pol
+run_utils MakeReadWrite c:\system\data\security\secfiles\cisco_all.pin
+run_utils MakeReadWrite c:\system\data\security\secfiles\linux_trans.pol
+run_utils MakeReadWrite c:\system\data\security\secfiles\linux_trans.pin
+run_utils MakeReadWrite c:\system\data\security\secfiles\linux_tull.pol
+run_utils MakeReadWrite c:\system\data\security\secfiles\linux_tull.pin
+
+PRINT Connection test1 - testing single Vpn interface
+RUN_TEST_STEP 100, ts_ipsec, IpsecConectionTest1, z:\testdata\configs\ts_ipsec.ini
+TEST_COMPLETE
+
+PRINT Connection test2 - Multihoming variation, 1 ipsec and 1 normal iap, both transfer data -- not on Lubbock
+#RUN_TEST_STEP 100, ts_ipsec, IpsecConectionTest2, z:\testdata\configs\ts_ipsec_mh1.ini
+TEST_COMPLETE 
+
+PRINT Connection test2 - Multihoming variation 2 - 2 ipsec vpns using same real IAP
+RUN_TEST_STEP 100, ts_ipsec, IpsecConectionTest2, z:\testdata\configs\ts_ipsec_mh2.ini
+TEST_COMPLETE 
+
+PRINT Connection test2 - Multihoming variation 3 - 2 ipsec vpns using different real IAPs -- not on Lubbock
+#RUN_TEST_STEP 100, ts_ipsec, IpsecConectionTest2, z:\testdata\configs\ts_ipsec_mh3.ini
+TEST_COMPLETE 
+
+PRINT Connection test3 - stop real connection first, this messes up the routers
+RUN_TEST_STEP 100, ts_ipsec, IpsecConectionTest3, z:\testdata\configs\ts_ipsec2.ini
+TEST_COMPLETE 
+
+# ttcp Send test
+# tests tcp transmit against ttcp.
+#RUN_TEST_STEP 100, ts_ipsec, IpsecConectionTest1, z:\testdata\configs\ts_ipsec3.ini
+#TEST_COMPLETE
+
+# ttcp Receive test
+# tests tcp receive against ttcp.
+#RUN_TEST_STEP 100, ts_ipsec, IpsecConectionTest1, z:\testdata\configs\ts_ipsec4.ini
+#TEST_COMPLETE

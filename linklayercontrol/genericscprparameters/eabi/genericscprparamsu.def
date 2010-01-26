@@ -1,0 +1,5 @@
+EXPORTS
+	_ZN21GenericScprParameters8TChannel13SetUserLengthEi @ 1 NONAME
+	_ZN21GenericScprParameters8TChannelC1Ev @ 2 NONAME
+	_ZN21GenericScprParameters8TChannelC2Ev @ 3 NONAME
+

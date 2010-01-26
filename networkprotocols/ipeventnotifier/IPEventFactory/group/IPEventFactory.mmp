@@ -1,0 +1,61 @@
+// Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// @file ipeventfactory.mmp
+// 
+//
+
+
+TARGET        ipeventfactory.dll
+TARGETTYPE    plugin
+
+VENDORID      0x70000001
+
+UID           0x10009D8D 0x1020469F
+SOURCEPATH	../src
+SOURCE        IPEventFactory.cpp
+
+USERINCLUDE   ../inc
+USERINCLUDE   ../../inc
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+//
+// ECOM plugin resource file
+//
+start RESOURCE  ../src/1020469F.rss
+target ipeventfactory.rsc
+end
+
+
+LIBRARY       euser.lib netmeta.lib
+LIBRARY       esock.lib esocksvr.lib
+LIBRARY       nodemessages.lib
+LIBRARY       netinterfaces.lib
+LIBRARY       factories.lib
+#ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+LIBRARY       commsfw.lib
+#endif
+
+
+#ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+#include		<cflog.mmh>
+#else
+#include	    "comms-infras/commsdebugutility.mmh"
+#endif
+
+CAPABILITY ALL -Tcb
+
+
+UNPAGED
+
+SMPSAFE

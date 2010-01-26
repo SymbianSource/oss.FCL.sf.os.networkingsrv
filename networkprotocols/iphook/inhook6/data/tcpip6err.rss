@@ -1,0 +1,45 @@
+// Copyright (c) 2001-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+NAME IP6E
+#include "tcpip6err.rls"
+#include <uikon.rh>
+
+RESOURCE RSS_SIGNATURE { }
+
+RESOURCE ERROR_SET r_error_res_tcpip6
+	{
+	errorarrays=
+		{
+		ERROR_ARRAY
+			{
+			startError=-5100;
+			errors=r_error_res_tcpip6_errors;
+			},
+		ERROR_ARRAY
+			{
+			startError=-5120;
+			errors=r_error_res_dnd_errors;
+			},
+		ERROR_ARRAY
+			{
+			startError=-5154;	//down to 5228
+			errors=r_error_res_ipsec6_errors;
+			}
+		};
+	}
+
+
+#include "tcpip6err.ra"

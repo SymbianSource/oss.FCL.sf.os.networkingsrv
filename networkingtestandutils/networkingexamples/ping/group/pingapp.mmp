@@ -1,0 +1,67 @@
+// Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// pingapp.mmp - ICMPv4/ICMPv6 echo request/reply sender
+//
+
+MACRO		EPOC_SDK=0x07010000
+//MACRO       CRYSTAL=1
+
+// NOTE: this used to be ping.app, but was renamed pingapp.exe with
+// App -> Exe conversion due as ping.exe already exists.
+
+
+#ifdef __UI_FRAMEWORKS_V2__
+
+#if !defined(EKA2) && defined(WINS)
+TARGET        pingapp.app
+TARGETTYPE    exedll
+DEFFILE	      \epoc32\release\wins\exedllapp.def
+#else
+TARGET        pingapp.exe
+TARGETTYPE    exe
+EPOCSTACKSIZE 0x5000
+#endif
+
+#else
+TARGET		pingapp.app
+TARGETTYPE	app
+#endif
+
+TARGETPATH	/system/apps/pingapp
+
+UID		0x100039CE 0x10000361
+VENDORID	0x70000001
+
+SOURCEPATH	../src
+
+SOURCE		pingmodel.cpp ping.cpp 
+RESOURCE	../data/pingapp.rss
+
+USERINCLUDE	../inc
+USERINCLUDE	../../../../networkprotocols/tcpipv4v6prt/inc ../../../../esockapiextensions/internetsockets/inc ../../../../networkprotocols/iphook/inhook6/inc
+SYSTEMINCLUDE	/epoc32/include/techview
+SYSTEMINCLUDE	/epoc32/include /epoc32/include/networking
+
+LIBRARY		euser.lib apparc.lib ws32.lib 
+LIBRARY		cone.lib //etext.lib 
+LIBRARY		esock.lib insock.lib
+
+LIBRARY		estor.lib
+LIBRARY		eikcore.lib eikcoctl.lib eikdlg.lib //eikctl.lib //instead of eikon.lib 
+
+//DEFFILE		ping.def
+
+CAPABILITY ALL -Tcb
+
+SMPSAFE

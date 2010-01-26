@@ -1,0 +1,84 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRINT Integration test 5.08 - IR CSD Outgoing terminated By Route timeout with Ipv6,Ipv4 and Ipsec
+
+LOAD_SUITE TE_Esock
+LOAD_SUITE te_esockutil
+
+
+# ipsec dirs
+run_utils mkdir c:\system\data\security\
+run_utils mkdir c:\system\data\security\secfiles\
+
+# vpn test 1, the IAPs need to be configured for this in advance
+run_utils copyfile z:\TestData\configs\fbsd_tull.pol c:\system\data\security\secfiles\fbsd_tull.pol
+run_utils copyfile z:\TestData\configs\fbsd_tull.pin c:\system\data\security\secfiles\fbsd_tull.pin
+run_utils copyfile z:\TestData\configs\cisco_all.pol c:\system\data\security\secfiles\cisco_all.pol
+run_utils copyfile z:\TestData\configs\cisco_all.pin c:\system\data\security\secfiles\cisco_all.pin
+
+run_utils MakeReadWrite c:\system\data\security\secfiles\fbsd_tull.pin
+run_utils MakeReadWrite c:\system\data\security\secfiles\fbsd_tull.pol
+run_utils MakeReadWrite c:\system\data\security\secfiles\ciscol_all.pol
+run_utils MakeReadWrite c:\system\data\security\secfiles\cisco_all.pin
+
+run_utils copyfile z:\TestData\configs\algorithms.conf c:\system\data\security\secfiles\algorithms.conf
+run_utils MakeReadWrite c:\system\data\security\secfiles\algorithms.conf
+
+// open socket server 
+RUN_TEST_STEP 100 TE_Esock OpenServer   
+
+START_TESTCASE			NET-Integration-IrCsd-1001
+//! @SYMTestCaseID		NET-Integration-IrCsd-1001
+
+
+// open Ipv4 socket
+RUN_TEST_STEP 100 TE_Esock Test1.2 z:\testdata\configs\integration\itest_s5\itest.ini
+
+// do test
+RUN_TEST_STEP 1000 TE_Esock SendData z:\testdata\configs\integration\itest_s5\ipv4.ini
+
+// close socket
+RUN_TEST_STEP 100 TE_Esock Test1.15 z:\testdata\configs\integration\itest_s5\itest.ini
+
+// open Ipv6 socket
+RUN_TEST_STEP 100 TE_Esock Test1.2 z:\testdata\configs\integration\itest_s5\itest.ini
+
+// use Ipv6 socket
+RUN_TEST_STEP 1000 TE_Esock SendData z:\testdata\configs\integration\itest_s5\ipv6.ini
+
+// wait more than routetimout
+print wait for more than Commdb AgentRouteTimeout
+run_test_step -1 te_esockutil TE_ESockUtilDelay z:\testdata\configs\integration\itest_s5\route_timeout.ini	
+
+
+
+// check the connection has been disconnected
+RUN_TEST_STEP 3000 te_esockutil TE_ESockUtilIsNetworkNotActive
+
+// close socket
+RUN_TEST_STEP 100 TE_Esock Test1.15 z:\testdata\configs\integration\itest_s5\itest.ini
+TEST_COMPLETE IR_CSD_test5_08
+END_TESTCASE			NET-Integration-IrCsd-1001
+
+// close socket server 
+RUN_TEST_STEP 100 TE_Esock CloseServer   
+
+// log result
+PRINT Result for Integration test 5.08 - IR CSD Outgoing terminated By Route timeout with Ipv6,Ipv4 and Ipsec
+
+
+

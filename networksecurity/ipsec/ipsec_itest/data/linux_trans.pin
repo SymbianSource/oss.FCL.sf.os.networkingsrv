@@ -1,0 +1,12 @@
+[TYPE]
+0
+[POLICYNAME]
+Linux_transport
+[POLICYVERSION]
+1.0
+[POLICYDESCRIPTION]
+linux transport mode with certs
+[ISSUERNAME]
+test.intra
+[CONTACTINFO]
+ipsec@symbian.com

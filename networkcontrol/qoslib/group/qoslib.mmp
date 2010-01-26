@@ -1,0 +1,41 @@
+// Copyright (c) 2005-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// qoslib.mmp - QoS API library MMP file
+//
+
+TARGET      qoslib.dll
+TARGETTYPE  dll
+
+UID         0x1000008d 0x101F6D00
+VENDORID    0x70000001
+
+SOURCEPATH  ../src
+SOURCE      flowspec.cpp qos_channel.cpp qos_event.cpp qos_policy.cpp
+SOURCE      qoslib.cpp qosselector.cpp extensionpolicy.cpp
+
+USERINCLUDE     . ../inc ../include
+USERINCLUDE ../../qosfwconfig/qos/inc
+USERINCLUDE ../../qosfwconfig/qos/include
+USERINCLUDE ../../pfqoslib/inc
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+LIBRARY         euser.lib esock.lib insock.lib pfqoslib.lib 
+
+DEBUGLIBRARY    flogger.lib
+
+CAPABILITY ALL -Tcb
+
+UNPAGED
+
+SMPSAFE

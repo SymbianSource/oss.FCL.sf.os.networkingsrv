@@ -1,0 +1,12 @@
+[TYPE]
+0
+[POLICYNAME]
+Linux_tullel
+[POLICYVERSION]
+1.0
+[POLICYDESCRIPTION]
+linux tunnel mode without certs
+[ISSUERNAME]
+test.intra
+[CONTACTINFO]
+ipsec@symbian.com

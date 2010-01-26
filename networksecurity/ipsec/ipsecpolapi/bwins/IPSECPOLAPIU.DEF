@@ -1,0 +1,17 @@
+EXPORTS
+	??0RIpsecPolicyServ@@QAE@XZ @ 1 NONAME ; public: __thiscall RIpsecPolicyServ::RIpsecPolicyServ(void)
+	??1RIpsecPolicyServ@@QAE@XZ @ 2 NONAME ; public: __thiscall RIpsecPolicyServ::~RIpsecPolicyServ(void)
+	?ActivatePolicy@RIpsecPolicyServ@@QAEXABUTPolicyHandle@@AAVTRequestStatus@@@Z @ 3 NONAME ; public: void __thiscall RIpsecPolicyServ::ActivatePolicy(struct TPolicyHandle const &,class TRequestStatus &)
+	?CancelActivate@RIpsecPolicyServ@@QAEXXZ @ 4 NONAME ; public: void __thiscall RIpsecPolicyServ::CancelActivate(void)
+	?CancelLoad@RIpsecPolicyServ@@QAEXXZ @ 5 NONAME ; public: void __thiscall RIpsecPolicyServ::CancelLoad(void)
+	?CancelMatch@RIpsecPolicyServ@@QAEXXZ @ 6 NONAME ; public: void __thiscall RIpsecPolicyServ::CancelMatch(void)
+	?CancelUnload@RIpsecPolicyServ@@QAEXXZ @ 7 NONAME ; public: void __thiscall RIpsecPolicyServ::CancelUnload(void)
+	?Connect@RIpsecPolicyServ@@QAEHXZ @ 8 NONAME ; public: int __thiscall RIpsecPolicyServ::Connect(void)
+	?GetDebugInfo@RIpsecPolicyServ@@QAEHAAVTDes16@@I@Z @ 9 NONAME ; public: int __thiscall RIpsecPolicyServ::GetDebugInfo(class TDes16 &,unsigned int)
+	?LoadPolicy@RIpsecPolicyServ@@QAEXABVTDesC8@@AAV?$TPckgBuf@UTPolicyHandle@@@@AAVTRequestStatus@@@Z @ 10 NONAME ; public: void __thiscall RIpsecPolicyServ::LoadPolicy(class TDesC8 const &,class TPckgBuf<struct TPolicyHandle> &,class TRequestStatus &)
+	?LoadPolicy@RIpsecPolicyServ@@QAEXABVTDesC8@@AAV?$TPckgBuf@UTPolicyHandle@@@@AAVTRequestStatus@@ABV?$TPckgBuf@UTZoneInfoSet@@@@I@Z @ 11 NONAME ; public: void __thiscall RIpsecPolicyServ::LoadPolicy(class TDesC8 const &,class TPckgBuf<struct TPolicyHandle> &,class TRequestStatus &,class TPckgBuf<struct TZoneInfoSet> const &,unsigned int)
+	?MatchSelector@RIpsecPolicyServ@@QAEXABVTDesC8@@AAVTDes8@@AAVTRequestStatus@@@Z @ 12 NONAME ; public: void __thiscall RIpsecPolicyServ::MatchSelector(class TDesC8 const &,class TDes8 &,class TRequestStatus &)
+	?UnloadPolicy@RIpsecPolicyServ@@QAEXABUTPolicyHandle@@AAVTRequestStatus@@@Z @ 13 NONAME ; public: void __thiscall RIpsecPolicyServ::UnloadPolicy(struct TPolicyHandle const &,class TRequestStatus &)
+	?Version@RIpsecPolicyServ@@QBE?AVTVersion@@XZ @ 14 NONAME ; public: class TVersion  __thiscall RIpsecPolicyServ::Version(void)const 
+	?AvailableSelectors@RIpsecPolicyServ@@QAEXABVTDesC8@@PAV?$CArrayFixFlat@UTIpsecSelectorInfo@@@@AAVTRequestStatus@@@Z @ 15 NONAME ; void RIpsecPolicyServ::AvailableSelectors(class TDesC8 const &, class CArrayFixFlat<struct TIpsecSelectorInfo> *, class TRequestStatus &)
+

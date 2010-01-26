@@ -1,0 +1,51 @@
+// Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// MMP file to build t_ipip.exe used to test the ipip6.prt hook module.
+// ipip6.prt This test code passes on the required policies to the ipip6.prt module.
+// 
+//
+
+/**
+ @file 
+*/
+
+TARGET		t_ipip.exe
+TARGETTYPE	exe
+
+UID		0x10003D38 0x10000948
+
+SOURCEPATH	../test
+SOURCE		t_ipip.cpp Connectiontester.cpp Connectionutils.cpp
+
+#include	<comms-infras/commsdebugutility.mmh>
+
+USERINCLUDE	../inc
+SYSTEMINCLUDE	/epoc32/include
+
+LIBRARY		c32root.lib
+LIBRARY		euser.lib 
+LIBRARY		esock.lib
+LIBRARY		insock.lib
+LIBRARY     	commdb.lib
+
+#ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+LIBRARY		commsfw.lib
+#endif
+
+
+CAPABILITY ALL -Tcb
+
+VENDORID 0x70000001
+
+SMPSAFE

@@ -1,0 +1,62 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+// Load the test suite
+LOAD_SUITE te_esockteststepsSuite_Copy1 -SharedData
+
+
+START_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0901
+//! @SYMTestCaseID		NET-Integration-DedicatedSignalling1ryCtx-0901
+
+
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 creatersocketservStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 createrconnectionStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 connectrsocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 openrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 startrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+
+// Modify the connection
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 creatersubconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnection0
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 creatersubconparameterbundleStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParams0
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 creatersubconparameterbundleStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParams1
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 openrsubconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnection0
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 creatersubconparameterfamilyStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParamsFamily0
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 creatersubconparameterfamilyStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParamsFamily1
+
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 initialiseGenQosParameterSetStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini GenericQosSet0
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 initialiseExtIPLinkR5ParameterSetStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini ExtensionQosIPLinkR5Set0
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 initialiseExtIPLinkR5ParameterSetStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini ExtensionQosIPLinkR5Set1
+
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 registerforrsubconnectioneventsStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionEvents0
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 setrsubconparametersStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParams0
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 checkrsubconnectioneventsStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionEvents0
+
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 getrsubconparametersStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini GetSubConnParams0
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 compareextiplinkr5parametersetStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini CompareExtIPLink5Sets0
+
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 closersubconparameterbundleStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParams0
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 closersubconparameterbundleStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnectionParams1
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 closersubconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SubConnection0
+//
+
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 stoprconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 closerconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 closersocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx.ini SocketServ0
+
+RUN_TEST_STEP 10 te_esockteststepsSuite_Copy1 cleanallStep
+
+END_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0901
+

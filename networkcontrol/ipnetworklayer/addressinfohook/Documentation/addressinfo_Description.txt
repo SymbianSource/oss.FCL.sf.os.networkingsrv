@@ -1,0 +1,6 @@
+AddressInfo
+
+This plugin is binded to IP protocol. It is started
+when IP protocol is started an destroyed when IP protocol
+is destroyed. It will receive all outgoing messages 
+and passes them forward.

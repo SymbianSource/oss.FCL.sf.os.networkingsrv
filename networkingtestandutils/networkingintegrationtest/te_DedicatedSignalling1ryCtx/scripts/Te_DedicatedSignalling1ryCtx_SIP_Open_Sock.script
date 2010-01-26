@@ -1,0 +1,52 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+// Load the test suite (The copy with SIP's SID)
+LOAD_SUITE te_esockteststepsSuite_copy1 -SharedData
+
+
+START_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0701
+//! @SYMTestCaseID		NET-Integration-DedicatedSignalling1ryCtx-0701
+
+
+RUN_TEST_STEP 10 te_esockteststepsSuite_copy1 startsimtsyStep
+
+RUN_TEST_STEP 10 te_esockteststepsSuite_copy1 creatersocketservStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx_SIP_Open_Sock.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite_copy1 createrconnectionStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx_SIP_Open_Sock.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite_copy1 creatersubconnectionStep Z:\testdata\configs\Te_DedicatedSignalling1ryCtx_SIP_Open_Sock.ini SubConnection0
+RUN_TEST_STEP 10 te_esockteststepsSuite_copy1 creatersocketStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx_SIP_Open_Sock.ini Socket0
+RUN_TEST_STEP 10 te_esockteststepsSuite_copy1 connectrsocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx_SIP_Open_Sock.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite_copy1 openrconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx_SIP_Open_Sock.ini Connection0
+
+// attach in Normal mode
+RUN_TEST_STEP 10 te_esockteststepsSuite_copy1 attachtorconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx_SIP_Open_Sock.ini Connection0
+
+RUN_TEST_STEP 10 te_esockteststepsSuite_copy1 openrsubconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx_SIP_Open_Sock.ini SubConnection0
+RUN_TEST_STEP 10 te_esockteststepsSuite_copy1 openrsocketStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx_SIP_Open_Sock.ini Socket0
+
+// Testing DHCP from within this script, so as to test simultaneous Socket opened by SIP, DHCP and DNS scenario
+// When the script below, opens a socket, we would have tested SIP and DHCP holding an open socket on the same Connection with IMCN flag set.
+RUN_PROGRAM -1 setcap te_esockteststepsSuite.exe FFFFE -SID 101FD9C5 C:\sys\bin\te_esockteststepsSuite_copy2.exe
+RUN_SCRIPT Z:\TestData\scripts\Te_DedicatedSignalling1ryCtx_DHCP_Open_Sock.script
+
+RUN_TEST_STEP 10 te_esockteststepsSuite_copy1 closersocketStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx_SIP_Open_Sock.ini Socket0
+RUN_TEST_STEP 10 te_esockteststepsSuite_copy1 closersubconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx_SIP_Open_Sock.ini SubConnection0
+RUN_TEST_STEP 10 te_esockteststepsSuite_copy1 closerconnectionStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx_SIP_Open_Sock.ini Connection0
+RUN_TEST_STEP 10 te_esockteststepsSuite_copy1 closersocketservStep z:\testdata\configs\Te_DedicatedSignalling1ryCtx_SIP_Open_Sock.ini SocketServ0
+RUN_TEST_STEP 10 te_esockteststepsSuite_copy1 stopsimtsyStep
+RUN_TEST_STEP 10 te_esockteststepsSuite_copy1 cleanallStep
+
+END_TESTCASE			NET-Integration-DedicatedSignalling1ryCtx-0701
+

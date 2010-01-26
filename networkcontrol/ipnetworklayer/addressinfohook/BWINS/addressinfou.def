@@ -1,0 +1,6 @@
+EXPORTS
+	CreateProtocolFamilyL @ 1 NONAME
+	?AddL@CHookAddressInfo@@QAEXPAVCIPProtoBinder@@AAUTSubConIPAddressInfo@CSubConIPAddressInfoParamSet@@@Z @ 2 NONAME ; void CHookAddressInfo::AddL(class CIPProtoBinder *, struct CSubConIPAddressInfoParamSet::TSubConIPAddressInfo &)
+	?Remove@CHookAddressInfo@@QAEXPAVCIPProtoBinder@@@Z @ 3 NONAME ; void CHookAddressInfo::Remove(class CIPProtoBinder *)
+	?Remove@CHookAddressInfo@@QAEXPAVCIPProtoBinder@@AAUTSubConIPAddressInfo@CSubConIPAddressInfoParamSet@@@Z @ 4 NONAME ; void CHookAddressInfo::Remove(class CIPProtoBinder *, struct CSubConIPAddressInfoParamSet::TSubConIPAddressInfo &)
+

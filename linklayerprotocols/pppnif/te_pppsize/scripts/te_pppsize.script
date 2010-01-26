@@ -1,0 +1,39 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+// backup the old commsdb
+
+run_script z:\TestData\scripts\te_esock_test_unloadesockForced.script
+//Get backup of present database in cedout.cfg
+ced -i z:\testdata\configs\te_pppsize.xml te_pppsize.log
+run_script z:\TestData\scripts\te_esock_test_loadesock.script
+
+//
+PRINT Run all PPP Size tests
+
+//
+// load the suite
+//
+LOAD_SUITE TE_PPPSize -SharedData
+//
+START_TESTCASE			NET-PPP-Size-0101
+//! @SYMTestCaseID		NET-PPP-Size-0101
+RUN_TEST_STEP 2000 TE_PPPSize PPPMinMaxMMU z:\testdata\configs\te_pppsize.ini
+END_TESTCASE			NET-PPP-Size-0101
+
+run_script z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+
+

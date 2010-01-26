@@ -1,0 +1,57 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRINT Integration test 4.09 - CDMA outgoing with ipv4 termination using rnif::stop
+
+LOAD_SUITE TE_Esock
+LOAD_SUITE te_esockutil
+
+
+// open socket server 
+RUN_TEST_STEP 100 TE_Esock OpenServer   
+
+
+START_TESTCASE			NET-Integration-Cdma-0801
+//! @SYMTestCaseID		NET-Integration-Cdma-0801
+
+
+// open socket
+RUN_TEST_STEP 100 TE_Esock Test1.2 z:\testdata\configs\integration\itest_s4\itest.ini
+
+// do test
+RUN_TEST_STEP 1000 TE_Esock SendData z:\testdata\configs\integration\itest_s4\ipv4.ini
+
+// close using rnif::stop 
+RUN_TEST_STEP 3000 te_esockutil TE_ESockUtilStopAllInterfaces
+
+// check the network is NOT active
+RUN_TEST_STEP 100 te_esockutil TE_ESockUtilIsNetworkNotActive
+
+
+
+// close socket
+RUN_TEST_STEP 100 TE_Esock Test1.15 z:\testdata\configs\integration\itest_s4\itest.ini
+
+TEST_COMPLETE CDMA_test4_09
+END_TESTCASE			NET-Integration-Cdma-0801
+
+// close socket server 
+RUN_TEST_STEP 100 TE_Esock CloseServer   
+
+// log result
+PRINT Result for Integration test 4.09 - CDMA outgoing with ipv4 termination using rnif::stop
+
+

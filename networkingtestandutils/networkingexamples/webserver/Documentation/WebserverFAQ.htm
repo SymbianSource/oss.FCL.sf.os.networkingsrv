@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Nokia Standard Document Template</TITLE>
+</HEAD>
+<BODY>
+
+<B><U><FONT FACE="Arial" SIZE=5><P>Epoc Webserver FAQs:</P>
+
+<OL>
+
+</U></FONT><FONT FACE="Arial"><LI>The connection is shut down after a while. How can I solve it ?</LI>
+</B></FONT><FONT FACE="Arial" SIZE=3>
+<P>After a time of inactivity the conections are automatcally shutting down by the RAS server or by the EPOC device. To solve this problem you can follow the following steps:</P>
+
+<P>In the EPOC device, go to the Control Panel. Select Internet. In the box "If idle, stay on line for" select the maximum value (<I>e.g. 59:59</I>). </P>
+<P>(Note: You can start ping to ping a packet every, for example, 30 minutes to the emulator to avoid disconection after 1 hour.)</P>
+
+<P>In Windows NT, start the registry editor (<I>\Winnt\system32\regedt32.exe</I>). </P>
+<P>Go to <I>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RemoteAccess\Parameters.</P>
+</I><P>Select the registry <I>Autodisconnect</I> and set it to zero.This action disables <I>Autodisconnect</I>.</P>
+
+<P>(Note: Do not minimise the emulator, otherwise the connection is closed. To avoid automatic switch off : go to the Control Panel.Select Switch On/Off. In the box automatic switch off, select <I>No</I>.)</P>
+</FONT><FONT FACE="Arial">
+<B><LI>The RAS connection is not established and no error is reported when I start the Webserver with the new stack ?</LI>
+
+</B></FONT><FONT FACE="Arial" SIZE=3><P>If you have recompile the entire 6pack project, probably you have updated the <I>commdb.dll </I>and <I>commdb.lib</I>. In that case,  go to the <I>esock.ini</I> file (<I>/epoc32/release/wins/deb/Z/system/data</I>) and change the following lines:</P>
+
+<P>&#9;<B>[nifman]</P>
+<P>&#9;default = netdial</P>
+</B><P>by</P>
+<B><P>&#9;[nifman]</P>
+<P>default= ntras</P>
+</FONT><FONT FACE="Arial">
+<LI>When I try to run <I>ebld</I> I get an '<I>Spawned Failed: Invalid argument'</I> error<I> </I>in the command line, why ?</LI></OL>
+
+<DIR>
+
+</B><P>In <I>Control Panel | System </I>go to <I>Enviroment</I>. There is an enviroment variable called <I>ComSpec</I>. Check that the value in it is correct. It should be:</P>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P> <I>C:\WINNT\C:\WINNT\system32\cmd.exe</P>
+</I></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P>    If it is not a proper command program must be defined instead.(e.g:4nt)</P>
+
+</FONT><FONT FACE="Arial" SIZE=3><P> </P></FONT></BODY>
+</HTML>

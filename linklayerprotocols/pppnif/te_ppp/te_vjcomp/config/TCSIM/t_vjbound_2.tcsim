@@ -1,0 +1,48 @@
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of the License "Symbian Foundation License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.symbianfoundation.org/legal/sfl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// T_VJBOUND_2
+// Test Ack deltas (d) where 0x100<=d<0x10000
+// tcsim input file to generate test data for VJ compression tests.
+// 
+//
+
+#include "packet.def"
+#include "ports.tc"
+
+dev eth0 100 Mbps {
+    egress {
+    }
+}
+
+// Packet to prime the compressor
+send TCP_PCK($ip_id=1 $ip_sum=0x66cc $tcp_sport = PORT_FTP_DATA $tcp_dport = 1234 $tcp_ACK=1 $tcp_seq=0 $tcp_sum=0x65eb)
+     0x31
+
+// Ack+0x100
+send TCP_PCK($ip_id=2 $ip_sum=0x66cb $tcp_sport = PORT_FTP_DATA $tcp_dport = 1234 $tcp_ACK=1 $tcp_ack=0x100 $tcp_seq=1 $tcp_sum=0x63ea)
+     0x32
+
+// Ack+0xffff
+send TCP_PCK($ip_id=3 $ip_sum=0x66ca $tcp_sport = PORT_FTP_DATA $tcp_dport = 1234 $tcp_ACK=1 $tcp_ack=0x100ff $tcp_seq=2 $tcp_sum=0x62e9)
+     0x33
+
+// Reset ACK just before wraparound
+send TCP_PCK($ip_id=4 $ip_sum=0x66c9 $tcp_sport = PORT_FTP_DATA $tcp_dport = 1234 $tcp_ACK=1 $tcp_ack=0xffffff80 $tcp_seq=3 $tcp_sum=0x6367)
+     0x34
+
+// Ack+0x1000
+send TCP_PCK($ip_id=5 $ip_sum=0x66c8 $tcp_sport = PORT_FTP_DATA $tcp_dport = 1234 $tcp_ACK=1 $tcp_ack=0xf80 $tcp_seq=4 $tcp_sum=0x5267)
+     0x35
+
+end

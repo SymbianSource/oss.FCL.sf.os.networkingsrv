@@ -1,0 +1,58 @@
+// Copyright (c) 2001-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// tlsprovider.dll TLS provider implementation.
+// 
+//
+
+/**
+ @file
+*/
+
+TARGET			tlsprovider.dll
+CAPABILITY		All -Tcb
+TARGETTYPE		dll
+   
+
+UID	0x1000008d 	0x10200F8B 	
+VENDORID 0x70000001
+ 
+SOURCEPATH		../source/tlsprovider
+SOURCE			CTlsProvider.cpp  CTlsSession.cpp   tlsprovinterface.cpp
+SOURCE	                CTlsEncrypt.cpp Ctlsclntauthenticate.cpp  Ctlsbrowsetoken.cpp
+SOURCE                  tlsprovider_log.cpp tlsproviderpolicy.cpp
+
+USERINCLUDE		../inc
+USERINCLUDE		../../../../security/crypto/weakcrypto/inc
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+LIBRARY	euser.lib  pkixcert.lib
+LIBRARY estor.lib
+LIBRARY	efsrv.lib 
+LIBRARY crypto.lib     
+LIBRARY ctframework.lib
+LIBRARY certstore.lib
+//LIBRARY estor.lib x500.lib   asn1.lib
+//LIBRARY bigint.lib
+LIBRARY hash.lib
+LIBRARY random.lib
+LIBRARY x509.lib x500.lib
+LIBRARY ecom.lib
+LIBRARY			cryptography.lib
+LIBRARY ctfinder.lib
+LIBRARY tlscacheclient.lib
+LIBRARY bafl.lib
+DEBUGLIBRARY            flogger.lib
+
+deffile		tlsprovider.def
+SMPSAFE

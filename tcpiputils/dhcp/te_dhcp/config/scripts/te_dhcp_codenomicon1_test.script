@@ -1,0 +1,60 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//!//////////////////////////////////////////////////////////////////
+//! @file
+//! @SYMTestSuiteName	 	  	NET-DHCP-CIT
+//! @SYMScriptTestEnvironment	TestExecuteFramework (TEF).
+//! @SYMScriptPurpose			Script for DHCP testing with Codenomicon tool.
+//! @SYMScriptInfo				1.Here we use CommsDB with ipv4 settings.
+//!//////////////////////////////////////////////////////////////////
+
+# ORDER IS IMPORTANT! SetIAPToUse and SetAddressMode lines affect the operation of the subsequent commands
+
+//Unload esock forcefully
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+//Configure commdb.This config file has explicit settings for IPv4
+ced -i z:\TestData\configs\DHCP\DHCPced_ip4.xml
+
+//Load the Server
+LOAD_SUITE DhcpTestServer
+
+# Load esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+START_TESTCASE          NET-Dhcp-0501
+//! @SYMTestCaseID      NET-Dhcp-0501
+run_test_step 5 DhcpTestServer SetAddressMode z:\TestData\configs\DHCP\dhcptest.ini IPv4
+END_TESTCASE            NET-Dhcp-0501
+
+START_TESTCASE          NET-Dhcp-0502
+//! @SYMTestCaseID      NET-Dhcp-0502
+////////////////////////
+// SET IAP TO DYNAMIC //
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet1
+////////////////////////
+END_TESTCASE            NET-Dhcp-0502
+
+START_TESTCASE          NET-Dhcp-0503
+//! @SYMTestCaseID      NET-Dhcp-0503
+run_test_step 500 DhcpTestServer Codenomicon1	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE            NET-Dhcp-0503
+
+# Stop all interfaces
+RUN_SCRIPT Z:\TestData\Scripts\te_esock_test_stopallinterfaces.script
+
+# Unload esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script

@@ -1,0 +1,253 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+run_utils copyfile z:\TestData\configs\ts_dummy.ini c:\ts_dummy.ini
+run_utils makereadwrite c:\ts_dummy.ini
+
+
+run_script z:\TestData\scripts\esock_test_loadesock.script
+load_suite TS_DummyPPP.dll
+
+run_test_step 1000, TS_DummyPPP, PreCopyTest
+test_complete
+
+# First initialise the system
+heap_mark
+run_test_step 1000, TS_DummyPPP, CommInit
+heap_markend
+test_complete
+#
+# first lets do udp testing with the dummy ppp nif
+#
+
+# Unload ESock
+run_script z:\TestData\scripts\esock_test_unloadesockforced.script
+
+# this assumes that ced can run successfully 
+# (esock must not still be running from previous tests)
+ced  z:\testdata\configs\ts_dummy.xml
+
+#Load ESock
+run_script z:\TestData\scripts\esock_test_loadesock.script
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test1
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test2
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test3
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test4
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test5
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test6
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test7
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test8
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test9
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test10
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test11
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test12
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test13
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test14
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test15
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test16
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test17
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test18
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test19
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test20
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test21
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test22
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test23
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test24
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test25
+heap_markend
+test_complete
+
+// Previously, this test expected to fail when starting an illegal IAP.  However,
+// a defect fix has since caused the behaviour when starting an illegal IAP to
+// result in a prompt rather than failing immediately.  Consequently, this test
+// now requires the new networking/dialog component and associated notifiers -
+// these allow dialog prompts to be suppressed and treated as if "Yes" were pressed.
+// In addition, the test needs to be modified to expect a success in starting
+// the illegal IAP connection.
+//
+//heap_mark
+//run_test_step 5000, TS_DummyPPP, Test26
+//heap_markend
+//test_complete
+
+//heap_mark
+//run_test_step 5000, TS_DummyPPP, Test27
+//heap_markend
+//test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test28
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test29
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test30
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test31
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test32
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test33
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test34
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test35
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test36
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 5000, TS_DummyPPP, Test37
+heap_markend
+test_complete
+
+
+#
+# force CCover to write back any changes to its data file before shutting down. In non-CCover
+# builds this will do nothing.
+
+run_test_step -1, TS_DummyPPP, ForceCCoverWrite
+
+run_test_step 1000, TS_DummyPPP, PostDeleteTest
+test_complete
+
+# Unload ESock
+run_script z:\TestData\scripts\esock_test_unloadesockforced.script
+
+run_utils delete c:\ts_dummy.ini
+test_complete

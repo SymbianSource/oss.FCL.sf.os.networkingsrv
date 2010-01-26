@@ -1,0 +1,113 @@
+// Copyright (c) 2000-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// SSL 3.0 and TLS 1.0 implementation
+// 
+//
+
+/**
+ @file
+*/
+
+#include "../test/te_tlsunittest/group/bld.inf"
+
+PRJ_PLATFORMS
+
+DEFAULT
+
+PRJ_EXPORTS
+
+../inc/SSL.H SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(ssl.h)
+../inc/ssl_compatibility.h SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(ssl_compatibility.h)
+../inc/ssl_internal.h SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(ssl_internal.h)
+../inc/SSLErr.h SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(sslerr.h)
+../secsock/SecureSocketInterface.h SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(securesocketinterface.h)
+../secsock/SecureSocket.h SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(securesocket.h)
+../secsock/securesocket_internal.h SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(securesocket_internal.h)
+../secsock/GenericSecureSocket.h 	SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(genericsecuresocket.h)
+../secsock/GenericSecureSocket.inl 	SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(genericsecuresocket.inl)
+
+../group/tls.iby			/epoc32/rom/include/tls.iby
+../group/SslErr.ra			SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(errors/generic/sslerr.ra)
+../group/SslErr.rls			SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(errors/generic/sslerr.rls)
+
+PRJ_TESTEXPORTS
+../group/ts_tls.iby			/epoc32/rom/include/ts_tls.iby
+
+../ts_tls/data/cacerts_psk.dat		z:/testdata/configs/cacerts_psk.dat
+../ts_tls/data/certclients_psk.dat	z:/testdata/configs/certclients_psk.dat
+../ts_tls/data/keys_psk.dat		z:/testdata/configs/keys_psk.dat
+
+../ts_tls/scripts/ssl_ntras_31.script 	z:/testdata/scripts/ssl_ntras_31.script
+../ts_tls/scripts/ssl_ntras_30.script 	z:/testdata/scripts/ssl_ntras_30.script
+../ts_tls/scripts/Tls_ntras.cfg 	z:/testdata/configs/tls_ntras.cfg
+../ts_tls/scripts/tls_oom.script 	z:/testdata/scripts/tls_oom.script
+../ts_tls/scripts/tls_psk.script 	z:/testdata/scripts/tls_psk.script
+../ts_tls/scripts/Tls_ethernet.xml 	z:/testdata/configs/tls_ethernet.xml
+
+
+// tsecdlg input file
+../ts_tls/data/tls_t_secdlg_in.dat 	z:/testdata/configs/tls_t_secdlg_in.dat
+
+../ts_tls/scripts/Tls3.ini  	 	z:/testdata/configs/tls3.ini
+../ts_tls/scripts/Tls4.ini  	 	z:/testdata/configs/tls4.ini
+../ts_tls/scripts/Tls5.ini  	 	z:/testdata/configs/tls5.ini
+../ts_tls/scripts/Tls8.ini  	 	z:/testdata/configs/tls8.ini
+../ts_tls/scripts/Tls9.ini  	 	z:/testdata/configs/tls9.ini
+../ts_tls/scripts/Tls11.ini  	 	z:/testdata/configs/tls11.ini
+../ts_tls/scripts/Tls12.ini  	 	z:/testdata/configs/tls12.ini
+../ts_tls/scripts/Tls13.ini  	 	z:/testdata/configs/tls13.ini
+../ts_tls/scripts/Tls14.ini  	 	z:/testdata/configs/tls14.ini
+../ts_tls/scripts/Tls16.ini  	 	z:/testdata/configs/tls16.ini
+../ts_tls/scripts/Tls19.ini  	 	z:/testdata/configs/tls19.ini
+../ts_tls/scripts/Tls20.ini  	 	z:/testdata/configs/tls20.ini
+../ts_tls/scripts/Tls21.ini  	 	z:/testdata/configs/tls21.ini
+../ts_tls/scripts/Tls22.ini  	 	z:/testdata/configs/tls22.ini
+../ts_tls/scripts/Tls23.ini  	 	z:/testdata/configs/tls23.ini
+../ts_tls/scripts/Tls24.ini  	 	z:/testdata/configs/tls24.ini
+../ts_tls/scripts/Tls25.ini  	 	z:/testdata/configs/tls25.ini
+../ts_tls/scripts/Tls26.ini  	 	z:/testdata/configs/tls26.ini
+../ts_tls/scripts/Tls28.ini  	 	z:/testdata/configs/tls28.ini
+../ts_tls/scripts/Tls5b.ini  	 	z:/testdata/configs/tls5b.ini
+../ts_tls/scripts/TlsA.ini  	 	z:/testdata/configs/tlsa.ini
+../ts_tls/scripts/tls2f.ini  	 	z:/testdata/configs/tls2f.ini
+../ts_tls/scripts/tls35.ini  	 	z:/testdata/configs/tls35.ini
+../ts_tls/scripts/Tls36.ini  	 	z:/testdata/configs/tls36.ini
+../ts_tls/scripts/tls37.ini  	 	z:/testdata/configs/tls37.ini
+../ts_tls/scripts/Tls38.ini  	 	z:/testdata/configs/tls38.ini
+../ts_tls/scripts/Tlssa.ini  	 	z:/testdata/configs/tlssa.ini
+../ts_tls/scripts/tls_oom.ini  	 	z:/testdata/configs/tls_oom.ini
+../ts_tls/scripts/tls1.ini  	 	z:/testdata/configs/tls1.ini
+../ts_tls/scripts/tls2.ini  	 	z:/testdata/configs/tls2.ini
+../ts_tls/scripts/TLS_RSA_WITH_NULL_SHA.ini						z:/testdata/configs/tls_rsa_with_null_sha.ini
+../ts_tls/scripts/TLS_RSA_WITH_NULL_MD5.ini						z:/testdata/configs/tls_rsa_with_null_md5.ini
+../ts_tls/scripts/TLS_SNE_SINGLE_SERVER.ini						z:/testdata/configs/tls_sne_single_server.ini
+../ts_tls/scripts/TLS_SNE_MULTIPLE_SERVER.ini					z:/testdata/configs/tls_sne_multiple_server.ini
+../ts_tls/scripts/TLS_PSK_WITH_RC4_128_SHA.ini					z:/testdata/configs/tls_psk_with_rc4_128_sha.ini
+../ts_tls/scripts/TLS_SNE_SINGLE_SERVER_NEG.ini					z:/testdata/configs/tls_sne_single_server_neg.ini
+../ts_tls/scripts/TLS_PSK_WITH_AES_128_CBC_SHA.ini				z:/testdata/configs/tls_psk_with_aes_128_cbc_sha.ini
+../ts_tls/scripts/TLS_PSK_WITH_AES_256_CBC_SHA.ini				z:/testdata/configs/tls_psk_with_aes_256_cbc_sha.ini
+../ts_tls/scripts/TLS_PSK_WITH_3DES_EDE_CBC_SHA.ini				z:/testdata/configs/tls_psk_with_3des_ede_cbc_sha.ini
+../ts_tls/scripts/TLS_PSK_WITH_AES_128_CBC_SHA_NOCALLBACK.ini	z:/testdata/configs/tls_psk_with_aes_128_cbc_sha_nocallback.ini
+
+
+
+
+
+PRJ_MMPFILES
+SslLib.mmp
+SSL.MMP
+SecureSocket.mmp
+
+PRJ_TESTMMPFILES
+ts_tls.mmp

@@ -1,0 +1,97 @@
+<action>
+	<actionname>Opening a certificate store manager</actionname>
+	<actiontype>init</actiontype>
+	<actionbody>
+		<mode>write</mode>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>Creating a CertificateAppInfoManager</actionname>
+	<actiontype>initappmanager</actiontype>
+	<actionbody></actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>Adding client SW Install</actionname>
+	<actiontype>addclient</actiontype>
+	<actionbody>
+		<name>rsacertificate</name>
+		<uid>270488260</uid>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+<actionname>Import a RSA key</actionname>
+	<actiontype>importkey</actiontype>
+	<actionbody>
+		<ImportData>rsacertkey1.txt</ImportData>
+		<keyusage>allusagesbutNR</keyusage>
+		<keysize>1024</keysize>
+		<keylabel>rsacertificate</keylabel>
+		<keyalgorithm>RSA</keyalgorithm>
+		<keyaccesstype>Extractable</keyaccesstype>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>4.1.4.1, Add certificate rsacert1 ***NEW***</actionname>
+	<actiontype>addcert</actiontype>
+	<actionbody>
+		<format>X509</format>
+		<label>rsacertificate</label>
+		<issuerkey></issuerkey>
+		<subjectkey>4808f03892fe836e78d048bcefcca4a37913d886</subjectkey>
+		<certstore>0</certstore>
+		<certfile>c:\unifiedcertstore2\rsacert1.cer</certfile>
+		<certowner>User</certowner>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>Set TLS application for the TestCA certificate</actionname>
+	<actiontype>setapplications</actiontype>
+	<actionbody>
+		<label>rsacertificate</label>
+		<uid>270488260</uid>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>set the trust for rsacert1 certificate</actionname>
+	<actiontype>settrust</actiontype>
+	<actionbody>
+		<label>rsacertificate</label>
+		<trust>1</trust>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>Deleting the writable certificate store manager</actionname>
+	<actiontype>delete</actiontype>
+	<actionbody></actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>

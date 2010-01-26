@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<relnotes schema="1.0.0" name="Network Interface Manager" purpose="" type="component">
+  <revision major="2" functional="0" minor="1" date="20070911">
+    <ref name="netcfgext.dll" type="binary"/>
+    <ref name="DEF111094" type="defect"/>
+    <ref name="nifman.dll" type="binary"/>
+    <description>Nifman before forwarding message, truncating buffer to length of the descriptor length in forwarded message.</description>
+  </revision>
+  <revision major="2" functional="0" minor="0" date="20070910" access="publishedPartner">
+    <ref name="1647-1648" type="preq"/>
+    <ref name="nifman.dll" type="binary"/>
+    <description>PREQ 1647-1648 introduces following constnats. KConnGetDhcpHdrSname,KConnGetDhcpHdrSiaddr, KConnGetTftpServerName, KConnGetTftpServerAddr  and KConnDhcpGetMultipleParams</description>
+  </revision>
+  <revision major="1" functional="0" minor="1" date="20070803">
+    <ref name="PDEF110098" type="defect"/>
+    <description>Enabling IAP commsdat records to be protected with the ECDPrivate attribute. This requires that the DHCP and DND components are assigned the ReadDeviceData privilege and that various changes are made to ensure hidden IAP records are visible to networking components which need to be able to read them.</description>
+  </revision>
+  <revision major="1" functional="0" minor="0" date="20070731">
+    <ref name="PDEF109168" type="defect"/>
+    <description>DHCP fallback is now only attempted for KConnGetSipServerAddr SIP address requests for index zero and may fail with any system error code.  Subsequent address index requests will either return KErrNone or KErrNotFound.</description>
+  </revision>
+  <purpose>
+    Framework for making and monitoring connections to other devices or networks, defines NIF plugin interface.
+  </purpose>
+  <defect number="DEF108287" title="[399] Wrong stop reason code sent from agentscpr on error during agent startup" revision="010">
+    
+    DEF108287 [399] Wrong stop reason code sent from agentscpr on error during agent startup
+    DEF108313 [399] Wrong msg sent to AgentCpr when agent fails to start
+    
+  </defect>
+  <defect number="DEF108313" title="[399] Wrong msg sent to AgentCpr when agent fails to start" revision="009">
+    
+    DEF108287 [399] Wrong stop reason code sent from agentscpr on error during agent startup
+    DEF108313 [399] Wrong msg sent to AgentCpr when agent fails to start
+    
+  </defect>
+  <defect number="DEF108229" title="Documentation fix and setting of Length for DNS option investigation in Ioctl()" revision="008">
+    Documentation fix and setting of Length for DNS option investigation in Ioctl()
+  </defect>
+  <defect number="DEF106234" title="[399] EStarted flag not cleared in AgentScpr when flow sends TDataClientGoneDown" revision="007">
+    [399] EStarted flag not cleared in AgentScpr when flow sends TDataClientGoneDown
+  </defect>
+  <defect number="DEF106236" title="[399] Agent connection error handling behavior different from legacy" revision="006">
+    [399] Agent connection error handling behavior different from legacy
+  </defect>
+  <preq number="749" title="Simplified Bluetooth PAN NAP Role" revision="005">
+    
+  </preq>
+  <defect number="PDEF102511" title="V&amp;V Ricardo: IM+ has problems with non-existent WLAN" revision="004">
+    Altered timing of agent connection failure notification
+  </defect>
+  <defect number="PDEF102399" title="S60_MuDo_2006_wk49: Reconnecting to live video stream fails" revision="003">
+    Cause reconnect when RConnection::Start collides with Idle Timer Stop
+  </defect>
+  <defect number="PDEF102237" title="&quot;Connecting to mailbox '.....' displayed forever if WLAN is lost during sending" revision="002">
+    Ensure that RConnection objects attached to interfaces that are starting up will receive progresses with an associated error if the interface fails to start up (PDEF102237). Ensure that the idle timer mode is set to a correct value (i.e. not ETimerUnknown) after KConfigDaemonFinishedRegistration and KNullConfigDaemonConfigureNetwork progresses - particularly if medium timeout value is -1 (PDEF102325).
+  </defect>
+  <defect number="PDEF102325" title="PDP context not closed after e-mail connection" revision="001">
+    Ensure that RConnection objects attached to interfaces that are starting up will receive progresses with an associated error if the interface fails to start up (PDEF102237). Ensure that the idle timer mode is set to a correct value (i.e. not ETimerUnknown) after KConfigDaemonFinishedRegistration and KNullConfigDaemonConfigureNetwork progresses - particularly if medium timeout value is -1 (PDEF102325).
+  </defect>
+</relnotes>

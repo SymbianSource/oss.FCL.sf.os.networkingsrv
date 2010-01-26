@@ -1,0 +1,4 @@
+EXPORTS
+	?IdnToPunycode@TPunyCodeDndName@@QAEHABV?$TBuf@$0BAA@@@@Z @ 1 NONAME ; int TPunyCodeDndName::IdnToPunycode(class TBuf<256> const &)
+	?PunycodeToIdn@TPunyCodeDndName@@QAEHAAVTDes16@@H@Z @ 2 NONAME ; int TPunyCodeDndName::PunycodeToIdn(class TDes16 &, int)
+

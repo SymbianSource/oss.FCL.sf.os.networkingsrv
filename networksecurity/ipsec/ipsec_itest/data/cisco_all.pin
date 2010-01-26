@@ -1,0 +1,12 @@
+[TYPE]
+0
+[POLICYNAME]
+cisco
+[POLICYVERSION]
+1.0
+[POLICYDESCRIPTION]
+all tests to cisco
+[ISSUERNAME]
+test.intra
+[CONTACTINFO]
+ipsec@symbian.com

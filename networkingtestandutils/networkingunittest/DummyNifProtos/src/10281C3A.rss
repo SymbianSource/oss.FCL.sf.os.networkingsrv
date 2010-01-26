@@ -1,0 +1,87 @@
+// Copyright (c) 2005-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// @file 10281C3A.RSS
+// Registry info for Dummy/Hungry CFProtocol modules
+// 
+//
+
+#include <ecom/registryinfo.rh>
+
+RESOURCE REGISTRY_INFO theInfo
+{
+dll_uid = 0x10281C3A;
+interfaces = 
+    {
+    INTERFACE_INFO
+        {
+        interface_uid = 0x10281C33;
+        implementations = 
+            {
+           	IMPLEMENTATION_INFO
+                {
+                implementation_uid = 0x10281C3B;
+                version_no = 1;
+                display_name = "Dummy Flow Factory";
+                default_data = "dummynif";
+                opaque_data = "";
+                }
+            };
+		},
+    INTERFACE_INFO
+        {
+        interface_uid = 0x10281C33;
+        implementations = 
+            {
+           	IMPLEMENTATION_INFO
+                {
+                implementation_uid = 0x10281C3D;
+                version_no = 1;
+                display_name = "Hungry Flow Factory";
+                default_data = "hungrynif";
+                opaque_data = "";
+                }
+            };
+		},
+	INTERFACE_INFO
+        {
+        interface_uid =  0x10274546;
+        implementations = 
+            {
+           IMPLEMENTATION_INFO
+                {
+                implementation_uid = 0x10281E04;
+                version_no = 1;
+                display_name = "DummyProto Meta Connection Provider Factory";
+                default_data = "DummyProtoMCprFactory";
+                opaque_data = "";
+                }
+            };
+        },
+    INTERFACE_INFO
+    	{
+    	interface_uid =  0x10281DD7;
+    	implementations = 
+           	{
+           	IMPLEMENTATION_INFO
+           		{
+           		implementation_uid = 0x10281DF6;
+           		version_no = 1;
+           		display_name = "Dummy Tier Manager";
+               	default_data = "DummyTierManager";
+               	opaque_data = "";
+           		}
+           	};
+    	}
+    };
+}

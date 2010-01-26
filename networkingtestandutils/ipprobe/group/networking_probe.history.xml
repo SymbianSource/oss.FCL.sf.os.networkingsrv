@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relnotes name="IP Hook Examples">
+  <purpose>
+  </purpose>
+  <defect number="PDEF127005" title="logging changed from flogger to commsdbg" revision="001">
+  </defect>
+
+</relnotes>

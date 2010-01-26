@@ -1,0 +1,39 @@
+#
+# Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+# All rights reserved.
+# This component and the accompanying materials are made available
+# under the terms of "Eclipse Public License v1.0"
+# which accompanies this distribution, and is available
+# at the URL "http://www.eclipse.org/legal/epl-v10.html".
+#
+# Initial Contributors:
+# Nokia Corporation - initial contribution.
+#
+# Contributors:
+#
+# Description: 
+#
+
+component	networking_dnd
+source	\sf\os\networkingsrv\tcpiputils\dnd\Documentation
+source	\sf\os\networkingsrv\tcpiputils\dnd\eabi
+source	\sf\os\networkingsrv\tcpiputils\dnd\Test
+source	\sf\os\networkingsrv\tcpiputils\dnd\bmarm
+source	\sf\os\networkingsrv\tcpiputils\dnd\bwins
+source	\sf\os\networkingsrv\tcpiputils\dnd\group
+source	\sf\os\networkingsrv\tcpiputils\dnd\inc
+source	\sf\os\networkingsrv\tcpiputils\dnd\include
+source	\sf\os\networkingsrv\tcpiputils\dnd\src
+binary	\sf\os\networkingsrv\tcpiputils\dnd\group	all
+exports	\sf\os\networkingsrv\tcpiputils\dnd\group
+notes_source	\component_defs\release.src
+
+-export_file \sf\os\networkingsrv\tcpiputils\dnd\data\resolver.ini   \epoc32\data\z\private\10000882\resolver.ini
+-export_file \sf\os\networkingsrv\tcpiputils\dnd\data\resolver.ini   \epoc32\winscw\c\private\10000882\resolver.ini
+
+
+
+# ==   comments appear after the line they describe  ==
+ipr D
+ipr T \sf\os\networkingsrv\tcpiputils\dnd\Test
+

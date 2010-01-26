@@ -1,0 +1,69 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRINT Perform all the TS_QoSAPI tests
+PRINT
+
+run_script z:\TestData\scripts\esock_test_unloadesockForced.script
+run_script z:\TestData\scripts\esock_test_unloadesock.script
+ced z:\testdata\configs\ts_qosapi.xml ced.log
+run_script z:\TestData\scripts\esock_test_loadesock.script
+
+DELAY 20000	
+//
+// Implicit Sockets IP4 Udp
+//
+run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_1_HLR5_1_1.script
+DELAY 20000
+run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_2_HLR5_1_2.script
+//run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_3_HLR5_2_1.script - Network Changes QoS
+//run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_4_HLR5_2_2.script - Network Changes QoS
+//run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_5_HLR5_2_3.script - Network Drops Context
+//run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_6_HLR5_2_4.script - Network Changes QoS
+//run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_7_HLR5_2_5.script - Network Changes QoS
+run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_8_HLR5_2_6.script
+run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_9_HLR5_3_1.script
+//run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_10_HLR5_3_2.script - Network Changes QoS
+//run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_11_HLR5_4_1.script - Network Changes QoS
+//run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_12_HLR5_4_2.script - Network Changes QoS
+//run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_13_HLR5_4_3.script - Network Drops Context
+//run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_14_HLR5_4_4.script - Network Drops Context
+//run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_15_HLR5_5_1.script - Problem with Join
+//run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_16_HLR5_5_2.script - Problem with Join
+//run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_17_HLR5_5_3.script - Problem with Join
+//run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_18_HLR5_5_4.script - Leave Problem
+//run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_19_HLR5_5_5.script - Leave Problem
+run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_20_HLR5_6_1.script
+run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_21_HLR5_6_2.script
+run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_22_HLR5_6_3.script
+run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_23_HLR5_6_4.script
+run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_24_HLR5_6_5.script
+run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_25_HLR5_6_6.script
+run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_26_HLR5_6_7.script
+run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_27_HLR5_6_8.script
+//run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_28_HLR5_6_9.script - Network Drops Context
+//run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_29_HLR5_6_10.script - Network Drops Context
+run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_30_HLR5_6_11.script
+run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_31_HLR5_7_1.script
+run_script z:\testdata\scripts\ImplicitUdp\QoS_Scenario_32_HLR5_7_2.script
+
+// Close all possible opened sessions
+RUN_SCRIPT Z:\TestData\Scripts\esock_test_stopallinterfaces.script
+
+run_script z:\TestData\scripts\esock_test_unloadesockForced.script
+
+PRINT
+PRINT TS_QoSAPI tests complete

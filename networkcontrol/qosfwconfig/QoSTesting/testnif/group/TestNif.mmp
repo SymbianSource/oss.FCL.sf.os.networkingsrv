@@ -1,0 +1,51 @@
+// Copyright (c) 2005-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// testnif.mmp - Network interface module for QoS testing
+//
+
+MACRO        UMTSSIM=1
+
+// Note Testnif should not be compiled if the value of MM_ETEL_API is zero. 
+// A value of zero means that the UMTS network simulator is not in use.  
+MACRO         MM_ETEL_API=1
+
+TARGET          testnif.nif
+TARGETTYPE      DLL
+
+UID             0x10003D3A 0x101F6D06
+VENDORID        0x70000001
+
+SOURCEPATH    ..\src
+SOURCE        UMTSNif.cpp UMTSNifdll.cpp UMTSNifReqs.cpp UMTSNifLink.cpp
+SOURCE        UMTSNifController.cpp NifContext.cpp ContextNotifications.cpp
+SOURCE        ServiceNotifications.cpp nifcontextmanager.cpp
+
+USERINCLUDE     ..\inc 
+SYSTEMINCLUDE   \epoc32\include\networking \epoc32\include \epoc32\include\comms-infras 
+SYSTEMINCLUDE   ..\..\umtssim\inc 
+
+LIBRARY         euser.lib nifman.lib umtsif.lib esock.lib mbufmgr.lib insock.lib 
+LIBRARY         umtssim_client.lib
+LIBRARY         pep.lib
+LIBRARY         efsrv.lib
+
+DEBUGLIBRARY    flogger.lib
+
+DEFFILE         testnif.def
+
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+
+UNPAGED
+
+SMPSAFE

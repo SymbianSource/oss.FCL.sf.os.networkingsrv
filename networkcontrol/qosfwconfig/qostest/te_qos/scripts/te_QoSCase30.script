@@ -1,0 +1,35 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//
+PRINT Running CASE30
+PRINT 2 PDP contexts with no TFT�s connected to two different APN�s on a R99 network
+PRINT add a secondary to APN 1 with a TFT, the client deactivates one of the contexts
+
+//
+//LOAD_SUITE te_esockteststepsSuite -SharedData
+//RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+PRINT Secondary contexts are not yet supported
+
+//RUN_SCRIPT Z:\TestData\Scripts\te_esock_test_stopallinterfaces.script
+//RUN_SCRIPT Z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+PRINT Completed CASE30
+
+
+
+
+

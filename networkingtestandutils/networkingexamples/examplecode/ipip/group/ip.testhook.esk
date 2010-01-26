@@ -1,0 +1,7 @@
+[sockman]
+protocols= t_Protocol
+
+[t_Protocol]
+filename= ipip6.prt
+index= 1
+bindto= ip6

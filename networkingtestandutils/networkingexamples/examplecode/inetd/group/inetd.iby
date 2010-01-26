@@ -1,0 +1,31 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+#ifndef __INETD_IBY__
+#define __INETD_IBY__
+
+REM dependencies
+#include <esock.iby>
+#include <insock.iby>
+
+
+file=ABI_DIR\DEBUG_DIR\inetd.exe		System\Programs\inetd.exe
+file=ABI_DIR\DEBUG_DIR\ipecho.exe		System\Programs\ipecho.exe
+file=ABI_DIR\DEBUG_DIR\inetdtest.exe		System\Programs\inetdtest.exe
+data=EPOCROOT##epoc32\data\z\system\data\inetd.conf system\data\inetd.conf
+
+
+#endif // __INETD_IBY__

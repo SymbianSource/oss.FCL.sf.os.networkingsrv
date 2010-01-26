@@ -1,0 +1,39 @@
+#
+# Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+# All rights reserved.
+# This component and the accompanying materials are made available
+# under the terms of "Eclipse Public License v1.0"
+# which accompanies this distribution, and is available
+# at the URL "http://www.eclipse.org/legal/epl-v10.html".
+#
+# Initial Contributors:
+# Nokia Corporation - initial contribution.
+#
+# Contributors:
+#
+# Description: 
+#
+
+component	networking_tcpip6
+source	\sf\os\networkingsrv\networkprotocols\tcpipv4v6prt\eabi
+source	\sf\os\networkingsrv\networkprotocols\tcpipv4v6prt\bmarm
+source	\sf\os\networkingsrv\networkprotocols\tcpipv4v6prt\bwins
+source	\sf\os\networkingsrv\networkprotocols\tcpipv4v6prt\Documentation
+source	\sf\os\networkingsrv\networkprotocols\tcpipv4v6prt\group
+source	\sf\os\networkingsrv\networkprotocols\tcpipv4v6prt\inc
+source	\sf\os\networkingsrv\networkprotocols\tcpipv4v6prt\src
+source	\sf\os\networkingsrv\networkprotocols\tcpipv4v6prt\te_tcpip6
+
+binary	\sf\os\networkingsrv\networkprotocols\tcpipv4v6prt\group	all
+exports	\sf\os\networkingsrv\networkprotocols\tcpipv4v6prt\group
+notes_source	\component_defs\release.src
+
+
+-export_file \sf\os\networkingsrv\networkprotocols\tcpipv4v6prt\data\tcpip.eka2.ini    \epoc32\data\z\private\101F7989\esock\tcpip.ini
+-export_file \sf\os\networkingsrv\networkprotocols\tcpipv4v6prt\data\tcpip.eka2.ini    \epoc32\winscw\c\private\101F7989\esock\tcpip.ini
+
+-export_file \sf\os\networkingsrv\networkprotocols\tcpipv4v6prt\data\tcpip.esk      \epoc32\data\z\private\101F7989\esock\ip.tcpip.esk
+-export_file \sf\os\networkingsrv\networkprotocols\tcpipv4v6prt\data\tcpip.esk      \epoc32\winscw\c\private\101F7989\esock\ip.tcpip.esk
+
+ipr D
+ipr T	\sf\os\networkingsrv\networkprotocols\tcpipv4v6prt\te_tcpip6

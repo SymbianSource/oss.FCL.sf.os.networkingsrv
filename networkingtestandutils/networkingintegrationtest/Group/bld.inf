@@ -1,0 +1,358 @@
+// Copyright (c) 2001-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// Integration test system build description file ScheduleTest System
+// 
+//
+
+// Include the bld.inf for the new networking integration tests
+#include "../Te_Http/group/bld.inf"
+#include "../Te_Msg/group/bld.inf"
+#include "../te_Sblp/group/bld.inf"
+
+#ifdef SYMBIAN_NETWORKING_UMTSR5
+// Dedicated Signalling Primary Context tests
+#include "../te_DedicatedSignalling1ryCtx/group/bld.inf"
+#endif // #ifdef SYMBIAN_NETWORKING_UMTSR5
+
+PRJ_EXPORTS
+
+../inc/Log.h						SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/log.h)
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+../inc/TestStep.h					/epoc32/include/networking/teststep.h
+#else
+../inc/TestStep.h					SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/teststep.h)
+#endif
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+../inc/TestSuite.h					/epoc32/include/networking/testsuite.h
+#else
+../inc/TestSuite.h					SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/testsuite.h)
+#endif
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+../inc/TestUtils.h					/epoc32/include/networking/testutils.h
+#else
+../inc/TestUtils.h					SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/testutils.h)
+#endif
+
+
+../Group/integrationtest.iby   				/epoc32/rom/include/integrationtest.iby
+
+PRJ_TESTEXPORTS
+
+// s1 scripts
+../it_script_files/itest_s1.script			/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s1.script
+../it_script_files/itest_s1_manual_tcs.script			/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s1_manual_tcs.script
+../it_script_files/LogOn.script				/epoc32/release/wins/udeb/z/testdata/scripts/integration/logon.script
+../it_script_files/itest_s1/itest_RConnection.script	/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s1/itest_rconnection.script
+../it_script_files/itest_s1/itest1_01.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s1/itest1_01.script
+../it_script_files/itest_s1/itest1_02.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s1/itest1_02.script
+../it_script_files/itest_s1/itest1_03.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s1/itest1_03.script
+../it_script_files/itest_s1/itest1_04.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s1/itest1_04.script
+../it_script_files/itest_s1/itest1_09.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s1/itest1_09.script
+../it_script_files/itest_s1/itest1_10.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s1/itest1_10.script
+../it_script_files/itest_s1/itest1_11.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s1/itest1_11.script
+../it_script_files/itest_s1/itest1_12.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s1/itest1_12.script
+../it_script_files/itest_s1/itest1_13.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s1/itest1_13.script
+../it_script_files/itest_s1/itest1_14.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s1/itest1_14.script
+../it_script_files/itest_s1/itest1_15.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s1/itest1_15.script
+../it_script_files/itest_s1/itest1_16.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s1/itest1_16.script
+../it_script_files/itest_s1/itest1_17.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s1/itest1_17.script
+../it_script_files/itest_s1/ipv4.ini			/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s1/ipv4.ini				
+../it_script_files/itest_s1/ipv6.ini			/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s1/ipv6.ini				
+../it_script_files/itest_s1/client_timeout.ini		/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s1/client_timeout.ini		
+../it_script_files/itest_s1/genconn.ini			/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s1/genconn.ini				
+../it_script_files/itest_s1/itest.ini			/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s1/itest.ini				
+../it_script_files/itest_s1/rnif_timeout.ini		/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s1/rnif_timeout.ini		
+../it_script_files/itest_s1/load_csd.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s1/load_csd.script			
+../it_script_files/itest_s1/csd.xml				/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s1/csd.xml			
+../it_script_files/itest_s1/n6210.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s1/n6210.script			
+../it_script_files/itest_s1/nokia6210.xml		/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s1/nokia6210.xml			
+../it_script_files/itest_s1/itest_load.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s1/itest_load.script			
+../it_script_files/itest_s1/big_ipv4.ini		/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s1/big_ipv4.ini			
+../it_script_files/itest_s1/ipsec_csd.xml		/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s1/ipsec_csd.xml			
+../it_script_files/itest_s1/te_teststeps.ini		/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s1/te_teststeps.ini				
+
+
+
+../it_script_files/itest_s1.script			/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s1.script
+../it_script_files/LogOn.script				/epoc32/release/winscw/udeb/z/testdata/scripts/integration/logon.script
+../it_script_files/itest_s1/itest_RConnection.script	/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s1/itest_rconnection.script
+../it_script_files/itest_s1/itest1_01.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s1/itest1_01.script
+../it_script_files/itest_s1/itest1_02.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s1/itest1_02.script
+../it_script_files/itest_s1/itest1_03.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s1/itest1_03.script
+../it_script_files/itest_s1/itest1_04.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s1/itest1_04.script
+../it_script_files/itest_s1/itest1_09.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s1/itest1_09.script
+../it_script_files/itest_s1/itest1_10.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s1/itest1_10.script
+../it_script_files/itest_s1/itest1_11.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s1/itest1_11.script
+../it_script_files/itest_s1/itest1_12.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s1/itest1_12.script
+../it_script_files/itest_s1/itest1_13.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s1/itest1_13.script
+../it_script_files/itest_s1/itest1_14.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s1/itest1_14.script
+../it_script_files/itest_s1/itest1_15.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s1/itest1_15.script
+../it_script_files/itest_s1/itest1_16.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s1/itest1_16.script
+../it_script_files/itest_s1/itest1_17.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s1/itest1_17.script
+../it_script_files/itest_s1/ipv4.ini			/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s1/ipv4.ini				
+../it_script_files/itest_s1/ipv6.ini			/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s1/ipv6.ini				
+../it_script_files/itest_s1/client_timeout.ini		/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s1/client_timeout.ini		
+../it_script_files/itest_s1/genconn.ini			/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s1/genconn.ini				
+../it_script_files/itest_s1/itest.ini			/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s1/itest.ini				
+../it_script_files/itest_s1/rnif_timeout.ini		/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s1/rnif_timeout.ini		
+../it_script_files/itest_s1/load_csd.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s1/load_csd.script			
+../it_script_files/itest_s1/csd.xml			/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s1/csd.xml			
+../it_script_files/itest_s1/n6210.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s1/n6210.script			
+../it_script_files/itest_s1/nokia6210.xml		/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s1/nokia6210.xml			
+../it_script_files/itest_s1/itest_load.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s1/itest_load.script			
+../it_script_files/itest_s1/big_ipv4.ini		/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s1/big_ipv4.ini			
+../it_script_files/itest_s1/ipsec_csd.xml		/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s1/ipsec_csd.xml			
+../it_script_files/itest_s1/te_teststeps.ini		/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s1/te_teststeps.ini				
+
+
+
+
+// s2 scripts
+../it_script_files/itest_s2.script			/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s2.script
+../it_script_files/itest_s2/itest2_01.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s2/itest2_01.script
+../it_script_files/itest_s2/ipv4.ini			/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s2/ipv4.ini				
+../it_script_files/itest_s2/client_timeout.ini		/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s2/client_timeout.ini		
+../it_script_files/itest_s2/itest.ini			/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s2/itest.ini				
+../it_script_files/itest_s2/load_hscsd.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s2/load_hscsd.script			
+../it_script_files/itest_s2/hscsd.xml			/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s2/hscsd.xml			
+
+../it_script_files/itest_s2.script			/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s2.script
+../it_script_files/itest_s2/itest2_01.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s2/itest2_01.script
+../it_script_files/itest_s2/ipv4.ini			/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s2/ipv4.ini				
+../it_script_files/itest_s2/client_timeout.ini		/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s2/client_timeout.ini		
+../it_script_files/itest_s2/itest.ini			/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s2/itest.ini				
+../it_script_files/itest_s2/load_hscsd.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s2/load_hscsd.script			
+../it_script_files/itest_s2/hscsd.xml			/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s2/hscsd.xml			
+
+// s3 scripts
+../it_script_files/itest_s3.script			/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s3.script
+../it_script_files/itest_s3_manual_tcs.script			/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s3_manual_tcs.script
+../it_script_files/itest_s3/itest3_01.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s3/itest3_01.script
+../it_script_files/itest_s3/itest3_02.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s3/itest3_02.script
+../it_script_files/itest_s3/itest3_03.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s3/itest3_03.script
+../it_script_files/itest_s3/itest3_04.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s3/itest3_04.script
+../it_script_files/itest_s3/itest3_05.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s3/itest3_05.script
+../it_script_files/itest_s3/itest3_05b.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s3/itest3_05b.script
+../it_script_files/itest_s3/itest3_05c.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s3/itest3_05c.script
+../it_script_files/itest_s3/itest3_09.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s3/itest3_09.script
+../it_script_files/itest_s3/itest3_10.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s3/itest3_10.script
+../it_script_files/itest_s3/itest3_11.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s3/itest3_11.script
+../it_script_files/itest_s3/itest3_12.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s3/itest3_12.script
+../it_script_files/itest_s3/itest3_13.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s3/itest3_13.script
+../it_script_files/itest_s3/itest3_14.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s3/itest3_14.script
+../it_script_files/itest_s3/itest3_15.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s3/itest3_15.script
+../it_script_files/itest_s3/itest3_16.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s3/itest3_16.script
+../it_script_files/itest_s3/itest3_17.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s3/itest3_17.script
+../it_script_files/itest_s3/ipv4.ini			/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s3/ipv4.ini				
+../it_script_files/itest_s3/ipv6.ini			/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s3/ipv6.ini				
+../it_script_files/itest_s3/client_timeout.ini		/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s3/client_timeout.ini		
+../it_script_files/itest_s3/route_timeout.ini		/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s3/route_timeout.ini	
+../it_script_files/itest_s3/genconn.ini			/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s3/genconn.ini				
+../it_script_files/itest_s3/itest.ini			/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s3/itest.ini				
+../it_script_files/itest_s3/rnif_timeout.ini		/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s3/rnif_timeout.ini		
+../it_script_files/itest_s3/load_gprs.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s3/load_gprs.script			
+../it_script_files/itest_s3/gprs.xml			/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s3/gprs.xml			
+../it_script_files/itest_s3/te_teststeps.ini		/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s3/te_teststeps.ini				
+
+
+../it_script_files/itest_s3.script			/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s3.script
+../it_script_files/itest_s3/itest3_01.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s3/itest3_01.script
+../it_script_files/itest_s3/itest3_02.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s3/itest3_02.script
+../it_script_files/itest_s3/itest3_03.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s3/itest3_03.script
+../it_script_files/itest_s3/itest3_04.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s3/itest3_04.script
+../it_script_files/itest_s3/itest3_05.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s3/itest3_05.script
+
+../it_script_files/itest_s3/itest3_05b.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s3/itest3_05b.script
+../it_script_files/itest_s3/itest3_05c.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s3/itest3_05c.script
+../it_script_files/itest_s3/itest3_09.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s3/itest3_09.script
+../it_script_files/itest_s3/itest3_10.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s3/itest3_10.script
+../it_script_files/itest_s3/itest3_11.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s3/itest3_11.script
+../it_script_files/itest_s3/itest3_12.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s3/itest3_12.script
+../it_script_files/itest_s3/itest3_13.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s3/itest3_13.script
+../it_script_files/itest_s3/itest3_14.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s3/itest3_14.script
+../it_script_files/itest_s3/itest3_15.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s3/itest3_15.script
+../it_script_files/itest_s3/itest3_16.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s3/itest3_16.script
+../it_script_files/itest_s3/itest3_17.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s3/itest3_17.script
+../it_script_files/itest_s3/ipv4.ini			/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s3/ipv4.ini				
+../it_script_files/itest_s3/ipv6.ini			/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s3/ipv6.ini				
+../it_script_files/itest_s3/client_timeout.ini		/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s3/client_timeout.ini		
+../it_script_files/itest_s3/route_timeout.ini		/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s3/route_timeout.ini	
+../it_script_files/itest_s3/genconn.ini			/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s3/genconn.ini				
+../it_script_files/itest_s3/itest.ini			/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s3/itest.ini				
+../it_script_files/itest_s3/rnif_timeout.ini		/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s3/rnif_timeout.ini		
+../it_script_files/itest_s3/load_gprs.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s3/load_gprs.script			
+../it_script_files/itest_s3/gprs.xml			/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s3/gprs.xml			
+../it_script_files/itest_s3/te_teststeps.ini		/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s3/te_teststeps.ini				
+
+
+// s4 scripts
+../it_script_files/itest_s4.script			/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s4.script
+../it_script_files/itest_s4_manual_tcs.script			/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s4_manual_tcs.script
+../it_script_files/itest_s4/itest4_01.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s4/itest4_01.script
+../it_script_files/itest_s4/itest4_02.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s4/itest4_02.script
+../it_script_files/itest_s4/itest4_03.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s4/itest4_03.script
+../it_script_files/itest_s4/itest4_04.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s4/itest4_04.script
+../it_script_files/itest_s4/itest4_06.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s4/itest4_06.script
+../it_script_files/itest_s4/itest4_07.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s4/itest4_07.script
+../it_script_files/itest_s4/itest4_08.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s4/itest4_08.script
+
+../it_script_files/itest_s4/itest4_09.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s4/itest4_09.script
+../it_script_files/itest_s4/itest4_10.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s4/itest4_10.script
+../it_script_files/itest_s4/itest4_11.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s4/itest4_11.script
+../it_script_files/itest_s4/itest4_12.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s4/itest4_12.script
+../it_script_files/itest_s4/itest4_13.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s4/itest4_13.script
+../it_script_files/itest_s4/itest4_14.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s4/itest4_14.script
+../it_script_files/itest_s4/itest4_15.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s4/itest4_15.script
+../it_script_files/itest_s4/itest4_16.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s4/itest4_16.script
+../it_script_files/itest_s4/itest4_17.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s4/itest4_17.script
+../it_script_files/itest_s4/ipv4.ini			/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s4/ipv4.ini				
+../it_script_files/itest_s4/ipv6.ini			/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s4/ipv6.ini				
+../it_script_files/itest_s4/client_timeout.ini		/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s4/client_timeout.ini		
+../it_script_files/itest_s4/genconn.ini			/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s4/genconn.ini				
+../it_script_files/itest_s4/genconn-psd.ini		/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s4/genconn-psd.ini
+../it_script_files/itest_s4/itest.ini			/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s4/itest.ini				
+../it_script_files/itest_s4/rnif_timeout.ini		/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s4/rnif_timeout.ini		
+../it_script_files/itest_s4/te_teststeps.ini		/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s4/te_teststeps.ini				
+../it_script_files/itest_s4/route_timeout.ini		/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s4/route_timeout.ini				
+
+
+
+../it_script_files/itest_s4.script			/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s4.script
+../it_script_files/itest_s4/itest4_01.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s4/itest4_01.script
+../it_script_files/itest_s4/itest4_02.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s4/itest4_02.script
+../it_script_files/itest_s4/itest4_03.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s4/itest4_03.script
+../it_script_files/itest_s4/itest4_04.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s4/itest4_04.script
+../it_script_files/itest_s4/itest4_09.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s4/itest4_09.script
+
+../it_script_files/itest_s4/itest4_06.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s4/itest4_06.script
+../it_script_files/itest_s4/itest4_07.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s4/itest4_07.script
+../it_script_files/itest_s4/itest4_08.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s4/itest4_08.script
+
+../it_script_files/itest_s4/itest4_10.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s4/itest4_10.script
+../it_script_files/itest_s4/itest4_11.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s4/itest4_11.script
+../it_script_files/itest_s4/itest4_12.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s4/itest4_12.script
+../it_script_files/itest_s4/itest4_13.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s4/itest4_13.script
+../it_script_files/itest_s4/itest4_14.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s4/itest4_14.script
+../it_script_files/itest_s4/itest4_15.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s4/itest4_15.script
+../it_script_files/itest_s4/itest4_16.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s4/itest4_16.script
+../it_script_files/itest_s4/itest4_17.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s4/itest4_17.script
+../it_script_files/itest_s4/ipv4.ini			/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s4/ipv4.ini				
+../it_script_files/itest_s4/ipv6.ini			/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s4/ipv6.ini				
+../it_script_files/itest_s4/client_timeout.ini		/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s4/client_timeout.ini		
+../it_script_files/itest_s4/genconn.ini			/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s4/genconn.ini				
+../it_script_files/itest_s4/genconn-psd.ini		/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s4/genconn-psd.ini
+../it_script_files/itest_s4/itest.ini			/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s4/itest.ini				
+../it_script_files/itest_s4/rnif_timeout.ini		/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s4/rnif_timeout.ini		
+../it_script_files/itest_s4/te_teststeps.ini		/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s4/te_teststeps.ini				
+../it_script_files/itest_s4/route_timeout.ini		/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s4/route_timeout.ini
+
+
+// s5 scripts
+../it_script_files/itest_s5.script			/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s5.script
+../it_script_files/itest_s5_manual_tcs.script			/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s5_manual_tcs.script
+../it_script_files/itest_s5/itest5_01.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s5/itest5_01.script
+../it_script_files/itest_s5/itest5_02.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s5/itest5_02.script
+../it_script_files/itest_s5/itest5_03.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s5/itest5_03.script
+../it_script_files/itest_s5/itest5_04.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s5/itest5_04.script
+../it_script_files/itest_s5/itest5_05.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s5/itest5_05.script
+../it_script_files/itest_s5/itest5_05b.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s5/itest5_05b.script
+../it_script_files/itest_s5/itest5_05c.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s5/itest5_05c.script
+../it_script_files/itest_s5/itest5_06.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s5/itest5_06.script
+../it_script_files/itest_s5/itest5_07.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s5/itest5_07.script
+../it_script_files/itest_s5/itest5_08.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s5/itest5_08.script
+../it_script_files/itest_s5/itest5_09.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s5/itest5_09.script
+../it_script_files/itest_s5/itest5_10.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s5/itest5_10.script
+../it_script_files/itest_s5/itest5_11.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s5/itest5_11.script
+../it_script_files/itest_s5/itest5_12.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s5/itest5_12.script
+../it_script_files/itest_s5/itest5_13.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s5/itest5_13.script
+../it_script_files/itest_s5/itest5_14.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s5/itest5_14.script
+../it_script_files/itest_s5/itest5_15.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s5/itest5_15.script
+../it_script_files/itest_s5/itest5_16.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s5/itest5_16.script
+../it_script_files/itest_s5/itest5_17.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s5/itest5_17.script
+
+../it_script_files/itest_s5/itest5_18.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s5/itest5_18.script
+../it_script_files/itest_s5/itest5_19.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s5/itest5_19.script
+
+
+../it_script_files/itest_s5/ipv4.ini			/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s5/ipv4.ini				
+../it_script_files/itest_s5/ipv6.ini			/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s5/ipv6.ini				
+../it_script_files/itest_s5/client_timeout.ini		/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s5/client_timeout.ini		
+../it_script_files/itest_s5/genconn.ini			/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s5/genconn.ini				
+../it_script_files/itest_s5/itest.ini			/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s5/itest.ini				
+../it_script_files/itest_s5/rnif_timeout.ini		/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s5/rnif_timeout.ini		
+../it_script_files/itest_s5/route_timeout.ini		/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s5/route_timeout.ini			
+../it_script_files/itest_s5/load_ircsd.script		/epoc32/release/wins/udeb/z/testdata/scripts/integration/itest_s5/load_ircsd.script			
+../it_script_files/itest_s5/csd-ir.xml			/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s5/csd-ir.xml			
+../it_script_files/itest_s5/te_teststeps.ini		/epoc32/release/wins/udeb/z/testdata/configs/integration/itest_s5/te_teststeps.ini				
+
+
+
+../it_script_files/itest_s5.script			/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s5.script
+../it_script_files/itest_s5/itest5_01.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s5/itest5_01.script
+../it_script_files/itest_s5/itest5_02.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s5/itest5_02.script
+../it_script_files/itest_s5/itest5_03.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s5/itest5_03.script
+../it_script_files/itest_s5/itest5_04.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s5/itest5_04.script
+../it_script_files/itest_s5/itest5_05.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s5/itest5_05.script
+../it_script_files/itest_s5/itest5_05b.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s5/itest5_05b.script
+../it_script_files/itest_s5/itest5_05c.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s5/itest5_05c.script
+../it_script_files/itest_s5/itest5_06.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s5/itest5_06.script
+../it_script_files/itest_s5/itest5_07.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s5/itest5_07.script
+../it_script_files/itest_s5/itest5_08.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s5/itest5_08.script
+../it_script_files/itest_s5/itest5_09.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s5/itest5_09.script
+../it_script_files/itest_s5/itest5_10.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s5/itest5_10.script
+../it_script_files/itest_s5/itest5_11.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s5/itest5_11.script
+../it_script_files/itest_s5/itest5_12.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s5/itest5_12.script
+../it_script_files/itest_s5/itest5_13.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s5/itest5_13.script
+../it_script_files/itest_s5/itest5_14.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s5/itest5_14.script
+../it_script_files/itest_s5/itest5_15.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s5/itest5_15.script
+../it_script_files/itest_s5/itest5_16.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s5/itest5_16.script
+../it_script_files/itest_s5/itest5_17.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s5/itest5_17.script
+
+../it_script_files/itest_s5/itest5_18.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s5/itest5_18.script
+../it_script_files/itest_s5/itest5_19.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s5/itest5_19.script
+
+../it_script_files/itest_s5/ipv4.ini			/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s5/ipv4.ini				
+../it_script_files/itest_s5/ipv6.ini			/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s5/ipv6.ini				
+../it_script_files/itest_s5/client_timeout.ini		/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s5/client_timeout.ini		
+../it_script_files/itest_s5/genconn.ini			/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s5/genconn.ini				
+../it_script_files/itest_s5/itest.ini			/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s5/itest.ini				
+../it_script_files/itest_s5/rnif_timeout.ini		/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s5/rnif_timeout.ini		
+../it_script_files/itest_s5/route_timeout.ini		/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s5/route_timeout.ini			
+../it_script_files/itest_s5/load_ircsd.script		/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itest_s5/load_ircsd.script			
+../it_script_files/itest_s5/csd-ir.xml			/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s5/csd-ir.xml			
+../it_script_files/itest_s5/te_teststeps.ini		/epoc32/release/winscw/udeb/z/testdata/configs/integration/itest_s5/te_teststeps.ini				
+
+
+
+../it_script_files/itestall.script			/epoc32/release/wins/udeb/z/testdata/scripts/integration/itestall.script
+../it_script_files/itestall.script			/epoc32/release/winscw/udeb/z/testdata/scripts/integration/itestall.script
+
+// Self test
+../script_files/example.ini					/epoc32/release/wins/udeb/z/testdata/configs/integration/example.ini
+../script_files/example.ini					/epoc32/release/winscw/udeb/z/testdata/configs/integration/example.ini
+
+
+../script_files/selfTest.script					/epoc32/release/wins/udeb/z/testdata/scripts/integration/selftest.script
+../script_files/selfTest.script					/epoc32/release/winscw/udeb/z/testdata/scripts/integration/selftest.script
+
+../script_files/timer.script					/epoc32/release/wins/udeb/z/testdata/scripts/integration/timer.script
+../script_files/timer.script					/epoc32/release/winscw/udeb/z/testdata/scripts/integration/timer.script
+
+
+PRJ_MMPFILES
+IntegrationTestUtils.mmp
+scheduleTest.mmp
+
+PRJ_TESTMMPFILES
+TS_SelfTest.mmp

@@ -1,0 +1,30 @@
+<action>
+		 <actionname>1.0.0.0,Opening key store in manager mode</actionname>
+		 <actiontype>init</actiontype>
+		 <actionbody>
+		 		 <mode>manager</mode>
+		 </actionbody>
+		 <actionresult>
+		 		 <return>KErrNone</return>
+		 </actionresult>
+</action>
+
+<action>
+		 <actionname>1.0.0.22 List everything (TEST ID: GT0140-KEY001)</actionname>
+		 <actiontype>listkeys</actiontype>
+		 <actionbody>
+		 </actionbody>
+		 <actionresult>
+		 		 <return>KErrNone</return>
+		 </actionresult>
+</action>
+
+<action>
+		 <actionname>1.4.999.1,Closing key store</actionname>
+		 <actiontype>delete</actiontype>
+		 <actionbody></actionbody>
+		 <actionresult>
+		 		 <return>KErrNone</return>
+		 </actionresult>
+</action>
+

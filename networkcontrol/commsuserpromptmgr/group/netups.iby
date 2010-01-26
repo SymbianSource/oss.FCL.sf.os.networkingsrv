@@ -1,0 +1,52 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+#ifndef __NETUPS_IBY__
+#define __NETUPS_IBY__
+
+#define SYMBIAN_NETWORKING_UPS
+
+#ifdef SYMBIAN_NETWORKING_UPS
+#include <ups.iby>
+#ifdef _DEBUG
+#include <commsdebugutility.iby>
+#endif
+
+file=ABI_DIR\DEBUG_DIR\netups.dll   system\libs\netups.dll
+
+//
+// Patchable Constants:
+//
+// NETWORKING_UPS_DISABLE	0 = enable UPS support within IP Networking (default),
+//				1 = disable UPS support within IP Networking.
+//				
+// NETWORKING_UPS_SESSION	0 = process lifetime session mode (default),
+//				1 = network lifetime session mode.
+//
+// Note: these preprocessor names match corresponding parameter names in the emulator epoc.ini file.
+//
+
+#ifdef NETWORKING_UPS_DISABLE
+patchdata netups.dll@NetUps::KUpsIpDisabled NETWORKING_UPS_DISABLE
+#endif
+
+#ifdef NETWORKING_UPS_SESSION
+patchdata netups.dll@NetUps::KUpsSessionType NETWORKING_UPS_SESSION
+#endif
+
+#endif
+
+#endif 

@@ -1,0 +1,73 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+TARGET			t_nifman.dll
+TARGETTYPE		DLL
+UID              0x1000008D 0x10003d40
+VENDORID 0x70000001
+
+#include        <comms-infras\commsdebugutility.mmh>
+
+SOURCEPATH	../../../linklayercontrol/networkinterfacemgr/src
+SOURCE			if_agt.cpp if_api.cpp if_dll.cpp
+SOURCE			if_int.cpp if_man.cpp CNifSession.cpp if_mon.cpp 
+SOURCE			mcomm.cpp mtimer.cpp ni_cfg.cpp
+SOURCE			CAgentBase.cpp CStateMachineAgentBase.cpp CAgentSMBase.cpp
+SOURCE			DbAccess.cpp DefaultRecord.cpp DialogProcessor.cpp
+SOURCE			EventLogger.cpp Ni_Log.cpp CBearerBase.cpp CNetwork.cpp
+SOURCE			CNetworkControllerBase.cpp
+SOURCE			CNifExtndMngmtCompatibilityLayer.cpp
+SOURCE			RemovedExports.cpp NifConfigurationControl.cpp
+SOURCE          nifmanstubs.cpp
+SOURCE			DbAccessImplv2.cpp
+SOURCE			MDbAccess.cpp
+SOURCE			if_secpol.cpp
+
+SOURCE 			MNifIfNotify.cpp
+
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+SYSTEMINCLUDE	\epoc32\include
+SYSTEMINCLUDE	\epoc32\include\ecom
+SYSTEMINCLUDE   \epoc32\include\comms-infras
+#else
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+SYSTEMINCLUDE	\epoc32\include\platform\ecom
+SYSTEMINCLUDE   \epoc32\include\platform\comms-infras
+#endif
+
+USERINCLUDE     ../../../../commsfw/datacommsserver/esockserver/inc
+USERINCLUDE	   ../../../linklayercontrol/networkinterfacemgr/inc
+
+LIBRARY			euser.lib efsrv.lib t_esock.lib c32.lib 
+LIBRARY			agentdialog.lib logwrap.lib ecom.lib
+LIBRARY			commdb.lib
+LIBRARY			commsdat.lib
+LIBRARY			insock.lib
+#if !defined(WINS) && !defined(GCC32)
+LIBRARY					commsfw.lib
+#endif
+LIBRARY			c32root.lib
+
+DEFFILE					NIFMAN.DEF
+
+START WINS
+BASEADDRESS		0x44500000
+END
+
+CAPABILITY ALL -Tcb
+
+SMPSAFE

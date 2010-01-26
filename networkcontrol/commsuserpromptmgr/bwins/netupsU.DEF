@@ -1,0 +1,9 @@
+EXPORTS
+	?CancelRequest@CNetUps@NetUps@@QAEHABVTNodeId@Messages@@ABK@Z @ 1 NONAME ; int NetUps::CNetUps::CancelRequest(class Messages::TNodeId const &, unsigned long const &)
+	?DecrementConnectionCountL@CNetUps@NetUps@@QAEXABVTNodeId@Messages@@@Z @ 2 NONAME ; void NetUps::CNetUps::DecrementConnectionCountL(class Messages::TNodeId const &)
+	?IncrementConnectionCountL@CNetUps@NetUps@@QAEXABVTNodeId@Messages@@@Z @ 3 NONAME ; void NetUps::CNetUps::IncrementConnectionCountL(class Messages::TNodeId const &)
+	?NewL@CNetUps@NetUps@@SAPAV12@J@Z @ 4 NONAME ; class NetUps::CNetUps * NetUps::CNetUps::NewL(long)
+	?ProcessPolicyCheckRequestL@CNetUps@NetUps@@QAEXAAUTPolicyCheckRequestData@2@AAK@Z @ 5 NONAME ; void NetUps::CNetUps::ProcessPolicyCheckRequestL(struct NetUps::TPolicyCheckRequestData &, unsigned long &)
+	?UpsDisabled@CNetUps@NetUps@@SAHJ@Z @ 6 NONAME ; int NetUps::CNetUps::UpsDisabled(long)
+	?DecrementConnectionCountL@CNetUps@NetUps@@QAEXABVTNodeId@Messages@@AAVTProcessId@@AAVTThreadId@@@Z @ 7 NONAME ; void NetUps::CNetUps::DecrementConnectionCountL(class Messages::TNodeId const &, class TProcessId &, class TThreadId &)
+

@@ -1,0 +1,66 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+//dnsproxy.mmp
+
+#include <cflog.mmh>
+
+MACRO		LLMNR_ENABLED
+TARGET		dnsproxy.exe
+TARGETTYPE	      exe
+
+UID			0 0x200215F1
+
+SOURCEPATH	      ../src
+
+SOURCE		dnsproxyserver.cpp
+SOURCE		dnsproxysession.cpp
+SOURCE		dnsproxyengine.cpp
+SOURCE		dnsproxylistener.cpp
+SOURCE		dnsproxywriter.cpp
+SOURCE		dnsproxymsgproc.cpp
+SOURCE      dnsproxyservconf.cpp
+SOURCE      dnsproxyqryhandler.cpp
+SOURCE		dnsproxydb.cpp 
+SOURCE		dnsproxylog.cpp
+SOURCE      ../../../../tcpiputils/dnd/src/message.cpp 
+
+USERINCLUDE		../inc
+USERINCLUDE ../../../../tcpiputils/dnd/inc
+USERINCLUDE ../../../../tcpiputils/networkaddressandporttranslation/inc
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+USERINCLUDE ../../../iphook/inhook6/inc
+USERINCLUDE ../../../iphook/inhook6/include
+USERINCLUDE ../../dnsproxyclient/inc
+USERINCLUDE ../../../../esockapiextensions/internetsockets/inc
+
+
+LIBRARY		euser.lib  ecom.lib esock.lib
+LIBRARY 	inetprotutil.lib commdb.lib insock.lib c32root.lib
+LIBRARY		inhook6.lib
+LIBRARY		flogger.lib
+
+#ifdef SYMBIAN_NETWORKING_PLATSEC
+LIBRARY		efsrv.lib
+#endif
+LIBRARY		charconv.lib
+
+#ifdef SYMBIAN_DNS_PUNYCODE
+MACRO	EXCLUDE_SYMBIAN_DNS_PUNYCODE
+#endif //SYMBIAN_DNS_PUNYCODE
+ 
+CAPABILITY      NetworkControl NetworkServices ReadDeviceData
+SMPSAFE

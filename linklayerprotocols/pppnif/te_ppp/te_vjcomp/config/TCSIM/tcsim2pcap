@@ -1,0 +1,31 @@
+#!/bin/sh
+# Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+# All rights reserved.
+# This component and the accompanying materials are made available
+# under the terms of the License "Symbian Foundation License v1.0"
+# which accompanies this distribution, and is available
+# at the URL "http://www.symbianfoundation.org/legal/sfl-v10.html".
+#
+# Initial Contributors:
+# Nokia Corporation - initial contribution.
+#
+# Contributors:
+#
+# Description:
+# Convert the output of tcsim into a libpcap format packet file.
+# Note: the timestamp is not converted
+# Usage: tcsim2pcap <infile >outfile
+# Ethereal <http://www.ethereal.com> is expected to be installed to get the
+# text2pcap program.
+# tcsim is a packet simulation tool used here to generate synthetic TCP/IP
+# packets. It is part of tcng, the next generation traffic control architecture
+# for the Linux operating system.  More information can be obtained at
+# http://tcng.sourceforge.net/  This script was tested with tcng version 9f
+# November 7, 2003
+# danfa
+# 
+#
+
+sed -e '/^[0-9\.]\+ [^E]/d' -e 's/^.*://' -e 's/\([0-9a-f][0-9a-f]\)\([0-9a-f][0-9a-f]\)/\1 \2/g' | \
+sed -e 's/\([0-9a-f][0-9a-f]\)\([0-9a-f][0-9a-f]\)/\1 \2/g' -e 's/^/00000000/'|\
+text2pcap -l 12 - -

@@ -1,0 +1,4 @@
+EXPORTS
+	ImplementationGroupProxy__FRi @ 1 NONAME R3UNUSED ; ImplementationGroupProxy(int &)
+	EventNotification__23CNifDaemonConfiguration24TNetworkAdaptorEventTypeUiRC6TDesC8Pv @ 2 NONAME ; CNifDaemonConfiguration::EventNotification(TNetworkAdaptorEventType, unsigned int, TDesC8 const &, void *)
+

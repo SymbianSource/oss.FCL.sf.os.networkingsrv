@@ -1,0 +1,175 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//!//////////////////////////////////////////////////////////////////
+//! @file
+//! @SYMTestSuiteName	 	  	NET-DHCP-CIT
+//! @SYMScriptTestEnvironment	TestExecuteFramework (TEF).
+//! @SYMScriptPurpose			Script file for DHCP testing on IPv6.
+//! @SYMScriptInfo				1.Here we use CommsDB with ipv6 settings.
+//!								2.ORDER IS IMPORTANT! SetIAPToUse and SetAddressMode lines affect the operation of the subsequent commands.	
+//!//////////////////////////////////////////////////////////////////
+
+load_suite DhcpTestServer
+
+//Load esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+
+run_test_step 5 DhcpTestServer SetAddressMode z:\TestData\configs\DHCP\dhcptest.ini IPv6
+
+//put new tests above this
+
+//older tests (usually fail) so leave these til last til they're fixed
+
+START_TESTCASE NET-Dhcp-1201
+//! @SYMTestCaseID 			NET-Dhcp-1201
+//! @SYMTestCaseDesc 		Inform Scenario
+//! @SYMFssID				Networking/DHCP/NET-Dhcp-1201
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented	
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults	EPASS
+//! @SYMTestType 			CIT
+//! @SYMTestActions	
+// SET IAP TO STATIC IP DYNAMIC DNS
+delay 1000 // To avoid locking on commsdat
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemon_StaticAddr_DynamicDNS
+run_test_step 50 DhcpTestServer 5_1	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE NET-Dhcp-1201
+
+START_TESTCASE NET-Dhcp-1202
+//! @SYMTestCaseID 			NET-Dhcp-1202
+//! @SYMTestCaseDesc 		Renew Current Lease whilst having static IP address
+//! @SYMFssID				Networking/DHCP/NET-Dhcp-1202
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented	
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults	EPASS
+//! @SYMTestType 			CIT
+//! @SYMTestActions	
+run_test_step 50 DhcpTestServer 5_2	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE NET-Dhcp-1202
+
+
+START_TESTCASE NET-Dhcp-1203
+//! @SYMTestCaseID 			NET-Dhcp-1203
+//! @SYMTestCaseDesc 		Release Lease of statically configured connection
+//! @SYMFssID				Networking/DHCP/NET-Dhcp-1203
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented	
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults	EPASS
+//! @SYMTestType 			CIT
+//! @SYMTestActions	
+run_test_step 50 DhcpTestServer 5_3	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE NET-Dhcp-1203
+
+
+
+
+
+START_TESTCASE NET-Dhcp-1204
+//! @SYMTestCaseID 			NET-Dhcp-1204
+//! @SYMTestCaseDesc 		Renew Current Lease
+//! @SYMFssID				Networking/DHCP/NET-Dhcp-1204
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented	
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults	EPASS
+//! @SYMTestType 			CIT
+//! @SYMTestActions	
+// SET IAP TO DYNAMIC
+delay 1000 // To avoid locking on commsdat
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet1
+run_test_step 50 DhcpTestServer 5_4	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE NET-Dhcp-1204
+
+
+START_TESTCASE NET-Dhcp-1205
+//! @SYMTestCaseID 			NET-Dhcp-1205
+//! @SYMTestCaseDesc 		Reconfigure with a different server.Nithin's server-change test case
+//! @SYMFssID				Networking/DHCP/NET-Dhcp-1205
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented	
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults	EPASS
+//! @SYMTestType 			CIT
+//! @SYMTestActions	
+// SET IAP TO DYNAMIC
+delay 1000 // To avoid locking on commsdat
+run_test_step 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini EtherWithDaemonNet1
+run_test_step 180 DhcpTestServer 3_4	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE NET-Dhcp-1205
+
+START_TESTCASE NET-Dhcp-1206
+//! @SYMTestCaseID 			NET-Dhcp-1206
+//! @SYMTestCaseDesc 		DAD case
+//! @SYMFssID				Networking/DHCP/NET-Dhcp-1206
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented	
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults	EPASS
+//! @SYMTestType 			CIT
+//! @SYMTestActions	
+run_test_step 50 DhcpTestServer 5_7	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE NET-Dhcp-1206
+
+
+
+
+START_TESTCASE NET-Dhcp-1207
+//! @SYMTestCaseID 			NET-Dhcp-1207
+//! @SYMTestCaseDesc 		Get Current IP Address too early.
+//! @SYMFssID				Networking/DHCP/NET-Dhcp-1207
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented	
+//! @SYMTestPriority 		Critical
+//! @SYMTestExpectedResults	EPASS
+//! @SYMTestType 			CIT
+//! @SYMTestActions	
+//T1 = preferred-lifetime, T2 = valid-lifetime
+run_test_step 50 DhcpTestServer 5_8	z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE NET-Dhcp-1207
+
+
+START_TESTCASE NET-Dhcp-1216
+//! @SYMTestCaseID               NET-Dhcp-1216
+//! @SYMTestCaseDesc             Continuous failnext allocation test
+//! @SYMFssID                    Networking/DHCP/DHCP-OOM-3
+//! @SYMREQ                      2197
+//! @SYMPREQ                     32
+//! @SYMTestPriority             Critical
+//! @SYMTestActions              1.Start the connection
+//!                              2.Mark the server heap for fail next allocation
+//!                              3.Stop the connection
+//!                              4.Unmark the server heap and validate result
+//! @SYMTestExpectedResults      EPass
+//! @SYMTestType                 CIT
+//! @SYMTestStatus               Implemented
+RUN_TEST_STEP 1200 DhcpTestServer OOM_3 z:\TestData\configs\DHCP\dhcptest.ini
+END_TESTCASE NET-Dhcp-1216
+
+# Stop all interfaces
+RUN_SCRIPT Z:\TestData\Scripts\te_esock_test_stopallinterfaces.script
+
+//Unload esock
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script

@@ -1,0 +1,72 @@
+// Copyright (c) 1999-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// IEEE 802.3 (Ethernet(tm)) device driver
+// 
+//
+
+/**
+ @file
+*/
+
+
+PRJ_PLATFORMS
+TOOLS WINS WINSCW 
+
+PRJ_EXPORTS
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+..\inc\EtherCardIoc.h
+#endif
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+..\inc\EtherCardApi.h
+#endif
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+..\inc\EtherCardApi.inl
+#endif
+
+..\group\etherdrv.iby		\epoc32\rom\include\etherdrv.iby
+
+
+PRJ_MMPFILES
+#if !defined(TOOLS)
+
+..\group\EtherCard.mmp
+#if defined(MISA) || defined(MCOT)
+..\group\EtherSMC.mmp
+#endif
+
+#if defined(WINS)
+#if defined(WINSCW)
+..\group\EtherWinscw.mmp
+#else
+..\group\EtherWins.mmp
+#endif
+#endif
+
+#else
+..\netcards\netcards.mmp
+#endif
+
+
+PRJ_TESTMMPFILES
+#if !defined(TOOLS)
+
+EtherDevTest.mmp
+..\demoserv\DemoServ.mmp
+..\pump\EtherPump.mmp
+
+#if defined(MISA) || defined(MCOT)
+..\macset\MacSet.mmp
+#endif
+
+#endif

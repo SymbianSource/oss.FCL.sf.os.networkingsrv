@@ -1,0 +1,42 @@
+// Copyright (c) 1997-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+	TARGET			te_ppp.exe
+	TARGETTYPE		exe
+	UID			0x1000008d 0x101F7989
+	//UID changed to match the E32.exe module's UID to allow access to .ini file in private E32.exe directory
+
+
+
+
+
+SOURCEPATH              ../src
+SOURCE                  main.cpp DummyAgtRef.cpp serial.cpp TestMgr.cpp
+SOURCE                  dummyprotocol.cpp
+SOURCE					TestSteps.cpp common.cpp
+USERINCLUDE             ../inc
+
+SYSTEMINCLUDE           /epoc32/include/comms-infras
+SYSTEMINCLUDE           /epoc32/include
+SYSTEMINCLUDE           /epoc32/include/test
+
+LIBRARY                 euser.lib t_dummynifman.lib c32.lib t_esock.lib efsrv.lib hal.lib c32root.lib mbufmgr.lib
+LIBRARY					testexecuteutils.lib testexecutelogclient.lib rfileloggerclient.lib
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+//Capability updated to match other E32.exe modules that have to be loaded during test
+
+VENDORID 0x70000001
+
+SMPSAFE

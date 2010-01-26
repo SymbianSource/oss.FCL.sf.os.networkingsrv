@@ -1,0 +1,79 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//! @file incoming_ppp_manual_tests.script
+//! @brief Descriptions of incoming PPP manual tests
+//!
+//! This script is not for automated testing, but lists the various manual
+//! tests available for incoming PPP.  They are listed in Symdox format
+//! so that the automated functional spec test mapping tool developed in
+//! GT0161 can be used to trace requirements to tests.
+
+
+//START_TESTCASE			NET-PPP-0301
+////! @SYMTestCaseID		NET-PPP-0301
+////! @SymTestCaseDesc Tests incoming PPP against a Windows client with default settings.
+////! @SymFssId CDMA/Networking/GATEWAY/NetworkLayer/PPPd
+////! @SymTestStatus Implemented
+////! @SymTestActions See SGL.GT0161.304 How to Manually Test Incoming PPP
+////! @SymTestExpectedResults See SGL.GT0161.304 How to Manually Test Incoming PPP
+//END_TESTCASE			NET-PPP-0301
+
+//START_TESTCASE			NET-PPP-0302
+////! @SYMTestCaseID		NET-PPP-0302
+////! @SymTestCaseDesc Tests incoming PPP against a Windows client with compression.
+////! @SymFssId CDMA/Networking/GATEWAY/NetworkLayer/PPPd
+////! @SymTestStatus Implemented
+////! @SymTestActions See SGL.GT0161.304 How to Manually Test Incoming PPP
+////! @SymTestExpectedResults See SGL.GT0161.304 How to Manually Test Incoming PPP
+//END_TESTCASE			NET-PPP-0302
+
+//START_TESTCASE			NET-PPP-0303
+////! @SYMTestCaseID		NET-PPP-0303
+////! @SymTestCaseDesc Tests incoming PPP against a Windows client with authentication allowed.
+////! @SymFssId CDMA/Networking/GATEWAY/NetworkLayer/PPPd
+////! @SymTestStatus Implemented
+////! @SymTestActions See SGL.GT0161.304 How to Manually Test Incoming PPP
+////! @SymTestExpectedResults See SGL.GT0161.304 How to Manually Test Incoming PPP
+//END_TESTCASE			NET-PPP-0303
+
+//START_TESTCASE			NET-PPP-0304
+////! @SYMTestCaseID		NET-PPP-0304
+////! @SymTestCaseDesc Tests incoming PPP against a Windows client with scripting enabled.
+////! @SymFssId CDMA/Networking/GATEWAY/NetworkLayer/PPPd
+////! @SymTestStatus Implemented
+////! @SymTestActions See SGL.GT0161.304 How to Manually Test Incoming PPP
+////! @SymTestExpectedResults See SGL.GT0161.304 How to Manually Test Incoming PPP
+//END_TESTCASE			NET-PPP-0304
+
+//START_TESTCASE			NET-PPP-0305
+////! @SYMTestCaseID		NET-PPP-0305
+////! @SymTestCaseDesc Tests incoming PPP against a Windows client while severing the serial link.
+////! @SymFssId CDMA/Networking/GATEWAY/NetworkLayer/PPPd
+////! @SymTestStatus Implemented
+////! @SymTestActions See SGL.GT0161.304 How to Manually Test Incoming PPP
+////! @SymTestExpectedResults See SGL.GT0161.304 How to Manually Test Incoming PPP
+//END_TESTCASE			NET-PPP-0305
+
+//START_TESTCASE			NET-PPP-0306
+////! @SYMTestCaseID		NET-PPP-0306
+////! @SymTestCaseDesc Tests incoming PPP against a Windows client while disconnecting the PPP link.
+////! @SymFssId CDMA/Networking/GATEWAY/NetworkLayer/PPPd
+////! @SymTestStatus Implemented
+////! @SymTestActions See SGL.GT0161.304 How to Manually Test Incoming PPP
+////! @SymTestExpectedResults See SGL.GT0161.304 How to Manually Test Incoming PPP
+//END_TESTCASE			NET-PPP-0306
+
+

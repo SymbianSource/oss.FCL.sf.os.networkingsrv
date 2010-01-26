@@ -1,0 +1,40 @@
+// Copyright (c) 2000-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// Dummy version of NIFMAN
+// 
+//
+
+TARGET               dummynifman.dll
+TARGETTYPE           DLL
+
+SOURCEPATH           ../tdummynif
+SOURCE               TNifAgentRef.cpp
+
+USERINCLUDE          ../tdummynif
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+SYSTEMINCLUDE	/epoc32/include
+#else
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+#endif
+
+LIBRARY              euser.lib nifman.lib
+LIBRARY       	     netmeta.lib		// for the ABIv2
+
+DEFFILE              dummynifman.def
+
+CAPABILITY ALL -Tcb
+
+VENDORID 0x70000001
+
+SMPSAFE

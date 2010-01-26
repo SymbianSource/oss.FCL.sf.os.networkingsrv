@@ -1,0 +1,9 @@
+EXPORTS
+	?NewL@CNetworkMetaConnectionProviderFactory@@SAPAV1@PAX@Z @ 1 NONAME ; class CNetworkMetaConnectionProviderFactory * CNetworkMetaConnectionProviderFactory::NewL(void *)
+	?NewL@CIpDefaultSubConnectionProviderFactory@@SAPAV1@PAX@Z @ 2 NONAME ; class CIpDefaultSubConnectionProviderFactory * CIpDefaultSubConnectionProviderFactory::NewL(void *)
+	?NewL@CIpTierManagerFactory@@SAPAV1@PAX@Z @ 3 NONAME ; class CIpTierManagerFactory * CIpTierManagerFactory::NewL(void *)
+	?NewL@CIpSubConnectionProviderFactory@@SAPAV1@PAX@Z @ 4 NONAME ; class CIpSubConnectionProviderFactory * CIpSubConnectionProviderFactory::NewL(void *)
+	?NewL@CIPConnectionProviderFactory@@SAPAV1@PAX@Z @ 5 NONAME ; class CIPConnectionProviderFactory * CIPConnectionProviderFactory::NewL(void *)
+	?NewL@XBearerInfo@@SAPAV1@XZ @ 6 NONAME ; class XBearerInfo * XBearerInfo::NewL(void)
+	?NewL@XBearerInfo@@SAPAV1@VRParameterFamily@@W4TParameterSetType@2@@Z @ 7 NONAME ; class XBearerInfo * XBearerInfo::NewL(class RParameterFamily, enum RParameterFamily::TParameterSetType)
+

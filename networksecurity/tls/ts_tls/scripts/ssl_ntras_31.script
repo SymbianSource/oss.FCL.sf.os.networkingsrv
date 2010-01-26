@@ -1,0 +1,122 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRINT TLS tests
+PRINT using a serial NT Ras connection 
+
+
+LOAD_SUITE TS_tls.dll
+
+PAUSE_AT_END
+// set up commdb for a serial NT ras connection 
+// which will work with WinTunnel
+RUN_SCRIPT z:\TestData\scripts\esock_test_unloadesockForced.script
+ced z:\testdata\configs\Tls_ntras.cfg ced.log
+RUN_SCRIPT z:\TestData\scripts\esock_test_loadesock.script
+
+//run_utils copy z:\testdata\configs\ssl\*.* c:\system\data\
+
+print Note the following ciphers suites are supported by TLS 
+print 4, 5, 10, 22, 19, 18, 9, 17, 20, 8, 3 , 2 , 1
+print The following are NULL ciphers 1,2
+print The following are weak crypto only 9,17,20
+print The following are AES cipher suites: 0x2F (47), 0x35 (53)
+print These tests require strong crypto
+
+// so some of the following list of test have been disabled tests 1,2,15,17,18,27
+// tests 9,11,14 should work with weak crypto 
+// also tests 480 and 580 are disabled as there is no server on the test network
+
+print These tests use the SSL servers on ports 543,544,643 an 644
+
+RUN_UTILS CopyFile  z:\TestData\Configs\tls_t_secdlg_in.dat c:\t_secdlg_in.dat
+RUN_UTILS MakeReadWrite c:\t_secdlg_in.dat
+
+RUN_UTILS Delete c:\t_secdlg_out.dat
+RUN_TEST_STEP 100000, TS_TLS, t_Tls, z:\testdata\configs\Tls3.ini
+TEST_COMPLETE TLS_test_3
+
+RUN_UTILS Delete c:\t_secdlg_out.dat
+RUN_TEST_STEP 100000, TS_TLS, t_Tls, z:\testdata\configs\Tls4.ini
+TEST_COMPLETE TLS_test_4
+
+RUN_UTILS Delete c:\t_secdlg_out.dat
+RUN_TEST_STEP 100000, TS_TLS, t_Tls, z:\testdata\configs\Tls5.ini
+TEST_COMPLETE TLS_test_5
+
+RUN_UTILS Delete c:\t_secdlg_out.dat
+RUN_TEST_STEP 100000, TS_TLS, t_Tls, z:\testdata\configs\Tls8.ini
+TEST_COMPLETE TLS_test_8
+
+# weak crypto 
+RUN_UTILS Delete c:\t_secdlg_out.dat
+RUN_TEST_STEP 100000, TS_TLS, t_Tls, z:\testdata\configs\Tls9.ini
+TEST_COMPLETE TLS_test_9
+
+RUN_UTILS Delete c:\t_secdlg_out.dat
+RUN_TEST_STEP 100000, TS_TLS, t_Tls, z:\testdata\configs\TlsA.ini
+TEST_COMPLETE TLS_test_A
+
+# weak crypto 
+RUN_UTILS Delete c:\t_secdlg_out.dat
+RUN_TEST_STEP 100000, TS_TLS, t_Tls, z:\testdata\configs\Tls11.ini
+TEST_COMPLETE TLS_test_11
+
+RUN_UTILS Delete c:\t_secdlg_out.dat
+RUN_TEST_STEP 100000, TS_TLS, t_Tls, z:\testdata\configs\Tls12.ini
+TEST_COMPLETE TLS_test_12
+
+RUN_UTILS Delete c:\t_secdlg_out.dat
+RUN_TEST_STEP 100000, TS_TLS, t_Tls, z:\testdata\configs\Tls13.ini
+TEST_COMPLETE TLS_test_13
+
+# weak crypto 
+RUN_UTILS Delete c:\t_secdlg_out.dat
+RUN_TEST_STEP 100000, TS_TLS, t_Tls, z:\testdata\configs\Tls14.ini
+TEST_COMPLETE TLS_test_14
+
+
+RUN_UTILS Delete c:\t_secdlg_out.dat
+RUN_TEST_STEP 100000, TS_TLS, t_Tls, z:\testdata\configs\Tls16.ini
+TEST_COMPLETE TLS_test_16
+
+#AES
+RUN_UTILS Delete c:\t_secdlg_out.dat
+RUN_TEST_STEP 100000, TS_TLS, t_Tls, z:\testdata\configs\Tls2f.ini
+TEST_COMPLETE TLS_test_2f
+
+RUN_UTILS Delete c:\t_secdlg_out.dat
+RUN_TEST_STEP 100000, TS_TLS, t_Tls, z:\testdata\configs\Tls35.ini
+TEST_COMPLETE TLS_test_35
+
+// tls test code for DEF022091
+// check correct error code when cipher suite id not available
+RUN_UTILS Delete c:\t_secdlg_out.dat
+RUN_TEST_STEP 100000, TS_TLS, FailSuiteSelection, z:\testdata\configs\tls4.ini
+TEST_COMPLETE FailSuiteSelection 
+
+RUN_UTILS Delete c:\t_secdlg_out.dat
+RUN_TEST_STEP 100000, TS_TLS, t_Tls, z:\testdata\configs\Tls37.ini
+TEST_COMPLETE TLS_test_37
+
+RUN_UTILS Delete c:\t_secdlg_out.dat
+RUN_TEST_STEP 100000, TS_TLS, t_Tls, z:\testdata\configs\Tls37.ini
+TEST_COMPLETE TLS_test_37
+
+RUN_UTILS Delete c:\t_secdlg_out.dat
+RUN_SCRIPT Z:\TestData\Scripts\esock_test_stopallinterfaces.script
+RUN_SCRIPT Z:\TestData\scripts\esock_test_unloadesockForced.script
+

@@ -1,0 +1,190 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+#ifndef TE_QOS_SUITE_IBY
+#define TE_QOS_SUITE_IBY
+
+#include <testexecute.iby>
+#include <te_esockteststepssuite.iby>
+
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSSuite_Mesh.cfg	TestData\Configs\te_QoSSuite_Mesh.cfg
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSSuite_simtsy.txt TestData\configs\te_QoSSuite_simtsy.txt
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSSuite_LoopbackCsy.ini TestData\configs\te_QoSSuite_LoopbackCsy.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSSuite.script TestData\Scripts\te_QoSSuite.script
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase1.script TestData\Scripts\te_QoSCase1.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase1.ini TestData\Configs\te_QoSCase1.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase1B.script TestData\Scripts\te_QoSCase1B.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase1B.ini TestData\Configs\te_QoSCase1B.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase2.script TestData\Scripts\te_QoSCase2.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase2.ini TestData\Configs\te_QoSCase2.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase3.script TestData\Scripts\te_QoSCase3.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase3.ini TestData\Configs\te_QoSCase3.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase4.script TestData\Scripts\te_QoSCase4.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase4.ini TestData\Configs\te_QoSCase4.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase5.script TestData\Scripts\te_QoSCase5.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase5.ini TestData\Configs\te_QoSCase5.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase6.script TestData\Scripts\te_QoSCase6.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase6.ini TestData\Configs\te_QoSCase6.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase7.script TestData\Scripts\te_QoSCase7.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase7.ini TestData\Configs\te_QoSCase7.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase9.script TestData\Scripts\te_QoSCase9.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase9.ini TestData\Configs\te_QoSCase9.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase10.script TestData\Scripts\te_QoSCase10.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase10.ini TestData\Configs\te_QoSCase10.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase11.script TestData\Scripts\te_QoSCase11.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase11.ini TestData\Configs\te_QoSCase11.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase12.script TestData\Scripts\te_QoSCase12.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase12.ini TestData\Configs\te_QoSCase12.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase13.script TestData\Scripts\te_QoSCase13.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase13.ini TestData\Configs\te_QoSCase13.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase14.script TestData\Scripts\te_QoSCase14.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase14.ini TestData\Configs\te_QoSCase14.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase15.script TestData\Scripts\te_QoSCase15.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase15.ini TestData\Configs\te_QoSCase15.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase16.script TestData\Scripts\te_QoSCase16.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase16.ini TestData\Configs\te_QoSCase16.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase17.script TestData\Scripts\te_QoSCase17.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase17.ini TestData\Configs\te_QoSCase17.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase18.script TestData\Scripts\te_QoSCase18.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase18.ini TestData\Configs\te_QoSCase18.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase19.script TestData\Scripts\te_QoSCase19.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase19.ini TestData\Configs\te_QoSCase19.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase20.script TestData\Scripts\te_QoSCase20.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase20.ini TestData\Configs\te_QoSCase20.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase21.script TestData\Scripts\te_QoSCase21.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase21.ini TestData\Configs\te_QoSCase21.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase22.script TestData\Scripts\te_QoSCase22.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase22.ini TestData\Configs\te_QoSCase22.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase27.script TestData\Scripts\te_QoSCase27.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase27.ini TestData\Configs\te_QoSCase27.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase28.script TestData\Scripts\te_QoSCase28.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase28.ini TestData\Configs\te_QoSCase28.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase29.script TestData\Scripts\te_QoSCase29.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase29.ini TestData\Configs\te_QoSCase29.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase30.script TestData\Scripts\te_QoSCase30.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase30.ini TestData\Configs\te_QoSCase30.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\te_QoSCase32.script TestData\Scripts\te_QoSCase32.Script
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_QoSCase32.ini TestData\Configs\te_QoSCase32.ini
+
+
+#ifdef SYMBIAN_NETWORKING_UMTSR5
+
+#ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+data=EPOCROOT##epoc32\data\z\TestData\configs\CIT_P192_Qos_config1.txt TestData\configs\CIT_P192_Qos_config1.txt
+#else
+data=EPOCROOT##epoc32\data\z\TestData\configs\CIT_P192_qospolicies.ini TestData\configs\CIT_P192_qospolicies.ini
+#endif
+
+data=EPOCROOT##epoc32\data\z\TestData\configs\CIT_P192_Qos_config.txt TestData\configs\CIT_P192_Qos_config.txt
+data=EPOCROOT##epoc32\data\z\TestData\configs\CIT_P192_Qos_config_noqospolicy.txt TestData\configs\CIT_P192_Qos_config_noqospolicy.txt
+data=EPOCROOT##epoc32\data\z\TestData\configs\CIT_P192_Qos_LoopbackCSY.ini TestData\configs\CIT_P192_Qos_LoopbackCSY.ini
+data=EPOCROOT##epoc32\data\z\TestData\configs\te_CIT_P192_simtsy.ini TestData\configs\te_CIT_P192_simtsy.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\configs\CIT_P192_Qos_SimTsy.xml TestData\Configs\CIT_P192_Qos_SimTsy.xml
+
+#ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+data=EPOCROOT##epoc32\data\z\TestData\configs\CIT_P192_Qos_SimTsy2.xml TestData\Configs\CIT_P192_Qos_SimTsy2.xml
+#endif
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\CIT_P192_Qos_33.script TestData\Scripts\CIT_P192_Qos_33.script
+data=EPOCROOT##epoc32\data\z\TestData\configs\CIT_P192_QoS_33.ini TestData\Configs\CIT_P192_QoS_33.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\CIT_P192_Qos_34.script TestData\Scripts\CIT_P192_Qos_34.script
+data=EPOCROOT##epoc32\data\z\TestData\configs\CIT_P192_QoS_34.ini TestData\Configs\CIT_P192_QoS_34.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\CIT_P192_Qos_35.script TestData\Scripts\CIT_P192_Qos_35.script
+data=EPOCROOT##epoc32\data\z\TestData\configs\CIT_P192_QoS_35.ini TestData\Configs\CIT_P192_QoS_35.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\CIT_P192_Qos_36.script TestData\Scripts\CIT_P192_Qos_36.script
+data=EPOCROOT##epoc32\data\z\TestData\configs\CIT_P192_QoS_36.ini TestData\Configs\CIT_P192_QoS_36.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\CIT_P192_Qos_37.script TestData\Scripts\CIT_P192_Qos_37.script
+data=EPOCROOT##epoc32\data\z\TestData\configs\CIT_P192_QoS_37.ini TestData\Configs\CIT_P192_QoS_37.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\CIT_P192_Qos_38.script TestData\Scripts\CIT_P192_Qos_38.script
+data=EPOCROOT##epoc32\data\z\TestData\configs\CIT_P192_QoS_38.ini TestData\Configs\CIT_P192_QoS_38.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\CIT_P192_Qos_39.script TestData\Scripts\CIT_P192_Qos_39.script
+data=EPOCROOT##epoc32\data\z\TestData\configs\CIT_P192_QoS_39.ini TestData\Configs\CIT_P192_QoS_39.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\CIT_P192_Qos_40.script TestData\Scripts\CIT_P192_Qos_40.script
+data=EPOCROOT##epoc32\data\z\TestData\configs\CIT_P192_QoS_40.ini TestData\Configs\CIT_P192_QoS_40.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\CIT_P192_Qos_41.script TestData\Scripts\CIT_P192_Qos_41.script
+data=EPOCROOT##epoc32\data\z\TestData\configs\CIT_P192_QoS_41.ini TestData\Configs\CIT_P192_QoS_41.ini
+
+// With removal of IMS flags from spud/simtsy test, this test becomes a duplicate of 41
+//data=EPOCROOT##epoc32\data\z\TestData\scripts\CIT_P192_Qos_42.script TestData\Scripts\CIT_P192_Qos_42.script
+//data=EPOCROOT##epoc32\data\z\TestData\configs\CIT_P192_QoS_42.ini TestData\Configs\CIT_P192_QoS_42.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\CIT_P192_Qos_43.script TestData\Scripts\CIT_P192_Qos_43.script
+data=EPOCROOT##epoc32\data\z\TestData\configs\CIT_P192_QoS_43.ini TestData\Configs\CIT_P192_QoS_43.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\CIT_P192_Qos_44.script TestData\Scripts\CIT_P192_Qos_44.script
+data=EPOCROOT##epoc32\data\z\TestData\configs\CIT_P192_QoS_44.ini TestData\Configs\CIT_P192_QoS_44.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\CIT_P192_Qos_45.script TestData\Scripts\CIT_P192_Qos_45.script
+data=EPOCROOT##epoc32\data\z\TestData\configs\CIT_P192_QoS_45.ini TestData\Configs\CIT_P192_QoS_45.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\CIT_P192_Qos_46.script TestData\Scripts\CIT_P192_Qos_46.script
+data=EPOCROOT##epoc32\data\z\TestData\configs\CIT_P192_QoS_46.ini TestData\Configs\CIT_P192_QoS_46.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\CIT_P192_Qos_47.script TestData\Scripts\CIT_P192_Qos_47.script
+data=EPOCROOT##epoc32\data\z\TestData\configs\CIT_P192_QoS_47.ini TestData\Configs\CIT_P192_QoS_47.ini
+
+data=EPOCROOT##epoc32\data\z\TestData\scripts\CIT_P192_Qos_SimTsy.script TestData\Scripts\CIT_P192_Qos_SimTsy.script
+data=EPOCROOT##epoc32\data\z\TestData\scripts\CIT_P192_Qos_SimTsy2_Target.script TestData\Scripts\CIT_P192_Qos_SimTsy2.script
+
+#endif
+// SYMBIAN_NETWORKING_UMTSR5
+
+#ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+ECOM_PLUGIN_UDEB(pppqostest.dll,10281C53.rss)
+#else
+file=ABI_DIR\DEBUG_DIR\qosppp.nif System\Libs\qosppp.nif
+#endif // SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+data=EPOCROOT##epoc32\data\z\testdata\configs\PdpConfig.txt testdata\configs\pdpconfig.txt
+
+
+#endif

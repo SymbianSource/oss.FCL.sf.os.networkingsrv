@@ -1,0 +1,33 @@
+# Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
+# All rights reserved.
+# This component and the accompanying materials are made available
+# under the terms of the License "Symbian Foundation License v1.0"
+# which accompanies this distribution, and is available
+# at the URL "http://www.symbianfoundation.org/legal/sfl-v10.html".
+#
+# Initial Contributors:
+# Nokia Corporation - initial contribution.
+#
+# Contributors:
+#
+# Description:
+# //    hosts - local hostname resolution database
+# //    Correct hosts file location is \System\Data\
+# //    This file is an example only
+#
+
+127.0.0.1 localhost
+172.21.40.113 tantra
+172.21.40.118 sahaja
+
+2002:7f00:1:: localhost-6t4
+2002:ac15:2871::172.21.40.113 tantra-6t4
+2002:ac15:2876::172.21.40.118 sahaja-6t4
+
+::1 localhost6
+3ffe::250:100:809:170e:1f03 tantra6
+3ffe::251:100:809:ec11:4f00 sahaja6
+
+ff02::1 allnodes6
+ff02::2 allrouters6
+ff02::3 allhosts6

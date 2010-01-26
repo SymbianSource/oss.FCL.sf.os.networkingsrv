@@ -1,0 +1,76 @@
+// Copyright (c) 2001-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+/**
+ @file ts_ipsec.mmp toplevel project file for IPSec integration test code
+*/
+
+TARGET          ts_ipsec.dll
+TARGETTYPE      dll
+
+SOURCEPATH      ../src
+//SOURCE          ts_ipsec_step.cpp
+SOURCE          ts_ipsec_suite.cpp
+//SOURCE          ts_ipsec_main.cpp
+//SOURCE          ts_ipsec_main2.cpp
+//SOURCE          ts_ipsec_main3.cpp
+//SOURCE          ts_ipsec_main4.cpp
+SOURCE          ts_ipsec_crypto.cpp
+SOURCE          ts_ipsec_polapi.cpp
+SOURCE          ts_ipsec_vpnapi.cpp
+SOURCE          ts_ipsec_rconn.cpp
+SOURCE			Connectiontester.cpp
+SOURCE			Connectionutils.cpp
+
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+SYSTEMINCLUDE   /epoc32/include
+SYSTEMINCLUDE   /epoc32/include/networking
+#if defined(SYMBIAN_CRYPTO)
+SYSTEMINCLUDE   ../../../../../security/crypto/weakcryptospi/inc
+#else
+SYSTEMINCLUDE   ../../../../../security/cryptalg/import/inc
+#endif
+#else
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+SYSTEMINCLUDE   /epoc32/include/platform
+SYSTEMINCLUDE   /epoc32/include/platform/networking
+#endif
+
+LIBRARY			c32root.lib
+LIBRARY         euser.lib
+LIBRARY         efsrv.lib
+LIBRARY	        integrationtestutils.lib
+//LIBRARY         ipsecapi.lib
+LIBRARY         ipsecpolapi.lib
+LIBRARY         vpnapi.lib
+LIBRARY         charconv.lib
+LIBRARY         esock.lib
+LIBRARY         commdb.lib
+LIBRARY         insock.lib
+#if defined(SYMBIAN_CRYPTO)
+LIBRARY         cryptography.lib
+#else
+LIBRARY         cryptalg.lib
+#endif
+
+#ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+LIBRARY		commsfw.lib
+#endif
+
+CAPABILITY ALL -Tcb
+
+VENDORID 0x70000001
+
+SMPSAFE

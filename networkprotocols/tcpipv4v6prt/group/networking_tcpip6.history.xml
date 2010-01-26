@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<relnotes schema="1.0.0" name="TCP/IPv4/v6 PRT" purpose="" type="component">
+  <revision major="2" functional="0" minor="0" date="20090602">
+    <ref name="1898" type="preq"/>
+    <description>IPv6 Update </description>
+  </revision>
+  <revision major="1" functional="0" minor="1" date="20071207">
+    <ref name="PDEF111569" type="defect"/>
+    <description>Adding new KSoIp6InterfaceUnicastHops flow option so interface TTL can be retrieved excluding the effect of any socket options.  If no interface has been selected for the flow, the TCP/IP 6 stack default value will be returned.  This value is used to set the correct TTL for the outer packet header in ipsec ipip_eng6.cpp.</description>
+  </revision>
+  <revision major="1" functional="0" minor="0" date="20071122">
+    <ref name="PDEF112280" type="defect"/>
+    <description>Adding new tcpip.ini ipv4linklocal option 3 - EVLL4ConfigDaemonControlled.  The configuration daemon (e.g., DHCP) now automatically configures an IPv4 linklocal address on demand if address assignment or lease renewal fails.  This is enables us to avoid creating and announcing a linklocal during initial DHCP address assignment which otherwise seems to confuse some routers&#x2019; DAD detection logic and could cause assignment to fail.</description>
+  </revision>
+  <purpose>
+    IPv4/v6 protocol implementation PRT plugin to ESock Socket Server, TCP/IP stack and plugin extension architecture.
+  </purpose>
+  <defect number="PDEF104564" title="jax-rpc-me10a wronginparams test fails" revision="003">
+    
+  </defect>
+  <defect number="PDEF103356" title="UPnP certifications test case: 2.1.0 fails every time when trying to run the tes" revision="002">
+    Ensure that flows are blocked during a pending ARP request to avoid sent packets being lost during delayed ARP replies.
+  </defect>
+  <defect number="PDEF102515" title="Data connection doesn't automatically disconnect when exiting browser" revision="001">
+    Fixed tcp blackhole detection
+  </defect>
+ 
+  <defect number="PDEF127005" title="logging changed from flogger to commsdbg" revision="001">
+  </defect>
+
+</relnotes>

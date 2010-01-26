@@ -1,0 +1,68 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRINT Run NullAgent tests non_Connection
+RUN_SCRIPT z:\TestData\Scripts\nullagenttest_setup.script
+
+load_suite NULLAGTTESTS.DLL
+
+run_test_step 0, NULLAGTTESTS, PreCopyTest
+test_complete
+
+heap_mark
+run_test_step 0, NULLAGTTESTS, Connection
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 0, NULLAGTTESTS, Loopback
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 0, NULLAGTTESTS, Reconnect
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 0, NULLAGTTESTS, Notification
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 0, NULLAGTTESTS, Overrides
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 0, NULLAGTTESTS, Multiple
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 0, NULLAGTTESTS, CommDbIf
+heap_markend
+test_complete
+
+heap_mark
+run_test_step 0, NULLAGTTESTS, Cancel
+heap_markend
+test_complete
+
+run_test_step 0, NULLAGTTESTS, PostDeleteTest
+test_complete
+
+RUN_SCRIPT z:\TestData\scripts\esock_test_unloadesockForced.script

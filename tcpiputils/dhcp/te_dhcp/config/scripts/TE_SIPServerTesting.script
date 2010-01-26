@@ -1,0 +1,167 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//!//////////////////////////////////////////////////////////////////
+//! @file
+//! @SYMTestSuiteName	 	  	NET-DHCP-CIT
+//! @SYMScriptTestEnvironment	TestExecuteFramework (TEF).
+//! @SYMScriptPurpose			Script file for DHCP and SPUD testing of SIP
+//! @SYMScriptInfo				ORDER IS IMPORTANT! SetIAPToUse and SetAddressMode lines affect the operation of the subsequent commands.
+//!//////////////////////////////////////////////////////////////////
+
+
+RUN_UTILS  MkDir c:\simtsy\
+RUN_UTILS  MkDir c:\private\
+RUN_UTILS  MkDir c:\private\101F7989\
+RUN_UTILS  MkDir c:\private\101F7989\esock\
+RUN_UTILS  MakeReadWrite c:\config.txt
+RUN_UTILS  MakeReadWrite c:\loopback.ini
+RUN_UTILS  MakeReadWrite c:\qospolicies.ini
+RUN_UTILS  MakeReadWrite c:\private\101F7989\esock\qospolicies.ini
+RUN_UTILS  DeleteFile c:\simtsy\config.txt
+RUN_UTILS  DeleteFile c:\config.txt
+RUN_UTILS  DeleteFile c:\loopback.ini
+RUN_UTILS  DeleteFile c:\qospolicies.ini
+RUN_UTILS  DeleteFile c:\private\101F7989\esock\qospolicies.ini
+RUN_UTILS  CopyFile z:\TestData\Configs\SIP_Server_simtsy_config.txt c:\config.txt
+RUN_UTILS  CopyFile z:\TestData\Configs\te_sipservertesting_loopback.ini c:\loopback.ini
+RUN_UTILS  CopyFile z:\TestData\Configs\te_sipservertesting_qospolicies.ini c:\qospolicies.ini
+RUN_UTILS  CopyFile z:\TestData\Configs\te_sipservertesting_qospolicies.ini c:\private\101F7989\esock\qospolicies.ini
+RUN_UTILS  MakeReadWrite c:\simtsy\config.txt
+RUN_UTILS  MakeReadWrite c:\config.txt
+
+LOAD_SUITE DhcpTestServer
+
+// first initialise the system
+RUN_SCRIPT z:\TestData\scripts\SipServer_setup.script
+
+// SET IAP TO DYNAMIC
+RUN_TEST_STEP 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini SIPServerFromSPUD1
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-18-1
+//! @SYMTestCaseDesc 		For receiving SIP address option via PCO Buffer
+//! @SYMFssID 				Networking/DHCP/DHCP-18-1
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestActions  		1.Start a connection
+//!							2.query for SIP server address via PCO buffer
+//! @SYMTestExpectedResults KErrNotReady 
+//! @SYMTestType 			CIT
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE 9_1_StaticAddrDynamicDNS_GetSIPAddress via PCO Buffer
+RUN_TEST_STEP 50 DhcpTestServer 2_GetSIPAddrViaPCOBuffer z:\TestData\configs\DHCP\dhcptest.ini SIPServerFromSPUD1
+END_TESTCASE 9_1_StaticAddrDynamicDNS_GetSIPAddress via PCO Buffer
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-18-2
+//! @SYMTestCaseDesc 		For cheking positive index range 
+//! @SYMFssID 				Networking/DHCP/DHCP-18-2
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestActions  		1.Start a connection
+//!							2.query for SIP server positive index
+//! @SYMTestExpectedResults KErrNotReady 
+//! @SYMTestType 			CIT
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE 9_2_StaticAddrDynamicDNS_GetSIPServerAddrIndexChecker
+RUN_TEST_STEP 50 DhcpTestServer 2_GetSIPServerAddrIndexChecker z:\TestData\configs\DHCP\dhcptest.ini SIPServerFromSPUD1
+END_TESTCASE 9_2_StaticAddrDynamicDNS_GetSIPServerAddrIndexChecker
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-18-3
+//! @SYMTestCaseDesc 		For cheking negative index range 
+//! @SYMFssID 				Networking/DHCP/DHCP-18-3
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestActions  		1.Start a connection
+//!							2.query for SIP server negative index
+//! @SYMTestExpectedResults KErrNotReady 
+//! @SYMTestType 			CIT
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE 9_3_StaticAddrDynamicDNS_GetSIPServerAddrNegativeIndexChecker
+RUN_TEST_STEP 50 DhcpTestServer 2_GetSIPServerAddrNegativeIndexChecker z:\TestData\configs\DHCP\dhcptest.ini SIPServerFromSPUD1
+END_TESTCASE 9_3_StaticAddrDynamicDNS_GetSIPServerAddrNegativeIndexChecker
+
+
+
+
+
+RUN_TEST_STEP 5 DhcpTestServer SetIAPToUse z:\TestData\configs\DHCP\dhcptest.ini SIPServerFromSPUDBad
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-18-4
+//! @SYMTestCaseDesc 		For receiving SIP address option via PCO Buffer, failing case
+//! @SYMFssID 				Networking/DHCP/DHCP-18-4
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestActions  		1.Start a connection
+//!							2.query for SIP server address via PCO buffer 
+//! @SYMTestExpectedResults KErrNotReady 
+//! @SYMTestType 			CIT
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE 9_5_StaticAddrDynamicDNS_GetSIPAddressFailure
+//Replace with SIPServerFromSPUDBad when you get proper commdb
+RUN_TEST_STEP 50 DhcpTestServer 2_GetSIPAddrFailure z:\TestData\configs\DHCP\dhcptest.ini SIPServerFromSPUDBad
+END_TESTCASE 9_5_StaticAddrDynamicDNS_GetSIPAddressFailure
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//! @SYMTestCaseID 			DHCP-18-5
+//! @SYMTestCaseDesc 		For cheking PANIC against wrong input buffer size
+//! @SYMFssID 				Networking/DHCP/DHCP-18-5
+//! @SYMREQ 				2197 
+//! @SYMPREQ 				32
+//! @SYMTestStatus 			Implemented
+//! @SYMTestPriority 		Critical
+//! @SYMTestActions  		1.Start a connection
+//!							2.query for SIP server address via insufficient buffer 
+//! @SYMTestExpectedResults KErrNotReady 
+//! @SYMTestType 			CIT
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+START_TESTCASE 9_4_StaticAddrDynamicDNS_GetSIPAddrBufferOverrun PANIC checking
+RUN_PANIC_STEP_RESULT 14 ESock_client 5 DhcpTestServer 2_GetSIPAddrBufferOverrun z:\TestData\configs\DHCP\dhcptest.ini SIPServerFromSPUDBad
+END_TESTCASE 9_4_StaticAddrDynamicDNS_GetSIPAddrBufferOverrun PANIC checking
+
+
+// Cleanup
+RUN_UTILS  MakeReadWrite c:\config.txt
+RUN_UTILS  MakeReadWrite c:\loopback.ini
+RUN_UTILS  MakeReadWrite c:\qospolicies.ini
+RUN_UTILS  MakeReadWrite c:\private\101F7989\esock\qospolicies.ini
+RUN_UTILS  DeleteFile c:\simtsy\config.txt
+RUN_UTILS  DeleteFile c:\config.txt
+RUN_UTILS  DeleteFile c:\loopback.ini
+RUN_UTILS  DeleteFile c:\qospolicies.ini
+RUN_UTILS  DeleteFile c:\private\101F7989\esock\qospolicies.ini

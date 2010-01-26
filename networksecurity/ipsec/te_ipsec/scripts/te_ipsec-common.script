@@ -1,0 +1,28 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+// t_ipsec.script
+
+LOAD_SUITE t_ipsec  -SharedData
+
+PRINT IPSec TEF3.0 tests
+
+RUN_SCRIPT Z:\TestData\Scripts\ns-ipsec-ikev2-ops.script
+RUN_SCRIPT Z:\TestData\Scripts\ns-ipsec-multiple-sa-ops.script
+
+PRINT Completed_tef3_t_ipsec
+
+

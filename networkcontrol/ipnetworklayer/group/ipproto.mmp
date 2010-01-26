@@ -1,0 +1,99 @@
+// Copyright (c) 2005-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// IP Meta-Connection/Connection/Sub-Connection Provider ECOM plugin
+// 
+//
+
+/**
+ @file ipproto.mmp
+*/
+
+#include <cflog.mmh>
+
+TARGET         ipproto.dll
+TARGETTYPE     PLUGIN
+UID            0x10009D8D 0x10281DED
+VENDORID       0x70000001
+
+
+// Needed for GUQoS files
+MACRO		    EPOC_SDK=0x08010000
+
+SOURCEPATH     	../src
+SOURCE		   	IPProtoTierManager.cpp
+SOURCE		   	IPProtoTierManagerFactory.cpp
+SOURCE		   	IPProtoTierManagerSelector.cpp
+SOURCE         	IPProtoMCpr.cpp
+SOURCE         	IPProtoMCprFactory.cpp
+SOURCE         	ItfInfoConfigExt.cpp
+SOURCE		   	IPProtoCPRFactory.cpp
+SOURCE			IPProtoCPR.cpp
+SOURCE			IPProtoCprStates.cpp
+SOURCE		   	ipprotodeftscpr.cpp
+SOURCE		   	ipprotodeftscprstates.cpp
+SOURCE		   	IPProtoSCPR.cpp
+SOURCE		   	IPProtoSCPRFactory.cpp
+SOURCE		   	IPProtoSCPRStates.cpp
+SOURCE			IPProtoDeMux.cpp
+SOURCE          flow.cpp
+SOURCE          nif.cpp
+SOURCE          notify.cpp
+SOURCE          nif4.cpp
+SOURCE          nif6.cpp
+SOURCE          IPProtoMessages.cpp
+SOURCE          linkcprextensionapi.cpp
+SOURCE          idletimer.cpp
+SOURCE         	ecom_impl.cpp
+
+USERINCLUDE		../inc
+
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+
+START RESOURCE 10281DED.rss
+TARGET ipproto.rsc
+END
+
+LIBRARY euser.lib
+LIBRARY agentdialog.lib
+LIBRARY commsdat.lib
+LIBRARY umtsif.lib
+LIBRARY etelpckt.lib
+LIBRARY insock.lib
+LIBRARY mbufmgr.lib
+LIBRARY nifman.lib
+LIBRARY ecom.lib
+LIBRARY esocksvr.lib
+LIBRARY serverden.lib
+LIBRARY coreproviders.lib
+LIBRARY netcfgext.lib
+LIBRARY commsfw.lib
+LIBRARY esock.lib
+LIBRARY netmeta.lib
+LIBRARY commdb.lib
+LIBRARY simpleselectorbase.lib
+LIBRARY esock_api_ext.lib
+LIBRARY addressinfo.lib
+LIBRARY nodemessages.lib
+LIBRARY meshmachine.lib
+LIBRARY netinterfaces.lib
+LIBRARY factories.lib
+
+//MI support
+#include <elements/sd_mintercept.mmh>
+
+#include <comms-infras/commsdebugutility.mmh>
+
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+
+SMPSAFE

@@ -1,0 +1,251 @@
+// Copyright (c) 2002-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// This script file runs the MSCOMP, STACCOMP and PREDCOMP component tests on
+// all exported functions.
+// This test runs using the TestExecute framework using the following test list entry:
+// TESTEXECUTE,logs\\testexecute\\te_pppcomp.htm,,z:\\testdata\\scripts\\te_pppcomp.script,
+// It requires no exceptional software or network support and uses test data in the te_pppcomp.ini file.
+// 
+//
+
+//! @file te_pppcomp.script
+//! @brief Run all component tests on the PPP compression modules
+
+PRINT Running_PPPCOMP_TestExecute
+LOAD_SUITE TE_PPPCOMP
+
+// Setup
+RUN_UTILS MkDir C:\te_pppcomp\
+RUN_UTILS MakeReadWrite C:\te_pppcomp\te_pppcomp.script
+RUN_UTILS CopyFile Z:\testdata\scripts\te_pppcomp.script C:\te_pppcomp\te_pppcomp.script
+
+RUN_UTILS MakeReadWrite C:\te_pppcomp\te_pppcomp.ini
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_pppcomp\te_pppcomp.ini C:\te_pppcomp\te_pppcomp.ini
+
+RUN_UTILS MakeReadWrite C:\te_pppcomp\bib.txt
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_pppcomp\bib.txt C:\te_pppcomp\bib.txt
+
+RUN_UTILS MakeReadWrite C:\te_pppcomp\book1.txt
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_pppcomp\book1.txt C:\te_pppcomp\book1.txt
+
+RUN_UTILS MakeReadWrite C:\te_pppcomp\book2.txt
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_pppcomp\book2.txt C:\te_pppcomp\book2.txt
+
+RUN_UTILS MakeReadWrite C:\te_pppcomp\geo.txt
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_pppcomp\geo.txt C:\te_pppcomp\geo.txt
+
+RUN_UTILS MakeReadWrite C:\te_pppcomp\news.txt
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_pppcomp\news.txt C:\te_pppcomp\news.txt
+
+RUN_UTILS MakeReadWrite C:\te_pppcomp\obj1.txt
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_pppcomp\obj1.txt C:\te_pppcomp\obj1.txt
+
+RUN_UTILS MakeReadWrite C:\te_pppcomp\obj2.txt
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_pppcomp\obj2.txt C:\te_pppcomp\obj2.txt
+
+RUN_UTILS MakeReadWrite C:\te_pppcomp\paper1.txt
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_pppcomp\paper1.txt C:\te_pppcomp\paper1.txt
+
+RUN_UTILS MakeReadWrite C:\te_pppcomp\paper2.txt
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_pppcomp\paper2.txt C:\te_pppcomp\paper2.txt
+
+RUN_UTILS MakeReadWrite C:\te_pppcomp\paper3.txt
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_pppcomp\paper3.txt C:\te_pppcomp\paper3.txt
+
+RUN_UTILS MakeReadWrite C:\te_pppcomp\paper4.txt
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_pppcomp\paper4.txt C:\te_pppcomp\paper4.txt
+
+RUN_UTILS MakeReadWrite C:\te_pppcomp\paper5.txt
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_pppcomp\paper5.txt C:\te_pppcomp\paper5.txt
+
+RUN_UTILS MakeReadWrite C:\te_pppcomp\paper6.txt
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_pppcomp\paper6.txt C:\te_pppcomp\paper6.txt
+
+RUN_UTILS MakeReadWrite C:\te_pppcomp\pic.txt
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_pppcomp\pic.txt C:\te_pppcomp\pic.txt
+
+RUN_UTILS MakeReadWrite C:\te_pppcomp\progc.txt
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_pppcomp\progc.txt C:\te_pppcomp\progc.txt
+
+RUN_UTILS MakeReadWrite C:\te_pppcomp\progl.txt
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_pppcomp\progl.txt C:\te_pppcomp\progl.txt
+
+RUN_UTILS MakeReadWrite C:\te_pppcomp\progp.txt
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_pppcomp\progp.txt C:\te_pppcomp\progp.txt
+
+RUN_UTILS MakeReadWrite C:\te_pppcomp\trans.txt
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_pppcomp\trans.txt C:\te_pppcomp\trans.txt
+
+RUN_UTILS MakeReadWrite C:\te_pppcomp\zero.bin
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_pppcomp\zero.bin C:\te_pppcomp\zero.bin
+
+RUN_UTILS MakeReadWrite C:\te_pppcomp\zero4k.bin
+RUN_UTILS CopyFile Z:\testdata\configs\ppp\te_ppp\te_pppcomp\zero4k.bin C:\te_pppcomp\zero4k.bin
+
+
+
+// PREDCOMP  ////////////////////////////////////////////////////////////////
+
+START_TESTCASE			NET-PPP-COMP-0175
+//! @SYMTestCaseID		NET-PPP-COMP-0175
+//! @SymFssId NETWORKING/PPP/12
+//! @SymTestCaseDesc Tests a round-trip compression and decompression of a sample data file.
+//!   using the PREDCOMP PPP compression/decompression module.
+//! @SymTestActions The data file is read and compressed, then decompressed and compared to the
+//!   original.  Data compression takes place on successive chunks of the input file until
+//!   the end of the file is reached.  The chunk size is determined by performing trial
+//!   compressions starting on small chunks and continuing on larger and larger ones until
+//!   the compression is successful (i.e. it does not result in the "compressed" data being
+//!   larger than the original data).
+//! @SymTestExpectedResults The data from the decompressor is the same as the original,
+//!   uncompressed data.
+RUN_TEST_STEP 1000 TE_PPPCOMP PPPCompressDecompressTest1 c:\te_pppcomp\te_pppcomp.ini PREDCOMPOBJ1
+END_TESTCASE			NET-PPP-COMP-0175
+
+START_TESTCASE			NET-PPP-COMP-0176
+//! @SYMTestCaseID		NET-PPP-COMP-0176
+//! @SymFssId NETWORKING/PPP/12
+//! @Symsee PREDCOMPOBJ1
+RUN_TEST_STEP 1000 TE_PPPCOMP PPPCompressDecompressTest1 c:\te_pppcomp\te_pppcomp.ini PREDCOMPOBJ2
+END_TESTCASE			NET-PPP-COMP-0176
+
+START_TESTCASE			NET-PPP-COMP-0177
+//! @SYMTestCaseID		NET-PPP-COMP-0177
+//! @SymFssId NETWORKING/PPP/12
+//! @Symsee PREDCOMPOBJ1
+RUN_TEST_STEP 1000 TE_PPPCOMP PPPCompressDecompressTest1 c:\te_pppcomp\te_pppcomp.ini PREDCOMPPAPER1
+END_TESTCASE			NET-PPP-COMP-0177
+
+START_TESTCASE			NET-PPP-COMP-0178
+//! @SYMTestCaseID		NET-PPP-COMP-0178
+//! @SymFssId NETWORKING/PPP/12
+//! @Symsee PREDCOMPOBJ1
+RUN_TEST_STEP 1000 TE_PPPCOMP PPPCompressDecompressTest1 c:\te_pppcomp\te_pppcomp.ini PREDCOMPPAPER2
+END_TESTCASE			NET-PPP-COMP-0178
+
+START_TESTCASE			NET-PPP-COMP-0179
+//! @SYMTestCaseID		NET-PPP-COMP-0179
+//! @SymFssId NETWORKING/PPP/12
+//! @Symsee PREDCOMPOBJ1
+RUN_TEST_STEP 1000 TE_PPPCOMP PPPCompressDecompressTest1 c:\te_pppcomp\te_pppcomp.ini PREDCOMPPAPER3
+END_TESTCASE			NET-PPP-COMP-0179
+
+START_TESTCASE			NET-PPP-COMP-0180
+//! @SYMTestCaseID		NET-PPP-COMP-0180
+//! @SymFssId NETWORKING/PPP/12
+//! @Symsee PREDCOMPOBJ1
+RUN_TEST_STEP 1000 TE_PPPCOMP PPPCompressDecompressTest1 c:\te_pppcomp\te_pppcomp.ini PREDCOMPPAPER4
+END_TESTCASE			NET-PPP-COMP-0180
+
+START_TESTCASE			NET-PPP-COMP-0181
+//! @SYMTestCaseID		NET-PPP-COMP-0181
+//! @SymFssId NETWORKING/PPP/12
+//! @Symsee PREDCOMPOBJ1
+RUN_TEST_STEP 1000 TE_PPPCOMP PPPCompressDecompressTest1 c:\te_pppcomp\te_pppcomp.ini PREDCOMPPAPER5
+END_TESTCASE			NET-PPP-COMP-0181
+
+START_TESTCASE			NET-PPP-COMP-0182
+//! @SYMTestCaseID		NET-PPP-COMP-0182
+//! @SymFssId NETWORKING/PPP/12
+//! @Symsee PREDCOMPOBJ1
+RUN_TEST_STEP 1000 TE_PPPCOMP PPPCompressDecompressTest1 c:\te_pppcomp\te_pppcomp.ini PREDCOMPPAPER6
+END_TESTCASE			NET-PPP-COMP-0182
+
+START_TESTCASE			NET-PPP-COMP-0183
+//! @SYMTestCaseID		NET-PPP-COMP-0183
+//! @SymFssId NETWORKING/PPP/12
+//! @Symsee PREDCOMPOBJ1
+RUN_TEST_STEP 1000 TE_PPPCOMP PPPCompressDecompressTest1 c:\te_pppcomp\te_pppcomp.ini PREDCOMPPROGC
+END_TESTCASE			NET-PPP-COMP-0183
+
+START_TESTCASE			NET-PPP-COMP-0184
+//! @SYMTestCaseID		NET-PPP-COMP-0184
+//! @SymFssId NETWORKING/PPP/12
+//! @Symsee PREDCOMPOBJ1
+RUN_TEST_STEP 1000 TE_PPPCOMP PPPCompressDecompressTest1 c:\te_pppcomp\te_pppcomp.ini PREDCOMPPROGL
+END_TESTCASE			NET-PPP-COMP-0184
+
+START_TESTCASE			NET-PPP-COMP-0185
+//! @SYMTestCaseID		NET-PPP-COMP-0185
+//! @SymFssId NETWORKING/PPP/12
+//! @Symsee PREDCOMPOBJ1
+RUN_TEST_STEP 1000 TE_PPPCOMP PPPCompressDecompressTest1 c:\te_pppcomp\te_pppcomp.ini PREDCOMPPROGP
+END_TESTCASE			NET-PPP-COMP-0185
+
+START_TESTCASE			NET-PPP-COMP-0186
+//! @SYMTestCaseID		NET-PPP-COMP-0186
+//! @SymFssId NETWORKING/PPP/12
+//! @Symsee PREDCOMPOBJ1
+RUN_TEST_STEP 1000 TE_PPPCOMP PPPCompressDecompressTest1 c:\te_pppcomp\te_pppcomp.ini PREDCOMPTRANS
+END_TESTCASE			NET-PPP-COMP-0186
+
+START_TESTCASE			NET-PPP-COMP-0187
+//! @SYMTestCaseID		NET-PPP-COMP-0187
+//! @SymFssId NETWORKING/PPP/12
+//! @Symsee PREDCOMPOBJ1
+RUN_TEST_STEP 1000 TE_PPPCOMP PPPCompressDecompressTest1 c:\te_pppcomp\te_pppcomp.ini PREDCOMPGEO
+END_TESTCASE			NET-PPP-COMP-0187
+
+START_TESTCASE			NET-PPP-COMP-0188
+//! @SYMTestCaseID		NET-PPP-COMP-0188
+//! @SymFssId NETWORKING/PPP/12
+//! @Symsee PREDCOMPOBJ1
+RUN_TEST_STEP 1000 TE_PPPCOMP PPPCompressDecompressTest1 c:\te_pppcomp\te_pppcomp.ini PREDCOMPBIB
+END_TESTCASE			NET-PPP-COMP-0188
+
+START_TESTCASE			NET-PPP-COMP-0189
+//! @SYMTestCaseID		NET-PPP-COMP-0189
+//! @SymFssId NETWORKING/PPP/12
+//! @Symsee PREDCOMPOBJ1
+RUN_TEST_STEP 1000 TE_PPPCOMP PPPCompressDecompressTest1 c:\te_pppcomp\te_pppcomp.ini PREDCOMPNEWS
+END_TESTCASE			NET-PPP-COMP-0189
+
+START_TESTCASE			NET-PPP-COMP-0190
+//! @SYMTestCaseID		NET-PPP-COMP-0190
+//! @SymFssId NETWORKING/PPP/12
+//! @Symsee PREDCOMPOBJ1
+RUN_TEST_STEP 1000 TE_PPPCOMP PPPCompressDecompressTest1 c:\te_pppcomp\te_pppcomp.ini PREDCOMPPIC
+END_TESTCASE			NET-PPP-COMP-0190
+
+START_TESTCASE			NET-PPP-COMP-0191
+//! @SYMTestCaseID		NET-PPP-COMP-0191
+//! @SymFssId NETWORKING/PPP/12
+//! @Symsee PREDCOMPOBJ1
+RUN_TEST_STEP 1000 TE_PPPCOMP PPPCompressDecompressTest1 c:\te_pppcomp\te_pppcomp.ini PREDCOMPBOOK1
+END_TESTCASE			NET-PPP-COMP-0191
+
+START_TESTCASE			NET-PPP-COMP-0192
+//! @SYMTestCaseID		NET-PPP-COMP-0192
+//! @SymFssId NETWORKING/PPP/12
+//! @Symsee PREDCOMPOBJ1
+RUN_TEST_STEP 1000 TE_PPPCOMP PPPCompressDecompressTest1 c:\te_pppcomp\te_pppcomp.ini PREDCOMPBOOK2
+END_TESTCASE			NET-PPP-COMP-0192
+
+START_TESTCASE			NET-PPP-COMP-0193
+//! @SYMTestCaseID		NET-PPP-COMP-0193
+//! @SymFssId NETWORKING/PPP/12
+//! @Symsee PREDCOMPOBJ1
+RUN_TEST_STEP 1000 TE_PPPCOMP PPPCompressDecompressTest1 c:\te_pppcomp\te_pppcomp.ini PREDCOMPZERO
+END_TESTCASE			NET-PPP-COMP-0193
+
+START_TESTCASE			NET-PPP-COMP-0194
+//! @SYMTestCaseID		NET-PPP-COMP-0194
+//! @SymFssId NETWORKING/PPP/12
+//! @Symsee PREDCOMPOBJ1
+RUN_TEST_STEP 1000 TE_PPPCOMP PPPCompressDecompressTest1 c:\te_pppcomp\te_pppcomp.ini PREDCOMPZERO4K
+END_TESTCASE			NET-PPP-COMP-0194
+
+run_script z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+

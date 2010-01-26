@@ -1,0 +1,45 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRINT TLS Out of memory tests
+PRINT 
+
+LOAD_SUITE TS_tls.dll
+
+// set up commdb for a gsm dialup connection 
+// to demon using a serial connection
+RUN_SCRIPT z:\TestData\scripts\esock_test_unloadesockForced.script
+ced z:\testdata\configs\Tls_ntras.cfg ced.log
+RUN_SCRIPT z:\TestData\scripts\esock_test_loadesock.script
+
+//run_utils copy z:\testdata\configs\ssl\*.* c:\system\data\
+
+RUN_UTILS CopyFile  z:\TestData\Configs\tls_t_secdlg_in.dat c:\t_secdlg_in.dat
+RUN_UTILS MakeReadWrite c:\t_secdlg_in.dat
+RUN_UTILS Delete c:\t_secdlg_out.dat
+
+# out of memory test 
+RUN_TEST_STEP 100000, TS_TLS, tls_oom, z:\testdata\configs\Tls_Oom.ini
+
+TEST_COMPLETE TLS_oomtest
+
+RUN_UTILS Delete c:\t_secdlg_out.dat
+RUN_SCRIPT Z:\TestData\Scripts\esock_test_stopallinterfaces.script
+RUN_SCRIPT Z:\TestData\scripts\esock_test_unloadesockForced.script
+
+
+
+

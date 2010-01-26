@@ -1,0 +1,60 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRINT Integration test 5.18 - IR CSD Incoming with Ipv4 termination using Client timeout
+
+LOAD_SUITE TE_Esock
+LOAD_SUITE te_esockutil
+LOAD_SUITE te_esockteststepsSuite -SharedData
+
+
+START_TESTCASE			NET-Integration-IrCsd-2001
+//! @SYMTestCaseID		NET-Integration-IrCsd-2001
+
+// open connection using gencon - 1_3 deprecated to 5_1.
+//5_1 - startsconnection - then closes it during its startup
+//run_test_step 3000, ts_genconn test1_3 z:\testdata\configs\integration\itest_s5\genconn.ini
+//above can be done in test steps with OpenSocketServ, OpenConnection, StartConnection y
+RUN_TEST_STEP 3000 te_esockteststepsSuite creatersocketservStep z:\testdata\configs\integration\itest_s5\te_teststeps.ini CreateSockSvr1
+RUN_TEST_STEP 3000 te_esockteststepsSuite connectrsocketservStep z:\testdata\configs\integration\itest_s5\te_teststeps.ini ConnectSockSvr1
+RUN_TEST_STEP 3000 te_esockteststepsSuite createrconnectionStep z:\testdata\configs\integration\itest_s5\te_teststeps.ini CreateConn1
+RUN_TEST_STEP 3000 te_esockteststepsSuite openrconnectionStep z:\testdata\configs\integration\itest_s5\te_teststeps.ini OpenConn1
+RUN_TEST_STEP 3000 te_esockteststepsSuite startrconnectionStep z:\testdata\configs\integration\itest_s5\te_teststeps.ini StartConn1
+RUN_TEST_STEP 3000 te_esockteststepsSuite stoprconnectionStep z:\testdata\configs\integration\itest_s5\te_teststeps.ini StopConn1
+
+
+
+
+// simulate incoming call - get the user to do this
+print User action required Generate incoming call
+print Press a key to continue when this has been done
+pause
+
+// somehow handle incoming call ?
+
+// wait for more than Commdb AgentClientTimeout
+print wait for more than Commdb AgentClientTimeout
+run_test_step -1 te_esockutil TE_ESockUtilDelay z:\testdata\configs\integration\itest_s5\client_timeout.ini	
+
+// check the network is NOT active
+RUN_TEST_STEP 100 te_esockutil TE_ESockUtilIsNetworkNotActive
+
+// log result
+PRINT Result for Integration test 5.18 - IR CSD Incoming with Ipv4 termination using Client timeout
+TEST_COMPLETE IR_CSD_test5_18
+
+END_TESTCASE			NET-Integration-IrCsd-2001
+

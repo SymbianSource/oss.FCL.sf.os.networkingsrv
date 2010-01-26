@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relnotes name="PPP NIF">
+  <purpose>
+    PPP (Point to Point) protocol NIF plugin to Network Interface Manager, link layer implementation providing TCP/IP over serial comms. PPP compression is provided by dynamicaly loaded DLLs e.g. MS comp. Includes MS Compression, Stac Compression, Predictor Compression.
+  </purpose>
+</relnotes>

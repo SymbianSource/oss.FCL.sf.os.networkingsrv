@@ -1,0 +1,174 @@
+// Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// This script is not for automated testing, but lists various tests
+// for GT0161 requirements.  They are listed in Symdox format
+// so that the automated functional spec test mapping tool developed in
+// GT0161 can be used to trace requirements to tests.
+// START_TESTCASE			NET-PPP-0101
+// END_TESTCASE			NET-PPP-0101
+// START_TESTCASE			NET-PPP-0102
+// END_TESTCASE			NET-PPP-0102
+// START_TESTCASE			NET-PPP-0103
+// END_TESTCASE			NET-PPP-0103
+// START_TESTCASE			NET-PPP-0104
+// END_TESTCASE			NET-PPP-0104
+// START_TESTCASE			NET-PPP-0105
+// END_TESTCASE			NET-PPP-0105
+// START_TESTCASE			NET-PPP-0106
+// END_TESTCASE			NET-PPP-0106
+// START_TESTCASE			NET-PPP-0107
+// END_TESTCASE			NET-PPP-0107
+// START_TESTCASE			NET-PPP-0108
+// END_TESTCASE			NET-PPP-0108
+// START_TESTCASE			NET-PPP-0109
+// END_TESTCASE			NET-PPP-0109
+// START_TESTCASE			NET-PPP-0110
+// END_TESTCASE			NET-PPP-0110
+// START_TESTCASE			NET-PPP-0111
+// END_TESTCASE			NET-PPP-0111
+// START_TESTCASE			NET-PPP-0112
+// END_TESTCASE			NET-PPP-0112
+// START_TESTCASE			NET-PPP-0113
+// END_TESTCASE			NET-PPP-0113
+// START_TESTCASE			NET-PPP-0114
+// END_TESTCASE			NET-PPP-0114
+// START_TESTCASE			NET-PPP-0115
+// END_TESTCASE			NET-PPP-0115
+// START_TESTCASE			NET-PPP-0116
+// /!  characters. The CommDB field SERVICE_IF_AUTH_NAME holds the NAI and must be able
+// /!  to store any NAI in the proper format. Inspect the CommDB source code to view the
+// /!  data type and width of the SERVICE_IF_AUTH_NAME field.
+// /!  expected to be no less than 72 characters.
+// END_TESTCASE			NET-PPP-0116
+// START_TESTCASE			NET-PPP-0117
+// END_TESTCASE			NET-PPP-0117
+// 
+//
+
+//! @file GT0161_additional_tests.script
+//! @brief Descriptions of tests for GT0161 that aren't found in other test scripts.
+//! /! @SYMTestCaseID		NET-PPP-0101
+//! /! @SYMTestCaseDesc Restart timer default for LCP Terminate-Request
+//! /! @SYMFssId CDMA/Networking/NetInfra/PPP
+//! /! @SYMTestStatus Implemented
+//! /! @SYMTestType CT
+//! /! @SYMTestActions See PPP Termination Phase Updates Test Specification Document.
+//! /! @SYMTestExpectedResults See PPP Termination Phase Updates Test Specification Document.
+//! /! @SYMTestCaseID		NET-PPP-0102
+//! /! @SYMTestCaseDesc Max Termination default is 2
+//! /! @SYMFssId CDMA/Networking/NetInfra/PPP
+//! /! @SYMTestStatus Implemented
+//! /! @SYMTestType CT
+//! /! @SYMTestActions See PPP Termination Phase Updates Test Specification Document.
+//! /! @SYMTestExpectedResults See PPP Termination Phase Updates Test Specification Document.
+//! /! @SYMTestCaseID		NET-PPP-0103
+//! /! @SYMTestCaseDesc Max Termination must be configurable
+//! /! @SYMFssId CDMA/Networking/NetInfra/PPP
+//! /! @SYMTestStatus Implemented
+//! /! @SYMTestType CT
+//! /! @SYMTestActions See PPP Termination Phase Updates Test Specification Document.
+//! /! @SYMTestExpectedResults See PPP Termination Phase Updates Test Specification Document.
+//! /! @SYMTestCaseID		NET-PPP-0104
+//! /! @SYMTestCaseDesc LCP implementation wishing to close connection should transmit Terminate-Request
+//! /! @SYMFssId CDMA/Networking/NetInfra/PPP
+//! /! @SYMTestStatus Implemented
+//! /! @SYMTestType CT
+//! /! @SYMTestActions See PPP Termination Phase Updates Test Specification Document.
+//! /! @SYMTestExpectedResults See PPP Termination Phase Updates Test Specification Document.
+//! /! @SYMTestCaseID		NET-PPP-0105
+//! /! @SYMTestCaseDesc Terminate-Request packets should continue to be sent until Terminate-Ack is received.
+//! /! @SYMFssId CDMA/Networking/NetInfra/PPP
+//! /! @SYMTestStatus Implemented
+//! /! @SYMTestType CT
+//! /! @SYMTestActions See PPP Termination Phase Updates Test Specification Document.
+//! /! @SYMTestExpectedResults See PPP Termination Phase Updates Test Specification Document.
+//! /! @SYMTestCaseID		NET-PPP-0106
+//! /! @SYMTestCaseDesc Terminate-Request packets should continue to be sent until lower layer goes down.
+//! /! @SYMFssId CDMA/Networking/NetInfra/PPP
+//! /! @SYMTestStatus Implemented
+//! /! @SYMTestType CT
+//! /! @SYMTestActions See PPP Termination Phase Updates Test Specification Document.
+//! /! @SYMTestExpectedResults See PPP Termination Phase Updates Test Specification Document.
+//! /! @SYMTestCaseID		NET-PPP-0107
+//! /! @SYMTestCaseDesc Terminate-Request packets should continue to be sent until a sufficiently large number was transmitted.
+//! /! @SYMFssId CDMA/Networking/NetInfra/PPP
+//! /! @SYMTestStatus Implemented
+//! /! @SYMTestType CT
+//! /! @SYMTestActions See PPP Termination Phase Updates Test Specification Document.
+//! /! @SYMTestExpectedResults See PPP Termination Phase Updates Test Specification Document.
+//! /! @SYMTestCaseID		NET-PPP-0108
+//! /! @SYMTestCaseDesc Upon reception of Terminate-Request, Terminate-Ack must be sent.
+//! /! @SYMFssId CDMA/Networking/NetInfra/PPP
+//! /! @SYMTestStatus Implemented
+//! /! @SYMTestType CT
+//! /! @SYMTestActions See PPP Termination Phase Updates Test Specification Document.
+//! /! @SYMTestExpectedResults See PPP Termination Phase Updates Test Specification Document.
+//! /! @SYMTestCaseID		NET-PPP-0109
+//! /! @SYMTestCaseDesc Implementation waits for one timeout after sending Terminate-Ack.
+//! /! @SYMFssId CDMA/Networking/NetInfra/PPP
+//! /! @SYMTestStatus Implemented
+//! /! @SYMTestType CT
+//! /! @SYMTestActions See PPP Termination Phase Updates Test Specification Document.
+//! /! @SYMTestExpectedResults See PPP Termination Phase Updates Test Specification Document.
+//! /! @SYMTestCaseID		NET-PPP-0110
+//! /! @SYMTestCaseDesc If Terminate-Request is received in Stopping sate, Terminate Ack is retransmitted but the timer is not restarted.
+//! /! @SYMFssId CDMA/Networking/NetInfra/PPP
+//! /! @SYMTestStatus Implemented
+//! /! @SYMTestType CT
+//! /! @SYMTestActions See PPP Termination Phase Updates Test Specification Document.
+//! /! @SYMTestExpectedResults See PPP Termination Phase Updates Test Specification Document.
+//! /! @SYMTestCaseID		NET-PPP-0111
+//! /! @SYMTestCaseDesc Symbian specific: Terminate-Ack timeout is configurable.
+//! /! @SYMFssId CDMA/Networking/NetInfra/PPP
+//! /! @SYMTestStatus Implemented
+//! /! @SYMTestType CT
+//! /! @SYMTestActions See PPP Termination Phase Updates Test Specification Document.
+//! /! @SYMTestExpectedResults See PPP Termination Phase Updates Test Specification Document.
+//! /! @SYMTestCaseID		NET-PPP-0112
+//! /! @SymTestCaseDesc Validate format of Async-Control-Character-Map Option fields.
+//! /! @SymFssId CDMA/Networking/NetInfra/PPP/ACCM
+//! /! @SymTestStatus Implemented
+//! /! @SymTestActions See SGL.SWM.051601 Networking/PPP Unit Test Specification
+//! /! @SymTestExpectedResults See SGL.SWM.051601 Networking/PPP Unit Test Specification
+//! /! @SYMTestCaseID		NET-PPP-0113
+//! /! @SymTestCaseDesc Validate functionality of Async-Control-Character-Map Option.
+//! /! @SymFssId CDMA/Networking/NetInfra/PPP/ACCM
+//! /! @SymTestStatus Implemented
+//! /! @SymTestActions See SGL.SWM.051601 Networking/PPP Unit Test Specification
+//! /! @SymTestExpectedResults See SGL.SWM.051601 Networking/PPP Unit Test Specification
+//! /! @SYMTestCaseID		NET-PPP-0114
+//! /! @SymTestCaseDesc Successful PPP authentication using CHAP with MD5
+//! /! @SymFssId CDMA/Networking/NetInfra/PPP/AUTH/SIPNAI
+//! /! @SymTestStatus Implemented
+//! /! @SymTestActions See SGL.SWM.051601 Networking/PPP Unit Test Specification
+//! /! @SymTestExpectedResults See SGL.SWM.051601 Networking/PPP Unit Test Specification
+//! /! @SYMTestCaseID		NET-PPP-0115
+//! /! @SymTestCaseDesc Successful PPP authentication using PAP
+//! /! @SymFssId CDMA/Networking/NetInfra/PPP/AUTH/SIPNAI
+//! /! @SymTestStatus Implemented
+//! /! @SymTestActions See SGL.SWM.051601 Networking/PPP Unit Test Specification
+//! /! @SymTestExpectedResults See SGL.SWM.051601 Networking/PPP Unit Test Specification
+//! /! @SYMTestCaseID		NET-PPP-0116
+//! /! @SymTestCaseDesc Verify that an NAI user ID for Mobile IP can be stored in the CommDB.
+//! /! @SymFssId CDMA/Networking/Settings/NAI/MIPAUTH
+//! /! @SymTestStatus Implemented
+//! /! @SymTestActions The NAI is comprised of a sequence of up to 72 printable 7-bit ASCII
+//! /! @SymTestExpectedResults The data type is expected to be EDbColText and the width is
+//! /! @SYMTestCaseID		NET-PPP-0117
+//! /! @SymTestCaseDesc Wireless TCP extensions
+//! /! @SymFssId CDMA/Networking/Netinfra/WTCP
+//! /! @SymTestStatus Defined
+//! /! @SymTestActions See SGL.TC0010.123 Analysis of Symbian OS v7.0s support for W-TCP
+//! /! @SymTestExpectedResults See SGL.TC0010.123 Analysis of Symbian OS v7.0s support for W-TCP
+

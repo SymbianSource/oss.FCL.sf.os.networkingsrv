@@ -1,0 +1,11 @@
+EXPORTS
+	_ZN13CPacketLogger11WritePacketERK10RMBufChainh @ 1 NONAME
+	_ZN13CPacketLogger11WritePacketERK6TDesC8h @ 2 NONAME
+	_ZN13CPacketLogger4NewLERK6TDesC8S2_NS_9TDumpTypeEi @ 3 NONAME
+	_ZN13CPacketLoggerD0Ev @ 4 NONAME
+	_ZN13CPacketLoggerD1Ev @ 5 NONAME
+	_ZN13CPacketLoggerD2Ev @ 6 NONAME
+	_ZTI13CPacketLogger @ 7 NONAME ; #<TI>#
+	_ZTV13CPacketLogger @ 8 NONAME ; #<VT>#
+	_ZN13CPacketLogger9WriteTextERK6TDesC8 @ 9 NONAME
+

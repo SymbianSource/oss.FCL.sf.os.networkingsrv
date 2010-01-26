@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relnotes name="IP Hook">
+  <purpose>
+    Implements TCP/IP Hook interface allowing modules to "plug-in" at the network layer level to inspect/modify IP datagrams i.e. after fragmentation but before handover to data link layer.
+  </purpose>
+ 
+   <defect number="PDEF127005" title="logging changed from flogger to commsdbg" revision="001">
+   </defect>
+
+</relnotes>

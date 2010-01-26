@@ -1,0 +1,9 @@
+EXPORTS
+	Install @ 1 NONAME
+	_ZTI10CPktLogger @ 2 NONAME ; #<TI>#
+	_ZTI19CProtocolTcpdumping @ 3 NONAME ; #<TI>#
+	_ZTI25CProtocolFamilyTcpdumping @ 4 NONAME ; #<TI>#
+	_ZTV10CPktLogger @ 5 NONAME ; #<VT>#
+	_ZTV19CProtocolTcpdumping @ 6 NONAME ; #<VT>#
+	_ZTV25CProtocolFamilyTcpdumping @ 7 NONAME ; #<VT>#
+

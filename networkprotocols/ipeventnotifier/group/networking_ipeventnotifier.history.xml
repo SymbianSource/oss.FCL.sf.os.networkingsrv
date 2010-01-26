@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<relnotes schema="1.0.0" name="IP Event Notifier" purpose="" type="component">
+  <revision major="1" functional="0" minor="1" date="20071122">
+    <ref name="PDEF112280" type="defect"/>
+    <description>Adding new tcpip.ini ipv4linklocal option 3 - EVLL4ConfigDaemonControlled.  The configuration daemon (e.g., DHCP) now automatically configures an IPv4 linklocal address on demand if address assignment or lease renewal fails.  This is enables us to avoid creating and announcing a linklocal during initial DHCP address assignment which otherwise seems to confuse some routers&#x2019; DAD detection logic and could cause assignment to fail.</description>
+  </revision>
+  <revision major="1" functional="0" minor="0" date="20070910">
+    <ref name="ipeventnotifier.prt" type="binary"/>
+    <description>DHCPUnicastTranslator is modified to accept packet on port-92 in debug mode for PREQ 1647-1648 test cases</description>
+  </revision>
+  <purpose>
+    Catches events occurring within the IP stack and publishes them for any subscribers who have registered interest. PREQ 396
+  </purpose>
+</relnotes>

@@ -1,0 +1,42 @@
+EXPORTS
+	_ZN19CNetCfgExtProvision17InitialiseConfigLEPN5ESock16CCommsDatIapViewE @ 1 NONAME
+	_ZN19CNetCfgExtProvision4NewLEv @ 2 NONAME
+	_ZN19CNetCfgExtProvisionD0Ev @ 3 NONAME
+	_ZN19CNetCfgExtProvisionD1Ev @ 4 NONAME
+	_ZN19CNetCfgExtProvisionD2Ev @ 5 NONAME
+	_ZN24CNifConfigurationControl4NewLER12MNifIfNotify @ 6 NONAME
+	_ZN27CNetworkConfigExtensionBase10ConstructLEv @ 7 NONAME
+	_ZN27CNetworkConfigExtensionBase10DeregisterEi @ 8 NONAME
+	_ZN27CNetworkConfigExtensionBase11AsyncDeleteEv @ 9 NONAME
+	_ZN27CNetworkConfigExtensionBase11LinkLayerUpEv @ 10 NONAME
+	_ZN27CNetworkConfigExtensionBase13CancelControlEv @ 11 NONAME
+	_ZN27CNetworkConfigExtensionBase13LinkLayerDownEv @ 12 NONAME
+	_ZN27CNetworkConfigExtensionBase17ConfigureNetworkLEv @ 13 NONAME
+	_ZN27CNetworkConfigExtensionBase17EventNotificationE24TNetworkAdaptorEventTypejRK6TDesC8Pv @ 14 NONAME
+	_ZN27CNetworkConfigExtensionBase17SendIoctlMessageLERKN5ESock18RLegacyResponseMsgE @ 15 NONAME
+	_ZN27CNetworkConfigExtensionBase4RunLEv @ 16 NONAME
+	_ZN27CNetworkConfigExtensionBase8DoCancelEv @ 17 NONAME
+	_ZN27CNetworkConfigExtensionBase8RunErrorEi @ 18 NONAME
+	_ZN27CNetworkConfigExtensionBaseD0Ev @ 19 NONAME
+	_ZN27CNetworkConfigExtensionBaseD1Ev @ 20 NONAME
+	_ZN27CNetworkConfigExtensionBaseD2Ev @ 21 NONAME
+	_ZTI19CNetCfgExtProvision @ 22 NONAME ; #<TI>#
+	_ZTI27CNetworkConfigExtensionBase @ 23 NONAME ; #<TI>#
+	_ZTV19CNetCfgExtProvision @ 24 NONAME ; #<VT>#
+	_ZTV27CNetworkConfigExtensionBase @ 25 NONAME ; #<VT>#
+	_ZN16CNetCfgExtNotify4NewLEPN5ESock26CSubConnectionProviderBaseE @ 26 NONAME
+	_ZTI16CNetCfgExtNotify @ 27 NONAME ; #<TI>#
+	_ZTV16CNetCfgExtNotify @ 28 NONAME ; #<VT>#
+	_ZN17ADeferredDeletion10DeleteThisEv @ 29 NONAME
+	_ZN17ADeferredDeletion15NotifyDeletionLEP17ADeletionNotifier @ 30 NONAME
+	_ZN27CNetworkConfigExtensionBase10DeleteThisEv @ 31 NONAME
+	_ZThn36_N27CNetworkConfigExtensionBase10DeleteThisEv @ 32 NONAME
+	_ZThn36_N27CNetworkConfigExtensionBaseD0Ev @ 33 NONAME
+	_ZThn36_N27CNetworkConfigExtensionBaseD1Ev @ 34 NONAME
+	_ZTI17ADeferredDeletion @ 35 NONAME
+	_ZTI17ADeletionNotifier @ 36 NONAME
+	_ZTV17ADeferredDeletion @ 37 NONAME
+	_ZTV17ADeletionNotifier @ 38 NONAME
+
+
+

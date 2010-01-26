@@ -1,0 +1,9 @@
+EXPORTS
+	??0CCommandArg@@QAE@XZ @ 1 NONAME ; CCommandArg::CCommandArg(void)
+	??1CCommandArg@@UAE@XZ @ 2 NONAME ; CCommandArg::~CCommandArg(void)
+	?CloseCGI@CExecCGI@@QAEXXZ @ 3 NONAME ; void CExecCGI::CloseCGI(void)
+	?ConstructL@CExecCGI@@QAEXABV?$TBuf@$0BAA@@@0ABVCCommandArg@@ABVTCgiEnv@@@Z @ 4 NONAME ; void CExecCGI::ConstructL(class TBuf<256> const &, class TBuf<256> const &, class CCommandArg const &, class TCgiEnv const &)
+	?Read@CExecCGI@@IBEHAAVTDes8@@@Z @ 5 NONAME ; int CExecCGI::Read(class TDes8 &) const
+	?StartCGI@CExecCGI@@QAEXXZ @ 6 NONAME ; void CExecCGI::StartCGI(void)
+	?Write@CExecCGI@@IAEHABVTDesC8@@@Z @ 7 NONAME ; int CExecCGI::Write(class TDesC8 const &)
+

@@ -1,0 +1,43 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+// ================== Phonet packages = =================== 
+
+#include <isimsg.iby>
+#include <phonet.iby>
+#include <pnmsg.iby>
+#include <pnmsgfifo.iby>
+
+// ================== QOS packages = =================== 
+
+#include <pep.iby>
+#include <umtsif.iby>
+#include <scheduler.iby>
+#include <pfqoslib.iby>
+#include <qos.iby>
+#include <guqos.iby>
+#include <qoslib.iby>
+//#include <qosextnapi.iby>
+#include <umtsapi.iby>
+#include <sblpapi.iby>
+
+// ================== QOS Testing packages = =================== 
+
+#include <integrationtest.iby>
+#include <testmodule.iby>
+#include <testnif.iby>
+#include <ts_qos.iby>
+#include <umtssim.iby>

@@ -1,0 +1,106 @@
+// Copyright (c) 2005-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// PPP networking protocol
+// 
+//
+
+/**
+ @file
+*/
+
+#ifndef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+
+#include "../version1/group/BLD.INF"
+
+#else
+
+PRJ_PLATFORMS
+
+DEFAULT
+
+PRJ_EXPORTS
+
+../group/ppp.iby              			/epoc32/rom/include/ppp.iby
+
+../INC/PPPConfig.h                      SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/pppconfig.h)
+../INC/PPPConfig.inl                    SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/pppconfig.inl)
+../INC/csdavailabilitylistener.h                SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/csdavailabilitylistener.h)
+../INC/PPPBASE.H                		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/pppbase.h)
+../INC/PPPBASE.INL              		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/pppbase.inl)
+../INC/PPPCCP.H                 		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/pppccp.h)
+../INC/PPPCFG.H                 		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/pppcfg.h)
+../INC/PPPCOMP.H                		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/pppcomp.h)
+../INC/PPPDEF.H                 		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/pppdef.h)
+../INC/PPPLCP.H                 		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/ppplcp.h)
+../INC/PPPLCP.INL               		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/ppplcp.inl)
+../INC/PPPSOCK.H                		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/pppsock.h)
+../INC/PPPSOCK.INL              		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/pppsock.inl)
+../INC/VJ.H                     		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/vj.h)
+../INC/vj.inl                   		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/vj.inl)
+../INC/vjcomp.inl               		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/vjcomp.inl)
+../INC/VJDECOMP.INL             			SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/vjdecomp.inl)
+../INC/VJIF.H                   		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/vjif.h)
+../INC/PppProg.h                		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/pppprog.h)
+
+../INC/in_tcp.h                 		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/in_tcp.h)
+../INC/in_tcp.inl               		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/in_tcp.inl)
+../INC/in_ip.h                  		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/in_ip.h)
+../INC/in_ip.inl                		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/in_ip.inl)
+../INC/in_std.h                 		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/in_std.h)
+
+../INC/PPPDEBUG.h				SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/pppdebug.h)
+
+#include "../data/bld.inf"
+
+PRJ_MMPFILES
+
+../group/PPPMainDll.mmp
+../group/PPP.MMP
+../group/VJCOMP.MMP
+
+
+PRJ_TESTEXPORTS
+
+// testexecute te_ppp 
+../te_ppp/group/te_ppp.iby			/epoc32/rom/include/te_ppp.iby
+../te_ppp/scripts/te_ppp.script		/epoc32/data/z/testdata/scripts/te_ppp.script
+
+../te_ppp/group/te_ppp.cfg      	/epoc32/data/z/private/101f7989/esock/te_ppp.cfg
+../te_ppp/group/te_ppp.cfg      	/epoc32/winscw/c/private/101f7989/esock/te_ppp.cfg
+
+// scheduletest ts_dummyoveralltest
+../te_ppp/dummyppp/group/dummyppp.iby		/epoc32/rom/include/dummyppp.iby
+
+// TE_PPPSize IBY
+../te_pppsize/group/te_pppsize.iby			/epoc32/rom/include/te_pppsize.iby
+
+// TE_PPPSize
+../te_pppsize/scripts/te_pppsize.script		z:/testdata/scripts/te_pppsize.script
+../te_pppsize/scripts/te_pppsize.ini		z:/testdata/configs/te_pppsize.ini
+../te_pppsize/scripts/te_pppsize.xml		z:/testdata/configs/te_pppsize.xml
+
+#include "../te_ppp/te_pppcomp/group/bld.inf"
+#include "../te_ppp/te_vjcomp/group/bld.inf"
+#include "../te_ppp/te_incoming_ppp/group/bld.inf"
+#include "../te_ppp/TS_dummyppp/group/bld.inf"
+
+
+PRJ_TESTMMPFILES
+
+../te_ppp/dummyppp/group/dummyppp.mmp
+../te_pppsize/group/te_pppsize.mmp
+
+
+#endif // SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+

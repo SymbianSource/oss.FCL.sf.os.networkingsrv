@@ -1,0 +1,25 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRINT This is going to run the authobjects tkeystore test
+LOAD_SUITE t_keystore
+
+//! @SYMTestCaseID 	SEC-TLSP-CLIENT-KEY-0001
+//! @SYMTestCaseDesc 	Run the authobjects tkeystore test
+
+START_TESTCASE SEC-TLSP-CLIENT-KEY-0001
+RUN_TEST_STEP 200 t_keystore test c:\tkeystore.ini Tempobjects
+END_TESTCASE SEC-TLSP-CLIENT-KEY-0001

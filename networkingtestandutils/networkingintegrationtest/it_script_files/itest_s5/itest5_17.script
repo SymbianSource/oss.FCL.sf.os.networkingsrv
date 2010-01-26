@@ -1,0 +1,82 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+
+PRINT Integration test 5.17 - IR CSD outgoing with Ipv4 and Client timeout
+
+LOAD_SUITE TE_Esock
+LOAD_SUITE te_esockutil
+LOAD_SUITE te_esockteststepsSuite -SharedData
+
+
+
+
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_loadesock.script
+//tried csd-ir.xml - '-i' causes test tool problems, tried csd_ir.xml and tests fail
+CED z:\testdata\configs\te_esock.xml
+
+
+START_TESTCASE			NET-Integration-IrCsd-1901
+//! @SYMTestCaseID		NET-Integration-IrCsd-1901
+
+
+// open connection using gencon
+//run_test_step 3000 ts_genconn test1_1 z:\testdata\configs\integration\itest_s5\genconn.ini		
+//original genconn.ini says to leave connected after opening.
+//above call results in OpenSocketServ, OpenConnection, StartConnection which are all provided by
+//TE_EsockTestSteps
+RUN_TEST_STEP 3000 te_esockteststepsSuite creatersocketservStep z:\testdata\configs\integration\itest_s5\te_teststeps.ini CreateSockSvr1
+RUN_TEST_STEP 3000 te_esockteststepsSuite connectrsocketservStep z:\testdata\configs\integration\itest_s5\te_teststeps.ini ConnectSockSvr1
+RUN_TEST_STEP 3000 te_esockteststepsSuite createrconnectionStep z:\testdata\configs\integration\itest_s5\te_teststeps.ini CreateConn1
+RUN_TEST_STEP 3000 te_esockteststepsSuite openrconnectionStep z:\testdata\configs\integration\itest_s5\te_teststeps.ini OpenConn1
+RUN_TEST_STEP 3000 te_esockteststepsSuite startrconnectionStep z:\testdata\configs\integration\itest_s5\te_teststeps.ini StartConn1
+
+END_TESTCASE			NET-Integration-IrCsd-1901
+
+
+// open socket server 
+RUN_TEST_STEP 100 TE_Esock OpenServer   
+
+START_TESTCASE			NET-Integration-IrCsd-1902
+//! @SYMTestCaseID		NET-Integration-IrCsd-1902
+
+// open socket
+RUN_TEST_STEP 100 TE_Esock Test1.2 z:\testdata\configs\integration\itest_s5\itest.ini
+
+// use socket
+RUN_TEST_STEP 1000 TE_Esock SendData z:\testdata\configs\integration\itest_s5\ipv4.ini
+
+// close socket
+RUN_TEST_STEP 100 TE_Esock Test1.15 z:\testdata\configs\integration\itest_s5\itest.ini
+
+// close socket server 
+RUN_TEST_STEP 100 TE_Esock CloseServer   
+
+// wait for more than Commdb AgentClientTimeout
+print wait for more than Commdb AgentClientTimeout
+run_test_step -1 te_esockutil TE_ESockUtilDelay z:\testdata\configs\integration\itest_s5\client_timeout.ini	
+
+
+// check the network is NOT active
+RUN_TEST_STEP 100 te_esockutil TE_ESockUtilIsNetworkNotActive
+
+
+// log result
+PRINT Result for Integration test 5.17 - IR CSD outgoing with Ipv4 and Client timeout
+TEST_COMPLETE IR_CSD_test5_17
+
+END_TESTCASE			NET-Integration-IrCsd-1902
+

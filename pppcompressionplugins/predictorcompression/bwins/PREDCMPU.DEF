@@ -1,0 +1,4 @@
+EXPORTS
+; NEW:
+	NewPppCompFactoryL @ 1 NONAME
+

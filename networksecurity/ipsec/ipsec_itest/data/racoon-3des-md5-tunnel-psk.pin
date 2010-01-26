@@ -1,0 +1,12 @@
+[TYPE]
+0
+[POLICYNAME]
+racoon-3des-md5-tunnel-psk
+[POLICYVERSION]
+1.0
+[POLICYDESCRIPTION]
+Racoon tunnel using PSK
+[ISSUERNAME]
+test.intra
+[CONTACTINFO]
+ipsec@symbian.com

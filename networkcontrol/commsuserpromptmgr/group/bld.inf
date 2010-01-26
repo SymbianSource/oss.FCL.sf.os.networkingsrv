@@ -1,0 +1,39 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRJ_EXPORTS
+../group/netups.iby								/epoc32/rom/include/netups.iby
+
+../interface/inc/netupstypes.h 					SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/netupstypes.h)
+../interface/inc/netups.h					SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/netups.h)
+../interface/inc/netupsstatedef.h				SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/netupsstatedef.h)
+
+PRJ_EXPORTS
+../utils/inc/netupsproperties.h					SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/netupsproperties.h)
+../utils/inc/netupsserviceid.h					SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(comms-infras/netupsserviceid.h)
+PRJ_MMPFILES
+netups.mmp
+
+PRJ_TESTMMPFILES
+
+PRJ_MMPFILES
+
+
+PRJ_TESTEXPORTS
+../test/netups.ini  							/epoc32/data/z/private/101f7989/esock/netups.ini
+../test/netups_test.iby							/epoc32/rom/include/netups_test.iby
+
+
+

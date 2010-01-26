@@ -1,0 +1,65 @@
+// Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+/**
+ @file ipeventnotifier.mmp
+*/
+
+VENDORID 	0x70000001
+
+
+
+TARGET		ramod3.prt
+TARGETTYPE	dll
+
+UID		0x10003D38 0x102045C0
+
+SOURCEPATH	./
+MACRO		RAMOD3
+
+SOURCE		ramodfamily.cpp
+SOURCE		ramod.cpp
+SOURCE		HookLog.cpp
+
+USERINCLUDE		./
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+SYSTEMINCLUDE	/epoc32/include
+SYSTEMINCLUDE	/epoc32/include/networking
+SYSTEMINCLUDE	/epoc32/include/comms-infras
+#else
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+SYSTEMINCLUDE	/epoc32/include/platform/networking
+SYSTEMINCLUDE	/epoc32/include/platform/comms-infras
+#endif
+
+
+LIBRARY		euser.lib
+LIBRARY		inhook6.lib
+LIBRARY		esocksvr.lib
+LIBRARY		netmeta.lib
+LIBRARY		insock.lib
+LIBRARY         nodemessages.lib
+
+#include	<comms-infras/commsdebugutility.mmh>
+
+
+CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
+
+
+
+
+UNPAGED
+
+SMPSAFE

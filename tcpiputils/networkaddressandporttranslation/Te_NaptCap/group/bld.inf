@@ -1,0 +1,31 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRJ_TESTEXPORTS
+
+
+../scripts/Te_NaptCapTests.script   /epoc32/release/wins/udeb/z/testdata/scripts/te_naptcaptests.script
+../scripts/Te_NaptCapTests.script   /epoc32/release/winscw/udeb/z/testdata/scripts/te_naptcaptests.script
+../scripts/Te_NaptCapTests.script   /epoc32/data/z/testdata/scripts/te_naptcaptests.script
+
+../configs/CapabilityPolicing.ini   /epoc32/release/wins/udeb/z/testdata/configs/capabilitypolicing.ini
+../configs/CapabilityPolicing.ini   /epoc32/release/winscw/udeb/z/testdata/configs/capabilitypolicing.ini
+../configs/CapabilityPolicing.ini   /epoc32/data/z/testdata/configs/capabilitypolicing.ini
+
+
+PRJ_MMPFILES
+
+
+PRJ_TESTMMPFILES

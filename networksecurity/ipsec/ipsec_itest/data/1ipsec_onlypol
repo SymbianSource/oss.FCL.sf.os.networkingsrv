@@ -1,0 +1,18 @@
+SECURITY_FILE_VERSION: 3
+[INFO]
+pppdialin
+[POLICY]
+sa tull_1 = {
+ esp
+ encrypt_alg 3
+ auth_alg 2
+ identity_remote 192.168.10.3
+ src_specific
+ hard_lifetime_addtime 240
+ hard_lifetime_usetime 240
+ soft_lifetime_addtime 240
+ soft_lifetime_usetime 240
+ }
+
+ remote 192.168.10.3 255.255.255.255 = { tull_1(192.168.10.3)  }
+

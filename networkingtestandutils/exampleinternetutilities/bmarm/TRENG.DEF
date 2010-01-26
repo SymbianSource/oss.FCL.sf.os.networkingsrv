@@ -1,0 +1,11 @@
+; dlltool --output-def ../../EPOC32/BUILD/INETUTIL/MARMD/REL/TRENG.def ../../EPOC32/BUILD/INETUTIL/MARMD/REL/TRENG.in
+EXPORTS
+	__15TTraceRtOptions @ 1 NONAME
+	Cancel__11CTraceRtEng @ 2 NONAME
+	ConstructL__11CTraceRtEngR27MTraceRtNotificationHandler @ 3 NONAME
+	NewL__11CTraceRtEngR27MTraceRtNotificationHandler @ 4 NONAME
+	SetPriorities__11CTraceRtEngiii @ 5 NONAME
+	Start__11CTraceRtEngRC15TTraceRtOptions @ 6 NONAME
+	"_._11CTraceRtEng" @ 7 NONAME
+	__11CTraceRtEng @ 8 NONAME
+	CancelAndFinished__11CTraceRtEng @ 9 NONAME

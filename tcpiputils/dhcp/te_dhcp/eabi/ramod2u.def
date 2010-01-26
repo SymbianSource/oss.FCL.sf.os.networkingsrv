@@ -1,0 +1,7 @@
+EXPORTS
+	_Z7Installv @ 1 NONAME
+	_ZTI20CramodProtocolFamily @ 2 NONAME
+	_ZTI6Cramod @ 3 NONAME
+	_ZTV20CramodProtocolFamily @ 4 NONAME
+	_ZTV6Cramod @ 5 NONAME
+

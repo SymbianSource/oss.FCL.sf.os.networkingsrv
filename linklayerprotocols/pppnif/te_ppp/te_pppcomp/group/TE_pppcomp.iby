@@ -1,0 +1,52 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+#ifndef __TS_PPPCOMP_IBY__
+#define __TS_PPPCOMP_IBY__
+
+#include <ppp.iby>
+#include <testexecute.iby>
+
+file=ABI_DIR\DEBUG_DIR\te_pppcomp.exe		System\bin\te_pppcomp.exe
+
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_pppcomp\ccp.ini private\101f777c\ccp.ini
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_pppcomp\te_pppcomp.ini testdata\configs\ppp\te_ppp\te_pppcomp\te_pppcomp.ini
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\scripts\te_pppcomp.script testdata\scripts\te_pppcomp.script
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_pppcomp\te_pppcomp.xml testdata\configs\ppp\te_ppp\te_pppcomp\te_pppcomp.xml
+
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_pppcomp\bib.txt testdata\configs\ppp\te_ppp\te_pppcomp\bib.txt
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_pppcomp\book1.txt testdata\configs\ppp\te_ppp\te_pppcomp\book1.txt
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_pppcomp\book2.txt testdata\configs\ppp\te_ppp\te_pppcomp\book2.txt
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_pppcomp\geo.txt testdata\configs\ppp\te_ppp\te_pppcomp\geo.txt
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_pppcomp\news.txt testdata\configs\ppp\te_ppp\te_pppcomp\news.txt
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_pppcomp\obj1.txt testdata\configs\ppp\te_ppp\te_pppcomp\obj1.txt
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_pppcomp\obj2.txt testdata\configs\ppp\te_ppp\te_pppcomp\obj2.txt
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_pppcomp\paper1.txt testdata\configs\ppp\te_ppp\te_pppcomp\paper1.txt
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_pppcomp\paper2.txt testdata\configs\ppp\te_ppp\te_pppcomp\paper2.txt
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_pppcomp\paper3.txt testdata\configs\ppp\te_ppp\te_pppcomp\paper3.txt
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_pppcomp\paper4.txt testdata\configs\ppp\te_ppp\te_pppcomp\paper4.txt
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_pppcomp\paper5.txt testdata\configs\ppp\te_ppp\te_pppcomp\paper5.txt
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_pppcomp\paper6.txt testdata\configs\ppp\te_ppp\te_pppcomp\paper6.txt
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_pppcomp\pic.txt testdata\configs\ppp\te_ppp\te_pppcomp\pic.txt
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_pppcomp\progc.txt testdata\configs\ppp\te_ppp\te_pppcomp\progc.txt
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_pppcomp\progl.txt testdata\configs\ppp\te_ppp\te_pppcomp\progl.txt
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_pppcomp\progp.txt testdata\configs\ppp\te_ppp\te_pppcomp\progp.txt
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_pppcomp\trans.txt testdata\configs\ppp\te_ppp\te_pppcomp\trans.txt
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_pppcomp\zero.bin  testdata\configs\ppp\te_ppp\te_pppcomp\zero.bin
+data=EPOCROOT##Epoc32\release\winscw\udeb\z\testdata\configs\ppp\te_ppp\te_pppcomp\zero4k.bin  testdata\configs\ppp\te_ppp\te_pppcomp\zero4k.bin
+#endif
+

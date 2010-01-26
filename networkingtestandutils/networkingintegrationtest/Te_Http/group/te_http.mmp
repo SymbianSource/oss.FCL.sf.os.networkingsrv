@@ -1,0 +1,61 @@
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// Using relative paths for sourcepath and user includes
+// 
+//
+
+	TARGET		te_http.exe
+	TARGETTYPE 	exe
+	UID  		0x1000007A 0x101FD3BB
+
+SOURCEPATH		../src
+SOURCE			TeHttpServer.cpp
+SOURCE			TeSocketBase.cpp
+SOURCE			TeSocketListener.cpp
+SOURCE			TeSocketConnector.cpp
+SOURCE			TeListen.cpp
+SOURCE			TeConnect.cpp
+SOURCE			TeInit.cpp
+SOURCE			TeListenerMgr.cpp
+SOURCE			TeStepBase.cpp
+
+
+USERINCLUDE		../src
+
+#ifdef SYMBIAN_OLD_EXPORT_LOCATION
+SYSTEMINCLUDE	/epoc32/include
+SYSTEMINCLUDE	/epoc32/include/test
+#else
+OS_LAYER_SYSTEMINCLUDE_SYMBIAN
+SYSTEMINCLUDE	/epoc32/include/platform
+SYSTEMINCLUDE	/epoc32/include/platform/test
+#endif
+
+LIBRARY     	euser.lib
+LIBRARY			testexecuteutils.lib
+LIBRARY			esock.lib
+LIBRARY			insock.lib
+LIBRARY			c32root.lib
+LIBRARY			testexecutelogclient.lib
+#ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
+LIBRARY		commsfw.lib
+#endif
+
+// We're quite heavy on the stack... 4k in WinS isn't enough...
+EPOCSTACKSIZE	0x6000
+CAPABILITY ALL -Tcb
+
+VENDORID 0x70000001
+
+SMPSAFE

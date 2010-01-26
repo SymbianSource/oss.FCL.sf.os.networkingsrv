@@ -1,0 +1,47 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//
+PRINT TS_QoSAPI:Scenario 1
+//
+LOAD_SUITE TS_QoSAPI.dll
+
+// Open Socket Server
+RUN_TEST_STEP 100, TS_QoSAPI, OpenServer
+
+// run test 2.0
+// Initialize Open QoS Channel(s)
+RUN_TEST_STEP 100, TS_QoSAPI, Initialize_Open_QoS_Channel_2.0 z:\testdata\scripts\ExplicitUdp\QoS_Scenario_1_HLR5_1_1.ini
+
+// run test 2.1
+// Open QoS Channel(s)
+RUN_TEST_STEP 100, TS_QoSAPI, Open_QoS_Channel_2.1 z:\testdata\configs\Test_All_QoS_ip4_Explicit.ini
+
+// run test 2.3
+// Setup QoS Parameters
+RUN_TEST_STEP 100, TS_QoSAPI, SetUp_QoS_Parameters_Test2.3 z:\testdata\scripts\ExplicitUdp\QoS_Scenario_1_HLR5_1_1.ini
+
+// run test 2.2
+// Close the QoS Channel(s)
+RUN_TEST_STEP 100, TS_QoSAPI, Close_QoS_Channel_Test2.2 z:\testdata\scripts\ExplicitUdp\QoS_Scenario_1_HLR5_1_1.ini
+
+// run test 1.3
+// Close n TCP Socket(s)
+RUN_TEST_STEP 100, TS_QoSAPI, Close_Sockets_Test1.3 z:\testdata\scripts\ExplicitUdp\QoS_Scenario_1_HLR5_1_1.ini
+
+// Close Socket Server
+RUN_TEST_STEP 100, TS_QoSAPI, CloseServer
+
+TEST_COMPLETE

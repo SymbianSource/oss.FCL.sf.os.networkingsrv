@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relnotes name="Ethernet Packet Driver">
+  <purpose>
+    Ether packet logical and physical device drivers.
+  </purpose>
+</relnotes>

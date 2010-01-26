@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relnotes name="NULL AGT">
+  <purpose>
+    Implements a minimal Nifman connection agent plug-in, enabling connection to an Ethernet LAN and for other related network interfaces that don't need a state machine for connection and disconnection.
+  </purpose>
+</relnotes>

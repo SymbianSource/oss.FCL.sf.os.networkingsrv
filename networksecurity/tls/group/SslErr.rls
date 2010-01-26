@@ -1,0 +1,71 @@
+// Copyright (c) 1997-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+/**
+ @file SslErr.rls
+*/
+
+rls_string  STRING_r_ssl_error_ssl_default "Secure session failed"
+rls_string  STRING_r_ssl_error_NoSharedCipher "Secure session failed to initialise"
+rls_string  STRING_r_ssl_error_SocketBusy "Secure session failed"
+rls_string  STRING_r_ssl_error_InvalidCipherSuite "Secure session failed initialise"
+rls_string  STRING_r_ssl_error_InvalidCert "Secure session failed to initialise - invalid certificate"
+rls_string  STRING_r_ssl_error_NoClientCert "Secure session failed to intialise - no certificate"
+rls_string  STRING_r_ssl_error_UnsupportedKeySize "Secure session failed to intialise"
+rls_string  STRING_r_ssl_error_UnsupportedKey "Secure session failed to intialise"
+rls_string  STRING_r_ssl_error_BadRecordHeader "Secure session failed"
+rls_string  STRING_r_ssl_error_BadProtocolVersion "Secure session failed to initialise - unsupported version"
+rls_string  STRING_r_ssl_error_2ServerOnly "Secure session failed to initialise - unsupported version"
+rls_string  STRING_r_ssl_error_UnexpectedMessage "Secure session failed"
+rls_string  STRING_r_ssl_error_UnsupportedCipher "Secure session failed to initialise - unsupported version"
+rls_string  STRING_r_ssl_error_BadMAC "Secure session failed"
+rls_string  STRING_r_ssl_error_RecivedAlert "Remote server closed secure session"
+rls_string  STRING_r_ssl_error_RecvNotSupportedHS "Secure session failed to initialise - unsupported version"
+rls_string  STRING_r_ssl_error_HSRecordFieldTooBig "Secure session failed to initialise"
+rls_string  STRING_r_ssl_error_RecordHeaderTooBig "Secure session failed"
+rls_string  STRING_r_ssl_error_SendDataToBig "Secure session failed"
+rls_string  STRING_r_ssl_error_NoCertificate "Secure session failed - no certificate"
+rls_string  STRING_r_ssl_error_InvalidHash "Secure session failed"
+rls_string  STRING_r_ssl_error_SendCanceled "Secure session cancelled"
+rls_string  STRING_r_ssl_error_RecvCanceled "Secure session cancelled"
+rls_string  STRING_r_ssl_error_HandshakeCanceled "Secure session cancelled"
+rls_string  STRING_r_ssl_error_WriteFailed "Secure session failed"
+rls_string  STRING_r_ssl_error_FailedToLoad "Secure session failed"
+rls_string  STRING_r_ssl_error_DisconnectIndication "Secure session failed"
+rls_string  STRING_r_ssl_error_DllLeave "Secure session failed"
+rls_string  STRING_r_ssl_error_ssl_AlertCloseNotify "Secure session closed"
+rls_string  STRING_r_ssl_error_ssl_AlertUnexpectedMessage "Secure session failed"
+rls_string  STRING_r_ssl_error_ssl_AlertBadReordMac "Secure session failed"
+rls_string  STRING_r_ssl_error_ssl_AlertDecryptionFailed "Secure session failed"
+rls_string  STRING_r_ssl_error_ssl_AlertRecordOverflow "Secure session failed"
+rls_string  STRING_r_ssl_error_ssl_AlertDecompressionFailure "Secure session failed"
+rls_string  STRING_r_ssl_error_ssl_AlertHandshakeFailure "Secure session failed to initialise"
+rls_string  STRING_r_ssl_error_ssl_AlertNoCertificate "Secure session failed to initialise - no certificate"
+rls_string  STRING_r_ssl_error_ssl_AlertBadCertificate "Secure session failed to initialise - invalid certificate"
+rls_string  STRING_r_ssl_error_ssl_AlertUnsupportedCertificate "Secure session failed to initialise - unsupported certificate"
+rls_string  STRING_r_ssl_error_ssl_AlertCertificateRevoked "Secure session failed to initialise - certificate revoked"
+rls_string  STRING_r_ssl_error_ssl_AlertCertificateExpired "Secure session failed to initialise - certificate expired"
+rls_string  STRING_r_ssl_error_ssl_AlertCertificateUnknown "Secure session failed to initialise - certificate unknown"
+rls_string  STRING_r_ssl_error_ssl_AlertIllegalParameter "Secure session failed"
+rls_string  STRING_r_ssl_error_ssl_AlertUnknownCA "Secure session failed to initialise - certificate unknown"
+rls_string  STRING_r_ssl_error_ssl_AlertAccessDenied "Secure session failed to initialise - server access denied"
+rls_string  STRING_r_ssl_error_ssl_AlertDecodeError "Secure session failed"
+rls_string  STRING_r_ssl_error_ssl_AlertDecryptError "Secure session failed"
+rls_string  STRING_r_ssl_error_ssl_AlertExportRestriction "Secure session failed to initialise"
+rls_string  STRING_r_ssl_error_ssl_AlertProtocolVersion "Secure session failed to initialise - unsupported version"
+rls_string  STRING_r_ssl_error_ssl_AlertInsufficientSecurity "Secure session failed to initialise - insufficient security"
+rls_string  STRING_r_ssl_error_ssl_AlertInternalError "Secure session failed"
+rls_string  STRING_r_ssl_error_ssl_AlertUserCanceled "Secure session cancelled"
+rls_string  STRING_r_ssl_error_ssl_AlertNoRenegotiation "Secure session failed" 

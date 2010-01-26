@@ -1,0 +1,34 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+#ifndef __ETHER802CFPROTO_IBY__
+#define __ETHER802CFPROTO_IBY__
+
+REM LAN CFProtocol and Packet Drivers
+
+file=ABI_DIR\DEBUG_DIR\EthInt.nif          System\Libs\EthInt.nif
+#ifdef _DEBUG
+ECOM_PLUGIN_UDEB(ether802.dll,10281DDA.rss)
+#else
+ECOM_PLUGIN(ether802.dll,10281DDA.rss)
+#endif
+
+file=ABI_DIR\DEBUG_DIR\etherpkt.drv        System\Libs\etherpkt.drv
+file=ABI_DIR\DEBUG_DIR\irlan.drv           System\Libs\IrLAN.drv
+
+data=EPOCROOT##epoc32\data\z\private\101F7989\ESock\ether802.ini	private\101F7989\ESock\ether802.ini
+#endif

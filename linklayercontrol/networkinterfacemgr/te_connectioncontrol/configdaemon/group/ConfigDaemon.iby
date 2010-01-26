@@ -1,0 +1,35 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+#ifndef __CONFIG_DAEMON_IBY__
+#define __CONFIG_DAEMON_IBY__
+
+REM Static Dependencies
+#include <esock.iby>
+#include <insock.iby>
+#include <inhook6.iby>
+#include <commdb.iby>
+
+REM CS_Daemon, StartServer, NetSm (StateMachine) and MsgParser required for the test config daemon
+#include <NetCfgExtnMip.iby>
+#include <NetStSrv.iby>
+#include <NetSm.iby>
+#include <NetMsg.iby>
+
+file=ABI_DIR\DEBUG_DIR\ConfigDaemon.exe        system\programs\ConfigDaemon.exe
+
+#endif // __CONFIG_DAEMON_IBY__
+

@@ -1,0 +1,8 @@
+inputdirectory \apps\iprotor\
+outputdirectory \epoc32\release\wins\deb\z\system\apps\iprotor\
+graphicsdirectory \epoc32\release\wins\deb\z\system\apps\iprotor\
+outputfile iprotor.hlp
+sourcefile iprotor
+orderfile iprotor.order
+workingdirectory \apps\iprotor\tmp\
+customizationfile uk.alc

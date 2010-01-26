@@ -1,0 +1,44 @@
+#
+# Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+# All rights reserved.
+# This component and the accompanying materials are made available
+# under the terms of "Eclipse Public License v1.0"
+# which accompanies this distribution, and is available
+# at the URL "http://www.eclipse.org/legal/epl-v10.html".
+#
+# Initial Contributors:
+# Nokia Corporation - initial contribution.
+#
+# Contributors:
+#
+# Description: 
+#
+
+component	networking_ppp
+source	\sf\os\networkingsrv\linklayerprotocols\pppnif\bmarm
+source	\sf\os\networkingsrv\linklayerprotocols\pppnif\bwins
+source	\sf\os\networkingsrv\linklayerprotocols\pppnif\eabi
+source	\sf\os\networkingsrv\linklayerprotocols\pppnif\Documentation
+source	\sf\os\networkingsrv\linklayerprotocols\pppnif\INC
+source	\sf\os\networkingsrv\linklayerprotocols\pppnif\SVJCOMP
+source	\sf\os\networkingsrv\linklayerprotocols\pppnif\group
+source	\sf\os\networkingsrv\linklayerprotocols\pppnif\te_pppsize
+source	\sf\os\networkingsrv\linklayerprotocols\pppnif\SPPP
+source	\sf\os\networkingsrv\linklayerprotocols\pppnif\te_ppp
+source	\sf\os\networkingsrv\linklayerprotocols\pppnif\tsrc
+binary	\sf\os\networkingsrv\linklayerprotocols\pppnif\group	all
+exports	\sf\os\networkingsrv\linklayerprotocols\pppnif\group
+
+notes_source	\component_defs\release.src
+
+-export_file \sf\os\networkingsrv\linklayerprotocols\pppnif\data\ccp.ini  \epoc32\winscw\c\private\101f7989\ESock\ccp.ini
+-export_file \sf\os\networkingsrv\linklayerprotocols\pppnif\data\ccp.ini  \epoc32\data\z\private\101f7989\ESock\ccp.ini
+
+
+
+ipr E 
+ipr T \sf\os\networkingsrv\linklayerprotocols\pppnif\te_ppp
+ipr B \sf\os\networkingsrv\linklayerprotocols\pppnif\te_ppp\ANVL
+ipr T \sf\os\networkingsrv\linklayerprotocols\pppnif\te_pppsize
+ipr T \sf\os\networkingsrv\linklayerprotocols\pppnif\tsrc
+

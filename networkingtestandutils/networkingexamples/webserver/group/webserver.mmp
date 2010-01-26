@@ -1,0 +1,71 @@
+// Copyright (c) 2005-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// webserver.mmp - http server MMP file
+// http server
+//
+
+
+
+/**
+ @file
+*/
+ 
+MACRO       EPOC_SDK=0x08000000
+
+TARGETTYPE  exe
+TARGET      webserver.exe
+MACRO	    MAKE_EXE_APPLICATION
+UID         0 0x10000884
+
+EPOCSTACKSIZE 0x5000
+TARGETPATH  /sys/bin
+
+SOURCEPATH  ../src
+
+SOURCE      webserver.cpp ws_eng.cpp ws_con.cpp ws_mes.cpp ws_tim.cpp
+SOURCE      ../../../../../../app/techview/networkingutils/ipadministrationtool/src/uniload.cpp
+
+START RESOURCE      ../data/webserver.rss
+HEADER
+TARGETPATH /resource/apps
+END
+
+START RESOURCE	../data/webserver_reg.rss
+TARGETPATH /private/10003a3f/apps
+END
+
+USERINCLUDE ../inc
+USERINCLUDE ../../cgi/inc
+
+SYSTEMINCLUDE   ../../../../../../app/techview/networkingutils/ipadministrationtool/inc // temp for uniload.h
+SYSTEMINCLUDE	/epoc32/include/techview
+SYSTEMINCLUDE   /epoc32/include
+
+LIBRARY     euser.lib cone.lib eikcore.lib eikcoctl.lib eikctl.lib apparc.lib eikdlg.lib egul.lib
+LIBRARY     esock.lib insock.lib
+LIBRARY     efsrv.lib
+LIBRARY     cgi.lib
+LIBRARY     bafl.lib
+LIBRARY     apgrfx.lib ws32.lib
+LIBRARY     gdi.lib
+
+#ifdef MARM
+LIBRARY     estor.lib // for TStreamTransfer (MARM DEBUG)
+#endif
+
+CAPABILITY ALL -Tcb
+
+VENDORID	0x70000001
+
+SMPSAFE

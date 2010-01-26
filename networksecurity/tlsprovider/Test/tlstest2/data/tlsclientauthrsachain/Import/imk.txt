@@ -1,0 +1,72 @@
+<action>
+	<actionname>Delete keystore data file</actionname>
+	<actiontype>deletekeystoredata</actiontype>
+	<actionbody>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>Opening key store in manager mode</actionname>
+	<actiontype>init</actiontype>
+	<actionbody>
+		<mode>manager</mode>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>Set passphrase timeout to 30 seconds</actionname>
+	<actiontype>settimeout</actiontype>
+	<actionbody>
+		<timeout>30</timeout>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>Import a RSA key</actionname>
+	<actiontype>importkey</actiontype>
+	<actionbody>
+		<ImportData>EU-0-key.txt</ImportData>
+		<keyusage>allusagesbutNR</keyusage>
+		<keysize>1024</keysize>
+		<keylabel>EU-0</keylabel>
+		<keyalgorithm>RSA</keyalgorithm>
+		<keyaccesstype>Extractable</keyaccesstype>
+		<passphrase>create pinkcloud</passphrase>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>Set RSA key use policy based on SID and capabilities</actionname>
+	<actiontype>setusepolicy</actiontype>
+	<actionbody>
+		<keylabel>EU-0</keylabel>
+		<policy>
+			<secureid>0x400008D1</secureid>
+			<capability>ReadUserData</capability>
+		</policy>
+	</actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>
+
+<action>
+	<actionname>Close key store</actionname>
+	<actiontype>delete</actiontype>
+	<actionbody></actionbody>
+	<actionresult>
+		<return>KErrNone</return>
+	</actionresult>
+</action>

@@ -1,0 +1,13 @@
+Portions Copyright (c) Symbian Software Ltd. 2007.
+Portions Copyright (C) 2003-2007 Nokia. * Nokia Core OS *
+Save as expressly licensed to you by Symbian Software Ltd, all rights reserved.
+
+Exasap
+
+This plugin binds to IP protocol. It is started
+when the first socket to this protocol is openend and
+destroyed when the last socket is closed.
+It will receive all forwarded packets and
+passes copy of them to all reading sockets for this
+protocol. This is an example of providing a socket api
+from a protocol.

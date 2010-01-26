@@ -1,0 +1,38 @@
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of the License "Symbian Foundation License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.symbianfoundation.org/legal/sfl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// T_VJBOUND_13
+// Changes in window field and the window delta (d) is -0x100<d<0
+// tcsim input file to generate test data for VJ compression tests.
+// 
+//
+
+#include "packet.def"
+#include "ports.tc"
+
+dev eth0 100 Mbps {
+    egress {
+    }
+}
+
+// Packet to prime the compressor
+send TCP_PCK($ip_id=1 $ip_sum=0x66cc $tcp_sport = PORT_FTP_DATA $tcp_dport = 1234 $tcp_ACK=1 $tcp_seq=0 $tcp_win=0x10 $tcp_sum=0x65db)
+     0x31
+
+// Change window down 0x20 (wrapping around)
+send TCP_PCK($ip_id=2 $ip_sum=0x66cc $tcp_sport = PORT_FTP_DATA $tcp_dport = 1234 $tcp_ACK=1 $tcp_seq=1 $tcp_win=0xfff0 $tcp_sum=0x96fa)
+
+// Change window down 0xff
+send TCP_PCK($ip_id=3 $ip_sum=0x66cb $tcp_sport = PORT_FTP_DATA $tcp_dport = 1234 $tcp_ACK=1 $tcp_seq=1 $tcp_win=0xfef1 $tcp_sum=0x97f9)
+
+end

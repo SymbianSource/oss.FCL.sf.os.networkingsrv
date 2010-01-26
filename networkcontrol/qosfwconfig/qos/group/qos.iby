@@ -1,0 +1,33 @@
+// Copyright (c) 2005-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+#ifndef __QOS_IBY__
+#define __QOS_IBY__
+
+#if defined(SYMBIAN_EXCLUDE_QOS_PROTPLUGINS) && defined(SYMBIAN_NETWORKING_3GPPDEFAULTQOS) 
+
+REM Feature QoS is not included in this ROM 
+
+#else 
+
+data=EPOCROOT##epoc32\data\z\private\101F7989\esock\ip.qos.esk       private\101F7989\esock\ip.qos.esk
+data=EPOCROOT##epoc32\data\z\private\101F7989\esock\qos.ini          private\101F7989\esock\qos.ini
+data=EPOCROOT##epoc32\data\z\private\101F7989\esock\qospolicies.ini  private\101F7989\esock\qospolicies.ini
+
+file=ABI_DIR\DEBUG_DIR\qos.prt         system\libs\qos.prt
+
+#endif // SYMBIAN_EXCLUDE_QOS_PROTPLUGINS && SYMBIAN_NETWORKING_3GPPDEFAULTQOS
+
+#endif // __QOS_IBY__

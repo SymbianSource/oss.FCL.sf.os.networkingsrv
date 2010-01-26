@@ -1,0 +1,88 @@
+// Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRJ_TESTEXPORTS
+// Specify the source file followed by its destination here
+// copy will be used to copy the source file to its destination
+// If there's no destination then the source file will be copied
+// to the same name in epoc32include
+
+..\data\qostesting.cfg       \epoc32\data\z\testdata\configs\qos\qostesting.cfg
+..\data\qostesting.cfg       \epoc32\release\wins\udeb\z\testdata\configs\qos\qostesting.cfg 
+..\data\qostesting.cfg       \epoc32\release\winscw\udeb\z\testdata\configs\qos\qostesting.cfg
+
+..\data\qostest.script        \epoc32\data\z\testdata\scripts\qos\qostest.script
+..\data\qostest.script        \epoc32\release\wins\udeb\z\testdata\scripts\qos\qostest.script
+..\data\qostest.script        \epoc32\release\winscw\udeb\z\testdata\scripts\qos\qostest.script
+
+..\data\qostest.script	      	\epoc32\wins\c\qostest.script
+..\data\qostest601.script	\epoc32\wins\c\qostest601.script
+..\data\qostest902.script	\epoc32\wins\c\qostest902.script
+..\data\qostest904.script	\epoc32\wins\c\qostest904.script
+..\data\qostest905.script	\epoc32\wins\c\qostest905.script
+..\data\qostest906.script	\epoc32\wins\c\qostest906.script
+..\data\qostest908.script	\epoc32\wins\c\qostest908.script
+..\data\qostest.script	      	\epoc32\winscw\c\qostest.script
+..\data\qostest601.script	\epoc32\winscw\c\qostest601.script
+..\data\qostest902.script	\epoc32\winscw\c\qostest902.script
+..\data\qostest904.script	\epoc32\winscw\c\qostest904.script
+..\data\qostest905.script	\epoc32\winscw\c\qostest905.script
+..\data\qostest906.script	\epoc32\winscw\c\qostest906.script
+..\data\qostest908.script	\epoc32\winscw\c\qostest908.script
+
+
+
+..\data\qospoliciesadd1.ini   \epoc32\data\z\qospoliciesadd1.ini
+..\data\qospoliciesadd1.ini   \epoc32\wins\c\qospoliciesadd1.ini
+..\data\qospoliciesadd1.ini   \epoc32\winscw\c\qospoliciesadd1.ini
+
+..\data\qospolicieslegacy.ini \epoc32\data\z\qospolicieslegacy.ini
+..\data\qospolicieslegacy.ini \epoc32\wins\c\qospolicieslegacy.ini
+..\data\qospolicieslegacy.ini \epoc32\winscw\c\qospolicieslegacy.ini
+
+..\data\qospoliciesuid.ini    \epoc32\data\z\qospoliciesuid.ini
+..\data\qospoliciesuid.ini    \epoc32\wins\c\qospoliciesuid.ini
+..\data\qospoliciesuid.ini    \epoc32\winscw\c\qospoliciesuid.ini
+
+..\data\UmtsSim_Server_simconf.704.ini  \epoc32\data\z\system\data\UmtsSim_Server_simconf.704.ini
+..\data\UmtsSim_Server_simconf.704.ini  \epoc32\wins\c\system\data\UmtsSim_Server_simconf.704.ini
+..\data\UmtsSim_Server_simconf.704.ini  \epoc32\winscw\c\system\data\UmtsSim_Server_simconf.704.ini
+
+..\data\UmtsSim_Server_simconf.902.ini  \epoc32\data\z\system\data\UmtsSim_Server_simconf.902.ini
+..\data\UmtsSim_Server_simconf.902.ini  \epoc32\wins\c\system\data\UmtsSim_Server_simconf.902.ini
+..\data\UmtsSim_Server_simconf.902.ini  \epoc32\winscw\c\system\data\UmtsSim_Server_simconf.902.ini
+
+..\data\UmtsSim_Server_simconf.904.ini  \epoc32\data\z\system\data\UmtsSim_Server_simconf.904.ini
+..\data\UmtsSim_Server_simconf.904.ini  \epoc32\wins\c\system\data\UmtsSim_Server_simconf.904.ini
+..\data\UmtsSim_Server_simconf.904.ini  \epoc32\winscw\c\system\data\UmtsSim_Server_simconf.904.ini
+
+..\data\UmtsSim_Server_simconf.905.ini  \epoc32\data\z\system\data\UmtsSim_Server_simconf.905.ini
+..\data\UmtsSim_Server_simconf.905.ini  \epoc32\wins\c\system\data\UmtsSim_Server_simconf.905.ini
+..\data\UmtsSim_Server_simconf.905.ini  \epoc32\winscw\c\system\data\UmtsSim_Server_simconf.905.ini
+
+..\data\UmtsSim_Server_simconf.910.ini  \epoc32\data\z\system\data\UmtsSim_Server_simconf.910.ini
+..\data\UmtsSim_Server_simconf.910.ini  \epoc32\wins\c\system\data\UmtsSim_Server_simconf.910.ini
+..\data\UmtsSim_Server_simconf.910.ini  \epoc32\winscw\c\system\data\UmtsSim_Server_simconf.910.ini
+
+..\data\ntrastsy.ini                    \epoc32\data\z\system\data\ntrastsy.ini
+
+..\group\ts_qos.iby    \epoc32\rom\include\ts_qos.iby
+
+..\data\qostesting.oby    \epoc32\rom\include\qostesting.oby
+
+
+PRJ_TESTMMPFILES
+
+TS_QoS.mmp

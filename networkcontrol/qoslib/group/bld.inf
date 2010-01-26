@@ -1,0 +1,35 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+
+
+PRJ_PLATFORMS
+
+
+PRJ_EXPORTS
+
+../include/qoslib.h     	SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/qoslib.h)
+../include/qoslib_internal.h    SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/qoslib_internal.h)
+../inc/qos_extension.h  	SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/qos_extension.h)
+
+../group/qoslib.iby     /epoc32/rom/include/qoslib.iby
+
+
+PRJ_MMPFILES
+
+qoslib.mmp
+
+
+PRJ_TESTMMPFILES
