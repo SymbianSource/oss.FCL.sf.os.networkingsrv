@@ -571,8 +571,12 @@ TInt CProtocolKey::ExecAcquire
 	TInt iTemp;   
 	CSecurityAssoc *sa;
         sa = Lookup(aBase.sadb_msg_satype, aMsg.iSa.iExt->sadb_sa_spi, aMsg.iDstAddr.iAddr(), iTemp);
-        sa->SetErrorValue(errNo);
-        
+		
+		if(sa)
+			{
+			sa->SetErrorValue(errNo);
+			}
+					
 	if (errNo == KErrNone)
 		{
 		DeliverRegistered(aMsg);
