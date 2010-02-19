@@ -28,11 +28,13 @@
 #define SYMBIAN_NETWORKING_UPS
 
 #include <nifman.h>
+#include <e32property.h>
 #include <comms-infras/nifprvar.h>
 #ifndef SYMBIAN_ENABLE_SPLIT_HEADERS
 #include <comms-infras/nifif_internal.h>
 #endif
 
+class RMBufChain;
 
 /**
  The direction of data transfer

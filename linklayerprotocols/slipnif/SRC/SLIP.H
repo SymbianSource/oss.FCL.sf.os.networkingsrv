@@ -28,6 +28,7 @@
 #include <es_mbuf.h>
 #include <comms-infras/nifif.h>
 #include <nifutl.h>
+#include <es_prot.h>
 
 ////////////////////////////////////////////////////////////////////////////////
 

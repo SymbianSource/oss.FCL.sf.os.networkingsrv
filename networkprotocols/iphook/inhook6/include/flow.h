@@ -32,6 +32,7 @@
 #include <nifmbuf.h>
 #include "in_pkt.h"
 #include "apibase.h"
+#include "in_pkt_platform.h"
 
 //
 //	TFlowStatus

@@ -29,6 +29,8 @@
 #include "netmcprstates.h"
 #include "IPMessages.h"
 
+#include <cdbcols.h>
+#include <cdbover.h>
 #include <metadatabase.h>
 #include <commsdattypesv1_1.h>
 #include <in_sock.h>

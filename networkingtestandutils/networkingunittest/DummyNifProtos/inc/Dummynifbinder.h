@@ -32,6 +32,7 @@
 #include <comms-infras/ss_protflow.h>
 #include <comms-infras/ss_flowbinders.h>
 #include <comms-infras/commsdebugutility.h>
+#include <e32property.h>
 #include "es_protbinder.h"
 #include "DummyNifFlow.h"
 

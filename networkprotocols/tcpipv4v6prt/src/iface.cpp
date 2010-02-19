@@ -75,7 +75,7 @@
 #include <in_sock.h>
 #include "inet6log.h"
 #include "iface.h"
-#include <in6_if.h>     // IPv6 driver API specifications
+#include <in_iface.h>     // IPv6 driver API specifications
 #include <icmp6_hdr.h>
 #include <in_chk.h>
 #include <ip6_hook.h>
@@ -5538,12 +5538,20 @@ TInt CIp6Interface::SetId(TIp6AddressInfo &aId, const TIp6Addr &aAddr, const TIn
     // Should this also check whether address type is same?
     // Changing just type does not work with this code!
     // -- msa 24.10.2003
-    if (aId.IsSet() && aPrefix == aId.iPrefix && aAddr.IsEqual(aId.iId))
-        return 0;       // Id is same as before, no change!
     if (aPrefix < 0 || aPrefix > 128)
         return 0;       // Invalid length, do nothing!
     if (TIp46Addr::Cast(aAddr).IsMulticast())
         return 0;       // A multicast address cannot be my own.
+    if (aId.IsSet() && aPrefix == aId.iPrefix && aAddr.IsEqual(aId.iId))
+        {
+		// Id has not changed but expecting some change in any of 
+		// the other interface fields. So raising a Interface change event
+		// for the subscribers to keep themselves updated
+		
+        // Send notification to the event service
+        NotifyInterfaceEvent(EventTypeModify);
+        return 1;
+        }
 
     UpdateIdRoutes(aId, 0);     // Remove old route (if needed)
     aId.iId = aAddr;

@@ -26,8 +26,9 @@
 #ifndef __IN_CHK_H__
 #define __IN_CHK_H__
 
-#include <nifmbuf.h>
 #include "in_pkt.h"
+class RMBufChain;
+class RMBufPktInfo;
 
 /** Checksum calculation.
 

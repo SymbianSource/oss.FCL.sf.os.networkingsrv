@@ -18,7 +18,9 @@
 //
 
 #include "in_pkt.h"
+#include "in_pkt_platform.h"
 #include "ext_hdr.h"
+#include <nifmbuf.h>
 
 #define OPTIMIZE_PADDING
 

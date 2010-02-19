@@ -24,6 +24,8 @@
 #include <e32std.h>
 #include <e32base.h>
 #include <nifman.h>
+#include <es_prot.h>
+#include <cdbover.h>
 #include <metadatabase.h>
 #include <commsdattypesv1_1.h>
 #include <in_sock.h>

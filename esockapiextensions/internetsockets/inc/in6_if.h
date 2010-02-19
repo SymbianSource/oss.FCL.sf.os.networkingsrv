@@ -28,7 +28,7 @@
 #define __IN6_IF_H__
 
 #include <e32std.h>
-#include "in_iface.h"	// TSoIfInfo
+#include <in_sock.h>
 
 //	CNifIfBase::Control(aLevel, aName, aOption, ..)
 //  aLevel is KSOLInterface defined in in_iface.h in standard EPOC
@@ -83,6 +83,38 @@ const TUint KIpBroadcastOnLink = 0x2;
 */
 const TUint KIfNeedsND	= 0x00000100;
 
+const TUint KMaxInterfaceName=32;
+
+/** 
+ * Holds the name of a network interface. 
+ * 
+ * This is used in TSoIfInfo. 
+ * 
+ */
+typedef TBuf<KMaxInterfaceName> TInterfaceName;
+
+class TSoIfInfo
+// Socket option structure for KSoIfInfo
+/** 
+ * Current network interface operation parameters.
+ * 
+ * It is returned by RSocket::GetOpt(), when that function is called with anOptionLevel 
+ * set to KSOLInterface and anOptionName set to KSoIfInfo. 
+ *
+ */
+	{
+public:
+	/** Feature flags. Possible values are defined in in_iface.h. */
+	TUint iFeatures;		// Feature flags
+	/** Maximum transmission unit. */
+	TInt iMtu;				// Max frame size
+	/** An approximation of the interface speed in Kbps. */
+	TInt iSpeedMetric;		// Indication of performance, approx to Kbps
+	/** Interface protocol name, ipcp::\<port\>. */
+	TInterfaceName iName;
+	};
+
+
 class TSoIfInfo6 : public TSoIfInfo		// aOption when aName == KSoIfInfo
 	/**
 	* Extends the TSoIfInfo for the receive MTU.
@@ -110,6 +142,19 @@ class TSoIfInfo6 : public TSoIfInfo		// aOption when aName == KSoIfInfo
 public:
 	/** Maximum transmission unit for receiving. */
 	TInt iRMtu;
+	};
+
+class TSoIfConfigBase
+/** 
+ * Base class for TSoInetIfConfig, which simply identifies the protocol family 
+ * using the interface. 
+ *
+ * @internalComponent
+ */
+	{
+public:
+	/** The protocol family, e.g. KAfInet. */
+	TUint iFamily;
 	};
 
 class TSoInet6IfConfig : public TSoIfConfigBase

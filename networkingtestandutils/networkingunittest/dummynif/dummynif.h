@@ -23,6 +23,7 @@
 #include <udp_hdr.h>
 #include <in_iface.h>
 #include <eui_addr.h>	// TE64Addr
+#include <es_prot.h>
 #ifdef SYMBIAN_ENABLE_SPLIT_HEADERS
 #include <comms-infras/nifprvar_internal.h>
 #endif
