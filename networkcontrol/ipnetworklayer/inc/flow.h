@@ -190,6 +190,7 @@ private:
 	inline void MarkBinderForClosure(CIPProtoBinder* aBinder);
 	void CloseMarkedBinders();
 	void SignalInterfaceDownOnAllBinders(TInt aError);
+	CIPProtoBinder* FindBinderForProto(const TDesC8& aProtocol);
 
 	inline CIPShimProtocolIntf* ProtocolIntf();
 
