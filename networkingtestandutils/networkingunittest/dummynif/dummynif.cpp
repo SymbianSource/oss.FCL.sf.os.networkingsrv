@@ -32,6 +32,8 @@
 #include <in_chk.h>
 #include <in_sock.h>
 #include <tcp_hdr.h>
+#include <cdbcols.h>
+#include <cdblen.h>
 
 #include "dummynifvar.h"
 #include "dummynif.h"

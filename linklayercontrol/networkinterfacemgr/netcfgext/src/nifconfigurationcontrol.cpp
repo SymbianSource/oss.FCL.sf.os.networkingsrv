@@ -22,6 +22,7 @@
 #include <comms-infras/ss_log.h>
 #include "nifnullconfiguration.h"
 #include <comms-infras/nifif.h>
+#include <metadatabase.h>
 #include <commsdattypeinfov1_1.h>
 #include <cdbcols.h>
 #include <cdblen.h>

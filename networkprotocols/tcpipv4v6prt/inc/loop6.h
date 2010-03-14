@@ -29,6 +29,7 @@
 #include <nifman.h>
 #	include <comms-infras/nifif.h>	// ..for CNifIfBase in Epoc R6 and later
 #include <nifmbuf.h>
+#include <es_prot.h>
 
 const TUint KProtocolInet6Loop = 0x1F00;	// Virtual
 

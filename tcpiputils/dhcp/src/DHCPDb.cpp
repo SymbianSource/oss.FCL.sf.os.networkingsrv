@@ -27,6 +27,7 @@
 #include <comms-infras/metabuffer.h>
 #include <metadatabase.h>
 #include <commsdattypesv1_1.h>
+#include <es_prot.h>
 #include "DhcpIP6Msg.h"
 using namespace CommsDat;
 

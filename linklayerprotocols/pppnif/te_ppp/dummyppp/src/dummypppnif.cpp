@@ -23,6 +23,7 @@
 #include <comms-infras/commsdebugutility.h>
 #include <connectprog.h>
 #include <in_chk.h>
+#include <metadatabase.h>
 #include <commsdattypeinfov1_1.h>
 
 //New ppp progress states file

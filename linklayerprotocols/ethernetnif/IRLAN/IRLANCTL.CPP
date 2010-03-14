@@ -33,6 +33,7 @@
 #include "IRLANBUF.H"
 #include "IRLANDAT.H"
 #include "irlantimer.h"
+#include <nifmbuf.h>
 
 //#define __TRACEWIN__
 #ifdef __TRACEWIN__

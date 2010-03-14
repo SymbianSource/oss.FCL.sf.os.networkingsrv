@@ -25,6 +25,7 @@
 #include <comms-infras/ca_startserver.h>
 #include <cdbcols.h>
 #include <comms-infras/commsdebugutility.h>
+#include <cdblen.h>
 
 
 #ifdef _DEBUG

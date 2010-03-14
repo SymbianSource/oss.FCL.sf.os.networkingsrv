@@ -30,6 +30,7 @@
 #include "IRLANDAT.H"
 
 #include <comms-infras/nifif.h>
+#include <es_prot.h>
 
 const TUint KIrlanMajorVersionNumber=1; //< Constant specifies Major version number.
 const TUint KIrlanMinorVersionNumber=0; //< Constant specifies Minor version number.

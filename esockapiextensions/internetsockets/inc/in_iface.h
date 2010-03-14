@@ -31,7 +31,7 @@
 #if !defined(__NIFVAR_H__)
 #include <nifvar.h>
 #endif
-
+#include <in6_if.h>
 // Feature Flags
 
 /**
@@ -149,20 +149,6 @@ const TUint KSoIfCompareAddr		= 0x104;		// Compare address with one passed in
  */
 const TUint KSoIfGetConnectionInfo	= 0xf001;		// Retrieve IAP and NID information
 
-/**
-@internalComponent
-*/
-const TUint KMaxInterfaceName=32;
-
-/** 
- * Holds the name of a network interface. 
- * 
- * This is used in TSoIfInfo. 
- * 
- * @internalTechnology
- */
-typedef TBuf<KMaxInterfaceName> TInterfaceName;
-
 class TInetIfConfig
 // Information which allows IP to enter route table entries
 /** 
@@ -188,28 +174,6 @@ public:
 	TInetAddr iNameSer2;
 	};
 
-class TSoIfInfo
-// Socket option structure for KSoIfInfo
-/** 
- * Current network interface operation parameters.
- * 
- * It is returned by RSocket::GetOpt(), when that function is called with anOptionLevel 
- * set to KSOLInterface and anOptionName set to KSoIfInfo. 
- *
- * @internalTechnology
- */
-	{
-public:
-	/** Feature flags. Possible values are defined in in_iface.h. */
-	TUint iFeatures;		// Feature flags
-	/** Maximum transmission unit. */
-	TInt iMtu;				// Max frame size
-	/** An approximation of the interface speed in Kbps. */
-	TInt iSpeedMetric;		// Indication of performance, approx to Kbps
-	/** Interface protocol name, ipcp::\<port\>. */
-	TInterfaceName iName;
-	};
-
 class TSoIfHardwareAddr
 // Socket option structure for KSoIfHardwareAddr 
 /** 
@@ -223,19 +187,6 @@ class TSoIfHardwareAddr
 public:
 	/** Local hardware address. */
 	TSockAddr iHardwareAddr;
-	};
-
-class TSoIfConfigBase
-/** 
- * Base class for TSoInetIfConfig, which simply identifies the protocol family 
- * using the interface. 
- *
- * @internalComponent
- */
-	{
-public:
-	/** The protocol family, e.g. KAfInet. */
-	TUint iFamily;
 	};
 
 class TSoInetIfConfig : public TSoIfConfigBase

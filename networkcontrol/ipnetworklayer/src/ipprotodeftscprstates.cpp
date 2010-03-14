@@ -21,6 +21,7 @@
 */
 
 #include <comms-infras/netcfgextprov.h>
+#include <etelqos.h>
 #include <networking/qos3gpp_subconparams.h>
 #include <cs_subconparams.h>
 #include <cs_subconevents.h>

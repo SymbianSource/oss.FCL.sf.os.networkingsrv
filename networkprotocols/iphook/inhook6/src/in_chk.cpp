@@ -16,6 +16,7 @@
 
 #include <in_sock.h> // IPv6 enhanced in_sock.h
 #include "in_chk.h"
+#include "in_pkt_platform.h"
 
 
 EXPORT_C void TChecksum::Add(RMBufChain &aPacket, TInt aOffset)

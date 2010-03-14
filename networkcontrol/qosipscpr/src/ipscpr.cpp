@@ -20,6 +20,7 @@
  @internalComponent
 */
 
+#include <etelqos.h>
 #include "IPSCPRStates.h"
 #include "IPSCPR.h"
 #include "ipdeftbasescpr.h"

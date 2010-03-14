@@ -25,6 +25,8 @@
 #include <test/testexecuteserverbase.h>
 
 #include <es_sock.h>
+#include <es_prot.h>
+#include <cdbover.h>
 #include <commdbconnpref.h>
 #include <comms-infras/netcfgextndhcpmsg.h>
 //#include "DHCPIP4Msg.h"

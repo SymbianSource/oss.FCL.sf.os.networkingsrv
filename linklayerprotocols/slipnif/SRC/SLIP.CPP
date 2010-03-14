@@ -20,6 +20,7 @@
 #include <nifmbuf.h>
 #include <in_iface.h>
 #include <cdblen.h>
+#include <cdbcols.h>
 #include "SLIP.H"
 #include "SLIP_VER.H"
 

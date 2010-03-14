@@ -92,9 +92,6 @@
       <component id="commsuserpromptmgr" name="Comms User Prompt Manager" introduced="^3" purpose="mandatory">
         <unit bldFile="networkcontrol/commsuserpromptmgr/group" mrp="networkcontrol/commsuserpromptmgr/group/networking_netups.mrp"/>
       </component>
-      <component id="ipupsplugins" name="IP UPS Plugins" introduced="^3" purpose="optional" class="plugin">
-        <unit bldFile="networkcontrol/ipupsplugins/group" mrp="networkcontrol/ipupsplugins/group/networking_ipups.mrp"/>
-      </component>
     </collection>
     <collection id="networkprotocols" name="Network Protocols" level="plugin">
       <component id="tcpipv4config" name="TCP/IPv4/v6 Config" introduced="7.0" purpose="mandatory" class="config" filter="test">
