@@ -24,14 +24,15 @@
 #include <hash.h>
 
 #include "keys.h"
-#include "cryptospidef.h"
+#include <cryptospi/cryptospidef.h>
+
 #include "cryptosymmetriccipherapi.h"
 #ifdef SYMBIAN_IPSEC_VOIP_SUPPORT
 #include "ruleselector.h"
 #include "plugincharacteristics.h"
 #include "cryptospistateapi.h"
 #include "cryptoparams.h"
-#include "cryptomacapi.h"
+#include <cryptospi/cryptomacapi.h>
 using namespace CryptoSpi;
 #endif // SYMBIAN_IPSEC_VOIP_SUPPORT
 

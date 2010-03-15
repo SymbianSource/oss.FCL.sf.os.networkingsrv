@@ -24,7 +24,7 @@
 #include <networking/crypto.h>
 #ifdef SYMBIAN_IPSEC_VOIP_SUPPORT
 #include "cryptosymmetriccipherapi.h"
-#include "cryptomacapi.h"
+#include <cryptospi/cryptomacapi.h>
 #endif // SYMBIAN_IPSEC_VOIP_SUPPORT
 
 typedef enum

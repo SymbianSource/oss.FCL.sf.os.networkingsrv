@@ -41,9 +41,17 @@ DECLARE_SMELEMENT_HEADER( TStoreProvision, MeshMachine::TStateTransition<IpProto
 	virtual void DoL();
 DECLARE_SMELEMENT_FOOTER( TStoreProvision )
 
+DECLARE_SMELEMENT_HEADER( TSendStoppedAndGoneDown, MeshMachine::TStateTransition<IpProtoCpr::TContext>, NetStateMachine::MStateTransition, IpProtoCpr::TContext )
+	virtual void DoL();
+DECLARE_SMELEMENT_FOOTER( TSendStoppedAndGoneDown )
 
+DECLARE_SMELEMENT_HEADER( TProvisionActivation, MeshMachine::TStateTransition<IpProtoCpr::TContext>, NetStateMachine::MStateTransition, IpProtoCpr::TContext )
+    virtual void DoL();
+DECLARE_SMELEMENT_FOOTER( TProvisionActivation )
 
-
+DECLARE_SMELEMENT_HEADER( THandleProvisionError, MeshMachine::TStateTransition<IpProtoCpr::TContext>, NetStateMachine::MStateTransition, IpProtoCpr::TContext )
+    virtual void DoL();
+DECLARE_SMELEMENT_FOOTER( THandleProvisionError )
 
 
 DECLARE_SMELEMENT_HEADER( TStoreAndFilterDeprecatedAndForwardStateChange, MeshMachine::TStateTransition<IpProtoCpr::TContext>, NetStateMachine::MStateTransition, IpProtoCpr::TContext )

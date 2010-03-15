@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2009 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2001-2010 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -33,7 +33,7 @@ SOURCE	                CTlsEncrypt.cpp Ctlsclntauthenticate.cpp  Ctlsbrowsetoken
 SOURCE                  tlsprovider_log.cpp tlsproviderpolicy.cpp
 
 USERINCLUDE		../inc
-USERINCLUDE		../../../../security/crypto/weakcrypto/inc
+
 OS_LAYER_SYSTEMINCLUDE_SYMBIAN
 
 LIBRARY	euser.lib  pkixcert.lib
@@ -42,7 +42,8 @@ LIBRARY	efsrv.lib
 LIBRARY crypto.lib     
 LIBRARY ctframework.lib
 LIBRARY certstore.lib
-//LIBRARY estor.lib x500.lib   asn1.lib
+LIBRARY asn1.lib
+//LIBRARY estor.lib x500.lib   
 //LIBRARY bigint.lib
 LIBRARY hash.lib
 LIBRARY random.lib

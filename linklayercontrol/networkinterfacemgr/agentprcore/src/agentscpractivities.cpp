@@ -24,6 +24,7 @@
 //#include <comms-infras/corescprstates.h>
 #include <comms-infras/corescpractivities.h>
 #include <comms-infras/ss_nodemessages_dataclient.h>
+#include <elements/nm_messages_child.h>
 
 #include "agentscprstates.h"
 #include "agentscpractivities.h"
@@ -94,17 +95,51 @@ DECLARE_DEFINE_NODEACTIVITY(ECFSelfStopDataClientStoppedActivity, AgentSCprDataC
 NODEACTIVITY_END()
 }
 
+#ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
+namespace AgentSCprParamRequestActivity
+{
+DECLARE_DEFINE_NODEACTIVITY(ECFActivityParamRequest, AgentSCprParamRequest, TCFScpr::TSetParamsRequest)
+    FIRST_NODEACTIVITY_ENTRY(PRStates::TAwaitingParamRequest, CoreNetStates::TNoTagOrBearerPresent)
+    NODEACTIVITY_ENTRY(CoreNetStates::KBearerPresent, PRStates::TPassToServiceProvider, CoreNetStates::TAwaitingParamResponse, MeshMachine::TTag<CoreNetStates::KBearerPresent>)
+    LAST_NODEACTIVITY_ENTRY(CoreNetStates::KBearerPresent, PRStates::TStoreParamsAndPostToOriginators)
+    LAST_NODEACTIVITY_ENTRY(KNoTag, PRStates::TRespondWithCurrentParams)
+NODEACTIVITY_END()
+}
+#endif //#ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
+namespace AgentSCprDestroyActivity
+{
+//Overridden destroy for cleaning up the agent if its still about
+DECLARE_DEFINE_CUSTOM_NODEACTIVITY(ECFActivityDestroy, AgentSCprDestroy, Messages::TEChild::TDestroy, CoreActivities::CDestroyActivity::New)
+	FIRST_NODEACTIVITY_ENTRY(MeshMachine::TAwaitingDestroy, CoreActivities::CDestroyActivity::TNoTagBlockedByActivitiesOrLeavingDataClient)
+
+    ROUTING_NODEACTIVITY_ENTRY(KNoTag, AgentSCprStates::TNoTagOrProviderStopped)
+    NODEACTIVITY_ENTRY(KNoTag, AgentSCprStates::TStopAgent, AgentSCprStates::TAwaitingAgentDown, MeshMachine::TTag<CoreNetStates::KProviderStopped>)
+    ROUTING_NODEACTIVITY_ENTRY(CoreNetStates::KProviderStopped, CoreStates::TNoTagOrNoClients)
+		
+    //The node mustn't go out of scope with clients present. The node must get rid of them first.
+    NODEACTIVITY_ENTRY(KNoTag, CoreActivities::CDestroyActivity::TMakeClientsLeaveOrProcessClientLeave, CoreStates::TAwaitingClientLeave,  CoreActivities::CDestroyActivity::TNoTagOrNoTagBackwards)
+    THROUGH_NODEACTIVITY_ENTRY(KNoTag, CoreActivities::CDestroyActivity::TProcessClientLeave, TTag<CoreNetStates::KNoClients>)
+
+    THROUGH_NODEACTIVITY_ENTRY(CoreNetStates::KNoClients, PRStates::TProcessDestroy, MeshMachine::TNoTag)
+ 	NODEACTIVITY_ENTRY(KNoTag, MeshMachine::TDoNothing, MeshMachine::TAwaitingLeaveComplete, CoreActivities::CDestroyActivity::TNoTagOrNoTagBackwards)
+ 	LAST_NODEACTIVITY_ENTRY(KNoTag, CoreNetStates::TSendClientLeavingAndRemoveControlProvider)
+NODEACTIVITY_END()
+}
 
 // Activity Map
 namespace AgentSCprActivities
 {
 DEFINE_EXPORT_ACTIVITY_MAP(agentSCprActivities)
+   ACTIVITY_MAP_ENTRY(AgentSCprDestroyActivity, AgentSCprDestroy)
    ACTIVITY_MAP_ENTRY(AgentSCprNotificationFromFlowActivity, AgentSCprNotificationFromFlow)
    ACTIVITY_MAP_ENTRY(AgentSCprAuthenticationActivity, AgentSCprAuthentication)
    ACTIVITY_MAP_ENTRY(AgentSCprDataClientGoneDownActivity, AgentSCprDataClientGoneDown)
    ACTIVITY_MAP_ENTRY(AgentSCprStartActivity, AgentSCprStart)
    ACTIVITY_MAP_ENTRY(AgentSCprStopActivity, AgentSCprStop)
    ACTIVITY_MAP_ENTRY(AgentSCprDataClientStoppedActivity, AgentSCprDataClientStopped)
+#ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
+   ACTIVITY_MAP_ENTRY(AgentSCprParamRequestActivity, AgentSCprParamRequest)
+#endif //#ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
 ACTIVITY_MAP_END_BASE(SCprActivities, coreSCprActivities)
 }
 

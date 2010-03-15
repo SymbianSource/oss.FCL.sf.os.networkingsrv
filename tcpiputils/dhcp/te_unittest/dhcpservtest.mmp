@@ -23,10 +23,9 @@ SOURCEPATH .
 SOURCE dhcpservtest.cpp
 USERINCLUDE ..\include
 #ifdef SYMBIAN_OLD_EXPORT_LOCATION
-SYSTEMINCLUDE \epoc32\include \epoc32\include\TechView \epoc32\include\Networking
+SYSTEMINCLUDE \epoc32\include \epoc32\include\Networking
 #else
 OS_LAYER_SYSTEMINCLUDE_SYMBIAN
-SYSTEMINCLUDE \epoc32\include\TechView 
 SYSTEMINCLUDE \epoc32\include\platform\Networking
 SYSTEMINCLUDE  ..\..\networkaddressandporttranslation\inc
 #endif

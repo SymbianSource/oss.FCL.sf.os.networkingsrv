@@ -21,6 +21,7 @@
 #include <comms-infras/ss_coreprstates.h>
 
 #include <comms-infras/ss_nodemessages_dataclient.h>
+#include <comms-infras/ss_nodemessages_serviceprovider.h>
 #include <comms-infras/ss_nodemessages_rejoiningprovider.h>
 #include <comms-infras/ss_nodemessages_subconn.h>
 #include <comms-infras/ss_nodemessages_scpr.h>
@@ -152,7 +153,7 @@ void PolicyRequestStates::TSendBindToComplete::DoL()
 	if(cpr)
 		{	
 		iContext.iNodeActivity->PostRequestTo(*cpr,
-			TCFDataClient::TBindToComplete(iContext.iNodeActivity->Error()).CRef());
+			TCFServiceProvider::TBindToComplete(iContext.iNodeActivity->Error()).CRef());
  		}
 	}
 

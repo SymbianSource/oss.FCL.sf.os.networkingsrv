@@ -430,6 +430,7 @@ private:
 	void ShowUntrustedDialogL(const TValidationStatus aResult);
 	void HandleBadCertificateL(const TValidationStatus aResult);
 	TBool CheckExtendedKeyUsageL(const CX509Certificate& aSource);
+	HBufC* ExtractCertFieldL(const TDesC& aFieldName, const CX500DistinguishedName& aDistinguishedName);
 	
 	//Active Handlers
 	void OnEGetSession();

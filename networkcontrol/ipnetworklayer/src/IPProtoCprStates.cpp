@@ -37,11 +37,28 @@
 #include <comms-infras/simpleselectorbase.h>
 #include <commsdattypesv1_1_partner.h>
 #include <es_prot_internal.h>
+#include <elements/nm_messages_errorrecovery.h>
 
 using namespace Messages;
 using namespace MeshMachine;
 using namespace IpProtoCpr;
 using namespace ESock;
+
+DEFINE_SMELEMENT(TProvisionActivation, NetStateMachine::MStateTransition, IpProtoCpr::TContext)
+void TProvisionActivation::DoL()
+    {
+    CIPProtoConnectionProvider& node = iContext.Node();
+    
+    //Trap if memory allocation fails
+    TRAP( node.iProvisionError, node.iSubConnProvisioningInfo = new (ELeave) TDataMonitoringSubConnProvisioningInfo(NULL, NULL));
+    }
+
+DEFINE_SMELEMENT(THandleProvisionError, NetStateMachine::MStateTransition, IpProtoCpr::TContext)
+void THandleProvisionError::DoL()
+    {
+    //Set node error
+    iContext.iNodeActivity->SetError(iContext.Node().iProvisionError);
+    }
 
 DEFINE_SMELEMENT(TStoreProvision, NetStateMachine::MStateTransition, IpProtoCpr::TContext)
 void TStoreProvision::DoL()
@@ -83,10 +100,13 @@ void TStoreProvision::DoL()
     	// state and one in an active state.  The access point config cannot presently hold provisioning information
     	// specific to an SCPR instance, so it is allocated and managed here in the CPR as a shared entity.  Only
     	// one SCPR instance should be using this at a time, however.
-    	TDataMonitoringSubConnProvisioningInfo* subConnProvisioningInfo = new (ELeave) TDataMonitoringSubConnProvisioningInfo(NULL, NULL);
-    	CleanupStack::PushL(subConnProvisioningInfo);
-    	node.iNodeLocalExtensions.AppendExtensionL(subConnProvisioningInfo);
-    	CleanupStack::Pop(subConnProvisioningInfo);
+    	
+    	//this allocation taken care in previous activity entry
+    	//just append here
+    	//TDataMonitoringSubConnProvisioningInfo* subConnProvisioningInfo = new (ELeave) TDataMonitoringSubConnProvisioningInfo(NULL, NULL);
+    	CleanupStack::PushL(node.iSubConnProvisioningInfo);
+    	node.iNodeLocalExtensions.AppendExtensionL(node.iSubConnProvisioningInfo);
+    	CleanupStack::Pop(node.iSubConnProvisioningInfo);
     	
        	// The CLinkCprExtensionApi may have been added previously if this is a reconnect scenario
     	// We add it again in this new override of the extensions, if the old container is fully superceded
@@ -120,6 +140,85 @@ void TStoreProvision::DoL()
 			TCFDataClient::TProvisionConfig(iContext.Node().iAccessPointConfig).CRef()
 			);
 		}
+	}
+
+DEFINE_SMELEMENT(TSendStoppedAndGoneDown, NetStateMachine::MStateTransition, IpProtoCpr::TContext)
+void TSendStoppedAndGoneDown::DoL()
+	{
+	ASSERT(iContext.iNodeActivity);
+
+	// stop has been caused by timer expiry, remove self from originators list, because we
+	// are not waiting for TStopped and in certain situations it would arrive after the node has been
+	// destroyed
+	if (iContext.Node().iTimerExpired)
+		{
+		TInt selfidx = iContext.iNodeActivity->FindOriginator(iContext.Node().SelfInterface());
+		ASSERT(selfidx != KErrNotFound);
+		iContext.iNodeActivity->RemoveOriginator(selfidx);
+		}
+		
+	TInt stopCode = KErrCancel;
+    MeshMachine::CNodeActivityBase* activity = iContext.iNodeActivity;
+    
+    if (activity && activity->Error() != KErrNone)
+        {
+        stopCode = activity->Error();
+        activity->SetError(KErrNone);
+        }
+
+	// Could be TStop, TStopped or TDataClientStopped (usually TStopped)
+	if  ( (iContext.iMessage.IsMessage<TCFServiceProvider::TStopped>()) ||
+		(iContext.iMessage.IsMessage<TCFServiceProvider::TStop>()) ||
+		(iContext.iMessage.IsMessage<TCFDataClient::TStopped>()) ||
+		(iContext.iMessage.IsMessage<TCFDataClient::TStop>()) )
+		{
+		stopCode = static_cast<const Messages::TSigNumber&>(iContext.iMessage).iValue;
+		}
+	else if ( (iContext.iMessage.IsMessage<TCFControlClient::TGoneDown>()) ||
+		(iContext.iMessage.IsMessage<TCFControlProvider::TDataClientGoneDown>()) )
+		{
+		stopCode = static_cast<const Messages::TSigNumberNumber&>(iContext.iMessage).iValue1;
+		}
+	else if ( iContext.iMessage.IsMessage<TEErrorRecovery::TErrorRecoveryResponse>() )
+		{
+		// Action must be propagate or there is no error code (your activity flow is faulty)!
+		const Messages::TSigErrResponse& sig = static_cast<const Messages::TSigErrResponse&>(iContext.iMessage);
+		__ASSERT_DEBUG(sig.iErrResponse.iAction == Messages::TErrResponse::EPropagate, User::Invariant());
+   		stopCode = sig.iErrResponse.iError;
+		}
+
+	TCFServiceProvider::TStopped msg(stopCode);
+	iContext.iNodeActivity->PostToOriginators(msg);
+
+    const TProviderInfo& providerInfo = static_cast<const TProviderInfoExt&>(iContext.Node().AccessPointConfig().FindExtensionL(
+            STypeId::CreateSTypeId(TProviderInfoExt::EUid, TProviderInfoExt::ETypeId))).iProviderInfo;
+
+	TCFControlClient::TGoneDown goneDown(stopCode, providerInfo.APId());
+	TClientIter<TDefaultClientMatchPolicy> iter = iContext.Node().GetClientIter<TDefaultClientMatchPolicy>(TClientType(TCFClientType::ECtrl));
+    CNodeActivityBase* startActivity = iContext.Node().FindActivityById(ECFActivityStart);
+
+    for (TInt i = 0; iter[i]; i++)
+		{
+		//Send TGoneDown to every Ctrl client except
+		// * the originator (who would be recieving TStopped)
+		// * originators of the start activity (these will be errored separately)
+        if (iContext.iNodeActivity && iContext.iNodeActivity->FindOriginator(*iter[i]) >= 0)
+            {
+            continue; // ControlClient is a Stop originator
+            }
+		
+        // So far the control client is not a Stop originator
+        if (startActivity == NULL || startActivity->FindOriginator(*iter[i]) == KErrNotFound)
+			{
+            // ControlClient is not a Start originator
+			iter[i]->PostMessage(TNodeCtxId(iContext.ActivityId(), iContext.NodeId()), goneDown);
+			}
+		}
+
+	if (iContext.iNodeActivity)
+    	{
+        iContext.iNodeActivity->SetError(KErrNone);
+    	}
 	}
 
 DEFINE_SMELEMENT(TAwaitingDataMonitoringNotification, NetStateMachine::MState, IpProtoCpr::TContext)
