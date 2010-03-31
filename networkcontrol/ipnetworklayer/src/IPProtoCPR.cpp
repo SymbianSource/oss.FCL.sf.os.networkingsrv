@@ -225,7 +225,7 @@ NODEACTIVITY_END()
 namespace IPProtoCprStopActivity
 {
 DECLARE_DEFINE_CUSTOM_NODEACTIVITY(ECFActivityStop, IPProtoCprStop, TCFServiceProvider::TStop, MeshMachine::CNodeRetryActivity::NewL)
-    FIRST_NODEACTIVITY_ENTRY(CoreNetStates::TAwaitingStop, CoreNetStates::TActiveOrNoTagBlockedByBindTo)
+    FIRST_NODEACTIVITY_ENTRY(IpProtoCpr::TAwaitingStop, CoreNetStates::TActiveOrNoTagBlockedByBindTo)
 	THROUGH_NODEACTIVITY_ENTRY(KActiveTag, CoreNetStates::TCancelDataClientStart, MeshMachine::TNoTag)
 	NODEACTIVITY_ENTRY(KNoTag, CoreNetStates::TStopSelf, CoreNetStates::TAwaitingDataClientStopped, CoreNetStates::TNoTagOrNoBearer)
 	NODEACTIVITY_ENTRY(KNoTag, CoreNetStates::TSendStop, CoreNetStates::TAwaitingStopped, MeshMachine::TNoTag)
@@ -755,7 +755,8 @@ void CIPProtoConnectionProvider::StopConnection()
 		{
 		iTimerExpired = ETrue;
 		CancelTimer();
-		if (CountActivities(ECFActivityStop) == 0)
+		if (CountActivities(ECFActivityStop) == 0 &&
++		    CountActivities(ECFActivityDestroy) == 0)
 			{
 			RClientInterface::OpenPostMessageClose(Id(), TNodeCtxId(ECFActivityStop, Id()), TCFServiceProvider::TStop(KErrTimedOut).CRef());
 			}

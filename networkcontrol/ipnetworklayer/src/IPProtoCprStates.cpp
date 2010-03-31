@@ -221,6 +221,33 @@ void TSendStoppedAndGoneDown::DoL()
     	}
 	}
 
+
+DEFINE_SMELEMENT(TAwaitingStop, NetStateMachine::MState, IpProtoCpr::TContext)
+TBool TAwaitingStop::Accept()
+    {
+	/*
+	Please note, in order for this to work, ESock needs to export the Accept function
+	of the CoreNetStates::TAwaitingStop.
+	*/
+	CoreNetStates::TAwaitingStop state(iContext);
+    if (state.Accept())
+        {
+		if (iContext.Node().CountActivities(ECFActivityDestroy) == 0)
+            {
+            return ETrue;
+            }
+		else
+            {
+            //The messageId is cleared so the CoreNetStates::TAwaitingStop is not picking up this TStop message after this Accept has rejected it.
+            //If this activity is kicked off while there is a Destroy activity, most probably the phone will crash, as there will be a SelfStop
+            //which will arrive after the node has destructed.
+            iContext.iMessage.ClearMessageId();
+            }
+        }
+    return EFalse;
+    }
+
+
 DEFINE_SMELEMENT(TAwaitingDataMonitoringNotification, NetStateMachine::MState, IpProtoCpr::TContext)
 TBool TAwaitingDataMonitoringNotification::Accept()
 	{

@@ -579,6 +579,9 @@ EXPORT_C void CNetworkConfigExtensionBase::CancelControl()
 					iAsynchDaemonCancel = NULL;
 					}
 				}
+			
+			// Clear out outstanding RMessage2 as it is no longer outstanding (it will be completed elsewhere)
+			iMessage = ESock::RLegacyResponseMsg();
 			}
 		//the RunL method will be called on the original request cancellation
 		}
@@ -733,8 +736,13 @@ RunL - called when request completes
 		}
 	else
 		{
-		// should never get here.
-		__ASSERT_DEBUG(EFalse, User::Panic(KSpecAssert_NifManNetCfgExtn, 10));
+		
+		// Async cancel must have completed
+		// Start deregistration if it was queued up
+		if (iDeregisterOnCompletionOfRequest)
+			{
+			Deregister(iDeregistrationCauseCode);
+			}
 		}
 	// ********************************************
 	// CAREFUL... consider the possible deletion of

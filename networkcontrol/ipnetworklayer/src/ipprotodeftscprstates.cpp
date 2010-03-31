@@ -264,6 +264,13 @@ void IPProtoDeftSCpr::TConfigureNetwork::DoL()
 DEFINE_SMELEMENT(TSendNetworkConfigured, NetStateMachine::MStateTransition, IPProtoDeftSCpr::TContext)
 void IPProtoDeftSCpr::TSendNetworkConfigured::DoL()
 	{
+	TCFMessage::TStateChange& msg = message_cast<TCFMessage::TStateChange>(iContext.iMessage);
+      if (msg.iStateChange.iStage == KLinkLayerOpen)
+          {
+          // After network get configured if the last state change massage is KLinklayerOpen fwd the 
+          // massage to control provider.
+          iContext.Node().PostToClients<TDefaultClientMatchPolicy>(TNodeCtxId(iContext.ActivityId(), iContext.NodeId()), iContext.iMessage, TClientType(TCFClientType::ECtrlProvider));
+          }
 	TCFIPProtoMessage::TNetworkConfigured resp(iContext.iNodeActivity->Error());
 	iContext.iNodeActivity->SetError(KErrNone);
 	iContext.iNodeActivity->PostToOriginators(resp);

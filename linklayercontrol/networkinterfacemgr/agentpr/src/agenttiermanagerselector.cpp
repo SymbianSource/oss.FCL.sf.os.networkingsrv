@@ -148,7 +148,7 @@ MProviderSelector* TAgentSelectorFactory::NewSelectorL(const Meta::SMetaData& aS
 	__CFLOG_VAR((KAgentTierMgrTag, KAgentTierMgrSubTag, _L8("CAgentMetaCprSelectorBase::\tNewL()")));
 	__ASSERT_DEBUG(aSelectionPreferences.IsTypeOf(TSelectionPrefs::TypeId()), User::Panic(KSpecAssert_NifManAgtPrgntrm, 4));
 	CMDBSession* dbs = CMDBSession::NewLC(KCDVersion1_2);
-	ASimpleSelectorBase* self = new (ELeave) CAgentProviderSelector(aSelectionPreferences);
+	CAgentProviderSelector* self = new (ELeave) CAgentProviderSelector(aSelectionPreferences);
 	CleanupStack::PushL(self);
 	__ASSERT_DEBUG(self->iTierRecord==NULL, User::Panic(KSpecAssert_NifManAgtPrgntrm, 5));
 	self->iTierRecord = TierManagerUtils::LoadTierRecordL(TUid::Uid(CAgentTierManagerFactory::iUid),*dbs);
