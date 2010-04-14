@@ -348,9 +348,9 @@ void CAgentAdapter::DisconnectComplete()
         {
 #ifdef __CFLOG_ACTIVE
     	TRAPD(err,
-    		iAgentScpr.ProgressL(KConnectionUninitialised);
     		iAgentState = EDisconnected;
     		iAgentScpr.ConnectionDownL();
+    	//	iAgentScpr.ProgressL(KConnectionUninitialised);
     		);
             if (err != KErrNone)
                 {
@@ -359,9 +359,9 @@ void CAgentAdapter::DisconnectComplete()
                 }
 #else
     	TRAP_IGNORE(
-            iAgentScpr.ProgressL(KConnectionUninitialised);
     		iAgentState = EDisconnected;
     		iAgentScpr.ConnectionDownL();
+            //iAgentScpr.ProgressL(KConnectionUninitialised);
     		);
 #endif
         }

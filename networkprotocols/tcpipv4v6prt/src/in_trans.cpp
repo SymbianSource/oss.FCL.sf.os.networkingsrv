@@ -755,8 +755,8 @@ TInt RMBufSockQ::RemoveAtMost(RMBufChain& aChain, TInt aLength)
 		iNext = NULL;
 		return aChain.Length();
 		}
-
-	p->Unlink();
+	if(p != NULL)
+	    p->Unlink();
 	aChain = iNext;
 	iNext = m;
 

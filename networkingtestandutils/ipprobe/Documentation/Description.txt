@@ -1,6 +1,0 @@
-Probe
-
-This plugin is binded to IP protocol. 
-It is started when IP protocol is started an destroyed when IP protocol
-is destroyed. It will receive all incoming and outgoing packets 
-and pass them to the  SAPs openned on this module.

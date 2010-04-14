@@ -245,6 +245,7 @@ void CAgentSubConnectionProvider::StopAgent(TInt aReason)
         iStoppingReason = aReason;
         AgentProvisionInfo()->AgentAdapter()->DisconnectAgent(aReason);
         }
+    //ProgressL(KConnectionUninitialised);
     }
 
 /**

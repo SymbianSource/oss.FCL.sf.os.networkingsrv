@@ -1,7 +1,0 @@
-inputdirectory \apps\webserver\
-outputdirectory \epoc32\release\wins\deb\Z\system\apps\webserver\
-outputfile webserver.hlp
-sourcefile webserver
-orderfile webserver.order
-workingdirectory \apps\webserver\
-customizationfile \aleppo\test\uk.alc
