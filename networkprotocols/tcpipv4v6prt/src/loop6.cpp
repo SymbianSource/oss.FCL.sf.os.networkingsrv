@@ -16,7 +16,7 @@
 
 #include "in_fmly.h"
 #include "loop6.h"
-#include <in6_if.h>	// KSoIf*
+#include <in_iface.h>	// KSoIf*
 #include "networkinfo.h"
 
 CIfLoop6::CIfLoop6()

@@ -25,6 +25,8 @@
 #include <in_chk.h>
 #include <in_sock.h>
 #include <in6_if.h>	// KSoIface*, KIf*, TSoInet6IfConfig
+#include <cdbcols.h>
+#include <cdblen.h>
 #include "dummynifvar.h"
 #include "dummynif.h"
 

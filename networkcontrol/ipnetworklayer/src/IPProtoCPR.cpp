@@ -75,7 +75,9 @@ namespace IPProtoCprProvisionActivity
 {
 DECLARE_DEFINE_NODEACTIVITY(ECFActivityStoreProvision, IPProtoCprProvision, TCFDataClient::TProvisionConfig)
 	FIRST_NODEACTIVITY_ENTRY(CoreNetStates::TAwaitingProvision, MeshMachine::TNoTag)
+	THROUGH_NODEACTIVITY_ENTRY(KNoTag, IpProtoCpr::TProvisionActivation, MeshMachine::TNoTagOrErrorTag)
 	LAST_NODEACTIVITY_ENTRY(KNoTag, IpProtoCpr::TStoreProvision)
+	LAST_NODEACTIVITY_ENTRY(KErrorTag, IpProtoCpr::THandleProvisionError)
 NODEACTIVITY_END()
 }
 
@@ -220,6 +222,18 @@ DECLARE_DEFINE_CUSTOM_NODEACTIVITY(ECFActivityIoctl, IPProtoCprIoctl, TNodeSigna
 NODEACTIVITY_END()
 }
 
+namespace IPProtoCprStopActivity
+{
+DECLARE_DEFINE_CUSTOM_NODEACTIVITY(ECFActivityStop, IPProtoCprStop, TCFServiceProvider::TStop, MeshMachine::CNodeRetryActivity::NewL)
+    FIRST_NODEACTIVITY_ENTRY(CoreNetStates::TAwaitingStop, CoreNetStates::TActiveOrNoTagBlockedByBindTo)
+	THROUGH_NODEACTIVITY_ENTRY(KActiveTag, CoreNetStates::TCancelDataClientStart, MeshMachine::TNoTag)
+	NODEACTIVITY_ENTRY(KNoTag, CoreNetStates::TStopSelf, CoreNetStates::TAwaitingDataClientStopped, CoreNetStates::TNoTagOrNoBearer)
+	NODEACTIVITY_ENTRY(KNoTag, CoreNetStates::TSendStop, CoreNetStates::TAwaitingStopped, MeshMachine::TNoTag)
+	NODEACTIVITY_ENTRY(KNoTag, CoreNetStates::TSendClientLeavingRequestToServiceProvider, MeshMachine::TAwaitingLeaveComplete, TTag<CoreNetStates::KNoBearer>)
+	LAST_NODEACTIVITY_ENTRY(CoreNetStates::KNoBearer, IpProtoCpr::TSendStoppedAndGoneDown)
+NODEACTIVITY_END()
+}
+
 namespace IPProtoCprActivities
 {
 DECLARE_DEFINE_ACTIVITY_MAP(activityMap)
@@ -235,6 +249,7 @@ DECLARE_DEFINE_ACTIVITY_MAP(activityMap)
 	ACTIVITY_MAP_ENTRY(PRDataClientIdleActivity, PRDataClientIdle)
 	ACTIVITY_MAP_ENTRY(IPProtoCprClientLeaveActivity, IPProtoCprClientLeave)
 	ACTIVITY_MAP_ENTRY(IPProtoCprIoctlActivity, IPProtoCprIoctl)
+    ACTIVITY_MAP_ENTRY(IPProtoCprStopActivity, IPProtoCprStop)
 #ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
 	ACTIVITY_MAP_ENTRY(IPProtoCprNotificationActivity, IPProtoCprNotification)
 #endif // SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW

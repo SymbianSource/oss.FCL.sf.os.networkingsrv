@@ -235,7 +235,8 @@ EXPORT_C void TStopAgent::DoL()
         }
     else
         {
-        // TODO: SCpr Panic - unexpected message
+        // coming from destroy
+        reason = KErrAbort;
         }
 
     iContext.Node().SetActivityIdForAdapter(iContext.iNodeActivity->ActivityId());

@@ -47,7 +47,7 @@ namespace IpProtoCpr
 	class TLinkDown;
 	class TLinkUp;
 	class TStoreAndForwardStateChange;
-	
+	class TSendStoppedAndGoneDown;
     }
 
 namespace ESock
@@ -91,6 +91,7 @@ friend class IpProtoCpr::TCheckIfLastControlClientLeaving;
 friend class IpProtoCpr::TLinkDown;
 friend class IpProtoCpr::TLinkUp;
 friend class IpProtoCpr::TStoreAndForwardStateChange;
+friend class IpProtoCpr::TSendStoppedAndGoneDown;
 friend class CLinkCprExtensionApi;
 
 
@@ -124,6 +125,9 @@ public:
 	// From ALegacyEnumerateSubConnectionsApiExt
 	virtual void EnumerateSubConnections(ESock::CLegacyEnumerateSubConnectionsResponder*& aResponder);
 	virtual void GetSubConnectionInfo(TSubConnectionInfo &aInfo);
+	
+    TInt iProvisionError;
+    ESock::TDataMonitoringSubConnProvisioningInfo* iSubConnProvisioningInfo;
 	
 protected:
 	enum TTimerType { ETimerUnknown, ETimerShort, ETimerMedium, ETimerLong, ETimerImmediate, ETimerMax };

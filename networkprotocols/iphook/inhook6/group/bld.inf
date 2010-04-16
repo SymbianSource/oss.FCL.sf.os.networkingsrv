@@ -27,6 +27,7 @@ PRJ_EXPORTS
 ../include/in_bind.h 			SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(in_bind.h)
 ../include/ip6_hook.h 			SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(ip6_hook.h)
 ../include/in_pkt.h 			SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(in_pkt.h)
+../include/in_pkt_platform.h		SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(in_pkt_platform.h)
 ../include/ip6_hdr.h 			SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(ip6_hdr.h)
 ../include/in_hdr.h 			SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(in_hdr.h)
 ../include/ip4_hdr.h 			SYMBIAN_OS_LAYER_PUBLIC_EXPORT_PATH(ip4_hdr.h)

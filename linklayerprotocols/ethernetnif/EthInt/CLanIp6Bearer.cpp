@@ -30,6 +30,7 @@
 #include "EthProto.h"
 #include <comms-infras/es_protbinder.h>
 #include "EthProvision.h"
+#include <nifmbuf.h>
 
 using namespace ESock;
 

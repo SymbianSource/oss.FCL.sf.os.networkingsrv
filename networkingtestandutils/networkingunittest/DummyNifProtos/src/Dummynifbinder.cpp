@@ -27,6 +27,7 @@
 #include <in_iface.h>
 #include <comms-infras/nifif.h>
 #include <in_sock.h>
+#include <nifmbuf.h>
 #include "dummynifvar.h"
 #include "Dummynifbinder.h"
 #include "DummyProvision.h"

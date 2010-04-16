@@ -23,9 +23,7 @@
 #if !defined(__NIFMAN_H__)
 #define __NIFMAN_H__
 
-#include <es_prot.h>
 #include <nifvar.h>
-#include <cdbover.h>
 
 #ifndef SYMBIAN_ENABLE_SPLIT_HEADERS
 #include <nifman_internal.h>

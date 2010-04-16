@@ -162,6 +162,19 @@ void CTlsConnection::ConstructL(RSocket& aSocket, const TDesC& aProtocol)
 	iRecordParser = new(ELeave)CRecordParser( *iGenericSocket, *iTlsProvider );
   	LOG(Log::Printf(_L("iRecordParser %x - %x"), iRecordParser, (TUint)iRecordParser + sizeof( CRecordParser ));)
 	iRecordComposer = new(ELeave)CRecordComposer( *iGenericSocket, *iTlsProvider );
+	TBuf<32> tempBuf;
+   	tempBuf.Copy(aProtocol);
+   	tempBuf.UpperCase();
+   	TInt ret = tempBuf.Compare(KProtocolVerSSL30);
+   	if (!ret)
+   	    {
+	    iRecordComposer->SetVersion(&KSSL3_0);
+   	    }
+   	else
+   	    {
+	    iRecordComposer->SetVersion(&KTLS1_0);
+   	    }
+
   	LOG(Log::Printf(_L("iRecordComposer %x - %x"), iRecordComposer, (TUint)iRecordComposer + sizeof( CRecordComposer ));)
 
 #ifdef _DEBUG

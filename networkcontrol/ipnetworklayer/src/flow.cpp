@@ -341,25 +341,33 @@ void CIPShimSubConnectionFlow::BindToL(const Messages::TNodeId& aCommsBinder)
 
 		if (proto.Length() > 0)
 			{
-			CIPProtoBinder* protoBinder = CIPProtoBinder::NewL(*this, proto);
-			CleanupStack::PushL(protoBinder);
+            CIPProtoBinder* protoBinder = FindBinderForProto(proto); 
+            if (!protoBinder)
+                {
+                protoBinder = CIPProtoBinder::NewL(*this, proto);
+                CleanupStack::PushL(protoBinder);
 
-			CIPShimIfBase* nif = ProtocolIntf()->FindOrCreateNifL(proto,
-				reinterpret_cast<const TConnectionInfo&>(*iConnectionInfo.Ptr()));
-			TCleanupNifPair cleanuppair(nif);
-			CleanupStack::PushL(TCleanupItem(TCleanupNifPair::CleanupReleaseNif, &cleanuppair));
+                CIPShimIfBase* nif = ProtocolIntf()->FindOrCreateNifL(proto,
+                    reinterpret_cast<const TConnectionInfo&>(*iConnectionInfo.Ptr()));
+                TCleanupNifPair cleanuppair(nif);
+                CleanupStack::PushL(TCleanupItem(TCleanupNifPair::CleanupReleaseNif, &cleanuppair));
 
-			__CFLOG_VAR((KIPProtoTag1, KIPProtoTag2, _L8("CIPShimSubConnectionFlow %08x:\tBindToL(): nif 0x%08x, binder 0x%08x"), this, nif, protoBinder));
-			nif->BindToL(protoBinder);
-			cleanuppair.iBinder = protoBinder;
+                __CFLOG_VAR((KIPProtoTag1, KIPProtoTag2, _L8("CIPShimSubConnectionFlow %08x:\tBindToL(): nif 0x%08x, binder 0x%08x"), this, nif, protoBinder));
+                nif->BindToL(protoBinder);
+                cleanuppair.iBinder = protoBinder;
+    
+                protoBinder->BindToLowerFlowL(*binderControl);
+    
+                iBinderList.AppendL(protoBinder);
 
-			protoBinder->BindToLowerFlowL(*binderControl);
+                CleanupStack::Pop(2);
 
-			iBinderList.AppendL(protoBinder);
-
-			CleanupStack::Pop(2);
-
-			InitialiseDataMonitoringL(nif);
+                InitialiseDataMonitoringL(nif);
+                }
+            else
+                {
+                InitialiseDataMonitoringL(protoBinder->iNif);
+                }
 			}
 		}
 	while (pos != KErrNotFound);
@@ -373,7 +381,22 @@ void CIPShimSubConnectionFlow::BindToL(const Messages::TNodeId& aCommsBinder)
 		}
 	}
 
-
+CIPProtoBinder* CIPShimSubConnectionFlow::FindBinderForProto(const TDesC8& aProtocol)
+    {
+    TInt i = iBinderList.Count();
+    while (--i >= 0)
+        {
+        if (iBinderList[i]->iProtocolName == aProtocol)
+            {
+            __CFLOG_VAR((KIPProtoTag1, KIPProtoTag2, _L8("CIPShimSubConnectionFlow %08x:\tFindBinderForProto(): Found existing binder for proto '%S'"),
+                this, &aProtocol));
+            return iBinderList[i];
+            }
+        }
+    __CFLOG_VAR((KIPProtoTag1, KIPProtoTag2, _L8("CIPShimSubConnectionFlow %08x:\tFindBinderForProto(): No binder for proto '%S'"),
+        this, &aProtocol));
+    return NULL;
+    }
 
 void CIPShimSubConnectionFlow::StartFlowL()
 /**
