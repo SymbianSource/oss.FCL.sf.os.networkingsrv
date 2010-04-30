@@ -65,6 +65,14 @@ DECLARE_DEFINE_CUSTOM_NODEACTIVITY(ECFActivityStart, TunnelCprStart, TCFServiceP
     LAST_NODEACTIVITY_ENTRY(KErrorTag, MeshMachine::TDoNothing)
 NODEACTIVITY_END()
 }
+namespace TunnelGoneDownActivity
+{
+DECLARE_DEFINE_NODEACTIVITY(ECFActivityGoneDown, TunnelGoneDown, TCFControlClient::TGoneDown)
+    // Our Service Provider has gone down unexpectedly (we haven't issued a TStop)
+    FIRST_NODEACTIVITY_ENTRY(CoreNetStates::TAwaitingGoneDown, MeshMachine::TNoTag)
+    LAST_NODEACTIVITY_ENTRY(KNoTag, MeshMachine::TDoNothing)
+NODEACTIVITY_END()
+}
 
 #ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
 namespace TunnelAgentCprNotificationActivity
@@ -78,6 +86,7 @@ namespace TunnelAgentCprStates
 {
 DECLARE_DEFINE_ACTIVITY_MAP(TunnelAgentCprActivities)
 	ACTIVITY_MAP_ENTRY(TunnelAgentCprStartActivity, TunnelCprStart)
+      ACTIVITY_MAP_ENTRY(TunnelGoneDownActivity, TunnelGoneDown)
 #ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
 	ACTIVITY_MAP_ENTRY(TunnelAgentCprNotificationActivity, TunnelAgentCprNotification)
 #endif // SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
