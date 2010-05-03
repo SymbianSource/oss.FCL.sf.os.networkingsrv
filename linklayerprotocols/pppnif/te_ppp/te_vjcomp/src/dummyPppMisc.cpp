@@ -31,7 +31,7 @@ MPppRecvr::~MPppRecvr()
 	{
 	}
 
-void MPppRecvr::FlowOn()
+EXPORT_C void MPppRecvr::FlowOn()
 	{
 	}
 

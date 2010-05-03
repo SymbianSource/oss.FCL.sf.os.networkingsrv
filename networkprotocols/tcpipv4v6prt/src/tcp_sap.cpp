@@ -2580,9 +2580,15 @@ void CProviderTCP6::RetransmitSegments()
 	if (InState(ETcpFinWait1|ETcpClosing|ETcpLastAck))
 		{
 		// If the server doesn't respond because of broken NAT/FW or other, don't keep interface up.
-		DetachIfDead();
+	
+	    //TSW error:JHAA-82JBNG -- FIN retransmission 
+		//Depending on the function return value the decision to
+	    //retransmitt FIN is decided
+
+		TBool continue_send = DetachIfDead();
 		// Retransmit FIN
-		SendSegment(KTcpCtlFIN|KTcpCtlACK, iSND.UNA);
+		if(continue_send == EFalse)
+			SendSegment(KTcpCtlFIN|KTcpCtlACK, iSND.UNA);
 		return;
 		}
 
@@ -2753,7 +2759,7 @@ void CProviderTCP6::SchedMsl2Wait()
 //
 // Detach the SAP if the application has closed and we seem to keep resending stuff.
 //
-void CProviderTCP6::DetachIfDead()
+TBool CProviderTCP6::DetachIfDead()
 	{
 	if (iSockFlags.iRecvClose && iSockFlags.iSendClose && Protocol()->FinPersistency()
 		&& iBackoff >= Protocol()->FinPersistency())
@@ -2761,7 +2767,15 @@ void CProviderTCP6::DetachIfDead()
 		LOG(Log::Printf(_L("\ttcp SAP[%u] Peer looks dead while %d bytes unacked data. Detach!"), 
 			(TInt)this, Min(iSND.NXT - iSND.UNA, iSockOutQLen)));
 		DetachFromInterface();
+		
+		//TSW error:JHAA-82JBNG -- FIN retransmission 
+		//The FinPersistency value read from the tcpip.ini file determines
+		//the number of times FIN should be retransmitted
+		//Once we reach the maximum value the DetachFromInterface() is called
+		//and we return ETrue. 
+		return ETrue;
 		}
+	return EFalse;
 	}
 
 void CProviderTCP6::DetachFromInterface()

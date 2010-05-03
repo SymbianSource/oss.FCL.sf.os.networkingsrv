@@ -53,6 +53,11 @@ DECLARE_SMELEMENT_HEADER( THandleProvisionError, MeshMachine::TStateTransition<I
     virtual void DoL();
 DECLARE_SMELEMENT_FOOTER( THandleProvisionError )
 
+DECLARE_SMELEMENT_HEADER( TAwaitingStop, MeshMachine::TState<IpProtoCpr::TContext>, NetStateMachine::MState, IpProtoCpr::TContext)
+    virtual TBool Accept();
+DECLARE_SMELEMENT_FOOTER( TAwaitingStop )
+
+
 DECLARE_SMELEMENT_HEADER( TStoreAndFilterDeprecatedAndForwardStateChange, MeshMachine::TStateTransition<IpProtoCpr::TContext>, NetStateMachine::MStateTransition, IpProtoCpr::TContext )
 	virtual void DoL();
 DECLARE_SMELEMENT_FOOTER( TStoreAndFilterDeprecatedAndForwardStateChange )

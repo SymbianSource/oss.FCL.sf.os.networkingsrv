@@ -632,8 +632,10 @@ private:
 
 	void ReadDestinationCache();
 	void StoreDestinationCache();
-	
-	void DetachIfDead();
+
+	//TSW error:JHAA-82JBNG -- FIN retransmission 
+ 	//Modifying the function to return TBool
+	TBool DetachIfDead();
 	void DetachFromInterface();
 
 	/**

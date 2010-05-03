@@ -1,6 +1,0 @@
-inputdirectory \udpecho\doc\
-outputdirectory \epoc32\release\wins\deb\z\system\apps\udpecho\
-outputfile udpecho.hlp
-sourcefile udpecho
-orderfile udpecho.order
-workingdirectory \udpecho\doc\temp\

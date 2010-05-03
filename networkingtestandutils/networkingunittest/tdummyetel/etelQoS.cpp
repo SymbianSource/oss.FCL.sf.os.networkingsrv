@@ -38,13 +38,13 @@ EXPORT_C RPacketQoS::RPacketQoS()
 	{
 	}
 
-void RPacketQoS::ConstructL()
+EXPORT_C void RPacketQoS::ConstructL()
 	{
 	__ASSERT_ALWAYS(iEtelPacketQoSPtrHolder == NULL, PanicClient(EEtelPanicHandleNotClosed));
 	iEtelPacketQoSPtrHolder = CPacketQoSPtrHolder::NewL(CEtelPacketPtrHolder::EMaxNumPacketQoSPtrSlots);
 	}
 
-void RPacketQoS::Destruct()
+EXPORT_C void RPacketQoS::Destruct()
 	{
 	delete iEtelPacketQoSPtrHolder;
 	iEtelPacketQoSPtrHolder = NULL;
