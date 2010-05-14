@@ -47,8 +47,6 @@ SOURCE                      tunnelagentcprstates.cpp
 
 USERINCLUDE                 ../inc
 USERINCLUDE                 ../agentprcore/inc
-USERINCLUDE                 ../../../../commsfw/datacommsserver/esockserver/inc
-
 
 OS_LAYER_SYSTEMINCLUDE_SYMBIAN
 

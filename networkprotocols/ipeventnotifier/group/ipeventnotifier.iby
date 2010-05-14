@@ -22,7 +22,7 @@
 #define __IPEVENTNOTIFIER_IBY__
 
 
-#ifdef SYMBIAN_EXCLUDE_DHCP
+#ifndef __DHCP
 REM Feature DHCP is not included in this ROM
 #else
 

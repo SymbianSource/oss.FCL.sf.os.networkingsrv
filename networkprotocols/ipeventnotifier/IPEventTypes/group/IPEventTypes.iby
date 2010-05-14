@@ -20,7 +20,7 @@
 #ifndef __IP_EVENT_TYPES_IBY__
 #define __IP_EVENT_TYPES_IBY__
 
-#ifdef SYMBIAN_EXCLUDE_DHCP
+#ifndef __DHCP
 REM Feature DHCP is not included in this ROM
 #else
 

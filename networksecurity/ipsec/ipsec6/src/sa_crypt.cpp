@@ -27,9 +27,9 @@
 #include <networking/ipsecerr.h>
 #include "ipseccrypto.h"
 #include "keys.h"
-#include "cryptospidef.h"
+#include <cryptospi/cryptospidef.h>
 #ifdef SYMBIAN_IPSEC_VOIP_SUPPORT
-#include "cryptomacapi.h"
+#include <cryptospi/cryptomacapi.h>
 #endif //SYMBIAN_IPSEC_VOIP_SUPPORT
 
 class TLibraryPtr
