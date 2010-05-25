@@ -70,8 +70,8 @@ DECLARE_DEFINE_CUSTOM_NODEACTIVITY(ECFActivityPolicyCheckRequest, IpCprPolicyChe
 	LAST_NODEACTIVITY_ENTRY(KErrorTag, TDoNothing)
 NODEACTIVITY_END()
 
-DECLARE_DEFINE_CUSTOM_NODEACTIVITY(ECFActivityClientLeave, IpCprClientLeave, TNodeSignal::TNullMessageId, CClientLeaveActivity::NewL)
-	FIRST_NODEACTIVITY_ENTRY(CoreStates::TAwaitingClientLeave, MeshMachine::TNoTag)
+DECLARE_DEFINE_RESERVED_CUSTOM_NODEACTIVITY(ECFActivityClientLeave, IpCprClientLeave, Messages::TEPeer::TLeaveRequest, CClientLeaveActivity::New)
+	FIRST_NODEACTIVITY_ENTRY(MeshMachine::TAwaitingMessageState<TEPeer::TLeaveRequest>, MeshMachine::TNoTag)
 	THROUGH_NODEACTIVITY_ENTRY(KNoTag, IpCprStates::TSendUpsStatusChange, MeshMachine::TNoTag)
 	THROUGH_NODEACTIVITY_ENTRY(KNoTag, CClientLeaveActivity::TRemoveClientAndDestroyOrphanedDataClients, CClientLeaveActivity::TNoTagOrSendPriorityToCtrlProvider)
 	NODEACTIVITY_ENTRY(CprStates::KSendPriorityToCtrlProvider, CClientLeaveActivity::TUpdatePriorityForControlProvider, CoreStates::TAwaitingJoinComplete, CClientLeaveActivity::TNoTagOrSendPriorityToServProvider)

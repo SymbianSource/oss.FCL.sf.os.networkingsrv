@@ -118,52 +118,28 @@ EXPORTS
 	_ZN7CPppLcpC1ERN5ESock29CSubConnectionFlowFactoryBaseERKN8Messages7TNodeIdEPNS0_17CProtocolIntfBaseE @ 117 NONAME
 	_ZN7CPppLcpC2ERN5ESock29CSubConnectionFlowFactoryBaseERKN8Messages7TNodeIdEPNS0_17CProtocolIntfBaseE @ 118 NONAME
 	_ZThn20_N7CPppLcp9ReceivedLERKN8Messages13TRuntimeCtxIdERKNS0_7TNodeIdERNS0_14TSignatureBaseE @ 119 NONAME
-	_ZThn80_N7CPppLcp11GetControlLERK6TDesC8 @ 120 NONAME ABSENT
-	_ZThn80_N7CPppLcp4FlowEv @ 121 NONAME ABSENT
-	_ZThn80_N7CPppLcp5BindLERK6TDesC8PN5ESock18MUpperDataReceiverEPNS3_13MUpperControlE @ 122 NONAME ABSENT
-	_ZThn80_N7CPppLcp6UnbindEPN5ESock18MUpperDataReceiverEPNS0_13MUpperControlE @ 123 NONAME ABSENT
-	_ZThn84_N7CPppLcp7ProcessER10RMBufChain @ 124 NONAME ABSENT
-	_ZThn88_N7CPppLcp12StartSendingEv @ 125 NONAME ABSENT
-	_ZThn88_N7CPppLcp5ErrorEi @ 126 NONAME ABSENT
-	_ZThn92_N7CPppLcp10FsmLayerUpEv @ 127 NONAME ABSENT
-	_ZThn92_N7CPppLcp12FsmLayerDownEi @ 128 NONAME ABSENT
-	_ZThn92_N7CPppLcp15FsmLayerStartedEv @ 129 NONAME ABSENT
-	_ZThn92_N7CPppLcp16FsmLayerFinishedEi @ 130 NONAME ABSENT
-	_ZThn92_N7CPppLcp16FsmRecvConfigAckER14RPppOptionList @ 131 NONAME ABSENT
-	_ZThn92_N7CPppLcp16FsmRecvConfigNakER14RPppOptionListS1_ @ 132 NONAME ABSENT
-	_ZThn92_N7CPppLcp18FsmAckOptionsValidER14RPppOptionListS1_ @ 133 NONAME ABSENT
-	_ZThn92_N7CPppLcp18FsmRecvUnknownCodeEhhiR10RMBufChain @ 134 NONAME ABSENT
-	_ZThn92_N7CPppLcp19FsmRecvConfigRejectER14RPppOptionListS1_ @ 135 NONAME ABSENT
-	_ZThn92_N7CPppLcp21FsmApplyConfigRequestER14RPppOptionList @ 136 NONAME ABSENT
-	_ZThn92_N7CPppLcp21FsmCheckConfigRequestER14RPppOptionListS1_S1_S1_ @ 137 NONAME ABSENT
-	_ZThn92_N7CPppLcp21FsmRejectOptionsValidER14RPppOptionListS1_ @ 138 NONAME ABSENT
-	_ZThn92_N7CPppLcp23FsmFillinConfigRequestLER14RPppOptionList @ 139 NONAME ABSENT
-	_ZThn92_N7CPppLcp27FsmTerminationPhaseCompleteEv @ 140 NONAME ABSENT
-	_ZThn92_N7CPppLcp28FsmConfigRequestOptionsValidER14RPppOptionList @ 141 NONAME ABSENT
-	_ZThn92_N7CPppLcpD0Ev @ 142 NONAME ABSENT
-	_ZThn92_N7CPppLcpD1Ev @ 143 NONAME ABSENT
-	_ZThn100_N7CPppLcp7ProcessER10RMBufChain @ 144 NONAME
-	_ZThn104_N7CPppLcp12StartSendingEv @ 145 NONAME
-	_ZThn104_N7CPppLcp5ErrorEi @ 146 NONAME
-	_ZThn108_N7CPppLcp10FsmLayerUpEv @ 147 NONAME
-	_ZThn108_N7CPppLcp12FsmLayerDownEi @ 148 NONAME
-	_ZThn108_N7CPppLcp15FsmLayerStartedEv @ 149 NONAME
-	_ZThn108_N7CPppLcp16FsmLayerFinishedEi @ 150 NONAME
-	_ZThn108_N7CPppLcp16FsmRecvConfigAckER14RPppOptionList @ 151 NONAME
-	_ZThn108_N7CPppLcp16FsmRecvConfigNakER14RPppOptionListS1_ @ 152 NONAME
-	_ZThn108_N7CPppLcp18FsmAckOptionsValidER14RPppOptionListS1_ @ 153 NONAME
-	_ZThn108_N7CPppLcp18FsmRecvUnknownCodeEhhiR10RMBufChain @ 154 NONAME
-	_ZThn108_N7CPppLcp19FsmRecvConfigRejectER14RPppOptionListS1_ @ 155 NONAME
-	_ZThn108_N7CPppLcp21FsmApplyConfigRequestER14RPppOptionList @ 156 NONAME
-	_ZThn108_N7CPppLcp21FsmCheckConfigRequestER14RPppOptionListS1_S1_S1_ @ 157 NONAME
-	_ZThn108_N7CPppLcp21FsmRejectOptionsValidER14RPppOptionListS1_ @ 158 NONAME
-	_ZThn108_N7CPppLcp23FsmFillinConfigRequestLER14RPppOptionList @ 159 NONAME
-	_ZThn108_N7CPppLcp27FsmTerminationPhaseCompleteEv @ 160 NONAME
-	_ZThn108_N7CPppLcp28FsmConfigRequestOptionsValidER14RPppOptionList @ 161 NONAME
-	_ZThn108_N7CPppLcpD0Ev @ 162 NONAME
-	_ZThn108_N7CPppLcpD1Ev @ 163 NONAME
-	_ZThn96_N7CPppLcp11GetControlLERK6TDesC8 @ 164 NONAME
-	_ZThn96_N7CPppLcp4FlowEv @ 165 NONAME
-	_ZThn96_N7CPppLcp5BindLERK6TDesC8PN5ESock18MUpperDataReceiverEPNS3_13MUpperControlE @ 166 NONAME
-	_ZThn96_N7CPppLcp6UnbindEPN5ESock18MUpperDataReceiverEPNS0_13MUpperControlE @ 167 NONAME
+	_ZThn100_N7CPppLcp11GetControlLERK6TDesC8 @ 120 NONAME
+	_ZThn100_N7CPppLcp4FlowEv @ 121 NONAME
+	_ZThn100_N7CPppLcp5BindLERK6TDesC8PN5ESock18MUpperDataReceiverEPNS3_13MUpperControlE @ 122 NONAME
+	_ZThn100_N7CPppLcp6UnbindEPN5ESock18MUpperDataReceiverEPNS0_13MUpperControlE @ 123 NONAME
+	_ZThn104_N7CPppLcp7ProcessER10RMBufChain @ 124 NONAME
+	_ZThn108_N7CPppLcp12StartSendingEv @ 125 NONAME
+	_ZThn108_N7CPppLcp5ErrorEi @ 126 NONAME
+	_ZThn112_N7CPppLcp10FsmLayerUpEv @ 127 NONAME
+	_ZThn112_N7CPppLcp12FsmLayerDownEi @ 128 NONAME
+	_ZThn112_N7CPppLcp15FsmLayerStartedEv @ 129 NONAME
+	_ZThn112_N7CPppLcp16FsmLayerFinishedEi @ 130 NONAME
+	_ZThn112_N7CPppLcp16FsmRecvConfigAckER14RPppOptionList @ 131 NONAME
+	_ZThn112_N7CPppLcp16FsmRecvConfigNakER14RPppOptionListS1_ @ 132 NONAME
+	_ZThn112_N7CPppLcp18FsmAckOptionsValidER14RPppOptionListS1_ @ 133 NONAME
+	_ZThn112_N7CPppLcp18FsmRecvUnknownCodeEhhiR10RMBufChain @ 134 NONAME
+	_ZThn112_N7CPppLcp19FsmRecvConfigRejectER14RPppOptionListS1_ @ 135 NONAME
+	_ZThn112_N7CPppLcp21FsmApplyConfigRequestER14RPppOptionList @ 136 NONAME
+	_ZThn112_N7CPppLcp21FsmCheckConfigRequestER14RPppOptionListS1_S1_S1_ @ 137 NONAME
+	_ZThn112_N7CPppLcp21FsmRejectOptionsValidER14RPppOptionListS1_ @ 138 NONAME
+	_ZThn112_N7CPppLcp23FsmFillinConfigRequestLER14RPppOptionList @ 139 NONAME
+	_ZThn112_N7CPppLcp27FsmTerminationPhaseCompleteEv @ 140 NONAME
+	_ZThn112_N7CPppLcp28FsmConfigRequestOptionsValidER14RPppOptionList @ 141 NONAME
+	_ZThn112_N7CPppLcpD0Ev @ 142 NONAME
+	_ZThn112_N7CPppLcpD1Ev @ 143 NONAME
 

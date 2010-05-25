@@ -25,8 +25,8 @@
 
 #include <es_prot.h>
 #ifdef SYMBIAN_ENABLE_SPLIT_HEADERS
-#include <es_prot_internal.h>
-#include <es_sock_partner.h>
+//#include <es_prot_internal.h>
+//#include <es_sock_partner.h>
 #endif
 
 

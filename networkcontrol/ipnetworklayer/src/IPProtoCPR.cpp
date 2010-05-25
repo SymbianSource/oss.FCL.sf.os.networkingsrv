@@ -190,8 +190,8 @@ NODEACTIVITY_END()
 namespace IPProtoCprClientLeaveActivity
 { //This activity will wait for ECFActivityBinderRequest to complete
 using namespace  CprClientLeaveActivity;
-DECLARE_DEFINE_CUSTOM_NODEACTIVITY(ECFActivityClientLeave, IPProtoCprClientLeave, Messages::TNodeSignal::TNullMessageId, CClientLeaveActivity::NewL) //May be waiting for both messages
-	FIRST_NODEACTIVITY_ENTRY(CoreStates::TAwaitingClientLeave, MeshMachine::TNoTag)
+DECLARE_DEFINE_RESERVED_CUSTOM_NODEACTIVITY(ECFActivityClientLeave, IPProtoCprClientLeave, TCFServiceProvider::TLeaveRequest, CClientLeaveActivity::New) //May be waiting for both messages
+	FIRST_NODEACTIVITY_ENTRY(MeshMachine::TAwaitingMessageState<TCFServiceProvider::TLeaveRequest>, MeshMachine::TNoTag)
 	THROUGH_NODEACTIVITY_ENTRY(KNoTag, CprClientLeaveActivity::CClientLeaveActivity::TRemoveClientAndDestroyOrphanedDataClients, CClientLeaveActivity::TNoTagOrSendPriorityToCtrlProvider)
 	NODEACTIVITY_ENTRY(CprStates::KSendPriorityToCtrlProvider, CClientLeaveActivity::TUpdatePriorityForControlProvider, CoreStates::TAwaitingJoinComplete, CClientLeaveActivity::TNoTagOrSendPriorityToServProvider)
 	NODEACTIVITY_ENTRY(CprStates::KSendPriorityToServProvider, CClientLeaveActivity::TUpdatePriorityForServiceProviders, CoreStates::TAwaitingJoinComplete, MeshMachine::TNoTag)
@@ -758,8 +758,7 @@ void CIPProtoConnectionProvider::StopConnection()
 		{
 		iTimerExpired = ETrue;
 		CancelTimer();
-		if (CountActivities(ECFActivityStop) == 0 &&
-+		    CountActivities(ECFActivityDestroy) == 0)
+		if (CountActivities(ECFActivityStop) == 0 && CountActivities(ECFActivityDestroy) == 0)
 			{
 			RClientInterface::OpenPostMessageClose(Id(), TNodeCtxId(ECFActivityStop, Id()), TCFServiceProvider::TStop(KErrTimedOut).CRef());
 			}

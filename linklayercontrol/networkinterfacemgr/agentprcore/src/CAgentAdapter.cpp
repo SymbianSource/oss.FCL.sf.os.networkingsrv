@@ -155,8 +155,12 @@ void CAgentAdapter::DisconnectAgent(TInt aReason)
         {
         iAgent->CancelReconnect();
         }
-    iAgentState = EDisconnecting;
-    iAgent->Disconnect(aReason);
+    // Issue disconnect only if agent is not already disconneting state
+    else if (iAgentState != EDisconnecting)
+        {	
+        iAgentState = EDisconnecting;
+        iAgent->Disconnect(aReason);
+        }
     }
 
 
@@ -307,6 +311,8 @@ void CAgentAdapter::ConnectComplete(TInt aStatus)
         else
             {
             iLastProgress.iError = aStatus;
+            // Set the agent state to EDisconnecting
+            iAgentState = EDisconnecting;
             iAgent->Disconnect(aStatus);
             }
         }
