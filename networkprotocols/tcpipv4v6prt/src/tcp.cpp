@@ -92,6 +92,11 @@ void CProtocolTCP6::StartL()
 	iRecvBuf = GetIniValue(TCPIP_INI_TCP, TCPIP_INI_TCP_RECV_BUF,
 			KTcpDefaultRcvWnd, KTcpMinimumWindow, KTcpMaximumWindow, ETrue); 
 	
+#ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
+	iRecvBufFromIniFile = GetIniValue(TCPIP_INI_TCP, TCPIP_INI_TCP_RECV_BUF,
+            KTcpDefaultRcvWnd, KTcpMinimumWindow, KTcpMaximumWindow, ETrue); 
+#endif //SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
+	
 	iSendBuf = GetIniValue(TCPIP_INI_TCP, TCPIP_INI_TCP_SEND_BUF,
 			KTcpDefaultSndWnd, KTcpMinimumWindow, KTcpMaximumWindow, ETrue);
 

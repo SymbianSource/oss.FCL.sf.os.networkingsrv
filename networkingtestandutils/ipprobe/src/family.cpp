@@ -1,4 +1,4 @@
-// Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2009-2010 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -20,6 +20,10 @@
 //
 // Nothing interesting here...
 //
+GLDEF_C TInt E32Dll()
+	{
+	return KErrNone;
+	}
 
 class CProtocolFamilyProbe : public CProtocolFamilyBase
 	{
@@ -32,10 +36,12 @@ public:
 	CProtocolBase* NewProtocolL(TUint /*aSockType*/, TUint aProtocol);
 	};
 
-extern "C" { IMPORT_C CProtocolFamilyBase* Install(void); }
+extern "C" { IMPORT_C CProtocolFamilyBase* Install(); }
 EXPORT_C CProtocolFamilyBase* Install()
 	{
-	return new (ELeave) CProtocolFamilyProbe;
+	// Due to naming convention this cannot leave
+	// However null return value handled correctly in the caller...
+	return new CProtocolFamilyProbe;
 	}
 
 //----------------------------------------------------------------------
@@ -63,7 +69,9 @@ TInt CProtocolFamilyProbe::Remove()
 
 TUint CProtocolFamilyProbe::ProtocolList(TServerProtocolDesc *& aList)
 	{
-	aList = new TServerProtocolDesc[2];
+	// This function might leave, but it has been taken care of in the calling function
+	const TInt index =2;
+	aList = new TServerProtocolDesc[index];
 	if (aList == NULL)
 		return 0;
 	

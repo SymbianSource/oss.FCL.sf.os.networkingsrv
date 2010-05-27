@@ -1,24 +1,18 @@
-// Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies).
-// All rights reserved.
-// This component and the accompanying materials are made available
-// under the terms of "Eclipse Public License v1.0"
-// which accompanies this distribution, and is available
-// at the URL "http://www.eclipse.org/legal/epl-v10.html".
-//
-// Initial Contributors:
-// Nokia Corporation - initial contribution.
-//
-// Contributors:
-//
-// Description:
-// probe.mmp - probe support MMP file
-// probe support
-//
-
-
-
-/**
- @file
+/*
+* Copyright (c) 2009-2010 Nokia Corporation and/or its subsidiary(-ies). 
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: The project specification file for probe
+*
 */
 
 MACRO       EPOC_SDK=0x08000000
@@ -28,6 +22,8 @@ TARGETTYPE	dll
 NOEXPORTLIBRARY
 
 UID		0x10003D38 0x10000895
+
+CAPABILITY      CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData // as c32 process 
 
 SOURCEPATH	../src
 
@@ -42,10 +38,9 @@ SYSTEMINCLUDE /epoc32/include
 OS_LAYER_SYSTEMINCLUDE_SYMBIAN
 #endif
 
+LIBRARY		euser.lib esock.lib inhook6.lib nifman.lib 
+LIBRARY		efsrv.lib esocksvr.lib mbufmgr.lib
 
-LIBRARY		euser.lib esocksvr.lib mbufmgr.lib inhook6.lib
-
-CAPABILITY CommDD PowerMgmt ReadDeviceData WriteDeviceData TrustedUI ProtServ NetworkControl NetworkServices LocalServices ReadUserData WriteUserData
 
 MACRO		TCPIP6_CAPABILITY
 

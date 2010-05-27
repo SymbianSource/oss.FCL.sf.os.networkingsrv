@@ -95,6 +95,18 @@ DECLARE_DEFINE_NODEACTIVITY(ECFSelfStopDataClientStoppedActivity, AgentSCprDataC
 NODEACTIVITY_END()
 }
 
+#ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
+namespace AgentSCprParamRequestActivity
+{
+DECLARE_DEFINE_NODEACTIVITY(ECFActivityParamRequest, AgentSCprParamRequest, TCFScpr::TSetParamsRequest)
+    FIRST_NODEACTIVITY_ENTRY(PRStates::TAwaitingParamRequest, CoreNetStates::TNoTagOrBearerPresent)
+    NODEACTIVITY_ENTRY(CoreNetStates::KBearerPresent, PRStates::TPassToServiceProvider, CoreNetStates::TAwaitingParamResponse, MeshMachine::TTag<CoreNetStates::KBearerPresent>)
+    LAST_NODEACTIVITY_ENTRY(CoreNetStates::KBearerPresent, PRStates::TStoreParamsAndPostToOriginators)
+    LAST_NODEACTIVITY_ENTRY(KNoTag, PRStates::TRespondWithCurrentParams)
+NODEACTIVITY_END()
+}
+#endif //#ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
+
 namespace AgentSCprDestroyActivity
 {
 //Overridden destroy for cleaning up the agent if its still about
@@ -125,6 +137,9 @@ DEFINE_EXPORT_ACTIVITY_MAP(agentSCprActivities)
    ACTIVITY_MAP_ENTRY(AgentSCprStartActivity, AgentSCprStart)
    ACTIVITY_MAP_ENTRY(AgentSCprStopActivity, AgentSCprStop)
    ACTIVITY_MAP_ENTRY(AgentSCprDataClientStoppedActivity, AgentSCprDataClientStopped)
+#ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
+   ACTIVITY_MAP_ENTRY(AgentSCprParamRequestActivity, AgentSCprParamRequest)
+#endif //#ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
 ACTIVITY_MAP_END_BASE(SCprActivities, coreSCprActivities)
 }
 
