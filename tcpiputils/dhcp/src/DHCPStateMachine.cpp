@@ -420,10 +420,29 @@ void CDHCPStateMachine::RemoveConfiguredAddress( const TSoInet6InterfaceInfo& aS
 	// how could we attempt to handle it anyway?...keep trying??? i think not...
 	// ensure that we have a socket to write down	
 	iSocket.Close();	
-	(void)iSocket.Open(iEsock, KAfInet, KSockDatagram, KProtocolInetUdp, iConnection);
-	(void)iSocket.SetOpt(KSoInetConfigInterface, KSolInetIfCtrl, configInfo);	
-	// make socket invisible for interface counting
-	(void)iSocket.SetOpt(KSoKeepInterfaceUp, KSolInetIp, 0);
+	TInt error = iSocket.Open(iEsock, KAfInet, KSockDatagram, KProtocolInetUdp, iConnection);
+	
+    if(error == KErrNone)
+		{
+		error = iSocket.SetOpt(KSoInetConfigInterface, KSolInetIfCtrl, configInfo);
+		if(error == KErrNone)
+		    {	        
+		    // make socket invisible for interface counting
+		    error = iSocket.SetOpt(KSoKeepInterfaceUp, KSolInetIp, 0);
+		    if(error != KErrNone)
+		        {
+		        __CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L("CDHCPStateMachine::RemoveConfiguredAddress, SetOpt Failed to set KSolInetIp")));   
+		        }
+		    }
+		else
+		    {
+		    __CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L("CDHCPStateMachine::RemoveConfiguredAddress,SetOpt Failed to set KsolInetIfCtrl")));   
+		    }
+		}
+	else
+		{
+		__CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L("CDHCPStateMachine::RemoveConfiguredAddress,Socket Open Failed: Due to KErrNotReady ")));	
+		}
 	}
 
 void CDHCPStateMachine::ConfigureInterfaceL( const TSoInet6InterfaceInfo& aInterfaceInfo )
