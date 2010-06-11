@@ -259,7 +259,8 @@ REM ---------- Networking ----------
 // Needed by several tests
 #include <simtsy.iby>
 
-#include <te_AnvlClient.iby>
+// Commenting anvl as no one is using it. can uncomment when needed . need to update networktest.iby also
+// #include <te_AnvlClient.iby>
 
 REM ---------- WAP-Stack ----------
 

@@ -1,0 +1,52 @@
+// Copyright (c) 2005-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// ipcpr.MMP New IP Connection Provider ECOM plugin with BM support
+// 
+//
+
+/**
+ @file
+*/
+
+TARGET          ipcpr.dll
+TARGETTYPE      PLUGIN
+
+UID             0x10009D8D 0x102070ED
+VENDORID 		 0x70000001
+
+SOURCEPATH      ../src
+SOURCE          ipcprprovider.cpp ipcprfactory.cpp
+
+USERINCLUDE     ../inc
+
+SYSTEMINCLUDE   /epoc32/include
+SYSTEMINCLUDE   /epoc32/include/ecom
+SYSTEMINCLUDE   /epoc32/include/comms-infras
+
+START RESOURCE 102070ED.rss
+TARGET ipcpr.rsc
+END
+
+LIBRARY         euser.lib esock.lib esocksvr.lib eintsock.lib insock.lib
+LIBRARY			netmeta.lib
+LIBRARY         agentdialog.lib
+LIBRARY         commsdat.lib
+
+#include	    "comms-infras/commsdebugutility.mmh"
+
+CAPABILITY ALL -Tcb
+
+UNPAGED
+
+SMPSAFE

@@ -167,11 +167,11 @@ CommSetup= PKTLOOPBACK.CSY, PKTLOOPBACK::504, 18, 0, SECONDARY1
 #NotifyContextStatusChange = SECONDARY1, 0, 5
 
 #Hsdpa
-NetworkMode= 2,6
-DynamicCaps= 2,512
+NetworkMode= 5,6
+DynamicCaps= 5,512
 
 #Edge
-NetworkMode= 12,2
-DynamicCaps= 2,1024
+NetworkMode= 10,2
+DynamicCaps= 10,1024
 # DynamicCaps= <Duration>, <DynamicCaps>
 # Note: <DynamicCaps> is a bitmap of RPacketService::TDynamicCaps flags. 

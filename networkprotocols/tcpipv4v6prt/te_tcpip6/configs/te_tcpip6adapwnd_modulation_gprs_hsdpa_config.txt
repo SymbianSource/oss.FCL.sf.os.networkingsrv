@@ -167,11 +167,11 @@ CommSetup= PKTLOOPBACK.CSY, PKTLOOPBACK::504, 18, 0, SECONDARY1
 #NotifyContextStatusChange = SECONDARY1, 0, 5
 
 #Gprs
-NetworkMode= 2,2
-DynamicCaps= 2,1
+NetworkMode= 5,2
+DynamicCaps= 5,1
 
 #Hsdpa
-NetworkMode= 12,6
-DynamicCaps= 2,512  
+NetworkMode= 10,6
+DynamicCaps= 10,512  
 # DynamicCaps= <Duration>, <DynamicCaps>
 # Note: <DynamicCaps> is a bitmap of RPacketService::TDynamicCaps flags. 

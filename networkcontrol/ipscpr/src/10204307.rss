@@ -1,0 +1,60 @@
+// Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// Registry info for IP Sub-Connection Provider plug-in
+// 
+//
+
+/**
+ @file 10204307.RSS
+*/
+
+#include <ecom/registryinfo.rh>
+
+RESOURCE REGISTRY_INFO theInfo
+{
+dll_uid = 0x10204307;
+interfaces = 
+    {
+    INTERFACE_INFO
+        {
+        interface_uid = 0x10204301;
+        implementations = 
+            {
+           IMPLEMENTATION_INFO
+                {
+                implementation_uid = 0x10204308;
+                version_no = 1;
+                display_name = "IP Sub-Connection Provider Factory";
+                default_data = "IpSubConnectionProviderFactory";
+                opaque_data = "";
+                }
+            };
+        },
+    INTERFACE_INFO
+        {
+        interface_uid = 0x10204303;
+        implementations = 
+            {
+           IMPLEMENTATION_INFO
+                {
+                implementation_uid = 0x10204309;
+                version_no = 1;
+                display_name = "CSubConnection Qos IP Link R5 Extension Parameter Set";
+                default_data = "text/wml";
+                opaque_data = "";
+                }
+            };
+        }
+    };
+}
