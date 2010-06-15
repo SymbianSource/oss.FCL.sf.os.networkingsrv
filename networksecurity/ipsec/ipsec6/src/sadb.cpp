@@ -26,9 +26,9 @@
 
 // This ungainly manoevure is forced on us because the offset is not evaluated early enough by GCC3.4 to be
 // passed as a template parameter
-#if defined(__X86GCC__) || defined(__GCCE__)
+#if defined(__X86GCC__)
 #define KSecurityAssocTimeoutOffset 256
-__ASSERT_COMPILE(KSecurityAssocTimeoutOffset == _FOFF_DYNAMIC(CSecurityAssoc, iTimeout));
+__ASSERT_COMPILE(KSecurityAssocTimeoutOffset == _FOFF(CSecurityAssoc, iTimeout));
 #else
 #define KSecurityAssocTimeoutOffset _FOFF(CSecurityAssoc, iTimeout)
 #endif
