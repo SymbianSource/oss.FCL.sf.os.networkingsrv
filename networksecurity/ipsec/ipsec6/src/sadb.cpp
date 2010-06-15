@@ -28,7 +28,7 @@
 // passed as a template parameter
 #if defined(__X86GCC__) || defined(__GCCE__)
 #define KSecurityAssocTimeoutOffset 256
-__ASSERT_COMPILE(KSecurityAssocTimeoutOffset == _FOFF(CSecurityAssoc, iTimeout));
+__ASSERT_COMPILE(KSecurityAssocTimeoutOffset == _FOFF_DYNAMIC(CSecurityAssoc, iTimeout));
 #else
 #define KSecurityAssocTimeoutOffset _FOFF(CSecurityAssoc, iTimeout)
 #endif
