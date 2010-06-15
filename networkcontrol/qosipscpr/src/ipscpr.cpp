@@ -39,7 +39,7 @@
 
 
 //TODO remove this ECFActivityDataClientJoin activity
-#include "../../../../commsfw/datacommsserver/esockserver/inc/ss_internal_activities.h"
+#include <comms-infras/ss_internal_activities.h>
 
 #if defined __FLOG_ACTIVE || defined SYMBIAN_TRACE_ENABLE
 	#define KIPSCprTag KESockSubConnectionTag

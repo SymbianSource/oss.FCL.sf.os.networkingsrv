@@ -26,7 +26,7 @@
 #include "sa_crypt.h"
 #include <networking/ipsecerr.h>
 #include "ipseccrypto.h"
-#include "keys.h"
+#include <cryptospi/keys.h>
 #include <cryptospi/cryptospidef.h>
 #ifdef SYMBIAN_IPSEC_VOIP_SUPPORT
 #include <cryptospi/cryptomacapi.h>

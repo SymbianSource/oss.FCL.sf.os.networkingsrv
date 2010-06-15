@@ -26,7 +26,7 @@
 
 #include "IPCpr.h"
 #include "ipcprups_states.h"
-#include "../../../../commsfw/datacommsserver/esockserver/inc/ss_internal_activities.h"
+#include <comms-infras/ss_internal_activities.h>
 #include <comms-infras/ss_nodemessages_factory.h>
 
 #include <comms-infras/upsmessages.h>
