@@ -1675,7 +1675,7 @@ EXPORTS
 	_ZTIN17SubSessActivities14CCloseActivityE @ 1674 NONAME
 	_ZTIN17SubSessActivities24CESockClientActivityBaseE @ 1675 NONAME
 	_ZTIN24PRDataClientStopActivity23TNoTagOrProviderStoppedE @ 1676 NONAME
-	_ZTIN4Meta11TMetaObjectIN5ESock15TSelectionPrefsEEE @ 1677 NONAME
+	_ZTIN4Meta11TMetaObjectIN5ESock15TSelectionPrefsEEE @ 1677 NONAME ABSENT
 	_ZTIN4Meta18RMetaDataContainerIN5ESock20XConnectionQueryBaseEEE @ 1678 NONAME ABSENT
 	_ZTIN4Meta18RMetaDataContainerINS_13SMetaDataEComEEE @ 1679 NONAME ABSENT
 	_ZTIN4Meta5TMetaI12TNifProgressEE @ 1680 NONAME ABSENT
@@ -2058,7 +2058,7 @@ EXPORTS
 	_ZTVN17SubSessActivities14CCloseActivityE @ 2057 NONAME
 	_ZTVN17SubSessActivities24CESockClientActivityBaseE @ 2058 NONAME
 	_ZTVN24PRDataClientStopActivity23TNoTagOrProviderStoppedE @ 2059 NONAME
-	_ZTVN4Meta11TMetaObjectIN5ESock15TSelectionPrefsEEE @ 2060 NONAME
+	_ZTVN4Meta11TMetaObjectIN5ESock15TSelectionPrefsEEE @ 2060 NONAME ABSENT
 	_ZTVN4Meta18RMetaDataContainerIN5ESock20XConnectionQueryBaseEEE @ 2061 NONAME ABSENT
 	_ZTVN4Meta18RMetaDataContainerINS_13SMetaDataEComEEE @ 2062 NONAME ABSENT
 	_ZTVN4Meta5TMetaI12TNifProgressEE @ 2063 NONAME ABSENT
