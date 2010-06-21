@@ -35,11 +35,19 @@ CNetCfgExtNotify::CNetCfgExtNotify(CSubConnectionProviderBase* aScpr)
 	{
 	}
 
+CNetCfgExtNotify::~CNetCfgExtNotify()
+    {
+    iScpr = NULL;
+    }
+
 void CNetCfgExtNotify::IfProgress(TInt aStage, TInt aError)
 	{
 	TStateChange change(aStage, aError);
+	if(iScpr)
+	    {
 	RClientInterface::OpenPostMessageClose(iScpr->Id(), iScpr->Id(),
 		TCFMessage::TStateChange(change).CRef());
+	    }
 	}
 
 TInt CNetCfgExtNotify::DoReadInt(const TDesC& aField, TUint32& aValue,const RMessagePtr2* /*aMessage*/)

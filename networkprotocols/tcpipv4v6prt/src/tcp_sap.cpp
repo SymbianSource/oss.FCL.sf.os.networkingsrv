@@ -1684,7 +1684,8 @@ void CProviderTCP6::CanSend()
 		if (iFlags.iRetransmitPending)
 			{
 			iFlags.iRetransmitPending = EFalse;
-			RetransmitSegments();
+			if(RetransmitSegments())
+				return;
 			}
 
 		if (iFlags.iTransmitPending)
@@ -2288,7 +2289,12 @@ void CProviderTCP6::RetransmitTimeout()
 		++iBackoff;
 		if (iRTO < Protocol()->MaxRTO())  // Avoid RTO overflow
 			ResetRTO();
-
+		
+		if(DetachIfDead())
+			{
+			Expire();
+			return;
+			}
 		//
 		// Timeout?
 		//
@@ -2403,7 +2409,7 @@ inline TBool CProviderTCP6::CanTriggerKeepAlive()
 //  - directly from RetransmitTimeout()
 //  - from CanSend(), in which case this is a delayed retransmission timeout
 //
-void CProviderTCP6::RetransmitSegments()
+TBool CProviderTCP6::RetransmitSegments()
 	{
 	ASSERT(iRetransTimer);
 
@@ -2419,7 +2425,7 @@ void CProviderTCP6::RetransmitSegments()
 		{
 		LOG(Log::Printf(_L("\ttcp SAP[%u] RetransmitSegments(): Flow pending"), (TInt)this));
 		ReSchedRetransmit();
-		return;
+		return EFalse;
 		}
 
 	//
@@ -2477,14 +2483,14 @@ void CProviderTCP6::RetransmitSegments()
 			// the receiver suddenly shrinks its window. The current solution covers
 			// both cases.
 			//
-			return;
+			return EFalse;
 			}
 
 		//
 		// This is a retransmit timout. Do we have anything to do?
 		//
 		if (!unacked)
-			return;
+			return EFalse;
 
 		LOG(if (iFlags.iFastRetransMode) Log::Printf(_L("\ttcp SAP[%u] RetransmitSegments(): Leaving FAST RETRANS mode"), (TInt)this));
 		iFlags.iFastRetransMode = EFalse;
@@ -2557,7 +2563,7 @@ void CProviderTCP6::RetransmitSegments()
 		// If the server doesn't respond because of broken NAT/FW or other, don't keep interface up.
 		if (InState(ETcpFinWait1|ETcpClosing|ETcpLastAck))
 			DetachIfDead();
-		return;
+		return EFalse;
 		}
 
 	//
@@ -2567,14 +2573,14 @@ void CProviderTCP6::RetransmitSegments()
 		{
 		// Retransmit SYN
 		SendSegment(KTcpCtlSYN, iSND.UNA);
-		return;
+		return EFalse;
 		}
 
 	if (InState(ETcpSynReceived))
 		{
 		// Retransmit SYN,ACK
 		SendSegment(KTcpCtlSYN|KTcpCtlACK, iSND.UNA);
-		return;
+		return EFalse;
 		}
 
 	if (InState(ETcpFinWait1|ETcpClosing|ETcpLastAck))
@@ -2584,18 +2590,22 @@ void CProviderTCP6::RetransmitSegments()
 	    //TSW error:JHAA-82JBNG -- FIN retransmission 
 		//Depending on the function return value the decision to
 	    //retransmitt FIN is decided
-
-		TBool continue_send = DetachIfDead();
+	
 		// Retransmit FIN
-		if(continue_send == EFalse)
+		if(DetachIfDead()== EFalse)
+			{
 			SendSegment(KTcpCtlFIN|KTcpCtlACK, iSND.UNA);
-		return;
+			return EFalse;
+			}
 		}
 
 	LOG(Log::Printf(_L("\ttcp SAP[%u] RetransmitSegments(): Retransmitter stopping"), (TInt)this));
 	if (!iSockFlags.iAttached)
+		{
 		Expire();
-	return;
+		return ETrue;
+		}
+	return EFalse;
 	}
 
 

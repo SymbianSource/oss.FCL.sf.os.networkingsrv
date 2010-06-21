@@ -441,7 +441,7 @@ void CDHCPStateMachine::RemoveConfiguredAddress( const TSoInet6InterfaceInfo& aS
 		}
 	else
 		{
-		__CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L("CDHCPStateMachine::RemoveConfiguredAddress,Socket Open Failed: Due to KErrNotReady ")));	
+		__CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L("CDHCPStateMachine::RemoveConfiguredAddress,Socket Open Failed: Due to %d"),error));	
 		}
 	}
 

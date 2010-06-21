@@ -164,7 +164,8 @@ CIPProtoDeftSubConnectionProvider::CIPProtoDeftSubConnectionProvider(ESock::CSub
 	 ALegacySubConnectionActiveApiExt(this),
 	 TIfStaticFetcherNearestInHierarchy(this),
 	 iNotify(NULL),
-	 iControl(NULL)
+	 iControl(NULL),
+	 iNetworkConfigurationState(EFalse)
     {
     LOG_NODE_CREATE(KIPProtoDeftScprTag, CIPProtoDeftSubConnectionProvider);
     }
@@ -195,10 +196,25 @@ CIPProtoDeftSubConnectionProvider* CIPProtoDeftSubConnectionProvider::NewL(ESock
 
 CIPProtoDeftSubConnectionProvider::~CIPProtoDeftSubConnectionProvider()
     {
+    // In case network is not configured i.e. AP might get close in case for WIFi for an example, DHCP registration
+    //will get failed. There is not point listening to such Progresses. So can notification and delete
+    //delete CNetCfgExtNotify pointer).
+   if(iNetworkConfigurationState == EFalse)
+       {
+       if(iNotify)
+           {
+           delete iNotify;
+           iNotify = NULL;
+           }
+       }
 	if (iControl)
 		delete iControl;
+	//incase registration is successful and Network is configured. 
 	if (iNotify)
+	    {
 		delete iNotify;
+		iNotify = NULL;
+		}
 
     LOG_NODE_DESTROY(KIPProtoDeftScprTag, CIPProtoDeftSubConnectionProvider);
     }

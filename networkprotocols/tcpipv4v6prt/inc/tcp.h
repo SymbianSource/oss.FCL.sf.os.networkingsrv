@@ -620,7 +620,7 @@ private:
 	void ProcessSegments();
 	void SendSegments(TBool aNagleOverride = EFalse);
 	void RetransmitTimeout();
-	void RetransmitSegments();
+	TBool RetransmitSegments();
 	void ClearSYNSettings();
 
 	/**

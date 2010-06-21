@@ -71,27 +71,71 @@ void CUpsStateMachine::ConstructL()
 	// Note the order in which the states are instantiated must match the 
 	// order in which they are defined in the enumeration TNetUpsState - or a panic will occur.
 
-	iState.Append(CState::NewL(ENull, *this));	
+	CState* state=CState::NewL(ENull, *this);
+		
+	CleanupStack::PushL(state);
+	iState.AppendL(state);
+	CleanupStack::Pop(state);
+		
 	switch(iNetUpsImpl.LifeTimeMode())
 		{
+			
 		case CNetUpsImpl::EProcessLifeTimeMode:
 			{
-			iState.Append(CState::NewL(EProcLife_NonSession, *this));			
-			iState.Append(CState::NewL(EProcLife_Transit_SessionYes, *this)); // a transient state is entered when the UPS Server responds with either SessionYes or SessionNo and there are 1 or more UPS requests outstanding to other subsessions which are associated with the same process.			
-			iState.Append(CState::NewL(EProcLife_SessionYes, *this));
-			iState.Append(CState::NewL(EProcLife_Transit_SessionNo, *this));
-			iState.Append(CState::NewL(EProcLife_SessionNo, *this));
+			CState* stateone= CState::NewL(EProcLife_NonSession, *this);
+			CleanupStack::PushL(stateone);
+			iState.AppendL(stateone);	
+			
+			CState* statetwo = CState::NewL(EProcLife_Transit_SessionYes, *this);
+			CleanupStack::PushL(statetwo);
+			iState.AppendL(statetwo); // a transient state is entered when the UPS Server responds with either SessionYes or SessionNo and there are 1 or more UPS requests outstanding to other subsessions which are associated with the same process.			
+			
+			CState* statethree = CState::NewL(EProcLife_SessionYes, *this);
+			CleanupStack::PushL(statethree);
+			iState.AppendL(statethree);
+			
+			CState* statefour = CState::NewL(EProcLife_Transit_SessionNo, *this);
+			CleanupStack::PushL(statefour);
+			iState.AppendL(statefour);
+			
+			CState* statefive = CState::NewL(EProcLife_SessionNo, *this);
+			CleanupStack::PushL(statefive);
+			iState.AppendL(statefive);
+			
+			CleanupStack::Pop(5);
 			break;
 			}
 		case CNetUpsImpl::ENetworkLifeTimeMode:
 			{
-			iState.Append(CState::NewL(ENetLife_NonSession, *this));			
-			iState.Append(CState::NewL(ENetLife_SessionNo_Transit_WithoutConnections, *this));			
-			iState.Append(CState::NewL(ENetLife_SessionNo_WithOutConnections, *this));
-			iState.Append(CState::NewL(ENetLife_SessionNo_Transit_WithConnections, *this));
-			iState.Append(CState::NewL(ENetLife_SessionNo_WithConnections, *this));
-			iState.Append(CState::NewL(ENetLife_Transit_SessionYes, *this));
-			iState.Append(CState::NewL(ENetLife_SessionYes, *this));
+			CState* stateone = CState::NewL(EProcLife_NonSession, *this);
+			CleanupStack::PushL(stateone);
+			iState.AppendL(stateone);
+			
+			CState* statetwo = CState::NewL(ENetLife_SessionNo_Transit_WithoutConnections, *this);
+			CleanupStack::PushL(statetwo);
+			iState.AppendL(statetwo);		
+			
+			CState* statethree = CState::NewL(ENetLife_SessionNo_WithOutConnections, *this);
+			CleanupStack::PushL(statethree);
+			iState.AppendL(statethree);
+			
+			CState* statefour = CState::NewL(ENetLife_SessionNo_Transit_WithConnections, *this);
+			CleanupStack::PushL(statefour);
+			iState.AppendL(statefour);
+			
+			CState* statefive = CState::NewL(ENetLife_SessionNo_WithConnections, *this);
+			CleanupStack::PushL(statefive);
+			iState.AppendL(statefive);
+			
+			CState* statesix = CState::NewL(ENetLife_Transit_SessionYes, *this);
+			CleanupStack::PushL(statesix);
+			iState.AppendL(statesix);
+								
+			CState* stateseven = CState::NewL(ENetLife_SessionYes, *this);
+			CleanupStack::PushL(stateseven);
+			iState.AppendL(stateseven);
+			
+			CleanupStack::Pop(7);
 			break;				
 			}
 		default:

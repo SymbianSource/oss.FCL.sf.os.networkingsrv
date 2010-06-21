@@ -162,6 +162,7 @@ TInt IPProtoDeftSCpr::TNetworkConfiguredOrErrorTagOrCancelTagOrNoTag::Transition
 
 	if (msg.iStateChange.iStage == KLinkLayerOpen)
 		{
+		iContext.Node().iNetworkConfigurationState = ETrue;
 		return KNetworkConfigured;
 		}
 
@@ -171,7 +172,11 @@ TInt IPProtoDeftSCpr::TNetworkConfiguredOrErrorTagOrCancelTagOrNoTag::Transition
 DEFINE_SMELEMENT(TNetworkConfiguredOrErrorTagOrCancelTagOrNoTagBackward, NetStateMachine::MStateFork, IPProtoDeftSCpr::TContext)
 TInt IPProtoDeftSCpr::TNetworkConfiguredOrErrorTagOrCancelTagOrNoTagBackward::TransitionTag()
 	{
+	iContext.Node().iNetworkConfigurationState = EFalse;
 	TInt tag = IPProtoDeftSCpr::TNetworkConfiguredOrErrorTagOrCancelTagOrNoTag::TransitionTag();
+	
+
+
 	if (tag == KNoTag)
 		return tag | NetStateMachine::EBackward;
 	return tag;
