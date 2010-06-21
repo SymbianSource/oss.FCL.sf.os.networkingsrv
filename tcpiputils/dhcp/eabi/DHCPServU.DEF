@@ -38,8 +38,8 @@ EXPORTS
 	_ZTI22CDHCPInformationConfig @ 37 NONAME ; #<TI>#
 	_ZTI23CDHCPAddressAcquisition @ 38 NONAME ; #<TI>#
 	_ZTI24CDHCPIP6ListenToNeighbor @ 39 NONAME ; #<TI>#
-	_ZTI5CItemI15TValueBigEndianE @ 40 NONAME ; #<TI>#
-	_ZTI5CItemI9TConstantE @ 41 NONAME ; #<TI>#
+	_ZTI5CItemI15TValueBigEndianE @ 40 NONAME ABSENT ; #<TI>#
+	_ZTI5CItemI9TConstantE @ 41 NONAME ABSENT ; #<TI>#
 	_ZTI5CItemIN6DHCPv413TOptionHeaderI13TLittleEndianEEE @ 42 NONAME ; #<TI>#
 	_ZTI5CItemIN6DHCPv613TOptionHeaderI10TBigEndianEEE @ 43 NONAME ; #<TI>#
 	_ZTIN6DHCPv411COptionListE @ 44 NONAME ; #<TI>#
@@ -88,8 +88,8 @@ EXPORTS
 	_ZTV22CDHCPInformationConfig @ 87 NONAME ; #<VT>#
 	_ZTV23CDHCPAddressAcquisition @ 88 NONAME ; #<VT>#
 	_ZTV24CDHCPIP6ListenToNeighbor @ 89 NONAME ; #<VT>#
-	_ZTV5CItemI15TValueBigEndianE @ 90 NONAME ; #<VT>#
-	_ZTV5CItemI9TConstantE @ 91 NONAME ; #<VT>#
+	_ZTV5CItemI15TValueBigEndianE @ 90 NONAME ABSENT ; #<VT>#
+	_ZTV5CItemI9TConstantE @ 91 NONAME ABSENT ; #<VT>#
 	_ZTV5CItemIN6DHCPv413TOptionHeaderI13TLittleEndianEEE @ 92 NONAME ; #<VT>#
 	_ZTV5CItemIN6DHCPv613TOptionHeaderI10TBigEndianEEE @ 93 NONAME ; #<VT>#
 	_ZTVN6DHCPv411COptionListE @ 94 NONAME ; #<VT>#
