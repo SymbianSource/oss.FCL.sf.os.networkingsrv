@@ -84,7 +84,7 @@ RUN_TEST_STEP 150 te_esockteststepsSuite SocketGetOptionStep z:\testdata\configs
 //User does a SetOpt( ) with own value
 RUN_TEST_STEP 150 te_esockteststepsSuite SocketSetOptionStep  z:\testdata\configs\te_tcpip6AdapWnd.ini UserSetOptOnSocketEGPRS
 
-DELAY 20000
+DELAY 7000
 //Bearer changing to GPRS
 PRINT Bearer changing to GPRS
 

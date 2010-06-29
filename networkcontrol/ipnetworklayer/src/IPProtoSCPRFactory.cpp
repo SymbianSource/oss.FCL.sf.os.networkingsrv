@@ -21,7 +21,7 @@
  @internalComponent
 */
 
-#include "ipprotomessages.h"
+#include "IPProtoMessages.h"
 #include "IPProtoSCPRFactory.h"
 #include "ipprotodeftscpr.h"
 #include "IPProtoSCPR.h"

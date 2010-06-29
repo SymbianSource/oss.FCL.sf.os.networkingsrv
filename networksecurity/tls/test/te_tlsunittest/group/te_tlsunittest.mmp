@@ -23,16 +23,16 @@
 TARGET          te_tlsunittest.exe
 TARGETTYPE      exe
 
-USERINCLUDE	..\..\..\inc
+USERINCLUDE	../../../inc
 
-SOURCEPATH      ..\src
+SOURCEPATH      ../src
 SOURCE		te_tlsunittestblock.cpp te_tlsunittestserver.cpp te_tlsunittestwrapper.cpp
 
 
 OS_LAYER_SYSTEMINCLUDE_SYMBIAN
 
 
-USERINCLUDE     ..\inc
+USERINCLUDE     ../inc
 
 LIBRARY 	efsrv.lib 
 LIBRARY		euser.lib 

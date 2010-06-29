@@ -24,7 +24,7 @@ SOURCEPATH		../src
 SOURCE			t_dnsproxytestserver.cpp  
 SOURCE			t_dnsproxymain.cpp
 
-USERINCLUDE		..\inc
+USERINCLUDE		../inc
 
 #ifdef SYMBIAN_OLD_EXPORT_LOCATION
 SYSTEMINCLUDE	/epoc32/include
@@ -34,8 +34,8 @@ SYSTEMINCLUDE	/epoc32/include/networking
 OS_LAYER_SYSTEMINCLUDE_SYMBIAN
 SYSTEMINCLUDE	/epoc32/include/platform/test
 SYSTEMINCLUDE	/epoc32/include/platform/networking
-SYSTEMINCLUDE   ..\..\dnsproxyclient\inc
-USERINCLUDE 	..\..\..\..\tcpiputils\networkaddressandporttranslation\inc
+SYSTEMINCLUDE   ../../dnsproxyclient/inc
+USERINCLUDE 	../../../../tcpiputils/networkaddressandporttranslation/inc
 #endif
 
 LIBRARY		testexecuteutils.lib euser.lib esock.lib commdb.lib insock.lib netmeta.lib ecom.lib

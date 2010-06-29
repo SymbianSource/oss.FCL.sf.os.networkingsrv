@@ -23,7 +23,7 @@
 
 #include <comms-infras/corescprstates.h>
 #include <comms-infras/corescpractivities.h>
-#include "ipprotocprstates.h"
+#include "IPProtoCprStates.h"
 
 #include "ipprotodeftscpr.h"
 #include "ipprotodeftscprstates.h"

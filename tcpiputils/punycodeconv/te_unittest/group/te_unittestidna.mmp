@@ -23,17 +23,17 @@
 TARGET          testidnserver.exe
 TARGETTYPE      exe
 
-SOURCEPATH      ..\src
+SOURCEPATH      ../src
 SOURCE 	    te_unittestidna.cpp
 SOURCE	    te_unittestidnaserver.cpp
 SOURCE	    te_unittestidnastepbase.cpp
 
 #ifdef SYMBIAN_OLD_EXPORT_LOCATION
-SYSTEMINCLUDE   \epoc32\include
-SYSTEMINCLUDE   \epoc32\include\test
+SYSTEMINCLUDE   /epoc32/include
+SYSTEMINCLUDE   /epoc32/include/test
 #else
 OS_LAYER_SYSTEMINCLUDE_SYMBIAN
-SYSTEMINCLUDE   \epoc32\include\platform\test
+SYSTEMINCLUDE   /epoc32/include/platform/test
 #endif
 
 LIBRARY         euser.lib 

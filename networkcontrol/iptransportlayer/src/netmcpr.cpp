@@ -33,6 +33,8 @@
 
 #ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
 #include <tcpdfltrecvwin.h>
+// Custom type for WLAN bearer
+const TUint32 KNetMcprWlanBearer = 0x3C;
 #endif //SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
 #include <commsdattypeinfov1_1_internal.h>
 
@@ -477,8 +479,11 @@ void CDfltTCPReceiveWindowSize::Init()
    	//TCP receive window size for ethernet
    	iBearerInfoMap.Insert(KEthernetBearer,KBearerEthernetWinSize);
 
+    //TCP receive window size for WLAN bearer
+    iBearerInfoMap.Insert(KNetMcprWlanBearer,KBearerWlanWinSize);
+   	
    	//TCP receive window size for other bearer
-   	iBearerInfoMap.Insert(KDefaultBearer,KBearerWlanWinSize);
+   	iBearerInfoMap.Insert(KDefaultBearer,KBearerDefaultWinSize);
 	}
 
 void CDfltTCPReceiveWindowSize::SetTcpWin(TUint aBearerType)
@@ -486,8 +491,20 @@ void CDfltTCPReceiveWindowSize::SetTcpWin(TUint aBearerType)
  * Set TCP receive window 
  */
 	{
-	//Set the TCP Receive Window.
-	iWinSize = *static_cast<TUint*>(iBearerInfoMap.Find(aBearerType));
+    // Get bearer window size from hash table
+    TUint* iWinSizePtr = static_cast<TUint*>(iBearerInfoMap.Find(aBearerType));
+
+    // Check whether bearer type was known 
+    if ( iWinSizePtr != NULL )
+        {
+        // Set the TCP Receive Window
+        iWinSize = *iWinSizePtr;
+        }
+    else
+        {
+        // Use default window
+        iWinSize = KBearerDefaultWinSize;
+        }
 	  
 	//Set the Max TCP receive Window.
 	SetMaxWinSize(aBearerType);
@@ -511,12 +528,16 @@ void CDfltTCPReceiveWindowSize::SetMaxWinSize(TUint aBearerType)
 		//
 			iMaxWinSize = KBearerHsdpaWinSize; 
 			break; 
-		case KEthernetBearer:
-			iMaxWinSize = KEthernetMaxWinSize;
+		case KNetMcprWlanBearer:
+			iMaxWinSize = KBearerWlanWinSize;
 			break;
    
+        case KEthernetBearer:
+            iMaxWinSize = KEthernetMaxWinSize;
+            break;
+			
 		default:
-			iMaxWinSize = KEthernetMaxWinSize;
+			iMaxWinSize = KBearerDefaultMaxWinSize;
 			break;
 		}
 	}

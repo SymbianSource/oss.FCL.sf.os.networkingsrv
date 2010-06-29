@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<relnotes schema="1.0.0" name="Connection Provider Plugin" purpose="" type="component">
+  <revision major="1" functional="0" minor="0" date="20070802">
+    <ref name="PDEF110098" type="defect"/>
+    <description>Enabling IAP commsdat records to be protected with the ECDPrivate attribute. This requires that the DHCP and DND components are assigned the ReadDeviceData privilege and that various changes are made to ensure hidden IAP records are visible to networking components which need to be able to read them.</description>
+  </revision>
+  <purpose>
+  </purpose>
+  <defect number="PDEF102399" title="S60_MuDo_2006_wk49: Reconnecting to live video stream fails" revision="001">
+    Cause reconnect when RConnection::Start collides with Idle Timer Stop
+  </defect>
+</relnotes>

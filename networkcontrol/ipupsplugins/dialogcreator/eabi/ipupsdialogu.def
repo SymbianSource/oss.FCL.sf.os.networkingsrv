@@ -1,0 +1,5 @@
+EXPORTS
+	_Z24ImplementationGroupProxyRi @ 1 NONAME
+	KNotifierImplementationId @ 2 NONAME DATA 4
+	KTestNotifierImplementationId @ 3 NONAME DATA 4
+

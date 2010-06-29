@@ -16,7 +16,7 @@
 // 
 //
 
-#include <tftpeng.h>
+#include <TFTPENG.H>
 
 EXPORT_C CTftpEngine::~CTftpEngine()
     {

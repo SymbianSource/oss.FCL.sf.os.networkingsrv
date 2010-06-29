@@ -15,7 +15,7 @@
 // 
 //
 
-#include <pingeng.h>
+#include <PINGENG.H>
 #include <e32cons.h>
 #include <c32comm.h>
 #include <nifman.h>

@@ -23,7 +23,7 @@
 #if (!defined __TEF_IPSEC_IKEV2_TEST_WRAPPER_H__)
 #define __TEF_IPSEC_IKEV2_TEST_WRAPPER_H__
 
-#include <DataWrapper.h>
+#include <datawrapper.h>
 
 class CT_IPSecIKEv2TestWrapper : public CDataWrapper
 	{

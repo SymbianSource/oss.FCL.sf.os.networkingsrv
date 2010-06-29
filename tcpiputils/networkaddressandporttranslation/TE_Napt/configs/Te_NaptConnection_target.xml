@@ -822,7 +822,7 @@
 		<IfNetworks>ip</IfNetworks>
 		<IpNetMask>255.255.255.0</IpNetMask>
 		<IpGateway>10.32.194.254</IpGateway>
-		<IpAddr>10.225.164.209</IpAddr>
+		<IpAddr>10.225.171.70</IpAddr>
 		<IpAddrFromServer>TRUE</IpAddrFromServer>
 		<IpDNSAddrFromServer>TRUE</IpDNSAddrFromServer>
 		<IpNameServer1>194.72.6.51</IpNameServer1>

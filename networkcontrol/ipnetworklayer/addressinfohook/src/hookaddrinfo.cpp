@@ -39,7 +39,9 @@ EXPORT_C void CHookAddressInfo::AddL(CIPProtoBinder* aBinder, CSubConIPAddressIn
 	{
 	TIpAddrBinder *addrBinder =  new(ELeave) TIpAddrBinder(aBinder, aAddrInfo);
 	
-	iAddrInfo.Append(addrBinder);
+	CleanupStack::PushL(addrBinder);
+	iAddrInfo.AppendL(addrBinder);
+	CleanupStack::Pop(addrBinder);
 
 	//Try match the address info to existing flows	
 	TDblQueIter<CAddressInfoFlowInfo> iter(*iFlows);

@@ -1,0 +1,5 @@
+EXPORTS
+	?ImplementationGroupProxy@@YAPBUTImplementationProxy@@AAH@Z @ 1 NONAME ; struct TImplementationProxy const * ImplementationGroupProxy(int &)
+	?KTestNotifierImplementationId@@3KB @ 2 NONAME ; unsigned long const KTestNotifierImplementationId
+	?KNotifierImplementationId@@3KB @ 3 NONAME ; unsigned long const KNotifierImplementationId
+

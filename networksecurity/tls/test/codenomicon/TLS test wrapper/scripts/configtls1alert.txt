@@ -1,0 +1,9 @@
+[platform] winscw 
+[build] udeb
+
+//codenomicon parameters
+[params]
+index 4890-6137
+listen-port 443
+server-name 192.168.0.1
+log-dir     d:\tls\logs\tls1alert

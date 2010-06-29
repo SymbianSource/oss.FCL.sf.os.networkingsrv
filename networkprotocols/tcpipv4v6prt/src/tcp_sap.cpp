@@ -260,6 +260,13 @@ void CProviderTCP6::InitL()
 	iRetransTimer->InitL();
 	iLingerTimer->InitL();
 	iSockInBufSize        = Protocol()->RecvBuf();
+#ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
+	if(iSockInBufSize == Protocol()->RecvBufFromIniFile())
+	    iSocketStartupCase = ETrue;
+	else
+	    iSocketStartupCase = EFalse;
+#endif //SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW    	
+	
 	iSockOutBufSize       = Protocol()->SendBuf();
 	iSsthresh		= KMaxTInt32;
 	iRTO			= Protocol()->InitialRTO();
@@ -619,48 +626,137 @@ TInt CProviderTCP6::SetOption(TUint aLevel, TUint aName, const TDesC8& aOption)
                 iSockInBufSize = KTcpMinimumWindow;
             else
                 {
+                //If its the startup case, then there should be no algorithm used to shrink
+				//or expand the window size from the default value provided in the ini file
+                //the new value should be set directly
+                if(iSocketStartupCase)
+                    {
+					//Add the extra window to free window pool
+					//if the window being set is greater than what is specified in ini file (startup case), then just overwrite the new window.
+					//Add difference to free window
+					//else set free window to zero
+					if(intValue > iSockInBufSize)
+						iFreeWindow += intValue - iSockInBufSize;
+					else
+						iFreeWindow = 0;
+					//set the buffer
+                    iSockInBufSize = intValue;
+					//disable startup flag.
+                    iSocketStartupCase = EFalse;
+                    }
+                else 
+                {
+					// Check for minimum value
+	                if (intValue < STATIC_CAST(TInt, KTcpMinimumWindow))
+	                    {
+	                    intValue = STATIC_CAST(TInt, KTcpMinimumWindow);
+	                    }
+	                // Handle the situation where the connection has been established and 
+	                // window scaling is not in use
+	                if ( InState( ETcpSynReceived | ETcpEstablished ) && !iRcvWscale )
+	                    {
+	                    // Do not allow window sizes larger than 0xFFFF
+	                    intValue = Min ( intValue, 0xFFFF );
+	                    }
 
-		        //If new TCP window is larger then the previous window, increase the 
-		        //iSockInBufSize right now. TCP recv function takes  care of
-		        //advertising a new effective TCP window. 
-		            if (intValue >= iSockInBufSize)
-		                {
-		                //Make it Zero so TCP could avoid the
-		                //TCP window shrinking processing in Recv.  
-		                iNewTcpWindow = 0;
-		                //FreeWindow has to be increased at the same time.
-		                iFreeWindow += intValue - iSockInBufSize;
-		                // Make the new TCP receive buffer change effective now.
-		                iSockInBufSize = intValue;                                                          
-		                }
-		            else
-		                {
-		                //This sets iNewTcpWindow to a non-zero value, which indicates 
-		                //to the TCP that window is shrunk and process TCP segments
-		                //which are in air before setting a new TCP receive buffer.         
-		                //TCP Receive window starts moving only when TCP hidden window
-		                //size exceeds the size of the shrunk window.
-		                   
-		                iNewTcpWindow = intValue;
-		                //Even in case of window shrink we can set the receive buffer size
-		                //immediately. This will be helpful, for processing SYN-ACK and other
-		                //receiver side processing.
-		                //For already connected sockets iNewTcpWindow will be taking care
-		                //of shrinking the window size for that TCP session.
-		                iSockInBufSize = iNewTcpWindow;
-		                if( iAdvertisedWindow > iNewTcpWindow )
-		                    {
-		                    iShrinkedWindowSize = iAdvertisedWindow - iNewTcpWindow;
-		                    }
-		                else
-		                    {
-		                    // No Need to process TCP receive window processing.
-		                    iNewTcpWindow = 0;
-		                    }
-		                }
-					
-                } 
-
+	                // Check whether we are increasing or decreasing window size
+	                if ( intValue >= iSockInBufSize )
+	                    {
+	                    // New window is larger than current one, check if a
+	                    // shrinking process is active
+	                    if ( !iNewTcpWindow )
+	                        {
+	                        // Mark new "space" as free, it will be updated to
+	                        // peer on next operation.
+	                        iFreeWindow += intValue - iSockInBufSize;
+	                        }
+	                    else
+	                        {
+	                        // In the middle of shrinking process.
+                      if ( iShrinkedWindowSize <= ( intValue - iSockInBufSize ))
+	                            {
+	                            // Increment to window size is enough to complete
+	                            // shrinking process. Update variables and exit
+	                            // from shrinking process.
+                          iFreeWindow = ( intValue - iSockInBufSize ) - iShrinkedWindowSize;
+	                            iShrinkedWindowSize = 0;
+	                            iNewTcpWindow = 0;
+	                            }
+	                        else
+	                            {
+	                            // Not quite there yet but closer. Less to shrink,
+	                            // update this, but do not exit from shrinking
+	                            // process
+                          iShrinkedWindowSize -= intValue - iSockInBufSize;
+	                            iNewTcpWindow = intValue;
+	                            }
+	                        }
+	                    }
+	                else
+	                    {
+	                    // Requested window is smaller than current one. Start or
+	                    // continue shrinking process. RCV window can be occupied
+	                    // for two different purpose at the moment
+	                    // 1. Client data in iSockInQ not read by application
+	                    // 2. Free window "opened" to peer (iAdvertisedWindow)
+	                    // When shrinking, we must ensure that when reopening
+	                    // the window to client there must be truly empty space
+	                    // in the window. Thus, freeze the right edge of the
+	                    // window (iRCV.NXT + iRCV.WND stays constant) until
+	                    // shrinking is completed.
+	                
+	                    if ( iNewTcpWindow )
+	                        {
+	                        // There is an ongoing shrink process, add the
+	                        // change to the amount to be shrinked
+	                        iShrinkedWindowSize += iSockInBufSize - intValue;
+	                        iNewTcpWindow = intValue;
+	                        }
+	                    else
+	                        {
+	                        // This is a new shrinking process, count how much
+	                        // needs to be shrinked
+                      iShrinkedWindowSize = iSockInQLen + iRCV.WND;
+	                        if ( iShrinkedWindowSize >= intValue )
+	                            {
+	                            // We need to shrink since the currently occupied
+	                            // window does not fit to new one
+	                            iShrinkedWindowSize -= intValue;
+	                            // There is now free space in the window
+	                            iFreeWindow = 0;
+	                            // iNewTcpWindow is used as a state variable for
+	                            // shrinking
+	                            iNewTcpWindow = intValue;
+	                            }
+	                        else
+	                            {
+	                            // No need to shrink since we can fit the current
+	                            // contents to the new window, update free window
+	                            // If TCP connection is not yet setup, the free
+	                            // window will be updated on connection setup, 
+	                            // for existing connection it will be used
+	                            // next time application reads data
+	                            if ( iFreeWindow >= ( iSockInBufSize - intValue ))
+	                                {
+	                                iFreeWindow -= iSockInBufSize - intValue;
+	                                }
+	                            else 
+	                                {
+	                                // Something wrong. Try to reevaluate...
+	                                iFreeWindow = intValue - iShrinkedWindowSize;
+	                                }
+	                            iShrinkedWindowSize = 0;
+	                            }
+	                        }
+	                    }
+	                // Even in case of window shrink we can set the receive buffer size
+	                // immediately. This will be helpful, for processing SYN-ACK and other
+	                // receiver side processing.
+	                // For already connected sockets iNewTcpWindow will be taking care
+	                // of shrinking the window size for that TCP session.
+	                iSockInBufSize = intValue;
+	                }
+	            } 
 		    }
 		    break;
 #endif //SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
@@ -1362,32 +1458,23 @@ TInt CProviderTCP6::Recv(TDualBufPtr& aBuf, TInt aLength, TUint aOptions)
 	//if This is true, then it is a case of TCP window shrink and we need 
 	//to handle it.
 	if ( iNewTcpWindow )
-		{
-	   	//Log  this message for information, that Window is shrinked
-	   	LOG(Log::Printf(_L("\ttcp SAP[%u] TCP window shrinking mode on"), (TInt)this));
-	   
-	   	//Increase the hidden free TCP receive window.
-	   	iHiddenFreeWindow += aLength;
-	   
-	   	if (iHiddenFreeWindow >= iShrinkedWindowSize)
-			{
-			//Disable window shrink processing, so that TCP could switch
-			//to the normal processing.    
-			iSockInBufSize = iNewTcpWindow;
-			
-			//Add the usable window to the free window.
-			iFreeWindow += iHiddenFreeWindow - iShrinkedWindowSize;
-			
-			//There are chances that TCP receive window might further shrink.
-			iHiddenFreeWindow = 0;
-			
-			//TCP Receive window shrink phase is over.
-			iNewTcpWindow = 0;
-			
-			//Log  this message for information, that Window is shrinked
-			LOG(Log::Printf(_L("\ttcp SAP[%u] TCP window shrinking mode off"), (TInt)this));
-			}
-		}
+	    {
+	    // Check if we can complete shrinking process
+	    if ( aLength > iShrinkedWindowSize )
+	        {
+	        // We can exit from the shrinking process. Reset variables and
+	        // update free window.
+	        iFreeWindow = aLength - iShrinkedWindowSize;
+	        iShrinkedWindowSize = 0;
+	        iNewTcpWindow = 0;
+	        }
+	    else
+	        {
+	        // Substract the needed shrinking amount by the amount of bytes client
+	        // read from the buffer
+	        iShrinkedWindowSize -= aLength;
+	        }
+	    }
 	else
 #endif //SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
 	
@@ -1684,7 +1771,8 @@ void CProviderTCP6::CanSend()
 		if (iFlags.iRetransmitPending)
 			{
 			iFlags.iRetransmitPending = EFalse;
-			RetransmitSegments();
+			if(RetransmitSegments())
+				return;
 			}
 
 		if (iFlags.iTransmitPending)
@@ -2288,7 +2376,12 @@ void CProviderTCP6::RetransmitTimeout()
 		++iBackoff;
 		if (iRTO < Protocol()->MaxRTO())  // Avoid RTO overflow
 			ResetRTO();
-
+		
+		if(DetachIfDead())
+			{
+			Expire();
+			return;
+			}
 		//
 		// Timeout?
 		//
@@ -2403,7 +2496,7 @@ inline TBool CProviderTCP6::CanTriggerKeepAlive()
 //  - directly from RetransmitTimeout()
 //  - from CanSend(), in which case this is a delayed retransmission timeout
 //
-void CProviderTCP6::RetransmitSegments()
+TBool CProviderTCP6::RetransmitSegments()
 	{
 	ASSERT(iRetransTimer);
 
@@ -2419,7 +2512,7 @@ void CProviderTCP6::RetransmitSegments()
 		{
 		LOG(Log::Printf(_L("\ttcp SAP[%u] RetransmitSegments(): Flow pending"), (TInt)this));
 		ReSchedRetransmit();
-		return;
+		return EFalse;
 		}
 
 	//
@@ -2477,14 +2570,14 @@ void CProviderTCP6::RetransmitSegments()
 			// the receiver suddenly shrinks its window. The current solution covers
 			// both cases.
 			//
-			return;
+			return EFalse;
 			}
 
 		//
 		// This is a retransmit timout. Do we have anything to do?
 		//
 		if (!unacked)
-			return;
+			return EFalse;
 
 		LOG(if (iFlags.iFastRetransMode) Log::Printf(_L("\ttcp SAP[%u] RetransmitSegments(): Leaving FAST RETRANS mode"), (TInt)this));
 		iFlags.iFastRetransMode = EFalse;
@@ -2557,7 +2650,7 @@ void CProviderTCP6::RetransmitSegments()
 		// If the server doesn't respond because of broken NAT/FW or other, don't keep interface up.
 		if (InState(ETcpFinWait1|ETcpClosing|ETcpLastAck))
 			DetachIfDead();
-		return;
+		return EFalse;
 		}
 
 	//
@@ -2567,14 +2660,14 @@ void CProviderTCP6::RetransmitSegments()
 		{
 		// Retransmit SYN
 		SendSegment(KTcpCtlSYN, iSND.UNA);
-		return;
+		return EFalse;
 		}
 
 	if (InState(ETcpSynReceived))
 		{
 		// Retransmit SYN,ACK
 		SendSegment(KTcpCtlSYN|KTcpCtlACK, iSND.UNA);
-		return;
+		return EFalse;
 		}
 
 	if (InState(ETcpFinWait1|ETcpClosing|ETcpLastAck))
@@ -2584,18 +2677,22 @@ void CProviderTCP6::RetransmitSegments()
 	    //TSW error:JHAA-82JBNG -- FIN retransmission 
 		//Depending on the function return value the decision to
 	    //retransmitt FIN is decided
-
-		TBool continue_send = DetachIfDead();
+	
 		// Retransmit FIN
-		if(continue_send == EFalse)
+		if(DetachIfDead()== EFalse)
+			{
 			SendSegment(KTcpCtlFIN|KTcpCtlACK, iSND.UNA);
-		return;
+			return EFalse;
+			}
 		}
 
 	LOG(Log::Printf(_L("\ttcp SAP[%u] RetransmitSegments(): Retransmitter stopping"), (TInt)this));
 	if (!iSockFlags.iAttached)
+		{
 		Expire();
-	return;
+		return ETrue;
+		}
+	return EFalse;
 	}
 
 

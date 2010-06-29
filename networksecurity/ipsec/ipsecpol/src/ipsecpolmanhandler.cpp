@@ -1450,7 +1450,9 @@ CIPSecPolicyManagerHandler::AddScopedAutoloadPolicyPairL(
 
     if (autoloadListItem != NULL)
         {
-        iScopedAutoloadPolicyPairs.Append(autoloadListItem);
+		CleanupStack::PushL(autoloadListItem);
+        iScopedAutoloadPolicyPairs.AppendL(autoloadListItem);
+        CleanupStack::Pop(autoloadListItem);
         }
     }
 

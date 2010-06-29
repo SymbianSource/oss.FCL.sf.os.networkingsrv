@@ -73,7 +73,7 @@ CIPSecPolicyManagerHandler::WriteTunnelModeIkeNegotiationStringsL(
             if (j==count)
                 {
                 TInt position = 0;
-                gatewayList.Insert( &itemL->iTunnel, position);
+                gatewayList.InsertL( &itemL->iTunnel, position);
 
                 // Build two strings for policy file
                 stringBuf.Zero();

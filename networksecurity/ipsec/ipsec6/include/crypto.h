@@ -84,9 +84,9 @@ index= 1
 #include <e32base.h>
 #include <es_prot.h>
 
-#include "cryptospidef.h"
+#include <cryptospi/cryptospidef.h>
 #include "cryptosymmetriccipherapi.h"
-#include "cryptomacapi.h"
+#include <cryptospi/cryptomacapi.h>
 
 /**
 // The protocol number for a library.

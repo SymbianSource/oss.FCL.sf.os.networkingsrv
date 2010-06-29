@@ -22,7 +22,7 @@
 file=ABI_DIR\DEBUG_DIR\DhcpTestServer.exe	System\bin\DhcpTestServer.exe
 
 
-#ifdef SYMBIAN_EXCLUDE_DHCP
+#ifndef __DHCP
 REM Feature DHCP is not included in this ROM
 data=\epoc32\data\z\testdata\scripts\DHCP\te_dhcpremovedtest_ip4.script			TestData\scripts\DHCP\te_dhcpremovedtest_ip4.script
 

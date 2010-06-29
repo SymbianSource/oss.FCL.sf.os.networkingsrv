@@ -47,8 +47,6 @@ SYSTEMINCLUDE 	/epoc32/include/platform/mw
 SYSTEMINCLUDE 	/epoc32/include/mw
 #endif
 
-USERINCLUDE		../../../../../security/crypto/weakcrypto/inc
-
 
 LIBRARY     	euser.lib
 LIBRARY		testexecuteutils.lib

@@ -14,5 +14,5 @@
 //
 
 
-#include"../TE_LLMNR/group/BLD.INF"
-#include"../te_dndunittest/group/BLD.INF"
+#include"../TE_LLMNR/group/bld.inf"
+#include"../te_dndunittest/group/bld.inf"

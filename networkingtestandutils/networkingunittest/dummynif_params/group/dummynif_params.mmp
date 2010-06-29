@@ -22,20 +22,20 @@ UID			 0x10009D8D 0x01894606
 						  
 VENDORID	 0x70000001
 
-SOURCEPATH	  ..\src
+SOURCEPATH	  ../src
 
 SOURCE		  dummynif_params.cpp
 SOURCE		  dummynif_paramsfactory.cpp
 
-USERINCLUDE	 ..\inc
+USERINCLUDE	 ../inc
 #ifdef SYMBIAN_OLD_EXPORT_LOCATION
-SYSTEMINCLUDE	\epoc32\include
-SYSTEMINCLUDE	\epoc32\include\ecom
-SYSTEMINCLUDE   \epoc32\include\comms-infras
+SYSTEMINCLUDE	/epoc32/include
+SYSTEMINCLUDE	/epoc32/include/ecom
+SYSTEMINCLUDE   /epoc32/include/comms-infras
 #else
 OS_LAYER_SYSTEMINCLUDE_SYMBIAN
-SYSTEMINCLUDE	\epoc32\include\platform\ecom
-SYSTEMINCLUDE   \epoc32\include\platform\comms-infras
+SYSTEMINCLUDE	/epoc32/include/platform/ecom
+SYSTEMINCLUDE   /epoc32/include/platform/comms-infras
 #endif
 
 START RESOURCE 01894606.rss

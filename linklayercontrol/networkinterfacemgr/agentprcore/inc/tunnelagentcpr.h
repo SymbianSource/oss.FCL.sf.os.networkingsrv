@@ -42,17 +42,30 @@ namespace TunnelAgentCprStates
 }
 
 
-class CTunnelAgentConnectionProvider : public CAgentConnectionProvider
+class CTunnelAgentConnectionProvider : public CAgentConnectionProvider,
+									   public ESock::MPlatsecApiExt,
+									   public ITFHIERARCHY_LINK_1(CTunnelAgentConnectionProvider, CAgentConnectionProvider, ESock::MPlatsecApiExt)
+
 	{
 	friend class TunnelAgentCprStates::TJoinRealIAP;
+
+public:
+	typedef ITFHIERARCHY_LINK_1(CTunnelAgentConnectionProvider, CAgentConnectionProvider, ESock::MPlatsecApiExt) TIfStaticFetcherNearestInHierarchy;
 
 public:
     IMPORT_C static CTunnelAgentConnectionProvider* NewL(ESock::CConnectionProviderFactoryBase& aFactory);
     IMPORT_C ~CTunnelAgentConnectionProvider();
 
+    using CAgentConnectionProvider::ReturnInterfacePtrL;
+    void ReturnInterfacePtrL(ESock::MPlatsecApiExt*& aInterface);
 protected:
     CTunnelAgentConnectionProvider(ESock::CConnectionProviderFactoryBase& aFactory);
     CTunnelAgentConnectionProvider(ESock::CConnectionProviderFactoryBase& aFactory, const MeshMachine::TNodeActivityMap& aActivityMap);
+	// MPlatSecApiExt
+	TInt SecureId(TSecureId& aResult) const;
+	TInt VendorId(TVendorId& aResult) const;
+	TBool HasCapability(const TCapability aCapability) const;
+	TInt CheckPolicy(const TSecurityPolicy& aPolicy) const;
 	};
 
 
