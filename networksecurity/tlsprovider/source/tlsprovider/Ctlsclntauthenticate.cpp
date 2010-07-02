@@ -88,7 +88,7 @@ void CTlsClntAuthenticate::DoClientAuthenticate(
 void CTlsClntAuthenticate::GetAvailableKeyListL()	
 	{	
   	TLSPROV_LOG(_L("CTlsClntAuthenticate::GetAvailableKeyListL()..."))
-	iFs.Connect();
+	User::LeaveIfError(iFs.Connect());
 	iPtrUnifiedKeyStore = CUnifiedKeyStore::NewL(iFs);
 	
 	iStatus = KRequestPending;
