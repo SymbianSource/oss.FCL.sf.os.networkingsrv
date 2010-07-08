@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* Copyright (c) 2009-2010 Nokia Corporation and/or its subsidiary(-ies).
 * All rights reserved.
 * This component and the accompanying materials are made available
 * under the terms of "Eclipse Public License v1.0"
@@ -33,16 +33,69 @@ file=ABI_DIR\DEBUG_DIR\ts_tls.dll					system\libs\ts_tls.dll
 
 data=EPOCROOT##epoc32\data\Z\private\101f72a6\keys.dat			private\101f72a6\keys.dat
 
+#ifdef INCLUDE_SIROCCO_CODE_MIGRATION
+data=EPOCROOT##epoc32\data\Z\testdata\configs\cccccc00_ssl_30.cre			testdata\configs\cccccc00_ssl_30.cre
+data=EPOCROOT##epoc32\data\Z\testdata\configs\cccccc00_tls_psk.cre		testdata\configs\cccccc00_tls_psk.cre
+data=EPOCROOT##epoc32\data\Z\testdata\scripts\tls_oom_wlan.script		testdata\scripts\tls_oom.script
+data=EPOCROOT##epoc32\data\Z\testdata\scripts\tls_psk_wlan.script 		testdata\scripts\tls_psk.script
+data=EPOCROOT##epoc32\data\Z\testdata\scripts\ssl_ntras_30_wlan.script	testdata\scripts\ssl_ntras_30.script
+data=EPOCROOT##epoc32\data\Z\testdata\scripts\ssl_ntras_31_wlan.script	testdata\scripts\ssl_ntras_31.script
+#else
 data=EPOCROOT##epoc32\data\Z\testdata\configs\tls_ntras.cfg			testdata\configs\tls_ntras.cfg
 data=EPOCROOT##epoc32\data\Z\testdata\configs\tls_ethernet.xml		testdata\configs\tls_ethernet.xml
 data=EPOCROOT##epoc32\data\Z\testdata\scripts\tls_oom.script		testdata\scripts\tls_oom.script
 data=EPOCROOT##epoc32\data\Z\testdata\scripts\tls_psk.script 		testdata\scripts\tls_psk.script
 data=EPOCROOT##epoc32\data\Z\testdata\scripts\ssl_ntras_30.script	testdata\scripts\ssl_ntras_30.script
 data=EPOCROOT##epoc32\data\Z\testdata\scripts\ssl_ntras_31.script	testdata\scripts\ssl_ntras_31.script
+#endif //INCLUDE_SIROCCO_CODE_MIGRATION
+
 data=EPOCROOT##epoc32\data\Z\testdata\configs\tls_t_secdlg_in.dat	testdata\configs\tls_t_secdlg_in.dat
 data=EPOCROOT##epoc32\data\Z\testdata\configs\cacerts_psk.dat		testdata\configs\cacerts_psk.dat
 data=EPOCROOT##epoc32\data\Z\testdata\configs\certclients_psk.dat	testdata\configs\certclients_psk.dat
 data=EPOCROOT##epoc32\data\Z\testdata\configs\keys_psk.dat			testdata\configs\keys_psk.dat
+
+#ifdef INCLUDE_SIROCCO_CODE_MIGRATION
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls3_wlan.ini			testdata\configs\tls3.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls4_wlan.ini			testdata\configs\tls4.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls5_wlan.ini			testdata\configs\tls5.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls8_wlan.ini			testdata\configs\tls8.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls9_wlan.ini			testdata\configs\tls9.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls11_wlan.ini			testdata\configs\tls11.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls12_wlan.ini			testdata\configs\tls12.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls13_wlan.ini			testdata\configs\tls13.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls14_wlan.ini			testdata\configs\tls14.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls16_wlan.ini			testdata\configs\tls16.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls19_wlan.ini			testdata\configs\tls19.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls20_wlan.ini			testdata\configs\tls20.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls21_wlan.ini			testdata\configs\tls21.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls22_wlan.ini			testdata\configs\tls22.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls23_wlan.ini			testdata\configs\tls23.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls24_wlan.ini			testdata\configs\tls24.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls25_wlan.ini			testdata\configs\tls25.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls26_wlan.ini			testdata\configs\tls26.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls28_wlan.ini			testdata\configs\tls28.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls5b_wlan.ini			testdata\configs\tls5b.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tlsA_wlan.ini			testdata\configs\tlsA.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tlssa_wlan.ini			testdata\configs\tlssa.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls2f_wlan.ini			testdata\configs\tls2f.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls35_wlan.ini			testdata\configs\tls35.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls36_wlan.ini			testdata\configs\tls36.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls37_wlan.ini			testdata\configs\tls37.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls38_wlan.ini			testdata\configs\tls38.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls_oom_wlan.ini		testdata\configs\tls_oom.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls1_wlan.ini			testdata\configs\tls1.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\tls2_wlan.ini			testdata\configs\tls2.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\TLS_RSA_WITH_NULL_SHA_wlan.ini						testdata\configs\TLS_RSA_WITH_NULL_SHA.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\TLS_RSA_WITH_NULL_MD5_wlan.ini						testdata\configs\TLS_RSA_WITH_NULL_MD5.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\TLS_SNE_SINGLE_SERVER_wlan.ini						testdata\configs\TLS_SNE_SINGLE_SERVER.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\TLS_SNE_MULTIPLE_SERVER_wlan.ini					testdata\configs\TLS_SNE_MULTIPLE_SERVER.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\TLS_PSK_WITH_RC4_128_SHA_wlan.ini					testdata\configs\TLS_PSK_WITH_RC4_128_SHA.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\TLS_SNE_SINGLE_SERVER_NEG_wlan.ini					testdata\configs\TLS_SNE_SINGLE_SERVER_NEG.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\TLS_PSK_WITH_AES_128_CBC_SHA_wlan.ini				testdata\configs\TLS_PSK_WITH_AES_128_CBC_SHA.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\TLS_PSK_WITH_AES_256_CBC_SHA_wlan.ini				testdata\configs\TLS_PSK_WITH_AES_256_CBC_SHA.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\TLS_PSK_WITH_3DES_EDE_CBC_SHA_wlan.ini				testdata\configs\TLS_PSK_WITH_3DES_EDE_CBC_SHA.ini
+data=EPOCROOT##epoc32\data\Z\testdata\configs\TLS_PSK_WITH_AES_128_CBC_SHA_NOCALLBACK_wlan.ini	testdata\configs\TLS_PSK_WITH_AES_128_CBC_SHA_NOCALLBACK.ini
+#else
 data=EPOCROOT##epoc32\data\Z\testdata\configs\tls3.ini			testdata\configs\tls3.ini
 data=EPOCROOT##epoc32\data\Z\testdata\configs\tls4.ini			testdata\configs\tls4.ini
 data=EPOCROOT##epoc32\data\Z\testdata\configs\tls5.ini			testdata\configs\tls5.ini
@@ -83,5 +136,6 @@ data=EPOCROOT##epoc32\data\Z\testdata\configs\TLS_PSK_WITH_AES_128_CBC_SHA.ini		
 data=EPOCROOT##epoc32\data\Z\testdata\configs\TLS_PSK_WITH_AES_256_CBC_SHA.ini				testdata\configs\TLS_PSK_WITH_AES_256_CBC_SHA.ini
 data=EPOCROOT##epoc32\data\Z\testdata\configs\TLS_PSK_WITH_3DES_EDE_CBC_SHA.ini				testdata\configs\TLS_PSK_WITH_3DES_EDE_CBC_SHA.ini
 data=EPOCROOT##epoc32\data\Z\testdata\configs\TLS_PSK_WITH_AES_128_CBC_SHA_NOCALLBACK.ini	testdata\configs\TLS_PSK_WITH_AES_128_CBC_SHA_NOCALLBACK.ini
+#endif //INCLUDE_SIROCCO_CODE_MIGRATION
 
 #endif

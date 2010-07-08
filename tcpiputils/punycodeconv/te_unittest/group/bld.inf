@@ -1,4 +1,4 @@
-// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2009-2010 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -19,11 +19,14 @@ PRJ_TESTEXPORTS
 //-- iby file for the test
 ./te_unittestidna.iby	/epoc32/rom/include/te_unittestidna.iby
 
-
+#ifdef SIROCCO_CODE_MIGRATION
+../configs/cccccc00_unittestidna.cre z:/testdata/configs/cccccc00_unittestidna.cre
+../scripts/te_unittestidna_wlan.script  	z:/testdata/scripts/te_unittestidna_wlan.script
+#else
 //-- test script files
 ../scripts/te_unittestidna.script 	z:/testdata/scripts/te_unittestidna.script
 ../configs/te_unittestidna.xml		z:/testdata/configs/te_unittestidna.xml
-
+#endif
 
 PRJ_TESTMMPFILES
 te_unittestidna.mmp

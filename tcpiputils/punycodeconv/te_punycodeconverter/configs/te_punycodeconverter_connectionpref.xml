@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CommDB:Config>
+	<ConnectionPreferencesTable>
+	  <ConnectionPreferences operation="add">
+        <Name>ConnectionPreferencesTable1</Name>
+        <Ranking>1</Ranking>
+        <Direction>OUTGOING</Direction>
+        <DialogPref>DONOTPROMPT</DialogPref>
+        <BearerSet>WLAN</BearerSet>
+        <IAPRef>IAP.WLANWithDynamicDaemonIP</IAPRef>
+    </ConnectionPreferences>
+  </ConnectionPreferencesTable>
+</CommDB:Config>
