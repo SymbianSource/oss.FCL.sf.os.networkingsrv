@@ -22,6 +22,7 @@
 #include <comms-infras/ss_log.h>
 #include <elements/sm_core.h>
 #include <comms-infras/corecpractivities.h>
+#include <comms-infras/ss_corepractivities.h>
 
 #include "tunnelagentcpr.h"
 #include "tunnelagentcprstates.h"
@@ -45,12 +46,6 @@ using namespace ESock;
 using namespace NetStateMachine;
 using namespace AgentCprStates;
 using namespace TunnelAgentCprStates;
-
-//We reserve space for two preallocated activities that may start concurrently on the CPR
-//node: destroy and data client stop.
-static const TUint KDefaultMaxPreallocatedActivityCount = 2;
-static const TUint KMaxPreallocatedActivitySize = sizeof(MeshMachine::CNodeRetryParallelActivity) + sizeof(MeshMachine::APreallocatedOriginators<4>);
-static const TUint KTunnelCPRPreallocatedActivityBufferSize = KDefaultMaxPreallocatedActivityCount * KMaxPreallocatedActivitySize;
 
 namespace TunnelAgentCprStartActivity
 {
@@ -103,14 +98,15 @@ EXPORT_C CTunnelAgentConnectionProvider* CTunnelAgentConnectionProvider::NewL(ES
 	{
 	CTunnelAgentConnectionProvider* self = new (ELeave) CTunnelAgentConnectionProvider(aFactory);
     CleanupStack::PushL(self);
-    self->ConstructL(KTunnelCPRPreallocatedActivityBufferSize);
+    self->ConstructL();
     CleanupStack::Pop(self);
 	return self;
 	}
 
 
 CTunnelAgentConnectionProvider::CTunnelAgentConnectionProvider(CConnectionProviderFactoryBase& aFactory)
-   : CAgentConnectionProvider(aFactory, TunnelAgentCprStates::TunnelAgentCprActivities::Self())
+   : CAgentConnectionProvider(aFactory, TunnelAgentCprStates::TunnelAgentCprActivities::Self()),
+     TIfStaticFetcherNearestInHierarchy(this)
 	{
 	LOG_NODE_CREATE(KTunnelAgentCprTag, CTunnelAgentConnectionProvider);
 	}
@@ -124,5 +120,35 @@ EXPORT_C CTunnelAgentConnectionProvider::~CTunnelAgentConnectionProvider()
 	LOG_NODE_DESTROY(KTunnelAgentCprTag, CTunnelAgentConnectionProvider);
 	}
 
+//
+// MPlatSecApiExt
+//
 
+void CTunnelAgentConnectionProvider::ReturnInterfacePtrL(MPlatsecApiExt*& aInterface)
+    {
+    aInterface = this;
+    }
 
+TInt CTunnelAgentConnectionProvider::SecureId(TSecureId& /*aResult*/) const
+	{
+	return KErrNotSupported;
+	}
+
+TInt CTunnelAgentConnectionProvider::VendorId(TVendorId& /*aResult*/) const
+	{
+	return KErrNotSupported;
+	}
+
+TBool CTunnelAgentConnectionProvider::HasCapability(const TCapability /*aCapability*/) const
+	{
+	return KErrNotSupported;
+	}
+
+TInt CTunnelAgentConnectionProvider::CheckPolicy(const TSecurityPolicy& /*aPolicy*/) const
+	{
+	// This is the whole reason that we need to implement MPlatSecApiExt in this node at all.  When TunnelAgentCpr issues
+	// a TStop towards IpCpr, IpCpr requires the sending node (normally ESockSvr but TunnelAgentCpr in this case)
+	// to implement MPlatSecApiExt through which IpCpr can check platsec capabilities (IpCprStates::TCheckStopCapabilities).
+	// If TunnelAgentCpr does not impement MPlatSecApiExt, then IpCpr will error the stop request with KErrInterfaceNotSupported.
+	return KErrNone;
+	}

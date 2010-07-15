@@ -56,12 +56,6 @@ using namespace MeshMachine;
 using namespace ESock;
 using namespace NetStateMachine;
 
-//We reserve space for two preallocated activities that may start concurrently on the SCPR
-//node: destroy and data client stop.
-static const TUint KDefaultMaxPreallocatedActivityCount = 2;
-static const TUint KMaxPreallocatedActivitySize = sizeof(MeshMachine::CNodeRetryParallelActivity) + sizeof(MeshMachine::APreallocatedOriginators<4>);
-static const TUint KAgentSCPRPreallocatedActivityBufferSize = KDefaultMaxPreallocatedActivityCount * KMaxPreallocatedActivitySize;
-
 /**
 Creates an Agent SubConnection Provider
 @param aFactory The parent factory which has created the SCPr
@@ -71,7 +65,7 @@ EXPORT_C CAgentSubConnectionProvider* CAgentSubConnectionProvider::NewL(ESock::C
 	{
 	CAgentSubConnectionProvider* self = new (ELeave) CAgentSubConnectionProvider(aFactory, AgentSCprActivities::agentSCprActivities::Self());
 	CleanupStack::PushL(self);
-	self->ConstructL(KAgentSCPRPreallocatedActivityBufferSize);
+	self->ConstructL();
 	CleanupStack::Pop(self);
 	return self;
 	}

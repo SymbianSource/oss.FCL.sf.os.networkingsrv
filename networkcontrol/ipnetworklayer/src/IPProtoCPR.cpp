@@ -57,14 +57,6 @@ using namespace ESock;
 using namespace NetStateMachine;
 using namespace PRActivities;
 
-
-
-//We reserve space for two preallocated activities that may start concurrently on the CPR
-//node: destroy and data client stop.
-static const TUint KDefaultMaxPreallocatedActivityCount = 2;
-static const TUint KMaxPreallocatedActivitySize = sizeof(MeshMachine::CNodeRetryParallelActivity) + sizeof(MeshMachine::APreallocatedOriginators<4>);
-static const TUint KIPProtoCPRPreallocatedActivityBufferSize = KDefaultMaxPreallocatedActivityCount * KMaxPreallocatedActivitySize;
-
 //-=========================================================
 //
 // Activities
@@ -297,7 +289,7 @@ void CIPProtoConnectionProvider::ConstructL()
     iTimer = COneShotTimer::NewL(ESocketTimerPriority, this);
 
     ADataMonitoringProvider::ConstructL();
-    CCoreConnectionProvider::ConstructL(KIPProtoCPRPreallocatedActivityBufferSize);
+    CCoreConnectionProvider::ConstructL();
     }
 
 void CIPProtoConnectionProvider::ReturnInterfacePtrL(ADataMonitoringProtocolReq*& aInterface)

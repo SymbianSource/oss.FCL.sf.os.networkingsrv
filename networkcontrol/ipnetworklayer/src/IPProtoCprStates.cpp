@@ -154,7 +154,11 @@ void TSendStoppedAndGoneDown::DoL()
 		{
 		TInt selfidx = iContext.iNodeActivity->FindOriginator(iContext.Node().SelfInterface());
 		ASSERT(selfidx != KErrNotFound);
-		iContext.iNodeActivity->RemoveOriginator(selfidx);
+
+		if(selfidx != KErrNotFound)
+			{
+			iContext.iNodeActivity->RemoveOriginator(selfidx);
+			}				
 		}
 		
 	TInt stopCode = KErrCancel;

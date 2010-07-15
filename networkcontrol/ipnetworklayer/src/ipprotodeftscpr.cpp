@@ -35,12 +35,6 @@ using namespace ESock;
 using namespace IPProtoDeftSCpr;
 using namespace MeshMachine;
 
-//We reserve space for two preallocated activities that may start concurrently on the default SCPR
-//node: destroy and data client stop.
-static const TUint KDefaultMaxPreallocatedActivityCount = 2;
-static const TUint KMaxPreallocatedActivitySize = sizeof(MeshMachine::CNodeRetryParallelActivity) + sizeof(MeshMachine::APreallocatedOriginators<4>);
-static const TUint KIPProtoDeftSCPRPreallocatedActivityBufferSize = KDefaultMaxPreallocatedActivityCount * KMaxPreallocatedActivitySize;
-
 //-=========================================================
 //
 // Activities
@@ -58,7 +52,7 @@ NODEACTIVITY_END()
 
 namespace IPProtoDeftSCprDataClientStopActivity
 {
-DECLARE_DEFINE_CUSTOM_NODEACTIVITY(ECFActivityStopDataClient, IPProtoDeftSCprStop, TCFDataClient::TStop, MeshMachine::CNodeRetryActivity::NewL)
+DECLARE_DEFINE_CUSTOM_NODEACTIVITY(ECFActivityStopDataClient, IPProtoDeftSCprStop, TCFDataClient::TStop, MeshMachine::CPreallocatedNodeRetryActivity::New)
     FIRST_NODEACTIVITY_ENTRY(CoreNetStates::TAwaitingDataClientStop, TNoTagOrProviderStoppedOrDaemonReleased)
     NODEACTIVITY_ENTRY(KNoTag, TStopNetCfgExt, TAwaitingStateChange, TDaemonReleasedStateChangedOrNoTag)
     NODEACTIVITY_ENTRY(KNoTag, TForwardToControlProviderAndResetSentTo, TAwaitingStateChange, TDaemonReleasedStateChangedOrNoTagBackward)
@@ -173,7 +167,7 @@ CIPProtoDeftSubConnectionProvider::CIPProtoDeftSubConnectionProvider(ESock::CSub
 void CIPProtoDeftSubConnectionProvider::ConstructL()
     {
     ADataMonitoringProvider::ConstructL();
-    CCoreSubConnectionProvider::ConstructL(KIPProtoDeftSCPRPreallocatedActivityBufferSize);
+    CCoreSubConnectionProvider::ConstructL();
     }
 
 
