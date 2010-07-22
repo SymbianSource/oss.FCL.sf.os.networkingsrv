@@ -1084,7 +1084,8 @@ void CLANLinkCommon::ProvisionConfigL()
 
 void CLANLinkCommon::Destroy()
 	{
-	ASSERT(iMMState==EStopped);
+    // PDEF143631: RNDIS driver doesn't override CLANLinkCommon::Destroy()
+	ASSERT(iMMState==EStarting || iMMState==EStopped);
 	DeleteThisFlow();
 	}
 

@@ -1,35 +1,30 @@
-// Copyright (c) 2005-2009 Nokia Corporation and/or its subsidiary(-ies).
-// All rights reserved.
-// This component and the accompanying materials are made available
-// under the terms of "Eclipse Public License v1.0"
-// which accompanies this distribution, and is available
-// at the URL "http://www.eclipse.org/legal/epl-v10.html".
-//
-// Initial Contributors:
-// Nokia Corporation - initial contribution.
-//
-// Contributors:
-//
-// Description:
-// bld.inf - probe support
-// probe support
-//
-
-
-
-/**
- @file
- @internalComponent
+/*
+* Copyright (c) 2009-2010 Nokia Corporation and/or its subsidiary(-ies). 
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: Build information file for project probe
+*
 */
+
+#include <platform_paths.hrh>
 
 PRJ_PLATFORMS
 
 PRJ_TESTEXPORTS
-
 ../data/probe.esk       /epoc32/data/z/private/101f7989/esock/ip.probe.esk
-../data/probe.esk       /epoc32/winscw/c/private/101f7989/esock/ip.probe.esk
-
+../data/probe.esk       /epoc32/winscw/c/private/101f7989/Esock/ip.probe.esk
+../data/probe.esk       /epoc32/data/c/private/101f7989/Esock/ip.probe.esk
 ../group/probe.iby	/epoc32/rom/include/probe.iby
+
 
 PRJ_MMPFILES
 

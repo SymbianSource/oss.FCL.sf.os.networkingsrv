@@ -236,6 +236,7 @@ public:
 	void SetRecvWin(TUint aRecvWin) { iRecvBuf = aRecvWin;}
 	TUint GetRecvWinSize()			{ return iRecvBuf;	 }
 	TUint RecvMaxWnd()              { return iTcpMaxRecvWin;}
+	TUint RecvBufFromIniFile()      { return iRecvBufFromIniFile; }
 #endif //SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
 
 #ifdef _LOG
@@ -295,6 +296,7 @@ private:
 	RMBufAllocator iBufAllocator;
 #ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
 	TUint iTcpMaxRecvWin;
+	TUint iRecvBufFromIniFile;
 #endif //SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
 	};
 
@@ -442,6 +444,8 @@ private:
 	TUint32 iShrinkedWindowSize;
 	// Window size set by user. This will override the default values for the bearers
 	TBool   iWindowSetByUser;
+	//Flag for socket startup case. No tcp window expand/shrink in this case.
+	TBool iSocketStartupCase;
 #endif //SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
 
 	// Maximum Segment Sizes
