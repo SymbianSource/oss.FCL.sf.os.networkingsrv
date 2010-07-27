@@ -317,7 +317,7 @@ void CPppMsChap::FailureL(RMBufPacket& aPacket)
 	}
 
 
-inline void CPppMsChap::ProcessFailureMessageL(
+void CPppMsChap::ProcessFailureMessageL(
 					const TDesC8& aFailureMessage,
 					TUint& aErrorCode, 
 					TUint8& aRetryFlag, 
@@ -464,7 +464,7 @@ inline void CPppMsChap::ProcessFailureMessageL(
 	}
 
 
-inline void CPppMsChap::RetryPasswordL()
+void CPppMsChap::RetryPasswordL()
 /**
    Retries the authentication.
    @internalComponent
@@ -477,7 +477,7 @@ inline void CPppMsChap::RetryPasswordL()
 	}
 
 
-inline void CPppMsChap::NTChallengeResponseL(const TDesC8& aChallenge,
+void CPppMsChap::NTChallengeResponseL(const TDesC8& aChallenge,
 					     const TDesC16& aPassword,
 					     TDes8& aResponse)
 /**
@@ -512,7 +512,7 @@ inline void CPppMsChap::NTChallengeResponseL(const TDesC8& aChallenge,
 	}
 
 
-inline void CPppMsChap::NtPasswordHashL(const TDesC16& aPassword,
+void CPppMsChap::NtPasswordHashL(const TDesC16& aPassword,
 					TDes8& aPasswordHash)
 /**
    Computes the hash of the Microsoft Windows NT password using MD4.
@@ -552,7 +552,7 @@ inline void CPppMsChap::NtPasswordHashL(const TDesC16& aPassword,
 	}
 
 
-inline void CPppMsChap::ChallengeResponseL(const TDesC8& aChallenge,
+void CPppMsChap::ChallengeResponseL(const TDesC8& aChallenge,
 					TDes8& aPaddablePasswordHash,
 					TDes8& aResponse)
 /**
@@ -667,7 +667,7 @@ void CPppMsChap::DesEncryptL(const TDesC8& aClear,
 	}
 
 
-inline void CPppMsChap::MakeDesKey(const TDesC8& aMsChapKey, 
+void CPppMsChap::MakeDesKey(const TDesC8& aMsChapKey, 
 				TDes8& aDesKey)
 /**
    Creates a DES key by inserting the parity bits.  The DES algorithm
@@ -754,7 +754,7 @@ TInt CPppMsChap::TranslateMsChapError(TUint aMsChapError)
 
 // NB The use of the LAN Manager compatible challenge response has
 // been deprecated according to RFC 2433.
-inline void CPppMsChap::LmChallengeResponseL(const TDesC8& aChallenge,
+void CPppMsChap::LmChallengeResponseL(const TDesC8& aChallenge,
 					const TDesC8& aPassword, 
 					TDes8& aResponse)
 /**
@@ -793,7 +793,7 @@ inline void CPppMsChap::LmChallengeResponseL(const TDesC8& aChallenge,
 
 // NB The use of the LAN Manager compatible challenge response has
 // been deprecated according to RFC 2433.
-inline void CPppMsChap::LmPasswordHashL(const TDesC8& aPassword,
+void CPppMsChap::LmPasswordHashL(const TDesC8& aPassword,
 					TDes8& aPasswordHash)
 /**
    Computes the hash of the LAN Manager password using DES.
@@ -840,7 +840,7 @@ inline void CPppMsChap::LmPasswordHashL(const TDesC8& aPassword,
 
 // NB The use of the LAN Manager compatible challenge response has
 // been deprecated according to RFC 2433.
-inline void CPppMsChap::DesHashL(const TDesC8& aClear, TDes8& aCypher)
+void CPppMsChap::DesHashL(const TDesC8& aClear, TDes8& aCypher)
 /**
    Makes aCypher an irreversibly encrypted form of aClear by
    encrypting known text using aClear as the secret key.  The known
