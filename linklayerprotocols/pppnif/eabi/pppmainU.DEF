@@ -26,7 +26,7 @@ EXPORTS
 	_ZN7CPppLcp21FsmApplyConfigRequestER14RPppOptionList @ 25 NONAME
 	_ZN7CPppLcp21FsmCheckConfigRequestER14RPppOptionListS1_S1_S1_ @ 26 NONAME
 	_ZN7CPppLcp21FsmRejectOptionsValidER14RPppOptionListS1_ @ 27 NONAME
-	_ZN7CPppLcp22AppendCallbackRequestLER14RPppOptionList @ 28 NONAME
+	_ZN7CPppLcp22AppendCallbackRequestLER14RPppOptionList @ 28 NONAME ABSENT
 	_ZN7CPppLcp22SubConnectionGoingDownEv @ 29 NONAME
 	_ZN7CPppLcp23AgentToFlowNotificationEi @ 30 NONAME
 	_ZN7CPppLcp23FsmFillinConfigRequestLER14RPppOptionList @ 31 NONAME
