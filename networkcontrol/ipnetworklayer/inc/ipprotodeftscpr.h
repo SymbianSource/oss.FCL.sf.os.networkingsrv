@@ -103,6 +103,8 @@ protected:
 	CNifConfigurationControl* iControl;
     Messages::RNodeInterface iFlow;
 	TBool iIoctlCancelled;
+public:
+	TBool iNetworkConfigurationState;
 	};
 
 #endif //SYMBIAN_IPPROTODEFTSCPR_H

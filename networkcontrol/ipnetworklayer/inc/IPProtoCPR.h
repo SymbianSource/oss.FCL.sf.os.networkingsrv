@@ -194,6 +194,7 @@ private:
 	TBool iLinkUp:1;
 	TBool iConnectionControlActivity:1;
 	TBool iTimerExpired:1;
+	TBool iTimerStopped:1;
 	TBool iTimerRunning:1;
 	TBool iSubConnEventDataSent:1;	// Hack to cope with multiple DataClientStatusChange notifications for 'stopped'
 	TBool iNodeLocalExtensionsCreated;

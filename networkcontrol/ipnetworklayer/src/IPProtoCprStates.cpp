@@ -150,7 +150,7 @@ void TSendStoppedAndGoneDown::DoL()
 	// stop has been caused by timer expiry, remove self from originators list, because we
 	// are not waiting for TStopped and in certain situations it would arrive after the node has been
 	// destroyed
-	if (iContext.Node().iTimerExpired)
+	if (iContext.Node().iTimerStopped)
 		{
 		TInt selfidx = iContext.iNodeActivity->FindOriginator(iContext.Node().SelfInterface());
 		ASSERT(selfidx != KErrNotFound);
@@ -378,6 +378,7 @@ void TSendStarted::DoL()
 	iContext.Node().SetUsageProfile(KConnProfileMedium);
 	iContext.Node().SetTimerMode(CIPProtoConnectionProvider::ETimerMedium);
 
+    iContext.Node().iTimerStopped = EFalse;
 	CoreNetStates::TSendStarted transition(iContext);
 	transition.DoL();
 	}

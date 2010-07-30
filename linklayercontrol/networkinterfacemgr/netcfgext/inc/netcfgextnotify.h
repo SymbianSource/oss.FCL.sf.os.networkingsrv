@@ -38,6 +38,7 @@ public:
 	   MNifIfNotify interface
 	   Only IfProgress, DoReadDes and DoReadInt supported.
 	*/
+	~CNetCfgExtNotify();
 	void LinkLayerDown(TInt aReason, TAction aAction);
 	void LinkLayerUp();
     void NegotiationFailed(CNifIfBase* aIf, TInt aReason);

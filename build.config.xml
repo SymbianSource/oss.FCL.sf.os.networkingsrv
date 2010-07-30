@@ -151,7 +151,7 @@
 		<unit unitID="test46" mrp="" bldFile="sf\os\commsfw\datacommsserver\networkingdialogapi\agentnotifier\group" name="test46" />
 		<unit unitID="test47" mrp="" bldFile="sf\os\cellularsrv\telephonyprotocols\pdplayer\umts\test\te_mbms\group" name="test47" />
 		<unit unitID="test48" mrp="" bldFile="sf\os\security\authorisation\userpromptutils\group" name="test48" />
-		<unit unitID="test49" mrp="" bldFile="sf\os\commsfw\commsfwtools\preparedefaultcommsdatabase\Tools\ced\te_ced\group" name="test49" />	
+<!--		<unit unitID="test49" mrp="" bldFile="sf\os\commsfw\commsfwtools\preparedefaultcommsdatabase\Tools\ced\te_ced\group" name="test49" />	 -->
       </module>
     </layer>
   </systemModel>

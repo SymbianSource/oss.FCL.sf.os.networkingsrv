@@ -164,7 +164,8 @@ CIPProtoDeftSubConnectionProvider::CIPProtoDeftSubConnectionProvider(ESock::CSub
 	 ALegacySubConnectionActiveApiExt(this),
 	 TIfStaticFetcherNearestInHierarchy(this),
 	 iNotify(NULL),
-	 iControl(NULL)
+	 iControl(NULL),
+	 iNetworkConfigurationState(EFalse)
     {
     LOG_NODE_CREATE(KIPProtoDeftScprTag, CIPProtoDeftSubConnectionProvider);
     }
@@ -195,10 +196,21 @@ CIPProtoDeftSubConnectionProvider* CIPProtoDeftSubConnectionProvider::NewL(ESock
 
 CIPProtoDeftSubConnectionProvider::~CIPProtoDeftSubConnectionProvider()
     {
+   if(iNetworkConfigurationState == EFalse)
+       {
+       if(iNotify)
+           {
+           delete iNotify;
+           iNotify = NULL;
+           }
+       }
 	if (iControl)
 		delete iControl;
 	if (iNotify)
+	    {
 		delete iNotify;
+		iNotify = NULL;
+		}
 
     LOG_NODE_DESTROY(KIPProtoDeftScprTag, CIPProtoDeftSubConnectionProvider);
     }

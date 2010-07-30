@@ -757,6 +757,7 @@ void CIPProtoConnectionProvider::StopConnection()
 	if (!iTimerExpired)
 		{
 		iTimerExpired = ETrue;
+		iTimerStopped =  ETrue; 
 		CancelTimer();
 		if (CountActivities(ECFActivityStop) == 0 && CountActivities(ECFActivityDestroy) == 0)
 			{
