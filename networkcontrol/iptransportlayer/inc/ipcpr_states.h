@@ -108,9 +108,6 @@ DECLARE_SMELEMENT_HEADER( TProcessSubConnDataTransferred, MeshMachine::TStateTra
 	virtual void DoL();
 DECLARE_SMELEMENT_FOOTER( TProcessSubConnDataTransferred)
 
-
-
-
 DECLARE_SMELEMENT_HEADER( TSendInitialSubConnectionOpenedEvent, MeshMachine::TStateTransition<TContext>, NetStateMachine::MStateTransition, TContext)
 	virtual void DoL();
 DECLARE_SMELEMENT_FOOTER( TSendInitialSubConnectionOpenedEvent)
@@ -179,6 +176,10 @@ DECLARE_AGGREGATED_TRANSITION2(
    TSendParamsToSelf
    )
 #endif // SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
+   
+DECLARE_SMELEMENT_HEADER( TAwaitingSpecialGoneDown, MeshMachine::TState<TContext>, NetStateMachine::MState, TContext)
+    virtual TBool Accept();
+DECLARE_SMELEMENT_FOOTER( TAwaitingSpecialGoneDown)
 
 } // IpCprStates
 

@@ -1,0 +1,342 @@
+//
+// Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:        Santosh K Patil
+//
+// Description:
+//
+//! @file
+//! @SYMTestSuiteName       
+//! @SYMScriptTestEnvironment TestExecuteFramework
+//
+
+
+//Unload esock forcefully
+//RUN_SCRIPT z:\testdata\scripts\te_esock_test_unloadesockForced.script
+
+//Configure commdb.
+//ced -i z:\testdata\configs\te_dnssuffixced.xml
+ced -i z:\testdata\configs\te_dnssuffixced_basic.xml
+
+RUN_SCRIPT z:\testdata\scripts\te_esock_test_loadesock.script
+
+//Load the Server
+LOAD_SERVER te_dnssuffix
+
+ 
+START_TESTCASE                  DNS-dnssuffix-test0a
+//! @SYMTestCaseID              DNS-dnssuffix_test0a
+//! @SYMTestCaseDesc            REQ No.
+//!                             Initialize the environment.
+//!								Required to configure the name servers on at lease one interface.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_dnssuffix test server
+//!                             Do ced
+//!								Start RConnection and close.
+//! @SYMTestExpectedResults     Connection started and stopped successfully.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            1/3/2010
+//! @SYMAuthor                  Santosh K Patil
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_dnssuffix 100 z:\testdata\configs\te_dnssuffix.ini
+		CREATE_OBJECT DNSSuffixTestWrapper dnssuffix_test000a
+		COMMAND dnssuffix_test000a InitDNSSuffixTesting dnssuffix_first_interface
+	END_TEST_BLOCK
+
+END_TESTCASE                  DNS-dnssuffix-test0a
+ 
+
+START_TESTCASE                  DNS-dnssuffix-test0b
+//! @SYMTestCaseID              DNS-dnssuffix_test0b
+//! @SYMTestCaseDesc            REQ No.
+//!                             Open socket and close.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_dnssuffix test server
+//!                             Open the socket and enumerate the available interfaces.
+//! @SYMTestExpectedResults     Socket opened successfully
+//!								Shows the list of available interfaces.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            1/3/2010
+//! @SYMAuthor                  Santosh K Patil
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_dnssuffix 100 z:\testdata\configs\te_dnssuffix.ini
+		CREATE_OBJECT DNSSuffixTestWrapper dnssuffix_test000b
+		COMMAND dnssuffix_test000b EnumerateInterface
+	END_TEST_BLOCK
+
+END_TESTCASE                  DNS-dnssuffix-test0b
+
+
+START_TESTCASE                  DNS-dnssuffix-test1
+//! @SYMTestCaseID              DNS-dnssuffix_test1
+//! @SYMTestCaseDesc            REQ No.
+//!                             Open socket and close.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_dnssuffix test server
+//!                             Open the socket and enumerate the available interfaces.
+//!								Set the suffix list on the inteface which has the corresponding name server.
+//!								Get the suffix list of each interfaces.
+//! @SYMTestExpectedResults     Setting and getting suffix list successfully.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            1/3/2010
+//! @SYMAuthor                  Santosh K Patil
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_dnssuffix 100 z:\testdata\configs\te_dnssuffix.ini
+		CREATE_OBJECT DNSSuffixTestWrapper dnssuffix_test001
+		COMMAND dnssuffix_test001 SetAndGetSuffixList
+	END_TEST_BLOCK
+
+END_TESTCASE                  DNS-dnssuffix-test1
+
+
+START_TESTCASE                  DNS-dnssuffix-test2
+//! @SYMTestCaseID              DNS-dnssuffix_test2
+//! @SYMTestCaseDesc            REQ No.
+//!                             Open socket and close.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_dnssuffix test server
+//!                             Open the socket and enumerate the available interfaces.
+//!								Set the suffix list on the inteface which has the corresponding name server.
+//!								Get the suffix list of each interfaces.
+//! @SYMTestExpectedResults     Setting and getting suffix list successfully.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            1/3/2010
+//! @SYMAuthor                  Santosh K Patil
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_dnssuffix 100 z:\testdata\configs\te_dnssuffix.ini
+		CREATE_OBJECT DNSSuffixTestWrapper dnssuffix_test002
+		COMMAND dnssuffix_test002 DoResolve
+	END_TEST_BLOCK
+
+END_TESTCASE                  DNS-dnssuffix-test2
+
+
+START_TESTCASE                  DNS-dnssuffix-test3
+//! @SYMTestCaseID              DNS-dnssuffix_test3
+//! @SYMTestCaseDesc            REQ No.
+//!                             Open socket and close.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_dnssuffix test server
+//!                             Open the socket and enumerate the available interfaces.
+//!								Set the suffix list on the inteface which has the corresponding name server.
+//!								Get the suffix list of each interfaces.
+//! @SYMTestExpectedResults     Setting and getting suffix list successfully.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            1/3/2010
+//! @SYMAuthor                  Santosh K Patil
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_dnssuffix 100 z:\testdata\configs\te_dnssuffix.ini
+		CREATE_OBJECT DNSSuffixTestWrapper dnssuffix_test003
+		COMMAND dnssuffix_test003 DoResolveHostWithoutDomainWithSuffix
+	END_TEST_BLOCK
+
+END_TESTCASE                  DNS-dnssuffix-test3
+
+
+START_TESTCASE                  DNS-dnssuffix-test4
+//! @SYMTestCaseID              DNS-dnssuffix_test4
+//! @SYMTestCaseDesc            REQ No.
+//!                             Open socket and close.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_dnssuffix test server
+//!                             Open the socket and enumerate the available interfaces.
+//!								Set the suffix list on the inteface which has the corresponding name server.
+//!								Get the suffix list of each interfaces.
+//! @SYMTestExpectedResults     Setting and getting suffix list successfully.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            1/3/2010
+//! @SYMAuthor                  Santosh K Patil
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_dnssuffix 100 z:\testdata\configs\te_dnssuffix.ini
+		CREATE_OBJECT DNSSuffixTestWrapper dnssuffix_test004
+		COMMAND dnssuffix_test004 DoResolveHostWithoutDomainWithoutSuffix
+	END_TEST_BLOCK
+
+END_TESTCASE                  DNS-dnssuffix-test4
+
+
+START_TESTCASE                  DNS-dnssuffix-test5
+//! @SYMTestCaseID              DNS-dnssuffix_test5
+//! @SYMTestCaseDesc            REQ No.
+//!                             Open socket and close.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_dnssuffix test server
+//!                             Open the socket and enumerate the available interfaces.
+//!								Set the suffix list on the inteface which has the corresponding name server.
+//!								Get the suffix list of each interfaces.
+//! @SYMTestExpectedResults     Setting and getting suffix list successfully.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            1/3/2010
+//! @SYMAuthor                  Santosh K Patil
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_dnssuffix 100 z:\testdata\configs\te_dnssuffix.ini
+		CREATE_OBJECT DNSSuffixTestWrapper dnssuffix_test005
+		COMMAND dnssuffix_test005 DNSSuffixSupportTC005
+	END_TEST_BLOCK
+
+END_TESTCASE                  	DNS-dnssuffix-test5
+
+
+START_TESTCASE                  DNS-dnssuffix-test6
+//! @SYMTestCaseID              DNS-dnssuffix_test6
+//! @SYMTestCaseDesc            REQ No.
+//!                             Open socket and close.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_dnssuffix test server
+//!                             Open the socket and enumerate the available interfaces.
+//!								Set the suffix list on the inteface which has the corresponding name server.
+//!								Get the suffix list of each interfaces.
+//! @SYMTestExpectedResults     Setting and getting suffix list successfully.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            1/3/2010
+//! @SYMAuthor                  Santosh K Patil
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_dnssuffix 100 z:\testdata\configs\te_dnssuffix.ini
+		CREATE_OBJECT DNSSuffixTestWrapper dnssuffix_test006
+		COMMAND dnssuffix_test006 DNSSuffixSupportTC006
+	END_TEST_BLOCK
+
+END_TESTCASE                  DNS-dnssuffix-test6
+
+
+//Configure commdb.
+//ced -i z:\testdata\configs\te_dnssuffixcedv2.xml
+
+START_TESTCASE                  DNS-dnssuffix-test7
+//! @SYMTestCaseID              DNS-dnssuffix_test7
+//! @SYMTestCaseDesc            REQ No.
+//!                             Open socket and close.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_dnssuffix test server
+//!                             Open the socket and enumerate the available interfaces.
+//!								Set the suffix list on the inteface which has the corresponding name server.
+//!								Get the suffix list of each interfaces.
+//! @SYMTestExpectedResults     Setting and getting suffix list successfully.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            1/3/2010
+//! @SYMAuthor                  Santosh K Patil
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_dnssuffix 100 z:\testdata\configs\te_dnssuffix.ini
+		CREATE_OBJECT DNSSuffixTestWrapper dnssuffix_test007
+		COMMAND dnssuffix_test007 DNSSuffixSupportTC007
+	END_TEST_BLOCK
+
+END_TESTCASE                  DNS-dnssuffix-test7
+
+
+START_TESTCASE                  DNS-dnssuffix-test8
+//! @SYMTestCaseID              DNS-dnssuffix_test8
+//! @SYMTestCaseDesc            REQ No.
+//!                             Open socket and close.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_dnssuffix test server
+//!                             Open the socket and enumerate the available interfaces.
+//!								Set the suffix list on the inteface which has the corresponding name server.
+//!								Get the suffix list of each interfaces.
+//! @SYMTestExpectedResults     Setting and getting suffix list successfully.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            1/3/2010
+//! @SYMAuthor                  Santosh K Patil
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_dnssuffix 100 z:\testdata\configs\te_dnssuffix.ini
+		CREATE_OBJECT DNSSuffixTestWrapper dnssuffix_test008
+		COMMAND dnssuffix_test008 DNSSuffixSupportTC008
+	END_TEST_BLOCK
+
+END_TESTCASE                  DNS-dnssuffix-test8
+
+
+START_TESTCASE                  DNS-dnssuffix-test9
+//! @SYMTestCaseID              DNS-dnssuffix_test9
+//! @SYMTestCaseDesc            REQ No.
+//!                             Open socket and close.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_dnssuffix test server
+//!                             Open the socket and enumerate the available interfaces.
+//!								Set the suffix list on the inteface which has the corresponding name server.
+//!								Get the suffix list of each interfaces.
+//! @SYMTestExpectedResults     Setting and getting suffix list successfully.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            1/3/2010
+//! @SYMAuthor                  Santosh K Patil
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_dnssuffix 100 z:\testdata\configs\te_dnssuffix.ini
+		CREATE_OBJECT DNSSuffixTestWrapper dnssuffix_test009
+		COMMAND dnssuffix_test009 DNSSuffixSupportTC009
+	END_TEST_BLOCK
+
+END_TESTCASE                  DNS-dnssuffix-test9
+
+
+START_TESTCASE                  DNS-dnssuffix-test10
+//! @SYMTestCaseID              DNS-dnssuffix_test10
+//! @SYMTestCaseDesc            REQ No.
+//!                             Open socket and close.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_dnssuffix test server
+//!                             Open the socket and enumerate the available interfaces.
+//!								Set the suffix list on the inteface which has the corresponding name server.
+//!								Get the suffix list of each interfaces.
+//! @SYMTestExpectedResults     Setting and getting suffix list successfully.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            1/3/2010
+//! @SYMAuthor                  Santosh K Patil
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_dnssuffix 100 z:\testdata\configs\te_dnssuffix.ini
+		CREATE_OBJECT DNSSuffixTestWrapper dnssuffix_test010
+		COMMAND dnssuffix_test010 DNSSuffixSupportTC010
+	END_TEST_BLOCK
+
+END_TESTCASE                  DNS-dnssuffix-test10
+
+//Configure commdb.
+//ced -i z:\testdata\configs\te_dnssuffixced.xml
+
+START_TESTCASE                  DNS-dnssuffix-test11
+//! @SYMTestCaseID              DNS-dnssuffix_test11
+//! @SYMTestCaseDesc            REQ No.
+//!                             Open socket and close.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Make vTun as default interface
+//! 							Set suffix on ethernet
+//!   							Open implicit resolver (assumed that it is opened on vTun)
+//!  							Request for name resolution (Async one)
+//!  							Stop the connection and observe the behaviour. 
+//! 							 
+//! @SYMTestExpectedResults     Host resolution should fail gracefully with appropriate error code.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            1/3/2010
+//! @SYMAuthor                  Santosh K Patil
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_dnssuffix 100 z:\testdata\configs\te_dnssuffix.ini
+		CREATE_OBJECT DNSSuffixTestWrapper dnssuffix_test011
+		COMMAND dnssuffix_test011 DNSSuffixSupportTC011
+	END_TEST_BLOCK
+
+END_TESTCASE                  DNS-dnssuffix-test11
+
+
+//RUN_SCRIPT z:\TestData\scripts\te_esock_test_stopallinterfaces.script
+//RUN_SCRIPT z:\testdata\scripts\te_esock_test_unloadesockForced.script
+

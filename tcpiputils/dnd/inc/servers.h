@@ -59,6 +59,7 @@ public:
 	TUint32 iLockId;				//< Eligible severs must be from "locked" scope
 	TUint8 iLockType;				//< Locked scope level [1,,16]
 	TDnsServerScope iServerScope:8;	//< Server scope and type
+	THostName  iDomainName;         //< Domain name of the query for interface selection
 	};
 
 class MDnsServerListNotify
@@ -173,6 +174,19 @@ public:
 	// @param	aFilter	the server filter to modify
 	*/
 	virtual void LockByAddress(const TInetAddr &aAddr, TUint32 aNid, TDnsServerFilter &aFilter) = 0;
+
+	/**
+	// @brief	Retrieves the domain suffix list set on the interface associated with the connection
+	// @param	aServerId	The id of the server associated with the connection
+	// @param	aSuffixList reference to array for reading the interface specific domain suffices
+	*/
+	virtual void InterfaceSuffixList(TInt aServerId, RInetSuffixList& aSuffixList) = 0;
+	/**
+	// @brief	Modifies the outbound query properties so that the interface associated
+	//				with the query supports the domain name of the query
+	// @param	aFilter	Reference to server properties associated with the query
+	*/
+	virtual void UpdateDomain(TDnsServerFilter &aFilter) const = 0;
 	};
 
 class CDndEngine;

@@ -31,7 +31,7 @@
 #include "DomainNameDecoder.h"
 #include <nifman.h>
 #include <comms-infras/es_config.h>
-#include "netcfgextndhcpmsg.h"
+#include "NetCfgExtnDhcpMsg.h"
 #include <f32file.h>
 #include <comms-infras/metatype.h>
 #include <comms-infras/metadata.h>

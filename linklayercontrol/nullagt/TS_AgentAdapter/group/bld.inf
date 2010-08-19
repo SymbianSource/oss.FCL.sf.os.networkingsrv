@@ -1,0 +1,39 @@
+// Copyright (c) 2002-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+
+PRJ_PLATFORMS
+
+DEFAULT
+
+PRJ_EXPORTS
+
+PRJ_TESTEXPORTS
+
+..\group\csdagttests.iby  \epoc32\rom\include\csdagttests.iby
+
+..\group\csdagenttest.script   	\epoc32\release\wins\udeb\z\TestData\Scripts\csdagenttest.script
+..\group\csdagenttest.script   	\epoc32\release\winscw\udeb\z\TestData\Scripts\csdagenttest.script
+..\group\connection_start.script    	\epoc32\release\wins\udeb\z\TestData\Scripts\connection_start.script
+..\group\connection_start.script    	\epoc32\release\winscw\udeb\z\TestData\Scripts\connection_start.script
+..\group\connection_start_failure.script   	\epoc32\release\wins\udeb\z\TestData\Scripts\connection_start_failure.script
+..\group\connection_start_failure.script    	\epoc32\release\winscw\udeb\z\TestData\Scripts\connection_start_failure.script
+..\group\cedout.cfg    		\epoc32\release\wins\udeb\z\TestData\Configs\cedout.cfg
+..\group\cedout.cfg    		\epoc32\release\winscw\udeb\z\TestData\Configs\cedout.cfg
+
+PRJ_MMPFILES
+
+PRJ_TESTMMPFILES
+csdagenttests.mmp

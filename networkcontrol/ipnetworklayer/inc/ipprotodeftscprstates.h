@@ -19,7 +19,7 @@
 #define IPPROTODEFTSCPRSTATES_H_DEFINED
 
 #include <comms-infras/corescprstates.h>
-#include "ipprotomessages.h"
+#include "IPProtoMessages.h"
 
 class CIPProtoSubConnectionProviderBase;
 

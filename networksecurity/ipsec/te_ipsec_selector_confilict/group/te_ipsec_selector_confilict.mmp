@@ -1,0 +1,52 @@
+// Copyright (c) 2002-2010 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of the License "Symbian Foundation License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.symbianfoundation.org/legal/sfl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+TARGET          te_ipsec_selector_conflict.exe
+TARGETTYPE      exe
+UID             0x1000007A 0x10282F36
+CAPABILITY	    NetworkServices NetworkControl WriteDeviceData ReadDeviceData
+MACRO 	    DATA_CAGING
+
+SOURCEPATH  ../src
+SOURCE   te_loadpolicy_bbd.cpp 
+SOURCE   te_loadpolicy_bdd.cpp 
+SOURCE   te_loadpolicy_uma.cpp
+SOURCE   te_ipsectestserver.cpp 
+SOURCE   te_coverage_test.cpp
+
+USERINCLUDE   ../inc 
+SYSTEMINCLUDE   /epoc32/include
+SYSTEMINCLUDE   /epoc32/include/platform
+SYSTEMINCLUDE   /epoc32/include/platform/test
+SYSTEMINCLUDE   /epoc32/include/platform/ecom
+SYSTEMINCLUDE   /epoc32/include/platform/comms-infras
+SYSTEMINCLUDE   /epoc32/include/platform/networking
+///
+LIBRARY   euser.lib
+LIBRARY   esock.lib
+LIBRARY   commdb.lib
+LIBRARY   netmeta.lib
+LIBRARY   insock.lib
+LIBRARY   testexecuteutils.lib
+LIBRARY   testexecutelogclient.lib 
+LIBRARY   bafl.lib
+LIBRARY   ipsecpolapi.lib 
+LIBRARY   lib_pfkey.lib 
+LIBRARY         commdb.lib
+LIBRARY         commsdat.lib
+
+VENDORID 0x70000001
+
+SMPSAFE

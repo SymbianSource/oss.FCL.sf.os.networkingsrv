@@ -265,6 +265,15 @@ CIPSecPolicyManagerHandler::BuildDhcpProtocolString( HBufC8*& aPolBfr)
     // Inbound, protocol UDP, local_port 68
     stringBuf.Append(_L8(" inbound protocol 17 local_port 68 = { }\n"));
 
+    if(iIPSecGANSupported)
+        {
+        // Outbound, protocol UDP, remote_port 67
+        stringBuf.Append(_L8(" outbound protocol 17 remote_port 68 = { }\n"));
+        // Inbound, protocol UDP, local_port 68
+        stringBuf.Append(_L8(" inbound protocol 17 local_port 67 = { }\n"));
+        }
+
+
     // Write the string to file
     err = TPolicyParser::BufferAppend(aPolBfr, stringBuf);
     return err;
@@ -428,8 +437,29 @@ CIPSecPolicyManagerHandler::BuildComparisonWord(CSelectorList* aSelList)
             compWord |= 0x00400000;
             }
 
-        // Each selector has at least this bit set on
-        compWord |= 0x00000001;
+        //UMA support Req417-40027
+        if(iIPSecGANSupported && policySelector->iSequenceNumber==0 && policySelector->iRemote.IsUnspecified() && policySelector->iRemoteMask.IsUnspecified())
+            {
+           LOG(Log::Printf(_L("::Buildcomparision, building comparison words for any to any selector\n")));
+           
+           //building lowest comparision word for any to any selector. Any to any selector should fall at the end of 
+           //all selector list (except bypass selectors. If not then selector falling after this selector will have 
+           //no significance.
+            compWord = 0x000000001;
+            policySelector->iCompWord = compWord;
+            continue;
+            }
+
+        // Each selector has at least this bit set on.
+        if(iIPSecGANSupported)
+            {
+            //Change to accomodate any to any selector.
+            compWord |= 0x00000010;
+            }
+        else
+            {
+		compWord |= 0x00000001;
+            }
 
         // Store comparison word to the selector
         policySelector->iCompWord = compWord;
@@ -590,9 +620,38 @@ CIPSecPolicyManagerHandler::DeleteExtraInboundOutboundSelectors()
         }
     }
 
+
+//  
+// UMAExceptionTrafficSelector = {UMAException %d }
+// This occurs only if the current policies are exception policy.
+// The network ID is supplied in braces any matching scope traffic will be honoured.
+///////////////////////////////////////////////////////////////////
 //
+TInt 
+CIPSecPolicyManagerHandler::AddExceptionSelectors()
+    {
+    LOG(Log::Printf(_L("Add Exception selectors\n")));
+    TInt err(KErrNone);
+    if(iIPSecGANSupported)
+        {
+        TBuf8<128> stringBuf;
+        stringBuf.Format(_L8(" UMAExceptionTrafficSelector = {UMAException %d }\n"),iVPNNetId);
+        err = TPolicyParser::BufferAppend(iPolBfr, stringBuf);
+        return err;
+        }
+    else
+        {
+        LOG(Log::Printf(_L("UMA/GAN support is not enabled and CIPSecPolicyManagerHandler::AddExceptionSelectors not supported")));
+        return KErrNotSupported;
+        }
+    }
+
+ 
+
+///////////////////////////////////////////////////////////////////
 // This function adds the following selectors to the end of the
 // string format policy file:
+//  inbound = { }%d
 //  inbound = { }
 //  outbound = { }
 //
@@ -606,10 +665,12 @@ CIPSecPolicyManagerHandler::AddInboundOutboundSelectorPair()
     {
     TBuf8<128> stringBuf;
     TInt err(KErrNone);
+    LOG(Log::Printf(_L("CIPSecPolicyManagerHandler::AddInboundOutboundSelectorPair()\n")));	
 
     // If drop mode, return immediately
     if (iBypassOrDropMode == KDropMode)
         {
+        LOG(Log::Printf(_L("CIPSecPolicyManagerHandler::AddInboundOutboundSelectorPair(), not adding selectors combined mode is drop\n")));		
         return err;
         }
 

@@ -156,12 +156,28 @@ typedef TBuf<KMaxInfoSize> TPolicyNameInfo;
 const TInt KAddIkeBypassSelectors =  (1 << 0);   //< Add IKE bypass selectors to the policy
 const TInt KAddIpsecBypassSelectors =  (1 << 1); //< Add an bypass selector for traffic identified with a TIpsecSelectorInfo structure
 const TInt KAddDhcpBypassSelectors =  (1 << 2);  //< Add DHCP bypass selectors to the policy
+
+const TInt KAddUMAExceptionSelectors = (1<<3);   ///< Add UMA information to the policy
+
 /*
  * A flag uset in GetDebugInfo call.
  *
  */
 const TInt KConflictingPolicyInfo =  (1 << 0);   //< Return information about a conflicting policy
 const TInt KParsingErrorInfo =  (1 << 1);        //< Return information about a policy parsing error
+
+/**
+ * An integer constant which identifies an option.Level
+ *
+ **/
+const TInt KOptionLevelDefault = 0x1000;
+
+
+/**
+ * An integer constant which identifies an option.
+ *
+ **/
+const TInt KOptionNameSid = 0x1020;
 
 /**
  * IPSec Policy API methods return the following error codes
@@ -189,6 +205,8 @@ enum TErrors
     };
 
 typedef TPckg<TInetAddr> TInetAddrPckg;
+
+
 
 /**
  * RIpsecPolicyServ API is used by clients to:
@@ -400,7 +418,22 @@ public:
 	 *		system wide error codes.
      */ 
     IMPORT_C void AvailableSelectors(const TDesC8& aGateway, CArrayFixFlat<TIpsecSelectorInfo>* aSelectors, TRequestStatus& aStatus);
-private:
+
+	/**
+	 *Sets an option.
+	 *RIpsecPolicyServ implementations may provide options that can be set with this method.
+	 *Eg:- Seting SID of an appliction that is going to load policy file. Then that application
+	 *Can call this api with option name 'KOptionLevelDefault' and option level 'KOptionNameSid' and provide the SID value.
+	 *
+	 *@param aOptionName : An integer constant which identifies an option
+	 *@param aOptionLevel  : An integer constant which identifies level of an option 
+	 *@param aOption  : An option value as descriptor
+	 *@return TInt:	KErrNone if succsess 
+	 */
+	IMPORT_C TInt SetOpt(TUint aOptionName, TUint aOptionLevel, const TDesC8 &aOption);
+
+
+private:	
 	void EnumerateSelectors(const TDesC8& aGateway, TInt& aCount);
 
 private:

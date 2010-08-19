@@ -25,6 +25,7 @@
 #include "IPCpr.h"
 #include "ipcpr_states.h"
 #include "IPMessages.h"
+#include <gsmerror.h>
 #include <comms-infras/ss_nodemessages.h>
 #include <comms-infras/ss_nodemessages_internal_esock.h>
 #include <comms-infras/ss_datamonitoringprovider.h>
@@ -188,6 +189,26 @@ void IpCprStates::TCheckStartCapabilities::DoL()
     }
 
 #endif  //SYMBIAN_NETWORKING_UPS
+
+
+DEFINE_SMELEMENT( TAwaitingSpecialGoneDown, NetStateMachine::MState, IpCprStates::TContext)
+TBool IpCprStates::TAwaitingSpecialGoneDown::Accept()
+	{
+    TCFControlClient::TGoneDown* pGoneDown = message_cast<TCFControlClient::TGoneDown>(&iContext.iMessage);
+        if(pGoneDown && //If this is a TCFControlClient::TGoneDown message AND
+        iContext.Node().CountClients<TDefaultClientMatchPolicy>(
+                        TClientType(TCFClientType::ECtrl, TCFClientType::EAttach)) && //the local node is an attached ipcpr AND
+        ((pGoneDown->iValue1 == KErrGprsInsufficientResources) || //the error value suggests the contention management
+         (pGoneDown->iValue1 == KErrPacketDataTsyMaxPdpContextsReached) ||
+         (pGoneDown->iValue1 == KErrUmtsMaxNumOfContextExceededByNetwork) ||     
+         (pGoneDown->iValue1 == KErrUmtsMaxNumOfContextExceededByPhone))
+         )
+          {
+          return ETrue;
+          }
+        return EFalse;
+	}
+
 
 #ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
 /*

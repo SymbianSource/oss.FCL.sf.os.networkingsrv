@@ -53,6 +53,7 @@ LIBRARY			cryptography.lib
 LIBRARY ctfinder.lib
 LIBRARY tlscacheclient.lib
 LIBRARY bafl.lib
+LIBRARY featdiscovery.lib
 DEBUGLIBRARY            flogger.lib
 
 deffile		tlsprovider.def

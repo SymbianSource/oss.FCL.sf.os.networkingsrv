@@ -261,6 +261,8 @@ protected:
 	TUint iHeaderIncluded:1;	// If true, user sends datagram packets with IP header
 	TUint iSynchSend:1;			// If true, block socket write to UDP socket in PENDING and HOLD states
 	TInt iProtocolId;
+	TInt iDomainSuffixIndex;	// Interface domain suffix enumeration state
+	TName iActiveEnumInterface; // Name of the interface previously enumerated with option KSoInetNextInterface
 	};
 
 class TInet6SAPIter

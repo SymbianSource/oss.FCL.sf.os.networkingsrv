@@ -187,17 +187,19 @@ private:
     ESock::TDataMonitoringConnProvisioningInfo iDataMonitoringConnProvisioningInfo;
 	TInt iLastControlClientsCount;
 	TInt iRouteCount;
-	TBool iRouteCountStretchOne;
 	TBool iPeriodActivity;
 	TInt iTimerDisableCount;
 	TTime iStartTime;
+    TBool iRouteCountStretchOne:1;
 	TBool iLinkUp:1;
 	TBool iConnectionControlActivity:1;
 	TBool iTimerExpired:1;
 	TBool iTimerStopped:1;
 	TBool iTimerRunning:1;
 	TBool iSubConnEventDataSent:1;	// Hack to cope with multiple DataClientStatusChange notifications for 'stopped'
-	TBool iNodeLocalExtensionsCreated;
+	TBool iNodeLocalExtensionsCreated:1;
+	TBool iStopped:1;               // Hack to cope with AllInterfaceNotification not indicating a down/up sequence
+                                    // if the IpProtoCpr is restarted before it is destroyed.
 	ESock::RMetaExtensionContainer iNodeLocalExtensions;
     };
 

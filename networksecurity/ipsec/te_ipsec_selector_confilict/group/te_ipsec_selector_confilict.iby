@@ -1,0 +1,55 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+#ifndef __T_IPSEC_SELECTOR_CONFLICT_IBY__
+#define __T_IPSEC_SELECTOR_CONFLICT_IBY__
+
+#include <ipsec.iby>
+#include <vpn.iby>
+#include <integrationtest.iby>
+
+file=ABI_DIR\DEBUG_DIR\te_ipsec_selector_conflict.exe		System\Libs\te_ipsec_selector_conflict.exe
+
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ikev1test-ops.ini	 testdata\scripts\ns-ipsec-ikev1test-ops.ini
+
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ike-selectorconflict_common.script	 testdata\scripts\ns-ipsec-ike-selectorconflict_common.script
+
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ike-selectorconflict_bbd1.script	 testdata\scripts\ns-ipsec-ike-selectorconflict_bbd1.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ike-selectorconflict_bbd2.script	 testdata\scripts\ns-ipsec-ike-selectorconflict_bbd2.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ike-selectorconflict_bbd3.script	 testdata\scripts\ns-ipsec-ike-selectorconflict_bbd3.script
+
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ike-selectorconflict_bdd1.script	 testdata\scripts\ns-ipsec-ike-selectorconflict_bdd1.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ike-selectorconflict_bdd2.script 	 testdata\scripts\ns-ipsec-ike-selectorconflict_bdd2.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ike-selectorconflict_bdd3.script 	 testdata\scripts\ns-ipsec-ike-selectorconflict_bdd3.script
+
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ike-selectorconflict-uma1.script 	 testdata\scripts\ns-ipsec-ike-selectorconflict-uma1.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ike-selectorconflict-uma2.script 	 testdata\scripts\ns-ipsec-ike-selectorconflict-uma2.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ike-selectorconflict-uma3.script 	 testdata\scripts\ns-ipsec-ike-selectorconflict-uma3.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ike-selectorconflict-uma4.script 	 testdata\scripts\ns-ipsec-ike-selectorconflict-uma4.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ike-selectorconflict-uma5.script 	 testdata\scripts\ns-ipsec-ike-selectorconflict-uma5.script
+data=EPOCROOT##epoc32\data\Z\TestData\scripts\ns-ipsec-ike-selectorconflict-uma6.script 	 testdata\scripts\ns-ipsec-ike-selectorconflict-uma6.script
+
+data=EPOCROOT##epoc32\data\Z\TestData\configs\te_ethced_2483.xml 	         testdata\configs\te_ethced_2483.xml
+data=EPOCROOT##epoc32\data\Z\TestData\configs\te_ethced_2483vpn.xml 	         testdata\configs\te_ethced_2483vpn.xml
+data=EPOCROOT##epoc32\data\Z\TestData\configs\te_ethced_2483vpn_drop.xml 	 testdata\configs\te_ethced_2483vpn_drop.xml
+
+data=EPOCROOT##epoc32\data\Z\TestData\configs\te_2483.pin	 	         testdata\configs\te_2483.pin	
+data=EPOCROOT##epoc32\data\Z\TestData\configs\te_2483_drop.pin	 	         testdata\configs\te_2483_drop.pin	
+data=EPOCROOT##epoc32\data\Z\TestData\configs\te_2483.pol	 	         testdata\configs\te_2483.pol	
+data=EPOCROOT##epoc32\data\Z\TestData\configs\te_2483.pin	 	         testdata\configs\te_2483_drop.pol	
+
+#endif

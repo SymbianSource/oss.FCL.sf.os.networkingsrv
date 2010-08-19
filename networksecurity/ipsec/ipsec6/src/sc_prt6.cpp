@@ -1,4 +1,4 @@
-// Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2006-2010 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -16,6 +16,8 @@
 // performing IPSEC checking and processing to packets.
 //
 
+#include <featdiscovery.h>
+#include <featureuids.h>
 
 #include <posthook.h>
 #include <icmp6_hdr.h>
@@ -377,6 +379,9 @@ private:
 	void CheckPacketId(RMBufHookPacket &aPacket);
 	TInt CheckFragmentPolicy();
 
+	void CheckExceptionSelector(TBool &aException_flag) const; //To support UMA
+	void CheckFeatureSupportL(TUid aFeature); //To check a Feature is enabled or not
+
 	MAssociationManager *iAssociationManager;
 	CProtocolIpsec *iProtocolIpsec;
 	MEventService *iEventService;
@@ -398,6 +403,7 @@ private:
 	RIpAddress iMyself[KIpsecMaxNesting];		//< Related destination adresses (outer).
 	// List of incomplete fragmented packets.
 	CIpsecFragmentInfo *iFrags;					//< Unfinished fragments.
+	TBool iIPSecGANSupported; //To check whether FF_IPSEC_UMA_SUPPORT_ENABLE is defined and UMA supported
 
 	};
 
@@ -663,6 +669,17 @@ static void LogPolicySelector(const TDesC &aStr, const CPolicySelector &aPS)
 	default:
 		break;
 		}
+	//UMA support REQ417-40027
+	switch (aPS.iFilterData & KPolicyFilter_Exception)
+	    {
+	    case KPolicyFilter_Exception:
+	        buf.Append(_L("UMAExceptionTrafficSelector"));
+	        break;
+
+	    default:
+	        break;
+	    }
+
 	if (aPS.iInterface)
 		buf.AppendFormat(_L("if=%d "), aPS.iInterface->iInterfaceIndex);
 	for (CTransportSelector *ts = aPS.iTS; ts != NULL; ts = ts->iOr)
@@ -1098,6 +1115,23 @@ TInt CProtocolSecpol::CollectBundle(TPolicyFilterInfo &aFilter, RPolicySelectorI
 	TInt result = EIpsec_NoSelectorMatch;
 	aTunnels = 0;
 	TInt i = 0;
+	
+	//UMA support REQ417-40027
+   TBool exception_flag = EFalse;
+   TBool exception_drop_flag = EFalse;
+   
+   
+   if (iIPSecGANSupported)
+       {
+      //Check for exception selector being loaded or not. This is required for Drop mode policy
+      //If policy is set as 
+      //                  inbound = drop
+      //                  outbound = drop
+      // then instead returning Excetion selectors should be checked.
+       CheckExceptionSelector(exception_flag);
+       }
+   
+
 	for (CPolicySelector *ps = iPolicy->iSelectors; ps != NULL; ps = ps->iNext)
 		{
 		// 1. Check filtering
@@ -1108,7 +1142,17 @@ TInt CProtocolSecpol::CollectBundle(TPolicyFilterInfo &aFilter, RPolicySelectorI
 		if (ps->iTS == NULL || ps->iTS->Match(aKey))
 			{
 			if (ps->iFilterData & KPolicyFilter_DROP)
-				return EIpsec_NoSelectorMatch;
+                {
+                // UMA support REQ 417-40027
+                if (iIPSecGANSupported && exception_flag)
+			       {
+                    //Work around for Exceptions                
+                    exception_drop_flag = ETrue;
+                    break;	
+			       }
+
+                return EIpsec_NoSelectorMatch;
+                }
 
 			const TInt N = ps->iActions.Count();
 			for (TInt k = 0; k < N; k++)
@@ -1135,15 +1179,77 @@ TInt CProtocolSecpol::CollectBundle(TPolicyFilterInfo &aFilter, RPolicySelectorI
 					if (aSrc)
 						aSrc[aTunnels] = aKey.iLocal;
 					aTunnels++;
-					}
-				}
-			result = i;
-			if (ps->iFilterData & KPolicyFilter_FINAL)
-				break;	// Final selector, no merge allowed!
-			aFilter.iFlags |= KPolicyFilter_MERGE;	// Mark "merge only".
-			}
-		}
-	return result;
+                    }//if action
+                }//for
+//UMA support REQ417-40027
+            if(iIPSecGANSupported)
+                {
+                    if(!exception_drop_flag)
+         	  		{
+                    //Check if drop mode is set with exception selectors...out from this result loop
+                    //and jump onto Expection selector handling.
+                    result = i;
+                    if (ps->iFilterData & KPolicyFilter_FINAL)
+                        break;  // Final selector, no merge allowed!
+                    aFilter.iFlags |= KPolicyFilter_MERGE;  // Mark "merge only".
+     				}
+                }
+            else
+                {
+            result = i;
+            if (ps->iFilterData & KPolicyFilter_FINAL)
+                break;  // Final selector, no merge allowed!
+            aFilter.iFlags |= KPolicyFilter_MERGE;  // Mark "merge only".
+                }
+            }
+          }
+	if (iIPSecGANSupported)
+	    {
+    if (result == EIpsec_NoSelectorMatch && exception_flag)
+        {
+        // No selector matches above. Check for Exception selector     
+        for (CPolicySelector *ps = iPolicy->iSelectors; ps != NULL; ps = ps->iNext)
+            {
+            if(((ps->iFilterData & KPolicyFilter_Exception) !=  KPolicyFilter_Exception))
+                {
+                //Skip till Exception selector is loaded 
+                continue;
+                }//if
+            else
+                {
+                if (ps->iInterface && ps->iInterface->iInterfaceIndex != aFilter.iIndex)
+                    {
+                    continue; ////Sanity Check;
+                    }
+                if(aFilter.iFlags & KPolicyFilter_OUTBOUND )
+                    {
+                    //Check for Scopes for packet going out. Scope should be the tunnel end networkID configured for Tunnel need Exception
+                    TIpAddress iAddr = aKey.iLocal();
+                    TInt scope = iAddr.iScope;
+                    if(scope == ps->iScope_Exception)
+                        {
+                        LOG(Log::Printf(_L("Exception outbound- \n exception scope = %d\n, packet scope = %d\n"), ps->iScope_Exception, scope));
+                        result = NULL;
+                        break;
+                        }
+                    }//outbound filter
+                if(aFilter.iFlags & KPolicyFilter_INBOUND)
+                    {
+                    //TODO comments
+                    TIpAddress iAddr = aKey.iRemote();
+                    TInt scope = iAddr.iScope;
+                    if(scope== ps->iScope_Exception)
+                        {
+                        LOG(Log::Printf(_L("Exception inbound- \n exception scope = %d\n ,packet scope = %d\n"), ps->iScope_Exception, scope));
+                        result = NULL;
+                        break;
+                        }
+                    }//INBOUND
+                }//else            
+            }//for
+            }//exception CHECK
+        }///if (iIPSecGANSupported)
+		return result;
 	}
 
 
@@ -1216,7 +1322,7 @@ MFlowHook *CProtocolSecpol::OpenL(TPacketHead &aHead, CFlowContext *aFlow)
 	iPktInfo.iRemote.Set(aHead.ip6.DstAddr(), aHead.iDstId);
 
 	CPolicyAction *items[KIpsecMaxNesting];		// Collected actions [0..count-1]
-
+	
 	TInt tunnels = 0;
 	LOG(LogSelectorInfo(_L("OpenL\t"), iPktInfo, filter));
 	RPolicySelectorInfo final_info = iPktInfo;
@@ -1983,6 +2089,9 @@ TInt CProtocolSecpol::ApplyL(RMBufHookPacket &aPacket, RMBufRecvInfo &aInfo)
 			}
 		// Not an ICMP or normal ICMP, do the policy check with current info
 		}
+
+    //Check for the UMA feature support
+    CheckFeatureSupportL(NFeature::KFeatureIdFfIpsecUmaSupportEnable);
 	for (;;)
 		{
 		CPolicyAction *items[KIpsecMaxNesting];
@@ -2241,6 +2350,10 @@ TInt CProtocolSecpol::SetPolicy(const TDesC &aPolicy, TUint &aOffset)
 			LogPolicySelector(seq, *ps);
 			if (ps->iFilterData & KPolicyFilter_DROP)
 				Log::Printf(_L("\t\t*DROP*"));
+			//UMA support REQ417-40027
+			if(ps->iFilterData & KPolicyFilter_Exception)
+			    Log::Printf(_L("\t\t = { UMAException %d }"),ps->iScope_Exception);
+				
 			else if (N == 0)
 				Log::Printf(_L("\t\t*PASS*"));
 			else
@@ -2302,3 +2415,44 @@ void CProtocolSecpol::Deliver(RMBufPacketBase& aPacket)
 			copy.Free();
 			}
 	}
+
+void CProtocolSecpol::CheckFeatureSupportL(TUid aFeature)
+    {
+    // Check Gan support from feature manager
+    iIPSecGANSupported = CFeatureDiscovery::IsFeatureSupportedL(aFeature);
+    if(iIPSecGANSupported != (TInt)ETrue)
+		{
+		LOG(Log::Printf(_L("CProtocolSecpol::CheckFeatureSupport Error Checking Feature Support ")));
+		}
+		else
+		{
+		LOG(Log::Printf(_L("CProtocolSecpol::CheckFeatureSupport %d Feature Supported %d"),aFeature,iIPSecGANSupported));
+		}
+    }
+
+//UMA support
+//Check for exception selector being loaded or not. This is required for Drop mode policy
+ //If policy is set as 
+ //                  inbound = drop
+ //                  outbound = drop
+ // then instead returning Excetion selectors should be checked.
+void CProtocolSecpol::CheckExceptionSelector(TBool &aException_flag) const
+    {
+    aException_flag = EFalse;
+    if(iIPSecGANSupported)
+        {
+         for(CPolicySelector *policy_Exception = iPolicy->iSelectors; policy_Exception != NULL ; policy_Exception = policy_Exception->iNext)
+           {
+           if(((policy_Exception->iFilterData & KPolicyFilter_Exception) ==  KPolicyFilter_Exception))
+               {
+               aException_flag = ETrue;
+               break;
+               }//if
+           }//for
+         }//if
+    else
+        {
+         LOG(Log::Printf(_L("CProtocolSecpol::CheckExceptionSelector  Feature is not Supported")));
+        }
+    }
+

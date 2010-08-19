@@ -240,7 +240,7 @@ void TGetParams::DoL()
     	}
 #ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
 	iContext.iNodeActivity->PostRequestTo(*iContext.Node().ServiceProvider(),
-		TCFScpr::TGetParamsRequest(RCFParameterFamilyBundleC()).CRef());
+		TCFScpr::TSetParamsRequest(RCFParameterFamilyBundleC()).CRef());
 #else
  	iContext.iNodeActivity->PostRequestTo(*iContext.Node().ServiceProvider(),
 		TCFScpr::TParamsRequest(RCFParameterFamilyBundleC()).CRef());
@@ -254,7 +254,9 @@ namespace IPDeftBaseSCprDataClientStartActivity
 DECLARE_DEFINE_NODEACTIVITY(ECFActivityStartDataClient, IPDeftBaseSCprDataClientStart, TCFDataClient::TStart )
     FIRST_NODEACTIVITY_ENTRY(CoreNetStates::TAwaitingDataClientStart, MeshMachine::TNoTag)
 #ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
-	NODEACTIVITY_ENTRY(KNoTag, IPDeftBaseSCprDataClientStartActivity::TGetParams, CoreNetStates::TAwaitingParamResponse, CoreNetStates::TNoTagOrNoDataClients)
+	//NODEACTIVITY_ENTRY(KNoTag, IPDeftBaseSCprDataClientStartActivity::TGetParams, CoreNetStates::TAwaitingParamResponse, CoreNetStates::TNoTagOrNoDataClients)
+	NODEACTIVITY_ENTRY(KNoTag, IPDeftBaseSCprDataClientStartActivity::TGetParams, CoreNetStates::TAwaitingParamResponse, MeshMachine::TNoTag)
+	THROUGH_NODEACTIVITY_ENTRY(KNoTag, PRStates::TStoreParams, CoreNetStates::TNoTagOrNoDataClients)
 #else
 	NODEACTIVITY_ENTRY(KNoTag, IPDeftBaseSCprDataClientStartActivity::TGetParams, CoreNetStates::TAwaitingParamResponse, MeshMachine::TNoTag)
 	THROUGH_NODEACTIVITY_ENTRY(KNoTag, SCprStates::TStoreParams, CoreNetStates::TNoTagOrNoDataClients)

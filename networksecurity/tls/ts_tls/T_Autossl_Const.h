@@ -1,4 +1,4 @@
-// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2003-2010 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -37,6 +37,11 @@ _LIT( KCfgMaxThreshold, "MaxThreshold" );
 _LIT( KCfgProtocol, "Protocol" );
 _LIT( KCfgUseGenericSocket, "UseGenericSocket");
 _LIT( KCfgEAPKeyDerivation, "EAPKeyDerivation");
+#ifdef HTTP_ALLOW_UNTRUSTED_CERTIFICATES
+_LIT( KCfgSSLDialogMode, "SSLDialogMode");
+_LIT( KCfgSSLDialogModeValue, "SSLDialogModeValue");
+_LIT( KCfgExpectedErrorCode, "ExpectedErrorCode");
+#endif // HTTP_ALLOW_UNTRUSTED_CERTIFICATES
 
 const TInt KDefCfgCipher = 0;
 const TInt KDefCfgIPPort = 0;
@@ -46,6 +51,11 @@ const TInt KDefCfgFailureThreshold = 1;
 const TInt KDefCfgMaxThreshold = 1000;
 const TBool KDefUseGenericSocket = EFalse;
 const TBool KDefEAPKeyDerivation = EFalse;
+#ifdef HTTP_ALLOW_UNTRUSTED_CERTIFICATES
+const TBool KDefSSLDialogMode = EFalse;
+const TInt KDefSSLDialogModeValue = 0;
+const TInt KDefErrorValue = 0;
+#endif  // HTTP_ALLOW_UNTRUSTED_CERTIFICATES
 
 _LIT( KDefCfgIPAddress, "default" );
 _LIT( KDefCfgDNSName, "www.default.com" );

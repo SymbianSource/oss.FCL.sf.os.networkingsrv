@@ -141,6 +141,9 @@ REM ---------- Networking ----------
 // NULL AGT Tests
 #ifdef NW_TEST_ROM_1
 #include <nullagttests.iby>
+
+// Agent Adapter Tests
+#include <csdagttests.iby>
 #endif
 
 // Useful  Internet Utilities for all test roms

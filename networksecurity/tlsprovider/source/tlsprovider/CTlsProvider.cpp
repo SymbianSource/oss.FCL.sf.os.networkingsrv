@@ -19,9 +19,12 @@
 #include <securitydefsconst.h>
 #include <x520ava.h>
 #include <asn1dec.h>
+#include <featdiscovery.h>
+#include <featureuids.h>
 
 #include "tlsprovider.h"
 #include "cryptostrength.h"
+
 
 
 //
@@ -1074,7 +1077,15 @@ void CTlsProviderImpl::RunL()
 			}
 		else
 			{
-			if(iTlsCryptoAttributes && iTlsCryptoAttributes->iDialogNonAttendedMode)
+			TBool allowUntrustedCertificates = EFalse;
+			allowUntrustedCertificates = CFeatureDiscovery::IsFeatureSupportedL(NFeature::KFeatureIdFfHttpAllowUntrustedCertificates);
+			
+			if ( allowUntrustedCertificates && iTlsCryptoAttributes && ETTLSDialogModeAllowAutomatic == iTlsCryptoAttributes->iDialogMode )
+				{        
+				iCurrentState = iOriginalState = ENullState;
+				User::RequestComplete(iOriginalRequestStatus,KErrNone); 
+				}
+			else if((allowUntrustedCertificates && iTlsCryptoAttributes && ETTLSDialogModeUnattended == iTlsCryptoAttributes->iDialogMode ) || (iTlsCryptoAttributes && iTlsCryptoAttributes->iDialogNonAttendedMode))
 				{	
 				TLSPROV_LOG(_L("Server Certificate validation failed but in DialogNonAttended mode"))	
 				TInt err(0);

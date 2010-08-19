@@ -16,7 +16,7 @@
 // 
 //
 
-#include <treng.h>
+#include <TRENG.H>
 #include <e32cons.h>
 #include <c32comm.h>
 #include <nifman.h>

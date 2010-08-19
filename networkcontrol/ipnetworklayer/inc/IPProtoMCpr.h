@@ -57,6 +57,7 @@ private:
 
 public:
 	TBool iIapLocked;
+	TUint32 iLockedIapsid;
     };
 
 namespace IPProtoMCprActivities

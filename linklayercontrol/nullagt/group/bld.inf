@@ -49,4 +49,4 @@ PRJ_MMPFILES
 PRJ_TESTMMPFILES
 
 ../TS_nullagt/group/nullagttests.mmp
-
+#include "../TS_AgentAdapter/group/bld.inf"

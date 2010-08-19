@@ -48,6 +48,8 @@ using namespace IpCprActivities;
 using namespace IpCprStates;
 using namespace MeshMachine;
 
+
+
 namespace IpCprActivities
 {
 
@@ -156,6 +158,20 @@ DECLARE_DEFINE_NODEACTIVITY(ECFActivityNotification, IPCprEventNotification, TCF
 NODEACTIVITY_END()
 #endif // SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
 
+namespace IPCPRGoneDownActivity
+    {
+DECLARE_DEFINE_CUSTOM_NODEACTIVITY(ECFActivityGoneDown, IPCPRSpecialContentionManagementGoneDown, TCFControlClient::TGoneDown, PRActivities::CGoneDownActivity::New)
+       // Our Service Provider has gone down unexpectedly (we haven't issued a TStop)
+    FIRST_NODEACTIVITY_ENTRY(IpCprStates::TAwaitingSpecialGoneDown, MeshMachine::TNoTag)
+    THROUGH_NODEACTIVITY_ENTRY(KNoTag, CoreNetStates::TCancelAndCloseZone0ClientExtIfaces, MeshMachine::TNoTag)
+    NODEACTIVITY_ENTRY(KNoTag, PRActivities::CGoneDownActivity::TSendErrorRecoveryReq, MeshMachine::TAwaitingErrorRecoveryResponseOrError, CoreStates::TRetryOrIgnoreOrPropagate)
+    THROUGH_NODEACTIVITY_ENTRY(CoreStates::KRetry, MeshMachine::TDoNothing, PRActivities::CGoneDownActivity::TIgnoreOrPropagate)
+    LAST_NODEACTIVITY_ENTRY(CoreStates::KIgnore, MeshMachine::TDoNothing)
+    NODEACTIVITY_ENTRY(CoreStates::KPropagate, CoreNetStates::TCancelStartAndStopSelf, CoreNetStates::TAwaitingDataClientStopped, MeshMachine::TNoTag)
+    LAST_NODEACTIVITY_ENTRY(KNoTag, PRStates::TSendGoneDown)
+NODEACTIVITY_END()
+    }
+
 DEFINE_ACTIVITY_MAP(ipCprActivities)
 	ACTIVITY_MAP_ENTRY(IpCprActivities, IpCprStart)
 	ACTIVITY_MAP_ENTRY(IpCprActivities, IpCprStop)
@@ -167,6 +183,8 @@ DEFINE_ACTIVITY_MAP(ipCprActivities)
 	ACTIVITY_MAP_ENTRY(IpCprActivities, IPCprEventNotification)
 #endif //SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
 
+	ACTIVITY_MAP_ENTRY(IpCprActivities::IPCPRGoneDownActivity, IPCPRSpecialContentionManagementGoneDown)
+	
 #ifdef SYMBIAN_NETWORKING_UPS
 	ACTIVITY_MAP_ENTRY(IpCprActivities, IpCprControlClientJoin)
 	ACTIVITY_MAP_ENTRY(IpCprActivities, IpCprPolicyCheckRequest)

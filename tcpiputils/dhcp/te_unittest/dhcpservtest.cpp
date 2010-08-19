@@ -28,7 +28,7 @@
 #include "es_enum.h" 
 #include <nifman.h>
 #include <naptinterface.h>
-#include "dhcpstatesdebug.h"
+#include "DHCPStatesDebug.h"
 
 /**
  * MAC address length

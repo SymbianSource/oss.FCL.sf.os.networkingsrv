@@ -156,6 +156,9 @@ public:
 	TUint32 iFilterData;				//< The filter definition.
 	CTransportSelector *iTS;			//< The transport selectors.
 	RPolicyActions iActions;			//< The actions, when selector matches
+
+	TInt iScope_Exception;				// UMA scope exception
+
 	};
 
 class CSecurityPolicy : public CBase

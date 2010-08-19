@@ -90,7 +90,9 @@ enum TPolicyMessages
         EIpsecPolicyGetDebugInfo,
         EIpsecPolicyCancelDebug,
         EIpsecPolicyAvailableSelectors,
-        EIpsecPolicyEnumerateSelectors
+        EIpsecPolicyEnumerateSelectors,
+        EIpsecPolicySetOption,
+        
     };
     
 enum TAutoloadFlags 

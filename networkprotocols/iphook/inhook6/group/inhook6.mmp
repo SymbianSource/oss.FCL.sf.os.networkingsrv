@@ -38,9 +38,9 @@ OS_LAYER_SYSTEMINCLUDE_SYMBIAN
 LIBRARY		euser.lib esock.lib esocksvr.lib mbufmgr.lib insock.lib
 
 #ifdef SYMBIAN_TCPIPDHCP_UPDATE
-deffile			inhook6.DEF
+deffile			inhook6.def
 #else
-deffile			inhook6_v1.DEF
+deffile			inhook6_v1.def
 #endif //SYMBIAN_TCPIPDHCP_UPDATE
 
 SOURCEPATH 			../data

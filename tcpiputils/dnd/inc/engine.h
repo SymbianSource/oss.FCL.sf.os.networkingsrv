@@ -59,6 +59,7 @@ public:
 	TIp6Addr iLlmnrIpv6;	//< The IPv6 multicast address
 #endif
 	TUint iEDNS0;			//< Enable EDNS0, if >= KDnsMaxMessage, value is receive payload size.
+	TBool iSuffixSupportEnabled;	//< Flag to switch ON/OFF the domain suffix based name resolution
 	};
 
 class MTimeoutManager;

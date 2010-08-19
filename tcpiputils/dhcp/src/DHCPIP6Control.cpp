@@ -29,7 +29,7 @@
 #include "ExpireTimer.h"
 #include "DomainNameDecoder.h"
 #include <comms-infras/es_config.h>
-#include "netcfgextndhcpmsg.h"
+#include "NetCfgExtnDhcpMsg.h"
 #include <nifman.h>
 #include <f32file.h>
 #include <comms-infras/metatype.h>

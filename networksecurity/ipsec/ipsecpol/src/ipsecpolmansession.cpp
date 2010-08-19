@@ -192,6 +192,12 @@ void CIPSecPolicyManagerSession::ServiceL(const RMessage2& aMessage)
         case EIpsecPolicyEnumerateSelectors:
         	Status = iServer->iIPSecPolicyManagerHandler->GetSelectorsCount(aMessage);
             break;
+			
+        case EIpsecPolicySetOption: //UMA support
+            TRAPD(err,iServer->iIPSecPolicyManagerHandler->SetOptL(aMessage));  
+			Status = err;
+			break;
+
         default:
             Status = KErrNotSupported;
             break;

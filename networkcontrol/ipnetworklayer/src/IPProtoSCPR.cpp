@@ -160,7 +160,7 @@ CIPProtoSubConnectionProvider* CIPProtoSubConnectionProvider::NewL(ESock::CSubCo
 CIPProtoSubConnectionProvider::~CIPProtoSubConnectionProvider()
     {
 	if (iControl)
-		delete iControl;
+		iControl->AsyncDelete();
 	if (iNotify)
 		delete iNotify;
 

@@ -360,7 +360,15 @@ TInt CProviderInet6Base::SetOption(TUint aLevel, TUint aName, const TDesC8& aOpt
 		if (aName == STATIC_CAST(TUint, KSoInetEnumInterfaces))	// See *NOTE* above!
 			{
 			iInterfaceIndex = 0;
+			
 			LOG(Log::Printf(_L("SetOpt\t%S SAP[%u] KSoInetEnumInterfaces"), &ProtocolName(), (TInt)this));
+			return KErrNone;
+			}
+		if (aName == STATIC_CAST(TUint, KSoInetEnumDomainSuffix))	// See *NOTE* above!
+			{
+			iDomainSuffixIndex = 0;
+			
+			LOG(Log::Printf(_L("SetOpt\t%S SAP[%u] KSoInetEnumDomainSuffix"), &ProtocolName(), (TInt)this));
 			return KErrNone;
 			}
 		}
@@ -419,11 +427,27 @@ TInt CProviderInet6Base::GetOption(TUint aLevel, TUint aName, TDes8& aOption) co
 		(void) new (&opt) TSoInetInterfaceInfo;	// Make sure descriptors are correct.
 		aOption.SetLength(sizeof(TSoInetInterfaceInfo));
 		((CProviderInet6Base *)this)->iInterfaceIndex = iProtocol->Interfacer()->InterfaceInfo(iInterfaceIndex, opt);
+		((CProviderInet6Base *)this)->iActiveEnumInterface.Copy(opt.iName);
+		
 		if (iInterfaceIndex > 0)
 			return KErrNone;
 		else
 			return KErrNotFound;
 		}
+    else if (aLevel == KSolInetIfCtrl && aName == STATIC_CAST(TUint, KSoInetNextDomainSuffix))
+        {
+		TInetSuffix& opt = *(TInetSuffix*)aOption.Ptr();
+        if (STATIC_CAST(TUint, aOption.MaxLength()) < sizeof(TInetSuffix))
+			return KErrTooBig;
+        (void) new (&opt) TInetSuffix; // Make sure descriptors are correct.
+        aOption.SetLength(sizeof(TInetSuffix));
+        ((CProviderInet6Base *)this)->iDomainSuffixIndex = iProtocol->Interfacer()->DomainSuffixInfo(iActiveEnumInterface, iDomainSuffixIndex, opt);
+        
+        if (iDomainSuffixIndex > 0)
+            return KErrNone;
+        else
+            return KErrNotFound;
+        }
 	else if (aLevel == KSolInetRtCtrl && aName == STATIC_CAST(TUint, KSoInetNextRoute))	// See *NOTE* above!
 		{
 		TSoInetRouteInfo& opt = *(TSoInetRouteInfo*)aOption.Ptr();
