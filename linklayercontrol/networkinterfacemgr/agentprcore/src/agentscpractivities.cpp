@@ -74,7 +74,7 @@ NODEACTIVITY_END()
 namespace AgentSCprStopActivity
 {
 // Note: use of TStopYourFlows/TAwaitingFlowDown/TNoTag (i.e. no looping) as there is only one flow at the Agent level.
-DECLARE_DEFINE_CUSTOM_NODEACTIVITY(ECFActivityStopDataClient, AgentSCprStop, TCFDataClient::TStop, MeshMachine::CNodeRetryActivity::NewL)
+DECLARE_DEFINE_CUSTOM_NODEACTIVITY(ECFActivityStopDataClient, AgentSCprStop, TCFDataClient::TStop, MeshMachine::CPreallocatedNodeRetryActivity::New)
 	FIRST_NODEACTIVITY_ENTRY(CoreNetStates::TAwaitingDataClientStop, PRDataClientStopActivity::TNoTagOrProviderStoppedBlockedByStart)
 	NODEACTIVITY_ENTRY(KNoTag, SCprStates::TStopYourFlows, CoreNetStates::TAwaitingDataClientStopped, MeshMachine::TTag<CoreNetStates::KProviderStopped>)
 

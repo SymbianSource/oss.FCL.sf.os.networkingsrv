@@ -41,12 +41,6 @@ using namespace Messages;
 using namespace ESock;
 using namespace NetStateMachine;
 
-//We reserve space for two preallocated activities that may start concurrently on the SCPR
-//node: destroy and data client stop.
-static const TUint KDefaultMaxPreallocatedActivityCount = 2;
-static const TUint KMaxPreallocatedActivitySize = sizeof(MeshMachine::CNodeRetryParallelActivity) + sizeof(MeshMachine::APreallocatedOriginators<4>);
-static const TUint KIPSCPRPreallocatedActivityBufferSize = KDefaultMaxPreallocatedActivityCount * KMaxPreallocatedActivitySize;
-
 namespace IPSCprAddressUpdate
 {
 DECLARE_DEFINE_NODEACTIVITY(IPDeftSCprBaseActivities::ECFActivityAddressUpdate, IPSCprAddressUpdate, TCFIPMessage::TDataClientRouted)
@@ -168,7 +162,7 @@ void CIpSubConnectionProvider::ConstructL()
 IP SubConnection Provider Second Phase Constructor
 */
 	{
-    CIpSubConnectionProviderBase::ConstructL(KIPSCPRPreallocatedActivityBufferSize);
+    CIpSubConnectionProviderBase::ConstructL();
 	}
 
 RNodeInterface* CIpSubConnectionProvider::NewClientInterfaceL(const TClientType& aClientType, TAny* /*aClientInfo*/)

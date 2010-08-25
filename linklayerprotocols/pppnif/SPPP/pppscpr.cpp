@@ -38,12 +38,6 @@ using namespace MeshMachine;
 _LIT8(KPppSCprSubTag, "pppscpr");
 #endif
 
-//We reserve space for two preallocated activities that may start concurrently on the SCPR
-//node: destroy and data client stop.
-static const TUint KDefaultMaxPreallocatedActivityCount = 2;
-static const TUint KMaxPreallocatedActivitySize = sizeof(MeshMachine::CNodeRetryParallelActivity) + sizeof(MeshMachine::APreallocatedOriginators<4>);
-static const TUint KPPPSCPRPreallocatedActivityBufferSize = KDefaultMaxPreallocatedActivityCount * KMaxPreallocatedActivitySize;
-
 namespace PppSCprStates
 {
 
@@ -101,7 +95,7 @@ CPppSubConnectionProvider* CPppSubConnectionProvider::NewL(ESock::CSubConnection
     {
     CPppSubConnectionProvider* self = new (ELeave) CPppSubConnectionProvider(aFactory, PppSCprActivities::pppSCprActivities::Self());
     CleanupStack::PushL(self);
-    self->ConstructL(KPPPSCPRPreallocatedActivityBufferSize);
+    self->ConstructL();
     CleanupStack::Pop();
     return self;
     }

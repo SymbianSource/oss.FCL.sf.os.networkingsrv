@@ -22,6 +22,7 @@
 #include <comms-infras/ss_log.h>
 #include <elements/sm_core.h>
 #include <comms-infras/corecpractivities.h>
+#include <comms-infras/ss_corepractivities.h>
 
 #include "tunnelagentcpr.h"
 #include "tunnelagentcprstates.h"
@@ -46,12 +47,6 @@ using namespace NetStateMachine;
 using namespace AgentCprStates;
 using namespace TunnelAgentCprStates;
 
-//We reserve space for two preallocated activities that may start concurrently on the CPR
-//node: destroy and data client stop.
-static const TUint KDefaultMaxPreallocatedActivityCount = 2;
-static const TUint KMaxPreallocatedActivitySize = sizeof(MeshMachine::CNodeRetryParallelActivity) + sizeof(MeshMachine::APreallocatedOriginators<4>);
-static const TUint KTunnelCPRPreallocatedActivityBufferSize = KDefaultMaxPreallocatedActivityCount * KMaxPreallocatedActivitySize;
-
 namespace TunnelAgentCprStartActivity
 {
 DECLARE_DEFINE_CUSTOM_NODEACTIVITY(ECFActivityStart, TunnelCprStart, TCFServiceProvider::TStart, PRActivities::CStartActivity::NewL)
@@ -65,7 +60,6 @@ DECLARE_DEFINE_CUSTOM_NODEACTIVITY(ECFActivityStart, TunnelCprStart, TCFServiceP
     LAST_NODEACTIVITY_ENTRY(KErrorTag, MeshMachine::TDoNothing)
 NODEACTIVITY_END()
 }
-
 namespace TunnelGoneDownActivity
 {
 DECLARE_DEFINE_NODEACTIVITY(ECFActivityGoneDown, TunnelGoneDown, TCFControlClient::TGoneDown)
@@ -104,7 +98,7 @@ EXPORT_C CTunnelAgentConnectionProvider* CTunnelAgentConnectionProvider::NewL(ES
 	{
 	CTunnelAgentConnectionProvider* self = new (ELeave) CTunnelAgentConnectionProvider(aFactory);
     CleanupStack::PushL(self);
-    self->ConstructL(KTunnelCPRPreallocatedActivityBufferSize);
+    self->ConstructL();
     CleanupStack::Pop(self);
 	return self;
 	}

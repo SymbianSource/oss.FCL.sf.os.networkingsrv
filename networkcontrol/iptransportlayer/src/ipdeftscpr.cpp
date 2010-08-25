@@ -42,12 +42,6 @@ using namespace IPDeftBaseSCprActivities;
 using namespace PRActivities;
 using namespace CoreNetStates;
 
-//We reserve space for two preallocated activities that may start concurrently on the default SCPR
-//node: destroy and data client stop.
-static const TUint KDefaultMaxPreallocatedActivityCount = 2;
-static const TUint KMaxPreallocatedActivitySize = sizeof(MeshMachine::CNodeRetryParallelActivity) + sizeof(MeshMachine::APreallocatedOriginators<4>);
-static const TUint KIPDefaultSCPRPreallocatedActivityBufferSize = KDefaultMaxPreallocatedActivityCount * KMaxPreallocatedActivitySize;
-
 //-=========================================================
 //
 // States
@@ -185,7 +179,7 @@ CIpDefaultSubConnectionProvider* CIpDefaultSubConnectionProvider::NewL(ESock::CS
     {
     CIpDefaultSubConnectionProvider* provider = new (ELeave) CIpDefaultSubConnectionProvider(aFactory);
     CleanupStack::PushL(provider);
-    provider->ConstructL(KIPDefaultSCPRPreallocatedActivityBufferSize);
+    provider->ConstructL();
 
     CleanupStack::Pop(provider);
     return provider;

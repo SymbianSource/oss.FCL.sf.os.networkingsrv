@@ -53,12 +53,6 @@ using namespace MeshMachine;
 using namespace ESock;
 using namespace NetStateMachine;
 
-//We reserve space for two preallocated activities that may start concurrently on the CPR
-//node: destroy and data client stop.
-static const TUint KDefaultMaxPreallocatedActivityCount = 2;
-static const TUint KMaxPreallocatedActivitySize = sizeof(MeshMachine::CNodeRetryParallelActivity) + sizeof(MeshMachine::APreallocatedOriginators<4>);
-static const TUint KAgentCPRPreallocatedActivityBufferSize = KDefaultMaxPreallocatedActivityCount * KMaxPreallocatedActivitySize;
-
 // Agent SCPR Going Down Activity
 namespace AgentDataClientGoneDownActivity
 {
@@ -116,7 +110,7 @@ EXPORT_C CAgentConnectionProvider* CAgentConnectionProvider::NewL(CConnectionPro
 	{
 	CAgentConnectionProvider* self = new (ELeave) CAgentConnectionProvider(aFactory);
     CleanupStack::PushL(self);
-    self->ConstructL(KAgentCPRPreallocatedActivityBufferSize);
+    self->ConstructL();
     CleanupStack::Pop(self);
 	return self;
 	}
