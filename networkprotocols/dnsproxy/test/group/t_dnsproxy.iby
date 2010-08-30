@@ -28,6 +28,7 @@ file=ABI_DIR\DEBUG_DIR\t_dnsproxy.exe		        system\programs\t_dnsproxy.exe
 data=EPOCROOT##epoc32\release\winscw\udeb\z\testdata\configs\resolver01.ini	 		testdata\configs\resolver01.ini 
 data=EPOCROOT##epoc32\release\winscw\udeb\z\testdata\configs\resolver02.ini	 		testdata\configs\resolver02.ini 
 data=EPOCROOT##epoc32\release\winscw\udeb\z\testdata\configs\resolver03.ini	 		testdata\configs\resolver03.ini 
+data=EPOCROOT##epoc32\release\winscw\udeb\z\testdata\configs\tcpip_4dnxproxy.ini 		testdata\configs\tcpip_4dnxproxy.ini 
 
 #ifdef INCLUDE_SIROCCO_CODE_MIGRATION
 data=EPOCROOT##epoc32\data\z\testdata\configs\cccccc00_dnsproxy1.cre testdata\configs\cccccc00_dnsproxy1.cre
@@ -38,7 +39,6 @@ data=EPOCROOT##epoc32\data\z\testdata\scripts\ns-dnsproxy-main-ops_wlan.script t
 #else
 data=EPOCROOT##epoc32\release\winscw\udeb\z\testdata\scripts\ns-dnsproxy-main-ops.script 	testdata\scripts\ns-dnsproxy-main-ops.script
 data=EPOCROOT##epoc32\release\winscw\udeb\z\testdata\scripts\ns-dnsproxy-maintest-ops.ini 	testdata\scripts\ns-dnsproxy-maintest-ops.ini
-data=EPOCROOT##epoc32\release\winscw\udeb\z\testdata\configs\tcpip_4dnxproxy.ini 		testdata\configs\tcpip_4dnxproxy.ini 
 data=EPOCROOT##epoc32\release\winscw\udeb\z\testdata\configs\testdnsproxy.xml	 		testdata\configs\testdnsproxy.xml 
 data=EPOCROOT##epoc32\release\winscw\udeb\z\testdata\configs\testdnsproxy2.xml	 		testdata\configs\testdnsproxy2.xml 
 data=EPOCROOT##epoc32\release\winscw\udeb\z\testdata\configs\testdnsproxy3.xml	 		testdata\configs\testdnsproxy3.xml 

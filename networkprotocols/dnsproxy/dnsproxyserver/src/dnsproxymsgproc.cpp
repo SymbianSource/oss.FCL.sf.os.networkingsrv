@@ -274,7 +274,7 @@ void CDnsProxyMessageProcessor::GetNsRecordSetL(TMsgBuf& aMsg)
 	const TUint8* ptr = (aMsg.Ptr() + offset);
 	TPtrC8 ptrc8(aMsg.Ptr() + offset, aMsg.Size() - offset);
 	
-	qname.Create(ptrc8.Size());
+	qname.CreateL(ptrc8.Size());
 	CleanupClosePushL(qname);
 	
 	qname.Copy(TPtrC8(&ptr[0],ptrc8.Size()));

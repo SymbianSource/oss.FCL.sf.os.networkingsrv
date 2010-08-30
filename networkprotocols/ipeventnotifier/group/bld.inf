@@ -20,8 +20,8 @@
 
 
 
-#include "../IPEventFactory/group/BLD.INF"
-#include "../IPEventTypes/group/BLD.INF"
+#include "../IPEventFactory/group/bld.inf"
+#include "../IPEventTypes/group/bld.inf"
 #include "../te_IPEventNotifier/group/bld.inf"
 
 PRJ_EXPORTS

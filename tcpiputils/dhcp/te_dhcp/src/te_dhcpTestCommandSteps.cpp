@@ -86,7 +86,7 @@ TVerdict CDhcpTestCommandSetIAPToUse::doTestStepL()
 		{
 		INFO_PRINTF2(_L("Making IAP %d private"),IAPToUseL());
 		
-		MakeIAPPrivateL(bRes);
+		//MakeIAPPrivateL(bRes);
 		}
 
 	SetTestStepResult(EPass);

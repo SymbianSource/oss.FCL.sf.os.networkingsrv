@@ -15,4 +15,4 @@
 
 #include "../ipip/group/bld.inf"
 #include "../tcpdumping/group/bld.inf"
-#include "../inetd/group/BLD.INF"
+#include "../inetd/group/bld.inf"

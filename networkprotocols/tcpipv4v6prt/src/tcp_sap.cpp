@@ -1198,7 +1198,7 @@ void CProviderTCP6::Shutdown(TCloseType aOption)
 			// Start linger timer. RSocket::Close() returns when timer
 			// expires or when all data has been succesfully transmitted.
 			//
-			iLingerTimer->Start(iLinger * KOneSecondUs);
+			iLingerTimer->Start(iLinger * KOneSecondInUs);
 			}
 		SchedTransmit();
 
@@ -1788,7 +1788,7 @@ void CProviderTCP6::CanSend()
 			{
 			// The heaviest time check only if we are otherwise allowed to send the keepalive.
 			TUint32 time_now = TimeStamp();
-			if (time_now - iLastTriggeredKeepAlive > KTcpKeepAliveTH * KOneSecondUs)
+			if (time_now - iLastTriggeredKeepAlive > KTcpKeepAliveTH * KOneSecondInMs)
 				{
 				iLastTriggeredKeepAlive = time_now;
 				LOG(Log::Printf(_L("\ttcp SAP[%u] CanSend(): Sending a Keep-Alive probe"), (TInt)this));
@@ -2447,7 +2447,7 @@ void CProviderTCP6::KeepAliveTimeout()
 	if (!iLastTimeout)
 		iLastTimeout = usec;
 
-	TUint32 distance = (usec - iLastTimeout) / KOneSecondUs;  // seconds
+	TUint32 distance = (usec - iLastTimeout) / KOneSecondInMs;  // seconds
 	TUint32 interval = iBackoff ? Protocol()->KeepAliveRxmt() : Protocol()->KeepAliveIntv();
 
 	if (distance > interval)
@@ -2456,14 +2456,14 @@ void CProviderTCP6::KeepAliveTimeout()
 		LOG(Log::Printf(_L("\ttcp SAP[%u] KeepAliveTimeout(): Sending a Keep-Alive probe"), (TInt)this));
 		SendSegment(KTcpCtlACK, iSND.UNA - 1, 0);
 		iBackoff++;
-		iRetransTimer->Restart(Protocol()->KeepAliveRxmt() * KOneSecondUs);
+		iRetransTimer->Restart(Protocol()->KeepAliveRxmt() * KOneSecondInUs);
 		}
 	else
 		{
 		// This branch is entered when the first keepalive has to be issued after an idle period.
 		distance = Protocol()->KeepAliveIntv() - distance;
 		iRetransTimer->Restart((distance > 1800) ?
-			1800 * KOneSecondUs : (distance * KOneSecondUs));
+			1800 * KOneSecondInUs : (distance * KOneSecondInUs));
 		}
 	}
 
@@ -2472,7 +2472,7 @@ void CProviderTCP6::ResetKeepAlives()
 	{
 	ASSERT(iRetransTimer);
 	iRetransTimer->Restart((Protocol()->KeepAliveIntv() > 1800) ?
-		1800 * KOneSecondUs : (Protocol()->KeepAliveIntv() * KOneSecondUs));
+		1800 * KOneSecondInUs : (Protocol()->KeepAliveIntv() * KOneSecondInUs));
 	// Backoff is used for counting unacknowledged keepalive retransmissions during idle periods
 	iBackoff = 0;
 	iLastTimeout = TimeStamp();
@@ -3718,6 +3718,13 @@ void CProviderTCP6::ProcessSegments()
 							iDupAcks = Max(iDupAcks - acked / (TInt)iSMSS, 0);
 							}
 						}
+					else if ( iDupAcks )
+                        {
+                        // New data acknowledged, and not ongoing any recovery action
+                        // Reset duplicate ack count
+                        LOG(Log::Printf(_L("\ttcp SAP[%u] ProcessSegments(): Reset iDupAcks to 0"), (TInt)this));
+                        iDupAcks = 0;
+                        }
 
 					// Reset limited transmit window
 					iLwnd = 0;
@@ -3893,6 +3900,9 @@ void CProviderTCP6::ProcessSegments()
 						iFlags.iEcnSendCWR = ETrue;
 						}
 					}
+				// This section used to hold the RetryACK concept, a reference can be checked
+				// from older versions(9.2/9.3). Its being removed as not required.
+				/*
 				if((iSND.NXT - ack) >0 && InState(ETcpEstablished) && (acked ==0))
 					{
 					iRetryAck++;
@@ -3903,6 +3913,7 @@ void CProviderTCP6::ProcessSegments()
 						iRetryAck = 0; // reset the retry count
 						}
 					}
+					*/
 					
 				}
 			}

@@ -719,7 +719,8 @@ ASSERT(EFalse);
 				iChannelId = -1;
       			/*phoney activity id, so nobody accidentally picks up the response*/
       			TCFDataClient::TStop dcStop(KErrAbort);
-      			ReceivedL(TNodeId(Id()), TNodeCtxId(EQoSNoInterface, Id()), dcStop);
+      			TInt errValue = (TInt)EQoSNoInterface;
+      			ReceivedL(TNodeId(Id()), TNodeCtxId(errValue, Id()), dcStop);
                 return;
 			}
 

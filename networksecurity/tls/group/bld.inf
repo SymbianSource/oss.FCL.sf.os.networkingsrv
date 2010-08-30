@@ -1,4 +1,4 @@
-// Copyright (c) 2000-2009 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2000-2010 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -48,17 +48,67 @@ PRJ_TESTEXPORTS
 ../ts_tls/data/certclients_psk.dat	z:/testdata/configs/certclients_psk.dat
 ../ts_tls/data/keys_psk.dat		z:/testdata/configs/keys_psk.dat
 
+#ifdef SIROCCO_CODE_MIGRATION
+../ts_tls/scripts/ssl_ntras_31_wlan.script 	z:/testdata/scripts/ssl_ntras_31_wlan.script
+../ts_tls/scripts/ssl_ntras_30_wlan.script 	z:/testdata/scripts/ssl_ntras_30_wlan.script
+../ts_tls/scripts/cccccc00_ssl_30.cre 	z:/testdata/configs/cccccc00_ssl_30.cre
+../ts_tls/scripts/tls_oom_wlan.script 	z:/testdata/scripts/tls_oom_wlan.script
+../ts_tls/scripts/tls_psk_wlan.script 	z:/testdata/scripts/tls_psk_wlan.script
+../ts_tls/scripts/cccccc00_tls_psk.cre 	z:/testdata/configs/cccccc00_tls_psk.cre
+#else
 ../ts_tls/scripts/ssl_ntras_31.script 	z:/testdata/scripts/ssl_ntras_31.script
 ../ts_tls/scripts/ssl_ntras_30.script 	z:/testdata/scripts/ssl_ntras_30.script
 ../ts_tls/scripts/Tls_ntras.cfg 	z:/testdata/configs/tls_ntras.cfg
 ../ts_tls/scripts/tls_oom.script 	z:/testdata/scripts/tls_oom.script
 ../ts_tls/scripts/tls_psk.script 	z:/testdata/scripts/tls_psk.script
 ../ts_tls/scripts/Tls_ethernet.xml 	z:/testdata/configs/tls_ethernet.xml
-
+#endif //SIROCCO_CODE_MIGRATION
 
 // tsecdlg input file
 ../ts_tls/data/tls_t_secdlg_in.dat 	z:/testdata/configs/tls_t_secdlg_in.dat
 
+#ifdef SIROCCO_CODE_MIGRATION
+../ts_tls/scripts/Tls3_wlan.ini  	 	z:/testdata/configs/tls3_wlan.ini
+../ts_tls/scripts/Tls4_wlan.ini  	 	z:/testdata/configs/tls4_wlan.ini
+../ts_tls/scripts/Tls5_wlan.ini  	 	z:/testdata/configs/tls5_wlan.ini
+../ts_tls/scripts/Tls8_wlan.ini  	 	z:/testdata/configs/tls8_wlan.ini
+../ts_tls/scripts/Tls9_wlan.ini  	 	z:/testdata/configs/tls9_wlan.ini
+../ts_tls/scripts/Tls11_wlan.ini  	 	z:/testdata/configs/tls11_wlan.ini
+../ts_tls/scripts/Tls12_wlan.ini  	 	z:/testdata/configs/tls12_wlan.ini
+../ts_tls/scripts/Tls13_wlan.ini  	 	z:/testdata/configs/tls13_wlan.ini
+../ts_tls/scripts/Tls14_wlan.ini  	 	z:/testdata/configs/tls14_wlan.ini
+../ts_tls/scripts/Tls16_wlan.ini  	 	z:/testdata/configs/tls16_wlan.ini
+../ts_tls/scripts/Tls19_wlan.ini  	 	z:/testdata/configs/tls19_wlan.ini
+../ts_tls/scripts/Tls20_wlan.ini  	 	z:/testdata/configs/tls20_wlan.ini
+../ts_tls/scripts/Tls21_wlan.ini  	 	z:/testdata/configs/tls21_wlan.ini
+../ts_tls/scripts/Tls22_wlan.ini  	 	z:/testdata/configs/tls22_wlan.ini
+../ts_tls/scripts/Tls23_wlan.ini  	 	z:/testdata/configs/tls23_wlan.ini
+../ts_tls/scripts/Tls24_wlan.ini  	 	z:/testdata/configs/tls24_wlan.ini
+../ts_tls/scripts/Tls25_wlan.ini  	 	z:/testdata/configs/tls25_wlan.ini
+../ts_tls/scripts/Tls26_wlan.ini  	 	z:/testdata/configs/tls26_wlan.ini
+../ts_tls/scripts/Tls28_wlan.ini  	 	z:/testdata/configs/tls28_wlan.ini
+../ts_tls/scripts/Tls5b_wlan.ini  	 	z:/testdata/configs/tls5b_wlan.ini
+../ts_tls/scripts/TlsA_wlan.ini  	 	z:/testdata/configs/tlsa_wlan.ini
+../ts_tls/scripts/tls2f_wlan.ini  	 	z:/testdata/configs/tls2f_wlan.ini
+../ts_tls/scripts/tls35_wlan.ini  	 	z:/testdata/configs/tls35_wlan.ini
+../ts_tls/scripts/Tls36_wlan.ini  	 	z:/testdata/configs/tls36_wlan.ini
+../ts_tls/scripts/tls37_wlan.ini  	 	z:/testdata/configs/tls37_wlan.ini
+../ts_tls/scripts/Tls38_wlan.ini  	 	z:/testdata/configs/tls38_wlan.ini
+../ts_tls/scripts/Tlssa_wlan.ini  	 	z:/testdata/configs/tlssa_wlan.ini
+../ts_tls/scripts/tls_oom_wlan.ini  	 	z:/testdata/configs/tls_oom_wlan.ini
+../ts_tls/scripts/tls1_wlan.ini  	 	z:/testdata/configs/tls1_wlan.ini
+../ts_tls/scripts/tls2_wlan.ini  	 	z:/testdata/configs/tls2_wlan.ini
+../ts_tls/scripts/TLS_RSA_WITH_NULL_SHA_wlan.ini						z:/testdata/configs/tls_rsa_with_null_sha_wlan.ini
+../ts_tls/scripts/TLS_RSA_WITH_NULL_MD5_wlan.ini						z:/testdata/configs/tls_rsa_with_null_md5_wlan.ini
+../ts_tls/scripts/TLS_SNE_SINGLE_SERVER_wlan.ini						z:/testdata/configs/tls_sne_single_server_wlan.ini
+../ts_tls/scripts/TLS_SNE_MULTIPLE_SERVER_wlan.ini					z:/testdata/configs/tls_sne_multiple_server_wlan.ini
+../ts_tls/scripts/TLS_PSK_WITH_RC4_128_SHA_wlan.ini					z:/testdata/configs/tls_psk_with_rc4_128_sha_wlan.ini
+../ts_tls/scripts/TLS_SNE_SINGLE_SERVER_NEG_wlan.ini					z:/testdata/configs/tls_sne_single_server_neg_wlan.ini
+../ts_tls/scripts/TLS_PSK_WITH_AES_128_CBC_SHA_wlan.ini				z:/testdata/configs/tls_psk_with_aes_128_cbc_sha_wlan.ini
+../ts_tls/scripts/TLS_PSK_WITH_AES_256_CBC_SHA_wlan.ini				z:/testdata/configs/tls_psk_with_aes_256_cbc_sha_wlan.ini
+../ts_tls/scripts/TLS_PSK_WITH_3DES_EDE_CBC_SHA_wlan.ini				z:/testdata/configs/tls_psk_with_3des_ede_cbc_sha_wlan.ini
+../ts_tls/scripts/TLS_PSK_WITH_AES_128_CBC_SHA_NOCALLBACK_wlan.ini	z:/testdata/configs/tls_psk_with_aes_128_cbc_sha_nocallback_wlan.ini
+#else
 ../ts_tls/scripts/Tls3.ini  	 	z:/testdata/configs/tls3.ini
 ../ts_tls/scripts/Tls4.ini  	 	z:/testdata/configs/tls4.ini
 ../ts_tls/scripts/Tls5.ini  	 	z:/testdata/configs/tls5.ini
@@ -99,7 +149,7 @@ PRJ_TESTEXPORTS
 ../ts_tls/scripts/TLS_PSK_WITH_AES_256_CBC_SHA.ini				z:/testdata/configs/tls_psk_with_aes_256_cbc_sha.ini
 ../ts_tls/scripts/TLS_PSK_WITH_3DES_EDE_CBC_SHA.ini				z:/testdata/configs/tls_psk_with_3des_ede_cbc_sha.ini
 ../ts_tls/scripts/TLS_PSK_WITH_AES_128_CBC_SHA_NOCALLBACK.ini	z:/testdata/configs/tls_psk_with_aes_128_cbc_sha_nocallback.ini
-
+#endif //SIROCCO_CODE_MIGRATION
 
 
 

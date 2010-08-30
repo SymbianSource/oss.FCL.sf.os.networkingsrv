@@ -934,7 +934,9 @@ TInt TDndReqData::TranslateRCODE(const TDndHeader &aHdr, TInt aRCode) const
 		case EDnsRcode_FORMAT_ERROR:
 			return KErrDndFormat;
 		case EDnsRcode_SERVER_FAILURE:
-			return KErrDndServerFailure;
+		    /*In case the server returns the server failure, we just ignore the error code and treat it as server unusable. so that the query is sent to the other available servers for resolution. Need more reasonable solution ???-- 
+            return KErrDndServerFailure;  */
+            return KErrDndServerUnusable;
 		case EDnsRcode_NAME_ERROR:
 			return KErrDndBadName;
 		case EDnsRcode_NOT_IMPLEMENTED:
