@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* Copyright (c) 2009-2010 Nokia Corporation and/or its subsidiary(-ies).
 * All rights reserved.
 * This component and the accompanying materials are made available
 * under the terms of "Eclipse Public License v1.0"
@@ -70,6 +70,7 @@ file=ABI_DIR\DEBUG_DIR\ts_selftest.dll		System\Libs\ts_selftest.dll
 
 // Initialisation before any tests are run
 data=EPOCROOT##epoc32\data\z\testdata\scripts\te_initialiseboard.script		TestData\scripts\te_initialiseboard.script
+data=EPOCROOT##epoc32\data\z\testdata\scripts\delay.script		TestData\scripts\delay.script
 
 REM ---------- Comms-Infras ----------
 
@@ -131,7 +132,7 @@ REM ---------- Networking ----------
 #endif //NW_TEST_ROM_2
 
 // FTP Tests
-#include <tftp_e.iby>
+//#include <tftp_e.iby>
 
 // IntegrationTest framework
 #ifdef NW_TEST_ROM_1
@@ -141,9 +142,6 @@ REM ---------- Networking ----------
 // NULL AGT Tests
 #ifdef NW_TEST_ROM_1
 #include <nullagttests.iby>
-
-// Agent Adapter Tests
-#include <csdagttests.iby>
 #endif
 
 // Useful  Internet Utilities for all test roms
@@ -262,13 +260,14 @@ REM ---------- Networking ----------
 // Needed by several tests
 #include <simtsy.iby>
 
-#include <te_AnvlClient.iby>
+// Commenting anvl as no one is using it. can uncomment when needed . need to update networktest.iby also
+// #include <te_AnvlClient.iby>
 
 REM ---------- WAP-Stack ----------
 
 // SWS test
 #ifdef NW_TEST_ROM_3
-#include <wapstacksuite.iby>
+//#include <wapstacksuite.iby>
 #endif
 
 REM --- NEEDED FOR THE SECURITY TESTS ---

@@ -285,19 +285,7 @@ TBool TDndReqData::PickDefaultServer()
 	TBool ret = FALSE;
 
 	if (iCurrentServer == 0)
-	    {
 		ret = iOwner->iServerManager.OpenList(iFilter, this) > 0;
-		// if suffix support is enabled in the resolver.ini
-		// and query request had been initiated from a implicitly connected host resolver
-		// Perform checks to find appropriate interface that can support the domain name
-		// and update the server filter for the network id it should forward its request to
-		if (iSuffixSupportEnabled && iFlowReqType == 0)
-			iOwner->iServerManager.UpdateDomain(iFilter);
-#ifdef _LOG
-		if (iNetworkId != iFilter.iLockId)
-			Log::Printf(_L("\t\tDNS session [%u] domain suffix match resulted in change of net id from %d to %d"), (TInt)this, iNetworkId, iFilter.iLockId);
-#endif
-	    }
 	iOwner->iCache->GetServerAddress(iOwner->iServerManager.NameSpace(iFilter, iCurrentServer), tmp);
 	iFilter.iServerId = iOwner->iServerManager.ServerId(tmp);
 	iCurrentServer = iOwner->iServerManager.Next(iFilter, 0);
@@ -422,7 +410,7 @@ void TDndReqData::Close()
 
 // TDndReqData::NewQuery
 // ***********************
-TInt TDndReqData::NewQuery(const TDnsMessage &aQuery, TDnsServerScope aServerScope, TUint32 aFlags, TBool aSuffixSupportEnabled)
+TInt TDndReqData::NewQuery(const TDnsMessage &aQuery, TDnsServerScope aServerScope, TUint32 aFlags)
 	{
 	iIsReqPending = FALSE;
 	iIsNewQuery = TRUE;
@@ -431,14 +419,7 @@ TInt TDndReqData::NewQuery(const TDnsMessage &aQuery, TDnsServerScope aServerSco
 	iFlags = aFlags;
 	iFilter.iServerScope = aServerScope;
 	iFilter.iServerId = 0;
-	iNetworkId = aQuery.iId;  			// Get the networkId information from the Query.
-	iFlowReqType = aQuery.iFlowRequestType; // Get the IMPLICIT/EXPLICIT differentiation from the Query
-	iSuffixSupportEnabled = aSuffixSupportEnabled; // Whether suffix support enabled in the resolver.ini
-	iIsIncompleteHostName = FALSE;		// Whether the query name is not fully qualified name
-	iCanResolveIncompleteName = TRUE;	// Flag to confirm incomplete name without domain suffix tried for resolution as it is
-	iPendingSuffixExist = FALSE;		// Identifies whether all of the available suffixes has been tried out
-	iFilter.iDomainName.FillZ();
-	iFilter.iDomainName.SetLength(0);
+	iNetworkId = aQuery.iId;  // Get the networkId information from the Query.
 
 #ifdef SYMBIAN_DNS_PUNYCODE
 	if( (aQuery.iScope & 0x80) == 0x80 )
@@ -462,28 +443,16 @@ TInt TDndReqData::NewQuery(const TDnsMessage &aQuery, TDnsServerScope aServerSco
 
 			if (aQuery.iType == KDnsRequestType_GetByName)
 				{
-				THostName queryName(query.iName);
-	
-				// if the query is a qualified name, pick the domain name from the query
-				// and update the server filter for the performing interface selection
-				TInt posOfDomainNameStart = queryName.Locate('.');
-			    if (posOfDomainNameStart != KErrNotFound)
-			        {
-			        iFilter.iDomainName = queryName.Mid(posOfDomainNameStart+1);
-			        }
-			        
 				iFilter.iLockId = aQuery.iId;
 				iFilter.iLockType = KIp6AddrScopeNetwork;
 #ifdef SYMBIAN_DNS_PUNYCODE
-				TInt err = iQuestion.SetName(queryName);
+				TInt err = iQuestion.SetName(query.iName);
 				if( err != KErrNone)
 					{
 					return err;
 					}
-				iActualQueryName.Copy(queryName);
 #else
-				iQuestion.SetName(queryName);
-				iActualQueryName.Copy(queryName);
+				iQuestion.SetName(query.iName);
 #endif // SYMBIAN_DNS_PUNYCODE
 				}
 			else
@@ -687,10 +656,6 @@ TInt TDndReqData::DoQueryL(const TTime &aRequestTime, const EDnsQType aQType)
 	iQuestion.SetQType(aQType);
 	// -- only IN class queries are supported
 	iQuestion.SetQClass(EDnsQClass_IN);
-	// Possible that the there is a different interface (other than the default)
-	// that can resolve the domain name we are interested at.
-	// By this time, we would have updated the netid in the filter, if at all
-	iNetworkId = iFilter.iLockId;
 
 	if (iRecord)
 		{
@@ -722,22 +687,7 @@ TInt TDndReqData::DoQueryL(const TTime &aRequestTime, const EDnsQType aQType)
 		SendResponse(KErrDndServerUnusable);
 		return 0;
 		}
-
-
-	// Check to see if the query is not fully qualified
-    THostName queryName;
-    iQuestion.GetName(queryName);
-    if (queryName.Locate('.') == KErrNotFound)
-        {
-		// If query is not fully qualified, set flags to mark this for further processing
-        iIsIncompleteHostName = TRUE;
-		// Pick the domain suffix list on the interface
-	    iOwner->iServerManager.InterfaceSuffixList(iCurrentServer, iSuffixList);
-		// If count of suffices is 0, mark this, so that we do not have to perform any special processing
-        if (iSuffixList.Count() > 0)
-            iPendingSuffixExist = TRUE;
-        }
-
+				
 	// Check in the cache first. If the record does not exist
 	// in the cache, it will be created now (empty with KErrNotFound).
 	iRecord = iOwner->iCache->FindL(
@@ -984,10 +934,7 @@ TInt TDndReqData::TranslateRCODE(const TDndHeader &aHdr, TInt aRCode) const
 		case EDnsRcode_FORMAT_ERROR:
 			return KErrDndFormat;
 		case EDnsRcode_SERVER_FAILURE:
-			/*
-			In case the server returns the server failure, we just ignore the error code and treat it as server unusable. so that the query is sent to the other available servers for resolution. Need more reasonable solution ???-- 
-			return KErrDndServerFailure;  */
-			return KErrDndServerUnusable;
+			return KErrDndServerFailure;
 		case EDnsRcode_NAME_ERROR:
 			return KErrDndBadName;
 		case EDnsRcode_NOT_IMPLEMENTED:
@@ -1117,90 +1064,6 @@ TBool TDndReqData::Build(CDnsSocket &aSource, TMsgBuf &aMsg, TInetAddr &aServer,
 		return 0;
 	ASSERT(aServer.Port() != 0);
 
-	// If the query us incomplete and we have pending domain suffix that can be applied
-	// lets try to update the query name and forward it to the next level
-    if ( iIsIncompleteHostName )
-        {
-		if ( iPendingSuffixExist )
-			{
-	        THostName queryName;
-	        iQuestion.GetName(queryName);
-	        
-	        if ( queryName.Locate('.') == KErrNotFound )
-	            {
-				// If the query does not have a '.', we understand that the query has not tried 
-				// any of the suffixes. So, lets apply the first domain suffix from the interface
-	            TInt newLength = queryName.Length() + iSuffixList[0].Length();
-	            THostName qName(queryName);
-	            qName.Append(_L("."));
-	            
-	            // If the query name + suffix name exceeds allowed limit for length (256)
-	            // truncate the suffix name while appending to the min possible length
-	            // this automagically skips from getting resolved as the buffer does not have 
-	            // enough space to append configuration msg along with it
-	            if (newLength < KMaxHostNameLength)
-	                qName.Append(iSuffixList[0]);
-	            else
-	                qName.Append(iSuffixList[0].Mid(0, KMaxHostNameLength - qName.Length()));
-	            
-	            iQuestion.SetName(qName);
-	            
-	            if ( iSuffixList.Count() == 1 )
-	                iPendingSuffixExist = FALSE;
-	                
-	            LOG(Log::Printf(_L("\t\t Query name after appending suffix = %S"), &qName));
-	            }
-	        else
-	            {
-				// As we dont have a '.', we understand that there is some domain suffix already tried
-				// and we have reached here because, we were not able to resolve with that domain suffix
-				// Now, lets figure out in sequence, as to which one was applied previously
-				// so that we shall apply the next one in the list and forward it for resolution
-	            for (TInt index=0; /*iPendingSuffixExist*/ ; index++ )
-	                {
-	                // Crop the leadng query name and '.' from the previous query and check to see
-	                // which suffix in the list was earlier applied
-
-	                TSuffixName queryNameSuffix( queryName.Mid( iActualQueryName.Length()+1 ) );
-	                TSuffixName domainSuffix(iSuffixList[index]);
-	                TInt suffixLength = domainSuffix.Length();
-	                TInt completeLength = suffixLength + iActualQueryName.Length() + 1;
-	                
-	                if (completeLength > KMaxHostNameLength)
-	                	suffixLength = KMaxHostNameLength - (iActualQueryName.Length() + 1);
-	                	
-	                if ( queryNameSuffix.Compare( domainSuffix.Mid( 0, suffixLength ) ) != KErrNone )
-	                    continue;
-	                
-                    index++;
-                    TInt newLength = iActualQueryName.Length() + iSuffixList[index].Length();
-                    THostName qName(iActualQueryName);
-                    qName.Append(_L("."));
-                    
-                    if (newLength < KMaxHostNameLength)
-                        qName.Append(iSuffixList[index]);
-                    else
-                        qName.Append(iSuffixList[index].Mid(0, KMaxHostNameLength - qName.Length()));
-                    
-                    iQuestion.SetName(qName);
-                    
-                    if ( iSuffixList.Count() == index+1 )
-                        iPendingSuffixExist = FALSE;
-
-                    LOG(Log::Printf(_L("\t\t Query name after appending suffix = %S"), &qName));
-                    break;
-	                }
-	            }
-	        }
-	    else /* if ( iCanResolveIncompleteName )*/
-	        {
-	        iQuestion.SetName(iActualQueryName);
-	        LOG(Log::Printf(_L("\t\t Query name after appending suffix = %S"), &iActualQueryName));
-	        iCanResolveIncompleteName = FALSE;
-	        }
-		}
-
-    
 	aMsg.SetLength(sizeof(TDndHeader));
 	TDndHeader &hdr = (TDndHeader &)aMsg.Header();
 	if (aServer.IsMulticast())
@@ -1312,17 +1175,6 @@ TBool TDndReqData::Reply(CDnsSocket &aSource, const TMsgBuf &aBuf, const TInetAd
 		// If cannot use the TCP, then just use the trunctated
 		// answer as is...
 		}
-		
-	// If a incomplete query has failed to resolve after application of a domain suffix
-	// and we know that we still have some pending suffix that can be applied
-	// let us retry with the available suffices
-	LOG(Log::Printf(_L("Error from name resolution is %d"),err));
-    if( err == KErrDndBadName && iIsIncompleteHostName && (iPendingSuffixExist || iCanResolveIncompleteName))
-        {
-        iOwner->ReSend(*this, ETrue); // Set the retryWithSuffix flag to TRUE so that a new request ID is assigned
-        return 1;
-        }
-
 	//
 	// UpdateCacheData updates data in cache only, if err is KErrNone, or
 	// updates error status for some specific err codes,

@@ -1248,17 +1248,11 @@ TInt CDnsSocket::Queue(TDnsRequest &aRequest, const TInetAddr &aServer, const TI
 // If a request is not currently queued, this does an implicit
 // Queue. (a new id is generated).
 //
-// Exceptionally, the request assigns new ID when an incomplete query name
-// is iterated to apply multiple domain suffices on
-// the interface being used for sending requests
-//
 // @param aRequest	the request to be resent.
-// @param aRetryWithSuffix	flag set to identify retry requests 
-//							on incomplete query names. Defaulted to FALSE
 */
-void CDnsSocket::ReSend(TDnsRequest &aRequest, TBool aRetryWithSuffix)
+void CDnsSocket::ReSend(TDnsRequest &aRequest)
 	{
-	Queue(aRequest, (!aRetryWithSuffix && aRequest.IsQueued()) ? aRequest.Id() : -1);
+	Queue(aRequest, aRequest.IsQueued() ? aRequest.Id() : -1);
 	}
 
 /**

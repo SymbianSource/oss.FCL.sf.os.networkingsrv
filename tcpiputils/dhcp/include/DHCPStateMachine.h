@@ -24,7 +24,6 @@
 
 #include <e32base.h>
 #include <comms-infras/statemachine.h>
-#include <es_ini.h>
 
 #include "MsgSender.h"
 #include "DHCP_Std.h"
@@ -197,7 +196,7 @@ protected:
    virtual void AssembleClientIDsL() = 0;
    void FetchHWAddress();
 
-   void ConfigureInterfaceL( const TSoInetInterfaceInfoExtnDnsSuffix& aInterfaceInfo );
+   void ConfigureInterfaceL( const TSoInet6InterfaceInfo& aInterfaceInfo );
    virtual void PrepareToSendL(CDHCPStateMachine::EAddressType aEAddressType) = 0;
 #ifdef SYMBIAN_NETWORKING_DHCPSERVER   
    	virtual void PrepareToSendServerMsgL(CDHCPStateMachine::EAddressType aEAddressType) = 0;
@@ -275,7 +274,7 @@ protected:
 	//DNS client names
 	HBufC8*   iHostName;
 	HBufC8*   iDomainName;
-	
+
 	TUint32 iRenewalTimeT1;			// number of seconds after iStartedAquisitionAt when we send a renew request
 	TUint32 iRebindTimeT2;			// number of seconds after iStartedAquisitionAt when we send a rebind request (only if any renew fails)
 	TUint32 iLeaseTime;				// number of seconds after iStartedAquisitionAt when the lease expires
@@ -300,15 +299,7 @@ protected:
 public:	
 	TBool iDhcpInformAckPending;
 	RBuf8 iSavedExtraParameters;
-#endif //SYMBIAN_NETWORKING_DHCP_MSG_HEADERS
-protected:
-	RInetSuffixList iSuffixList;  // Structure to read domain search list from option data returned by dhcp server
-	CESockIniData *iConfig; // Buffer for dhcp.ini content - part of esock framework for ini file parsing
-private:
-    TBool LoadConfigurationFile(); // Load dhcp.ini file to a buffer
-    void UnloadConfigurationFile(); // Destruct allocated space for dhcp ini content
-protected:
-    TInt IniRead(const TDesC& aOptionName, TDes8& aOptionValue); // Ini parser
+#endif //SYMBIAN_NETWORKING_DHCP_MSG_HEADERS	
 	};
 	
 #ifdef SYMBIAN_NETWORKING_DHCPSERVER

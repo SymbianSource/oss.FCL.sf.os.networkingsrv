@@ -368,22 +368,6 @@ TBool COptionList::CopyDomainNameL(HBufC8*& aBuf8) const
 	return pNode != NULL;
 	}
 
-TBool COptionList::CopyDomainSearchL(HBufC8*& aBuf8) const
-/**
-  * Return a copy of the domain search list given in the message 
-  *
-  * @param aBuf8 A descriptor for the domain search list to be written into
-  * @return TBool If the copy was successful or not 
-  */
-    {
-    COptionNode* pNode = FindOption(EDHCPDomainSearch);
-    if (pNode)
-        {
-        pNode->CopyBodyToL(aBuf8);
-        }
-    return pNode != NULL;
-    }
-
 CDHCPMessageHeaderIP4::CDHCPMessageHeaderIP4(HBufC8*& aMsg) :
 	CDHCPMessageHeader(&iXid, 4, aMsg), //|     op (1)    |   htype (1)   |   hlen (1)    |   hops (1)    |
 		iXid(&iSecs, 4), iSecs(&iFlags, 2), iFlags(&iCiaddr, 2),

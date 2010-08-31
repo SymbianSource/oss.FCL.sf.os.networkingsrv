@@ -117,13 +117,9 @@ protected:
 	If the request is not already queued, action defaults to
 	normal Queue().
 	
-	Exceptionally, the request assigns new ID when an incomplete query name
-	is iterated to apply multiple domain suffices on the interface being used for sending requests
-	
 	@param aRequest to be queued
-	@param aRetryWithSuffix	flag set to identify retry requests on incomplete query names. Defaulted to FALSE
 	*/
-	void ReSend(TDnsRequest &aRequest, TBool aRetryWithSuffix = EFalse);
+	void ReSend(TDnsRequest &aRequest);
 
 	/**
 	Received a Query or unmatched Reply packet

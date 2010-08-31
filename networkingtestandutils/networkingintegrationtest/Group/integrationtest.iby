@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
 * All rights reserved.
 * This component and the accompanying materials are made available
 * under the terms of "Eclipse Public License v1.0"
@@ -41,7 +41,44 @@ file=ABI_DIR\DEBUG_DIR\scheduletest.exe		System\Programs\scheduletest.exe
 #include "te_DedicatedSignalling1ryCtx.iby"
 #endif // #ifdef SYMBIAN_NETWORKING_UMTSR5
 
+#ifdef INCLUDE_SIROCCO_CODE_MIGRATION 
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\cccccc00_itest1.cre		testdata\configs\cccccc00_itest1.cre
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\cccccc00_itest2.cre		testdata\configs\cccccc00_itest2.cre
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\cccccc00_itest3.cre		testdata\configs\cccccc00_itest3.cre
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\cccccc00_itest4.cre		testdata\configs\cccccc00_itest4.cre
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\cccccc00_itest5.cre		testdata\configs\cccccc00_itest5.cre
+#endif
+
 // S1 script files
+#ifdef INCLUDE_SIROCCO_CODE_MIGRATION  
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s1.script			testdata\scripts\integration\itest_s1.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\LogOn.script			testdata\scripts\integration\LogOn.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s1\itest_RConnection.script		testdata\scripts\integration\itest_s1\itest_RConnection.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s1\itest1_01_wlan.script		testdata\scripts\integration\itest_s1\itest1_01.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s1\itest1_02_wlan.script		testdata\scripts\integration\itest_s1\itest1_02.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s1\itest1_03_wlan.script		testdata\scripts\integration\itest_s1\itest1_03.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s1\itest1_04.script		testdata\scripts\integration\itest_s1\itest1_04.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s1\itest1_09.script		testdata\scripts\integration\itest_s1\itest1_09.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s1\itest1_10_wlan.script		testdata\scripts\integration\itest_s1\itest1_10.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s1\itest1_11.script		testdata\scripts\integration\itest_s1\itest1_11.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s1\itest1_12.script		testdata\scripts\integration\itest_s1\itest1_12.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s1\itest1_13_wlan.script		testdata\scripts\integration\itest_s1\itest1_13.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s1\itest1_14.script		testdata\scripts\integration\itest_s1\itest1_14.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s1\itest1_15.script		testdata\scripts\integration\itest_s1\itest1_15.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s1\itest1_16.script		testdata\scripts\integration\itest_s1\itest1_16.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s1\itest1_17_wlan.script		testdata\scripts\integration\itest_s1\itest1_17.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s1\ipv4_wlan.ini			testdata\configs\integration\itest_s1\ipv4.ini				
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s1\ipv6_wlan.ini			testdata\configs\integration\itest_s1\ipv6.ini				
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s1\client_timeout.ini	testdata\configs\integration\itest_s1\client_timeout.ini		
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s1\genconn.ini		testdata\configs\integration\itest_s1\genconn.ini				
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s1\itest.ini		testdata\configs\integration\itest_s1\itest.ini				
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s1\rnif_timeout.ini		testdata\configs\integration\itest_s1\rnif_timeout.ini		
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s1\load_csd_wlan.script		testdata\scripts\integration\itest_s1\load_csd.script			
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s1\n6210.script		testdata\scripts\integration\itest_s1\n6210.script			
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s1\itest_load.script	testdata\scripts\integration\itest_s1\itest_load.script			
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s1\big_ipv4.ini		testdata\configs\integration\itest_s1\big_ipv4.ini			
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s1\te_teststeps.ini		testdata\configs\integration\itest_s1\te_teststeps.ini			
+#else
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s1.script			testdata\scripts\integration\itest_s1.script
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\LogOn.script			testdata\scripts\integration\LogOn.script
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s1\itest_RConnection.script		testdata\scripts\integration\itest_s1\itest_RConnection.script
@@ -71,30 +108,61 @@ data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s1\
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s1\itest_load.script	testdata\scripts\integration\itest_s1\itest_load.script			
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s1\big_ipv4.ini		testdata\configs\integration\itest_s1\big_ipv4.ini			
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s1\ipsec_csd.xml			testdata\configs\integration\itest_s1\ipsec_csd.xml			
-
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s1\te_teststeps.ini		testdata\configs\integration\itest_s1\te_teststeps.ini			
-
-
-
+#endif
+#ifdef INCLUDE_SIROCCO_CODE_MIGRATION 
 // S2 script files
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s2.script			testdata\scripts\integration\itest_s2.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s2\itest2_01_wlan.script		testdata\scripts\integration\itest_s2\itest2_01.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s2\ipv4_wlan.ini			testdata\configs\integration\itest_s2\ipv4.ini				
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s2\client_timeout.ini	testdata\configs\integration\itest_s2\client_timeout.ini		
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s2\itest.ini		testdata\configs\integration\itest_s2\itest.ini				
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s2\load_hscsd_wlan.script	testdata\scripts\integration\itest_s2\load_hscsd.script			
+#else 
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s2.script			testdata\scripts\integration\itest_s2.script
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s2\itest2_01.script		testdata\scripts\integration\itest_s2\itest2_01.script
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s2\ipv4.ini			testdata\configs\integration\itest_s2\ipv4.ini				
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s2\client_timeout.ini	testdata\configs\integration\itest_s2\client_timeout.ini		
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s2\itest.ini		testdata\configs\integration\itest_s2\itest.ini				
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s2\load_hscsd.script	testdata\scripts\integration\itest_s2\load_hscsd.script			
-data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s2\hscsd.xml		testdata\configs\integration\itest_s2\hscsd.xml			
-
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s2\hscsd.xml		testdata\configs\integration\itest_s2\hscsd.xml
+#endif
+#ifdef INCLUDE_SIROCCO_CODE_MIGRATION 
 // S3 script files
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3.script			testdata\scripts\integration\itest_s3.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_01_wlan.script		testdata\scripts\integration\itest_s3\itest3_01.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_02_wlan.script		testdata\scripts\integration\itest_s3\itest3_02.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_03.script		testdata\scripts\integration\itest_s3\itest3_03.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_04_wlan.script		testdata\scripts\integration\itest_s3\itest3_04.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_05_wlan.script		testdata\scripts\integration\itest_s3\itest3_05.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_05b.script		testdata\scripts\integration\itest_s3\itest3_05b.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_05c_wlan.script	testdata\scripts\integration\itest_s3\itest3_05c.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_09_wlan.script		testdata\scripts\integration\itest_s3\itest3_09.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_10_wlan.script		testdata\scripts\integration\itest_s3\itest3_10.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_11.script		testdata\scripts\integration\itest_s3\itest3_11.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_12_wlan.script		testdata\scripts\integration\itest_s3\itest3_12.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_13_wlan.script		testdata\scripts\integration\itest_s3\itest3_13.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_14_wlan.script		testdata\scripts\integration\itest_s3\itest3_14.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_15.script		testdata\scripts\integration\itest_s3\itest3_15.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_16_wlan.script		testdata\scripts\integration\itest_s3\itest3_16.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_17_wlan.script		testdata\scripts\integration\itest_s3\itest3_17.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s3\ipv4_wlan.ini			testdata\configs\integration\itest_s3\ipv4.ini				
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s3\ipv6_wlan.ini			testdata\configs\integration\itest_s3\ipv6.ini				
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s3\client_timeout.ini	testdata\configs\integration\itest_s3\client_timeout.ini		
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s3\route_timeout.ini	testdata\configs\integration\itest_s3\route_timeout.ini	
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s3\genconn.ini		testdata\configs\integration\itest_s3\genconn.ini				
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s3\itest.ini		testdata\configs\integration\itest_s3\itest.ini				
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s3\rnif_timeout.ini		testdata\configs\integration\itest_s3\rnif_timeout.ini		
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\load_gprs_wlan.script		testdata\scripts\integration\itest_s3\load_gprs.script			
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s3\te_teststeps.ini		testdata\configs\integration\itest_s3\te_teststeps.ini			
+#else
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3.script			testdata\scripts\integration\itest_s3.script
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_01.script		testdata\scripts\integration\itest_s3\itest3_01.script
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_02.script		testdata\scripts\integration\itest_s3\itest3_02.script
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_03.script		testdata\scripts\integration\itest_s3\itest3_03.script
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_04.script		testdata\scripts\integration\itest_s3\itest3_04.script
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_05.script		testdata\scripts\integration\itest_s3\itest3_05.script
-
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_05b.script		testdata\scripts\integration\itest_s3\itest3_05b.script
-
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_05c.script	testdata\scripts\integration\itest_s3\itest3_05c.script
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_09.script		testdata\scripts\integration\itest_s3\itest3_09.script
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\itest3_10.script		testdata\scripts\integration\itest_s3\itest3_10.script
@@ -112,24 +180,47 @@ data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s3\
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s3\genconn.ini		testdata\configs\integration\itest_s3\genconn.ini				
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s3\itest.ini		testdata\configs\integration\itest_s3\itest.ini				
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s3\rnif_timeout.ini		testdata\configs\integration\itest_s3\rnif_timeout.ini		
-data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\load_gprs.script		testdata\scripts\integration\itest_s3\load_gprs.script			
-data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s3\gprs.xml			testdata\configs\integration\itest_s3\gprs.xml			
-
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s3\load_gprs_wlan.script		testdata\scripts\integration\itest_s3\load_gprs.script			
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s3\gprs_wlan.xml			testdata\configs\integration\itest_s3\gprs.xml			
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s3\te_teststeps.ini		testdata\configs\integration\itest_s3\te_teststeps.ini			
-
-
+#endif
+#ifdef INCLUDE_SIROCCO_CODE_MIGRATION 
 // S4 script files
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4.script			testdata\scripts\integration\itest_s4.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_01_wlan.script		testdata\scripts\integration\itest_s4\itest4_01.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_02.script		testdata\scripts\integration\itest_s4\itest4_02.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_03.script		testdata\scripts\integration\itest_s4\itest4_03.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_04.script		testdata\scripts\integration\itest_s4\itest4_04.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_06_wlan.script		testdata\scripts\integration\itest_s4\itest4_06.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_07.script		testdata\scripts\integration\itest_s4\itest4_07.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_08.script		testdata\scripts\integration\itest_s4\itest4_08.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_09.script		testdata\scripts\integration\itest_s4\itest4_09.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_10.script		testdata\scripts\integration\itest_s4\itest4_10.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_11_wlan.script		testdata\scripts\integration\itest_s4\itest4_11.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_12.script		testdata\scripts\integration\itest_s4\itest4_12.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_13.script		testdata\scripts\integration\itest_s4\itest4_13.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_14.script		testdata\scripts\integration\itest_s4\itest4_14.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_15.script		testdata\scripts\integration\itest_s4\itest4_15.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_16.script		testdata\scripts\integration\itest_s4\itest4_16.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_17_wlan.script		testdata\scripts\integration\itest_s4\itest4_17.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s4\ipv4_wlan.ini			testdata\configs\integration\itest_s4\ipv4.ini				
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s4\ipv6_wlan.ini			testdata\configs\integration\itest_s4\ipv6.ini				
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s4\client_timeout.ini	testdata\configs\integration\itest_s4\client_timeout.ini		
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s4\genconn.ini		testdata\configs\integration\itest_s4\genconn.ini				
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s4\genconn-psd.ini		testdata\configs\integration\itest_s4\genconn-psd.ini
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s4\itest.ini		testdata\configs\integration\itest_s4\itest.ini				
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s4\rnif_timeout.ini		testdata\configs\integration\itest_s4\rnif_timeout.ini		
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s4\te_teststeps.ini		testdata\configs\integration\itest_s4\te_teststeps.ini			
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s4\route_timeout.ini	testdata\configs\integration\itest_s4\route_timeout.ini	
+#else
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4.script			testdata\scripts\integration\itest_s4.script
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_01.script		testdata\scripts\integration\itest_s4\itest4_01.script
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_02.script		testdata\scripts\integration\itest_s4\itest4_02.script
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_03.script		testdata\scripts\integration\itest_s4\itest4_03.script
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_04.script		testdata\scripts\integration\itest_s4\itest4_04.script
-
-
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_06.script		testdata\scripts\integration\itest_s4\itest4_06.script
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_07.script		testdata\scripts\integration\itest_s4\itest4_07.script
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_08.script		testdata\scripts\integration\itest_s4\itest4_08.script
-
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_09.script		testdata\scripts\integration\itest_s4\itest4_09.script
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_10.script		testdata\scripts\integration\itest_s4\itest4_10.script
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s4\itest4_11.script		testdata\scripts\integration\itest_s4\itest4_11.script
@@ -148,9 +239,41 @@ data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s4\
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s4\rnif_timeout.ini		testdata\configs\integration\itest_s4\rnif_timeout.ini		
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s4\te_teststeps.ini		testdata\configs\integration\itest_s4\te_teststeps.ini			
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s4\route_timeout.ini	testdata\configs\integration\itest_s4\route_timeout.ini	
-
-
+#endif
+#ifdef INCLUDE_SIROCCO_CODE_MIGRATION 
 // S5 script files
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5.script			testdata\scripts\integration\itest_s5.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_01_wlan.script		testdata\scripts\integration\itest_s5\itest5_01.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_02.script		testdata\scripts\integration\itest_s5\itest5_02.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_03_wlan.script		testdata\scripts\integration\itest_s5\itest5_03.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_04.script		testdata\scripts\integration\itest_s5\itest5_04.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_05.script		testdata\scripts\integration\itest_s5\itest5_05.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_05b.script	testdata\scripts\integration\itest_s5\itest5_05b.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_05c.script	testdata\scripts\integration\itest_s5\itest5_05c.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_06.script		testdata\scripts\integration\itest_s5\itest5_06.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_07.script		testdata\scripts\integration\itest_s5\itest5_07.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_08.script		testdata\scripts\integration\itest_s5\itest5_08.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_09.script		testdata\scripts\integration\itest_s5\itest5_09.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_10_wlan.script		testdata\scripts\integration\itest_s5\itest5_10.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_11.script		testdata\scripts\integration\itest_s5\itest5_11.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_12_wlan.script		testdata\scripts\integration\itest_s5\itest5_12.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_13_wlan.script		testdata\scripts\integration\itest_s5\itest5_13.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_14.script		testdata\scripts\integration\itest_s5\itest5_14.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_15.script		testdata\scripts\integration\itest_s5\itest5_15.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_16.script		testdata\scripts\integration\itest_s5\itest5_16.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_17_wlan.script		testdata\scripts\integration\itest_s5\itest5_17.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_18.script		testdata\scripts\integration\itest_s5\itest5_18.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_19.script		testdata\scripts\integration\itest_s5\itest5_19.script
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s5\ipv4_wlan.ini			testdata\configs\integration\itest_s5\ipv4.ini				
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s5\ipv6_wlan.ini			testdata\configs\integration\itest_s5\ipv6.ini				
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s5\client_timeout.ini	testdata\configs\integration\itest_s5\client_timeout.ini		
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s5\genconn.ini		testdata\configs\integration\itest_s5\genconn.ini				
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s5\itest.ini		testdata\configs\integration\itest_s5\itest.ini				
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s5\rnif_timeout.ini		testdata\configs\integration\itest_s5\rnif_timeout.ini		
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s5\route_timeout.ini	testdata\configs\integration\itest_s5\route_timeout.ini
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\load_ircsd_wlan.script	testdata\scripts\integration\itest_s5\load_ircsd.script			
+data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s5\te_teststeps.ini		testdata\configs\integration\itest_s5\te_teststeps.ini			
+#else
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5.script			testdata\scripts\integration\itest_s5.script
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_01.script		testdata\scripts\integration\itest_s5\itest5_01.script
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_02.script		testdata\scripts\integration\itest_s5\itest5_02.script
@@ -171,11 +294,8 @@ data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_15.script		testdata\scripts\integration\itest_s5\itest5_15.script
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_16.script		testdata\scripts\integration\itest_s5\itest5_16.script
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_17.script		testdata\scripts\integration\itest_s5\itest5_17.script
-
-
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_18.script		testdata\scripts\integration\itest_s5\itest5_18.script
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\itest5_19.script		testdata\scripts\integration\itest_s5\itest5_19.script
-
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s5\ipv4.ini			testdata\configs\integration\itest_s5\ipv4.ini				
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s5\ipv6.ini			testdata\configs\integration\itest_s5\ipv6.ini				
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s5\client_timeout.ini	testdata\configs\integration\itest_s5\client_timeout.ini		
@@ -185,10 +305,8 @@ data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s5\
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s5\route_timeout.ini	testdata\configs\integration\itest_s5\route_timeout.ini
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\scripts\integration\itest_s5\load_ircsd.script	testdata\scripts\integration\itest_s5\load_ircsd.script			
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s5\csd-ir.xml		testdata\configs\integration\itest_s5\csd-ir.xml			
-
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\itest_s5\te_teststeps.ini		testdata\configs\integration\itest_s5\te_teststeps.ini			
-
-
+#endif
 
 // Self test files.
 data=EPOCROOT##epoc32\release\wins\udeb\z\testdata\configs\integration\example.ini testdata\configs\integration\example.ini

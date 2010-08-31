@@ -1,3 +1,0 @@
-EXPORTS
-	?CreateTestSuite@@YAPAVCTestSuiteCsdAgt@@XZ @ 1 NONAME ; class CTestSuiteCsdAgt * CreateTestSuite(void)
-

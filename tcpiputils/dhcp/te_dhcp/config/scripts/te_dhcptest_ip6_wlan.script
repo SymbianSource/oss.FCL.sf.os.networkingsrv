@@ -1,0 +1,65 @@
+//
+// Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//!//////////////////////////////////////////////////////////////////
+//! @file
+//! @SYMTestSuiteName	 	  	NET-DHCP-CIT
+//! @SYMScriptTestEnvironment	TestExecuteFramework (TEF).
+//! @SYMScriptPurpose			Script file for DHCP testing on IPv4.
+//! @SYMScriptInfo				1.Here we use CommsDB with ipv6 settings.
+//!//////////////////////////////////////////////////////////////////
+
+//IPv6 DHCP tests
+
+//Unload esock forcefully
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+//Configure commdb.This config file has explicit settings for IPv6
+//ced -i z:\TestData\configs\DHCP\DHCPced_ip6.xml
+RUN_UTILS  MkDir c:\private
+RUN_UTILS  MkDir c:\private\10202be9
+RUN_UTILS  MkDir c:\private\10202be9\persists
+RUN_UTILS  MakeReadWrite c:\private\10202be9\persists\cccccc00.cre
+
+RUN_UTILS CopyFile z:\testdata\configs\dhcp\cccccc00_dhcptest_ip6.cre c:\private\10202be9\persists\cccccc00.cre
+
+LOAD_SUITE DhcpTestServer
+
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPBasicInteractions1_ip6.script
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPConfiguration2_ip6.script
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPRenewAndRelease3_ip6.script
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPDynamicInteraction4_ip6.script
+RUN_UTILS DeleteFile c:\private\101F7989\esock\ip.ramod.esk
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPManualtests5_ip6.script
+RUN_UTILS DeleteFile c:\private\101F7989\esock\ip.ramod.esk
+RUN_SCRIPT z:\TestData\scripts\DHCP\dhcpmanualTests2_ip6.script
+
+//INFORM TESTS - add esk file to modify RA packet
+
+RUN_UTILS MkDir c:\private\
+RUN_UTILS MkDir c:\private\101f7989\
+RUN_UTILS MkDir c:\private\101f7989\ESock\
+RUN_UTILS CopyFile z:\testdata\configs\dhcp\TestDHCPv6Config1\ip.ramod.esk c:\private\101F7989\esock\ip.ramod.esk
+RUN_UTILS MakeReadWrite c:\private\101F7989\esock\ip.ramod.esk
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPBasicInteractions1-inform_ip6.script
+
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPConfiguration2-inform_ip6.script
+
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPRenewAndRelease3-inform_ip6.script
+
+RUN_SCRIPT z:\TestData\scripts\DHCP\DHCPDynamicInteraction4-inform_ip6.script
+
+//remove esk file
+RUN_UTILS DeleteFile c:\private\101F7989\esock\ip.ramod.esk

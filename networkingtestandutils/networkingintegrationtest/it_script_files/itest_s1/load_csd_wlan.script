@@ -1,0 +1,41 @@
+//
+// Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+// configure commdb for CSD Bearer Tests
+PRINT load commdb for CSD NTRAS (itest_s1) tests
+
+// create the directorys needed for logging and ipsec
+// log dirs
+run_utils mkdir c:\system\
+run_utils mkdir c:\system\data\
+run_utils mkdir c:\Logs\
+run_utils mkdir c:\Logs\testresults\
+
+// ipsec dirs
+run_utils mkdir c:\system\data\security\
+run_utils mkdir c:\system\data\security\secfiles\
+
+run_script z:\TestData\scripts\te_esock_test_unloadesockForced.script
+
+// use ced to make the required database from csd.xml
+//ced z:\testdata\configs\integration\itest_s1\csd.xml csd.log
+RUN_UTILS  MkDir c:\private
+RUN_UTILS  MkDir c:\private\10202be9
+RUN_UTILS  MkDir c:\private\10202be9\persists
+RUN_UTILS  MakeReadWrite c:\private\10202be9\persists\cccccc00.cre
+RUN_UTILS CopyFile z:\testdata\configs\cccccc00_itest1.cre c:\private\10202be9\persists\cccccc00.cre
+# Reload esock thread so that the next tests can be run
+run_script z:\TestData\scripts\te_esock_test_loadesock.script

@@ -30,7 +30,7 @@
 REM IPSEC protocol and other core components
 
 
-#ifdef SYMBIAN_EXCLUDE_IPSEC
+#ifndef __IPSEC
 
 	REM Feature IPSEC not included in this rom
 
@@ -42,6 +42,6 @@ REM IPSEC protocol and other core components
 	file=ABI_DIR\DEBUG_DIR\lib_pfkey.dll		System\Libs\lib_pfkey.dll
 	#include <ipseccrypto.iby>
 
-#endif // SYMBIAN_EXCLUDE_IPSEC
+#endif // __IPSEC
 
 #endif // __IPSEC_IBY__

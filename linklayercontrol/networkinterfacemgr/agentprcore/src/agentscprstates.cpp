@@ -235,7 +235,7 @@ EXPORT_C void TStopAgent::DoL()
         }
     else
         {
-		// coming from destroy
+        // coming from destroy
         reason = KErrAbort;
         }
 

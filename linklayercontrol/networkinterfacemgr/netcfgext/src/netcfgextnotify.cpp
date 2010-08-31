@@ -39,7 +39,6 @@ CNetCfgExtNotify::~CNetCfgExtNotify()
     {
     iScpr = NULL;
     }
-
 void CNetCfgExtNotify::IfProgress(TInt aStage, TInt aError)
 	{
 	TStateChange change(aStage, aError);

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-2010 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -16,8 +16,6 @@
 #include "Tlsprovinterface.h"
 #include "tlsprovider.h"
 #include <badesca.h>
-#include <featdiscovery.h>
-#include <featureuids.h>
 
 //
 //                                   CTlsProvider
@@ -284,9 +282,6 @@ EXPORT_C void CTLSProvider::ReConnectL()
       ((TlsSessionPtr()->Attributes())->iMasterSecretInput).iClientRandom = (Attributes()->iMasterSecretInput).iClientRandom;
    	}
 
-	TBool allowUntrustedCertificates = EFalse;
-	allowUntrustedCertificates = CFeatureDiscovery::IsFeatureSupportedL(NFeature::KFeatureIdFfHttpAllowUntrustedCertificates);
-
 	// Save old implementation object
 	CTlsProviderImpl *oldTlsProviderImpl = iTlsProviderImpl;
 	iTlsProviderImpl = NULL;	
@@ -304,16 +299,7 @@ EXPORT_C void CTLSProvider::ReConnectL()
 
 		Attributes()->iProposedProtocol = oldAttr->iProposedProtocol;
 		Attributes()->iProposedCiphers = oldAttr->iProposedCiphers;
-		
-		if( allowUntrustedCertificates )
-			{
-			Attributes()->iDialogMode = oldAttr->iDialogMode;
-			}
-		else
-			{
-			Attributes()->iDialogNonAttendedMode = oldAttr->iDialogNonAttendedMode;
-			}
-
+		Attributes()->iDialogNonAttendedMode = oldAttr->iDialogNonAttendedMode;
 		Attributes()->idomainName = oldAttr->idomainName;
 
 		// Copy NULL ciphersuite setting
@@ -352,15 +338,7 @@ EXPORT_C void CTLSProvider::ReConnectL()
 		(Attributes()->iMasterSecretInput).iClientRandom = ((TlsSessionPtr()->Attributes())->iMasterSecretInput).iClientRandom;
 		Attributes()->iProposedProtocol = (TlsSessionPtr()->Attributes())->iProposedProtocol;
 		Attributes()->iNegotiatedProtocol = (TlsSessionPtr()->Attributes())->iNegotiatedProtocol;
-		if( allowUntrustedCertificates )
-			{
-			Attributes()->iDialogMode = (TlsSessionPtr()->Attributes())->iDialogMode;
-			}
-		else
-			{
-			Attributes()->iDialogNonAttendedMode = (TlsSessionPtr()->Attributes())->iDialogNonAttendedMode;
-			}
-
+		Attributes()->iDialogNonAttendedMode = (TlsSessionPtr()->Attributes())->iDialogNonAttendedMode;
       	Attributes()->iSessionNameAndID.iServerName = (TlsSessionPtr()->Attributes())->iSessionNameAndID.iServerName;
       	Attributes()->iSessionNameAndID.iSessionId = (TlsSessionPtr()->Attributes())->iSessionNameAndID.iSessionId;
 

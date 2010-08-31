@@ -1,4 +1,4 @@
-// Copyright (c) 2003-2010 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -18,13 +18,9 @@
 #include <ecom/ecom.h>
 #include <securitydefsconst.h>
 #include <x520ava.h>
-#include <asn1dec.h>
-#include <featdiscovery.h>
-#include <featureuids.h>
 
 #include "tlsprovider.h"
 #include "cryptostrength.h"
-
 
 
 //
@@ -484,44 +480,6 @@ void CTlsProviderImpl::VerifyServerCertificate(
 	return;
 	}
 
-// This patch is to fix-up the Common Name component of the Subject field. 
-// This is due to a bug in TASN1DecBMPString::DecodeContentsL which is incorrectly decoding the BMP String contents. 
-// Since fixing TASN1DecBMPString would cause a major break in public API, this fix-up is being done here locally.
-// This patch is active only if the encoding is in BMP String. If TASN1DecBMPString::DecodeContentsL is ever fixed (which 
-// means CX500DistinguishedName::DisplayNameL is also automatically fixed) then this patch MUST to be removed.
-
-HBufC* CTlsProviderImpl::ExtractCertFieldL(const TDesC& aFieldName, const CX500DistinguishedName& aDistinguishedName)
-    {
-    TInt count = aDistinguishedName.Count();
-    for (TInt i = 0; i < count; i++)
-        {
-        const CX520AttributeTypeAndValue& ava = aDistinguishedName.Element(i);
-        if (ava.Type() == aFieldName)
-            {
-            HBufC* res = ava.ValueL();
-            CleanupStack::PushL(res);
-            TPtr pRes = res->Des();
-            TUint8* data = const_cast<TUint8 *>(reinterpret_cast<const TUint8 *>(res->Ptr())); 
-            TUint len = pRes.Length()*2;
-            TASN1DecGeneric gen(ava.EncodedValue());
-            gen.InitL();
-            if (gen.Tag() == EASN1BMPString)
-                {
-                // Bmp String internally store them as little endian, as a string we want it big
-                // endian interchange least and most significent byte
-                for(TUint i=0; i<len; i+=2)
-                     {
-                     TUint8 temp = data[i];
-                     data[i] = data[i+1];
-                     data[i+1] = temp;       
-                     }
-                }
-            CleanupStack::Pop();
-            return res;
-            }
-        }
-    return NULL;
-    }
 
 
 TBool CTlsProviderImpl::VerifySignatureL(
@@ -1077,15 +1035,7 @@ void CTlsProviderImpl::RunL()
 			}
 		else
 			{
-			TBool allowUntrustedCertificates = EFalse;
-			allowUntrustedCertificates = CFeatureDiscovery::IsFeatureSupportedL(NFeature::KFeatureIdFfHttpAllowUntrustedCertificates);
-			
-			if ( allowUntrustedCertificates && iTlsCryptoAttributes && ETTLSDialogModeAllowAutomatic == iTlsCryptoAttributes->iDialogMode )
-				{        
-				iCurrentState = iOriginalState = ENullState;
-				User::RequestComplete(iOriginalRequestStatus,KErrNone); 
-				}
-			else if((allowUntrustedCertificates && iTlsCryptoAttributes && ETTLSDialogModeUnattended == iTlsCryptoAttributes->iDialogMode ) || (iTlsCryptoAttributes && iTlsCryptoAttributes->iDialogNonAttendedMode))
+			if(iTlsCryptoAttributes && iTlsCryptoAttributes->iDialogNonAttendedMode)
 				{	
 				TLSPROV_LOG(_L("Server Certificate validation failed but in DialogNonAttended mode"))	
 				TInt err(0);
@@ -1576,8 +1526,7 @@ TBool CTlsProviderImpl::ValidateDNSNameL(const CX509Certificate& aSource)
 	if(!hasAltNameExt)
 		{
 		// no name yet lets try common name from Subject
-		//HBufC* commonName = aSource.SubjectName().ExtractFieldL(KX520CommonName);
-		HBufC* commonName  = ExtractCertFieldL(KX520CommonName, aSource.SubjectName());
+		HBufC* commonName = aSource.SubjectName().ExtractFieldL(KX520CommonName);
 		if(commonName)
 			{
 			CleanupStack::PushL(commonName);

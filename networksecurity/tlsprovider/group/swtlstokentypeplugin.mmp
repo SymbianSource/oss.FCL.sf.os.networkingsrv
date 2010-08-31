@@ -33,7 +33,6 @@ SOURCE	swtlstokentype.cpp swtlssession.cpp
 SOURCE swtlstokenprovider.cpp swtlssessioncache.cpp swtlstoken_log.cpp
 
 USERINCLUDE		../inc
-
 OS_LAYER_SYSTEMINCLUDE_SYMBIAN
 
 

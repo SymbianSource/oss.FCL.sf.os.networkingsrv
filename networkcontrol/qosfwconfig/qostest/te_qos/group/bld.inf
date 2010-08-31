@@ -22,8 +22,8 @@ PRJ_TESTEXPORTS
 #else
 ../configs/te_QoSSuite_Mesh.cfg         z:/testdata/configs/te_qossuite_mesh.cfg
 #endif //#ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
-../configs/te_QoSSuite_simtsy.txt		z:/testdata/configs/te_QoSSuite_simtsy.txt
-../configs/te_QoSSuite_LoopbackCsy.ini		z:/testdata/configs/te_QoSSuite_loopbackcsy.ini
+../configs/te_QoSSuite_simtsy.txt		z:/testdata/configs/te_qossuite_simtsy.txt
+../configs/te_QoSSuite_LoopbackCsy.ini		z:/testdata/configs/te_qossuite_loopbackcsy.ini
 
 #ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
 ../configs/CIT_P192_Qos_SimTsy.xml		z:/testdata/configs/cit_p192_qos_simtsy.xml

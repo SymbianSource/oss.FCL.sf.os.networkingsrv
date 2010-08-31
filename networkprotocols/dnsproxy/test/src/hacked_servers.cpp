@@ -70,19 +70,6 @@ public:
 	TInt BuildServerList();
 	void AddServerAddress(const TName &aInterface, const TInetAddr &aAddr);
 	void LockByAddress(const TInetAddr &aAddr, TUint32 aNid, TDnsServerFilter &aFilter);
-    inline virtual void InterfaceSuffixList(TInt aServerId, RInetSuffixList& aSuffixList)
-        {
-        //dummy implementation
-        RInetSuffixList suffixList;
-        if (aServerId)
-        	aSuffixList = suffixList;
-        }
-    inline virtual void UpdateDomain(TDnsServerFilter &aFilter) const
-        {
-        //dummy implementation
-        if (aFilter.iServerId)
-            return;
-        }
 
 private:
 	// Build and add interface entry to the list (basic operation)

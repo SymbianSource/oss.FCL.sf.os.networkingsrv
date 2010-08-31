@@ -1,4 +1,4 @@
-// Copyright (c) 2003-2010 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -288,29 +288,7 @@ void CTLSTest::RunL()
 			{
 			iTestStep->Log( _L("Failed to set Protocol for use: (%d)"),err );
 			}
-#ifdef HTTP_ALLOW_UNTRUSTED_CERTIFICATES
-		if(iTLSDialogMode) 
-		    {
-            iStatus = iTlsSocket->SetOpt(KSoDialogMode,KSolInetSSL,iTLSDialogModeValue);
-            if ( iStatus != KErrNone )
-                {
-                if(iExpectedErrorCode == iStatus.Int())
-                    {
-                    iTestStep->Log( _L("iTlsSocket->SetOpt() failed with KErrArgument because of invalid DialogModeValue "));
-                    iRunState = EConnectionClosed;
-                    iTestPassed = ETrue;
-                    }
-                else
-                    {
-                    iTestStep->Log( _L("iTlsSocket->SetOpt() failed with error: %d"), iStatus.Int());
-                    }
-                iTlsSocket->Close();                 
-                iTimer.After( iStatus, 1000000 );
-                SetActive();
-                break;
-                }
-		    }
-#endif  // HTTP_ALLOW_UNTRUSTED_CERTIFICATES
+
 		// Set the domain name we're connecting to...
 		iStatus = iTlsSocket->SetOpt(KSoSSLDomainName,KSolInetSSL, iDNSName);
 		if ( iStatus != KErrNone )
@@ -352,30 +330,17 @@ void CTLSTest::RunL()
 
 		if ( iStatus != KErrNone )
 			{
-#ifdef HTTP_ALLOW_UNTRUSTED_CERTIFICATES
-            if(iExpectedErrorCode == iStatus.Int())
-                {
-                iTestStep->Log( _L("Received Untrusted CA"));
-                iRunState = EConnectionClosed;
-                iTestPassed = ETrue;
-                }
-            else
-                {
-#endif  // HTTP_ALLOW_UNTRUSTED_CERTIFICATES
-                TPtrC errorText = iTestStep->EpocErrorToText(iStatus.Int());
-                iTestStep->Log( _L("ESecureConnected:%S %d"),&errorText, iStatus.Int() );
-                iTestStep->Log( KStateErrReceivePage, iStatus.Int() );
-                iTestStep->Log( KStateErrReceivePage, iStatus.Int() );
-                iRunState = EConnectionClosed;
-                iTestPassed = EFalse;
-#ifdef HTTP_ALLOW_UNTRUSTED_CERTIFICATES
-                }
-#endif  // HTTP_ALLOW_UNTRUSTED_CERTIFICATES
-                iTlsSocket->Close();                 
-                iTimer.After( iStatus, 1000000 );
-                SetActive();
-                break;                
-            }
+			TPtrC errorText = iTestStep->EpocErrorToText(iStatus.Int());
+			iTestStep->Log( _L("ESecureConnected:%S %d"),&errorText, iStatus.Int() );
+			iTestStep->Log( KStateErrReceivePage, iStatus.Int() );
+			iTestStep->Log( KStateErrReceivePage, iStatus.Int() );
+			iRunState = EConnectionClosed;
+			iTestPassed = EFalse;
+			iTlsSocket->Close();				 
+			iTimer.After( iStatus, 1000000 );
+			SetActive();
+			break;
+			}
 		else
 			{
 			iTestStep->Log( _L("ESecureConnected:KErrNone %d"),iStatus.Int() );
@@ -756,7 +721,7 @@ void CTLSTest::DoCancel()
 	// Cancel the connect
 	iSocket.CancelConnect();
 	}
-#ifdef HTTP_ALLOW_UNTRUSTED_CERTIFICATES
+
 void CTLSTest::ConnectL( const TDesC &aAddress, 
 				const TInt aPortNum, 
 				const TDesC &aPage, 
@@ -767,23 +732,7 @@ void CTLSTest::ConnectL( const TDesC &aAddress,
 				const TDesC8& aDNSName ,
 				const TDesC& aProtocol, 
 				TBool aUseGenericSocket, 
-				TBool aEAPKeyDerivation,
-				TBool aTLSDialogMode,
-				TInt aTLSDialogModeValue,
-				TInt aExpectedErrorCode )
-#else
-void CTLSTest::ConnectL( const TDesC &aAddress, 
-                const TInt aPortNum, 
-                const TDesC &aPage, 
-                const TDesC8 &aCipherSuite, 
-                const TInt aCipher, 
-                const TInt aSimpleGet, 
-                const TInt aTestEndDelay, 
-                const TDesC8& aDNSName ,
-                const TDesC& aProtocol, 
-                TBool aUseGenericSocket, 
-                TBool aEAPKeyDerivation )
-#endif  // HTTP_ALLOW_UNTRUSTED_CERTIFICATES
+				TBool aEAPKeyDerivation )
 	{
 #if 0
 	iRunState = EDummyConnection;
@@ -824,11 +773,7 @@ void CTLSTest::ConnectL( const TDesC &aAddress,
 	iTestEndDelay = aTestEndDelay;
 	iUseGenericSocket = aUseGenericSocket;
 	iEAPKeyDerivation = aEAPKeyDerivation;
-#ifdef HTTP_ALLOW_UNTRUSTED_CERTIFICATES
-	iTLSDialogMode = aTLSDialogMode;
-	iTLSDialogModeValue = aTLSDialogModeValue;
-	iExpectedErrorCode = aExpectedErrorCode;
-#endif  // HTTP_ALLOW_UNTRUSTED_CERTIFICATES
+
 	// Print info to the log
 	iTestStep->Log( _L("*****Connecting to*****") );
 	iTestStep->Log( _L("%s:%d "), iAddress.PtrZ(), iPortNum ); 

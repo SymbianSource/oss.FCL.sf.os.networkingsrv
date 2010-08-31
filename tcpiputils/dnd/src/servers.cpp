@@ -1,3 +1,4 @@
+// Copyright (c) 2004-2009 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -35,7 +36,6 @@ class TDnsInterfaceData
 public:
 	TName iName;				//< Name of the interface
 	TUint32 iScope[16];			//< The scope vector
-	RInetSuffixList iSuffixList;//< Structure to hold the interface specific domain search list
 	};
 
 // Item of the configured servers list
@@ -70,10 +70,6 @@ public:
 	TInt BuildServerList();
 	void AddServerAddress(const TName &aInterface, const TInetAddr &aAddr);
 	void LockByAddress(const TInetAddr &aAddr, TUint32 aNid, TDnsServerFilter &aFilter);
-	// Retrieves the domain search list configured on the interface associated with the nominated name server
-	void InterfaceSuffixList(TInt aServerId, RInetSuffixList& aSuffixList);
-	// Performs the network id selection for the query based on the domain name on the query
-	void UpdateDomain(TDnsServerFilter &aFilter) const;
 
 private:
 	// Build and add interface entry to the list (basic operation)
@@ -97,9 +93,6 @@ private:
 	CArrayFixFlat<TDnsServerData> *iServerList;	//< Current list of servers
 	CArrayFixFlat<TDnsInterfaceData> *iInterfaceList; //< Current list of interfaces
 	CArrayFixFlat<TDnsConfiguredServer> *iConfiguredList; //< Current list of configured servers
-	
-private:
-	TInt AddInterfaceEntry(const TSoInetIfQuery &aInfo, RSocket& aSocket);
 	};
 
 
@@ -147,43 +140,17 @@ CDnsServerManager::~CDnsServerManager()
 	delete iConfiguredList;
 	}
 
-// CDnsServerManager::AddInterfaceEntry
-TInt CDnsServerManager::AddInterfaceEntry(const TSoInetIfQuery &aInfo, RSocket& aSocket)
+// CDnsServerManager::AddInterfaceData
+TInt CDnsServerManager::AddInterfaceEntry(const TSoInetIfQuery &aInfo)
 	{
-    TRAPD(err,
-	TDnsInterfaceData &ifd = iInterfaceList->ExtendL();
-
-    ifd.iName = aInfo.iName;
-    for (TInt i = sizeof(ifd.iScope) / sizeof(ifd.iScope[0]); --i >= 0; )
-        ifd.iScope[i] = aInfo.iZone[i];
-    
-    if (aSocket.SetOpt(KSoInetEnumDomainSuffix, KSolInetIfCtrl) == KErrNone)
-        {
-        ifd.iSuffixList.Reset();
-        TInetSuffix data;
-        TPckg<TInetSuffix> opt(data);
-        while (aSocket.GetOpt(KSoInetNextDomainSuffix, KSolInetIfCtrl, opt) == KErrNone)
-            {
-            TSuffixName tmpBuf;
-            tmpBuf.Copy(opt().iSuffixName);
-            ifd.iSuffixList.AppendL(tmpBuf);
-            }
-        }
+	TRAPD(err,
+		TDnsInterfaceData &ifd = iInterfaceList->ExtendL();
+		ifd.iName = aInfo.iName;
+		for (TInt i = sizeof(ifd.iScope) / sizeof(ifd.iScope[0]); --i >= 0; )
+			ifd.iScope[i] = aInfo.iZone[i];
 		);
-		
 	return err < 0 ? err : iInterfaceList->Count() - 1;
 	}
-
-TInt CDnsServerManager::AddInterfaceEntry(const TSoInetIfQuery &aInfo)
-    {
-    TRAPD(err,
-        TDnsInterfaceData &ifd = iInterfaceList->ExtendL();
-        ifd.iName = aInfo.iName;
-        for (TInt i = sizeof(ifd.iScope) / sizeof(ifd.iScope[0]); --i >= 0; )
-            ifd.iScope[i] = aInfo.iZone[i];
-        );
-    return err < 0 ? err : iInterfaceList->Count() - 1;
-    }
 
 // CDnsServerManager::AddToInterfaceList
 // *************************************
@@ -211,14 +178,13 @@ TInt CDnsServerManager::AddToInterfaceList(const TSoInetInterfaceInfo &aInfo, RS
 		if (data.iName.Compare(aInfo.iName) == 0)
 			return i;	// Interface already present in the list
 		}
-
 	//
 	// A new interface, get the scope vector
 	//
 	TPckgBuf<TSoInetIfQuery> opt;
 	opt().iName = aInfo.iName;
 	const TInt err = aSocket.GetOpt(KSoInetIfQueryByName, KSolInetIfQuery, opt);
-	return err < 0 ? err : AddInterfaceEntry(opt(), aSocket);
+	return err < 0 ? err : AddInterfaceEntry(opt());
 	}
 
 // CDnsServerManager::FindInterface
@@ -479,32 +445,6 @@ TBool CDnsServerManager::Match(const TDnsServerFilter &aFilter, const TDnsServer
 	return 	TRUE;
 	}
 
-/**
-// @name	UpdateDomain
-// @param   aFilter the server filter
-// @param   aServer to be tested against the filter
-*/
-void CDnsServerManager::UpdateDomain(TDnsServerFilter &aFilter) const
-    {
-	LOG(Log::Printf(_L("CDnsServerManager -- RHostResolver opened on implicit connection")));
-    if ( aFilter.iDomainName.Length() )
-        {
-        TBool updatedDomain(FALSE);
-        for (TInt i = iInterfaceList->Count(); --i >= 0 && !updatedDomain; )
-            {
-            TDnsInterfaceData &id = iInterfaceList->At(i);
-            for (TInt i=0; i<id.iSuffixList.Count();i++)
-                {
-                if (aFilter.iDomainName.Find(id.iSuffixList[i]) != KErrNotFound)
-                    {
-                    aFilter.iLockId = id.iScope[aFilter.iLockType-1];
-                    updatedDomain = TRUE;
-                    break;
-                    }
-                }
-            }
-        }
-    }
 
 //
 // MDnsServerManager API
@@ -741,22 +681,3 @@ void CDnsServerManager::LockByAddress(const TInetAddr &aAddr, TUint32 aNid, TDns
 			}
 		}
 	}
-
-/**
-// @name 	InterfaceSuffixList
-// @param	aServerId	Id of the server used for name resolution
-// @param	aSuffixList	reference to array for reading the interface specific domain suffices
-*/
-void CDnsServerManager::InterfaceSuffixList(TInt aServerId, RInetSuffixList& aSuffixList)
-    {
-    const TInt N = iServerList->Count();
-    for (TInt i = 0; i < N; ++i)
-        {
-        const TDnsServerData &server =  iServerList->At(i);
-        if (server.iServerId == aServerId)
-            {
-            aSuffixList = iInterfaceList->At(server.iInterface).iSuffixList;
-            break;
-            }
-        }
-    }

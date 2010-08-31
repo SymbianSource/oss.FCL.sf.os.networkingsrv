@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* Copyright (c) 2009-2010 Nokia Corporation and/or its subsidiary(-ies).
 * All rights reserved.
 * This component and the accompanying materials are made available
 * under the terms of "Eclipse Public License v1.0"
@@ -37,6 +37,21 @@ PRJ_TESTEXPORTS
 //-- iby file for the test
 t_dnsproxy.iby	/epoc32/rom/include/t_dnsproxy.iby
 
+
+../testdata/resolver01.ini				/epoc32/release/winscw/udeb/z/testdata/configs/resolver01.ini
+../testdata/resolver02.ini				/epoc32/release/winscw/udeb/z/testdata/configs/resolver02.ini
+../testdata/resolver03.ini				/epoc32/release/winscw/udeb/z/testdata/configs/resolver03.ini
+../testdata/resolver01.ini				/epoc32/release/winscw/urel/z/testdata/configs/resolver01.ini
+../testdata/resolver02.ini				/epoc32/release/winscw/urel/z/testdata/configs/resolver02.ini
+../testdata/resolver03.ini				/epoc32/release/winscw/urel/z/testdata/configs/resolver03.ini
+
+#ifdef SIROCCO_CODE_MIGRATION
+../testdata/cccccc00_dnsproxy1.cre				/epoc32/data/z/testdata/configs/cccccc00_dnsproxy1.cre
+../testdata/cccccc00_dnsproxy1.cre				/epoc32/data/z/testdata/configs/cccccc00_dnsproxy2.cre
+../testdata/cccccc00_dnsproxy1.cre				/epoc32/data/z/testdata/configs/cccccc00_dnsproxy3.cre
+../testdata/ns-dnsproxy-maintest-ops_wlan.ini /epoc32/data/z/testdata/configs/ns-dnsproxy-maintest-ops_wlan.ini
+../scripts/ns-dnsproxy-main-ops_wlan.script /epoc32/data/z/testdata/scripts/ns-dnsproxy-main-ops_wlan.script
+#else
 //-- test script files
 ../scripts/ns-dnsproxy-main-ops.script		/epoc32/release/winscw/udeb/z/testdata/scripts/ns-dnsproxy-main-ops.script
 ../testdata/ns-dnsproxy-maintest-ops.ini	/epoc32/release/winscw/udeb/z/testdata/scripts/ns-dnsproxy-maintest-ops.ini
@@ -44,9 +59,6 @@ t_dnsproxy.iby	/epoc32/rom/include/t_dnsproxy.iby
 ../testdata/testdnsproxy.xml				/epoc32/release/winscw/udeb/z/testdata/configs/testdnsproxy.xml
 ../testdata/testdnsproxy2.xml				/epoc32/release/winscw/udeb/z/testdata/configs/testdnsproxy2.xml
 ../testdata/testdnsproxy3.xml				/epoc32/release/winscw/udeb/z/testdata/configs/testdnsproxy3.xml
-../testdata/resolver01.ini				/epoc32/release/winscw/udeb/z/testdata/configs/resolver01.ini
-../testdata/resolver02.ini				/epoc32/release/winscw/udeb/z/testdata/configs/resolver02.ini
-../testdata/resolver03.ini				/epoc32/release/winscw/udeb/z/testdata/configs/resolver03.ini
 
 //urel
 ../scripts/ns-dnsproxy-main-ops.script		/epoc32/release/winscw/urel/z/testdata/scripts/ns-dnsproxy-main-ops.script
@@ -55,8 +67,6 @@ t_dnsproxy.iby	/epoc32/rom/include/t_dnsproxy.iby
 ../testdata/testdnsproxy.xml				/epoc32/release/winscw/urel/z/testdata/configs/testdnsproxy.xml
 ../testdata/testdnsproxy2.xml				/epoc32/release/winscw/urel/z/testdata/configs/testdnsproxy2.xml
 ../testdata/testdnsproxy3.xml				/epoc32/release/winscw/urel/z/testdata/configs/testdnsproxy3.xml
-../testdata/resolver01.ini						/epoc32/release/winscw/urel/z/testdata/configs/resolver01.ini
-../testdata/resolver02.ini						/epoc32/release/winscw/urel/z/testdata/configs/resolver02.ini
-../testdata/resolver03.ini				/epoc32/release/winscw/urel/z/testdata/configs/resolver03.ini
+#endif
 
 #endif 

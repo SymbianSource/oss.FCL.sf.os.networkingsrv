@@ -122,7 +122,7 @@ private:
     TBool iAuthenticateInProgress;
     TBool iStopRequested;		// ETrue means an agent stop has been requested - not that the SCPr has received a TCFDataClient::TStop
     TInt iStoppingReason;
-    
+
     Elements::TStateChange iLastProgress;
     TBuf<KCommsDbSvrMaxUserIdPassLength> iUsername;
     TBuf<KCommsDbSvrMaxUserIdPassLength> iPassword;

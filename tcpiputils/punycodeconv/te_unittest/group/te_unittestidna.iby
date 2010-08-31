@@ -1,4 +1,4 @@
-// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2009-2010 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -20,6 +20,12 @@
 #include <punycodeconverter.iby>
 
 file=ABI_DIR\DEBUG_DIR\testidnserver.exe				System\bin\testidnserver.exe
+#ifdef INCLUDE_SIROCCO_CODE_MIGRATION
+data=EPOCROOT##epoc32\data\z\testdata\scripts\te_unittestidna_wlan.script 	testdata\scripts\te_unittestidna.script
+data=EPOCROOT##epoc32\data\z\testdata\configs\cccccc00_unittestidna.cre	testdata\configs\cccccc00_unittestidna.cre
+#else
 data=EPOCROOT##epoc32\data\z\testdata\scripts\te_unittestidna.script 	testdata\scripts\te_unittestidna.script
 data=EPOCROOT##epoc32\data\z\testdata\configs\te_unittestidna.xml	testdata\configs\te_unittestidna.xml
+#endif
+
 #endif //__TE_IDNA_SERVER_IBY__

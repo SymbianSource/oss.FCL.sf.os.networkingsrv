@@ -40,7 +40,6 @@ CDHCPStateMachine::~CDHCPStateMachine()
 	{
 	__CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L8("CDHCPStateMachine::~CDHCPStateMachine")));
 	Cancel();
-	UnloadConfigurationFile();
 	delete iDhcpMessage;
 	delete iMessageSender;
 	delete iTimer;
@@ -67,7 +66,7 @@ void CDHCPStateMachine::ConstructL()
   */
 	{
 	__CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L8("CDHCPStateMachine::ConstructL")));
-	LoadConfigurationFile();
+	
 #ifdef _DEBUG
 	// let's set debug properties to something
 	//  so they can be read immediately..
@@ -423,30 +422,30 @@ void CDHCPStateMachine::RemoveConfiguredAddress( const TSoInet6InterfaceInfo& aS
 	iSocket.Close();	
 	TInt error = iSocket.Open(iEsock, KAfInet, KSockDatagram, KProtocolInetUdp, iConnection);
 	
-    if(error == KErrNone)
-		{
-		error = iSocket.SetOpt(KSoInetConfigInterface, KSolInetIfCtrl, configInfo);
-		if(error == KErrNone)
-		    {	        
-		    // make socket invisible for interface counting
-		    error = iSocket.SetOpt(KSoKeepInterfaceUp, KSolInetIp, 0);
-		    if(error != KErrNone)
-		        {
-		        __CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L("CDHCPStateMachine::RemoveConfiguredAddress, SetOpt Failed to set KSolInetIp")));   
-		        }
-		    }
-		else
-		    {
-		    __CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L("CDHCPStateMachine::RemoveConfiguredAddress,SetOpt Failed to set KsolInetIfCtrl")));   
-		    }
-		}
+	if(error == KErrNone)
+	    {
+        error = iSocket.SetOpt(KSoInetConfigInterface, KSolInetIfCtrl, configInfo);
+        if(error == KErrNone)
+            {
+            // make socket invisible for interface counting
+            iSocket.SetOpt(KSoKeepInterfaceUp, KSolInetIp, 0);
+            if(error != KErrNone)
+                {
+                __CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L("CDHCPStateMachine::RemoveConfiguredAddress, SetOpt Failed to set KSoKeepInterfaceUp")));
+                }
+            }
+        else
+            {
+            __CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L("CDHCPStateMachine::RemoveConfiguredAddress, SetOpt Failed to set KSoInetConfigInterface")));
+            }
+	    }
 	else
-		{
-		__CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L("CDHCPStateMachine::RemoveConfiguredAddress,Socket Open Failed: Due to %d"),error));	
-		}
+	    {
+        __CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L("CDHCPStateMachine::RemoveConfiguredAddress, Socket Open Failed: Due to KErrNotReady")));
+	    }
 	}
 
-void CDHCPStateMachine::ConfigureInterfaceL( const TSoInetInterfaceInfoExtnDnsSuffix& aInterfaceInfo )
+void CDHCPStateMachine::ConfigureInterfaceL( const TSoInet6InterfaceInfo& aInterfaceInfo )
 /**
   * Set the interface IP address and other params
   * into the TCP/IP6 stack.
@@ -466,7 +465,7 @@ void CDHCPStateMachine::ConfigureInterfaceL( const TSoInetInterfaceInfoExtnDnsSu
   */
 	{
 	
-	TPckgBuf<TSoInetInterfaceInfoExtnDnsSuffix> configInfo(aInterfaceInfo);
+	TPckgBuf<TSoInet6InterfaceInfo> configInfo(aInterfaceInfo);
 	
 
 	__CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L8("CDHCPStateMachine::ConfigureInterfaceL - KSoInetConfigInterface")));
@@ -713,77 +712,7 @@ TBool CDHCPStateMachine::DoesInterfaceKnowAnyDNSServers()
 	}
 
 
-/** 
-  * @name LoadConfigurationFile
-  *			Opens up the dhcp.ini file and reads the content on to a heap buffer
-  * @return - ETrue if the dhcp.ini is successfully parsed to the buffer, EFalse otherwise
-  *
-  * @internalTechnology
-  */
-TBool CDHCPStateMachine::LoadConfigurationFile()
-    {
-    TRAP_IGNORE(iConfig = CESockIniData::NewL(DHCP_INI_DATA));
-    return (iConfig != NULL);
-    }
 
-/**
-  * @name UnloadConfigurationFile 
-  *			Frees up memory allocated for reading dhcp.ini file
-  *
-  * @internalTechnology
-  */
-void CDHCPStateMachine::UnloadConfigurationFile()
-    {
-    if (iConfig)
-        {
-        delete iConfig;
-        iConfig = NULL;
-        }
-    }
-
-/**
- * @name IniRead
- *          General ini file read utility. Makes use of CESockIniData object for parsing
- *          
- * @param   aOptionName   Key name within ini file whose value need to be parsed
- * @param   aOptionValue    Buffer reference to store the parsed output
- * 
- * @return  TInt error values as approriate from the ini parsing framework
- *          
- * @internalTechnology
- */
-TInt CDHCPStateMachine::IniRead(const TDesC& aOptionName, TDes8& aOptionValue)
-    {
-    TPtrC iniValue;
-    TBool iniParsed = iConfig->FindVar(KDhcpSection, aOptionName, iniValue);
-    if (!iniParsed)
-        return KErrNotFound;
-
-    if(aOptionName.CompareF(KDhcpExtraOptions) == KErrNone)
-        {
-        TLex iniLex(iniValue);
-        TChar ch;
-        
-        while((ch = iniLex.Get()) != 0)
-            {
-            while ((ch = iniLex.Peek()) != ',')
-                iniLex.Inc();
-            TLex token(iniLex.MarkedToken());
-            
-            TUint8 opCode(0);
-            token.Val(opCode,EDecimal);
-
-            if ( (opCode > 0) && (opCode < KOpCodeOutOfBounds) )
-                aOptionValue.Append(opCode);
-            
-            iniLex.Inc();
-            iniLex.Mark();
-            }
-        return KErrNone;
-        }
-    else
-        return KErrNotFound;
-    }
 
 TDhcpRnd::TDhcpRnd():iXid(0)
 /**

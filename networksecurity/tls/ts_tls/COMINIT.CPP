@@ -1,4 +1,4 @@
-// Copyright (c) 1997-2009 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 1997-2010 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -30,6 +30,7 @@
 
 GLDEF_C void CommInitL()
 	{
+#ifndef SIROCCO_CODE_MIGRATION
 	TInt err;
  	// When bootstrapping C32 we have to avoid the PhBkSyncServer being started, since
  	// it needs a different CommDB
@@ -60,5 +61,6 @@ GLDEF_C void CommInitL()
 	err=User::LoadLogicalDevice(LDD_NAME);
 	if (err!=KErrNone && err!=KErrAlreadyExists)
 		User::Leave(err);
+#endif //SIROCCO_CODE_MIGRATION
 	}
 

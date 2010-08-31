@@ -114,7 +114,6 @@ enum TDHCPOptionCodes
 	EDHCPClientID = 61,
    	EDHCPDNSUpdate = 81,
    	EDHCPAuthentication = 90,
-	EDHCPDomainSearch = 119,
 	EDHCPSIPServers = 120,
 #ifdef SYMBIAN_NETWORKING_DHCP_MSG_HEADERS
 	EDHCPOptionOverload = 52,
@@ -252,8 +251,6 @@ public:
 #endif // SYMBIAN_NETWORKING_DHCP_MSG_HEADERS
 protected:
 	TUint32 GetValueBigEndian(TUint8 aOpCode) const;
-public:
-	TInt CopyDomainSearchL(HBufC8*& aBuf8) const; //For retreiving option data value for DHCP option 119 from server's offer packet
 	};
 
 inline COptionList::COptionList(CItemBase* aNext) : CListItem(aNext, 0)

@@ -263,13 +263,6 @@ void CProtocolTCP6::Process(RMBufChain& aPacket, CProtocolBase* /*aSourceProtoco
 #ifdef _LOG
 		LogPacket('<', seg, info, info->iOffset);
 		pkt.Set(seg, info->iOffset, pkt.iHdr->HeaderLength()); // LogPacket() may have realigned the header.
-
-		if (!pkt.iHdr)
-			{
-			LOG(Log::Printf(_L("\ttcp Process() header alignment failed. Packet discarded")));
-			seg.Free();
-			return;
-			}
 #endif
 
 		// Verify TCP checksum

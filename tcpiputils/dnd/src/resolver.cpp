@@ -328,7 +328,6 @@ private:
 	TUint8 iQueryStepRetries;		//< Additional retries after the primary attempt
 	TInt iSourceCount;				//< Remaining number of sources.
 	TInt iNext;						//< Non-zero, if executing Next operation
-	TBool iSuffixSupportEnabled;	//< Flag to switch on/off the domain suffix list support in name resolution
 
 	// Specify Current Query state
 
@@ -842,7 +841,7 @@ void CDndResolver::ProbeServers()
 			iId, (TInt)iCurrentQuery().iSession, (TInt)iProbe.iQType, &iProbe.iName, (TInt)iProbe.iSession->Instance())); 
 		// Use the current query as a probe starting point
 		//(void)iProbe.iSession->NewQuery(*iSession[0].iSession);
-		(void)iProbe.iSession->NewQuery(iCurrentQuery(),iSourceNow,iQueryFlags | KDnsModifier_PQ, iSuffixSupportEnabled);
+		(void)iProbe.iSession->NewQuery(iCurrentQuery(),iSourceNow,iQueryFlags | KDnsModifier_PQ);
 		
 		// initialize server (which is not tried)
 		(void)iProbe.iSession->PickDefaultServer();
@@ -1112,7 +1111,6 @@ void CDndResolver::Start(const TDnsMessageBuf &aMsg)
 	ASSERT(iQueryDoneWait == 0);
 	
 	iBuffer = aMsg;
-	iSuffixSupportEnabled = cf.iSuffixSupportEnabled;
 	//
 	// A new command/query from the application
 	//
@@ -1383,7 +1381,7 @@ void TQuerySession::Open()
 			iResolver->iId, iResolver->iCurrentQuery().iSession, (TInt)iQType, &iName, (TInt)iSession->Instance()));
 		// ..if NewQuery returns an error, it will be the result of the query. Otherwise
 		// use the KErrEof as initial value.
-		iStatus = iSession->NewQuery(iResolver->iCurrentQuery(), iResolver->iSourceNow, iResolver->iQueryFlags, iResolver->iSuffixSupportEnabled);
+		iStatus = iSession->NewQuery(iResolver->iCurrentQuery(), iResolver->iSourceNow, iResolver->iQueryFlags);
 		if (iStatus == KErrNone)
 			iStatus = KErrEof;	// No content yet.
 #ifdef SYMBIAN_DNS_PUNYCODE
@@ -1630,7 +1628,7 @@ void TQuerySession::Event(TBool aTimeOut)
 		// queries if the filter iLockId cannot be determined due to
 		// missing interfaces. And only happens if query address was
 		// without scope id.
-		(void)iSession->NewQuery(iResolver->iCurrentQuery(), iResolver->iSourceNow, iResolver->iQueryFlags, iResolver->iSuffixSupportEnabled);
+		(void)iSession->NewQuery(iResolver->iCurrentQuery(), iResolver->iSourceNow, iResolver->iQueryFlags);
 		SendDnsQuery();
 		return;
 		}

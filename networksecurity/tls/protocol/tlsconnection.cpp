@@ -1,4 +1,4 @@
-// Copyright (c) 2003-2010 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -26,8 +26,6 @@
 #include "applicationdata.h"
 #include <es_sock.h>
 #include <in_sock.h>
-#include <featdiscovery.h>
-#include <featureuids.h>
 
 #ifdef SYMBIAN_ENABLE_SPLIT_HEADERS
 #include <ssl_internal.h>
@@ -156,17 +154,7 @@ void CTlsConnection::ConstructL(RSocket& aSocket, const TDesC& aProtocol)
 	User::LeaveIfError( SetProtocol(aProtocol) );
 	iTlsProvider->Attributes()->iCurrentCipherSuite.iLoByte = 0x00;
 	iTlsProvider->Attributes()->iCurrentCipherSuite.iHiByte = 0x00;
-	TBool allowUntrustedCertificates = EFalse;
-	allowUntrustedCertificates = CFeatureDiscovery::IsFeatureSupportedL(NFeature::KFeatureIdFfHttpAllowUntrustedCertificates);
-	
-	if( allowUntrustedCertificates )
-	  {
-      iTlsProvider->Attributes()->iDialogMode = ETTLSDialogModeAllowAutomatic;
-	  }
-	else
-	  {
-	  iTlsProvider->Attributes()->iDialogNonAttendedMode = EFalse;
-	  }
+	iTlsProvider->Attributes()->iDialogNonAttendedMode = EFalse;
 	iDialogMode = EDialogModeAttended;
 
 	iGenericSocket = new(ELeave)CGenericSecureSocket<RSocket>(aSocket);
@@ -175,17 +163,18 @@ void CTlsConnection::ConstructL(RSocket& aSocket, const TDesC& aProtocol)
   	LOG(Log::Printf(_L("iRecordParser %x - %x"), iRecordParser, (TUint)iRecordParser + sizeof( CRecordParser ));)
 	iRecordComposer = new(ELeave)CRecordComposer( *iGenericSocket, *iTlsProvider );
 	TBuf<32> tempBuf;
-    tempBuf.Copy(aProtocol);
-    tempBuf.UpperCase();
-    TInt ret = tempBuf.Compare(KProtocolVerSSL30);
-    if (!ret)
-      {
-      iRecordComposer->SetVersion(&KSSL3_0);
-  	  }
-    else
-      {
-      iRecordComposer->SetVersion(&KTLS1_0);
-      }
+   	tempBuf.Copy(aProtocol);
+   	tempBuf.UpperCase();
+   	TInt ret = tempBuf.Compare(KProtocolVerSSL30);
+   	if (!ret)
+   	    {
+	    iRecordComposer->SetVersion(&KSSL3_0);
+   	    }
+   	else
+   	    {
+	    iRecordComposer->SetVersion(&KTLS1_0);
+   	    }
+
   	LOG(Log::Printf(_L("iRecordComposer %x - %x"), iRecordComposer, (TUint)iRecordComposer + sizeof( CRecordComposer ));)
 
 #ifdef _DEBUG
@@ -218,17 +207,7 @@ void CTlsConnection::ConstructL(MGenericSecureSocket& aSocket, const TDesC& aPro
 	User::LeaveIfError( SetProtocol(aProtocol) );
 	iTlsProvider->Attributes()->iCurrentCipherSuite.iLoByte = 0x00;
 	iTlsProvider->Attributes()->iCurrentCipherSuite.iHiByte = 0x00;
-	TBool allowUntrustedCertificates = EFalse;
-	allowUntrustedCertificates = CFeatureDiscovery::IsFeatureSupportedL(NFeature::KFeatureIdFfHttpAllowUntrustedCertificates);
-
-	if( allowUntrustedCertificates )
-	  {
-	  iTlsProvider->Attributes()->iDialogMode = ETTLSDialogModeAttended;
-	  }
-	else
-	  {
-	  iTlsProvider->Attributes()->iDialogNonAttendedMode = EFalse;
-	  }
+	iTlsProvider->Attributes()->iDialogNonAttendedMode = EFalse;
 	iDialogMode = EDialogModeAttended;
 
 	iRecordParser = new(ELeave)CRecordParser( aSocket, *iTlsProvider );
@@ -932,56 +911,23 @@ TInt CTlsConnection::SetDialogMode(const TDialogMode aDialogMode)
 	// TDialogMode enum or has the value EDialogModeUnattended/EDialogModeAttended. 
 	// Otherwise, it must return KErrArgument
 	TInt ret = KErrNone;
-	TBool allowUntrustedCertificates = EFalse;
-	TRAP(ret, allowUntrustedCertificates = CFeatureDiscovery::IsFeatureSupportedL(NFeature::KFeatureIdFfHttpAllowUntrustedCertificates));
-	
-	if(KErrNone == ret)
-	{
-		TTLSDialogMode tlsDialogMode( ETTLSDialogModeAttended );
-		switch(aDialogMode)
-		{
-			case EDialogModeUnattended:
-				{
-				if( allowUntrustedCertificates )
-					{
-					tlsDialogMode = ETTLSDialogModeUnattended;
-					iDialogMode = aDialogMode;
-					break;        
-					}
-				}
-			case EDialogModeAttended:
-				{
-				if( allowUntrustedCertificates )
-					{
-					tlsDialogMode = ETTLSDialogModeAttended;
-					}
-				iDialogMode = aDialogMode;
-				break;
-				}
-			case EDialogModeAllowAutomatic:
-				{
-				tlsDialogMode = ETTLSDialogModeAllowAutomatic;
-				iDialogMode = aDialogMode;
-				break; 
-				}
-			
-			default:  //-- wrong mode
-				LOG(Log::Printf(_L("SetDialogMode() - Unknown dialog mode, default setting (Attended mode) being used"));)
-			return KErrArgument;    
-		};
+   
+    switch(aDialogMode)
+    {
+        case EDialogModeUnattended:
+        case EDialogModeAttended:
+            iDialogMode = aDialogMode;
+        break;
+        
+        default:  //-- wrong mode
+            LOG(Log::Printf(_L("SetDialogMode() - Unknown dialog mode, default setting (Attended mode) being used"));)
+        return KErrArgument;    
+    };
 
-		if ( iTlsProvider )
-		{
-		if( allowUntrustedCertificates )
-			{
-			iTlsProvider->Attributes()->iDialogMode = tlsDialogMode;
-			}
-		else
-			{
-			iTlsProvider->Attributes()->iDialogNonAttendedMode = (iDialogMode == EDialogModeUnattended);
-			}
-		}
-	}
+    if ( iTlsProvider )
+    {
+   	    iTlsProvider->Attributes()->iDialogNonAttendedMode = (iDialogMode == EDialogModeUnattended);
+    }	
 
     return ret;
 }

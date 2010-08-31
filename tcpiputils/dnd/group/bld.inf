@@ -65,5 +65,3 @@ PRJ_TESTMMPFILES
 // or "support" is specified.
 
 // dndapp.mmp
-
-#include "../Test/Group/BLD.INF"

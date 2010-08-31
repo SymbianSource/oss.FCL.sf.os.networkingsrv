@@ -51,7 +51,7 @@ public:
 	//
 	// MDnsSession API (methods callable by resolver)
 	// (documented in the mixin class)
-	virtual TInt NewQuery(const TDnsMessage &aQuery, TDnsServerScope aServerScope, TUint32 aFlags, TBool aSuffixSupportEnabled);
+	virtual TInt NewQuery(const TDnsMessage &aQuery, TDnsServerScope aServerScope, TUint32 aFlags);
 	virtual void CancelQuery();
 	virtual TInt DoQueryL(const TTime &aRequestTime, const EDnsQType aQType);
 	virtual TInt DoNext(TDnsMessageBuf &aReply, TInt aNext) const;
@@ -118,14 +118,7 @@ public:
 	// "Owner" source
 	CDndDnsclient *iOwner;	//< Actual owner of the request data
 
-	TUint iNetworkId;      //< NetworkId from the request message.
-	RInetSuffixList iSuffixList;	//< Container to store the domain search list on the interface where the query is sent
-	TBool iIsIncompleteHostName;	//< Flag sent on the query to identify queries that need to retried on suffixes
-	TBool iCanResolveIncompleteName;	//< Flag to confirm incomplete name without domain suffix tried for resolution as it is
-	THostName iActualQueryName;		//< To store actual query name while domain suffixes are being applied
-	TBool iPendingSuffixExist;		//< Flag set when suffixes are exhausted
-	TInt iFlowReqType;				//< Differentiates IMPLICIT/EXPLICIT
-	TBool iSuffixSupportEnabled;	//< Flag to switch ON/OFF the suffix support
+	TUint iNetworkId;      //< NetworkId from the request message.	
 	};
 
 class TInetAddressInfo;

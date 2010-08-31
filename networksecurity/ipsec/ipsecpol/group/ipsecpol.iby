@@ -22,7 +22,7 @@
 #ifndef __IPSECPOL_IBY__
 #define __IPSECPOL_IBY__
 
-#ifdef SYMBIAN_EXCLUDE_IPSEC
+#ifndef __IPSEC
 
 REM Feature IPSECPOL not included in this rom
 
@@ -32,6 +32,6 @@ data=EPOCROOT##epoc32\data\z\private\01000000\ipsecpol.ini  private\01000000\ips
 
 file=ABI_DIR\DEBUG_DIR\ipsecpol.exe            System\Programs\ipsecpol.exe
 
-#endif // SYMBIAN_EXCLUDE_IPSEC
+#endif // __IPSEC
 
 #endif // __IPSECPOL_IBY__

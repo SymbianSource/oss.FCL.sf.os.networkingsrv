@@ -931,7 +931,7 @@ void CDHCPIP6StateMachine::ConfigureInterfaceL( TInt aPos )
 		User::Leave( KErrNotFound );
 		}
 
-	TSoInetInterfaceInfoExtnDnsSuffix interfaceInfo;
+	TSoInet6InterfaceInfo interfaceInfo;
    //fill interfaceInfo current address is iCurrentAddress
 	interfaceInfo.iHwAddr = iHardwareAddr;
 	interfaceInfo.iAddress = iCurrentAddress;

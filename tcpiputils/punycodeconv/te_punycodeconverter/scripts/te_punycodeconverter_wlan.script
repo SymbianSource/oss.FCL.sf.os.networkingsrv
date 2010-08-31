@@ -1,0 +1,441 @@
+//
+// Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//! @file
+//! @SYMTestSuiteName       NET-DND-punycodeconverter-CIT
+//! @SYMScriptTestEnvironment TestExecuteFramework
+//
+//Unload esock forcefully
+RUN_SCRIPT z:\testdata\scripts\te_esock_test_unloadesockForced.script
+
+RUN_UTILS  MkDir c:\private
+RUN_UTILS  MkDir c:\private\10202be9
+RUN_UTILS  MkDir c:\private\10202be9\persists
+RUN_UTILS  MakeReadWrite c:\private\10202be9\persists\cccccc00.cre
+
+//Configure commdb.
+//ced -i z:\testdata\configs\te_punycodeconverter_ced.xml
+RUN_UTILS CopyFile z:\testdata\configs\cccccc00_punycodeconverter.cre c:\private\10202be9\persists\cccccc00.cre
+
+RUN_SCRIPT z:\testdata\scripts\te_esock_test_loadesock.script
+
+//Load the Server
+LOAD_SERVER te_punycodeconverter
+
+START_TESTCASE                NET-DND-punycodeconverter-test1
+//! @SYMTestCaseID              NET-DND-punycodeconverter-test1
+//! @SYMTestCaseDesc            PREQ2296 - REQ11948
+//!                             Resolve International Domain Name.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_punycodeconverter test server
+//!                             Run the ResolveName test case by passing te_punycodeconverter_test1.ini, which consists available IDN.
+//! @SYMTestExpectedResults     Domain name resolved successfully.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            5/2/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_punycodeconverter 100 z:\testdata\configs\te_punycodeconverter.ini
+		CREATE_OBJECT PunycodeConverterTestWrapper punycodeconverter_test1
+		COMMAND punycodeconverter_test1 OpenResolver ResolveName1
+		COMMAND punycodeconverter_test1 EnableIdnSupport ResolveName1
+		COMMAND punycodeconverter_test1 ResolveName ResolveName1
+		COMMAND punycodeconverter_test1 CloseResolver ResolveName1
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-DND-punycodeconverter-test1
+
+
+START_TESTCASE                NET-DND-punycodeconverter-test2
+//! @SYMTestCaseID              NET-DND-punycodeconverter-test2
+//! @SYMTestCaseDesc            PREQ2296 - REQ11948
+//!                             DND must return valid error code for unavailable International Domain Name.
+//! @SYMTestPriority            High
+//! @SYMTestActions             Load te_punycodeconverter test server
+//!                             Run the ResolveName test case by passing te_punycodeconverter_test2.ini, which consists unavailable IDN.
+//! @SYMTestExpectedResults     DND must return valid error code KErrDndNameNotFound.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            5/2/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_punycodeconverter 100 z:\testdata\configs\te_punycodeconverter.ini
+		CREATE_OBJECT PunycodeConverterTestWrapper punycodeconverter_test2
+		COMMAND punycodeconverter_test2 OpenResolver ResolveName2
+		COMMAND punycodeconverter_test2 EnableIdnSupport ResolveName2
+		COMMAND !Error=-5120 punycodeconverter_test2 ResolveName ResolveName2
+		COMMAND punycodeconverter_test2 CloseResolver ResolveName2
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-DND-punycodeconverter-test2
+
+
+START_TESTCASE                NET-DND-punycodeconverter-test3
+//! @SYMTestCaseID              NET-DND-punycodeconverter-test3
+//! @SYMTestCaseDesc            PREQ2296 - REQ11948
+//!                             Resolve manually converted punycode name.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_punycodeconverter test server
+//!                             Run the ResolveName test case by passing te_punycodeconverter.ini, which consists an domain name of type punycode.
+//! @SYMTestExpectedResults     Domain name resolved successfully.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            5/2/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_punycodeconverter 100 z:\testdata\configs\te_punycodeconverter.ini
+		CREATE_OBJECT PunycodeConverterTestWrapper punycodeconverter_test3
+		COMMAND punycodeconverter_test3 OpenResolver ResolveName3
+		COMMAND punycodeconverter_test3 EnableIdnSupport ResolveName3
+		COMMAND punycodeconverter_test3 ResolveName ResolveName3
+		COMMAND punycodeconverter_test3 CloseResolver ResolveName3
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-DND-punycodeconverter-test3
+
+
+START_TESTCASE                NET-DND-punycodeconverter-test4
+//! @SYMTestCaseID              NET-DND-punycodeconverter-test4
+//! @SYMTestCaseDesc            PREQ2296 - REQ11948
+//!                             DND must return valid error codes for malformed punycode names.
+//! @SYMTestPriority            High
+//! @SYMTestActions             Load te_punycodeconverter test server
+//!                             Run the ResolveName test case by passing te_punycodeconverter_test4.ini, which consists an domain name of type punycode.
+//! @SYMTestExpectedResults     DND must return valid error code KErrDndNameNotFound.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            5/2/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_punycodeconverter 100 z:\testdata\configs\te_punycodeconverter.ini
+		CREATE_OBJECT PunycodeConverterTestWrapper punycodeconverter_test4
+		COMMAND punycodeconverter_test4 OpenResolver ResolveName4
+		COMMAND punycodeconverter_test4 EnableIdnSupport ResolveName4
+		COMMAND !Error=-5120 punycodeconverter_test4 ResolveName ResolveName4
+		COMMAND punycodeconverter_test4 CloseResolver ResolveName4
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-DND-punycodeconverter-test4
+
+
+START_TESTCASE                NET-DND-punycodeconverter-test5
+//! @SYMTestCaseID              NET-DND-punycodeconverter-test5
+//! @SYMTestCaseDesc            PREQ2296 - REQ11948
+//!                             International domain name length exceeds the max limit of 255 chars
+//! @SYMTestPriority            High
+//! @SYMTestActions             Load te_punycodeconverter test server
+//!                             Run the ResolveName test case by passing te_punycodeconverter_test5.ini i, which consists an lengthy IDN.
+//! @SYMTestExpectedResults     DND must return valid error code KErrDndBadName.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            5/2/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_punycodeconverter 100 z:\testdata\configs\te_punycodeconverter.ini
+		CREATE_OBJECT PunycodeConverterTestWrapper punycodeconverter_test5
+		COMMAND punycodeconverter_test5 OpenResolver ResolveName5
+		COMMAND punycodeconverter_test5 EnableIdnSupport ResolveName5
+		COMMAND !Error=-5127 punycodeconverter_test5 ResolveName ResolveName5
+		COMMAND punycodeconverter_test5 CloseResolver ResolveName5
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-DND-punycodeconverter-test5
+
+
+START_TESTCASE                NET-DND-punycodeconverter-test6
+//! @SYMTestCaseID              NET-DND-punycodeconverter-test6
+//! @SYMTestCaseDesc            PREQ2296 - REQ11950  REQ11948
+//!                             Using punycodeconverter API's convert valid IDN to punycode and use DND to resolve this punycode.
+//! @SYMTestPriority            Medium
+//! @SYMTestActions             Load te_punycodeconverter test server
+//!                             Run the IdnToPuny test case and preserve the punycode.
+//!                             Use the converted punycode and run the ResolveName test case.
+//! @SYMTestExpectedResults     Punycodeconverter conversion successfull.
+//!                             Converted punycode resolved successfully by DND.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            5/2/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_punycodeconverter 100 z:\testdata\configs\te_punycodeconverter.ini
+		CREATE_OBJECT PunycodeConverterTestWrapper punycodeconverter_test6
+		COMMAND punycodeconverter_test6 IdnToPunyCode IdnToPunyCode6
+		COMMAND punycodeconverter_test6 OpenResolver ResolveName6
+		COMMAND punycodeconverter_test6 EnableIdnSupport ResolveName6
+		COMMAND punycodeconverter_test6 ResolveName ResolveName6
+		COMMAND punycodeconverter_test6 CloseResolver ResolveName6
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-DND-punycodeconverter-test6
+
+
+START_TESTCASE                NET-DND-punycodeconverter-test7
+//! @SYMTestCaseID              NET-DND-punycodeconverter-test7
+//! @SYMTestCaseDesc            PREQ2296 - REQ11950
+//!                             Convert the valid IDN to punycode and check this against maually converted one.
+//! @SYMTestPriority            High
+//! @SYMTestActions             Load te_punycodeconverter test server
+//!                             Run the IdnToPuny test case.
+//!                             Compare the converted punycode against the manually converted one which is fetched from te_punycodeconverter.ini.
+//! @SYMTestExpectedResults     Punycode converted by punycodeconverter and manually converted are same.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            5/2/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_punycodeconverter 100 z:\testdata\configs\te_punycodeconverter.ini
+		CREATE_OBJECT PunycodeConverterTestWrapper punycodeconverter_test7
+		COMMAND punycodeconverter_test7 IdnToPunyCode IdnToPunyCode7
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-DND-punycodeconverter-test7
+
+
+START_TESTCASE                NET-DND-punycodeconverter-test8
+//! @SYMTestCaseID              NET-DND-punycodeconverter-test8
+//! @SYMTestCaseDesc            PREQ2296 - REQ11951
+//!                             Convert the valid punycode to IDN and check this against maually converted one.
+//! @SYMTestPriority            High
+//! @SYMTestActions             Load te_punycodeconverter test server.
+//!                             Run the PunyToIdn test case.
+//!                             Compare the converted IDN against the manually converted one which is fetched from te_punycodeconverter.ini.
+//! @SYMTestExpectedResults     IDN converted by punycodeconverter and manually converted are same.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            5/2/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_punycodeconverter 100 z:\testdata\configs\te_punycodeconverter.ini
+		CREATE_OBJECT PunycodeConverterTestWrapper punycodeconverter_test8
+		COMMAND punycodeconverter_test8 PunyCodeToIdn PunyCodeToIdn8
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-DND-punycodeconverter-test8
+
+
+START_TESTCASE                NET-DND-punycodeconverter-test9
+//! @SYMTestCaseID              NET-DND-punycodeconverter-test9
+//! @SYMTestCaseDesc            PREQ2296 - REQ11950
+//!                             Punycode converter returns valid error upon receiving malformed punycode for conversion.
+//! @SYMTestPriority            High
+//! @SYMTestActions             Load te_punycodeconverter test server.
+//!                             Run the PunyToIdn test case.
+//! @SYMTestExpectedResults     Punycodeconverter conversion failed with error KErrDndBadName.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            5/2/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_punycodeconverter 100 z:\testdata\configs\te_punycodeconverter.ini
+		CREATE_OBJECT PunycodeConverterTestWrapper punycodeconverter_test9
+		COMMAND !Error=-5127 punycodeconverter_test9 PunyCodeToIdn PunyCodeToIdn9
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-DND-punycodeconverter-test9
+
+
+START_TESTCASE                NET-DND-punycodeconverter-test10
+//! @SYMTestCaseID              NET-DND-punycodeconverter-test10
+//! @SYMTestCaseDesc            PREQ2296 - REQ11948
+//!                             Relsolve the IDN name by providing the IP address.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Load te_punycodeconverter test server
+//!                             Run the ResolveAddress test case.
+//! @SYMTestExpectedResults     DND resolves the IP address successfully.
+//!                             Result is actual IDN must be as the one provided in te_punycodeconverter_test10.ini
+//! @SYMTestType                CIT
+//! @SYMCreationDate            5/2/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_punycodeconverter 100 z:\testdata\configs\te_punycodeconverter.ini
+		CREATE_OBJECT PunycodeConverterTestWrapper punycodeconverter_test10
+		COMMAND punycodeconverter_test10 OpenResolver ResolveAddress10
+		COMMAND punycodeconverter_test10 EnableIdnSupport ResolveAddress10
+		COMMAND punycodeconverter_test10 ResolveAddress ResolveAddress10
+		COMMAND punycodeconverter_test10 CloseResolver ResolveAddress10
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-DND-punycodeconverter-test10
+
+
+START_TESTCASE                NET-DND-punycodeconverter-test11
+//! @SYMTestCaseID              NET-DND-punycodeconverter-test11
+//! @SYMTestCaseDesc            PREQ2296 - REQ11951
+//!                             DND must resolve the punycodeconverter converted IDN
+//! @SYMTestPriority            High
+//! @SYMTestActions             Load te_punycodeconverter test server
+//!                             Run the PunyToIdn test case, preserve the IDN
+//!                             Use the preserved IDN and run ResolveName test case.
+//! @SYMTestExpectedResults     DND resolves the punycodeconverter converted IDN successfully.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            5/2/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_punycodeconverter 100 z:\testdata\configs\te_punycodeconverter.ini
+		CREATE_OBJECT PunycodeConverterTestWrapper punycodeconverter_test11
+		COMMAND punycodeconverter_test11 PunyCodeToIdn PunyCodeToIdn11
+		COMMAND punycodeconverter_test11 OpenResolver PunyCodeToIdn11
+		COMMAND punycodeconverter_test11 EnableIdnSupport PunyCodeToIdn11
+		COMMAND punycodeconverter_test11 ResolveName ResolveName11
+		COMMAND punycodeconverter_test11 CloseResolver PunyCodeToIdn11
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-DND-punycodeconverter-test11
+
+
+START_TESTCASE                NET-DND-punycodeconverter-test12
+//! @SYMTestCaseID              NET-DND-punycodeconverter-test12
+//! @SYMTestCaseDesc            PREQ2296 - REQ11949
+//!                             New component capability test.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Create te_punycodeconverter1 by setting the capability UserEnvironment
+//!                             Create te_punycodeconverter2 by setting the capability NetworkServices
+//!                             Load te_punycodeconverter1 test server.
+//!                             Run the CapTest test case
+//!                             Load te_punycodeconverter2 test server.
+//!                             Run the CapTest test case.
+//! @SYMTestExpectedResults     Error KErrPermissionDenied has to be reported for frist test case,
+//!                             KErrNone for the second one.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            11/2/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+//capability UserEnvironment
+RUN_PROGRAM -1 setcap.exe te_punycodeconverter.exe 80000 -SID 10281806 te_punycodeconverter1.exe
+//capability NetworkServices
+RUN_PROGRAM -1 setcap.exe te_punycodeconverter.exe 400 -SID 10281806 te_punycodeconverter2.exe
+
+//Load the Server
+LOAD_SERVER te_punycodeconverter1
+
+	START_TEST_BLOCK te_punycodeconverter1 100 z:\testdata\configs\te_punycodeconverter.ini
+		CREATE_OBJECT PunycodeConverterTestWrapper punycodeconverter_test12
+		COMMAND punycodeconverter_test12 OpenResolver CapTest12
+		COMMAND punycodeconverter_test12 EnableIdnSupport CapTest12
+		COMMAND !Error=-46 punycodeconverter_test12 CapTest CapTest12
+		COMMAND punycodeconverter_test12 CloseResolver CapTest12
+	END_TEST_BLOCK
+
+//Load the Server
+LOAD_SERVER te_punycodeconverter2
+
+	START_TEST_BLOCK te_punycodeconverter2 100 z:\testdata\configs\te_punycodeconverter.ini
+		CREATE_OBJECT PunycodeConverterTestWrapper punycodeconverter_test12
+		COMMAND punycodeconverter_test12 OpenResolver CapTest12
+		COMMAND punycodeconverter_test12 EnableIdnSupport CapTest12
+		COMMAND punycodeconverter_test12 CapTest CapTest12
+		COMMAND punycodeconverter_test12 CloseResolver CapTest12
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-DND-punycodeconverter-test12
+
+
+START_TESTCASE                NET-DND-punycodeconverter-test13
+//! @SYMTestCaseID              NET-DND-punycodeconverter-test13
+//! @SYMTestCaseDesc            PREQ2296 - REQ12162
+//!                             Enable IDN, Resolve surrogate pair code unit
+//! @SYMTestPriority            High
+//! @SYMTestActions             Load te_punycodeconverter test server
+//!                             Run the surrogatepair test case
+//! @SYMTestExpectedResults     Expect KErrDndBadName error
+//! @SYMTestType                CIT
+//! @SYMCreationDate            5/2/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_punycodeconverter 100 z:\testdata\configs\te_punycodeconverter.ini
+		CREATE_OBJECT PunycodeConverterTestWrapper punycodeconverter_test13
+		COMMAND punycodeconverter_test13 OpenResolver SurrogatePair13
+		COMMAND punycodeconverter_test13 EnableIdnSupport SurrogatePair13
+		COMMAND !Error=-5127 punycodeconverter_test13 SurrogatePair SurrogatePair13
+		COMMAND punycodeconverter_test13 CloseResolver SurrogatePair13
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-DND-punycodeconverter-test13
+
+
+START_TESTCASE                NET-DND-punycodeconverter-test14
+//! @SYMTestCaseID              NET-DND-punycodeconverter-test14
+//! @SYMTestCaseDesc            PREQ2296 - REQ12162
+//!                             Disable IDN, Resolve surrogate pair code unit
+//! @SYMTestPriority            Medium
+//! @SYMTestActions             Load te_punycodeconverter test server
+//!                             run surrogatepair test case
+//! @SYMTestExpectedResults     Expect KErrDndBadName
+//! @SYMTestType                CIT
+//! @SYMCreationDate            5/2/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_punycodeconverter 100 z:\testdata\configs\te_punycodeconverter.ini
+		CREATE_OBJECT PunycodeConverterTestWrapper punycodeconverter_test14
+		COMMAND punycodeconverter_test14 OpenResolver SurrogatePair14
+		COMMAND punycodeconverter_test14 DisableIdnSupport SurrogatePair14
+		COMMAND !Error=-5127 punycodeconverter_test14 SurrogatePair SurrogatePair14
+		COMMAND punycodeconverter_test14 CloseResolver SurrogatePair14
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-DND-punycodeconverter-test14
+
+
+START_TESTCASE                NET-DND-punycodeconverter-test15
+//! @SYMTestCaseID              NET-DND-punycodeconverter-test15
+//! @SYMTestCaseDesc            Disable IDN using the RHostResolver API SetOpt, try to resolve valid IDN name
+//! @SYMTestPriority            High
+//! @SYMTestActions             Load te_punycodeconverter test server
+//!                             run ResolveName test case
+//! @SYMTestExpectedResults     Expect the error KErrDndNameNotFound
+//! @SYMTestType                CIT
+//! @SYMCreationDate            5/2/2009
+//! @SYMAuthor                  tamilarasub
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_punycodeconverter 100 z:\testdata\configs\te_punycodeconverter.ini
+		CREATE_OBJECT PunycodeConverterTestWrapper punycodeconverter_test15
+		COMMAND punycodeconverter_test15 OpenResolver SurrogatePair15
+		COMMAND punycodeconverter_test15 DisableIdnSupport SurrogatePair15
+		COMMAND !Error=-5120 punycodeconverter_test15 ResolveName ResolveName15
+		COMMAND punycodeconverter_test15 CloseResolver SurrogatePair15
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-DND-punycodeconverter-test15
+
+START_TESTCASE                NET-DND-punycodeconverter-test16
+//! @SYMTestCaseID              NET-DND-punycodeconverter-test16
+//! @SYMTestCaseDesc            DEF141282 fix
+//!                             Convert the valid punycode to IDN and check this against maually converted one.
+//! @SYMTestPriority            High
+//! @SYMTestActions             Load te_punycodeconverter test server.
+//!                             Run the PunyToIdn test case.
+//!                             Compare the converted IDN against the manually converted one which is fetched from te_punycodeconverter.ini.
+//! @SYMTestExpectedResults     IDN converted by punycodeconverter and manually converted are same.
+//! @SYMTestType                CIT
+//! @SYMCreationDate            4/08/2009
+//! @SYMAuthor                  Maheswara
+//! @SYMTestStatus              3. Released
+
+	START_TEST_BLOCK te_punycodeconverter 100 z:\testdata\configs\te_punycodeconverter.ini
+		CREATE_OBJECT PunycodeConverterTestWrapper punycodeconverter_test16
+		COMMAND punycodeconverter_test16 PunyCodeToIdn PunyCodeToIdn16
+	END_TEST_BLOCK
+
+END_TESTCASE                  NET-DND-punycodeconverter-test16
+
+RUN_SCRIPT z:\TestData\scripts\te_esock_test_stopallinterfaces.script
+RUN_SCRIPT z:\testdata\scripts\te_esock_test_unloadesockForced.script
+

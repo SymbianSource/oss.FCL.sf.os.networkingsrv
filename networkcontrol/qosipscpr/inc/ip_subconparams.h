@@ -27,6 +27,8 @@
 #define __IP_SUBCONPARAMS_H__
 
 #include <es_sock.h>
+#include <networking/qos3gpp_subconparams.h>
+
  
 // NOTE: This Uid may be changed - See #ifdef at bottom of the file
 const TInt KSubConIPParamsUid = 0x10204309;

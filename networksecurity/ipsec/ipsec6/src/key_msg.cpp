@@ -762,7 +762,6 @@ TInt CProtocolKey::Exec(const TDesC8 &aMsg, CProviderKey *aSrc)
 	* @return KErrNone or error code on fail.
 	*/
 	{
-	TIpAddress src, dst, proxy;		// Working space for the TPfkeyMessage Constructor!
 	TPfkeyMessage msg(aMsg, iEndPointCollection);
 	LOG(msg.LogPrint(_L("PFKEY"), iCrypto->Algorithms()));
 

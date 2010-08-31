@@ -202,8 +202,7 @@ CIPProtoDeftSubConnectionProvider::~CIPProtoDeftSubConnectionProvider()
            }
        }
 	if (iControl)
-		iControl->AsyncDelete();
-	
+		delete iControl;
 	//incase registration is successful and Network is configured. 
 	if (iNotify)
 	    {

@@ -37,7 +37,7 @@ data=EPOCROOT##epoc32\data\Z\TestData\configs\ts_ipsec_mh2.ini    testdata\confi
 data=EPOCROOT##epoc32\data\Z\TestData\configs\ts_ipsec_mh3.ini    testdata\configs\ts_ipsec_mh3.ini
 data=EPOCROOT##epoc32\data\Z\TestData\configs\ts_ipsec_mh4.ini    testdata\configs\ts_ipsec_mh4.ini
 
-#ifdef SYMBIAN_EXCLUDE_IPSEC
+#ifndef __IPSEC
 REM Feature IPSEC not included in this rom
 data=EPOCROOT##epoc32\data\Z\TestData\scripts\ts_ipsec_removed.script testdata\scripts\ts_ipsec_removed.script
 #else
@@ -84,7 +84,7 @@ REM file=ABI_DIR\DEBUG_DIR\FAKE_SECDLGNOTIF.DLL		System\TNotifiers\FAKE_SECDLGNO
 REM file=ABI_DIR\DEBUG_DIR\FAKE_IPSECNOTIF.DLL		System\TNotifiers\FAKE_IPSECNOTIF.DLL
 #endif 
 
-#ifdef SYMBIAN_EXCLUDE_IPSEC
+#ifndef __IPSEC
 REM Feature IPSEC not included in this rom so below apis added for tests to link
 file=ABI_DIR\DEBUG_DIR\ipsecpolapi.dll		System\Libs\ipsecpolapi.dll
 file=ABI_DIR\DEBUG_DIR\vpnapi.dll			SYSTEM_BINDIR\vpnapi.dll

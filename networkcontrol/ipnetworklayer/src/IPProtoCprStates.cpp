@@ -38,8 +38,6 @@
 #include <commsdattypesv1_1_partner.h>
 #include <es_prot_internal.h>
 #include <elements/nm_messages_errorrecovery.h>
-#include <es_enum_internal.h>
-#include "ItfInfoConfigExt.h"
 
 using namespace Messages;
 using namespace MeshMachine;
@@ -155,10 +153,8 @@ void TSendStoppedAndGoneDown::DoL()
 	if (iContext.Node().iTimerStopped)
 		{
 		TInt selfidx = iContext.iNodeActivity->FindOriginator(iContext.Node().SelfInterface());
-		if(selfidx != KErrNotFound)
-			{
-			iContext.iNodeActivity->RemoveOriginator(selfidx);
-			}				
+		ASSERT(selfidx != KErrNotFound);
+		iContext.iNodeActivity->RemoveOriginator(selfidx);
 		}
 		
 	TInt stopCode = KErrCancel;
@@ -287,19 +283,6 @@ TBool TAwaitingStart::Accept()
 	if (state.Accept())
 		{
 		iContext.Node().DisableTimers();
-		// Check if we have been re-started (i.e. a start request is processed immmediately after a stop request
-		// has been processed).  If so, we generate a special EInterfaceStarting notification towards ESock.
-		// This is to solve the problem where there is a missing EInterfaceDown/EInterfaceUp event sequence
-		// from AllInterfaceNotification in this scenario. 
-		if (iContext.Node().iStopped)
-		    {
-            const TItfInfoConfigExt* ext = static_cast<const TItfInfoConfigExt*>(iContext.Node().AccessPointConfig().FindExtension(STypeId::CreateSTypeId(KIpProtoConfigExtUid, EItfInfoConfigExt)));
-            if (ext)
-                {
-                TInterfaceNotification info = { ext->iConnectionInfo, TConnInterfaceState(EInterfaceRestarting) };
-                iContext.Node().Factory().InterfaceStateChange(TPckgC<TInterfaceNotification>(info));
-                }
-		    }
 		return ETrue;
 		}
 	return EFalse;
@@ -396,7 +379,6 @@ void TSendStarted::DoL()
 	iContext.Node().SetTimerMode(CIPProtoConnectionProvider::ETimerMedium);
 
     iContext.Node().iTimerStopped = EFalse;
-    iContext.Node().iTimerExpired = EFalse;
 	CoreNetStates::TSendStarted transition(iContext);
 	transition.DoL();
 	}
@@ -427,21 +409,14 @@ void IpProtoCpr::TProcessDataClientStatusChange::DoL()
     	TCFMessage::TSubConnDataTransferred wholeConnMsg(KNifEMCompatibilityLayerEntireSubConnectionUid, dmProvider->DataVolumesPtr()->iSentBytes, dmProvider->DataVolumesPtr()->iReceivedBytes);
     	TCFMessage::TSubConnDataTransferred defaultSubConnMsg(KNifEMCompatibilityLayerFakeSubConnectionId, dmProvider->DataVolumesPtr()->iSentBytes, dmProvider->DataVolumesPtr()->iReceivedBytes);
 
-      // Sending data clent status change message to all the control clients
-      TClientIter<TDefaultClientMatchPolicy> ccIter = iContext.Node().GetClientIter<TDefaultClientMatchPolicy>(TClientType(TCFClientType::ECtrl), TClientType(0, TCFClientType::ELeaving));        
-	RNodeInterface* ctrlClient; 
-	TBool ctrlClientPresent = false;
-	while ((ctrlClient = ccIter++) != NULL)            
-	    {
-          //If any cntl clinet is present setting the variable ctrlClientPresent as true.
-	    ctrlClientPresent = true;
-	    ctrlClient->PostMessage(iContext.NodeId(), wholeConnMsg);    
-	    ctrlClient->PostMessage(iContext.NodeId(), defaultSubConnMsg); 
-	    }
-	if(ctrlClientPresent)
-	    {
-	    iContext.Node().iSubConnEventDataSent = ETrue;
-	    }
+    	RNodeInterface* ctrlClient = iContext.Node().GetFirstClient<TDefaultClientMatchPolicy>(TClientType(TCFClientType::ECtrl));
+		if(ctrlClient)
+			{ // Can't send this if the client's gone
+			ctrlClient->PostMessage(iContext.NodeId(), wholeConnMsg);
+			ctrlClient->PostMessage(iContext.NodeId(), defaultSubConnMsg);
+
+			iContext.Node().iSubConnEventDataSent = ETrue;
+			}
     	}
     }
 

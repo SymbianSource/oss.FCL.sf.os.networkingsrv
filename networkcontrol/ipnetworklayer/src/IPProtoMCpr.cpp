@@ -63,7 +63,7 @@ CIPProtoMetaConnectionProvider* CIPProtoMetaConnectionProvider::NewL(CMetaConnec
 CIPProtoMetaConnectionProvider::CIPProtoMetaConnectionProvider(CMetaConnectionProviderFactoryBase& aFactory,
                                                                const TProviderInfo& aProviderInfo,
                                                                const MeshMachine::TNodeActivityMap& aActivityMap)
-	:	CCoreMetaConnectionProvider(aFactory,aProviderInfo,aActivityMap), iIapLocked(EFalse) , iLockedIapsid(0)
+	:	CCoreMetaConnectionProvider(aFactory,aProviderInfo,aActivityMap), iIapLocked(EFalse)
 	{
 	LOG_NODE_CREATE(KIPProtoMCprTag, CIPProtoMetaConnectionProvider);
 	}

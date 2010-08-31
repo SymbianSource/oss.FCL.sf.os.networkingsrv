@@ -1,4 +1,4 @@
-// Copyright (c) 2003-2010 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -215,28 +215,6 @@ void CController::RunL()
 				iEAPKeyDerivation = KDefEAPKeyDerivation;
 				}
 			iTestStep->Log( _L("EAPKeyDerivation: %D"), iEAPKeyDerivation);
-#ifdef HTTP_ALLOW_UNTRUSTED_CERTIFICATES
-			// iTLSDialogMode;
-            if (!iTestStep->GetBoolFromConfig(KSectionName, KCfgSSLDialogMode, iTLSDialogMode ))
-                {
-                iTLSDialogMode = KDefSSLDialogMode;
-                }
-            iTestStep->Log( _L("TLSDialogMode: %D"), iTLSDialogMode);
-            
-            // iTLSDialogModeValue;
-            if (!iTestStep->GetIntFromConfig(KSectionName, KCfgSSLDialogModeValue, iTLSDialogModeValue ))
-                {
-                iTLSDialogModeValue = KDefSSLDialogModeValue;
-                }
-            iTestStep->Log( _L("TLSDialogModeValue: %D"), iTLSDialogModeValue);
-            
-            // iExpectedErrorCode (-7548: KErrSSLAlertUnknownCA)
-            if (!iTestStep->GetIntFromConfig(KSectionName, KCfgExpectedErrorCode, iExpectedErrorCode ))
-                {
-                iExpectedErrorCode = KDefErrorValue;
-                }
-            iTestStep->Log( _L("ExpectedErrorCode: %D"), iExpectedErrorCode);
-#endif  // HTTP_ALLOW_UNTRUSTED_CERTIFICATES
 
 			// On to next state 
 			iRunState = EFindFreeTest;			
@@ -275,13 +253,9 @@ void CController::RunL()
 							{
 							iTestStep->Log( _L("Using test object %d"), i );
 							}
-#ifdef HTTP_ALLOW_UNTRUSTED_CERTIFICATES
+
 						iTLSTest[i]->ConnectL( iAddress, iPortNum, iPage, iCipherSuites, 
-                                                    iCipher, iSimpleGet, iTestEndDelay, iDNSName, iProtocol, iUseGenericSocket, iEAPKeyDerivation, iTLSDialogMode, iTLSDialogModeValue, iExpectedErrorCode ); //ajit
-#else
-						iTLSTest[i]->ConnectL( iAddress, iPortNum, iPage, iCipherSuites, 
-						                            iCipher, iSimpleGet, iTestEndDelay, iDNSName, iProtocol, iUseGenericSocket, iEAPKeyDerivation ); //ajit
-#endif  // HTTP_ALLOW_UNTRUSTED_CERTIFICATES
+							iCipher, iSimpleGet, iTestEndDelay, iDNSName, iProtocol, iUseGenericSocket, iEAPKeyDerivation );
 
 						iRunState = EWaitForComplete;
 						break; // break from the for loop

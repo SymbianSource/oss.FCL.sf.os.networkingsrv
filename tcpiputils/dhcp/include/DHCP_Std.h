@@ -40,9 +40,6 @@ __CFLOG_STMT(_LIT8(KLogSubSysDHCP, "DHCP");) // subsystem name
 
 IMPORT_C TInt E32Main();
 
-// DHCP ini file used for configuring extra options and additions configurability
-_LIT(DHCP_INI_DATA,"dhcp.ini");
-
 #ifdef EKA2
 _LIT(KDHCPServerName,"!DHCPServ");
 #else
@@ -162,9 +159,7 @@ typedef TPckgBuf<TInt> TDhcpMemDbgParamBuf;
 //    specific numbers must have KConnWriteUserDataBit/KConnReadUserDataBit set as appropriate
 const TUint KDhcpInterfaceDbgIoctl    = 0x2000;
 
-_LIT(KDhcpExtraOptions, "ExtraDhcpOptions");
-_LIT(KDhcpSection, "DHCP");
-const TInt KOpCodeOutOfBounds = 0x100;
+
 
 
 

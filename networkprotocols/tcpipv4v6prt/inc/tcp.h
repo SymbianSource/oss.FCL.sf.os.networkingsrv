@@ -32,7 +32,6 @@
 #include "frag.h"
 #include "inet6log.h"
 #include <in6_opt.h>
-#include <hal.h>
 
 #ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
 #include <in_sock.h>
@@ -50,9 +49,7 @@
 //
 // Constants affecting protocol performance
 //
-const TUint KOneSecondInUs      = 1000000;   //< For sec <-> usec conversions
-const TUint KOneSecondInMs      = 1000;      //< For sec <-> msec conversions
-const TUint KOneMsInUs          = 1000;      //< For msec <-> usec conversions
+const TUint KOneSecondUs      = 1000000;    //< Help for converting longer times to microseconds
 
 const TUint KTcpMaximumWindow = 0x3fffffff;  //< Maximum receive window size
 const TUint KTcpMinimumWindow =      1024;  //< Minimum receive window size
@@ -62,7 +59,7 @@ const TUint KTcpDefaultSndWnd = 16 * 1024;  //< Default send window size
 const TUint KTcpDefaultMSS    =     65535;  //< By default, MSS is not limited by user
 const TUint KTcpStandardMSS   =       536;  //< Internet standard MSS
 const TUint KTcpMinimumMSS    =        64;  //< Minimum acceptable MSS.
-const TUint KTcpMaxTransmit   =         1;  //< Transmit at most this many segments at one time.
+const TUint KTcpMaxTransmit   =         2;  //< Transmit at most this many segments at one time.
 
 const TUint KTcpMinRTO        =   1000000;  //< us (1s)
 const TUint KTcpMaxRTO        =  60000000;  //< us (60s)
@@ -517,10 +514,6 @@ private:
 
 	// -1=linger disabled, >=0 linger enabled with given time in seconds.
 	TInt			iLinger;
-	
-	//Introduce specifically for Browser usecase where in Normal shutdown is expected to close with in certain time.
-    //current structure is using secs. This Bit will enable calculation in Mircosecs.
-    TBool           iMicroSecCalcFlag;
 
 	// Window scaling factor for the send window, advertised by the other end.
 	TUint8			iSndWscale:4;
@@ -789,28 +782,13 @@ inline void CProviderTCP6::CancelDelayACK()
 
 inline TUint32 CProviderTCP6::TimeStamp()
 	{
-    TInt tickPeriod;
-    TUint64 ticsInMs;
-    // 
-    HAL::Get( HAL::ENanoTickPeriod, tickPeriod );
-    ticsInMs = (static_cast<TUint64> ( User::NTickCount() ) * tickPeriod)
-        / KOneMsInUs;
-    return static_cast<TUint32> ( ticsInMs );
-    /*
-    // This used to return micro seconds, but since the resolution of NTick
-    // is something around  ~1ms, we return now the timestamp in milliseconds
-    // (which is more than sufficient resolution for this). This is done to
-    // mittigate the risk of counter overflow. 
-	// The existing implementation is commented and not removed for future reference
-	// if required.
-    TTime now;
+	TTime now;
 	now.UniversalTime();
 #ifdef I64LOW
 	return I64LOW(now.Int64());
 #else
 	return (TUint32)now.Int64().GetTInt();
 #endif
-*/
 	}
 
 /**
