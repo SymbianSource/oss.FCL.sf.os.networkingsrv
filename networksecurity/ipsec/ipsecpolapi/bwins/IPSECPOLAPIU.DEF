@@ -14,4 +14,5 @@ EXPORTS
 	?UnloadPolicy@RIpsecPolicyServ@@QAEXABUTPolicyHandle@@AAVTRequestStatus@@@Z @ 13 NONAME ; public: void __thiscall RIpsecPolicyServ::UnloadPolicy(struct TPolicyHandle const &,class TRequestStatus &)
 	?Version@RIpsecPolicyServ@@QBE?AVTVersion@@XZ @ 14 NONAME ; public: class TVersion  __thiscall RIpsecPolicyServ::Version(void)const 
 	?AvailableSelectors@RIpsecPolicyServ@@QAEXABVTDesC8@@PAV?$CArrayFixFlat@UTIpsecSelectorInfo@@@@AAVTRequestStatus@@@Z @ 15 NONAME ; void RIpsecPolicyServ::AvailableSelectors(class TDesC8 const &, class CArrayFixFlat<struct TIpsecSelectorInfo> *, class TRequestStatus &)
+	?SetOpt@RIpsecPolicyServ@@QAEHIIABVTDesC8@@@Z @ 16 NONAME ; int RIpsecPolicyServ::SetOpt(unsigned int, unsigned int, class TDesC8 const &)
 

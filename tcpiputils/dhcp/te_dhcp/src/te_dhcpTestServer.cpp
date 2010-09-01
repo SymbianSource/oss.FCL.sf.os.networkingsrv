@@ -142,7 +142,7 @@ LOCAL_C void MainL()
 #if (defined __WINS__ && !defined EKA2)
 TInt ThreadFunc (TAny* /*aParam*/)	// define the ordinal 1 on eka1
 #else			
-EXPORT_C GLDEF_C TInt E32Main()	// define 32main if eka2...
+GLDEF_C TInt E32Main()	// define 32main if eka2...
 #endif
 /**
 * @return - Standard Epoc error code on exit

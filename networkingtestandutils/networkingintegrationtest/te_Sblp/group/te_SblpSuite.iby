@@ -22,7 +22,6 @@
 #include <te_esockteststepssuite.iby>
 
 data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\configs\te_Sblp_Mesh.cfg TestData\Configs\te_Sblp_Mesh.cfg
-
 data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\configs\te_sblpsuite_simtsy.txt TestData\Configs\te_sblpsuite_simtsy.txt
 data=EPOCROOT##Epoc32\release\winscw\udeb\z\TestData\configs\te_Sblp_loopbackcsy.ini TestData\Configs\te_Sblp_loopbackcsy.ini
 

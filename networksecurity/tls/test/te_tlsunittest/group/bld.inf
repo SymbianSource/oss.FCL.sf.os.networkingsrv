@@ -17,7 +17,7 @@ PRJ_TESTEXPORTS
 
 ../scripts/te_tlsunittest.script 	z:/testdata/scripts/te_tlsunittest.script
 ../configs/te_tlsunittest.ini	z:/testdata/configs/te_tlsunittest.ini
-../configs/CACerts_clientauth.dat	z:/testdata/configs/cacerts_clientauth.dat
+../configs/CACerts_clientauth.dat	z:/testdata/configs/CACerts_clientauth.dat
 ../configs/certclients_clientauth.dat	z:/testdata/configs/certclients_clientauth.dat
 ../configs/keys_clientauth.dat	z:/testdata/configs/keys_clientauth.dat
 ../configs/t_secdlg_in.dat	z:/testdata/configs/t_secdlg_in.dat

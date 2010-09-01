@@ -16,7 +16,6 @@
 //
 
 #include <e32math.h>
-
 #include "ipsecpol.h"
 #include "ipsecpolapi.h"
 #include "clistatic.h"
@@ -39,7 +38,7 @@ EXPORT_C TInt RIpsecPolicyServ::Connect()
 //
 // Connect to the server attempting to start it if necessary
 //
-    {
+    {    
 	TInt retry=2;
 	for (;;)
 		{
@@ -156,3 +155,20 @@ void RIpsecPolicyServ::EnumerateSelectors(const TDesC8& aGateway, TInt& aCount)
     SendReceive(EIpsecPolicyEnumerateSelectors, TIpcArgs(&aGateway, &selectorCount));
 	}
 
+	/**
+	 *Sets an option.
+	 *RIpsecPolicyServ implementations may provide options that can be set with this method.
+	 *Eg:- Seting SID of an appliction that is going to load policy file. Then that application
+	 *Can call this api with option name - and option level - and provide the SID value.
+	 *
+	 *@param aOptionName : An integer constant which identifies an option
+	 *@param aOptionLevel  : An integer constant which identifies level of an option 
+	 *@param aOption  : An option value
+	 *@return TInt: KErrNone if succsess 
+	 */
+EXPORT_C TInt RIpsecPolicyServ::SetOpt(TUint aOptionName, TUint aOptionLevel, const TDesC8 &aOption)
+	{
+	TPckg<TUint> optionNamePkg(aOptionName);
+	TPckg<TUint> pkgOptionLevel(aOptionLevel);
+	return SendReceive(EIpsecPolicySetOption, TIpcArgs( &optionNamePkg, &pkgOptionLevel, &aOption));	
+	}

@@ -28,6 +28,7 @@
 #include "ipseccrypto.h"
 #include "keys.h"
 #include <cryptospi/cryptospidef.h>
+
 #ifdef SYMBIAN_IPSEC_VOIP_SUPPORT
 #include <cryptospi/cryptomacapi.h>
 #endif //SYMBIAN_IPSEC_VOIP_SUPPORT

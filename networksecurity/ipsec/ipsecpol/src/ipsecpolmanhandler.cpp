@@ -1,4 +1,4 @@
-// Copyright (c) 2005-2009 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2005-2010 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -28,10 +28,18 @@
 #include "ipsecpolparser.h"
 #include "secpolreader.h"
 
+#include <comms-infras/dbaccess.h>
+#include <commdbconnpref.h>
+#include <featureuids.h>
+#include <e32debug.h>
+
 #define FIRST_ARGUMENT  0
 #define SECOND_ARGUMENT 1
 #define THIRD_ARGUMENT  2
 #define FOURTH_ARGUMENT 3
+
+const TUint KAppSidDefault = 0xFFFFFFFF;
+const TUint32 KGANAppSid = 0x2002E241;
 
 //
 // Create IPSecPolicyManagerHandler object
@@ -65,6 +73,9 @@ CIPSecPolicyManagerHandler::ConstructL()
 
     iPreloadPolicyHandle.iHandle = 0;
 
+    CheckFeatureSupportL(NFeature::KFeatureIdFfIpsecUmaSupportEnable);
+
+    iAppSid = KAppSidDefault;
 
 #ifdef TESTFLAG
 
@@ -74,7 +85,6 @@ CIPSecPolicyManagerHandler::ConstructL()
 
     ReadAlgorithmsFileL();
     iSelectorInfoArray = new (ELeave) CArrayFixFlat<TIpsecSelectorInfo> (2);
-
     }
 
 //
@@ -172,6 +182,24 @@ CIPSecPolicyManagerHandler::~CIPSecPolicyManagerHandler()
     
     delete iSelectorInfoArray;
     iSelectorInfoArray = NULL;
+    }
+
+/**
+ * To check the feature support
+ */
+void CIPSecPolicyManagerHandler::CheckFeatureSupportL(TUid aFeature)
+    {
+    // Check Gan support from feature manager
+    TRAPD(err,iIPSecGANSupported = CFeatureDiscovery::IsFeatureSupportedL(aFeature));
+    
+    if(KErrNone != err)
+            {
+             LOG(Log::Printf(_L("CIPSecPolicyManagerHandler::CheckFeatureSupport Error Checking Feature Support %d"),err));
+            }
+        else
+            {
+             LOG(Log::Printf(_L("CIPSecPolicyManagerHandler::CheckFeatureSupport %d Feature Supported %d"),aFeature,iIPSecGANSupported));
+            }
     }
 
 //
@@ -272,7 +300,7 @@ CIPSecPolicyManagerHandler::ProcessLoadPolicyL(
         TPckg<TZoneInfoSet>pckgZoneInfoSet(zoneInfoSet);
         aMsg.ReadL(THIRD_ARGUMENT, pckgZoneInfoSet);
         }
-    iVPNNetId = 0;
+        iVPNNetId = 0;
     if (zoneInfoSet.iSelectorZone.iScope != KScopeNone)
         {
         iVPNNetId = zoneInfoSet.iSelectorZone.iId;
@@ -282,10 +310,24 @@ CIPSecPolicyManagerHandler::ProcessLoadPolicyL(
         {
         iGwNetId = zoneInfoSet.iEndPointZone.iId;
         }
+        
     LOG(Log::Printf(_L("LoadPolicy request VPN NetId: %d  GW NetId: %d\n"),
                     iVPNNetId, iGwNetId));
+	if(iIPSecGANSupported)
+	    {
+	    LOG(Log::Printf(_L(" iIPSecGANSupported is true \n")));
 
-
+		TRAPD( err, CheckUMAEXception((TUint32)iVPNNetId))
+		if( err != KErrNone)
+			{
+			LOG(Log::Printf(_L("NO UMA Exception \n")));
+			}
+		else 
+            {
+            LOG(Log::Printf(_L("UMA Exception is added \n")));
+            }		    
+	    }		
+		
     // Parse the policy file from string format to the ipsecpolparser
     // class object format
     ParseCurrentPolicyL();
@@ -299,19 +341,92 @@ CIPSecPolicyManagerHandler::ProcessLoadPolicyL(
     // the one that is attempted to be loaded. If so, return with error
 
     TInt activepolicyBypassDropMode; 
+    //UMA support REQ 417-40027
+    TBool flag_exception =EFalse;
+    // It is ok to compare with the first active policy. Every subsequent policy would have been compared against the first one
+    
+    /*                          FORMAT OF UMA POLICY
+     *   remote 0.0.0.0 0.0.0.0 = { UMA_VPN_POLICY($SGW_IP_ADDRESS) }
+     *   inbound = { }
+     *   outbound = { }
+    */
+    //Checking for exception loading. Exceptions are policies for USE CASES having conflict for loading of bypass
+    //and drop policy. UMA being an excetion should be allowed to load policy. It doesnt make sense not to start UMA.
+    if(iIPSecGANSupported)
+        {
+        flag_exception = CheckException();
+        LOG(Log::Printf(_L("Is exception policy already activated= %d\n"), flag_exception));
+        }
+    else
+        {
+        LOG(Log::Printf(_L("UMA/GAN not supported and exception policy activated status = %d\n"), flag_exception));
+        }
+
     //coverity[var_compare_op]
     //intentional null comparision if there is no policylist do nothing.
     if (iActivePolicyList && iActivePolicyList->Count())
         {
-        //coverity[var_compare_op]   
-        // It is ok to compare with the first active policy. Every subsequent policy would have been compared against the first one
-        activepolicyBypassDropMode = iActivePolicyList->At(0)->iBypassOrDropMode;
+        //UMA support REq417-40027
+        if(iIPSecGANSupported)
+            {
+  			if(flag_exception)
+  				{
+				activepolicyBypassDropMode = iBypassOrDropMode;
+			 	}
+            else
+ 			 	{
+                activepolicyBypassDropMode = iActivePolicyList->At(0)->iBypassOrDropMode;
+ 				}
+            }
+        else
+            {
+            // It is ok to compare with the first active policy. Every subsequent policy would have been compared against the first one
+            //coverity[var_compare_op]   
+            // It is ok to compare with the first active policy. Every subsequent policy would have been compared against the first one		
+            activepolicyBypassDropMode = iActivePolicyList->At(0)->iBypassOrDropMode;
+            }
+
         if((policyBypassDropMode == KDropMode && (( activepolicyBypassDropMode & KInboundBypass) || (activepolicyBypassDropMode & KOutboundBypass))) || 
                 (((policyBypassDropMode & KInboundBypass) || (policyBypassDropMode & KOutboundBypass)) && activepolicyBypassDropMode == KDropMode )) 
             {
-            ErrorHandlingL (ESelectorConflict,0);
+            if(iIPSecGANSupported)
+                {
+                //should not Allow loading drop mode policy all the time
+                //condition for allowing drop mode policy loading are 
+                //1) There should not be any other bypass policy loaded before.
+                //2) or loaded bypass policy is UMA bypass policy
+                
+                TBool allowDropLoad = ETrue;
+                for(int count = 0; count < iActivePolicyList->Count(); count++ )
+                    {
+                    if((iActivePolicyList->At(count)->iBypassOrDropMode & KSymmetricBypass) &&(!(iActivePolicyList->At(count)->iException)))
+                        {
+                        //ipsec bypass policy is already loaded.
+                        LOG(Log::Printf(_L("\n should not allow loading of drop policy \n")));
+                        allowDropLoad = EFalse;
+                        break;
+                        }//else do nothing
+                    }
+                                   
+                if(allowDropLoad && (policyBypassDropMode == KDropMode))
+                    {
+                    LOG(Log::Printf(_L("Allowing loading drop mode policy, with activated exception bypass\n")));
+                    }
+                else if((((policyBypassDropMode & KInboundBypass) || (policyBypassDropMode & KOutboundBypass)) && iCurrentException) && activepolicyBypassDropMode == KDropMode )
+                    { 
+                    LOG(Log::Printf(_L("Allowing loading exception bypass mode policy, with activated drop mode\n")));
+                    }
+                else
+                    {
+                    ErrorHandlingL (ESelectorConflict,0);
+                    }
+                }
+            else
+                {
+                ErrorHandlingL (ESelectorConflict,0);          
+                }
             }
-        } 
+        }
    
     // Add VPNNetId to CPolicySelector and GwNetId to CSecpolBundleItem objects
     UpdateSelectorsAndTunnels();
@@ -344,6 +459,7 @@ CIPSecPolicyManagerHandler::ProcessLoadPolicyL(
     ApiCallCompleted();
     return KErrNone;
     }
+    
 
 //
 //
@@ -389,9 +505,8 @@ CIPSecPolicyManagerHandler::ProcessLoadPoliciesL(
         iGwNetId = zoneInfoSet.iEndPointZone.iId;
         }
 
-    LOG(Log::Printf(_L("LoadPolicy request VPN NetId: %d  GW NetId: %d\n"),
+    LOG(Log::Printf(_L("******LoadPolicy request VPN NetId: %d  GW NetId: %d****\n"),
                     iVPNNetId, iGwNetId));
-
     if (scopedLoad)
         {
         // Load BeforescopedLoadPolicies before
@@ -527,11 +642,12 @@ CIPSecPolicyManagerHandler::ProcessActivatePolicyL(
         {
         ErrorHandlingL(ret, 0 );
         }
-
+   LOG(Log::Printf(_L("::ActivatePolicy, request  to parse all policies\n")));
     // Parse all active policy files from string format
     // to IPSecPolParser class object formats
     ParseAllPolicyFilesL();
 
+    LOG(Log::Printf(_L("::ActivatePolicy request to calculate combined\n")));	
     // Calculate the combined policy Bypass/Drop mode
     CalculateCombinedPolicyBypassDropMode();
 
@@ -554,6 +670,24 @@ CIPSecPolicyManagerHandler::ProcessActivatePolicyL(
         ErrorHandlingL(ENoMemory, err);
         }
 
+	//UMA support REQ417-40027 
+    TBool flag_exception = EFalse;
+    if(iIPSecGANSupported)
+        {
+        flag_exception = CheckException();
+        if(flag_exception || iCurrentException)
+            {
+            if(iBypassOrDropMode != KSymmetricBypass)
+                {
+                err = AddExceptionSelectors();
+                if (err != KErrNone)
+                         {
+                         ErrorHandlingL(ENoMemory, err);
+                         }
+                }//if symmetry
+            }//flag_exception
+        }
+     
     // Send the algorithms table and  the string format policy file to
     // IPSec protocol component using Secpol socket
     SendAlgorithmsAndPolicyToIPSecL(_L("secpol6"));
@@ -692,6 +826,20 @@ CIPSecPolicyManagerHandler::ProcessUnloadPolicyL(
         {
         ErrorHandlingL(ENoMemory, err);
         }
+//UMA support
+    TBool flag_exception = EFalse;
+    if(iIPSecGANSupported)
+        {
+        flag_exception = CheckException();
+        if(flag_exception)
+            {
+            LOG(Log::Printf(_L("::ProcessUnloadPolicy, Adding exception selectors")));
+            if(iBypassOrDropMode != KSymmetricBypass)
+                {
+                AddExceptionSelectors();
+                }
+            }
+     	}
 
     // Send the algorithms table and  the string format policy file to
     // IPSec protocol component using Secpol socket
@@ -734,7 +882,9 @@ CIPSecPolicyManagerHandler::ConvertFromObjectsToStringWithSectionsL(
 
     // Check if given policy contains 'drop_everything_else' rule
     // and add IKE, DHCP and MIPv4 bypass selectors if necessary 
-    if (aBypassDropMode == KDropMode)
+    //UMA support REQ417-40027 
+    //DHCP selectors & IKE selectors should be added even when UMA is UP
+    if (aBypassDropMode == KDropMode ||(iIPSecGANSupported && iCurrentException))
         {
         // Allow plain IKE negotiation packets. Write  the bypass
         // selectors  to the end of selector list, but they will
@@ -753,10 +903,11 @@ CIPSecPolicyManagerHandler::ConvertFromObjectsToStringWithSectionsL(
                 ErrorHandlingL(ENoMemory, err);
                 }
             }
-
-        // Allow plain DHCP negotiation packets. Write bypass mode
+        //UMA support REQ417-40027
+		TBool UMAFLAG = ETrue;
+		// Allow plain DHCP negotiation packets. Write bypass mode
         // selectors for DHCP ports (67, 68) to the end of selector list.
-        if (aFunction & KAddDhcpBypassSelectors)
+        if (aFunction & KAddDhcpBypassSelectors || (iIPSecGANSupported && UMAFLAG))
             {
             TInt err = BuildDhcpProtocolString(iPolBfr);
             if (err != KErrNone)
@@ -818,6 +969,11 @@ CIPSecPolicyManagerHandler::StorePolicyToActiveListL(
     entry->iPolicyHandle.iHandle = iCurrentPolicyHandle.iHandle;
     entry->iPolicyBuf = iPolBfr;
     entry->iPolicyType = aPolType;
+    if(iIPSecGANSupported)
+        {
+    entry->iException = iCurrentException ;
+        }
+
     iPolBfr = NULL;
     CleanupStack::PushL(entry->iPolicyBuf);
 
@@ -1451,8 +1607,8 @@ CIPSecPolicyManagerHandler::AddScopedAutoloadPolicyPairL(
     if (autoloadListItem != NULL)
         {
 		CleanupStack::PushL(autoloadListItem);
-        iScopedAutoloadPolicyPairs.AppendL(autoloadListItem);
-        CleanupStack::Pop(autoloadListItem);
+		iScopedAutoloadPolicyPairs.AppendL(autoloadListItem);
+		CleanupStack::Pop(autoloadListItem);
         }
     }
 
@@ -2162,4 +2318,164 @@ TInt CIPSecPolicyManagerHandler::GetAvailableSelectors(const RMessage2& aMsg)
     ApiCallCompleted();
     return KErrNone;
  	}
+
+
+//Checking excetion flags 
+TBool CIPSecPolicyManagerHandler::CheckException()
+    {
+    int count_=0;
+    TBool flag_exception = EFalse;
+    while(count_ < iActivePolicyList->Count())
+        {
+        if(iActivePolicyList->At(count_)->iException)
+            {
+            LOG(Log::Printf(_L("::CheckException, Exception policy Activated")));
+            flag_exception = ETrue;
+            break;
+            }
+        else
+            {
+            LOG(Log::Printf(_L(" Exception is not presnt iActivePolicyList->At(%d)"), count_));
+            }
+    count_ ++;
+        }
+    return flag_exception;
+
+    }
+
+
+/**
+ *This method to find out the iapid from network id 
+ *@param aNetId : network id
+ *@param aIapId : iapid
+ *@return void
+ */
+
+void CIPSecPolicyManagerHandler::SearchIAPIdL( const TUint32&  aNetId,
+                                       TUint32&        aIapId )
+    {
+ 	LOG(Log::Printf(_L("CIPSecPolicyManagerHandler::SearchIAPIdL Entry\n")));
+
+    CCommsDatabase* commsDatabase = CCommsDatabase::NewL();
+    CleanupStack::PushL(commsDatabase);
+
+    // Make hidden records visible
+    commsDatabase->ShowHiddenRecords();
+
+    // Open IAP table view by matching IAP_NETWORK Id
+    CCommsDbTableView* commsDbTableView = 
+        commsDatabase->OpenViewMatchingUintLC( TPtrC( IAP ),
+                                               TPtrC( IAP_NETWORK ),
+                                               aNetId );
+
+    User::LeaveIfError( commsDbTableView->GotoFirstRecord() );
+
+    commsDbTableView->ReadUintL(TPtrC( COMMDB_ID ), aIapId );
+
+ 	LOG(Log::Printf(_L("CMPMCommsDatAccess::SearchIAPIdL - Found IAP IdId: = %d\n"),aIapId));
+
+    CleanupStack::PopAndDestroy(commsDbTableView);
+    CleanupStack::PopAndDestroy(commsDatabase);
+
+ 	LOG(Log::Printf(_L("CIPSecPolicyManagerHandler::SearchIAPIdL Exit \n")));
+    }    
+
+/**
+ *This API call is to pass the sid or any other relevent information
+ *from other components to IPSec module.
+ *
+ *@param 
+ *@param 
+ *@return
+ */
+ void CIPSecPolicyManagerHandler::SetOptL(const RMessage2& aMsg)
+	{	
+    LOG(Log::Printf(_L("CIPSecPolicyManagerHandler::SetOptL\n")));
+    //Read the option name from the RMessage 
+    TUint optionName;    
+    TPckg<TUint> optionNamePkg(optionName) ;   
+    aMsg.ReadL(FIRST_ARGUMENT, optionNamePkg);    
+    //Read the option level from the RMessage 
+    TUint optionLevel;
+    TPckg<TUint> optionLevelPkg(optionLevel) ;   
+    aMsg.ReadL(SECOND_ARGUMENT, optionLevelPkg);    
+    LOG(Log::Printf(_L("option name = %d and option level is = %d \n"), iAppSid, optionLevel));
+    //Read option value
+    HBufC8* optionValue;
+    TInt dataLen = aMsg.GetDesLength(THIRD_ARGUMENT);
+    optionValue = HBufC8::NewL(dataLen);
+    CleanupStack::PushL(optionValue);
+    TPtr8 optionValuePtr(optionValue->Des());
+    aMsg.ReadL(THIRD_ARGUMENT, optionValuePtr);
+    
+    if(optionLevel == KOptionLevelDefault)
+        {
+        if(optionName == KOptionNameSid)
+            {     
+            TLex8 lex(*optionValue);
+            TUint dataValue;
+            lex.Val(dataValue);            
+            iAppSid = dataValue;//store the appsid value.
+    	    LOG(Log::Printf(_L("Application sid value is %d \n"), iAppSid));
+			}//else donothing as of now
+        else
+            {
+            User::Leave(KErrArgument);
+    	    LOG(Log::Printf(_L(" \nwrong Name\n")));
+            }
+        }
+    else
+        {
+        User::Leave(KErrArgument);
+	    LOG(Log::Printf(_L(" Wrong option KOptionLevelDefault\n")));
+        }
+    CleanupStack::PopAndDestroy();
+    LOG(Log::Printf(_L("CIPSecPolicyManagerHandler::SetOptL\n")));
+    }
+
+/**
+ *This method to check the exception.
+ **/
+TBool CIPSecPolicyManagerHandler::CheckUMAL(TUint32 aIapId)
+	{
+	CMDBSession* cmdbSession;
+	CCDIAPRecord* ptrIapRecord1;
+	ptrIapRecord1 = static_cast<CCDIAPRecord*>(CCDRecordBase::RecordFactoryL(KCDTIdIAPRecord));
+	CleanupStack::PushL(ptrIapRecord1);
+	cmdbSession = CMDBSession::NewL(CMDBSession::LatestVersion());
+	CleanupStack::PushL(cmdbSession);
+	cmdbSession->SetAttributeMask( ECDHidden | ECDPrivate );
+	ptrIapRecord1->SetRecordId(aIapId);	
+	ptrIapRecord1->LoadL(*cmdbSession);
+
+	TUint32 secureId;
+	secureId = ptrIapRecord1->iAppSid;		
+    LOG(Log::Printf(_L("CIPSecPolicyManagerHandler::CheckUMAL Secure id is = %d\n"), secureId));
+	CleanupStack::PopAndDestroy(cmdbSession);
+	CleanupStack::PopAndDestroy(ptrIapRecord1);
+	TBool result = EFalse; 
+	if(secureId == KGANAppSid)
+		{
+        LOG(Log::Printf(_L("\n  Exception added to the selector ")));	
+		result = ETrue;
+		}
+	else
+	    {
+	    LOG(Log::Printf(_L(" No Exception added \n")));
+	    }
+	return result;
+	}
+
+/**
+ *This method to check the exception.
+ **/
+void CIPSecPolicyManagerHandler::CheckUMAEXception(TUint32 aVpnNetId)
+	{
+    LOG(Log::Printf(_L("CIPSecPolicyManagerHandler::CheckUMAEXception Entry \n")));
+	TUint32 aIapId;
+	SearchIAPIdL(aVpnNetId, aIapId);
+	iCurrentException = CheckUMAL(aIapId);
+    LOG(Log::Printf(_L("CIPSecPolicyManagerHandler::CheckUMAEXception Exit \n")));
+	}
+
 

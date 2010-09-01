@@ -17,7 +17,7 @@
 #ifndef __DHCP_SERVER_IBY__
 #define __DHCP_SERVER_IBY__
 
-#ifndef __DHCP
+#ifdef SYMBIAN_EXCLUDE_DHCP
 REM Feature DHCP is not included in this ROM
 #else
 REM Static Dependencies
@@ -31,6 +31,7 @@ REM CS_Daemon, StartServer, NetSm (StateMachine) and MsgParser currently only re
 #include <netmsg.iby>
 #include <netsm.iby>
 
+data=EPOCROOT##epoc32\data\z\private\101fd9c5\dhcp.ini    private\101fd9c5\dhcp.ini
 file=ABI_DIR\DEBUG_DIR\DhcpServ.exe            system\programs\DhcpServ.exe
 
 #ifdef SYMBIAN_DNS_PROXY

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-2010 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -25,18 +25,10 @@ PRJ_TESTEXPORTS
 // TE_msg - IBY
 te_msg.iby		                /epoc32/rom/include/te_msg.iby
 
-#ifdef SIROCCO_CODE_MIGRATION 
-../Scripts/te_msg_wlan.script		/epoc32/data/z/testdata/scripts/te_msg_wlan.script
-../testdata/te_msg_wlan.ini		/epoc32/data/z/testdata/configs/te_msg_wlan.ini  
-../testdata/cccccc00_te_msg.cre 	/epoc32/data/z/testdata/configs/cccccc00_te_msg.cre
-#else
-../Scripts/te_msg.script	/epoc32/data/z/testdata/scripts/te_msg.script
+// TE_msg - Target
+../Scripts/te_msg.script		/epoc32/data/z/testdata/scripts/te_msg.script
 ../testdata/te_msg.ini		/epoc32/data/z/testdata/configs/te_msg.ini  
 ../testdata/te_msg.xml		/epoc32/data/z/testdata/configs/te_msg.xml
-#endif
-
-// TE_msg - Target
-
 
 // TE_msg - WINS
 ../Scripts/te_msg.script		/epoc32/release/wins/udeb/z/testdata/scripts/te_msg.script

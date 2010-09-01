@@ -68,7 +68,6 @@ void MPppFsm::FsmAbort(TInt )
 // Upcall from Timer
 //
 
-EXPORT_C
 void MPppFsm::TimerComplete(TInt /*aStatus*/)
 	{
 	}
@@ -77,22 +76,19 @@ void MPppFsm::TimerComplete(TInt /*aStatus*/)
 // Upcalls from Recvr
 //
 
-EXPORT_C
 void MPppFsm::LowerLayerUp()
 	{
 	}
 
-EXPORT_C
+
 void MPppFsm::LowerLayerDown(TInt )
 	{
 	}
 
-EXPORT_C
 void MPppFsm::FrameError()
 	{
 	}
 
-EXPORT_C
 void MPppFsm::KillProtocol()
 	{
 	//
@@ -102,7 +98,6 @@ void MPppFsm::KillProtocol()
 	//
 	}
 
-EXPORT_C
 TBool MPppFsm::RecvFrame(RMBufChain& )
 	{
 	return EFalse;

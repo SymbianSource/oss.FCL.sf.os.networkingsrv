@@ -1,4 +1,4 @@
-// Copyright (c) 2002-2010 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2002-2009 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -47,7 +47,7 @@ TVerdict CTestStepInit::doTestStepL()
 	{
 
 	TInt err;
-#ifndef SIROCCO_CODE_MIGRATION 
+
 	INFO_PRINTF1(_L("Load PDD"));	
 	err = User::LoadPhysicalDevice(PDD_NAME);
 	if (err != KErrNone && err != KErrAlreadyExists)
@@ -56,7 +56,7 @@ TVerdict CTestStepInit::doTestStepL()
 		SetTestStepResult(EFail);
 		User::Leave(err);
 		}
-#endif
+
 	INFO_PRINTF1(_L("Load LDD"));	
 	err = User::LoadLogicalDevice(LDD_NAME);
 	if (err != KErrNone && err != KErrAlreadyExists)

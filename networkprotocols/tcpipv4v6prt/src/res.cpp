@@ -268,6 +268,8 @@ private:
 public:
 	void NoDndAvailable();
 	RTimeout iTimeout;
+private:
+	TInt iFlowRequestType;         //< = 0 for IMPLICIT, 1 for SUBCONNECTION EXPLICIT, 2 for EXPLICIT
 	};
 
 //	CHostResolverLinkage
@@ -1169,6 +1171,8 @@ void CHostResolver::Submit()
 	// Complete the request with network id
 	//
 	iRequest.iId = iCurrentId;
+	// Set the flow request type to the DND request message
+	iRequest.iFlowRequestType = iFlowRequestType;
 #ifdef SYMBIAN_DNS_PUNYCODE
 	iRequest.iScope |= EScopeType_NET;
 #else
@@ -1216,14 +1220,18 @@ TInt CHostResolver::SetOption(TUint aLevel, TUint aName, const TDesC8& aOption)
 				return KErrArgument;
 				}
 			}
-		else
-		if (aName == static_cast<TUint>(KSoGetErrorCode))
+		else if (aName == static_cast<TUint>(KSoGetErrorCode))
 			{
 			// Return a TCP/IP failure code appropriate to the last operation.
 			// Kludge - SetOption does not allow for any return value via aOption (being const), so
 			// return a positive value representing the error code.
 			return (iRequest.iType == KDnsRequestType_GetByAddress) ? -KErrDndAddrNotFound : -KErrDndNameNotFound;
 			}
+		else if (aName == KSoFlowRequestType)
+		    {
+			// Receive the flow request passed on from esock layer to the resolver
+            iFlowRequestType = *reinterpret_cast<const TInt*>(aOption.Ptr());
+		    }
       	}
 
 #else

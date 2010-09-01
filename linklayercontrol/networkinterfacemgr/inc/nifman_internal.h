@@ -24,12 +24,10 @@
 #define __NIFMAN_INTERNAL_H__
 
 #include <es_prot.h>
-
-// public headers not to include platform headers
-// #ifdef SYMBIAN_ENABLE_SPLIT_HEADERS
-// #include <es_prot_internal.h>
-// #include <es_sock_partner.h>
-// #endif
+#ifdef SYMBIAN_ENABLE_SPLIT_HEADERS
+//#include <es_prot_internal.h>
+//#include <es_sock_partner.h>
+#endif
 
 
 /**

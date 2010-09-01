@@ -190,6 +190,9 @@ private:
 	TInetAddr iDHCPServerID;
 	TInetAddr iBroadcastAddress;
 	TInetAddr iSubnetMask;
+private:
+    void AppendMultipleExtraOptionsParamL(); // Retrieve extra options for dhcp server request from dhcp.ini
+    void SplitDomainSearchBufferL(HBufC8* aDomainSearchBuf); // Decryption of option data for dhcp option 119
 	};
 	
 #ifdef SYMBIAN_NETWORKING_DHCPSERVER

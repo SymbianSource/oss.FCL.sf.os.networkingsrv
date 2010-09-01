@@ -106,26 +106,26 @@ DECLARE_DEFINE_NODEACTIVITY(ECFActivityParamRequest, AgentSCprParamRequest, TCFS
 NODEACTIVITY_END()
 }
 #endif //#ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
-
 namespace AgentSCprDestroyActivity
 {
 //Overridden destroy for cleaning up the agent if its still about
 DECLARE_DEFINE_CUSTOM_NODEACTIVITY(ECFActivityDestroy, AgentSCprDestroy, Messages::TEChild::TDestroy, CoreActivities::CDestroyActivity::New)
-    FIRST_NODEACTIVITY_ENTRY(MeshMachine::TAwaitingDestroy, CoreActivities::CDestroyActivity::TNoTagBlockedByActivitiesOrLeavingDataClient)
+	FIRST_NODEACTIVITY_ENTRY(MeshMachine::TAwaitingDestroy, CoreActivities::CDestroyActivity::TNoTagBlockedByActivitiesOrLeavingDataClient)
 
     ROUTING_NODEACTIVITY_ENTRY(KNoTag, AgentSCprStates::TNoTagOrProviderStopped)
     NODEACTIVITY_ENTRY(KNoTag, AgentSCprStates::TStopAgent, AgentSCprStates::TAwaitingAgentDown, MeshMachine::TTag<CoreNetStates::KProviderStopped>)
     ROUTING_NODEACTIVITY_ENTRY(CoreNetStates::KProviderStopped, CoreStates::TNoTagOrNoClients)
-        
+		
     //The node mustn't go out of scope with clients present. The node must get rid of them first.
     NODEACTIVITY_ENTRY(KNoTag, CoreActivities::CDestroyActivity::TMakeClientsLeaveOrProcessClientLeave, CoreStates::TAwaitingClientLeave,  CoreActivities::CDestroyActivity::TNoTagOrNoTagBackwards)
     THROUGH_NODEACTIVITY_ENTRY(KNoTag, CoreActivities::CDestroyActivity::TProcessClientLeave, TTag<CoreNetStates::KNoClients>)
 
     THROUGH_NODEACTIVITY_ENTRY(CoreNetStates::KNoClients, PRStates::TProcessDestroy, MeshMachine::TNoTag)
-    NODEACTIVITY_ENTRY(KNoTag, MeshMachine::TDoNothing, MeshMachine::TAwaitingLeaveComplete, CoreActivities::CDestroyActivity::TNoTagOrNoTagBackwards)
-    LAST_NODEACTIVITY_ENTRY(KNoTag, CoreNetStates::TSendClientLeavingAndRemoveControlProvider)
+ 	NODEACTIVITY_ENTRY(KNoTag, MeshMachine::TDoNothing, MeshMachine::TAwaitingLeaveComplete, CoreActivities::CDestroyActivity::TNoTagOrNoTagBackwards)
+ 	LAST_NODEACTIVITY_ENTRY(KNoTag, CoreNetStates::TSendClientLeavingAndRemoveControlProvider)
 NODEACTIVITY_END()
 }
+
 // Activity Map
 namespace AgentSCprActivities
 {

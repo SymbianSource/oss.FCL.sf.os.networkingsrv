@@ -21,6 +21,7 @@
 #include "../ipseccrypto/group/bld.inf"
 #include "../ipsec_itest/group/bld.inf"
 #include "../te_ipsec/group/bld.inf"
+#include "../te_ipsec_selector_confilict/group/bld.inf"
 
 PRJ_EXPORTS
 ipsec.iby		/epoc32/rom/include/ipsec.iby

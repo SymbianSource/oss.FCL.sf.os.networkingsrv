@@ -992,10 +992,4 @@ EXPORTS
 	_ZThn60_N9CCallBase46RecoverDataPortAndRelinquishOwnershipCompletedEi @ 991 NONAME
 	_ZThn60_NK9CCallBase14CheckOwnershipEm @ 992 NONAME
 	_ZThn60_NK9CCallBase19CheckPriorityClientEm @ 993 NONAME
-	_ZN10RPacketQoS10ConstructLEv @ 994 NONAME
-	_ZN10RPacketQoS8DestructEv @ 995 NONAME
-	_ZN14RPacketContext10ConstructLEv @ 996 NONAME
-	_ZN14RPacketContext23TProtocolConfigOptionV2C1Ev @ 997 NONAME
-	_ZN14RPacketContext23TProtocolConfigOptionV2C2Ev @ 998 NONAME
-	_ZN14RPacketContext8DestructEv @ 999 NONAME
 

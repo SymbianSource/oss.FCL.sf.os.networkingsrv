@@ -1,4 +1,4 @@
-// Copyright (c) 2006-2010 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -27,36 +27,19 @@ PRJ_TESTEXPORTS
 
 
 //-- ip4 specific
-#ifdef SIROCCO_CODE_MIGRATION
-../te_dhcp/config/scripts/cccccc00_dhcptest_ip6.cre				z:/TestData/configs/dhcp/cccccc00_dhcptest_ip6.cre
-../te_dhcp/config/scripts/cccccc00_dhcptest_ip4.cre				z:/TestData/configs/dhcp/cccccc00_dhcptest_ip4.cre
-../te_dhcp/config/scripts/DHCP_OOM6_ip4_wlan.script					z:/testdata/scripts/dhcp/dhcp_oom6_ip4_wlan.script
-../te_dhcp/config/scripts/te_dhcptest_ip4_wlan.script				z:/testdata/scripts/dhcp/te_dhcptest_ip4_wlan.script
-../te_dhcp/config/scripts/DHCP_OOM6_ip6_wlan.script					z:/testdata/scripts/dhcp/dhcp_oom6_ip6_wlan.script
-../te_dhcp/config/scripts/TE_SIPServer_DHCP_hwonly_ip4_wlan.script	z:/testdata/scripts/dhcp/te_sipserver_dhcp_hwonly_ip4_wlan.script
-#else
 ../te_dhcp/config/scripts/te_dhcptest_ip4.script				z:/testdata/scripts/dhcp/te_dhcptest_ip4.script
-../te_dhcp/config/scripts/DHCP_OOM6_ip4.script					z:/testdata/scripts/dhcp/dhcp_oom6_ip4.script
-../te_dhcp/config/scripts/DHCP_OOM6_ip6.script					z:/testdata/scripts/dhcp/dhcp_oom6_ip6.script
-../te_dhcp/config/scripts/TE_SIPServer_DHCP_hwonly_ip4.script	z:/testdata/scripts/dhcp/te_sipserver_dhcp_hwonly_ip4.script
-#endif //SIROCCO_CODE_MIGRATION
 ../te_dhcp/config/scripts/DHCPBasicInteractions1_ip4.script		z:/testdata/scripts/dhcp/dhcpbasicinteractions1_ip4.script
 ../te_dhcp/config/scripts/DHCPConfiguration2_ip4.script			z:/testdata/scripts/dhcp/dhcpconfiguration2_ip4.script
 ../te_dhcp/config/scripts/DHCPRenewAndRelease3_ip4.script		z:/testdata/scripts/dhcp/dhcprenewandrelease3_ip4.script
 ../te_dhcp/config/scripts/DHCPDynamicInteraction4_ip4.script	z:/testdata/scripts/dhcp/dhcpdynamicinteraction4_ip4.script
 ../te_dhcp/config/scripts/DHCPManualtests5_ip4.script			z:/testdata/scripts/dhcp/dhcpmanualtests5_ip4.script
-
-
+../te_dhcp/config/scripts/DHCP_OOM6_ip4.script					z:/testdata/scripts/dhcp/dhcp_oom6_ip4.script
 
 //-- ip6 specific
 #ifdef SYMBIAN_TCPIPDHCP_UPDATE
 ../te_dhcp/config/scripts/te_dhcptest_ip6_PREQ1898.script				z:/testdata/scripts/dhcp/te_dhcptest_ip6.script
 #else
-#ifdef SIROCCO_CODE_MIGRATION
-../te_dhcp/config/scripts/te_dhcptest_ip6_wlan.script				z:/testdata/scripts/dhcp/te_dhcptest_ip6_wlan.script
-#else
 ../te_dhcp/config/scripts/te_dhcptest_ip6.script				z:/testdata/scripts/dhcp/te_dhcptest_ip6.script
-#endif //SIROCCO_CODE_MIGRATION
 #endif // SYMBIAN_TCPIPDHCP_UPDATE
 ../te_dhcp/config/scripts/DHCPBasicInteractions1_ip6.script		z:/testdata/scripts/dhcp/dhcpbasicinteractions1_ip6.script
 ../te_dhcp/config/scripts/DHCPConfiguration2_ip6.script			z:/testdata/scripts/dhcp/dhcpconfiguration2_ip6.script
@@ -64,7 +47,7 @@ PRJ_TESTEXPORTS
 ../te_dhcp/config/scripts/DHCPDynamicInteraction4_ip6.script	z:/testdata/scripts/dhcp/dhcpdynamicinteraction4_ip6.script
 ../te_dhcp/config/scripts/DHCPManualtests5_ip6.script			z:/testdata/scripts/dhcp/dhcpmanualtests5_ip6.script
 ../te_dhcp/config/scripts/dhcpmanualTests2_ip6.script			z:/testdata/scripts/dhcp/dhcpmanualtests2_ip6.script
-
+../te_dhcp/config/scripts/DHCP_OOM6_ip6.script					z:/testdata/scripts/dhcp/dhcp_oom6_ip6.script
 ../te_dhcp/config/scripts/DHCPBasicInteractions1-inform_ip6.script		z:/testdata/scripts/dhcp/dhcpbasicinteractions1-inform_ip6.script
 ../te_dhcp/config/scripts/DHCPConfiguration2-inform_ip6.script			z:/testdata/scripts/dhcp/dhcpconfiguration2-inform_ip6.script
 ../te_dhcp/config/scripts/DHCPRenewAndRelease3-inform_ip6.script		z:/testdata/scripts/dhcp/dhcprenewandrelease3-inform_ip6.script
@@ -73,6 +56,7 @@ PRJ_TESTEXPORTS
 ../te_dhcp/config/scripts/DHCPPREQ1898_Ipv6.script					z:/testdata/scripts/dhcp/dhcppreq1898_ipv6.script
 #endif //SYMBIAN_TCPIPDHCP_UPDATE 
 //SIP server
+../te_dhcp/config/scripts/TE_SIPServer_DHCP_hwonly_ip4.script	z:/testdata/scripts/dhcp/te_sipserver_dhcp_hwonly_ip4.script
 ../te_dhcp/config/scripts/SipServer_setup.script                z:/testdata/scripts/sipserver_setup.script
 ../te_dhcp/config/scripts/TE_SIPServerTesting.script            z:/testdata/scripts/te_sipservertesting.script
 ../te_dhcp/config/scripts/SipServer.xml                         z:/testdata/configs/sipserver.xml

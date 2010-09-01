@@ -174,6 +174,9 @@ TInt IPProtoDeftSCpr::TNetworkConfiguredOrErrorTagOrCancelTagOrNoTagBackward::Tr
 	{
 	iContext.Node().iNetworkConfigurationState = EFalse;
 	TInt tag = IPProtoDeftSCpr::TNetworkConfiguredOrErrorTagOrCancelTagOrNoTag::TransitionTag();
+	
+
+
 	if (tag == KNoTag)
 		return tag | NetStateMachine::EBackward;
 	return tag;

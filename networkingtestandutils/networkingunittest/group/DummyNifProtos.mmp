@@ -41,10 +41,10 @@ USERINCLUDE		../DummyNifProtos/inc
 USERINCLUDE		../../../linklayercontrol/networkinterfacemgr/agentprcore/inc
 
 #ifdef SYMBIAN_OLD_EXPORT_LOCATION
-SYSTEMINCLUDE	/epoc32/include
-SYSTEMINCLUDE	/epoc32/include/ecom
-SYSTEMINCLUDE   /epoc32/include/comms-infras
-SYSTEMINCLUDE   /epoc32/include/networking
+SYSTEMINCLUDE	\epoc32\include
+SYSTEMINCLUDE	\epoc32\include\ecom
+SYSTEMINCLUDE   \epoc32\include\comms-infras
+SYSTEMINCLUDE   \epoc32\include\networking
 #else
 OS_LAYER_SYSTEMINCLUDE_SYMBIAN
 SYSTEMINCLUDE	/epoc32/include/platform/ecom

@@ -30,6 +30,15 @@ PRJ_EXPORTS
 ../include/DHCPConfig.h						SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/dhcpconfig.h)
 #endif // SYMBIAN_NETWORKING_DHCP_MSG_HEADERS
 
+#ifdef __SECURE_DATA__
+dhcp.ini       /epoc32/data/z/private/101fd9c5/dhcp.ini
+dhcp.ini       /epoc32/winscw/c/private/101fd9c5/dhcp.ini
+#else
+dhcp.ini       /epoc32/data/z/system/data/dhcp.ini
+dhcp.ini       /epoc32/wins/c/system/data/dhcp.ini
+dhcp.ini       /epoc32/winscw/c/system/data/dhcp.ini
+#endif
+
 PRJ_MMPFILES
 
 DHCPServ.mmp

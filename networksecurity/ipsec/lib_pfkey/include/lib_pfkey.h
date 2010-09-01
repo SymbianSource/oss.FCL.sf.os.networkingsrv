@@ -177,15 +177,20 @@ private:
 class RSADB 
 	{
 public:
-
+	/** 
+	 *  Opens the handle to stack side SADB
+	 *  @param aServer
+	 *		A socketserver session to use
+	 *  @return KErrNone if successful
+	 */ 
 	IMPORT_C TInt Open(RSocketServ& aServer);
 	
 	IMPORT_C void Close();
-	
+	// Send Request	
 	IMPORT_C void SendRequest(const TDesC8& aMsg, TRequestStatus& aStatus);
 	
 	IMPORT_C void CancelSend();
-
+	// Separate Read Request
 	IMPORT_C void ReadRequest(TDes8& aMsg, TRequestStatus& aStatus);
 	
 	IMPORT_C void CancelRecv();

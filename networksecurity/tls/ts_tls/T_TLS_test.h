@@ -1,4 +1,4 @@
-// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2003-2010 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -70,6 +70,7 @@ public:
 	// Construct/destruct
 	static CTLSTest *NewL();
 	~CTLSTest();
+#ifdef HTTP_ALLOW_UNTRUSTED_CERTIFICATES
 	void ConnectL( const TDesC &aAddress, 
 			const TInt aPortNum, 
 			const TDesC &aPage, 
@@ -80,7 +81,23 @@ public:
 			const TDesC8& aDNSName, 
 			const TDesC& aProtocol, 
 			TBool aUseGenericSocket, 
-			TBool aEAPKeyDerivation );	
+			TBool aEAPKeyDerivation,
+			TBool aTLSDialogMode,
+			TInt aTLSDialogModeValue,
+			TInt aExpectedErrorCode );
+#else
+	void ConnectL( const TDesC &aAddress, 
+	            const TInt aPortNum, 
+	            const TDesC &aPage, 
+	            const TDesC8 &aCipherSuite, 
+	            const TInt aCipher, 
+	            const TInt aSimpleGet, 
+	            const TInt aTestEndDelay, 
+	            const TDesC8& aDNSName, 
+	            const TDesC& aProtocol, 
+	            TBool aUseGenericSocket, 
+	            TBool aEAPKeyDerivation );
+#endif  // HTTP_ALLOW_UNTRUSTED_CERTIFICATES
 
 	void SetConsole( CTestStepTls * aTestStep );
 	TBool InUse();
@@ -119,7 +136,11 @@ private:
 	TBool		iCiphersMatch;		// true if expected cipher was selected by the server
 	TBool		iUseGenericSocket;
 	TBool		iEAPKeyDerivation;
-	
+#ifdef HTTP_ALLOW_UNTRUSTED_CERTIFICATES
+	TBool      iTLSDialogMode;
+	TInt       iTLSDialogModeValue;
+	TInt       iExpectedErrorCode;
+#endif  // HTTP_ALLOW_UNTRUSTED_CERTIFICATES
 	TSockXfrLength iBytesRead;
 	TBuf8<5000> iRcvBuffer;
 	TBuf8<256>	iSndBuffer;

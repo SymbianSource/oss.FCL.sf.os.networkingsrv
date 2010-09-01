@@ -1,0 +1,29 @@
+// Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+#ifndef __TE_DNSSUFFIX_IBY__
+#define __TE_DNSSUFFIX_IBY__
+
+#include <testexecute.iby>
+
+file=ABI_DIR\BUILD_DIR\te_dnssuffix.exe		System\Programs\te_dnssuffix.exe
+
+data=EPOCROOT##epoc32\data\z\testdata\scripts\te_dnssuffixsuite.script 	testdata\scripts\te_dnssuffixsuite.script
+data=EPOCROOT##epoc32\data\z\testdata\configs\te_dnssuffixced.xml	testdata\configs\te_dnssuffixced.xml
+data=EPOCROOT##epoc32\data\z\testdata\configs\te_dnssuffixcedv2.xml	testdata\configs\te_dnssuffixcedv2.xml
+data=EPOCROOT##epoc32\data\z\testdata\configs\te_dnssuffix.ini	testdata\configs\te_dnssuffix.ini
+data=EPOCROOT##epoc32\data\z\testdata\configs\te_dnssuffixced_basic.xml	testdata\configs\te_dnssuffixced_basic.xml
+
+#endif //__TE_DNSSUFFIX_IBY__

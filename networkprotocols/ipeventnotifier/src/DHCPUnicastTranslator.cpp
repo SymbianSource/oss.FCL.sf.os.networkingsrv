@@ -1,4 +1,4 @@
-// Copyright (c) 2006-2010 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -128,7 +128,7 @@ TInt CDHCPUnicastTranslator::ApplyL(RMBufHookPacket& aPacket, RMBufRecvInfo& aIn
 #ifndef _DEBUG
     if (udp.iHdr->DstPort() == 68)
 #else
-	if (udp.iHdr->DstPort() == 68 || udp.iHdr->DstPort() == 127 || udp.iHdr->DstPort() == 119 || udp.iHdr->DstPort() == 94 || udp.iHdr->DstPort() == 125
+	if (udp.iHdr->DstPort() == 68 || udp.iHdr->DstPort() == 127 || udp.iHdr->DstPort() == 119 || udp.iHdr->DstPort() == 125
 	#ifdef SYMBIAN_NETWORKING_DHCP_MSG_HEADERS
 	|| udp.iHdr->DstPort() == 92 || udp.iHdr->DstPort() == 99
 	#endif//SYMBIAN_NETWORKING_DHCP_MSG_HEADERS	

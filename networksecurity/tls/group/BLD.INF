@@ -1,4 +1,4 @@
-// Copyright (c) 2000-2009 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2000-2010 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -89,6 +89,13 @@ PRJ_TESTEXPORTS
 ../ts_tls/scripts/tls_oom.ini  	 	z:/testdata/configs/tls_oom.ini
 ../ts_tls/scripts/tls1.ini  	 	z:/testdata/configs/tls1.ini
 ../ts_tls/scripts/tls2.ini  	 	z:/testdata/configs/tls2.ini
+
+// ini files 39,40,41 and 42 are used for the REQ 415-8346
+../ts_tls/scripts/tls39.ini  	 	z:/testdata/configs/tls39.ini
+../ts_tls/scripts/tls40.ini  	 	z:/testdata/configs/tls40.ini
+../ts_tls/scripts/tls41.ini  	 	z:/testdata/configs/tls41.ini
+../ts_tls/scripts/tls42.ini  	 	z:/testdata/configs/tls42.ini
+
 ../ts_tls/scripts/TLS_RSA_WITH_NULL_SHA.ini						z:/testdata/configs/tls_rsa_with_null_sha.ini
 ../ts_tls/scripts/TLS_RSA_WITH_NULL_MD5.ini						z:/testdata/configs/tls_rsa_with_null_md5.ini
 ../ts_tls/scripts/TLS_SNE_SINGLE_SERVER.ini						z:/testdata/configs/tls_sne_single_server.ini

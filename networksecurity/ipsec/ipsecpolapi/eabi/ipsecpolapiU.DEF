@@ -16,4 +16,5 @@ EXPORTS
 	_ZN16RIpsecPolicyServD2Ev @ 15 NONAME ; RIpsecPolicyServ::~RIpsecPolicyServ [not-in-charge](void)
 	_ZN16RIpsecPolicyServC2Ev @ 16 NONAME ; RIpsecPolicyServ::RIpsecPolicyServ[not-in-charge](void)
 	_ZN16RIpsecPolicyServ18AvailableSelectorsERK6TDesC8P13CArrayFixFlatI18TIpsecSelectorInfoER14TRequestStatus @ 17 NONAME
+	_ZN16RIpsecPolicyServ6SetOptEjjRK6TDesC8 @ 18 NONAME
 

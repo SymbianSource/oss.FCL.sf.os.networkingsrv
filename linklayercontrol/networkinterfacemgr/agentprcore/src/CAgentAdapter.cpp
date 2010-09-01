@@ -71,7 +71,7 @@ CAgentAdapter::CAgentAdapter(CAgentSubConnectionProvider& aAgentScpr)
     : iAgentScpr(aAgentScpr),
     iAgentState(EDisconnected),
     iAgentConnectType(EAgentNone),
-    iLastProgress(KFinishedSelection,KErrNone)
+    iLastProgress(KFinishedSelection,KErrNone),iAgentErrorState(EFalse)
     {
     }
 
@@ -148,15 +148,18 @@ Begins the disconnection of the Agent
 void CAgentAdapter::DisconnectAgent(TInt aReason)
     {
     if (iAgentState == EConnecting)
-        {
+        {    
         iAgent->CancelConnect();
         }
     else if (iAgentState == EReconnecting)
         {
         iAgent->CancelReconnect();
         }
-    iAgentState = EDisconnecting;
-    iAgent->Disconnect(aReason);
+    if (iAgentState != EDisconnecting)
+        {        
+        iAgentState = EDisconnecting;
+    	iAgent->Disconnect(aReason);
+        }
     }
 
 
@@ -307,6 +310,8 @@ void CAgentAdapter::ConnectComplete(TInt aStatus)
         else
             {
             iLastProgress.iError = aStatus;
+            // set the agent state to EDisconnecting
+            iAgentState = EDisconnecting;
             iAgent->Disconnect(aStatus);
             }
         }
@@ -348,9 +353,9 @@ void CAgentAdapter::DisconnectComplete()
         {
 #ifdef __CFLOG_ACTIVE
     	TRAPD(err,
-    		//iAgentScpr.ProgressL(KConnectionUninitialised);
     		iAgentState = EDisconnected;
     		iAgentScpr.ConnectionDownL();
+    	//	iAgentScpr.ProgressL(KConnectionUninitialised);
     		);
             if (err != KErrNone)
                 {
@@ -359,9 +364,9 @@ void CAgentAdapter::DisconnectComplete()
                 }
 #else
     	TRAP_IGNORE(
-            //iAgentScpr.ProgressL(KConnectionUninitialised);
     		iAgentState = EDisconnected;
     		iAgentScpr.ConnectionDownL();
+            //iAgentScpr.ProgressL(KConnectionUninitialised);
     		);
 #endif
         }
@@ -391,6 +396,7 @@ void CAgentAdapter::AgentProgress(TInt aStage, TInt aError)
     else
         {
         iAgentScpr.Error(iLastProgress);
+        iAgentErrorState = ETrue;
         }
     }
 

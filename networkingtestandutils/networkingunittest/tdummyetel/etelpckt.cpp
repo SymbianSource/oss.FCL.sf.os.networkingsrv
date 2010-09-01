@@ -45,7 +45,7 @@ EXPORT_C RPacketContext::RPacketContext()
 	{
 	}
 
-EXPORT_C void RPacketContext::ConstructL()
+void RPacketContext::ConstructL()
 /**
  * This function creates an instance of CPacketContextPtrHolder & assigns the iEtelPacketContextPtrHolder
  * pointer to it. 
@@ -54,8 +54,8 @@ EXPORT_C void RPacketContext::ConstructL()
 	__ASSERT_ALWAYS(iEtelPacketContextPtrHolder==NULL,PanicClient(EEtelPanicHandleNotClosed));
 	iEtelPacketContextPtrHolder = CPacketContextPtrHolder::NewL(CEtelPacketPtrHolder::EMaxNumPacketContextPtrSlots);
 	}
-
-EXPORT_C void RPacketContext::Destruct()
+	
+void RPacketContext::Destruct()
 /**
  * This function deletes & NULLs the iEtelPacketContextPtrHolder pointer.
  */
@@ -986,7 +986,7 @@ EXPORT_C TInt TPacketBase::ExtensionId() const
 
 	
 	
-EXPORT_C RPacketContext::TProtocolConfigOptionV2::TProtocolConfigOptionV2()
+RPacketContext::TProtocolConfigOptionV2::TProtocolConfigOptionV2()
 : TPacketBase(), iChallenge(0), iResponse(0), iId(0), iDnsAddresses(),
   iMiscBuffer(0)
 /**

@@ -296,10 +296,15 @@ void CAgentSubConnectionProvider::ConnectionDownL()
 	    }
 	else
 	    {
-	    // Agent has stopped and disconnected without this node telling it to
-	    // Could be an error in the agent initiating a disconnect
-    	__CFLOG_VAR((KAgentSCprTag, KAgentSCprSubTag, _L8("CAgentSubConnectionProvider::ConnectionDownL() - Agent has stopped unexpectedly")));
-	    ControlProvider()->PostMessage(Id(), TCFControlProvider::TDataClientGoneDown(KErrDisconnected).CRef());
+	    // Verify AgentSCPR is Started, if its started, do not initiate TDataClientGoneDown, else initiate it
+        if(!AgentProvisionInfo()->AgentAdapter()->IsAgentInErrorState())
+            {
+	        // Agent has stopped and disconnected without this node telling it to
+	        // Could be an error in the agent initiating a disconnect
+	        __CFLOG_VAR((KAgentSCprTag, KAgentSCprSubTag, _L8("CAgentSubConnectionProvider::ConnectionDownL() - Agent has stopped unexpectedly")));
+	        ControlProvider()->PostMessage(Id(), TCFControlProvider::TDataClientGoneDown(KErrDisconnected).CRef());	        
+	        }
+	        
 	    }
 	}
 

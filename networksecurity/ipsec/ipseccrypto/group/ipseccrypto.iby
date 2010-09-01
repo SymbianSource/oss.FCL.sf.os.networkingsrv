@@ -23,7 +23,7 @@
 #ifndef __IPSECCRYPTO_IBY__
 #define __IPSECCRYPTO_IBY__
 
-#ifndef __IPSEC
+#ifdef SYMBIAN_EXCLUDE_IPSEC
 
 REM Feature IPSEC not included in this rom
 
@@ -31,6 +31,6 @@ REM Feature IPSEC not included in this rom
 
 file=ABI_DIR\DEBUG_DIR\ipseccrypto.prt     System\Libs\ipseccrypto.prt
 
-#endif // __IPSEC
+#endif // SYMBIAN_EXCLUDE_IPSEC
 
 #endif

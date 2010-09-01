@@ -1,0 +1,61 @@
+// Copyright (c) 2002-2010 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of the License "Symbian Foundation License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.symbianfoundation.org/legal/sfl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRJ_EXPORTS
+
+PRJ_TESTEXPORTS
+
+//script files
+../scripts/ns-ipsec-ike-selectorconflict_common.script z:/testdata/scripts/ns-ipsec-ike-selectorconflict_common.script
+
+../scripts/ns-ipsec-ike-selectorconflict_bbd1.script z:/testdata/scripts/ns-ipsec-ike-selectorconflict_bbd1.script
+../scripts/ns-ipsec-ike-selectorconflict_bbd2.script z:/testdata/scripts/ns-ipsec-ike-selectorconflict_bbd2.script
+../scripts/ns-ipsec-ike-selectorconflict_bbd3.script z:/testdata/scripts/ns-ipsec-ike-selectorconflict_bbd3.script
+
+
+../scripts/ns-ipsec-ike-selectorconflict_bdd1.script z:/testdata/scripts/ns-ipsec-ike-selectorconflict_bdd1.script
+../scripts/ns-ipsec-ike-selectorconflict_bdd2.script z:/testdata/scripts/ns-ipsec-ike-selectorconflict_bdd2.script
+../scripts/ns-ipsec-ike-selectorconflict_bdd3.script z:/testdata/scripts/ns-ipsec-ike-selectorconflict_bdd3.script
+
+
+../scripts/ns-ipsec-ike-selectorconflict-uma1.script z:/testdata/scripts/ns-ipsec-ike-selectorconflict-uma1.script
+../scripts/ns-ipsec-ike-selectorconflict-uma2.script z:/testdata/scripts/ns-ipsec-ike-selectorconflict-uma2.script
+../scripts/ns-ipsec-ike-selectorconflict-uma3.script z:/testdata/scripts/ns-ipsec-ike-selectorconflict-uma3.script
+../scripts/ns-ipsec-ike-selectorconflict-uma4.script z:/testdata/scripts/ns-ipsec-ike-selectorconflict-uma4.script
+../scripts/ns-ipsec-ike-selectorconflict-uma5.script z:/testdata/scripts/ns-ipsec-ike-selectorconflict-uma5.script
+../scripts/ns-ipsec-ike-selectorconflict-uma6.script z:/testdata/scripts/ns-ipsec-ike-selectorconflict-uma6.script
+
+../scripts/ns-ipsec-ike-selectorconflict_coverage.script z:/testdata/scripts/ns-ipsec-ike-selectorconflict_coverage.script
+
+//.ini file
+../scripts/ns-ipsec-ikev1test-ops.ini		z:/testdata/scripts/ns-ipsec-ikev1test-ops.ini
+
+//.ini file
+../testdata/te_2483.pin		z:/testdata/configs/te_2483.pin
+../testdata/te_2483.pol		z:/testdata/configs/te_2483.pol
+../testdata/te_2483_drop.pin    z:/testdata/configs/te_2483_drop.pin
+../testdata/te_2483_drop.pol    z:/testdata/configs/te_2483_drop.pol
+
+//.xml
+../testdata/te_ethced_2483vpn.xml	     z:/testdata/configs/te_ethced_2483vpn.xml
+../testdata/te_ethced_2483.xml		     z:/testdata/configs/te_ethced_2483.xml
+../testdata/te_ethced_2483vpn_drop.xml	     z:/testdata/configs/te_ethced_2483vpn_drop.xml
+
+./te_ipsec_selector_confilict.iby	/epoc32/rom/include/te_ipsec_selector_confilict.iby
+
+PRJ_MMPFILES
+
+PRJ_TESTMMPFILES
+te_ipsec_selector_confilict.mmp

@@ -18,7 +18,7 @@
 #ifndef GUARD_INCLUDE_NETCFGEXTNDHCP_IBY
 #define GUARD_INCLUDE_NETCFGEXTNDHCP_IBY
 
-#ifndef __DHCP
+#ifdef SYMBIAN_EXCLUDE_DHCP
 REM Feature DHCP is not included in this ROM
 #else
 #include <netstsrv.iby>

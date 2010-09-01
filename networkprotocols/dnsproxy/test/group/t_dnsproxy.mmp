@@ -24,7 +24,7 @@ SOURCEPATH		../src
 SOURCE			t_dnsproxytestserver.cpp  
 SOURCE			t_dnsproxymain.cpp
 
-USERINCLUDE		../inc
+USERINCLUDE		..\inc
 
 #ifdef SYMBIAN_OLD_EXPORT_LOCATION
 SYSTEMINCLUDE	/epoc32/include

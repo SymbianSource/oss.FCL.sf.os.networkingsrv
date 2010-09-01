@@ -414,12 +414,14 @@ public:
 	//	are going to be used.
 	// @param aFlags
 	//	modify the query operation. See KDnsModifier_* symbols.
+	// @aSuffixSupportEnabled
+	//	switch on/off the domain suffix based name resolution support
 	//
 	// @returns
 	// @li	< 0, if load failed (bad query information)
 	// @li	= 0, if query initialized (KErrNone)
 	*/
-	virtual TInt NewQuery(const TDnsMessage &aQuery, TDnsServerScope aServerScope, TUint32 aFlags) = 0;
+	virtual TInt NewQuery(const TDnsMessage &aQuery, TDnsServerScope aServerScope, TUint32 aFlags, TBool aSuffixSupportEnabled) = 0;
 	/**
 	// Cancel query activity
 	//

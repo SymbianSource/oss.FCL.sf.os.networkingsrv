@@ -38,7 +38,7 @@ CHookAddressInfo::~CHookAddressInfo()
 EXPORT_C void CHookAddressInfo::AddL(CIPProtoBinder* aBinder, CSubConIPAddressInfoParamSet::TSubConIPAddressInfo& aAddrInfo)
 	{
 	TIpAddrBinder *addrBinder =  new(ELeave) TIpAddrBinder(aBinder, aAddrInfo);
-	
+
 	CleanupStack::PushL(addrBinder);
 	iAddrInfo.AppendL(addrBinder);
 	CleanupStack::Pop(addrBinder);

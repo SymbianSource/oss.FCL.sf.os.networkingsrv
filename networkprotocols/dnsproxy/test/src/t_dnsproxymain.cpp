@@ -1,4 +1,4 @@
-// Copyright (c) 2008-2010 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2008-2009 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -168,7 +168,9 @@ void CT_DnsProxyMainTestWrapper::DoCmdNew(const TDesC& aSection)
 		ERR_PRINTF2(_L("<font color=FF0000>No parameter %S</font>"), &KUSEIAP());
 		SetBlockResult(EFail);
 		}
-
+		
+		
+	_LIT(KTestCaseName,"eth");	
 
 	TBuf8<256> name8;
 	name8.Copy(pname16);
@@ -242,17 +244,11 @@ void CT_DnsProxyMainTestWrapper::DoCmdNew(const TDesC& aSection)
 			}
 		iUseNapt = ETrue;	
 
-#ifdef SIROCCO_CODE_MIGRATION
-	_LIT(KInterfaceName,"wlan");
-	_LIT(KInterfaceName2,"wlan");
-#else
-	_LIT(KInterfaceName,"eth");
-	_LIT(KInterfaceName2,"eth");
-#endif
-
    		RSocket sock;
    		sock.Open(iSs,KAfInet, KSockDatagram, KProtocolInetUdp);     	
+   		_LIT(KInterfaceName,"eth");
    		TUint32 testaddr = GetInterfaceAddress(sock,KInterfaceName());
+   		_LIT(KInterfaceName2,"eth");
    		TUint32 ifindex = GetInterfaceIndex(sock, KInterfaceName2());
      	sock.Close();
      	     
@@ -779,17 +775,11 @@ void CT_DnsProxyMainTestWrapper::DoCmdTestConnectionL(const TDesC& aSection)
 			}
 		iUseNapt = ETrue;	
 
-#ifdef SIROCCO_CODE_MIGRATION
-	_LIT(KInterfaceName,"wlan");
-	_LIT(KInterfaceName2,"wlan");
-#else
-	_LIT(KInterfaceName,"eth");
-	_LIT(KInterfaceName2,"eth");
-#endif
-
    		RSocket sock;
    		sock.Open(iSs,KAfInet, KSockDatagram, KProtocolInetUdp);     	
+   		_LIT(KInterfaceName,"eth");
    		TUint32 testaddr = GetInterfaceAddress(sock,KInterfaceName());
+   		_LIT(KInterfaceName2,"eth");
    		TUint32 ifindex = GetInterfaceIndex(sock, KInterfaceName2());
      	sock.Close();
      	     

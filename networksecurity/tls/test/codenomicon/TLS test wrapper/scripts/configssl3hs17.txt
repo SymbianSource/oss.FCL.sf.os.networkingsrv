@@ -1,0 +1,9 @@
+[platform] winscw 
+[build] udeb
+
+//codenomicon parameters
+[params]
+index 8751-9004
+listen-port 443
+server-name 192.168.0.1
+log-dir     d:\tls\logs\ssl3hs17

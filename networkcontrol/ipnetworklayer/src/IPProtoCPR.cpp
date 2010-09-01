@@ -386,6 +386,7 @@ void CIPProtoConnectionProvider::LinkDown()
 
 	iLinkUp = EFalse;
 	CancelTimer();
+	iStopped = ETrue;
 	}
 
 void CIPProtoConnectionProvider::OpenRoute()
@@ -1007,4 +1008,3 @@ void CIPProtoConnectionProvider::COneShotTimer::ConstructL()
 	{
 	CTimer::ConstructL();
 	}
-

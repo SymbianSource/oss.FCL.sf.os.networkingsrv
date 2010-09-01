@@ -20,14 +20,16 @@
 /**
  @file spdb.cpp
 */
+#include <featdiscovery.h>
+#include <featureuids.h>
+#include <networking/pfkeyv2.h>
+#include <networking/ipsecerr.h>
+#include <e32std.h>
+
+#include "sa_spec.h"
 #include "epdb.h"
 #include "spdb.h"
-#include <networking/pfkeyv2.h>
-#include "sa_spec.h"
-#include <networking/ipsecerr.h>
-#ifdef SYMBIAN_IPSEC_VOIP_SUPPORT
-#include <e32std.h>
-#endif // SYMBIAN_IPSEC_VOIP_SUPPORT
+
 #ifndef OLD_SELECTOR_ORDERING
 /** @deprecated
 * The old syntax allowed total mixing of "filter" and "selector"
@@ -166,7 +168,10 @@ private:
 	void SetAddressOrEndPointL(RIpAddress &aAddr, TInt aMask, TInt aError);
 	void ParseAddressL(RIpAddress &aAddr, TInt aMask, TInt aError);
 	void ParseAddressAndMaskL(RIpAddress &aAddr, RIpAddress& aMask);
+	void ParseSecurityBundleL(RPolicyActions &aBundle, CTransportSelector *aTS, CPolicySelector* aPs);//UMA support 
 	void ParseSecurityBundleL(RPolicyActions &aBundle, CTransportSelector *aTS);
+	void CheckFeatureSupportL(TUid aFeature);
+	
 #ifdef SYMBIAN_IPSEC_VOIP_SUPPORT
 	void ParseAssociationParametersL(CPolicySpec *aSpec);
 #else 
@@ -183,9 +188,12 @@ private:
 	token_type CheckProposalCloseAndMoreProposals(TInt &aPropBraces);
 	CSecurityProposalSpec* CreateProposalL(CPropList& aPropList);
 #endif //SYMBIAN_IPSEC_VOIP_SUPPORT
+
+private:
 	TPtrC iToken;			//< The current token.
 	CSecurityPolicy *iSp;	//< The result of the parsing operation, The new policy
 	REndPoints &iEp;		//< The End Point collection to use for the named endpoints.
+	TBool iIPSecGANSupported; //To check whether FF_IPSEC_UMA_SUPPORT_ENABLE is defined and UMA supported
 	};
 
 #ifdef SYMBIAN_IPSEC_VOIP_SUPPORT
@@ -856,18 +864,140 @@ void TParser::ParseAssociationL()
 #endif // SYMBIAN_IPSEC_VOIP_SUPPORT
 	}
 
+/**
+* Parse security actions
+* @code [ sa-name '(' [ address ] ')' ]* '}'
+* @endcode
+*
+* Parse a (possibly empty) list of references to security specifications. This will
+* be the bundle of security actions for a selector.
+*
+* @retval aActions The colleted actions
+* @param aTS The traffic selector.
+* @param aPS the policy selector
+* * This is called only when UMA/ GAN is supported.
+*/
+void TParser::ParseSecurityBundleL(RPolicyActions &aActions, CTransportSelector *aTS, CPolicySelector *aPs)
+    {
+    
+    LOG(Log::Printf(_L("TParser::ParseSecurityBundleL(RPolicyActions &aActions, CTransportSelector *aTS, CPolicySelector *aPs)")));
+          
+    if(iIPSecGANSupported)
+        {
+        LOG(Log::Printf(_L("TParser::ParseSecurityBundleL: UMA supported FF_IPSEC_UMA_SUPPORT_ENABLE defined")));
+        }
+    else
+        {
+        LOG(Log::Printf(_L("TParser::ParseSecurityBundleL:functionality not suppoted.FF_IPSEC_UMA_SUPPORT_ENABLE not defined")));
+        User::Leave(KErrNotSupported);
+        }
+    
+    _LIT(K_tunnel,  "tunnel");
+
+    token_type val;
+
+    TUint opt = 0;
+    _LIT(K_Exception,  "UMAException");//UMA exception defined
+    for (;;)
+        {
+        val = NextToken();
+        //
+        // Experimental addition, allow optional bundle items
+        // by prefixing them with '?'...
+        //
+        if (opt == 0 && val == token_question)
+            {
+            opt = 1;
+            continue;
+            }
+        else if (val != token_string)
+            break;
+        // A temporary(?) special kluge: if the keyword is 'tunnel'
+        // assume this is a plain tunnel specification, without any
+        // relation to the IPSEC. if nobody defined a "tunnel" sa
+        // specification. (should probably disallow 'tunnel' as SA
+        // spec name, to avoid confusion.. )
+        //
+        CPolicySpec *spec = iSp->FindSpec(iToken);
+
+        if(spec== NULL && !iToken.Compare(K_Exception))
+            {
+            LOG(Log::Printf(_L("Found Exception Policy identifier")));
+            //FInd Next token... Things looks hacky here. IPsec really need re-designing.
+            TInt tokenVal = (TInt)NextToken();
+            LOG(Log::Printf(_L("NextToken value is = [%d]"),tokenVal));
+            
+            TBuf8<32> buf;
+            buf.Copy(iToken);
+            TLex8 lex(buf);
+            TInt scope;
+            lex.Val(scope);
+            
+            //assiging scope to the policy. This will be policy selector with Exception scope being setalong with
+            //exception flags
+            aPs->iScope_Exception = scope;
+            LOG(Log::Printf(_L("TParser::ParseSecurityBundleL, Exception tunnel Scope is = [%d]"),scope));
+            while((val = NextToken())!= token_brace_right)
+                {
+                //do nothing 
+                }  //while    
+            break;
+            }
+
+        // A temporary(?) special kluge: if the keyword is 'tunnel'
+        // assume this is a plain tunnel specification, without any
+        // relation to the IPSEC. if nobody defined a "tunnel" sa
+        // specification. (should probably disallow 'tunnel' as SA
+        // spec name, to avoid confusion.. )
+        //
+        if (spec == NULL && iToken.Compare(K_tunnel) != 0)
+            User::Leave(EIpsec_PolicySpecNotFound);
+
+        if (NextToken() != token_par_left)
+            User::Leave(EIpsec_PolicyLeftParen);
+
+        CPolicyAction *action = new (ELeave) CPolicyAction;
+        if (aActions.Append(action) != KErrNone)
+            {
+            action->Close();
+            User::Leave(KErrNoMemory);
+            }
+        if ((action->iSpec = spec) != NULL)
+            spec->Open();
+        // Record the current selector into each action (this is to make it
+        // easier to generate the TS list into Acquire message).
+        if ((action->iTS = aTS) != NULL)
+            aTS->Open();
+        action->iOptional = opt;
+
+        if ((val = NextToken()) == token_string)
+            {
+            SetAddressOrEndPointL(action->iTunnel, 0, EIpsec_PolicyInvalidIpAddress);
+            action->iIsTunnel = 1;  // Flag a tunnel.
+            val = NextToken();
+            }
+        if (val != token_par_right)
+            User::Leave(EIpsec_PolicyRightParen);
+        opt = 0;        // Optional only affects single item at time.
+        }
+    if (val != token_brace_right)
+        User::Leave(EIpsec_PolicyCloseBraceExpected);
+    }
+
+/**
+* Parse security actions
+* @code [ sa-name '(' [ address ] ')' ]* '}'
+* @endcode
+*
+* Parse a (possibly empty) list of references to security specifications. This will
+* be the bundle of security actions for a selector.
+*
+* @retval aActions The colleted actions
+* @param aTS The traffic selector.
+* This is called in case of No UMA/ GAN support.
+*/ 
 void TParser::ParseSecurityBundleL(RPolicyActions &aActions, CTransportSelector *aTS)
-	/**
-	* Parse security actions
-	* @code [ sa-name '(' [ address ] ')' ]* '}'
-	* @endcode
-	*
-	* Parse a (possibly empty) list of references to security specifications. This will
-	* be the bundle of security actions for a selector.
-	*
-	* @retval aActions The colleted actions
-	* @param aTS The traffic selector.
-	*/
+//#endif
 	{
 	_LIT(K_tunnel,	"tunnel");
 
@@ -896,6 +1026,13 @@ void TParser::ParseSecurityBundleL(RPolicyActions &aActions, CTransportSelector 
 		// spec name, to avoid confusion.. )
 		//
 		CPolicySpec *spec = iSp->FindSpec(iToken);
+
+        // A temporary(?) special kluge: if the keyword is 'tunnel'
+        // assume this is a plain tunnel specification, without any
+        // relation to the IPSEC. if nobody defined a "tunnel" sa
+        // specification. (should probably disallow 'tunnel' as SA
+        // spec name, to avoid confusion.. )
+        //
 		if (spec == NULL && iToken.Compare(K_tunnel) != 0)
 			User::Leave(EIpsec_PolicySpecNotFound);
 
@@ -1142,6 +1279,7 @@ void TParser::ParseSelectorL(CPolicySelector *&aPs)
 		KEYWORD("merge"),
 		KEYWORD("outbound"),
 		KEYWORD("inbound"),
+		KEYWORD("UMAExceptionTrafficSelector"), //UMA support
 		KEYWORD("if"),
 		};
 
@@ -1151,6 +1289,7 @@ void TParser::ParseSelectorL(CPolicySelector *&aPs)
 		KEYENUM(merge),
 		KEYENUM(outbound),
 		KEYENUM(inbound),
+		KEYENUM(UMAExceptionTrafficSelector),//exception bits
 		KEYENUM(if),
 
 		KEYENUM(max_parameters)
@@ -1159,6 +1298,9 @@ void TParser::ParseSelectorL(CPolicySelector *&aPs)
 	_LIT(K_drop, "drop");
 
 	token_type val;
+
+    CheckFeatureSupportL(NFeature::KFeatureIdFfIpsecUmaSupportEnable);
+
 	//
 	aPs = new (ELeave) CPolicySelector();
 
@@ -1202,6 +1344,22 @@ void TParser::ParseSelectorL(CPolicySelector *&aPs)
 					User::Leave(EIpsec_PolicySyntaxError);	// <-- need own error code?
 				aPs->iInterface = iSp->LookupInterfaceL(iToken);
 				break;
+			case E_UMAExceptionTrafficSelector:
+                    if(iIPSecGANSupported)
+                        {
+                        //UMA support
+                        LOG(Log::Printf(_L("TParser::ParseSelectorL Setting Exception selector flag")));
+                   //The flags signifies special case for UMA/exception selectors. These selectors
+                   //will be present in case when there is no inbound and bypass filter data or selectors
+                   //are set. This selector will only allow traffic whose scope match the exception scope 
+                        aPs->iFilterData|=KPolicyFilter_Exception;
+                        aPs->iFilterMask |= KPolicyFilter_Exception;
+                        }
+                    else
+                        {
+                        LOG(Log::Printf(_L("TParser::ParseSelectorL error GAN/ UMA feature is not enabled ")));
+                        }
+	               break;				
 			default:
 				val = TransportSelectorL(aPs->iTS);
 #if OLD_SELECTOR_ORDERING
@@ -1218,7 +1376,18 @@ wrapup:
 	if (val != token_equal)
 		User::Leave(EIpsec_PolicySyntaxError);
 	if (NextToken() == token_brace_left)
-		ParseSecurityBundleL(aPs->iActions, aPs->iTS);
+	    {
+	  //UMA support RE417-40027
+        if(iIPSecGANSupported)
+            {
+        ParseSecurityBundleL(aPs->iActions, aPs->iTS, aPs);
+            }
+        else
+            {
+        ParseSecurityBundleL(aPs->iActions, aPs->iTS);
+
+            }
+	    }
 	else if (iToken.Compare(K_drop) == 0)
 		aPs->iFilterData |= KPolicyFilter_DROP;
 	else
@@ -1232,6 +1401,24 @@ wrapup:
 TParser::TParser(CSecurityPolicy *aSp, const TDesC &aPolicy, REndPoints &aEp) :
 	TLex(aPolicy), iSp(aSp), iEp(aEp)
 	{
+    
+	}
+/**
+ * To check the feature support
+ */
+void TParser::CheckFeatureSupportL(TUid aFeature)
+    {
+    // Check Gan support from feature manager
+    iIPSecGANSupported = CFeatureDiscovery::IsFeatureSupportedL(aFeature);
+    
+    if(iIPSecGANSupported != (TInt)ETrue)
+		{
+		LOG(Log::Printf(_L("TParser::CheckFeatureSupport Error Checking Feature Support")));
+		}
+		else
+		{
+		LOG(Log::Printf(_L("TParser::CheckFeatureSupport %d Feature Supported %d"),aFeature,iIPSecGANSupported));
+		}
 	}
 
 void TParser::ParseL(TUint aStartOffset)

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-2010 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -29,7 +29,6 @@
 #include <commdbconnpref.h>
 #include <e32std.h>
 #include <securesocket.h>
-#include <e32property.h>
 
 
 _LIT(KIap,					"Iap");
@@ -47,9 +46,9 @@ _LIT(KPhbkSyncCMI,			"phbsync.cmi");
 #define PDD_NAME _L("EUART1")
 #define LDD_NAME _L("ECOMM")
 #endif
-#ifndef SIROCCO_CODE_MIGRATION
+
 const TInt iapCount = 2;
-#endif
+
 CTestConnectStep::CTestConnectStep():iIapNumber(0), iPort(0), iScheduler(NULL)
 /**
  * Constructor
@@ -81,9 +80,6 @@ TVerdict CTestConnectStep::doTestStepPreambleL()
 		{
 		iScheduler = new CActiveScheduler();
 		CActiveScheduler::Install(iScheduler);
-#ifdef SIROCCO_CODE_MIGRATION 
-		TInt err;
-#else
 		INFO_PRINTF1(_L("Load PDD"));	
 		TInt err = User::LoadPhysicalDevice(PDD_NAME);
 		if (err != KErrNone && err != KErrAlreadyExists)
@@ -92,7 +88,7 @@ TVerdict CTestConnectStep::doTestStepPreambleL()
 			SetTestStepResult(EFail);
 			User::Leave(err);
 			}
-#endif
+
 		INFO_PRINTF1(_L("Load LDD"));	
 		err = User::LoadLogicalDevice(LDD_NAME);
 		if (err != KErrNone && err != KErrAlreadyExists)
@@ -159,16 +155,6 @@ TVerdict CTestConnectStep::doTestStepL()
 		INFO_PRINTF2((_L("IapNumber = %d")), iIapNumber);
 
 		TRequestStatus status;
-#ifdef SIROCCO_CODE_MIGRATION
-	TCommDbConnPref prefs;
-	prefs.SetIapId(iIapNumber);
-	prefs.SetDialogPreference(ECommDbDialogPrefDoNotPrompt);
-		const TUid KMyPropertyCat = {0x101FD9C5};
-        const TUint32 KMyPropertyDestPortv4 = 67;
-        TInt err = RProperty::Define(KMyPropertyCat, KMyPropertyDestPortv4, RProperty::EInt, TSecurityPolicy(TSecurityPolicy::EAlwaysPass),
-		     TSecurityPolicy(ECapabilityWriteDeviceData));
-        User::LeaveIfError(RProperty::Set(KMyPropertyCat, KMyPropertyDestPortv4, 93));
-#else
 
 		TInt rank = 1;
 
@@ -193,7 +179,6 @@ TVerdict CTestConnectStep::doTestStepL()
 			}
 
 		prefs.SetConnectionAttempts(rank-1);
-#endif 
 
 		// Start the connection
 		iConnection.Start(prefs, status);

@@ -22,7 +22,7 @@
 #include <cdbcols.h> // CommDB access
 
 #ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
-#include <networking/cfbearers.h>
+#include <networking\cfbearers.h>
 #endif //SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
 
 /**

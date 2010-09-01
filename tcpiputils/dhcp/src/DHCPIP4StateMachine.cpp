@@ -82,7 +82,13 @@ void CDHCPIP4StateMachine::ConstructL()
    CDHCPStateMachine::ConstructL();
 
 	__CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L8("CDHCPIP4StateMachine::ConstructL")));
-	
+	if (iConfig)
+	    {
+		// Parse dhcp.ini for additional options to be requested with server
+		// and append the option codes to the parameter request list
+        TRAP_IGNORE(AppendMultipleExtraOptionsParamL());
+	    }
+
   	ReAllocL(KDhcpMaxMsgSizeIP4);
   	iDhcpMessage = new(ELeave)CDHCPMessageHeaderIP4(iFragment);
 	iMessageSender = new(ELeave)CMessageSender(this,iSocket,&iTaskStartedAt,KAfInet);
@@ -476,7 +482,9 @@ void CDHCPIP4StateMachine::PrepareToSendL( CDHCPStateMachine::EAddressType aEAdd
 	else
 		{
 #endif // SYMBIAN_NETWORKING_DHCP_MSG_HEADERS
-	DhcpMessage()->FinishL(iClientId);
+	// From tb92 and later, including iSavedExtraParameters for FinishL()
+	// as SYMBIAN_NETWORKING_DHCP_MSG_HEADERS is expected to be always ON
+	DhcpMessage()->FinishL(iClientId,&iSavedExtraParameters);
 #ifdef SYMBIAN_NETWORKING_DHCP_MSG_HEADERS
 		}	
 #endif // SYMBIAN_NETWORKING_DHCP_MSG_HEADERS
@@ -1506,9 +1514,23 @@ void CDHCPIP4StateMachine::ConfigureInterfaceL()
 	__CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L8("CDHCPIP4StateMachine::ConfigureInterfaceL - KSoNoSourceAddressSelect")));
 	User::LeaveIfError(iSocket.SetOpt(KSoNoSourceAddressSelect, KSolInetIp, 0));
 
-	TSoInet6InterfaceInfo interfaceInfo;
+	// Using the new structure derived from TSoInet6InterfaceInfo
+	// to be able to set domain search list for the interface
+	TSoInetInterfaceInfoExtnDnsSuffix interfaceInfo;
 	
 	CDHCPMessageHeaderIP4* v4Msg = DhcpMessage();
+
+
+	// Read the optiond data buffer for option 119 and decrypt it
+    HBufC8* domainSearchBuf(NULL);
+    v4Msg->iOptions.CopyDomainSearchL(domainSearchBuf);
+    if (domainSearchBuf)
+    	{
+		// Perform decryption only if option data has been returned by dhcp server
+        SplitDomainSearchBufferL(domainSearchBuf);
+        delete domainSearchBuf;
+        domainSearchBuf = NULL;
+    	}
 
 	if (!IsUsingStaticAddress())
 		{
@@ -1581,8 +1603,24 @@ void CDHCPIP4StateMachine::ConfigureInterfaceL()
 	interfaceInfo.iDoState = ETrue;
 	interfaceInfo.iDoAnycast = EFalse;
 	interfaceInfo.iDoProxy = EFalse;
+	
+	// Depending on number of domain suffix(es) received from the DHCP server,
+	// we have to call CDHCPStateMachine::ConfigureInterfaceL multiple times
+	TUint suffixCount = iSuffixList.Count();
+	
+	if (suffixCount > 0)
+	    interfaceInfo.iDomainSuffix.Copy(iSuffixList[0]);
 
+	// If there is no domain suffix available for updating the interface,
+	// we end up calling ConfigureInterfaceL once
 	CDHCPStateMachine::ConfigureInterfaceL( interfaceInfo );
+
+	// Repeat ConfigureInterface call for each domain suffix returned from the server	
+	for (TUint index = 1; index < suffixCount; index++)
+	    {
+	    interfaceInfo.iDomainSuffix.Copy(iSuffixList[index]);
+        CDHCPStateMachine::ConfigureInterfaceL( interfaceInfo );
+	    }
 	}
 
 void CDHCPIP4StateMachine::CreateFqdnUpdateRequestL()
@@ -1875,4 +1913,175 @@ TBool CDHCPIP4StateMachine::ClientHwAddrProvisioned()
 	return EFalse;
 	}
 #endif //SYMBIAN_NETWORKING_ADDRESS_PROVISION
+
+/**
+  * @name AppendMultipleExtraOptionsParam
+  *			Parses dhcp.ini for extra dhcp options and adds them to
+  *  			the dhcp server's parameter request list
+  *
+  * @internalTechnology
+  */
+void CDHCPIP4StateMachine::AppendMultipleExtraOptionsParamL()
+    {
+    TBuf8<KOpCodeOutOfBounds> iniValue;
+    User::LeaveIfError(IniRead(KDhcpExtraOptions, iniValue));
+    
+    TLex8 iniLex(iniValue);
+    TChar ch;
+    
+    while((ch = iniLex.Get()) != 0)
+        {
+        TUint8 opCode(ch);
+        TPtr8 opCodePtr(&opCode,1,1);
+        
+        if (!iSavedExtraParameters.Length())
+            {
+            iSavedExtraParameters.CreateL(opCodePtr);
+            }
+        else
+            {
+            iSavedExtraParameters.ReAllocL(iSavedExtraParameters.Length()+opCodePtr.Length());
+            iSavedExtraParameters.Append(opCodePtr);
+            }
+        }
+    }
+
+/**
+  * @name SplitDomainSearchBufferL
+  *			Decrypt dhcp server option data response for option code 119
+  *			and retrieve the domain search list for configuring the interface
+  *
+  * @internalTechnology
+  */
+void CDHCPIP4StateMachine::SplitDomainSearchBufferL(HBufC8* aDomainSearchBuf)
+    {
+	typedef TBuf8<KMaxDomainSuffixLength> THostName8;
+	const TInt KMaxDomainSearchBufferLength = 4096;
+	
+	// Retrieve the total length of the option data content
+    TPtr8 ptr(aDomainSearchBuf->Des());
+    TInt totalLength = 0;
+    totalLength = aDomainSearchBuf->Length();
+    
+	// Create a buffer of a length capable 
+	// to hold domain search list from the option data
+    TLex8 primaryLex;
+    RBuf8 suffixList;
+    suffixList.CreateL(KMaxDomainSearchBufferLength);
+	
+	// To overcome specific limitations of TLex
+	// Converting all '0's to '@'s in the option data buffer
+    TInt offset = 0;
+    THostName8 tmpBuf;
+    while((offset = ptr.Locate(0)) != KErrNotFound) 
+        {
+        tmpBuf.Append(ptr.MidTPtr(0, offset));
+        tmpBuf.Append('@');
+        if (ptr.Length() > (offset +1))
+            ptr.Set(ptr.MidTPtr((offset+1)));
+        else
+            ptr.SetLength(0);
+        }
+    ptr.Set(tmpBuf.MidTPtr(0));
+    primaryLex.Assign(ptr.Ptr());
+
+
+	// Creating temporary objects for parsing the buffer
+    THostName8 domainName;
+    domainName.SetLength(0);
+    TInt noOfDomainNames = 0;
+    TChar ch;
+
+    /* Start of decryption algorithm implementation for the option data buffer
+	 * Synopsis 
+	 * 		Option data contains domain suffixes seaparated by either a '@' or a two-octet compression pointer i.e. C004 (hex)
+	 *		which points to offset 4 in the complete aggregated block of Domain Search Option data
+	 *		where another validly encoded domain name can be found to complete the name
+	 *		Each sub-domain in a domain name is defined by a digit representing number of characters following this digit
+	 */
+    for (TInt i=0; i<totalLength; i++)
+        {
+        ch = primaryLex.Peek();
+        if (ch == 64) // if the character is a '@'
+            {
+			// Marks end of a domain name in the list
+			// add the domainName constructed to a array and initialise it for next domain name parsing
+			// Inc a counter to keep track of number of domain names retrieved
+			// Maintain a continous list of the domain name as well for lookup during use of compression pointer
+            suffixList.Append(ch);
+            TBuf<KMaxDomainSuffixLength> domainName16;
+            domainName16.Copy(domainName);
+            iSuffixList.AppendL(domainName16);
+            domainName.FillZ();
+            domainName.SetLength(0);
+            primaryLex.Inc();
+            noOfDomainNames++;
+            }
+        else if (ch < 48) // if the character is a digit
+            {
+			// Marks '.' completing a sub-domain and defines the length
+			// of the next sub-domain in the option data buffer
+            if (domainName.Length() != 0)
+                {
+                suffixList.Append('.');
+                domainName.Append('.');
+                }
+            TInt domainPartLength(ch);
+            suffixList.Append(ptr.Mid(i+1,ch));
+            domainName.Append(ptr.Mid(i+1,ch));
+
+            TInt inc = (TInt)ch + 1;
+            i+=(TInt)ch;
+            primaryLex.Inc(inc);
+            }
+        else if (ch == 192) // if the character is a hex 0xC0
+            {
+			// Marks start of compression pointer
+			// Looks up to the suffixList buffer created earlier that holds
+			// the domain names read until now in contigous sequence
+			// for extracting the remainder of the sub-domains to complete the domain name
+            if (domainName.Length() != 0)
+                {
+                suffixList.Append('.');
+                domainName.Append('.');
+                }
+            i++;
+            primaryLex.Inc();
+            ch = primaryLex.Peek();
+            TInt refOffset(ch), actOffset=0;
+            THostName compressedDomain;
+            TPtr8 tmpPtr(suffixList.MidTPtr(0));
+            TLex8 tmpLex(tmpPtr);
+            TInt ind=0;
+            for (; ind < tmpPtr.Length() && actOffset < refOffset; ind++)
+                {
+                TChar ch1 = tmpLex.Peek();
+                if (ch1 != 46 && ch1 != 64)
+                    actOffset++;
+                tmpLex.Inc();
+                }
+            tmpPtr.Set(tmpPtr.MidTPtr(ind-1));
+            tmpPtr.Set(tmpPtr.MidTPtr(0,tmpPtr.Locate('@')));
+            suffixList.Append(tmpPtr);
+            domainName.Append(tmpPtr);
+            suffixList.Append('@');
+            TBuf<KMaxDomainSuffixLength> domainName16;
+            domainName16.Copy(domainName);
+            iSuffixList.AppendL(domainName16);
+            domainName.FillZ();
+            domainName.SetLength(0);
+            primaryLex.Inc();
+            noOfDomainNames++;
+            }
+        else
+        	{
+			// Marks completion of the option data buffer
+			// Free up memory allocated on the heap
+	        suffixList.Close();
+            return;
+        	}
+        }
+	// End of decryption algorithm implementation for the option data buffer
+    }
+
 #endif // SYMBIAN_NETWORKING_DHCPSERVER

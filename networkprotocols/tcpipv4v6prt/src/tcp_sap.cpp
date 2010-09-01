@@ -140,7 +140,8 @@ static const TLitC8<sizeof(TInt)> KInetOptionDisable = {sizeof(TInt), {0}};
 //  state chart above. It would be located between CLOSED and SYN-SENT.
 //
 
-
+//The below is UID of the client(http client) using this option. We are not exposing this right now...
+const TUint32 KSoTcpLingerinMicroSec = 0x101F55F6;
 #ifdef _LOG
 const TText *CProviderTCP6::TcpState(TUint aState)
 	{
@@ -791,6 +792,11 @@ TInt CProviderTCP6::SetOption(TUint aLevel, TUint aName, const TDesC8& aOption)
 				}
 			break;
 
+		case KSoTcpLingerinMicroSec:
+            RDebug::Printf("TSoTcpLingerinMicroSec is set");
+            //Enable micro sec calculation for TCP linger timer. User (currently just exposed to browser)
+            //will specify linger time in microsecs. 
+            iMicroSecCalcFlag=ETrue;           
 		case KSoTcpLinger:
 			if (aOption.Length() < (TInt)sizeof(TSoTcpLingerOpt))
 				{
@@ -1198,7 +1204,16 @@ void CProviderTCP6::Shutdown(TCloseType aOption)
 			// Start linger timer. RSocket::Close() returns when timer
 			// expires or when all data has been succesfully transmitted.
 			//
-			iLingerTimer->Start(iLinger * KOneSecondUs);
+		    if(iMicroSecCalcFlag)
+                {
+                //expecting iLinger timer to be specified in microsec.This will be set currently by browser where in
+                //it is expected to be close with in certian time
+                iLingerTimer->Start(iLinger * 1);
+                }
+            else
+                {
+                iLingerTimer->Start(iLinger * KOneSecondInUs);
+                }			
 			}
 		SchedTransmit();
 
@@ -1788,7 +1803,7 @@ void CProviderTCP6::CanSend()
 			{
 			// The heaviest time check only if we are otherwise allowed to send the keepalive.
 			TUint32 time_now = TimeStamp();
-			if (time_now - iLastTriggeredKeepAlive > KTcpKeepAliveTH * KOneSecondUs)
+			if (time_now - iLastTriggeredKeepAlive > KTcpKeepAliveTH * KOneSecondInMs)
 				{
 				iLastTriggeredKeepAlive = time_now;
 				LOG(Log::Printf(_L("\ttcp SAP[%u] CanSend(): Sending a Keep-Alive probe"), (TInt)this));
@@ -2447,7 +2462,7 @@ void CProviderTCP6::KeepAliveTimeout()
 	if (!iLastTimeout)
 		iLastTimeout = usec;
 
-	TUint32 distance = (usec - iLastTimeout) / KOneSecondUs;  // seconds
+	TUint32 distance = (usec - iLastTimeout) / KOneSecondInMs;  // seconds
 	TUint32 interval = iBackoff ? Protocol()->KeepAliveRxmt() : Protocol()->KeepAliveIntv();
 
 	if (distance > interval)
@@ -2456,14 +2471,14 @@ void CProviderTCP6::KeepAliveTimeout()
 		LOG(Log::Printf(_L("\ttcp SAP[%u] KeepAliveTimeout(): Sending a Keep-Alive probe"), (TInt)this));
 		SendSegment(KTcpCtlACK, iSND.UNA - 1, 0);
 		iBackoff++;
-		iRetransTimer->Restart(Protocol()->KeepAliveRxmt() * KOneSecondUs);
+		iRetransTimer->Restart(Protocol()->KeepAliveRxmt() * KOneSecondInUs);
 		}
 	else
 		{
 		// This branch is entered when the first keepalive has to be issued after an idle period.
 		distance = Protocol()->KeepAliveIntv() - distance;
 		iRetransTimer->Restart((distance > 1800) ?
-			1800 * KOneSecondUs : (distance * KOneSecondUs));
+			1800 * KOneSecondInUs : (distance * KOneSecondInUs));
 		}
 	}
 
@@ -2472,7 +2487,7 @@ void CProviderTCP6::ResetKeepAlives()
 	{
 	ASSERT(iRetransTimer);
 	iRetransTimer->Restart((Protocol()->KeepAliveIntv() > 1800) ?
-		1800 * KOneSecondUs : (Protocol()->KeepAliveIntv() * KOneSecondUs));
+		1800 * KOneSecondInUs : (Protocol()->KeepAliveIntv() * KOneSecondInUs));
 	// Backoff is used for counting unacknowledged keepalive retransmissions during idle periods
 	iBackoff = 0;
 	iLastTimeout = TimeStamp();
@@ -3688,20 +3703,20 @@ void CProviderTCP6::ProcessSegments()
 							{
 							// NewReno partial ACK processing.
 
-			  /* From RFC2582:
-			   If this ACK does *not* acknowledge all of the data up to and
-			   including "recover", then this is a partial ACK.  In this case,
-			   retransmit the first unacknowledged segment.  Deflate the
-			   congestion window by the amount of new data acknowledged, then
-			   add back one MSS and send a new segment if permitted by the new
-			   value of cwnd.  This "partial window deflation" attempts to
-			   ensure that, when Fast Recovery eventually ends, approximately
-			   ssthresh amount of data will be outstanding in the network.  Do
-			   not exit the Fast Recovery procedure (i.e., if any duplicate ACKs
-			   subsequently arrive, execute Steps 3 and 4 above).
+						  /* From RFC2582:
+						   If this ACK does *not* acknowledge all of the data up to and
+						   including "recover", then this is a partial ACK.  In this case,
+						   retransmit the first unacknowledged segment.  Deflate the
+						   congestion window by the amount of new data acknowledged, then
+						   add back one MSS and send a new segment if permitted by the new
+						   value of cwnd.  This "partial window deflation" attempts to
+						   ensure that, when Fast Recovery eventually ends, approximately
+						   ssthresh amount of data will be outstanding in the network.  Do
+						   not exit the Fast Recovery procedure (i.e., if any duplicate ACKs
+						   subsequently arrive, execute Steps 3 and 4 above).
 
-			   For the first partial ACK that arrives during Fast Recovery, also
-			   reset the retransmit timer.
+						   For the first partial ACK that arrives during Fast Recovery, also
+						   reset the retransmit timer.
 							*/
 
 							iCwnd -= acked;
@@ -3718,6 +3733,13 @@ void CProviderTCP6::ProcessSegments()
 							iDupAcks = Max(iDupAcks - acked / (TInt)iSMSS, 0);
 							}
 						}
+					else if ( iDupAcks )
+                        {
+                        // New data acknowledged, and not ongoing any recovery action
+                        // Reset duplicate ack count
+                        LOG(Log::Printf(_L("\ttcp SAP[%u] ProcessSegments(): Reset iDupAcks to 0"), (TInt)this));
+                        iDupAcks = 0;
+                        }
 
 					// Reset limited transmit window
 					iLwnd = 0;
@@ -3893,16 +3915,8 @@ void CProviderTCP6::ProcessSegments()
 						iFlags.iEcnSendCWR = ETrue;
 						}
 					}
-				if((iSND.NXT - ack) >0 && InState(ETcpEstablished) && (acked ==0))
-					{
-					iRetryAck++;
-					if(iRetryAck >=4) // 4 an arbitary number; as this count does not refer to dup_ack, this will not interfere with Fast retransmission
-						{
-						LOG(Log::Printf(_L("\ttcp SAP[%u] ProcessSegments(): retransmitting the segment"), (TInt)this));
-						SendSegments(ETrue);
-						iRetryAck = 0; // reset the retry count
-						}
-					}
+				// This section used to hold the RetryACK concept, a reference can be checked
+				// from older versions(9.2/9.3). Its being removed as not required.	
 					
 				}
 			}

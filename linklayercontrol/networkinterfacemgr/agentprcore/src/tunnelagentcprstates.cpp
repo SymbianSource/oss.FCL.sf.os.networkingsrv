@@ -103,7 +103,7 @@ EXPORT_C void TJoinRealIAP::DoL()
 	
 	//SP are peers added with TClientType ((TCFClientType::EServProvider, CFClientType::EActive))
 	RNodeInterface* sp = iContext.Node().AddClientL(realIapNodeId, TClientType(TCFClientType::EServProvider, TCFClientType::EActive));
-
+		
 	__ASSERT_DEBUG(sp != NULL, User::Panic(KTunnelAgentCPRPanic, ETunnelAgentCprNoServiceProvider));
  	iContext.iNodeActivity->PostRequestTo(
  			realIapNodeId, 

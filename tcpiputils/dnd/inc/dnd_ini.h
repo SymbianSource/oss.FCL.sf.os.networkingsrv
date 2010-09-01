@@ -112,4 +112,6 @@ const TInt KLlmnrIni_Hoplimit = 255;	//< [-1..255] (LLMNR-31 draft)
 _LIT(KLlmnrIni_Ipv4Addr, "224.0.0.251");
 _LIT(KLlmnrIni_Ipv6Addr, "ff02::fb");
 #endif
+_LIT(DND_INI_SUFFIXSUPPORT, "enablesuffixsupport"); //< enabler for new suffix support
+
 #endif

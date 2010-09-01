@@ -18,7 +18,7 @@
 #ifndef __IP_EVENT_FACTORY_IBY__
 #define __IP_EVENT_FACTORY_IBY__
 
-#ifndef __DHCP
+#ifdef SYMBIAN_EXCLUDE_DHCP
 REM Feature DHCP is not included in this ROM
 #else
 ECOM_PLUGIN(IPEventFactory.dll,1020469F.rsc)

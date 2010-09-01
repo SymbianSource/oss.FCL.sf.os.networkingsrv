@@ -25,6 +25,7 @@
 
 #include "keys.h"
 #include <cryptospi/cryptospidef.h>
+
 #include "cryptosymmetriccipherapi.h"
 #ifdef SYMBIAN_IPSEC_VOIP_SUPPORT
 #include "ruleselector.h"

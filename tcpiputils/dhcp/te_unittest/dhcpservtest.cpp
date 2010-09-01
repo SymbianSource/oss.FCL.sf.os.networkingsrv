@@ -198,7 +198,7 @@ TInt TestConsoleL()
  * @internalTechnology
  * @return - Returns 0.
  */
-EXPORT_C GLDEF_C TInt E32Main()
+GLDEF_C TInt E32Main()
 	{
 	__UHEAP_MARK;
 	CTrapCleanup * trap = CTrapCleanup::New();

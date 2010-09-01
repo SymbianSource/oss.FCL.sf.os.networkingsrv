@@ -1,4 +1,4 @@
-// Copyright (c) 2003-2010 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -351,19 +351,11 @@ PRJ_TESTEXPORTS
 ../tlstest2/data/tlsclientauthrsachain/server.rnd /epoc32/release/winscw/urel/z/tlstest2/data/tlsclientauthrsachain/server.rnd
 
 // Script files
-#ifdef SIROCCO_CODE_MIGRATION
-../tlstest2/scripts/tls_smoke_wlan.ini /epoc32/release/winscw/urel/z/tlstest2/scripts/tls_smoke_wlan.ini
-../tlstest2/scripts/tls_smoke_wlan.ini /epoc32/release/winscw/udeb/z/tlstest2/scripts/tls_smoke_wlan.ini
-
-../tlstest2/scripts/tls_smoke_wlan.script /epoc32/release/winscw/urel/z/tlstest2/scripts/tls_smoke_wlan.script
-../tlstest2/scripts/tls_smoke_wlan.script /epoc32/release/winscw/udeb/z/tlstest2/scripts/tls_smoke_wlan.script
-#else
 ../tlstest2/scripts/tls_smoke.ini /epoc32/release/winscw/urel/z/tlstest2/scripts/tls_smoke.ini
 ../tlstest2/scripts/tls_smoke.ini /epoc32/release/winscw/udeb/z/tlstest2/scripts/tls_smoke.ini
 
 ../tlstest2/scripts/tls_smoke.script /epoc32/release/winscw/urel/z/tlstest2/scripts/tls_smoke.script
 ../tlstest2/scripts/tls_smoke.script /epoc32/release/winscw/udeb/z/tlstest2/scripts/tls_smoke.script
-#endif //SIROCCO_CODE_MIGRATION
 
 ../tlstest2/scripts/tlstest2.ini /epoc32/release/winscw/urel/z/tlstest2/scripts/tlstest2.ini
 ../tlstest2/scripts/tlstest2.ini /epoc32/release/winscw/udeb/z/tlstest2/scripts/tlstest2.ini

@@ -28,7 +28,7 @@ REM static dependencies
 #include <inhook6.iby>
 #include <nifman.iby>
 
-#ifndef __IPSEC
+#ifdef SYMBIAN_EXCLUDE_IPSEC
 
 REM Feature IPSEC not included in this rom
 
@@ -43,6 +43,6 @@ data=EPOCROOT##epoc32\data\z\private\101F7989\esock\ip.ipsec6.esk    private\101
 
 file=ABI_DIR\DEBUG_DIR\ipsec6.prt            system\libs\ipsec6.prt
 
-#endif // __IPSEC
+#endif // SYMBIAN_EXCLUDE_IPSEC
 
 #endif // __IPSEC6_IBY__
