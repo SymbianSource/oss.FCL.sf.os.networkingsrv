@@ -94,6 +94,9 @@ agentprcore.iby                	/epoc32/rom/include/agentprcore.iby
 ../inc/cfbearers.h 							SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(networking/cfbearers.h)
 #endif // SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
 
+// Bug 3108, required to build sf_refhw image
+NetCfgExtnBase.iby              /epoc32/rom/include/NetCfgExtnBase.iby
+
 PRJ_MMPFILES
 
 NIFMAN.MMP        
