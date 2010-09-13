@@ -1184,6 +1184,7 @@ TBool CTlsConnection::OnCompletion( CStateMachine* aStateMachine )
    __ASSERT_DEBUG( !aStateMachine->SuspendRequest(), TlsPanic(ETlsPanicStateMachineStopped) );
    if ( aStateMachine->LastError() != KErrNone )
    {//user will be notified after return from this fn
+       LOG(Log::Printf(_L("CTlsConnection::OnCompletion() aStateMachine->LastError() %d"), aStateMachine->LastError() );)
 	   if ( iHandshake != aStateMachine )
 	      {
 		   return EFalse;
@@ -1209,6 +1210,7 @@ TBool CTlsConnection::OnCompletion( CStateMachine* aStateMachine )
          {//something went completely wrong
           //set last error so that the user will be notified after return from this fn
             aStateMachine->SetLastError( ret );
+            LOG(Log::Printf(_L("CTlsConnection::OnCompletion() - AppData->ResumeL Last Error %d"), aStateMachine->LastError() );)
             delete iSendAppData;
             iSendAppData = NULL;
             delete iRecvAppData;
@@ -1233,6 +1235,7 @@ TBool CTlsConnection::OnCompletion( CStateMachine* aStateMachine )
 	     // Create the Data state machines so that the user can send/receive data
          __ASSERT_DEBUG( !iRecvAppData && !iSendAppData, TlsPanic(ETlsPanicStateMachineAlreadyExists));
       
+         LOG(Log::Printf(_L(" Create the Data state machines so that the user can send/receive data") );)
 	     //don't change the order see CRecvAppData::ResumeL
 	     TRAPD( ret, iSendAppData = CSendAppData::NewL( *iRecordComposer );
 		     iRecvAppData = CRecvAppData::NewL( *this ) );
@@ -1240,6 +1243,7 @@ TBool CTlsConnection::OnCompletion( CStateMachine* aStateMachine )
          {//something went completely wrong
           //set last error so that the user will be notified after return from this fn
             aStateMachine->SetLastError( ret );
+            LOG(Log::Printf(_L("CTlsConnection::OnCompletion() AppData::NewL Last Error %d"), aStateMachine->LastError() );)
             //delete what may have been created
             delete iRecvAppData;
             iRecvAppData = 0;

@@ -124,6 +124,13 @@ CAsynchEvent* CSendAlert::ProcessL( TRequestStatus& aStatus )
 			}
 		case KErrSSLAlertCloseNotify:
 			{
+			    if ( iStateMachine->iStatus.Int() == KRequestPending ||
+			            iRecordComposer.CurrentPos() != 0 ||
+			            iRecordComposer.UserData()!= NULL )
+			        {
+			        LOG(Log::Printf(_L("Previous data send request is in the pending state"));)
+			        return this;
+			        }
 				//Upon sending the close_notify from server report KErrEof to the application 
 				//to be intact with existing behaviour.	
 				iStateMachine->SetLastError( KErrEof );
@@ -153,7 +160,6 @@ CAsynchEvent* CSendAlert::ProcessL( TRequestStatus& aStatus )
 		case KErrCancel:
 			{// A user_canceled alert should be followed by a close_notify alert. So this
 			 // event will be the next one to be processed. 
-				iRecordComposer.SetNext( NULL );
 				iAlertMsg.Append( EAlertWarning );
 				iAlertMsg.Append( EAlertclose_notify );
 				iRecordComposer.SetNext( NULL );
@@ -198,13 +204,19 @@ CAsynchEvent* CRecvAlert::ProcessL( TRequestStatus& aStatus )
 	LOG(Log::Printf(_L("CRecvAlert::ProcessL(). Alert level = %d"), alertLevel ));
 	LOG(Log::Printf(_L("CRecvAlert::ProcessL(). Alert description = %d"), alertDesc ));
 
+	if ( alertLevel == EAlertFatal )
+	    {
 	TRequestStatus* p=&aStatus;
-	User::RequestComplete( p, KErrNone );
-	if ( alertLevel == EAlertWarning )
+	    User::RequestComplete( p, KErrSSLAlertHandshakeFailure );
+	    iStateMachine->SetLastError( KErrSSLAlertHandshakeFailure );
+	    }
+	else if ( alertLevel == EAlertWarning )
 	   {// In all circumstances, when a warning alert is received, we carry on as normal.
 		// There is no need to set the next event as this will be unchanged from normal
 		// operation. For a Close_notify alert, we must send one in response.
 		// So the next event will be CSendAlert sending a close-notify alert.
+	    TRequestStatus* p=&aStatus;
+	    User::RequestComplete( p, KErrNone );
       if ( alertDesc == EAlertclose_notify )
          {
          iStateMachine->SetLastError( KErrSSLAlertCloseNotify );
