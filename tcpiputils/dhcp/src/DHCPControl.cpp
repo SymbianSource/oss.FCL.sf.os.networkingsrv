@@ -94,10 +94,10 @@ void CDHCPControl::FindInterfaceNameL(const TConnectionInfo& aInfo, TInt aFamily
 	//forced to do this horrible stuff
 	RSocket socket;
 	User::LeaveIfError(socket.Open(iEsock, KAfInet, KSockDatagram, KProtocolInetUdp,iConnection));
+	CleanupClosePushL( socket );
 	// make socket invisible for interface counting
 	User::LeaveIfError(socket.SetOpt(KSoKeepInterfaceUp, KSolInetIp, 0));
 	
-	CleanupClosePushL( socket );
 	TPckgBuf<TSoInet6InterfaceInfo> info;
 	while ( err == KErrNotFound && iConnection.Control(KCOLProvider, KConnGetInterfaceName, name) == KErrNone )
 		{

@@ -23,8 +23,7 @@
 //RUN_SCRIPT z:\testdata\scripts\te_esock_test_unloadesockForced.script
 
 //Configure commdb.
-//ced -i z:\testdata\configs\te_dnssuffixced.xml
-ced -i z:\testdata\configs\te_dnssuffixced_basic.xml
+ced -i z:\testdata\configs\te_dnssuffixced.xml
 
 RUN_SCRIPT z:\testdata\scripts\te_esock_test_loadesock.script
 
@@ -216,7 +215,7 @@ END_TESTCASE                  DNS-dnssuffix-test6
 
 
 //Configure commdb.
-//ced -i z:\testdata\configs\te_dnssuffixcedv2.xml
+ced -i z:\testdata\configs\te_dnssuffixcedv2.xml
 
 START_TESTCASE                  DNS-dnssuffix-test7
 //! @SYMTestCaseID              DNS-dnssuffix_test7
@@ -310,7 +309,7 @@ START_TESTCASE                  DNS-dnssuffix-test10
 END_TESTCASE                  DNS-dnssuffix-test10
 
 //Configure commdb.
-//ced -i z:\testdata\configs\te_dnssuffixced.xml
+ced -i z:\testdata\configs\te_dnssuffixced.xml
 
 START_TESTCASE                  DNS-dnssuffix-test11
 //! @SYMTestCaseID              DNS-dnssuffix_test11

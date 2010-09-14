@@ -170,5 +170,9 @@ REM --- DNS Proxy
 #include <networking_dnsproxy.iby>
 #endif 
 
+REM --- Tun Driver IBYS
+#include <tun.iby>
+#include <tundriveragt.iby>
+#include <tundriver.iby>
 
 #endif // __NETWORK_IBY__

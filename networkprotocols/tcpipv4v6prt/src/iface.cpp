@@ -3426,13 +3426,6 @@ retry_connect:
         netinfo().iIAPId = iRoute->iInterface.iScope[EScopeType_IAP];
         netinfo().iNetworkId = iRoute->iInterface.iScope[EScopeType_NET];
 
-   if(iInfo.iLockType == EScopeType_IAP  && iInfo.iLockId != netinfo().iIAPId)
-            {
-                iInfo.iLockId = netinfo().iIAPId;
-	#ifdef _LOG
-                 Log::Printf(_L("\t\tFlow[%u] Connect ConnectionInfo changed: Lock_type:%d, Lock_id:%d"),this,iInfo.iLockType, iInfo.iLockId); 
-	#endif
-            }
 
         Bearer(netinfo);
         RefreshFlow();

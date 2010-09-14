@@ -1,0 +1,383 @@
+//
+// Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:        Gurpreet Singh Nagi
+//
+// Description:
+//
+//! @file
+//! @SYMTestSuiteName       
+//! @SYMScriptTestEnvironment TestExecuteFramework
+//
+//Unload esock forcefully
+//RUN_SCRIPT z:\testdata\scripts\te_esock_test_unloadesockForced.script
+
+
+RUN_SCRIPT z:\testdata\scripts\te_esock_test_loadesock.script
+
+//Load the Server
+LOAD_SERVER te_tundriver
+
+//Configure commdb.
+ced -i z:\testdata\configs\te_tundriverced.xml
+
+START_TESTCASE                  SSLVPN-tundriver-test7
+
+	START_TEST_BLOCK te_tundriver 600 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test7
+		COMMAND tundriver_test7 RConnTest1_7		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test7
+
+START_TESTCASE                  SSLVPN-tundriver-test1
+
+	START_TEST_BLOCK te_tundriver 100 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test1
+		COMMAND tundriver_test1 RConnTest1_1		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test1
+
+
+START_TESTCASE                  SSLVPN-tundriver-test2
+
+	START_TEST_BLOCK te_tundriver 100 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test2
+		COMMAND tundriver_test2 RConnTest1_2		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test2
+
+
+START_TESTCASE                  SSLVPN-tundriver-test3
+
+	START_TEST_BLOCK te_tundriver 100 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test3
+		COMMAND tundriver_test3 RConnTest1_3		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test3
+
+
+START_TESTCASE                  SSLVPN-tundriver-test4
+
+	START_TEST_BLOCK te_tundriver 100 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test4
+		COMMAND tundriver_test4 RConnTest1_4		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test4
+
+
+START_TESTCASE                  SSLVPN-tundriver-test5
+
+	START_TEST_BLOCK te_tundriver 300 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test5
+		COMMAND tundriver_test5 RConnTest1_5		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test5
+
+START_TESTCASE                  SSLVPN-tundriver-test6
+
+	START_TEST_BLOCK te_tundriver 300 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test6
+		COMMAND tundriver_test6 RConnTest1_6		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test6
+
+START_TESTCASE                  SSLVPN-tundriver-test8
+
+	START_TEST_BLOCK te_tundriver 300 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test8
+		COMMAND tundriver_test8 RConnTest1_8		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test8
+
+
+START_TESTCASE                  SSLVPN-tundriver-test9
+
+	START_TEST_BLOCK te_tundriver 300 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test9
+		COMMAND tundriver_test9 RConnTest1_9		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test9
+
+
+START_TESTCASE                  SSLVPN-tundriver-test10
+
+	START_TEST_BLOCK te_tundriver 500 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test10
+		COMMAND tundriver_test10 RConnTest1_10		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test10
+
+START_TESTCASE                  SSLVPN-tundriver-test11
+
+	START_TEST_BLOCK te_tundriver 300 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test11
+		COMMAND tundriver_test11 RConnTest1_11		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test11
+
+
+START_TESTCASE                  SSLVPN-tundriver-test14
+
+	START_TEST_BLOCK te_tundriver 300 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test14
+		COMMAND tundriver_test14 RConnTest1_14		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test14
+
+
+START_TESTCASE                  SSLVPN-tundriver-test15
+
+	START_TEST_BLOCK te_tundriver 500 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test15
+		COMMAND tundriver_test15 RConnTest1_15		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test15
+
+START_TESTCASE                  SSLVPN-tundriver-test16
+
+	START_TEST_BLOCK te_tundriver 5000 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test16
+		COMMAND tundriver_test16 RConnTest1_16		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test16
+
+
+START_TESTCASE                  SSLVPN-tundriver-test17
+
+	START_TEST_BLOCK te_tundriver 300 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test17
+		COMMAND tundriver_test17 RConnTest1_17		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test17
+
+DELAY 5000
+
+START_TESTCASE                  SSLVPN-tundriver-test13
+
+	START_TEST_BLOCK te_tundriver 300 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test13
+		COMMAND tundriver_test13 RConnTest1_13		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test13
+
+DELAY 5000
+
+START_TESTCASE                  SSLVPN-tundriver-test12
+
+	START_TEST_BLOCK te_tundriver 300 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test12
+		COMMAND tundriver_test12 RConnTest1_12		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test12
+
+DELAY 5000
+
+ced -i z:\testdata\configs\te_tundriverced_cov20.xml
+
+START_TESTCASE                  SSLVPN-tundriver-test20
+
+	START_TEST_BLOCK te_tundriver 200 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test20
+		COMMAND tundriver_test20 RConnTest1_20		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test20
+
+DELAY 5000
+
+ced -i z:\testdata\configs\te_tundriverced_cov21.xml
+
+START_TESTCASE                  SSLVPN-tundriver-test21
+
+	START_TEST_BLOCK te_tundriver 200 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test21
+		COMMAND tundriver_test21 RConnTest1_21		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test21
+
+DELAY 5000
+
+ced -i z:\testdata\configs\te_tundriverced_cov22.xml
+
+START_TESTCASE                  SSLVPN-tundriver-test22
+
+	START_TEST_BLOCK te_tundriver 200 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test22
+		COMMAND tundriver_test22 RConnTest1_22		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test22
+
+DELAY 5000
+
+
+ced -i z:\testdata\configs\te_tundriverced_cov23.xml
+
+START_TESTCASE                  SSLVPN-tundriver-test23
+
+	START_TEST_BLOCK te_tundriver 200 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test23
+		COMMAND tundriver_test23 RConnTest1_23		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test23
+
+DELAY 5000
+
+ced -i z:\testdata\configs\te_tundriverced_cov24.xml
+
+START_TESTCASE                  SSLVPN-tundriver-test24
+
+	START_TEST_BLOCK te_tundriver 200 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test24
+		COMMAND !Error=-20 tundriver_test24 RConnTest1_24		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test24
+
+DELAY 5000
+
+ced -i z:\testdata\configs\te_tundriverced_cov25.xml
+
+START_TESTCASE                  SSLVPN-tundriver-test25
+
+	START_TEST_BLOCK te_tundriver 200 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test25
+		COMMAND tundriver_test25 RConnTest1_25		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test25
+
+DELAY 5000
+
+ced -i z:\testdata\configs\te_tundriverced_cov26.xml
+
+START_TESTCASE                  SSLVPN-tundriver-test26
+
+	START_TEST_BLOCK te_tundriver 200 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test26
+		COMMAND tundriver_test26 RConnTest1_26		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test26
+
+DELAY 5000
+
+ced -i z:\testdata\configs\te_tundriverced_cov27.xml
+
+START_TESTCASE                  SSLVPN-tundriver-test27
+
+	START_TEST_BLOCK te_tundriver 200 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test27
+		COMMAND tundriver_test27 RConnTest1_27		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test27
+
+DELAY 5000
+
+ced -i z:\testdata\configs\te_tundriverced_cov28.xml
+
+START_TESTCASE                  SSLVPN-tundriver-test28
+
+	START_TEST_BLOCK te_tundriver 200 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test28
+		COMMAND tundriver_test28 RConnTest1_28		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test28
+
+DELAY 5000
+
+ced -i z:\testdata\configs\te_tundriverced_cov29.xml
+
+START_TESTCASE                  SSLVPN-tundriver-test29
+
+	START_TEST_BLOCK te_tundriver 200 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test29
+		COMMAND tundriver_test29 RConnTest1_29		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test29
+
+DELAY 5000
+
+ced -i z:\testdata\configs\te_tundriverced_cov30.xml
+
+START_TESTCASE                  SSLVPN-tundriver-test30
+
+	START_TEST_BLOCK te_tundriver 200 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test30
+		COMMAND tundriver_test30 RConnTest1_30		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test30
+
+DELAY 5000
+
+ced -i z:\testdata\configs\te_tundriverced_cov31.xml
+
+START_TESTCASE                  SSLVPN-tundriver-test31
+
+	START_TEST_BLOCK te_tundriver 200 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test31
+		COMMAND tundriver_test31 RConnTest1_31		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test31
+
+DELAY 5000
+
+ced -i z:\testdata\configs\te_tundriverced_cov32.xml
+
+START_TESTCASE                  SSLVPN-tundriver-test32
+
+	START_TEST_BLOCK te_tundriver 200 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test32
+		COMMAND tundriver_test32 RConnTest1_32		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test32
+
+DELAY 5000
+
+ced -i z:\testdata\configs\te_tundriverced_cov33.xml
+
+START_TESTCASE                  SSLVPN-tundriver-test33
+
+	START_TEST_BLOCK te_tundriver 200 z:\testdata\configs\te_tundriver.ini
+		CREATE_OBJECT TunDriverTestWrapper tundriver_test33
+		COMMAND !Error=-20 tundriver_test33 RConnTest1_33		
+	END_TEST_BLOCK
+
+END_TESTCASE                  SSLVPN-tundriver-test33
+
+//RUN_SCRIPT z:\TestData\scripts\te_esock_test_stopallinterfaces.script
+//RUN_SCRIPT z:\testdata\scripts\te_esock_test_unloadesockForced.script
+

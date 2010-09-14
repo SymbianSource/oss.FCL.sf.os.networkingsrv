@@ -1,0 +1,63 @@
+/**
+*   Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+*   All rights reserved.
+*   This component and the accompanying materials are made available
+*   under the terms of "Eclipse Public License v1.0"
+*   which accompanies this distribution, and is available
+*   at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*   
+*   Initial Contributors:
+*   Nokia Corporation - initial contribution.
+*   
+*   Contributors:
+*
+*   Description:
+*   Header file for tundriver binder provision.
+* 
+*
+*/
+/**
+ * Registry info for Tunnel Driver CFProtocol modules
+ @file 0x20027F3D.RSS
+ @internalComponent
+*/
+
+#include "ecom/registryinfo.rh"
+
+RESOURCE REGISTRY_INFO theInfo
+{
+dll_uid = 0x20027F3D;
+interfaces = 
+    {
+    INTERFACE_INFO
+        {
+        interface_uid = 0x10281C33;
+        implementations = 
+            {
+           	IMPLEMENTATION_INFO
+                {
+                implementation_uid = 0x10281C3C;
+                version_no = 1;
+                display_name = "tun driver Flow Factory";
+                default_data = "tundriver";
+                opaque_data = "";
+                }
+            };
+		},
+	INTERFACE_INFO
+        {
+        interface_uid =  0x10274546;
+        implementations = 
+            {
+           IMPLEMENTATION_INFO
+                {
+                implementation_uid = 0x10281E05;
+                version_no = 1;
+                display_name = "tunnel driver Meta Connection Provider Factory";
+                default_data = "tundriverMCprFactory";
+                opaque_data = "";
+                }
+            };
+        }
+    };
+}

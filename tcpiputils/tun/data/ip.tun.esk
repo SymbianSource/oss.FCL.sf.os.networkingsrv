@@ -1,0 +1,7 @@
+[sockman]
+protocols= tun
+
+[tun]
+filename= tun.prt
+index= 1
+bindto= ip6

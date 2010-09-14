@@ -36,8 +36,6 @@
  */
 #define KIPAddrLen 39
 
-#define DISABLE_TUNDRIVER
-
 // Used for handle the multiple hosts in same test cases. @See TC006
 #define KMaxHosts 8
 
@@ -276,8 +274,7 @@ TInt CDNSSuffixTestWrapper::StartConnections(RSocketServ& aSockServ, RConnection
         }
         
     INFO_PRINTF2(_L("First connection started successfully - IAP: %D"),iapId);        
-    
-#ifndef DISABLE_TUNDRIVER
+        
     iapId = GetSecondIapId();
              
     if ((TInt)iapId == KErrNotFound)
@@ -295,8 +292,7 @@ TInt CDNSSuffixTestWrapper::StartConnections(RSocketServ& aSockServ, RConnection
         return err;
         }
         
-    INFO_PRINTF2(_L("Second connection started successfully - IAP: %D"),iapId);
-#endif
+    INFO_PRINTF2(_L("Second connection started successfully - IAP: %D"),iapId);        
             
     INFO_PRINTF1(_L("StartConnections - Exit"));
     return KErrNone;
@@ -583,10 +579,8 @@ void CDNSSuffixTestWrapper::DoInitTestingL()
     
     INFO_PRINTF1(_L("Close the connections"));
    
-#ifndef DISABLE_TUNDRIVER
     if (vTunConn.SubSessionHandle())
         vTunConn.Close();
-#endif
 
     if (firstConn.SubSessionHandle())
         firstConn.Close();
@@ -1944,7 +1938,6 @@ void CDNSSuffixTestWrapper::DNSSuffixSupportTC008L()
         return;
         }
     
-#ifndef DISABLE_TUNDRIVER
     err = GetSecondInterfaceNameL(vTunInterface);
     
     if (KErrNone != err)
@@ -1953,7 +1946,6 @@ void CDNSSuffixTestWrapper::DNSSuffixSupportTC008L()
         SetError(KErrNotFound);
         return;
         }
-#endif
    
     INFO_PRINTF1(_L("Setting suffix list on interface:"));
     
@@ -2010,7 +2002,6 @@ void CDNSSuffixTestWrapper::DNSSuffixSupportTC008L()
     
     INFO_PRINTF2(_L("Set suffix list on %S successfully"),&ethernetInterface);
     
-#ifndef DISABLE_TUNDRIVER
     err = SetDNSSuffixListOnInterface(iSocketServ,vTunConn,vTunInterface,iSuffixList2);
                
     if (KErrNone != err)
@@ -2024,7 +2015,6 @@ void CDNSSuffixTestWrapper::DNSSuffixSupportTC008L()
         }
     
     INFO_PRINTF2(_L("Set suffix list on %S successfully"),&vTunInterface);        
-#endif
     
     INFO_PRINTF1(_L("Opening implicit resolver"));
     // Open implicit resolver.
@@ -2072,7 +2062,6 @@ void CDNSSuffixTestWrapper::DNSSuffixSupportTC008L()
     INFO_PRINTF1(_L("Closing implicit host resolver"));
     resolver.Close(); 
         
-#ifndef DISABLE_TUNDRIVER
     if (err == KErrNone)
         {
         // Open explicit resolver.
@@ -2109,7 +2098,6 @@ void CDNSSuffixTestWrapper::DNSSuffixSupportTC008L()
         INFO_PRINTF1(_L("Closing explicit host resolver"));
         resolver2.Close();    
         }
-#endif
     
     SetError(err);
     
@@ -2159,10 +2147,9 @@ void CDNSSuffixTestWrapper::DNSSuffixSupportTC009L()
      * Set suffix lists on vTunnel interface    
      * Open explicit connection on other interface
      */
-     TInt err = KErrNone;
-#ifndef DISABLE_TUNDRIVER
+    
     TFileName vTunInterface;
-    err = GetSecondInterfaceNameL(vTunInterface);
+    TInt err = GetSecondInterfaceNameL(vTunInterface);
     
     if (KErrNone != err)
         { 
@@ -2187,8 +2174,7 @@ void CDNSSuffixTestWrapper::DNSSuffixSupportTC009L()
         INFO_PRINTF2(_L("Suffix list: %S"),&suffixList);
         FillSuffixList(iSuffixList,suffixList);
         }
-#endif
-
+    
     if ( (err = iSocketServ.Connect()) != KErrNone)
        {
        ERR_PRINTF1(_L("Failed Connecting to socket server"));
@@ -2213,7 +2199,6 @@ void CDNSSuffixTestWrapper::DNSSuffixSupportTC009L()
     
     INFO_PRINTF1(_L("Connections started successfully"));
     
-#ifndef DISABLE_TUNDRIVER
     err = SetDNSSuffixListOnInterface(iSocketServ,vTunConn,vTunInterface,iSuffixList);
                    
     if (KErrNone != err)
@@ -2227,7 +2212,6 @@ void CDNSSuffixTestWrapper::DNSSuffixSupportTC009L()
         }
     
     INFO_PRINTF2(_L("Set suffix list on %S successfully"),&vTunInterface);  
-#endif
 
     INFO_PRINTF1(_L("Opening explicit resolver"));
     // Open implicit resolver.
