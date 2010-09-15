@@ -85,7 +85,7 @@ EXPORT_C TUint8 *TInet6PacketBase::Access(RMBufChain &aPacket, TInt aOffset, TIn
 			if (len < aMin)
 				return NULL;
 			iLength = len;
-			return p->Buffer() + offset;
+			return p->Buffer() ? (p->Buffer()+ offset): NULL;
 			}
 		// The requested alignment value is not
 		// satisfied!

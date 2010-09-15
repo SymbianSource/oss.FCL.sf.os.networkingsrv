@@ -55,7 +55,7 @@ CHandshake* CHandshake::NewL(CTlsConnection& aTlsConnection)
   	LOG(Log::Printf(_L("self %x - %x"), self, (TUint)self + sizeof( CHandshake ));)
 	CleanupStack::PushL(self);
 	self->ConstructL(aTlsConnection);
-	CleanupStack::Pop();
+	CleanupStack::Pop(self);
 	return self;
 }
 

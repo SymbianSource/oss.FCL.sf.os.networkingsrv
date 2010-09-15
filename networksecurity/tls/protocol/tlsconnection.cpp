@@ -55,7 +55,7 @@ EXPORT_C MSecureSocket* CTlsConnection::NewL(RSocket& aSocket, const TDesC& aPro
 
 	CleanupStack::PushL(self);
 	self->ConstructL(aSocket, aProtocol);
-	CleanupStack::Pop();
+	CleanupStack::Pop(self);
 	return self;
 }
 
@@ -80,7 +80,7 @@ EXPORT_C MSecureSocket* CTlsConnection::NewL(MGenericSecureSocket& aSocket, cons
 
 	CleanupStack::PushL(self);
 	self->ConstructL(aSocket, aProtocol);
-	CleanupStack::Pop();
+	CleanupStack::Pop(self);
 	return self;
 }
 
@@ -1244,12 +1244,19 @@ TBool CTlsConnection::OnCompletion( CStateMachine* aStateMachine )
 		   return EFalse;
 	      }
       else
-         {//delete data path in case it's re-negotiation what's failed
-         delete iSendAppData;
-         iSendAppData = NULL;
-         delete iRecvAppData;
-         iRecvAppData = NULL;
-         ResetCryptoAttributes();
+         {
+		 //We came here since tls handshake failed for some reasons.
+         //Attempting to delete the application data state machines here,
+         //leads to sending incorrect status to the caller application.
+         //Allow the cleanup of handshake statemachine to continue here.
+         //Let the application data state machines be cleaned up by the 
+         //tlsconnection desctructor function.
+         
+         //delete iSendAppData;
+         //iSendAppData = NULL;
+         //delete iRecvAppData;
+         //iRecvAppData = NULL;
+         //ResetCryptoAttributes();
          }
    }
    else
@@ -1363,7 +1370,7 @@ TBool CTlsConnection::SendData( const TDesC8& aDesc, TRequestStatus& aStatus )
 	else
 	{	
 		iRecordComposer->SetUserData( (TDesC8*)&aDesc );
-   	iRecordComposer->ResetCurrentPos();
+		iRecordComposer->ResetCurrentPos();
 		iSendAppData->Start( &aStatus, this );
 	}
 	

@@ -183,7 +183,10 @@ void CTlsBrowseToken::OnEGetProviderInterfaceL()
       if ( !tempObj || iListAllTokensAndTypes->Append(*tempObj) != KErrNone )
          {
    		delete tempObj;
-         iTokenHandle->Release();
+   		if (iTokenHandle)
+   		    {
+   		    iTokenHandle->Release();
+   		    }
          iTokenHandle = NULL;
          User::Leave( KErrNoMemory );
          }
@@ -192,7 +195,10 @@ void CTlsBrowseToken::OnEGetProviderInterfaceL()
       Tokens.iTokenInfo = new CTokenInfo;
       if ( !Tokens.iTokenInfo  )
          {
-         iTokenHandle->Release();
+          if (iTokenHandle)
+              {
+              iTokenHandle->Release();
+              }
          iTokenHandle = NULL;
          User::Leave( KErrNoMemory );
          }
@@ -307,24 +313,39 @@ void CTlsBrowseToken::DoCancel()
 	switch (iCurrentState)
 		{
 	case EGetTokenList:
-		iPtrTokenType->CancelList();
+        {
+	    if (iPtrTokenType)
+	        iPtrTokenType->CancelList();
+        }
 		break;
 		
 	case EOpenToken:
-		iPtrTokenType->CancelOpenToken();
+	    {
+	    if (iPtrTokenType)
+	        iPtrTokenType->CancelOpenToken();
+	    }
 		break;
 		
 	case EGetProviderInterface:
-		iTokenHandle->CancelGetInterface();
+	    {
+	    if (iTokenHandle)
+	        iTokenHandle->CancelGetInterface();
+	    }
 		break;
 	
 	case EGetSessionInterface:
-		(iTokenProvider->Token()).CancelGetInterface();
+	    {
+	    if (iTokenProvider)
+	        (iTokenProvider->Token()).CancelGetInterface();
+	    }
 		break;		
 
 	case EGetCiphers:
-		MTLSTokenProvider* provider = static_cast<MTLSTokenProvider*>(iTokenInterface);
-		provider->CancelCryptoCapabilities();
+	    if (iTokenInterface)
+	        {
+	        MTLSTokenProvider* provider = static_cast<MTLSTokenProvider*>(iTokenInterface);
+	        provider->CancelCryptoCapabilities();
+	        }
 		break;
 
 		}
@@ -335,7 +356,7 @@ void CTlsBrowseToken::DoCancel()
 
 CTlsBrowseToken::~CTlsBrowseToken()
 	{
-	if(iPtrTokenType)
+	if (iPtrTokenType)
 		{
 		iPtrTokenType->Release();
 		}
