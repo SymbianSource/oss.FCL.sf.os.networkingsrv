@@ -20,7 +20,7 @@
 
 #include <certman.iby>
 // DEF139848 fix - Forward Propogation from Symtb9.1 - Illegal dependency from OCSP to HTTP.
-#include <ocsp.iby>
+#include <ocsp_ncp.iby>
 
 #include <tlsprovider.iby>
 #include <NETSM.iby>
