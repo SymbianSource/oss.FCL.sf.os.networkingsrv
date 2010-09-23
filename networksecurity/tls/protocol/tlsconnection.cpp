@@ -53,7 +53,7 @@ EXPORT_C MSecureSocket* CTlsConnection::NewL(RSocket& aSocket, const TDesC& aPro
 
 	CleanupStack::PushL(self);
 	self->ConstructL(aSocket, aProtocol);
-	CleanupStack::Pop();
+	CleanupStack::Pop(self);
 	return self;
 }
 
@@ -78,7 +78,7 @@ EXPORT_C MSecureSocket* CTlsConnection::NewL(MGenericSecureSocket& aSocket, cons
 
 	CleanupStack::PushL(self);
 	self->ConstructL(aSocket, aProtocol);
-	CleanupStack::Pop();
+	CleanupStack::Pop(self);
 	return self;
 }
 
@@ -1190,12 +1190,18 @@ TBool CTlsConnection::OnCompletion( CStateMachine* aStateMachine )
 		   return EFalse;
 	      }
       else
-         {//delete data path in case it's re-negotiation what's failed
-         delete iSendAppData;
-         iSendAppData = NULL;
-         delete iRecvAppData;
-         iRecvAppData = NULL;
-         ResetCryptoAttributes();
+         {
+          if (aStateMachine->LastError() != KErrEof)
+                {
+                }
+            else
+                {
+                delete iSendAppData;
+                iSendAppData = NULL;
+                delete iRecvAppData;
+                iRecvAppData = NULL;
+                ResetCryptoAttributes();
+                }
          }
    }
    else

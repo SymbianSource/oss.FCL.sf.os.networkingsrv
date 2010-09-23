@@ -448,7 +448,7 @@ CAsynchEvent* CCertificateReq::ProcessL( TRequestStatus& aStatus )
       HBufC8* buf = listPtr.AllocL();
    	CleanupStack::PushL(buf);
 		User::LeaveIfError(cryptoAttributes.iDistinguishedCANames.Append(buf) );
-   	CleanupStack::Pop();
+   	CleanupStack::Pop(buf);
 		listNode = listNode->Next();
 	}
    iTlsProvider->Attributes()->iClientAuthenticate = ETrue;

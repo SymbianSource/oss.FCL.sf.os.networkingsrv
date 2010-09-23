@@ -134,7 +134,7 @@ REM ---------- Networking ----------
 #endif //NW_TEST_ROM_2
 
 // FTP Tests
-//#include <tftp_e.iby>
+#include <tftp_e.iby>
 
 // IntegrationTest framework
 #ifdef NW_TEST_ROM_1
@@ -144,6 +144,8 @@ REM ---------- Networking ----------
 // NULL AGT Tests
 #ifdef NW_TEST_ROM_1
 #include <nullagttests.iby>
+// Agent Adapter Tests
+#include <csdagttests.iby>
 #endif
 
 // Useful  Internet Utilities for all test roms

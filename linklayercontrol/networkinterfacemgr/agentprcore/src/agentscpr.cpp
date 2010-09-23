@@ -88,37 +88,46 @@ D'tor
 */
 EXPORT_C CAgentSubConnectionProvider::~CAgentSubConnectionProvider()
     {
+    //check for provisioning info
 	CleanupProvisioningInfo();
-    LOG_NODE_DESTROY(KAgentSCprTag, CAgentSubConnectionProvider);
 	}
 
 
 EXPORT_C void CAgentSubConnectionProvider::CleanupProvisioningInfo()
     {
-    if (iAuthenticateInProgress && AgentProvisionInfo()->AgentAdapter())
-	   {
-	   iAuthenticateInProgress = EFalse;
-	   AgentProvisionInfo()->AgentAdapter()->CancelAuthenticate();
-	   }
+    //The case for constructL failure is not handled here. Trivial but very important change. If node has 
+   //not received any Provision config message, then there is no point, cleaning it up. Case ID for this is ou1cimx1#508527
+    const CAgentProvisionInfo* agentProvisionInfo = AgentProvisionInfo();
+    
+    if(agentProvisionInfo)
+        {
+        if (iAuthenticateInProgress && AgentProvisionInfo()->AgentAdapter())
+           {
+           iAuthenticateInProgress = EFalse;
+           AgentProvisionInfo()->AgentAdapter()->CancelAuthenticate();
+           }
 
-	CAgentAdapter* agentAdapter(AgentProvisionInfo()->AgentAdapter());
-	const_cast<CAgentProvisionInfo*>(AgentProvisionInfo())->SetAgentAdapter(NULL);
-	delete agentAdapter;
+        CAgentAdapter* agentAdapter(AgentProvisionInfo()->AgentAdapter());
+        const_cast<CAgentProvisionInfo*>(AgentProvisionInfo())->SetAgentAdapter(NULL);
+        delete agentAdapter;
 
-	// Remove ourselves from the notification handler, or delete it entirely if we own it
-	CAgentNotificationHandler* handler = AgentProvisionInfo()->AgentNotificationHandler();
-	if (handler)
-	    {
-	    if (iScprOwnedNotificationHandler)
-	        {
-	        const_cast<CAgentProvisionInfo*>(AgentProvisionInfo())->SetAgentNotificationHandler(NULL);
-	        delete handler;
-	        }
-        else
+        // Remove ourselves from the notification handler, or delete it entirely if we own it
+        CAgentNotificationHandler* handler = AgentProvisionInfo()->AgentNotificationHandler();
+        if (handler)
             {
-            handler->Initialise(NULL);
+            if (iScprOwnedNotificationHandler)
+                {
+                const_cast<CAgentProvisionInfo*>(AgentProvisionInfo())->SetAgentNotificationHandler(NULL);
+                delete handler;
+                }
+            else
+                {
+                handler->Initialise(NULL);
+                }
             }
-	    }
+        //log node destruction, destroy in the case of perfect construction.
+        LOG_NODE_DESTROY(KAgentSCprTag, CAgentSubConnectionProvider);
+       }
     }
 
 /**
@@ -296,10 +305,15 @@ void CAgentSubConnectionProvider::ConnectionDownL()
 	    }
 	else
 	    {
-	    // Agent has stopped and disconnected without this node telling it to
-	    // Could be an error in the agent initiating a disconnect
-    	__CFLOG_VAR((KAgentSCprTag, KAgentSCprSubTag, _L8("CAgentSubConnectionProvider::ConnectionDownL() - Agent has stopped unexpectedly")));
-	    ControlProvider()->PostMessage(Id(), TCFControlProvider::TDataClientGoneDown(KErrDisconnected).CRef());
+	    // Verify AgentSCPR is Started, if its started, do not initiate TDataClientGoneDown, else initiate it
+        if(!AgentProvisionInfo()->AgentAdapter()->IsAgentInErrorState())
+            {
+	        // Agent has stopped and disconnected without this node telling it to
+	        // Could be an error in the agent initiating a disconnect
+	        __CFLOG_VAR((KAgentSCprTag, KAgentSCprSubTag, _L8("CAgentSubConnectionProvider::ConnectionDownL() - Agent has stopped unexpectedly")));
+	        ControlProvider()->PostMessage(Id(), TCFControlProvider::TDataClientGoneDown(KErrDisconnected).CRef());	        
+	        }
+	        
 	    }
 	}
 

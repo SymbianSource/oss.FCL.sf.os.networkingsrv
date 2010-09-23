@@ -234,7 +234,11 @@ void CRecordParser::CancelAll()
 	    {
 		iActiveTlsSession->CancelRequest();
 		}
-	ReConstructL();
+    TRAPD(ret, ReConstructL());
+    if ( ret != KErrNone )
+        {
+        LOG(Log::Printf(_L("ReConstructL() returned the error %d"), ret);)
+        }
 }
 
 void CRecordParser::DispatchData()

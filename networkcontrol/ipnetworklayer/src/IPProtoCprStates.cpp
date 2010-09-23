@@ -409,14 +409,21 @@ void IpProtoCpr::TProcessDataClientStatusChange::DoL()
     	TCFMessage::TSubConnDataTransferred wholeConnMsg(KNifEMCompatibilityLayerEntireSubConnectionUid, dmProvider->DataVolumesPtr()->iSentBytes, dmProvider->DataVolumesPtr()->iReceivedBytes);
     	TCFMessage::TSubConnDataTransferred defaultSubConnMsg(KNifEMCompatibilityLayerFakeSubConnectionId, dmProvider->DataVolumesPtr()->iSentBytes, dmProvider->DataVolumesPtr()->iReceivedBytes);
 
-    	RNodeInterface* ctrlClient = iContext.Node().GetFirstClient<TDefaultClientMatchPolicy>(TClientType(TCFClientType::ECtrl));
-		if(ctrlClient)
-			{ // Can't send this if the client's gone
-			ctrlClient->PostMessage(iContext.NodeId(), wholeConnMsg);
-			ctrlClient->PostMessage(iContext.NodeId(), defaultSubConnMsg);
-
-			iContext.Node().iSubConnEventDataSent = ETrue;
-			}
+      // Sending data clent status change message to all the control clients
+      TClientIter<TDefaultClientMatchPolicy> ccIter = iContext.Node().GetClientIter<TDefaultClientMatchPolicy>(TClientType(TCFClientType::ECtrl), TClientType(0, TCFClientType::ELeaving));        
+	RNodeInterface* ctrlClient; 
+	TBool ctrlClientPresent = false;
+	while ((ctrlClient = ccIter++) != NULL)            
+	    {
+          //If any cntl clinet is present setting the variable ctrlClientPresent as true.
+	    ctrlClientPresent = true;
+	    ctrlClient->PostMessage(iContext.NodeId(), wholeConnMsg);    
+	    ctrlClient->PostMessage(iContext.NodeId(), defaultSubConnMsg); 
+	    }
+	if(ctrlClientPresent)
+	    {
+	    iContext.Node().iSubConnEventDataSent = ETrue;
+	    }
     	}
     }
 

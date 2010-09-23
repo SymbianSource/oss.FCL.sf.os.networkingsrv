@@ -99,7 +99,11 @@ public:
 	// From MLinkCprServiceChangeNotificationApiExt Interface
 	void RequestServiceChangeNotificationL(const Messages::TNodeId& aSender, ESock::RLegacyResponseMsg& aResponse);
 	void CancelServiceChangeNotification(const Messages::TNodeId& aSender);
-
+	
+	  TBool IsAgentInErrorState() 
+	    {
+	    return iAgentErrorState;
+	    }	
 #ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
 	inline CNifAgentBase * Agent() const; 
 #endif //SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
@@ -135,6 +139,7 @@ private:
     TAgentConnectType iAgentConnectType;
     Elements::TStateChange iLastProgress;
 	RPointerArray<CAgentAdapterSessionNotifier> iAgentAdapterSessionNotifiers;
+	TBool iAgentErrorState;
     };
 
 

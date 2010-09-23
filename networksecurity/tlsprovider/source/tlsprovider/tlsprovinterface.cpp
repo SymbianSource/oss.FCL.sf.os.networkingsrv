@@ -249,6 +249,7 @@ This synchronous method cancels all the asynchronous operations of CTlsProvider
 */
 EXPORT_C void CTLSProvider::CancelRequest()
 	{
+    if (iTlsProviderImpl)
 	iTlsProviderImpl->CancelRequest();
 	}
 
@@ -645,11 +646,13 @@ This synchronous method cancels all the asynchronous operations of CTLSProvider
 */
 EXPORT_C void CTLSSession::CancelRequest()
 	{
+    if (iTlsSessionImpl)
 	iTlsSessionImpl->CancelRequest();
 	}
 
 EXPORT_C CTLSSession::~CTLSSession()
 	{
 	delete iTlsSessionImpl;
+	iTlsSessionImpl = NULL;
 	}
 

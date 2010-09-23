@@ -1,0 +1,27 @@
+//
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+//Create the CommDb required for the AgentAdapter tests & Run PPP Connection Start Failure Tests
+
+RUN_SCRIPT z:\TestData\scripts\esock_test_unloadesockForced.script
+ced z:\TestData\configs\cedout.cfg ced.log
+RUN_SCRIPT z:\TestData\scripts\esock_test_loadesock.script
+
+load_suite CSDAGTTESTS.DLL
+
+heap_mark
+run_test_step 0, CSDAGTTESTS, ConnectionStartFailure
+heap_markend
+test_complete

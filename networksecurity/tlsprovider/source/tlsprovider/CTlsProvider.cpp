@@ -136,7 +136,7 @@ CTlsCryptoAttributes* CTlsCryptoAttributes::NewL()
 	CTlsCryptoAttributes* tPtr = new (ELeave)CTlsCryptoAttributes;
 	CleanupStack::PushL(tPtr);
 	tPtr->iPublicKeyParams = new (ELeave)CTLSPublicKeyParams;
-	CleanupStack::Pop();
+	CleanupStack::Pop(tPtr);
 	return tPtr;
 	}
 
@@ -1267,9 +1267,10 @@ void CTlsProviderImpl::DoCancel()
 	
 	case EGetSessionInterface:
 		{
+		if (iPtrTokenSearch)
 		iPtrTokenSearch->CancelRequest();
-		break;
 		}
+		break;
 	case EGetCiphers:
 		{
 		if(iListAllTokensAndTypes[iCurrentTokentype].iProviderInterface)
@@ -1321,6 +1322,7 @@ void CTlsProviderImpl::DoCancel()
 #ifdef _USESECDLGSV_
 		iDialogServ.Cancel();
 #else
+		if (iSecurityDialog)
 		iSecurityDialog->Cancel();
 #endif
 		}
