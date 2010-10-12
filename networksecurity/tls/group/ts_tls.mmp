@@ -22,7 +22,6 @@ VENDORID 0x70000001
 
 SOURCEPATH	../ts_tls
 
-SOURCE		COMINIT.CPP
 SOURCE		TeststepTls.cpp
 SOURCE		TestsuiteTls.cpp
 SOURCE		TlsTestStep1.cpp

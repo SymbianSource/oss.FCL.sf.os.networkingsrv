@@ -31,6 +31,10 @@
 #include <securesocket.h>
 #include <e32property.h>
 
+#ifdef SIROCCO_CODE_MIGRATION 
+#include <e32property.h> 
+#endif
+
 
 _LIT(KIap,					"Iap");
 _LIT(KIapNumber,			"IapNumber");
@@ -40,16 +44,8 @@ _LIT(KPort,					"Port");
 _LIT(KDNSName,				"DNSName"); 
 _LIT(KPhbkSyncCMI,			"phbsync.cmi");
 
-#if defined (__WINS__)
-#define PDD_NAME _L("ECDRV")
-#define LDD_NAME _L("ECOMM")
-#else
-#define PDD_NAME _L("EUART1")
-#define LDD_NAME _L("ECOMM")
-#endif
-#ifndef SIROCCO_CODE_MIGRATION
 const TInt iapCount = 2;
-#endif
+
 CTestConnectStep::CTestConnectStep():iIapNumber(0), iPort(0), iScheduler(NULL)
 /**
  * Constructor
@@ -72,6 +68,18 @@ CTestConnectStep::~CTestConnectStep()
 TVerdict CTestConnectStep::doTestStepPreambleL()
 	{
 	TVerdict	ret = CTestStep::doTestStepPreambleL();
+
+#ifdef SIROCCO_CODE_MIGRATION 
+	const TUid KMyPropertyCat = {0x101FD9C5};
+	const TUint32 KMyPropertyDestPortv4 = 67;
+	const TUint32 KMyPropertyDestPortv6 = 547;
+	RProperty::Define(KMyPropertyCat, KMyPropertyDestPortv4, RProperty::EInt, TSecurityPolicy(TSecurityPolicy::EAlwaysPass),
+	                TSecurityPolicy(ECapabilityWriteDeviceData));
+	RProperty::Define(KMyPropertyCat, KMyPropertyDestPortv6, RProperty::EInt, TSecurityPolicy(TSecurityPolicy::EAlwaysPass),
+	                TSecurityPolicy(ECapabilityWriteDeviceData));
+	User::LeaveIfError(RProperty::Set(KMyPropertyCat, KMyPropertyDestPortv4, 93));
+	User::LeaveIfError(RProperty::Set(KMyPropertyCat, KMyPropertyDestPortv6, 547));
+#endif
 	
 	if (ret != KErrNone)
 		{
@@ -81,26 +89,6 @@ TVerdict CTestConnectStep::doTestStepPreambleL()
 		{
 		iScheduler = new CActiveScheduler();
 		CActiveScheduler::Install(iScheduler);
-#ifdef SIROCCO_CODE_MIGRATION 
-		TInt err;
-#else
-		INFO_PRINTF1(_L("Load PDD"));	
-		TInt err = User::LoadPhysicalDevice(PDD_NAME);
-		if (err != KErrNone && err != KErrAlreadyExists)
-			{
-			INFO_PRINTF2(_L("Could not load PDD! Leaving with error %d"), err);
-			SetTestStepResult(EFail);
-			User::Leave(err);
-			}
-#endif
-		INFO_PRINTF1(_L("Load LDD"));	
-		err = User::LoadLogicalDevice(LDD_NAME);
-		if (err != KErrNone && err != KErrAlreadyExists)
-			{
-			INFO_PRINTF2(_L("Could not load LDD! Leaving with error %d"), err);
-			SetTestStepResult(EFail);
-			User::Leave(err);
-			}
 		}
 	return ret;
 	}
@@ -160,15 +148,12 @@ TVerdict CTestConnectStep::doTestStepL()
 
 		TRequestStatus status;
 #ifdef SIROCCO_CODE_MIGRATION
-	TCommDbConnPref prefs;
-	prefs.SetIapId(iIapNumber);
-	prefs.SetDialogPreference(ECommDbDialogPrefDoNotPrompt);
 		const TUid KMyPropertyCat = {0x101FD9C5};
         const TUint32 KMyPropertyDestPortv4 = 67;
         TInt err = RProperty::Define(KMyPropertyCat, KMyPropertyDestPortv4, RProperty::EInt, TSecurityPolicy(TSecurityPolicy::EAlwaysPass),
 		     TSecurityPolicy(ECapabilityWriteDeviceData));
         User::LeaveIfError(RProperty::Set(KMyPropertyCat, KMyPropertyDestPortv4, 93));
-#else
+#endif
 
 		TInt rank = 1;
 
@@ -193,7 +178,6 @@ TVerdict CTestConnectStep::doTestStepL()
 			}
 
 		prefs.SetConnectionAttempts(rank-1);
-#endif 
 
 		// Start the connection
 		iConnection.Start(prefs, status);

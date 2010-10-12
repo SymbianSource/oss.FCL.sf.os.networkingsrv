@@ -48,26 +48,18 @@ PRJ_TESTEXPORTS
 ../ts_tls/data/certclients_psk.dat	z:/testdata/configs/certclients_psk.dat
 ../ts_tls/data/keys_psk.dat		z:/testdata/configs/keys_psk.dat
 
-#ifdef SIROCCO_CODE_MIGRATION
-../ts_tls/scripts/ssl_ntras_31_wlan.script 	z:/testdata/scripts/ssl_ntras_31_wlan.script
-../ts_tls/scripts/ssl_ntras_30_wlan.script 	z:/testdata/scripts/ssl_ntras_30_wlan.script
-../ts_tls/scripts/cccccc00_ssl_30.cre 	z:/testdata/configs/cccccc00_ssl_30.cre
-../ts_tls/scripts/tls_oom_wlan.script 	z:/testdata/scripts/tls_oom_wlan.script
-../ts_tls/scripts/tls_psk_wlan.script 	z:/testdata/scripts/tls_psk_wlan.script
-../ts_tls/scripts/cccccc00_tls_psk.cre 	z:/testdata/configs/cccccc00_tls_psk.cre
-#else
 ../ts_tls/scripts/ssl_ntras_31.script 	z:/testdata/scripts/ssl_ntras_31.script
 ../ts_tls/scripts/ssl_ntras_30.script 	z:/testdata/scripts/ssl_ntras_30.script
 ../ts_tls/scripts/Tls_ntras.cfg 	z:/testdata/configs/tls_ntras.cfg
 ../ts_tls/scripts/tls_oom.script 	z:/testdata/scripts/tls_oom.script
 ../ts_tls/scripts/tls_psk.script 	z:/testdata/scripts/tls_psk.script
 ../ts_tls/scripts/Tls_ethernet.xml 	z:/testdata/configs/tls_ethernet.xml
-#endif //SIROCCO_CODE_MIGRATION
+
 
 // tsecdlg input file
 ../ts_tls/data/tls_t_secdlg_in.dat 	z:/testdata/configs/tls_t_secdlg_in.dat
 
-#ifdef SIROCCO_CODE_MIGRATION
+
 ../ts_tls/scripts/Tls3_wlan.ini  	 	z:/testdata/configs/tls3_wlan.ini
 ../ts_tls/scripts/Tls4_wlan.ini  	 	z:/testdata/configs/tls4_wlan.ini
 ../ts_tls/scripts/Tls5_wlan.ini  	 	z:/testdata/configs/tls5_wlan.ini
@@ -108,7 +100,7 @@ PRJ_TESTEXPORTS
 ../ts_tls/scripts/TLS_PSK_WITH_AES_256_CBC_SHA_wlan.ini				z:/testdata/configs/tls_psk_with_aes_256_cbc_sha_wlan.ini
 ../ts_tls/scripts/TLS_PSK_WITH_3DES_EDE_CBC_SHA_wlan.ini				z:/testdata/configs/tls_psk_with_3des_ede_cbc_sha_wlan.ini
 ../ts_tls/scripts/TLS_PSK_WITH_AES_128_CBC_SHA_NOCALLBACK_wlan.ini	z:/testdata/configs/tls_psk_with_aes_128_cbc_sha_nocallback_wlan.ini
-#else
+
 ../ts_tls/scripts/Tls3.ini  	 	z:/testdata/configs/tls3.ini
 ../ts_tls/scripts/Tls4.ini  	 	z:/testdata/configs/tls4.ini
 ../ts_tls/scripts/Tls5.ini  	 	z:/testdata/configs/tls5.ini
@@ -149,9 +141,6 @@ PRJ_TESTEXPORTS
 ../ts_tls/scripts/TLS_PSK_WITH_AES_256_CBC_SHA.ini				z:/testdata/configs/tls_psk_with_aes_256_cbc_sha.ini
 ../ts_tls/scripts/TLS_PSK_WITH_3DES_EDE_CBC_SHA.ini				z:/testdata/configs/tls_psk_with_3des_ede_cbc_sha.ini
 ../ts_tls/scripts/TLS_PSK_WITH_AES_128_CBC_SHA_NOCALLBACK.ini	z:/testdata/configs/tls_psk_with_aes_128_cbc_sha_nocallback.ini
-#endif //SIROCCO_CODE_MIGRATION
-
-
 
 
 PRJ_MMPFILES

@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2009-2010 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -22,7 +22,7 @@ LOAD_SUITE TS_tls.dll
 // set up commdb for a gsm dialup connection 
 // to demon using a serial connection
 RUN_SCRIPT z:\TestData\scripts\esock_test_unloadesockForced.script
-ced z:\testdata\configs\Tls_ntras.cfg ced.log
+ced z:\testdata\configs\ts_tls.xml ced.log
 RUN_SCRIPT z:\TestData\scripts\esock_test_loadesock.script
 
 //run_utils copy z:\testdata\configs\ssl\*.* c:\system\data\

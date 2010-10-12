@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- Copyright (c) 2003-2009 Nokia Corporation and/or its subsidiary(-ies).
+ Copyright (c) 2003-2010 Nokia Corporation and/or its subsidiary(-ies).
  All rights reserved.
  This component and the accompanying materials are made available
  under the terms of "Eclipse Public License v1.0"
@@ -37,9 +37,9 @@
 
 <IAPTable>
     <IAP operation="add">
-        <Name>NT RAS with Null Modem</Name>
-        <IAPService>DialOutISP.NT RAS</IAPService>
-        <IAPBearer>ModemBearer.Null Modem 115200bps</IAPBearer>
+        <Name>WLANConnectivity</Name>
+      	<IAPService>LANService.WLANService</IAPService>
+       	<IAPBearer>LANBearer.WLANBearer</IAPBearer>
         <IAPNetwork>Network.Intranet</IAPNetwork>
         <IAPNetworkWeighting>0</IAPNetworkWeighting>
         <LocationRef>Location.Office</LocationRef>
@@ -803,19 +803,35 @@
         <LastSessionClosedTimeout>-1</LastSessionClosedTimeout>
         <LastSocketClosedTimeout>-1</LastSocketClosedTimeout>
     </LANBearer>
+	<LANBearer operation="add">
+		<Name>WLANBearer</Name>
+		<IfName>wlannif</IfName>
+		<LDDName>not used</LDDName>
+		<PDDName>not used</PDDName>
+		<LastSocketActivityTimeout>60</LastSocketActivityTimeout>
+		<LastSessionClosedTimeout>10</LastSessionClosedTimeout>
+		<LastSocketClosedTimeout>30</LastSocketClosedTimeout>
+		<Agent>wlanagt.agt</Agent>
+	</LANBearer>
 </LANBearerTable>
 
 <LANServiceTable>
-    <LANService operation="add">
-        <Name>Ethernet</Name>
-        <IfNetworks>ip,ip6</IfNetworks>
-        <IpNetMask>255.255.255.0</IpNetMask>
-        <IpGateway>194.72.6.1</IpGateway>
-        <IpAddr>192.168.0.100</IpAddr>
-        <IpAddrFromServer>TRUE</IpAddrFromServer>
-        <IpDNSAddrFromServer>FALSE</IpDNSAddrFromServer>
-        <IpNameServer1>194.72.6.51</IpNameServer1>
-        <IpNameServer2>194.72.6.52</IpNameServer2>
+	<LANService operation="add">
+      <Name>WLANService</Name>
+      <IfNetworks>ip,ip6</IfNetworks>
+      <IpNetMask>255.255.255.0</IpNetMask>
+      <IpGateway>0.0.0.0</IpGateway>
+      <IpAddrFromServer>TRUE</IpAddrFromServer>
+      <IpAddr>0.0.0.0</IpAddr>
+      <IpDNSAddrFromServer>TRUE</IpDNSAddrFromServer>
+      <IpNameServer1>0.0.0.0</IpNameServer1>
+      <IpNameServer2>0.0.0.0</IpNameServer2>
+      <Ip6DnsAddrFromServer>TRUE</Ip6DnsAddrFromServer>
+      <Ip6NameServer1>0:0:0:0:0:0:0:0</Ip6NameServer1>
+      <Ip6NameServer2>0:0:0:0:0:0:0:0</Ip6NameServer2>
+      <IpAddrLeaseValidFrom>0</IpAddrLeaseValidFrom>
+      <ConfigDaemonManagerName>NetCfgExtnDhcp</ConfigDaemonManagerName>
+      <ConfigDaemonName>!DhcpServ</ConfigDaemonName>
     </LANService>
 </LANServiceTable>
 
@@ -1175,16 +1191,16 @@
         <Ranking>0</Ranking>
         <Direction>OUTGOING</Direction>
         <DialogPref>DONOTPROMPT</DialogPref>
-        <BearerSet>CSD</BearerSet>
-        <IAPRef>IAP.NT RAS with Null Modem</IAPRef>
+        <BearerSet>LAN</BearerSet>
+        <IAPRef>IAP.WLANConnectivity</IAPRef>
     </ConnectionPreferences>
     <ConnectionPreferences operation="add">
         <Name>ConnectionPreferencesTable2</Name>
         <Ranking>1</Ranking>
         <Direction>OUTGOING</Direction>
         <DialogPref>DONOTPROMPT</DialogPref>
-        <BearerSet>CSD</BearerSet>
-        <IAPRef>IAP.NT RAS with Null Modem</IAPRef>
+        <BearerSet>LAN</BearerSet>
+        <IAPRef>IAP.WLANConnectivity</IAPRef>
     </ConnectionPreferences>
 </ConnectionPreferencesTable>
 

@@ -33,21 +33,12 @@ file=ABI_DIR\DEBUG_DIR\ts_tls.dll					system\libs\ts_tls.dll
 
 data=EPOCROOT##epoc32\data\Z\private\101f72a6\keys.dat			private\101f72a6\keys.dat
 
-#ifdef INCLUDE_SIROCCO_CODE_MIGRATION
-data=EPOCROOT##epoc32\data\Z\testdata\configs\cccccc00_ssl_30.cre			testdata\configs\cccccc00_ssl_30.cre
-data=EPOCROOT##epoc32\data\Z\testdata\configs\cccccc00_tls_psk.cre		testdata\configs\cccccc00_tls_psk.cre
-data=EPOCROOT##epoc32\data\Z\testdata\scripts\tls_oom_wlan.script		testdata\scripts\tls_oom.script
-data=EPOCROOT##epoc32\data\Z\testdata\scripts\tls_psk_wlan.script 		testdata\scripts\tls_psk.script
-data=EPOCROOT##epoc32\data\Z\testdata\scripts\ssl_ntras_30_wlan.script	testdata\scripts\ssl_ntras_30.script
-data=EPOCROOT##epoc32\data\Z\testdata\scripts\ssl_ntras_31_wlan.script	testdata\scripts\ssl_ntras_31.script
-#else
 data=EPOCROOT##epoc32\data\Z\testdata\configs\tls_ntras.cfg			testdata\configs\tls_ntras.cfg
 data=EPOCROOT##epoc32\data\Z\testdata\configs\tls_ethernet.xml		testdata\configs\tls_ethernet.xml
 data=EPOCROOT##epoc32\data\Z\testdata\scripts\tls_oom.script		testdata\scripts\tls_oom.script
 data=EPOCROOT##epoc32\data\Z\testdata\scripts\tls_psk.script 		testdata\scripts\tls_psk.script
 data=EPOCROOT##epoc32\data\Z\testdata\scripts\ssl_ntras_30.script	testdata\scripts\ssl_ntras_30.script
 data=EPOCROOT##epoc32\data\Z\testdata\scripts\ssl_ntras_31.script	testdata\scripts\ssl_ntras_31.script
-#endif //INCLUDE_SIROCCO_CODE_MIGRATION
 
 data=EPOCROOT##epoc32\data\Z\testdata\configs\tls_t_secdlg_in.dat	testdata\configs\tls_t_secdlg_in.dat
 data=EPOCROOT##epoc32\data\Z\testdata\configs\cacerts_psk.dat		testdata\configs\cacerts_psk.dat

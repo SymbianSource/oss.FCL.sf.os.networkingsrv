@@ -22,15 +22,14 @@ PRJ_EXPORTS
 //-- Networking Test OBY/IBY Files
 ../group/NetworkTest.oby		/epoc32/rom/include/networktest.oby
 ../group/NetworkTest.iby		/epoc32/rom/include/networktest.iby
+../group/network_test.iby		/epoc32/rom/include/network_test.iby
 
 PRJ_TESTEXPORTS
 // File run before every hardware test that can be added to pre-ROM build
 ../group/te_initialiseboard.script	z:/testdata/scripts/te_initialiseboard.script
-// Calling this delay.script in the ATS test drop before calling any connection based test cases
-../group/delay.script	z:/testdata/scripts/delay.script
 
-// #include "../../../../unref/orphan/comgen/networking/test/te_Anvl/group/bld.inf"
-// #include "../../../../unref/orphan/comgen/networking/test/te_TahiClient/group/bld.inf"
+./network_startedservices.xml			z:/testdata/configs/network_startedservices.xml
+./network_WLAN_cccccc00.cre			z:/testdata/configs/network_WLAN_cccccc00.cre
 
 PRJ_MMPFILES
 

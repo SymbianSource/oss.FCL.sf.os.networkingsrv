@@ -81,8 +81,8 @@
     </IAP>
     <IAP operation="add">
         <Name>Ethernet No Daemon Static IP</Name>
-        <IAPService>LANService.Ethernet No Daemon</IAPService>
-        <IAPBearer>LANBearer.EKA2 Emulator Ethernet</IAPBearer>
+        <IAPService>LANService.Ethernet</IAPService>
+        <IAPBearer>LANBearer.WLANBearer</IAPBearer>
         <IAPNetwork>Network.Intranet</IAPNetwork>
         <IAPNetworkWeighting>0</IAPNetworkWeighting>
         <LocationRef>Location.Office</LocationRef>
@@ -122,7 +122,7 @@
     <IAP operation="add">
         <Name>Ethernet with Daemon Dynamic IP</Name>
         <IAPService>LANService.Ethernet</IAPService>
-        <IAPBearer>LANBearer.EKA2 Emulator Ethernet</IAPBearer>
+        <IAPBearer>LANBearer.WLANBearer</IAPBearer>
         <IAPNetwork>Network.Intranet</IAPNetwork>
         <IAPNetworkWeighting>0</IAPNetworkWeighting>
         <LocationRef>Location.Office</LocationRef>
@@ -1270,10 +1270,20 @@
 	<LastSessionClosedTimeout>-1</LastSessionClosedTimeout>
 	<LastSocketClosedTimeout>-1</LastSocketClosedTimeout>
     </LANBearer>
+    <LANBearer operation="add">
+		<Name>WLANBearer</Name>
+		<IfName>wlannif</IfName>
+		<LDDName>not used</LDDName>
+		<PDDName>not used</PDDName>
+		<LastSocketActivityTimeout>-1</LastSocketActivityTimeout>
+		<LastSessionClosedTimeout>-1</LastSessionClosedTimeout>
+		<LastSocketClosedTimeout>-1</LastSocketClosedTimeout>
+		<Agent>wlanagt.agt</Agent>
+	</LANBearer>
 </LANBearerTable>
 
 <LANServiceTable>
-    <LANService operation="add">
+	   <LANService operation="add">
         <Name>Ethernet</Name>
         <IfNetworks>ip</IfNetworks>
         <IpNetMask>255.255.255.0</IpNetMask>
@@ -1285,6 +1295,17 @@
         <IpNameServer2>194.72.6.52</IpNameServer2>
         <ConfigDaemonManagerName>NetCfgExtnDhcp</ConfigDaemonManagerName>
         <ConfigDaemonName>!DhcpServ</ConfigDaemonName>
+    </LANService>
+	   <LANService operation="add">
+        <Name>Ethernet No Daemon</Name>
+        <IfNetworks>ip</IfNetworks>
+        <IpNetMask>255.255.255.0</IpNetMask>
+        <IpGateway>10.32.194.254</IpGateway>
+        <IpAddr>10.32.194.251</IpAddr>
+        <IpAddrFromServer>FALSE</IpAddrFromServer>
+        <IpDNSAddrFromServer>TRUE</IpDNSAddrFromServer>
+        <IpNameServer1>194.72.6.51</IpNameServer1>
+        <IpNameServer2>194.72.6.52</IpNameServer2>
     </LANService>
     <LANService operation="add">
         <Name>Ethernet2</Name>
@@ -1339,17 +1360,6 @@
         <IpNameServer2>194.72.6.52</IpNameServer2>
         <ConfigDaemonManagerName>NonExistingServ</ConfigDaemonManagerName>
         <ConfigDaemonName>NonExistingServ</ConfigDaemonName>
-    </LANService>
-    <LANService operation="add">
-        <Name>Ethernet No Daemon</Name>
-        <IfNetworks>ip</IfNetworks>
-        <IpNetMask>255.255.255.0</IpNetMask>
-        <IpGateway>10.32.194.254</IpGateway>
-        <IpAddr>10.32.194.251</IpAddr>
-        <IpAddrFromServer>FALSE</IpAddrFromServer>
-        <IpDNSAddrFromServer>TRUE</IpDNSAddrFromServer>
-        <IpNameServer1>194.72.6.51</IpNameServer1>
-        <IpNameServer2>194.72.6.52</IpNameServer2>
     </LANService>
 </LANServiceTable>
 

@@ -47,16 +47,6 @@ TVerdict CTestStepInit::doTestStepL()
 	{
 
 	TInt err;
-#ifndef SIROCCO_CODE_MIGRATION 
-	INFO_PRINTF1(_L("Load PDD"));	
-	err = User::LoadPhysicalDevice(PDD_NAME);
-	if (err != KErrNone && err != KErrAlreadyExists)
-		{
-		INFO_PRINTF2(_L("Could not load PDD! Leaving with error %d"), err);
-		SetTestStepResult(EFail);
-		User::Leave(err);
-		}
-#endif
 	INFO_PRINTF1(_L("Load LDD"));	
 	err = User::LoadLogicalDevice(LDD_NAME);
 	if (err != KErrNone && err != KErrAlreadyExists)

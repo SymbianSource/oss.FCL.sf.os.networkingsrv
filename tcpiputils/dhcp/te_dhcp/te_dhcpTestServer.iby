@@ -33,13 +33,8 @@ data=\epoc32\data\z\TestData\configs\DHCP\dhcptest.ini    		    TestData\configs
 //##################### script files
 
 //-- ip4 specific
-#ifdef INCLUDE_SIROCCO_CODE_MIGRATION
-data=\epoc32\data\z\testdata\scripts\DHCP\DHCP_OOM6_ip4_wlan.script			        TestData\scripts\DHCP\DHCP_OOM6_ip4.script
-data=\epoc32\data\z\testdata\scripts\DHCP\te_DHCPTest_ip4_wlan.script				TestData\scripts\DHCP\te_DHCPTest_ip4.script
-#else
 data=\epoc32\data\z\testdata\scripts\DHCP\DHCP_OOM6_ip4.script			        TestData\scripts\DHCP\DHCP_OOM6_ip4.script
 data=\epoc32\data\z\testdata\scripts\DHCP\te_DHCPTest_ip4.script				TestData\scripts\DHCP\te_DHCPTest_ip4.script
-#endif //INCLUDE_SIROCCO_CODE_MIGRATION
 data=\epoc32\data\z\testdata\scripts\DHCP\DHCPBasicInteractions1_ip4.script		TestData\scripts\DHCP\DHCPBasicInteractions1_ip4.script
 data=\epoc32\data\z\testdata\scripts\DHCP\DHCPConfiguration2_ip4.script			TestData\scripts\DHCP\DHCPConfiguration2_ip4.script
 data=\epoc32\data\z\testdata\scripts\DHCP\DHCPRenewAndRelease3_ip4.script			TestData\scripts\DHCP\DHCPRenewAndRelease3_ip4.script
@@ -50,13 +45,8 @@ data=\epoc32\data\z\testdata\scripts\DHCP\DHCPManualtests5_ip4.script			TestData
 file=ABI_DIR\DEBUG_DIR\ramod1.prt    SYSTEM_BINDIR\ramod1.prt
 file=ABI_DIR\DEBUG_DIR\ramod2.prt    SYSTEM_BINDIR\ramod2.prt
 file=ABI_DIR\DEBUG_DIR\ramod3.prt    SYSTEM_BINDIR\ramod3.prt
-#ifdef INCLUDE_SIROCCO_CODE_MIGRATION
-data=\epoc32\data\z\testdata\scripts\DHCP\DHCP_OOM6_ip6_wlan.script			        TestData\scripts\DHCP\DHCP_OOM6_ip6.script
-data=\epoc32\data\z\testdata\scripts\DHCP\te_DHCPTest_ip6_wlan.script				TestData\scripts\DHCP\te_DHCPTest_ip6.script
-#else
 data=\epoc32\data\z\testdata\scripts\DHCP\DHCP_OOM6_ip6.script			        TestData\scripts\DHCP\DHCP_OOM6_ip6.script
 data=\epoc32\data\z\testdata\scripts\DHCP\te_DHCPTest_ip6.script				TestData\scripts\DHCP\te_DHCPTest_ip6.script
-#endif //INCLUDE_SIROCCO_CODE_MIGRATION
 data=\epoc32\data\z\testdata\scripts\DHCP\DHCPBasicInteractions1_ip6.script		TestData\scripts\DHCP\DHCPBasicInteractions1_ip6.script
 data=\epoc32\data\z\testdata\scripts\DHCP\DHCPConfiguration2_ip6.script			TestData\scripts\DHCP\DHCPConfiguration2_ip6.script
 data=\epoc32\data\z\testdata\scripts\DHCP\DHCPRenewAndRelease3_ip6.script			TestData\scripts\DHCP\DHCPRenewAndRelease3_ip6.script
@@ -76,11 +66,7 @@ data=\epoc32\data\z\testdata\configs\DHCP\TestDHCPv6Config2\ip.ramod.esk			     
 data=\epoc32\data\z\testdata\configs\DHCP\TestDHCPv6Config3\ip.ramod.esk			        TestData\configs\DHCP\TestDHCPv6Config3\ip.ramod.esk
 
 //SIP server
-#ifdef INCLUDE_SIROCCO_CODE_MIGRATION
-data=\epoc32\data\z\testdata\scripts\DHCP\TE_SIPServer_DHCP_hwonly_ip4_wlan.script	TestData\scripts\DHCP\TE_SIPServer_DHCP_hwonly_ip4.script
-#else
 data=\epoc32\data\z\testdata\scripts\DHCP\TE_SIPServer_DHCP_hwonly_ip4.script	TestData\scripts\DHCP\TE_SIPServer_DHCP_hwonly_ip4.script
-#endif //INCLUDE_SIROCCO_CODE_MIGRATION
 data=\epoc32\data\z\testdata\scripts\SipServer_setup.script                     TestData\scripts\SipServer_setup.script
 data=\epoc32\data\z\testdata\scripts\TE_SIPServerTesting.script                 TestData\scripts\TE_SIPServerTesting.script
 data=\epoc32\data\z\testdata\configs\SipServer.xml                              TestData\configs\SipServer.xml
@@ -91,26 +77,20 @@ data=\epoc32\data\z\testdata\configs\te_sipservertesting_loopback.ini		TestData\
 //##################### config files
 
 //-- ip4 specific
+data=\epoc32\data\z\TestData\configs\DHCP\cccccc00_dhcptest_ip4.cre   TestData\configs\DHCP\cccccc00_dhcptest_ip4.cre
 #ifdef OMAP16XX
 data=\epoc32\data\z\TestData\configs\DHCP\DHCPced_ip4.xml.omapxxx	TestData\configs\DHCP\DHCPced_ip4.xml
 #else
-#ifdef INCLUDE_SIROCCO_CODE_MIGRATION
-data=\epoc32\data\z\TestData\configs\DHCP\cccccc00_dhcptest_ip4.cre   TestData\configs\DHCP\cccccc00_dhcptest_ip4.cre
-#else
 data=\epoc32\data\z\TestData\configs\DHCP\DHCPced_ip4.xml.lubbock   TestData\configs\DHCP\DHCPced_ip4.xml
-#endif //INCLUDE_SIROCCO_CODE_MIGRATION
 #endif
 
 
 //-- ip6 specific
+data=\epoc32\data\z\TestData\configs\DHCP\cccccc00_dhcptest_ip6.cre    TestData\configs\DHCP\cccccc00_dhcptest_ip6.cre
 #ifdef OMAP16XX
 data=\epoc32\data\z\TestData\configs\DHCP\DHCPced_ip6.xml.omapxxx    TestData\configs\DHCP\DHCPced_ip6.xml
 #else
-#ifdef INCLUDE_SIROCCO_CODE_MIGRATION
-data=\epoc32\data\z\TestData\configs\DHCP\cccccc00_dhcptest_ip6.cre    TestData\configs\DHCP\cccccc00_dhcptest_ip6.cre
-#else
 data=\epoc32\data\z\TestData\configs\DHCP\DHCPced_ip6.xml.lubbock    TestData\configs\DHCP\DHCPced_ip6.xml
-#endif //INCLUDE_SIROCCO_CODE_MIGRATION
 #endif
 
 
@@ -125,7 +105,8 @@ data=\epoc32\data\z\TestData\configs\DHCP\dhcpservertest.cfg    	TestData\config
 data=\epoc32\data\z\testdata\scripts\DHCP\DHCPPREQ1647_48_ip4.script		TestData\scripts\DHCP\DHCPPREQ1647_48_ip4.script
 #endif // SYMBIAN_NETWORKING_DHCP_MSG_HEADERS
 
-
+//Sirocco Code migration specific
+data=\epoc32\data\z\testdata\scripts\dhcp\te_initialize_commsdat.script		TestData\scripts\dhcp\te_initialize_commsdat.script
 
 #endif
 

@@ -22,9 +22,6 @@
 #include <securesocket_internal.h>
 #endif
 
-GLREF_C void CommInitL();
-
-
 CTlsTestSection3_1::CTlsTestSection3_1()
 /**
  * Constructor.

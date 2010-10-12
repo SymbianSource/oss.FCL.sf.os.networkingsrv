@@ -42,7 +42,6 @@
 #include <securesocket_internal.h>
 #endif
 
-GLREF_C void CommInitL();
 TInt TLSOOMTest(TAny* oOMFailureThresholdAny);
 
 
@@ -104,7 +103,6 @@ TVerdict CTlsOomTest::doTestStepL( )
 
 	__UHEAP_MARK;
 
-	TRAPD(error,CommInitL()); // init needed comms libs
 	// create a global semaphore that the dialog server searches for to
 	// decide if "trust" dialogs should be displayed or not
 	RSemaphore	iSemaphore;
@@ -127,7 +125,6 @@ TVerdict CTlsOomTest::doTestStepL( )
 		
 		TInt res=t.Create(threadName, TLSOOMTest,KDefaultStackSize,KDefaultHeapSize,KMaxHeapSize,(void*)&TestData);
 
-		__ASSERT_ALWAYS(!res,User::Panic(KTxtTLS,error));
 		Log(KTxtTLSStarting);
 		Log(KTxtTLSThreshold,TestData.iOOMThreshold );//OMFailureThreshold);
 		t.Logon(stat);

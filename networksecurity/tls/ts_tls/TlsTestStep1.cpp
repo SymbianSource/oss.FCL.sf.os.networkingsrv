@@ -42,8 +42,6 @@
 
 #include "tlsconnection.h"
 
-GLREF_C void CommInitL();
-
 _LIT( KTxtTLS, "T_TLS" );
 
 CTestStepT_Tls::CTestStepT_Tls()
@@ -69,10 +67,7 @@ TVerdict CTestStepT_Tls::doTestStepL( )
 	// if the test has not left yet it must be a Pass 
 	iTestStepResult = EPass;
 
-	TRAPD(error,CommInitL()); // init needed comms libs
-	__ASSERT_ALWAYS(!error,User::Panic(KTxtTLS,error));
-
-	TRAP(error,TLSTestL()); // more initialization, then do example
+	TRAPD(error,TLSTestL()); // more initialization, then do example
 	__ASSERT_ALWAYS(!error,User::Panic(KTxtTLS,error));
 
 	return iTestStepResult;
@@ -139,9 +134,6 @@ TVerdict CTlsOpenConnection::doTestStepL( )
 {
 	_LIT(KSSLProtocol,"tls1.0");
 	TRequestStatus Status;
-
-	TRAPD(error,CommInitL()); // init needed comms libs
-	__ASSERT_ALWAYS(!error,User::Panic(KTxtTLS,error));
 
 	// Create an active scheduler
 	CActiveScheduler* myActiveScheduler;
@@ -248,9 +240,6 @@ TVerdict CTlsFailSuiteSelection::doTestStepL( )
 	_LIT(KFSSectionName,"FailSuiteSelection");
 	TRequestStatus Status;
 	TVerdict result = EFail;
-
-	TRAPD(error,CommInitL()); // init needed comms libs
-	__ASSERT_ALWAYS(!error,User::Panic(KTxtTLS,error));
 
 	// Create an active scheduler
 	CActiveScheduler* myActiveScheduler;

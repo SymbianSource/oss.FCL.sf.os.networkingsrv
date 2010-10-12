@@ -1,0 +1,30 @@
+/*
+* Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+#ifndef NETWORK_TEST_IBY
+#define NETWORK_TEST_IBY
+
+#include "cflog.iby"
+#include "NetworkTest.iby"
+
+//Run ESock threads under TestMode
+data-override=DATAZ_\private\101f7988\t_c32start.ini \private\101f7988\c32start.ini
+// For ncpkickstart
+data-override=DATAZ_\testdata\configs\network_startedservices.xml	\testframework\ncpkickstart\startedservices.xml
+//Template CRE which has WLAN records + the WiFi SSID AP#3
+data-override=DATAZ_\testdata\configs\network_WLAN_cccccc00.cre 	\private\10202be9\cccccc00.cre
+
+#endif

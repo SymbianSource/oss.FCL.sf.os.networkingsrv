@@ -23,14 +23,7 @@
 
 file=ABI_DIR\DEBUG_DIR\Te_msg.exe		System\libs\te_msg.exe
 
-#ifdef INCLUDE_SIROCCO_CODE_MIGRATION
-data=EPOCROOT##epoc32\data\z\TestData\Scripts\te_msg_wlan.script    TestData\Scripts\te_msg.script
-data=EPOCROOT##epoc32\data\z\TestData\Configs\te_msg_wlan.ini       TestData\configs\te_msg.ini  
-data=EPOCROOT##epoc32\data\z\TestData\Configs\cccccc00_te_msg.cre   TestData\configs\cccccc00_te_msg.cre 
-
-#else
-data=EPOCROOT##epoc32\data\z\TestData\Scripts\TE_MSG.script    TestData\Scripts\TE_MSG.script 
-data=EPOCROOT##epoc32\data\z\TestData\Configs\TE_MSG.xml       TestData\configs\TE_MSG.xml      
 data=EPOCROOT##epoc32\data\z\TestData\Configs\TE_MSG.ini       TestData\configs\TE_MSG.ini   
-#endif
+data=EPOCROOT##epoc32\data\z\TestData\Scripts\TE_MSG.script    TestData\Scripts\TE_MSG.script 
+data=EPOCROOT##epoc32\data\z\TestData\Configs\TE_MSG.xml       TestData\configs\TE_MSG.xml    
 #endif

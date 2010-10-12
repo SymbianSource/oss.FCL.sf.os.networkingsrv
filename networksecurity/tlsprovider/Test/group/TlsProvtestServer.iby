@@ -49,13 +49,12 @@ data=\epoc32\release\winscw\udeb\z\tlstest2\scripts\tlstest2.script tlstest2\scr
 data=\epoc32\release\winscw\udeb\z\tlstest2\scripts\tlstest2.ini tlstest2\scripts\tlstest2.ini
 
 #ifdef INCLUDE_SIROCCO_CODE_MIGRATION
-data=\epoc32\release\winscw\udeb\z\tlstest2\scripts\tls_smoke_wlan.script tlstest2\scripts\tls_smoke.script
 data=\epoc32\release\winscw\udeb\z\tlstest2\scripts\tls_smoke_wlan.ini tlstest2\scripts\tls_smoke.ini
 #else
-data=\epoc32\release\winscw\udeb\z\tlstest2\scripts\tls_smoke.script tlstest2\scripts\tls_smoke.script
 data=\epoc32\release\winscw\udeb\z\tlstest2\scripts\tls_smoke.ini tlstest2\scripts\tls_smoke.ini
 #endif //INCLUDE_SIROCCO_CODE_MIGRATION
 
+data=\epoc32\release\winscw\udeb\z\tlstest2\scripts\tls_smoke.script tlstest2\scripts\tls_smoke.script
 data=\epoc32\winscw\z\testdata\configs\tlsprovtestdata\tlsprov_ethernetced.xml testdata\configs\tlsprovtestdata\tlsprov_ethernetced.xml
 
 data=\epoc32\release\winscw\udeb\z\testdata\configs\tlsprovtestdata\KeyAndCertStore\keys.dat	TestData\configs\tlsprovtestdata\KeyAndCertStore\keys.dat	

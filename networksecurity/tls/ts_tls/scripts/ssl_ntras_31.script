@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2009-2010 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -24,7 +24,7 @@ PAUSE_AT_END
 // set up commdb for a serial NT ras connection 
 // which will work with WinTunnel
 RUN_SCRIPT z:\TestData\scripts\esock_test_unloadesockForced.script
-ced z:\testdata\configs\Tls_ntras.cfg ced.log
+ced z:\testdata\configs\ts_tls.xml ced.log
 RUN_SCRIPT z:\TestData\scripts\esock_test_loadesock.script
 
 //run_utils copy z:\testdata\configs\ssl\*.* c:\system\data\

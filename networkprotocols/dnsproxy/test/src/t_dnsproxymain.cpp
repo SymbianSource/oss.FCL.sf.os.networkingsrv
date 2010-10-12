@@ -242,13 +242,8 @@ void CT_DnsProxyMainTestWrapper::DoCmdNew(const TDesC& aSection)
 			}
 		iUseNapt = ETrue;	
 
-#ifdef SIROCCO_CODE_MIGRATION
 	_LIT(KInterfaceName,"wlan");
 	_LIT(KInterfaceName2,"wlan");
-#else
-	_LIT(KInterfaceName,"eth");
-	_LIT(KInterfaceName2,"eth");
-#endif
 
    		RSocket sock;
    		sock.Open(iSs,KAfInet, KSockDatagram, KProtocolInetUdp);     	
@@ -779,13 +774,8 @@ void CT_DnsProxyMainTestWrapper::DoCmdTestConnectionL(const TDesC& aSection)
 			}
 		iUseNapt = ETrue;	
 
-#ifdef SIROCCO_CODE_MIGRATION
 	_LIT(KInterfaceName,"wlan");
 	_LIT(KInterfaceName2,"wlan");
-#else
-	_LIT(KInterfaceName,"eth");
-	_LIT(KInterfaceName2,"eth");
-#endif
 
    		RSocket sock;
    		sock.Open(iSs,KAfInet, KSockDatagram, KProtocolInetUdp);     	

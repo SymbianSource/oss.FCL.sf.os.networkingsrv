@@ -19,7 +19,6 @@
 #define __T_IPSEC_IBY__
 
 #include <ipsec.iby>
-#include <vpn.iby>
 #include <integrationtest.iby>
 
 file=ABI_DIR\DEBUG_DIR\t_ipsec.exe             System\Libs\t_ipsec.exe

@@ -29,7 +29,7 @@ SOURCE          ts_ipsec_suite.cpp
 //SOURCE          ts_ipsec_main4.cpp
 SOURCE          ts_ipsec_crypto.cpp
 SOURCE          ts_ipsec_polapi.cpp
-SOURCE          ts_ipsec_vpnapi.cpp
+//SOURCE          ts_ipsec_vpnapi.cpp
 SOURCE          ts_ipsec_rconn.cpp
 SOURCE			Connectiontester.cpp
 SOURCE			Connectionutils.cpp
@@ -54,7 +54,7 @@ LIBRARY         efsrv.lib
 LIBRARY	        integrationtestutils.lib
 //LIBRARY         ipsecapi.lib
 LIBRARY         ipsecpolapi.lib
-LIBRARY         vpnapi.lib
+//LIBRARY         vpnapi.lib
 LIBRARY         charconv.lib
 LIBRARY         esock.lib
 LIBRARY         commdb.lib

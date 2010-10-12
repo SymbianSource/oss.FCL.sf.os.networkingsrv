@@ -103,7 +103,7 @@ void CTestSuiteIpsec::InitialiseL( void )
 	AddThisTestStepL( new (ELeave) CIpsecPolTest_2(iScheduler) );
 
 	// Section 6 - vpnapi tests
-	AddThisTestStepL( new (ELeave) CIpsecVpnTest_1(iScheduler) );
+	//AddThisTestStepL( new (ELeave) CIpsecVpnTest_1(iScheduler) );
 
 	// Section 7 - Ipsec Connection tests
 	AddThisTestStepL( new (ELeave) CIpsecConnTest_1(iScheduler) );

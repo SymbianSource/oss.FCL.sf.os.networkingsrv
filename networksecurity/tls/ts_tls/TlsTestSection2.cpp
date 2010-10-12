@@ -48,9 +48,6 @@ using namespace CommsDat;
 #include <securesocket_internal.h>
 #endif
 
-GLREF_C void CommInitL();
-
-
 CTlsTestSection2_1::CTlsTestSection2_1() :
 	iCommDbModified(EFalse)
 /** 
@@ -138,12 +135,9 @@ TVerdict CTlsTestSection2_1::doTestStepL( )
 	CleanupStack::PushL( myActiveScheduler );
 	CActiveScheduler::Install( myActiveScheduler );
 
-	TRAPD(error, CommInitL()); // init needed comms libs
-	TESTEL(error == KErrNone, error);
-
 	// Connect the socket server
 	RSocketServ socketServ;
-	error = socketServ.Connect();
+	TInt error = socketServ.Connect();
 	TESTEL(error == KErrNone, error);
 	CleanupClosePushL(socketServ);
 

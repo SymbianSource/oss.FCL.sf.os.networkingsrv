@@ -102,56 +102,7 @@
     </layer>
 	<layer name="api_test_layer">
       <module name="networkingsrv_test">
-        <unit unitID="test50" mrp="" bldFile="sf\os\networkingsrv\group" name="test50" />
-		<unit unitID="test1" mrp="" bldFile="sf\os\commsfw\commsconfig\commsdatabaseshim\group" name="test1" />
-		<unit unitID="test2" mrp="" bldFile="sf\os\commsfw\commsfwtools\preparedefaultcommsdatabase\group" name="test2" />
-		<unit unitID="test3" mrp="" bldFile="sf\os\commsfw\commsfwtools\preparedefaultcommsdatabase\defaultcommdb\group" name="test3" />
-		<unit unitID="test4" mrp="" bldFile="sf\os\commsfw\commsfwtools\preparedefaultcommsdatabase\installdefaultcommdb\group" name="test4" />
-		<unit unitID="test5" mrp="" bldFile="sf\os\commsfw\commsfwsupport\commselements\commsfw\group" name="test5" />
-		<unit unitID="test6" mrp="" bldFile="sf\os\commsfw\commsfwsupport\commselements\group" name="test6" />
-		<unit unitID="test7" mrp="" bldFile="sf\os\commsfw\commsfwtools\commstools\group" name="test7" />
-		<unit unitID="test8" mrp="" bldFile="sf\os\commsfw\commsfwtools\commstools\messageinterceptregister\group" name="test8" />
-		<unit unitID="test9" mrp="" bldFile="sf\os\persistentdata\loggingservices\filelogger\group" name="test9" />
-		<unit unitID="test10" mrp="" bldFile="sf\os\commsfw\commsfwutils\commsbufs\group" name="test10" />
-		<unit unitID="test11" mrp="" bldFile="sf\os\networkingsrv\linklayercontrol\networkinterfacemgr\group" name="test11" />
-		<unit unitID="test12" mrp="" bldFile="sf\os\commsfw\commsprocess\commsrootserverconfig\group" name="test12" />
-		<unit unitID="test13" mrp="" bldFile="sf\os\networkingsrv\networkingtestandutils\ipv6to4tunnel\group" name="test13" />
-		<unit unitID="test14" mrp="" bldFile="sf\os\cellularsrv\basebandabstraction\basebandchanneladaptor\group" name="test14" />
-		<unit unitID="test15" mrp="" bldFile="sf\os\cellularsrv\basebandadaptationplugins\basebandchanneladaptorforc32\group" name="test15" />
-		<unit unitID="test16" mrp="" bldFile="sf\os\cellularsrv\telephonyprotocols\umtsgprsscpr\group" name="test16" />
-		<unit unitID="test17" mrp="" bldFile="sf\os\cellularsrv\smsprotocols\smsstack\group" name="test17" />
-		<unit unitID="test18" mrp="" bldFile="sf\os\cellularsrv\telephonyprotocols\csdagt\group" name="test18" />
-		<unit unitID="test19" mrp="" bldFile="sf\os\cellularsrv\telephonyserver\etelpacketdata\group" name="test19" />
-		<unit unitID="test20" mrp="" bldFile="sf\os\commsfw\datacommsserver\networkingdialogapi\group" name="test20" />
-		<unit unitID="test21" mrp="" bldFile="sf\os\commsfw\datacommsserver\networkingdialogapi\default" name="test21" />
-		<unit unitID="test22" mrp="" bldFile="sf\os\commsfw\datacommsserver\esockserver\group" name="test22" />
-		<unit unitID="test23" mrp="" bldFile="sf\os\cellularsrv\telephonyprotocols\gprsumtsqosprt\group" name="test23" />
-		<unit unitID="test24" mrp="" bldFile="sf\os\commsfw\datacommsserver\networkcontroller\group" name="test24" />
-		<unit unitID="test25" mrp="" bldFile="sf\os\cellularsrv\telephonyprotocols\pdplayer\group" name="test25" />
-		<unit unitID="test26" mrp="" bldFile="sf\os\cellularsrv\telephonyprotocols\pdplayer\umts\test\group" name="test26" />
-		<unit unitID="test27" mrp="" bldFile="sf\os\cellularsrv\telephonyprotocols\psdagt\group" name="test27" />
-		<unit unitID="test28" mrp="" bldFile="sf\os\cellularsrv\telephonyprotocols\qosextnapi\group" name="test28" />
-		<unit unitID="test29" mrp="" bldFile="sf\os\cellularsrv\telephonyprotocols\qos3gppcpr\group" name="test29" />
-		<unit unitID="test30" mrp="" bldFile="sf\os\cellularsrv\telephonyprotocols\rawipnif\group" name="test30" />
-		<unit unitID="test31" mrp="" bldFile="sf\mw\netprotocols\applayerprotocols\telnetengine\group" name="test31" />
-		<unit unitID="test32" mrp="" bldFile="sf\os\networkingsrv\linklayerprotocols\tunnelnif\group" name="test31" />
-		<unit unitID="test33" mrp="" bldFile="sf\os\cellularsrv\telephonyprotocols\gprsumtsqosinterface\group" name="test33" />
-		<unit unitID="test34" mrp="" bldFile="sf\os\commsfw\serialserver\packetloopbackcsy\group" name="test34" />
-		<unit unitID="test35" mrp="" bldFile="sf\os\commsfw\serialserver\c32serialserver\group" name="test35" />
-		<unit unitID="test36" mrp="" bldFile="sf\os\commsfw\serialserver\c32serialserverconfig" name="test36" />
-		<unit unitID="test37" mrp="" bldFile="sf\mw\netprotocols\wapstack\wapmessageapi\group" name="test37" />
-		<unit unitID="test38" mrp="" bldFile="sf\os\security\cryptomgmtlibs\cryptotokenfw\group" name="test38" />
-		<unit unitID="test39" mrp="" bldFile="sf\os\cellularsrv\telephonyprotocols\pdplayer\umts\test\Te_UmtsGprsSCPR\group" name="test39" />
-		<unit unitID="test40" mrp="" bldFile="sf\os\cellularsrv\telephonyprotocols\pdplayer\umts\test\te_mbms\group" name="test40" />
-		<unit unitID="test41" mrp="" bldFile="sf\os\cellularsrv\telephonyprotocols\pdplayer\umts\test\te_spud\group" name="test41" />
-		<unit unitID="test42" mrp="" bldFile="sf\mw\netprotocols\applayerprotocols\ftpengine\group" name="test42" />
-		<unit unitID="test43" mrp="" bldFile="sf\mw\netprotocols\applayerprotocols\ftpengine\group" name="test43" />
-		<unit unitID="test44" mrp="" bldFile="sf\os\commsfw\commsfwtools\commstools\messageinterceptregister\group" name="test44" />
-		<unit unitID="test45" mrp="" bldFile="sf\os\cellularsrv\telephonyprotocols\pdplayer\umts\test\Te_UmtsGprsSCPR\group" name="test45" />
-		<unit unitID="test46" mrp="" bldFile="sf\os\commsfw\datacommsserver\networkingdialogapi\agentnotifier\group" name="test46" />
-		<unit unitID="test47" mrp="" bldFile="sf\os\cellularsrv\telephonyprotocols\pdplayer\umts\test\te_mbms\group" name="test47" />
-		<unit unitID="test48" mrp="" bldFile="sf\os\security\authorisation\userpromptutils\group" name="test48" />
-<!--		<unit unitID="test49" mrp="" bldFile="sf\os\commsfw\commsfwtools\preparedefaultcommsdatabase\Tools\ced\te_ced\group" name="test49" />	 -->
+		<unit unitID="test50" mrp="" bldFile="sf\os\networkingsrv\group" name="test50" />
       </module>
     </layer>
   </systemModel>
