@@ -106,26 +106,21 @@ CMetaConnectionProviderBase* AIpProtoSelectorBase::FindOrCreateProviderL(TUint a
 	if (!(iSelectionPrefs.Scope()&TSelectionPrefs::ESelectFromExisting))
 		{
 		CIPProtoMetaConnectionProvider *ipprotomcpr = static_cast<CIPProtoMetaConnectionProvider *>(provider);
-
+		if (ipprotomcpr->iIapLocked)
+			User::Leave(KErrPermissionDenied);
 
 		TSecureId sid;
 		ASubSessionPlatsecApiExt platsecext(iSelectionPrefs.SubSessionUniqueId());
 		if (platsecext.SecureId(sid) == KErrNone)
 			{
-            if (ipprotomcpr->iIapLocked && sid.iId!=ipprotomcpr->iLockedIapsid)
-                User::Leave(KErrPermissionDenied);
+			CCommsDatIapView* iapView = CCommsDatIapView::NewLC(aIapToFind);
 
-            CCommsDatIapView* iapView = CCommsDatIapView::NewLC(aIapToFind);
-                
-            TUint32 iapsid;
-            iapView->GetIntL(KCDTIdIAPAppSid, iapsid);
-                    
-            if (sid.iId == iapsid && iapsid != 0)
-            {
-                ipprotomcpr->iIapLocked = ETrue;
-                ipprotomcpr->iLockedIapsid=iapsid;
-            }
-            CleanupStack::PopAndDestroy(iapView);
+			TUint32 iapsid;
+			iapView->GetIntL(KCDTIdIAPAppSid, iapsid);
+
+			if (sid.iId == iapsid && iapsid != 0)
+				ipprotomcpr->iIapLocked = ETrue;
+			CleanupStack::PopAndDestroy(iapView);
 			}
 		}
 	provider->IncrementBlockingDestroy();

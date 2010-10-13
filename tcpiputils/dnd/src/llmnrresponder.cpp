@@ -524,7 +524,7 @@ TInt CDndLlmnrResponder::DoUpdate(CLlmnrEntry &aEntry)
 	upd.iDstAddr.SetScope(aEntry.iZone[upd.iDstAddr.Ip6Address().Scope()-1]);
 	upd.iDstAddr.SetPort(iControl.GetConfig().iLlmnrPort);
 	upd.iRepeat = 1 + iControl.GetConfig().iLlmnrRetries;
-	Queue(upd);
+	Queue(upd, NULL);
 	return KErrNone;
 	}
 
@@ -628,7 +628,7 @@ void CDndLlmnrResponder::Query(const TMsgBuf &aBuf, const TInetAddr &aServer, co
 	resp.iRCode = EDnsRcode_NOERROR;
 	resp.iDstAddr = aServer;
 	resp.iRepeat = 0;
-	Queue(resp, aSocket, hdr.ID());
+	Queue(resp, aSocket, NULL, hdr.ID());
 	}
 
 
@@ -776,7 +776,7 @@ void TLlmnrMsgData::Timeout(const TTime & /*aNow*/)
 		if (iRepeat > 0)
 			{
 			LOG(iParent->LogPrint(_L("\tLLMNR Resend query: "), *iLlmnrEntry));
-			iParent->ReSend(*this);
+			iParent->ReSend(*this, NULL);
 			}
 		else
 			{

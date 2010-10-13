@@ -17,18 +17,10 @@ PRJ_EXPORTS
 
 PRJ_TESTEXPORTS
 
-
-#ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
-../configs/te_Sblp_Mesh_pdpcpr.cfg	/epoc32/release/wins/udeb/z/testdata/configs/te_sblp_mesh.cfg
-../configs/te_Sblp_Mesh_pdpcpr.cfg	/epoc32/release/wins/urel/z/testdata/configs/te_sblp_mesh.cfg
-../configs/te_Sblp_Mesh_pdpcpr.cfg	/epoc32/release/winscw/udeb/z/testdata/configs/te_sblp_mesh.cfg
-../configs/te_Sblp_Mesh_pdpcpr.cfg	/epoc32/release/winscw/urel/z/testdata/configs/te_sblp_mesh.cfg
-#else
 ../configs/te_Sblp_Mesh.cfg	/epoc32/release/wins/udeb/z/testdata/configs/te_sblp_mesh.cfg
 ../configs/te_Sblp_Mesh.cfg	/epoc32/release/wins/urel/z/testdata/configs/te_sblp_mesh.cfg
 ../configs/te_Sblp_Mesh.cfg	/epoc32/release/winscw/udeb/z/testdata/configs/te_sblp_mesh.cfg
 ../configs/te_Sblp_Mesh.cfg	/epoc32/release/winscw/urel/z/testdata/configs/te_sblp_mesh.cfg
-#endif //#ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
 
 ../configs/te_SblpSuite_simtsy.txt	/epoc32/release/wins/udeb/z/testdata/configs/te_sblpsuite_simtsy.txt
 ../configs/te_SblpSuite_simtsy.txt	/epoc32/release/wins/urel/z/testdata/configs/te_sblpsuite_simtsy.txt

@@ -148,7 +148,7 @@ Begins the disconnection of the Agent
 void CAgentAdapter::DisconnectAgent(TInt aReason)
     {
     if (iAgentState == EConnecting)
-        {    
+        {
         iAgent->CancelConnect();
         }
     else if (iAgentState == EReconnecting)

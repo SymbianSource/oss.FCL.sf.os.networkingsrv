@@ -23,7 +23,7 @@
 
 #include <comms-infras/corescprstates.h>
 #include <comms-infras/corescpractivities.h>
-#include "IPProtoCprStates.h"
+#include "ipprotocprstates.h"
 
 #include "ipprotodeftscpr.h"
 #include "ipprotodeftscprstates.h"
@@ -203,7 +203,6 @@ CIPProtoDeftSubConnectionProvider::~CIPProtoDeftSubConnectionProvider()
        }
 	if (iControl)
 		iControl->AsyncDelete();
-	
 	//incase registration is successful and Network is configured. 
 	if (iNotify)
 	    {

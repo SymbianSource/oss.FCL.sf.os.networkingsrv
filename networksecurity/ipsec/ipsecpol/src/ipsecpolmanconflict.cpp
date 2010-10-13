@@ -106,8 +106,6 @@ CIPSecPolicyManagerHandler::CalculatePolicyBypassDropMode(
 TBool
 CIPSecPolicyManagerHandler::CalculateCombinedPolicyBypassDropMode()
     {
-    LOG(Log::Printf(_L("CalculateCombinedPolicyBypassDropMode\n")));
-
     // Combined mode is 'bypass_everything_else' by default
     TInt combinedMode(KInboundBypass | KOutboundBypass);
 
@@ -149,7 +147,6 @@ CIPSecPolicyManagerHandler::CalculateCombinedPolicyBypassDropMode()
     // the combined policy into IPsec protocol component
     TBool changed = (iBypassOrDropMode != combinedMode);
     iBypassOrDropMode = combinedMode;
-    LOG(Log::Printf(_L("combined policy mode %d\n"), iBypassOrDropMode));	
     return(changed);
     }
 
@@ -330,13 +327,6 @@ CIPSecPolicyManagerHandler::ConflictTestForPortsAndProtocolL()
                 {
                 continue;
                 }
-            //UMA support REQ 417-40027  
-            //loading bypass policy with activated drop_mode policy. Above mentioned is only one way traffic.
-            if ((iIPSecGANSupported) && (iFunction & KAddDhcpBypassSelectors) 
-                && (remotePort == 68 || localPort == 67))
-                {
-                continue;
-                }	
 
             // Iterate to next selector if IKE bypass is requested and selector 
             // contains ports utilized with IKE
@@ -567,20 +557,7 @@ CIPSecPolicyManagerHandler::CompareSelectorsL(CPolicySelector* aPolicySelector)
                                     aPolicySelector->iRemoteMask.Address(),
                                     ps->iRemote.Address(),
                                     ps->iRemoteMask.Address());
-        //UMA support
-       TBool flag_exception = EFalse;
-       if( iIPSecGANSupported )
-           {
-           flag_exception = CheckException();
-           LOG(Log::Printf(_L("::CompareSelectorsL, exception policy is = %d\n"), flag_exception));
-           //Not performing overlapping because UMA loads with any to any selector. Now if any to any will result in 
-           //overlapping as 0.0.0.0 0.0.0.0 will encrypt every packet, which dont leads exceptions and overlapping as concern
-           if(flag_exception ||iCurrentException )
-               {
-               continue;
-               }
-           }
-									
+
         if (overlappingOccurs)
             {
             err = ESelectorConflict;

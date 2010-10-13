@@ -42,18 +42,10 @@ PRJ_TESTEXPORTS
 ../scripts/CIT_P635_Setup_QosPolicies2.script z:/testdata/scripts/cit_p635_setup_qospolicies2.script
 ../scripts/Restore_QosPolicies.script z:/testdata/scripts/restore_qospolicies.script
 #ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
-
-#ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
-../configs/te_dedicatedsignalling1ryctx_pdpcpr.cfg z:/testdata/configs/te_dedicatedsignalling1ryctx.cfg
-../configs/te_dedicatedsignalling1ryctx_changedsid_pdpcpr.cfg z:/testdata/configs/te_dedicatedsignalling1ryctx_changedsid.cfg
-../configs/te_dedicatedsignalling1ryctx_imssi_pdpcpr.cfg z:/testdata/configs/te_dedicatedsignalling1ryctx_imssi.cfg
-../configs/te_dedicatedsignalling1ryctx_nosid_pdpcpr.cfg z:/testdata/configs/te_dedicatedsignalling1ryctx_nosid.cfg
-#else
 ../configs/te_dedicatedsignalling1ryctx.cfg z:/testdata/configs/te_dedicatedsignalling1ryctx.cfg
 ../configs/te_dedicatedsignalling1ryctx_changedsid.cfg z:/testdata/configs/te_dedicatedsignalling1ryctx_changedsid.cfg
 ../configs/te_dedicatedsignalling1ryctx_imssi.cfg z:/testdata/configs/te_dedicatedsignalling1ryctx_imssi.cfg
 ../configs/te_dedicatedsignalling1ryctx_nosid.cfg z:/testdata/configs/te_dedicatedsignalling1ryctx_nosid.cfg
-#endif //#ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
 
 ../scripts/te_dedicatedsignalling1ryctx_post401.script z:/testdata/scripts/te_dedicatedsignalling1ryctx.script
 

@@ -14,7 +14,7 @@ DefaultContextparamGPRS= 3, SYMBIAN EMPLOYEE INTRANET, A WAP PORTAL, 2, 1, 1, 1,
 # ContextConfigGPRS = <TProtocolType>, <TGSNAddress>, <TProtocolAddress>, <PdpDataCompression>, <TAnonymousAccess>, <TUseEdge>
 # ProtocolConfigOption = <Authentication Protocol>, <Username>, <Password>, <Challenge>, 
 # <Response>, <PrimaryDNS>, <SecondaryDNS>, <TUint iId>
-SetContextConfigGPRS = 0,orangeinternet,,0,2,0,1,web,web,,,192.168.20.2,192.168.10.2,1,0
+SetContextConfigGPRS= 0,orangeinternet,,0, 2, 0, 0,web,web,,,192.168.20.2,192.168.10.2,0,0
 
 
 #SetContextConfigR5= <TProtocolType>, <TGSNAddress>, <TProtocolAddress>, <TUseEdge>, <Authentication Protocol>, <Username>, <Password>, <Challenge>,
@@ -167,11 +167,11 @@ CommSetup= PKTLOOPBACK.CSY, PKTLOOPBACK::504, 18, 0, SECONDARY1
 #NotifyContextStatusChange = SECONDARY1, 0, 5
 
 #Umts
-NetworkMode= 5,6
-DynamicCaps= 5,1
+NetworkMode= 2,6
+DynamicCaps= 2,1
 
 #Gprs
-NetworkMode= 10,2
-DynamicCaps= 10,1  
+NetworkMode= 12,2
+DynamicCaps= 2,1  
 # DynamicCaps= <Duration>, <DynamicCaps>
 # Note: <DynamicCaps> is a bitmap of RPacketService::TDynamicCaps flags. 

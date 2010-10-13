@@ -26,7 +26,7 @@ class CTestSuiteCsdAgt : public CTestSuite
 		public:
 			void InitialiseL(void);
 			CTestSuiteCsdAgt::~CTestSuiteCsdAgt() {};		  	
-		    TPtrC GetVersion(void);
+		  TPtrC GetVersion(void);
 		private:		  		
 	};
 	

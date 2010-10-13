@@ -1,4 +1,4 @@
-// Copyright (c) 2006-2010 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -54,9 +54,6 @@ OS_LAYER_ESTLIB_SYSTEMINCLUDE
 
 LIBRARY         euser.lib efsrv.lib
 LIBRARY         ipsecpolparser.lib esock.lib insock.lib
-LIBRARY         commdb.lib
-LIBRARY         commsdat.lib
-LIBRARY		featdiscovery.lib
 
 VENDORID 0x70000001
 CAPABILITY  ProtServ NetworkControl

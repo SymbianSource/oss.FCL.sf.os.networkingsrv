@@ -88,38 +88,48 @@ D'tor
 */
 EXPORT_C CAgentSubConnectionProvider::~CAgentSubConnectionProvider()
     {
+	//check for provisioning info
 	CleanupProvisioningInfo();
-    LOG_NODE_DESTROY(KAgentSCprTag, CAgentSubConnectionProvider);
+    
 	}
 
 
 EXPORT_C void CAgentSubConnectionProvider::CleanupProvisioningInfo()
     {
-    if (iAuthenticateInProgress && AgentProvisionInfo()->AgentAdapter())
-	   {
-	   iAuthenticateInProgress = EFalse;
-	   AgentProvisionInfo()->AgentAdapter()->CancelAuthenticate();
-	   }
-
-	CAgentAdapter* agentAdapter(AgentProvisionInfo()->AgentAdapter());
-	const_cast<CAgentProvisionInfo*>(AgentProvisionInfo())->SetAgentAdapter(NULL);
-	delete agentAdapter;
-
-	// Remove ourselves from the notification handler, or delete it entirely if we own it
-	CAgentNotificationHandler* handler = AgentProvisionInfo()->AgentNotificationHandler();
-	if (handler)
-	    {
-	    if (iScprOwnedNotificationHandler)
-	        {
-	        const_cast<CAgentProvisionInfo*>(AgentProvisionInfo())->SetAgentNotificationHandler(NULL);
-	        delete handler;
-	        }
-        else
+    //The case for constructL failure is not handled here. Trivial but very important change. If node has 
+    //not received any Provision config message, then there is no point, cleaning it up. Case ID for this is ou1cimx1#508527
+    const CAgentProvisionInfo* agentProvisionInfo = AgentProvisionInfo();
+    
+    if(agentProvisionInfo)
+        {
+        if (iAuthenticateInProgress && AgentProvisionInfo()->AgentAdapter())
+           {
+           iAuthenticateInProgress = EFalse;
+           AgentProvisionInfo()->AgentAdapter()->CancelAuthenticate();
+           }
+    
+        CAgentAdapter* agentAdapter(AgentProvisionInfo()->AgentAdapter());
+        const_cast<CAgentProvisionInfo*>(AgentProvisionInfo())->SetAgentAdapter(NULL);
+        delete agentAdapter;
+    
+        // Remove ourselves from the notification handler, or delete it entirely if we own it
+        CAgentNotificationHandler* handler = AgentProvisionInfo()->AgentNotificationHandler();
+        if (handler)
             {
-            handler->Initialise(NULL);
+            if (iScprOwnedNotificationHandler)
+                {
+                const_cast<CAgentProvisionInfo*>(AgentProvisionInfo())->SetAgentNotificationHandler(NULL);
+                delete handler;
+                }
+            else
+                {
+                handler->Initialise(NULL);
+                }
             }
-	    }
-    }
+        //log node destruction, destroy in the case of perfect construction.
+        LOG_NODE_DESTROY(KAgentSCprTag, CAgentSubConnectionProvider);
+        }
+     }
 
 /**
 Mesh machine message entry point
@@ -156,7 +166,7 @@ transition.
 EXPORT_C const CAgentProvisionInfo* CAgentSubConnectionProvider::AgentProvisionInfo() const
     {
     const CAgentProvisionInfo* agentProvisionInfo = static_cast<const CAgentProvisionInfo*>(AccessPointConfig().FindExtension(CAgentProvisionInfo::TypeId()));
-	__ASSERT_DEBUG(agentProvisionInfo, User::Panic(KSpecAssert_NifManAgtPrCgnts, 1));
+	//In case of agent constructL failure there will not be any provision config, thus return NULL.
     return agentProvisionInfo;
     }
 

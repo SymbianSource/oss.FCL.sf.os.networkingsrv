@@ -60,7 +60,7 @@ protected:
  	handle when the EXPLICIT_SOCKET_BINDING option and NON_SEAMLESS_
 	BEARER mobility is enabled.
 	*/
-	void ActivateSocketL(TUint aNetworkId=0);
+	CDnsSocketWriter * ActivateSocketL(TUint aNetworkId=0);
 
 	/**
 	Open and activate the UDP socket for DNS traffic (unless already done).
@@ -87,7 +87,7 @@ protected:
 	@param aRequest to be queued
 	@param aId of the request, if >= 0. If < 0, then a new random ID is generated
 	*/
-	void Queue(TDnsRequest &aRequest, const TInt aId = -1);
+	void Queue(TDnsRequest &aRequest, CDnsSocketWriter * aWriter, const TInt aId = -1);
 	/**
 	(Re)Queue the request for processing.
 	
@@ -99,7 +99,7 @@ protected:
 		@li KErrNone, if queued successfully,
 		@li KErrNotFound, if the socket does not exist (not queued)
 	*/
-	TInt Queue(TDnsRequest &aRequest, const RSocket &aSocket, const TInt aId = -1);
+	TInt Queue(TDnsRequest &aRequest, const RSocket &aSocket, CDnsSocketWriter * aWriter, const TInt aId = -1);
 	/**
 	(Re)Queue the request for processing using connected socket (TCP)
 	
@@ -110,20 +110,16 @@ protected:
 	
 	@return KErrNone, if queued successfully, or error code if failed.
 	*/
-	TInt Queue(TDnsRequest &aRequest, const TInetAddr &aServer, const TInt aId = -1, const TInt aTTL = -1);
+	TInt Queue(TDnsRequest &aRequest, const TInetAddr &aServer, CDnsSocketWriter * aWriter, const TInt aId = -1, const TInt aTTL = -1);
 	/**
 	Reque the request for a resend with same ID (if was queued).
 	
 	If the request is not already queued, action defaults to
 	normal Queue().
 	
-	Exceptionally, the request assigns new ID when an incomplete query name
-	is iterated to apply multiple domain suffices on the interface being used for sending requests
-	
 	@param aRequest to be queued
-	@param aRetryWithSuffix	flag set to identify retry requests on incomplete query names. Defaulted to FALSE
 	*/
-	void ReSend(TDnsRequest &aRequest, TBool aRetryWithSuffix = EFalse);
+	void ReSend(TDnsRequest &aRequest, CDnsSocketWriter * aWriter);
 
 	/**
 	Received a Query or unmatched Reply packet

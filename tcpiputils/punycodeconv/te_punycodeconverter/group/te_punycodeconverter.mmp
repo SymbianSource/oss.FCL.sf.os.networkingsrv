@@ -23,7 +23,7 @@
 TARGET          te_punycodeconverter.exe
 TARGETTYPE      exe
 
-SOURCEPATH      ../src
+SOURCEPATH      ..\src
 SOURCE		te_punycodeconvertertestserver.cpp te_punycodeconvertertestblock.cpp te_punycodeconvertertestwrapper.cpp
 
 #ifdef SYMBIAN_OLD_EXPORT_LOCATION
@@ -31,10 +31,10 @@ SYSTEMINCLUDE   \epoc32\include
 SYSTEMINCLUDE   \epoc32\include\test
 #else
 OS_LAYER_SYSTEMINCLUDE_SYMBIAN
-SYSTEMINCLUDE   /epoc32/include/platform/test
+SYSTEMINCLUDE   \epoc32\include\platform\test
 #endif
 
-USERINCLUDE     ../inc
+USERINCLUDE     ..\inc
 
 LIBRARY punycodeconverter.lib
 LIBRARY euser.lib 

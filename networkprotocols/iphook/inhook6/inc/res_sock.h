@@ -119,7 +119,6 @@ public:
 	TUint16 iSession;	//< The session ID.
 	TInt iNext;			//< Next indicator: 0, 1, 2, ... (query), or the result (on reply)
 	TUint32 iId;		//< Address domain Id
-	TInt iFlowRequestType;	//< 0 for IMPLICIT; 1 for SUBCONNECTION EXPLICIT; 2 for CONNECTION EXPLICIT
 	};
 
 // Need write access to members, and just for this, need to derive all

@@ -19,12 +19,9 @@
 #include <securitydefsconst.h>
 #include <x520ava.h>
 #include <asn1dec.h>
-#include <featdiscovery.h>
-#include <featureuids.h>
 
 #include "tlsprovider.h"
 #include "cryptostrength.h"
-
 
 
 //
@@ -140,7 +137,7 @@ CTlsCryptoAttributes* CTlsCryptoAttributes::NewL()
 	CTlsCryptoAttributes* tPtr = new (ELeave)CTlsCryptoAttributes;
 	CleanupStack::PushL(tPtr);
 	tPtr->iPublicKeyParams = new (ELeave)CTLSPublicKeyParams;
-	CleanupStack::Pop(tPtr);
+	CleanupStack::Pop();
 	return tPtr;
 	}
 
@@ -1077,15 +1074,7 @@ void CTlsProviderImpl::RunL()
 			}
 		else
 			{
-			TBool allowUntrustedCertificates = EFalse;
-			allowUntrustedCertificates = CFeatureDiscovery::IsFeatureSupportedL(NFeature::KFeatureIdFfHttpAllowUntrustedCertificates);
-			
-			if ( allowUntrustedCertificates && iTlsCryptoAttributes && ETTLSDialogModeAllowAutomatic == iTlsCryptoAttributes->iDialogMode )
-				{        
-				iCurrentState = iOriginalState = ENullState;
-				User::RequestComplete(iOriginalRequestStatus,KErrNone); 
-				}
-			else if((allowUntrustedCertificates && iTlsCryptoAttributes && ETTLSDialogModeUnattended == iTlsCryptoAttributes->iDialogMode ) || (iTlsCryptoAttributes && iTlsCryptoAttributes->iDialogNonAttendedMode))
+			if(iTlsCryptoAttributes && iTlsCryptoAttributes->iDialogNonAttendedMode)
 				{	
 				TLSPROV_LOG(_L("Server Certificate validation failed but in DialogNonAttended mode"))	
 				TInt err(0);
@@ -1317,10 +1306,9 @@ void CTlsProviderImpl::DoCancel()
 	
 	case EGetSessionInterface:
 		{
-		if (iPtrTokenSearch)
-		    iPtrTokenSearch->CancelRequest();
-		}
+		iPtrTokenSearch->CancelRequest();
 		break;
+		}
 	case EGetCiphers:
 		{
 		if(iListAllTokensAndTypes[iCurrentTokentype].iProviderInterface)
@@ -1372,8 +1360,7 @@ void CTlsProviderImpl::DoCancel()
 #ifdef _USESECDLGSV_
 		iDialogServ.Cancel();
 #else
-		if (iSecurityDialog)
-		    iSecurityDialog->Cancel();
+		iSecurityDialog->Cancel();
 #endif
 		}
 		break;

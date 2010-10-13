@@ -23,14 +23,14 @@
 TARGET          te_naptunittest.exe
 TARGETTYPE      exe
 
-SOURCEPATH      ../src
+SOURCEPATH      ..\src
 SOURCE		te_naptunittesttestserver.cpp te_naptunittesttestblock.cpp te_naptunittesttestwrapper.cpp
 
 
 OS_LAYER_SYSTEMINCLUDE_SYMBIAN
 
-USERINCLUDE     ../../inc
-USERINCLUDE	../inc
+USERINCLUDE     ..\..\inc
+USERINCLUDE	..\inc
 
 LIBRARY euser.lib 
 LIBRARY esock.lib 

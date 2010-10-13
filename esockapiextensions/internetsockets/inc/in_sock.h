@@ -32,71 +32,6 @@
 #include <in_sock_internal.h>
 #endif
 
-// Constants and typedef's for domain suffix support on interface
-const TInt KMaxDomainSuffixLength = 254; // Leaving space for minimum 1 letter hostname + '.' on maximum hostname length
-const TInt KMaxHostNameLength = 256;
-typedef TBuf<KMaxDomainSuffixLength> TSuffixName;
-typedef RArray<TSuffixName> RInetSuffixList;
-
-// Enumeration on type of operation done on the interface
-// for the domain suffix using RSocket::SetOpt
-enum TSoInetDomainSuffixFunction
-	{
-	EInetFunctionUndefined,
-	EInetAddSuffix,
-	EInetDeleteSuffix,
-	EInetDeleteAllSuffixes
-	};
-
-/**
-* Interface domain name structure
-* Used in TSoInetInterfaceInfoExtnDnsSuffix for adding/removing
-* Domain name suffices to an active interface using  RSocket::SetOpt
-*
-* @publishedAll
-* @released
-*/
-class TInetSuffix
-{
-private:
-	inline TInt AssignValue(const TDesC& aValue)
-		{
-        if (aValue.Length() > KMaxDomainSuffixLength)
-        	return KErrTooBig;
-		iSuffixName.Copy(aValue);
-		return KErrNone;
-		}
-
-public:
-	TInetSuffix() { iDomainSuffixFunction = EInetFunctionUndefined; }
-	
-	inline TInt Copy(const TDesC& aValue)
-		{
-		TInt err = AssignValue(aValue);
-       	if (err == KErrNone)
-       		iDomainSuffixFunction = EInetAddSuffix;
-       	return err;
-		}
-
-	inline TInt Delete(const TDesC& aValue)
-		{
-		TInt err = AssignValue(aValue);
-       	if (err == KErrNone)
-       		iDomainSuffixFunction = EInetDeleteSuffix;
-       	return err;
-		}
-		
-	inline void DeleteAll()
-		{
-		iDomainSuffixFunction = EInetDeleteAllSuffixes;
-		}
-		
-public:
-	TSuffixName iSuffixName;
-	TUint8 iDomainSuffixFunction;
-
-};
-
 /**
 * @name TCP/IP Protocol and address family
 *
@@ -804,42 +739,6 @@ const TUint KSoInetResetInterface = 0x216;
 const TUint KSoInetStartInterface = 0x217;
 
 /**
-* @name Interface control socket options
-*
-* Level: #KSolInetIfCtrl
-*
-* Enumerating & Configuring Domain suffix on an using TSoInetInterfaceInfoExtnDnsSuffix
-*/ 
-//@{
-/**
-* Begin enumeration of domain suffixes on an enumerated interface. 
-* 
-* This option should be set before enumerating domain suffices with #KSoInetNextDomainSuffix.
-* As a pre-condition, the enumeration should be initiated on an active enumeration of interface
-* 
-* This option is for use with RSocket::SetOpt() only.
-*/
-const TUint KSoInetEnumDomainSuffix = 0x218;
-
-/**
-* Return details of the next domain suffix in an enumeration started by setting the 
-* option #KSoInetEnumDomainSuffix.
-*
-* This option is for use with RSocket::GetOpt() only.
-* 
-* Option data type is TSoInetInterfaceInfoExtnDnsSuffix.
-*
-* @note
-*	If the interface has multiple domain suffices, then each domain name
-*	is returned as a separate instance of TSoInetInterfaceInfoExtnDnsSuffix
-*	(only domain suffix name is different each time).
-* @note
-*	If the interface has no domain suffix, then SetOpt call
-*	returns with error KErrNotFound
-*/
-const TUint KSoInetNextDomainSuffix = 0x219;
-
-/**
 * Trigger link local creation.
 *
 * Option data type is TSoInet6InterfaceInfo.
@@ -1159,27 +1058,7 @@ public:
 	*/
 	TUint iDoProxy:1;
 	};
-
-/**
-* Extension class for TSoInet6InterfaceInfo. Available in Symbian OS vtb92 and later.
-*
-* Optionally used with the following interface level #KSolInetIfCtrl options:
-* @li	#KSoInetConfigInterface
-* @li	#KSoInetChangeInterface
-* @li	#KSoInetEnumInterface
-*
-* Provides specialised fields for the interface object that generally
-* supplement extended behaviors for certain applications
-*
-* @publishedAll
-* @released
-*/
-class TSoInetInterfaceInfoExtnDnsSuffix : public TSoInet6InterfaceInfo
-    {
-public:
-    /** Interface domain suffix (if any). Used by DND for name resolution */
-    TInetSuffix iDomainSuffix;
-    };
+//@}
 
 /**
 * @name Interface query socket options
@@ -1292,12 +1171,6 @@ public:
 	*/
 	TInetScopeIds iZone;
 	};
-
-/*class TSoInetSupplIfQuery : public TSoInetIfQuery
-    {
-    TInetSuffixList iSuffixList;
-    };*/
-
 /**
 * Get information for the interface specified by the destination address (iDstAddr) 
 * field of the passed packaged TSoInetIfQuery.
@@ -1966,17 +1839,6 @@ const TUint KSoKeepInterfaceUp = 0x40a;
 * @since 7.0s
 */
 const TUint KSoNoSourceAddressSelect = 0x40b;
-
-/**
- * Store the port number on which application to the Hook listens to.
- * 
- * This port number will be used to be set as the destination address which
- * performing the UDP encapsulation from tunnel nif application to third party application.
- * The same port number if used to identify the packets orignated from the application towards
- * the Tunnel Nif.
- */
-const TUint KSoTunnelPort = 0x40c;
-
 /**
 * Retrieve last error information.
 * 

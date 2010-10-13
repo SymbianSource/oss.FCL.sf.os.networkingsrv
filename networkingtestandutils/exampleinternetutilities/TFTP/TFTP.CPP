@@ -17,7 +17,7 @@
 #include <c32comm.h>
 #include <e32base.h>
 #include <es_sock.h>
-#include <TFTPENG.H>
+#include <tftpeng.h>
 #include <nifman.h>
 
 // Device driver names

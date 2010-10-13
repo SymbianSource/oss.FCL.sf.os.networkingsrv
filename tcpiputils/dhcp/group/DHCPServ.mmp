@@ -78,4 +78,3 @@ LIBRARY			efsrv.lib
 CAPABILITY ProtServ NetworkServices NetworkControl ReadDeviceData WriteDeviceData
 
 SMPSAFE
-

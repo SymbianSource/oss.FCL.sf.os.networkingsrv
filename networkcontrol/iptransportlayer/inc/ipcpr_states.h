@@ -108,6 +108,9 @@ DECLARE_SMELEMENT_HEADER( TProcessSubConnDataTransferred, MeshMachine::TStateTra
 	virtual void DoL();
 DECLARE_SMELEMENT_FOOTER( TProcessSubConnDataTransferred)
 
+
+
+
 DECLARE_SMELEMENT_HEADER( TSendInitialSubConnectionOpenedEvent, MeshMachine::TStateTransition<TContext>, NetStateMachine::MStateTransition, TContext)
 	virtual void DoL();
 DECLARE_SMELEMENT_FOOTER( TSendInitialSubConnectionOpenedEvent)

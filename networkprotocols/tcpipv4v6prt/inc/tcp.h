@@ -519,9 +519,8 @@ private:
 	TInt			iLinger;
 	
 	//Introduce specifically for Browser usecase where in Normal shutdown is expected to close with in certain time.
-    //current structure is using secs. This Bit will enable calculation in Mircosecs.
-    TBool           iMicroSecCalcFlag;
-
+	//current structure is using secs. This Bit will enable calculation in Mircosecs.
+	TBool           iMicroSecCalcFlag;
 	// Window scaling factor for the send window, advertised by the other end.
 	TUint8			iSndWscale:4;
 

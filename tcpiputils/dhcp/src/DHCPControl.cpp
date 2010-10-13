@@ -94,10 +94,10 @@ void CDHCPControl::FindInterfaceNameL(const TConnectionInfo& aInfo, TInt aFamily
 	//forced to do this horrible stuff
 	RSocket socket;
 	User::LeaveIfError(socket.Open(iEsock, KAfInet, KSockDatagram, KProtocolInetUdp,iConnection));
-	CleanupClosePushL( socket );
 	// make socket invisible for interface counting
 	User::LeaveIfError(socket.SetOpt(KSoKeepInterfaceUp, KSolInetIp, 0));
 	
+	CleanupClosePushL( socket );
 	TPckgBuf<TSoInet6InterfaceInfo> info;
 	while ( err == KErrNotFound && iConnection.Control(KCOLProvider, KConnGetInterfaceName, name) == KErrNone )
 		{
@@ -164,10 +164,13 @@ TBool CDHCPControl::CompleteClientMessage(TInt aError, TInt aFunctionToCancel)
   *   If complete is performed, true is returned
   */
 	{
+	__CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L8("CDHCPControl[%08x]::CompleteClientMessage  Error %d. FunctionCancel %d"),this,aError,aFunctionToCancel));
+
 	if (iMessage &&
 		 !iMessage->IsNull() &&
 		  ( aFunctionToCancel == -1 || aFunctionToCancel == iMessage->Function() || EConfigDaemonDeregister == iMessage->Function() ) )
 		{
+		__CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L8("CDHCPControl[%08x]::CompleteClientMessage iMessage->Complete with Function %d"),this,iMessage->Function()));
 		iMessage->Complete(aError);
 		iMessage = NULL;
 		return ETrue;
@@ -180,7 +183,7 @@ TBool CDHCPControl::CompleteClientMessage(TInt aError, TInt aFunctionToCancel)
 void CDHCPControl::BindingFinishedL()
    {
    //cancel any pending timer
-	__CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L8("CDHCPControl::BindingFinishedL")));
+	__CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L8("CDHCPControl[%08x]::BindingFinishedL"),this));
 	iTimer->Cancel();
 	UpdateDns(iDhcpStateMachine->iHostName, iDhcpStateMachine->iDomainName);
 	iDhcpStateMachine->iStartedAquisitionAt.HomeTime(); //remember acquisition time
@@ -205,15 +208,17 @@ void CDHCPControl::BindingFinishedL()
  
 void CDHCPControl::ServiceAnyOutstandingIoctlL()
 	{
+    __CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L8("CDHCPControl[%08x]::ServiceAnyOutstandingIoctlL "),this));
 	if(iMessage && !iMessage->IsNull() && (iMessage->Function() == EConfigDaemonIoctl || iMessage->Function() == EConfigDaemonDeregister))
 		{
 		TInt err = KErrNone;
-		
+	    __CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L8("CDHCPControl[%08x]::ServiceAnyOutstandingIoctlL, iMessage complete %d, iState =%d"),this,iMessage->Function(), iState ));
 		// Run the request again, this time service it (because iMessage is set).  We need
 		// to check to make sure the IOCTL is not a renew which has caused a reinitialisation
 		// - we don't want to restart the IOCTL!.
 		if( ( ( iState != EInitInProgress ) && ( iState != EInformInProgress ) ) || !iInitStartedByRenew )
 			{
+            __CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L8("CDHCPControl[%08x]::ServiceAnyOutstandingIoctlL, iMessage.function = %d, iState= %d"), this, iMessage->Function(), iState));
 			TRAP(err,HandleClientRequestL(*iMessage));
 			}
 		iInitStartedByRenew = EFalse;
@@ -227,6 +232,7 @@ void CDHCPControl::ServiceAnyOutstandingServerIoctlL()
 	{
 	if(iMessage && !iMessage->IsNull() && iMessage->Function() == EConfigDaemonIoctl)
 		{
+        __CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L8("CDHCPControl[%08x]::ServiceAnyOutstandingServerIoctlL, iMessage.function = %d"), this, iMessage->Function()));
 		// run the request again, this time service it (because iMessage is set)
 		TRAPD(err,HandleClientRequestL(*iMessage));
 		CompleteServerIoctlMessage(err);
@@ -354,6 +360,7 @@ void CDHCPControl::HandleClientRequestL(const RMessage2& aMessage)
   * @internalTechnology
   */
 	{
+    __CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L8("CDHCPControl[%08x]::HandleClientRequestL,  aMessage.Handle %08x, aMessage.Function %d"), this, aMessage.Handle(), aMessage.Function()));
 	if (aMessage.Function() == EConfigDaemonDeregister)
 		{
 		iDhcpDaemonDeregister = ETrue;
@@ -723,7 +730,7 @@ void CDHCPControl::TaskCompleteL(TInt aError)
 	// cancel possibly working message sender & socket activity and delete current states
 	iDhcpStateMachine->Cancel();
 	__CFLOG_VAR((KLogSubSysDHCP, KLogCode, 
-		         _L8("CDHCPControl::TaskCompleteL (%d) with error = %d") ,
+		         _L8("CDHCPControl[%08x]::TaskCompleteL (%d) with error = %d") ,this,
 		         iState, aError));
 	if ( aError == KErrServerTerminated )
 		{
@@ -739,6 +746,8 @@ void CDHCPControl::TaskCompleteL(TInt aError)
 		case EInitInProgress:
 			if (KErrTimedOut == aError)
 				{
+			 __CFLOG_VAR((KLogSubSysDHCP, KLogCode, 
+			                 _L8("CDHCPControl[%08x]::TaskCompleteL EInitInProgress"), this));
 				// Listen for Link Local address.
 				// DHCP server is timed out so we unblock our client.
 				if (iDhcpConfigListener && iDhcpConfigListener->HaveLinkLocal())
@@ -841,6 +850,8 @@ void CDHCPControl::TaskCompleteL(TInt aError)
 			break;
 
 		case EReleaseInProgress:
+	           __CFLOG_VAR((KLogSubSysDHCP, KLogCode, 
+	                             _L8("CDHCPControl[%08x]::TaskCompleteL  EReleaseInProgress"), this));
 			if (! iDhcpDaemonDeregister)  
 				{
 				iDhcpStateMachine->RemoveConfiguredAddress();

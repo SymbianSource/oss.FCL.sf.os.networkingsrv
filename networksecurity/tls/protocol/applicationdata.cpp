@@ -35,7 +35,7 @@ CSendAppData* CSendAppData::NewL( CRecordComposer& aRecordComposer )
   	LOG(Log::Printf(_L("self %x - %x"), self, (TUint)self + sizeof( CSendAppData ));)
 	CleanupStack::PushL( self );
 	self->ConstructL( aRecordComposer );
-	CleanupStack::Pop(self);
+	CleanupStack::Pop();
 	return self;
 }
 
@@ -167,7 +167,7 @@ CRecvAppData* CRecvAppData::NewL( CTlsConnection& aTlsConnection )
   	LOG(Log::Printf(_L("self %x - %x"), self, (TUint)self + sizeof( CRecvAppData ));)
 	CleanupStack::PushL( self );
 	self->ConstructL( aTlsConnection );
-	CleanupStack::Pop(self);
+	CleanupStack::Pop();
 	return self;
 }
 

@@ -126,9 +126,3 @@ ESock::ACommsFactoryNodeId* CIPProtoConnectionProviderFactory::DoCreateObjectL(E
 
 	return provider;
     }
-
-
-
-
-
-

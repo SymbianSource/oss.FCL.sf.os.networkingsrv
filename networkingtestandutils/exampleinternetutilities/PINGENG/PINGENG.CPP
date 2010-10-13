@@ -13,7 +13,7 @@
 // Description:
 //
 
-#include <PINGENG.H>
+#include <pingeng.h>
 #include <e32hal.h>
 #include <icmp6_hdr.h>
 #include <in_chk.h>

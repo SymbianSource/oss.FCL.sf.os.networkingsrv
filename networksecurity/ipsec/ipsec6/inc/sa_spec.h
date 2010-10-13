@@ -51,10 +51,6 @@ const TUint KPolicyFilter_DROP = 0x10;
 // Final selector, do not look for "merge" selectors after this.
 const TUint KPolicyFilter_FINAL = 0x20;
 
-//Exception flag for policy filter. This flag will allow only exception scope traffic and drop rest
-//special usecase for UMA traffic.
-const TUint KPolicyFilter_Exception = 0x40;
-
 /**
 * Ports is present in selector.
 * The value indicates whether the content is actual port (1) or a packet

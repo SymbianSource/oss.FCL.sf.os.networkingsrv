@@ -15,7 +15,7 @@
 // 
 //
 
-TARGET		  te_dndserver.exe
+TARGET		  te_dndServer.exe
 TARGETTYPE	  exe
 UID		  0 0xED4DC1CD
 

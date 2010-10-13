@@ -88,14 +88,17 @@ void CDHCPSession::DoServiceL(const RMessage2& aMessage)
  * @leave KErrNotSupported or other leave code from ConfigureL, ControL or IoctlL
  */
 	{
-	__CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L8("CDHCPSession::ServiceL")));
+	__CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L8("CDHCPSession[%08x]::DoServiceL, &aMessage %08x, aMessage.sessionid [%08x],aMessage.Function %d, aMessage.Handle %08x"),this, &aMessage, aMessage.Session(),aMessage.Function(), aMessage.Handle()));
 
 	switch (aMessage.Function())
 		{
 		case EConfigDaemonDeregister:
 		if ( iDHCPIfs.Count())
 			{
-			iDHCPIfs[0]->HandleClientRequestL(aMessage);
+			__CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L8("CDHCPSession[%08x]::DoServiceL Count is true"),this));
+			ASSERT(iMessage.IsNull());
+            iMessage = aMessage;
+            iDHCPIfs[0]->HandleClientRequestL(iMessage);
 			}
 		else
 			{
@@ -104,6 +107,7 @@ void CDHCPSession::DoServiceL(const RMessage2& aMessage)
 		break;
 		case EConfigDaemonConfigure:
 			ASSERT(iMessage.IsNull());
+            __CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L8("CDHCPSession[%08x]::DoServiceL ::EConfigDaemonConfigure ConfigureL ; iMessage =%d"), this, iMessage.Function()));               
 			iMessage = aMessage;
 			ConfigureL(iMessage);
 			break;
@@ -117,6 +121,7 @@ void CDHCPSession::DoServiceL(const RMessage2& aMessage)
 			ControlL(aMessage);
 			break;
       	case EConfigDaemonCancel:
+            __CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L8("CDHCPSession[%08x]::ServiceL, Cancel"),this));
 			aMessage.Complete(KErrNone); //must be before the rest to avoid deadlock with ESOCK
 			for (TInt i=0 ; i < iDHCPIfs.Count() ; ++i)
 				{
@@ -169,7 +174,7 @@ void CDHCPSession::IoctlL(const RMessage2& aMessage)
  * @leave KErrNotReady, or leave code in HandleClientRequestL
  */
 	{
-	__CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L8("CDHCPSession::Ioctl")));
+	__CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L8("CDHCPSession[%08x]::Ioctl"),this));
 
 #ifdef __DHCP_HEAP_CHECK_CONTROL
     if(aMessage.Int1() & KDhcpMemDbgIoctl & ~KConnWriteUserDataBit)
@@ -290,7 +295,7 @@ void CDHCPSession::ConfigureL(const RMessage2& aMessage)
  * startup of object fails.
  */
 	{
-	__CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L8("CDHCPSession::Configure")));
+	__CFLOG_VAR((KLogSubSysDHCP, KLogCode, _L8("CDHCPSession[%08x]::Configure"),this));
 
 	if (iDHCPIfs.Count())
 		{

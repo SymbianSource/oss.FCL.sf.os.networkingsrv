@@ -109,20 +109,18 @@ implicit socket.
 DECLARE_DEFINE_CUSTOM_NODEACTIVITY(ECFActivityNoBearer, IpCprNoBearer, TCFControlProvider::TNoBearer, PRActivities::CNoBearer::NewL)
 	FIRST_NODEACTIVITY_ENTRY(CoreNetStates::TAwaitingNoBearer, PRActivities::CNoBearer::TNoTagOrBearerPresentBlockedByNoBearer)
 	NODEACTIVITY_ENTRY(KNoTag, CoreNetStates::TSendNoBearer, MeshMachine::TAwaitingMessageState<TCFControlProvider::TBearer>, MeshMachine::TNoTagOrErrorTag)
-      NODEACTIVITY_ENTRY(KNoTag, CoreNetStates::TStartServiceProviderRetry, CoreNetStates::TAwaitingStarted, MeshMachine::TNoTag)
-    
 
 	NODEACTIVITY_ENTRY(CoreNetStates::KBearerPresent, PRActivities::CNoBearer::TRequestCommsBinderRetry, CoreNetStates::TAwaitingBinderResponse, MeshMachine::TTag<CoreNetStates::KBearerPresent>)
 	NODEACTIVITY_ENTRY(CoreNetStates::KBearerPresent, CoreNetStates::TSendBindTo, CoreNetStates::TAwaitingBindToComplete, MeshMachine::TTag<CoreNetStates::KBearerPresent>)
-    THROUGH_NODEACTIVITY_ENTRY(CoreNetStates::KBearerPresent,CoreActivities::ABindingActivity::TSendBindToComplete, PRActivities::CNoBearer::TNoTagOrBearerPresentForAutostart) 
+	THROUGH_NODEACTIVITY_ENTRY(CoreNetStates::KBearerPresent,CoreActivities::ABindingActivity::TSendBindToComplete, MeshMachine::TNoTag) 
 
-	NODEACTIVITY_ENTRY(CoreNetStates::KBearerPresent, CoreNetStates::TStartServiceProviderRetry, CoreNetStates::TAwaitingStarted, MeshMachine::TNoTag)
+	NODEACTIVITY_ENTRY(KNoTag, CoreNetStates::TStartServiceProviderRetry, CoreNetStates::TAwaitingStarted, MeshMachine::TNoTag)
 	
 #ifdef SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW
 	//Request for bearer type from lower layer
 	NODEACTIVITY_ENTRY(KNoTag, IpCprStates::TInitialiseParamsAndSendToSelf, CoreNetStates::TAwaitingParamResponse, MeshMachine::TNoTag)
 	//MCPR is updated with the bearer type
-	THROUGH_NODEACTIVITY_ENTRY(KNoTag, IpCprStates::TUpdateProvisionConfigAtStartup, MeshMachine::TNoTag)
+	THROUGH_NODEACTIVITY_ENTRY(KNoTag, IpCprStates::TUpdateProvisionConfigAtStartup, TNoTag)
 	//Throughnode activity which will send the TCP receive window size to the data clients
 	THROUGH_NODEACTIVITY_ENTRY(KNoTag, IpCprStates::TSendTransportNotificationToDataClients, MeshMachine::TNoTag)
 #endif //SYMBIAN_ADAPTIVE_TCP_RECEIVE_WINDOW

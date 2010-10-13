@@ -27,9 +27,6 @@
       <component id="punycodeconv" name="Punycode Converter" introduced="^3" purpose="mandatory">
         <unit bldFile="tcpiputils/punycodeconv/group" mrp="tcpiputils/punycodeconv/group/networking_punycodeconverter.mrp"/>
       </component>
-      <component id="tun" name="Tun Hook" introduced="^3" purpose="mandatory">
-        <unit bldFile="tcpiputils/tun/group" mrp="tcpiputils/tun/group/networking_tun.mrp"/>
-      </component>
     </collection>
     <collection id="linklayercontrol" name="Link Layer Control" level="hw-if">
       <component id="nullagt" name="NULL AGT" introduced="7.0s" purpose="optional" class="plugin">
@@ -43,9 +40,6 @@
       </component>
       <component id="networkinterfacemgr" name="Network Interface Manager" introduced="ER5U" purpose="mandatory">
         <unit version="2" bldFile="linklayercontrol/networkinterfacemgr/group" mrp="linklayercontrol/networkinterfacemgr/group/comms-infras_nifman.mrp"/>
-      </component>
-      <component id="tundriveragt" name="Tun Driver Agent" introduced="^3" purpose="mandatory" class="plugin">
-        <unit bldFile="linklayercontrol/tundriveragt/group" mrp="linklayercontrol/tundriveragt/group/networking_tundriveragt.mrp"/>
       </component>
     </collection>
     <collection id="linklayerprotocols" name="Link Layer Protocols" level="hw-if">
@@ -66,9 +60,6 @@
       </component>
       <component id="tunnelnif" name="Tunnel NIF" introduced="7.0s" purpose="optional" class="plugin">
         <unit bldFile="linklayerprotocols/tunnelnif/group" mrp="linklayerprotocols/tunnelnif/group/networking_tunnelnif.mrp"/>
-      </component>
-      <component id="tundriver" name="Tun Driver" introduced="^3" purpose="mandatory" class="plugin">
-        <unit bldFile="linklayerprotocols/tundriver/group" mrp="linklayerprotocols/tundriver/group/networking_tundriver.mrp"/>
       </component>
     </collection>
     <collection id="linklayerutils" name="Link Layer Utilities" level="hw-if">

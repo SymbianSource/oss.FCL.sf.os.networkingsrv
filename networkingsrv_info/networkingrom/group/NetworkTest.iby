@@ -310,9 +310,4 @@ REM --- DNS Proxy test
 #include <t_dnsproxy.iby>
 #endif 
 
-#ifdef NW_TEST_ROM_1
-#include <te_tundriver.iby>
-#include <te_dnssuffix.iby>
-#endif
-
 #endif

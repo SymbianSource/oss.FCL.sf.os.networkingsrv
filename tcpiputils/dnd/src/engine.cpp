@@ -146,8 +146,6 @@ void CDndEngine::ConstructL()
 	//
 	// Setup Configuration Parameters
 	//
-	if (!FindVar(DND_INI_RESOLVER, DND_INI_SUFFIXSUPPORT, iParams.iSuffixSupportEnabled))
-	    iParams.iSuffixSupportEnabled = TRUE;
 	iParams.iRetries = GetIniValue(DND_INI_RESOLVER, DND_INI_RETRIES, KDndIni_Retries, 1, 255);
 	iParams.iMinTime = GetIniValue(DND_INI_RESOLVER, DND_INI_MINTIME, KDndIni_MinTime, 1, KMaxTInt);
 	iParams.iMaxTime = GetIniValue(DND_INI_RESOLVER, DND_INI_MAXTIME, KDndIni_MaxTime, 1, KMaxTInt);

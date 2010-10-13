@@ -328,9 +328,8 @@ void CPcCardControlEngine::ParseMACFromFileL()
 	
 	User::LeaveIfError(fileSrv.Connect());
 	User::LeaveIfError(macFile.Open(fileSrv,KEtherMacFileName,EFileRead));
-	CleanupClosePushL(macFile);
 	User::LeaveIfError(macFile.Read(macAddress,12));
-	CleanupStack::PopAndDestroy(&macFile);
+	macFile.Close();
 	fileSrv.Close();
 	controlBuf.SetLength(8);	
 	controlBuf[0] = KEthSpeed10BaseT;

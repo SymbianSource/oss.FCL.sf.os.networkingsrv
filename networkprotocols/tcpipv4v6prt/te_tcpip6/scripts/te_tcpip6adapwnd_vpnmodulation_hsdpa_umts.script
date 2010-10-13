@@ -81,7 +81,7 @@ RUN_TEST_STEP 150 te_esockteststepsSuite OpenRSocketStep z:\testdata\configs\te_
 //Retrieve the TCP Window size for HSDPA
 RUN_TEST_STEP 150 te_esockteststepsSuite SocketGetOptionStep z:\testdata\configs\te_tcpip6AdapWnd.ini GetOptOnSocketHSDPA
 
-DELAY 7000
+DELAY 20000
 
 //Retrieve the TCP Window size for UMTS
 RUN_TEST_STEP 150 te_esockteststepsSuite SocketGetOptionStep z:\testdata\configs\te_tcpip6AdapWnd.ini GetOptOnSocketUMTS

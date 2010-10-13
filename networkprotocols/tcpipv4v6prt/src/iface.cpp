@@ -617,7 +617,7 @@ public:
 
     // Wrap a packet into ICMP error reply
     void IcmpSend(RMBufChain &aPacket, const TIcmpTypeCode aIcmp, const TUint32 aParameter = 0, const TInt aMC = 0);
-    
+
 private:
 #   ifdef WEAK_ES
     TUint32 IsForMe(const TIp6Addr &aAddr, const CIp6Interface *const aSrcIf,
@@ -667,14 +667,9 @@ private:
     //
     void RemoveInterface(CIp6Interface *aIf);
     //
-    // Modify Inet Interface information (SetOption part!) for TSoInet6InterfaceInfo input
+    // Modify Inet Interface information (SetOption part!)
     //
-    TInt InetInterfaceOption(TUint aName, const TSoInet6InterfaceInfo &aInfo, const TInetSuffix* aDomainSuffix);
-    //
-    // Modify Inet Interface information (SetOption part!) for TSoInetInterfaceInfoExtnDnsSuffix input
-    // To support supplementary interface fields i.e. domain search list for an interface
-    //
-    TInt InetInterfaceOption(TUint aName, const TSoInetInterfaceInfoExtnDnsSuffix &aInfo);
+    TInt InetInterfaceOption(TUint aName, const TSoInet6InterfaceInfo &aInfo);
     //
     // Query Interface Information
     //
@@ -795,10 +790,7 @@ private:
     MDestinationCache *iDestinationCache;  //< Destination cache (for transport protocol params).
     
 public: // GCC doesn't compile Linkage, if this is private! -- msa
-    RTimeout iTimeout;					//< Hook to the timer service (MTimeoutManager)
-public:
-	// Enumerate domain suffices on an interface and read suffix name to the reference object passed in
-	virtual TInt DomainSuffixInfo(TName aActiveEnumInterface, TUint aDomainSuffixIndex, TInetSuffix &aDomainSuffix);
+    RTimeout iTimeout;                  //< Hook to the timer service (MTimeoutManager)
     };
 
 //
@@ -1871,11 +1863,6 @@ private:
 #endif //SYMBIAN_TCPIPDHCP_UPDATE
 public: // GCC doesn't compile CIp6InterfaceLinkage, if this is private! -- msa
     RTimeout iTimeout;          //< Hook to the timer service (MTimeoutManager)
-private:
-    RInetSuffixList iSuffixList;	// Container to store list of optional domain search list on the interface
-private:
-	// Process SetOpt request for updating domain suffices based on the function mode set on the structure passed in
-	void ProcessDomainSuffixL(const TInetSuffix* aSuffix);
     };
 
 //
@@ -3425,7 +3412,6 @@ retry_connect:
         TPckgBuf<TSoIfConnectionInfo> netinfo;
         netinfo().iIAPId = iRoute->iInterface.iScope[EScopeType_IAP];
         netinfo().iNetworkId = iRoute->iInterface.iScope[EScopeType_NET];
-
 
         Bearer(netinfo);
         RefreshFlow();
@@ -5550,13 +5536,13 @@ void CIp6Interface::NotifyMulticastEvent(TUint aEventType, const TIp6Addr &aMult
 */
 TInt CIp6Interface::SetId(TIp6AddressInfo &aId, const TIp6Addr &aAddr, const TInt aPrefix, const TInt aAddressType)
     {
+    // Should this also check whether address type is same?
+    // Changing just type does not work with this code!
+    // -- msa 24.10.2003
     if (aPrefix < 0 || aPrefix > 128)
         return 0;       // Invalid length, do nothing!
     if (TIp46Addr::Cast(aAddr).IsMulticast())
         return 0;       // A multicast address cannot be my own.
-    // Should this also check whether address type is same?
-    // Changing just type does not work with this code!
-    // -- msa 24.10.2003
     if (aId.IsSet() && aPrefix == aId.iPrefix && aAddr.IsEqual(aId.iId))
         {
 		// Id has not changed but expecting some change in any of 
@@ -7297,7 +7283,6 @@ CIp6Interface::~CIp6Interface()
     // are wasted on destructor. Should not cause
     // any problems... -- msa
     Reset();
-    iSuffixList.Close();
     LOG(Log::Printf(_L("\tIF %u [%S] Deleted"), iScope[0], &iName));
     }
 
@@ -9428,17 +9413,14 @@ void CIp6Interface::SetAddressAndScope(TSockAddr &aAddr, const TSockAddr &aSrc) 
 // **************************
 /**
 // Locate the next interface after aIndex and return the
-// information and assigned interface index
-// The structure being used is a legacy type for retreiving basic information
+// information and assigned interface index.
 //
-// @param aIndex    index in the interface list after which we need extract the interface information
-// @param aInfo     Structure to store interface properties for the application layer to read
 // @return
 //  @li = 0, if no next interface exists
 //  @li > 0, interface index, aInfo updated to describe this interface
 */
 TUint CIp6Manager::InterfaceInfo(TUint aIndex, TSoInetInterfaceInfo &aInfo) const
-	{
+    {
     // ..yes, this is silly O(n!) (?) algorithm for scanning the interfaces. Each time
     // this is called, it has find and count all entries that come before the specified
     // aIndex.
@@ -9590,44 +9572,8 @@ TUint CIp6Manager::InterfaceInfo(TUint aIndex, TSoInetInterfaceInfo &aInfo) cons
             }
         }
     return 0;
-	}
-
-// CIp6Manager::DomainSuffixInfo
-// *****************************
-/**
-// Locate the next domain suffix after aDomainSuffixIndex on the interface with name aActiveEnumInterface
-// and return the information and assigned domain suffix index.
-// The structure being used is a new type for retreiving extended information
-//
-// @param aActiveEnumInterface  active interface name on which enumeration is to carried out
-// @param aDomainSuffixIndex    index in the domain suffix list after which we need extract the information
-// @param aInfoStructure 		to store domain suffix properties for the application layer to read
-// @return
-//  @li = 0, if no next domain suffix exists
-//  @li > 0, interface index, aInfo updated to describe this domain suffix in the list
-//	@li = KErrNotFound, if interface does not exist (or) when no domain suffix available for the interfce
-*/
-TInt CIp6Manager::DomainSuffixInfo(TName aActiveEnumInterface, TUint aDomainSuffixIndex, TInetSuffix &aDomainSuffix)
-    {
-	CIp6Interface* iface = FindInterface(aActiveEnumInterface);
-	
-    if (iface == NULL)
-    	{
-    	return KErrNotFound;
-		}
-    	
-	TInt count = iface->iSuffixList.Count();
-	if(count == 0 || count < aDomainSuffixIndex)
-		return KErrNotFound;
-		
-	if (count == aDomainSuffixIndex)    	
-		return 0;
-		
-	aDomainSuffix.Copy(iface->iSuffixList[aDomainSuffixIndex]);
-    aDomainSuffix.iDomainSuffixFunction = EInetFunctionUndefined;
-    
-    return ++aDomainSuffixIndex;
     }
+
 
 TInt CIp6Manager::GetInterfaces(TDes8& aOption) const
     {
@@ -10044,10 +9990,9 @@ TInt CIp6Manager::InterfaceQueryOption(TUint aName, TSoInetIfQuery &aQuery, cons
 
 // CIp6Manager::InetInterfaceOption
 // ********************************
-// Modify Inet Interface information (SetOption part!) for TSoInet6InterfaceInfo input
-// For maintaining backward compatibility
+// Modify Inet Interface information (SetOption part)
 //
-TInt CIp6Manager::InetInterfaceOption(TUint aName, const TSoInet6InterfaceInfo &aInfo, const TInetSuffix* aDomainSuffix)
+TInt CIp6Manager::InetInterfaceOption(TUint aName, const TSoInet6InterfaceInfo &aInfo)
     {
     #ifdef _LOG
         TBuf<39> addressStr;
@@ -10204,15 +10149,6 @@ TInt CIp6Manager::InetInterfaceOption(TUint aName, const TSoInet6InterfaceInfo &
         iface->iSMtu = iface->iRMtu = iface->iPMtu = aInfo.iMtu;
     if (aInfo.iSpeedMetric > 0)
         iface->iSpeedMetric = aInfo.iSpeedMetric;
-
-	// Copy the domain search list (if any) to the interface object
-	if (aDomainSuffix)
-		{
-		TRAPD(err, iface->ProcessDomainSuffixL(aDomainSuffix));
-		if (err != KErrNone)
-			return err;
-		}
-    	
     if (aInfo.iDoState)
         {
         if (aInfo.iState == EIfDown)
@@ -10328,51 +10264,6 @@ TInt CIp6Manager::InetInterfaceOption(TUint aName, const TSoInet6InterfaceInfo &
         iface->GetRoute(addr, prefix, KRouteAdd_ONLINK, NULL, &lifetime);
         }
     return KErrNone;
-    }
-
-// CIp6Manager::ProcessDomainSuffixL
-// *********************************
-// Process SetOpt calls with TSoInetInterfaceInfoExtnDnsSuffix which contains
-// domain suffix information for the interface in form of TInetSuffix structure
-// This function is responsible to perform domain suffix updates (i.e. add/delete/deleteall)
-// to the interface based on the operation mode specified in the structure
-void CIp6Interface::ProcessDomainSuffixL(const TInetSuffix* aSuffix)
-	{
-	if (aSuffix->iDomainSuffixFunction == EInetAddSuffix)
-		{
-		// Perform addition of the incoming suffix name to the list maintained by interface object
-		iSuffixList.AppendL(aSuffix->iSuffixName);
-		TSuffixName tmpBuf;
-		tmpBuf.Copy(iSuffixList[iSuffixList.Count()-1]);
-		LOG(Log::Printf( _L( "Added domain suffix to interface %S - %S"), &iName, &tmpBuf));
-		}
-	else if(aSuffix->iDomainSuffixFunction == EInetDeleteSuffix)
-		{
-		// Perform deletion of the suffix name from the list of suffices in the interface object
-		TInt pos;
-		pos = iSuffixList.Find(aSuffix->iSuffixName);
-		User::LeaveIfError(pos);
-		TSuffixName tmpBuf;
-		tmpBuf.Copy(iSuffixList[pos]);
-		iSuffixList.Remove(pos);
-		LOG(Log::Printf( _L( "Removed domain suffix from interface %S - %S"), &iName, &tmpBuf));
-		}
-	else if (aSuffix->iDomainSuffixFunction == EInetDeleteAllSuffixes)
-		{
-		// Flush out all the suffix entries in the interface
-		iSuffixList.Reset();
-		LOG(Log::Printf( _L( "Removed all domain suffix from interface %S"), &iName));
-		}
-	}
-
-// CIp6Manager::InetInterfaceOption
-// ******************************** 
-// Modify Inet Interface information (SetOption part!) for TSoInetInterfaceInfoExtnDnsSuffix input
-// To support supplementary fields i.e. domain search list on an interface
-//
-TInt CIp6Manager::InetInterfaceOption(TUint aName, const TSoInetInterfaceInfoExtnDnsSuffix &aInfo)
-    {
-    return InetInterfaceOption(aName, (TSoInet6InterfaceInfo)aInfo, &aInfo.iDomainSuffix);
     }
 
 //
@@ -10514,18 +10405,10 @@ TInt CIp6Manager::SetOption(TUint aLevel, TUint aName, const TDesC8 &aOption, MP
         if (aName == KSoIpv4LinkLocal &&
                 aOption.Length() == sizeof(TSoInetIpv4LinkLocalInfo))
             return SetIpv4LinkLocalOption((TSoInetIpv4LinkLocalInfo &)ref);
-        if (aOption.Length() == sizeof(TSoInet6InterfaceInfo))
-            {
-			// if the SetOpt() requested with TSoInet6InterfaceInfo structure (legacy)
-            return InetInterfaceOption(aName, (TSoInet6InterfaceInfo &)ref, NULL);
-            }
-        else if (aOption.Length() == sizeof(TSoInetInterfaceInfoExtnDnsSuffix))
-			{
-			// if the SetOpt() requested with new TSoInetInterfaceInfoExtnDnsSuffix structure
-            return InetInterfaceOption(aName, (TSoInetInterfaceInfoExtnDnsSuffix &)ref);
-			}
-        else
+        
+        if (aOption.Length() != sizeof(TSoInet6InterfaceInfo))
             return KErrArgument;
+        return InetInterfaceOption(aName, (TSoInet6InterfaceInfo &)ref);
         }
     else if (aLevel == KSOLInterface)
         {

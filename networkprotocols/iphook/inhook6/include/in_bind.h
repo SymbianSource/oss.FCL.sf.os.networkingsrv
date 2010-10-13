@@ -371,10 +371,6 @@ public:
 	* the name servers or gateways. Some of the information comes from the neighbor 
 	* discovery or service location protocols.
 	*
-	* TSoInetInterfaceInfoExtnDnsSuffix structure can also be used for retreiving interface
-	* information if we need values for supplementary fields like the domain search list
-	* This support is available since Symbian OS vtb92 and later
-	*
 	* @param aIndex
 	*	previous index value, use ZERO to restart scan from beginning. <b>Note</b>: This
 	*	is not same as "interface index", which identifies a interface in the system.
@@ -564,35 +560,6 @@ public:
 	* @return 			System-wide error code
 	*/
 	virtual TInt SetOption(TUint aLevel, TUint aName, const TDesC8 &aOption, MProvdSecurityChecker &aChecker) = 0;
-	/**
-	* Enumerates domain suffix information on an interface.
-	*
-	* This function identifies the active interface enumerated for reading 
-	* by the parameter aActiveEnumInterface
-	*
-	* It then identifies the last domain suffix read on this inteface by the parameter 
-	* aDomainSuffixIndex
-	* 
-	* To start, call first with aDomainSuffixIndex=0, and after that always give the previously 
-	* returned value as a parameter. When the return value is 0, all domain suffices
-	* have been listed.
-	*
-	* The domain suffix thus read is saved to the reference TInetSuffix object passed in as argument
-	*
-	* @param aActiveEnumInterface
-	*	previously indexed interface's name saved during enumeration done using KSoInetNextInterface
-	*	Can be used to enumerate on specific interface by passing the interface name
-	* @aDomainSuffixIndex
-	*	previous domain suffix index value, use ZERO to restart scan from beginning.
-	* @retval aInfo
-	*	returns the information about the domain suffix on the interface
-	*	at next index position of the list of domain suffices for that interface
-	* @return
-	*	@li = 0, if no next domain suffix exists
-	*	@li > 0, interface index, aInfo updated to describe this domain suffix in the list
-	*	@li = KErrNotFound, if interface does not exist (or) when no domain suffix available for the interface
-	*/	
-	virtual TInt DomainSuffixInfo(TName aActiveEnumInterface, TUint aDomainSuffixIndex, TInetSuffix &aInfo) = 0;
 	};
 
 

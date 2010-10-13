@@ -27,7 +27,7 @@
 #include <comms-infras/es_config.h>
 #include "../../include/DHCP_Std.h"
 #include <comms-infras/startprocess.h>
-#include "Te_TestDaemonClient.h"
+#include "te_TestDaemonClient.h"
 #include "DHCPStatesDebug.h"
 
 TVerdict CDhcpTestStep1_1::doTestStepL()

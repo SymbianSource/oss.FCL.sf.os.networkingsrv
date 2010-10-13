@@ -115,7 +115,7 @@ public:
 	// Process socket errors
 	TInt HandleError(TInt aReason, const TInetAddr *aServer = NULL);
 	// Close and deactivate the UDP socket for DNS traffic
-	void DeactivateSocket(TInt aReason); 
+	TBool DeactivateSocket(TInt aReason); 
 	// Handle receive compeleted, keep receiver active
 	void RunReader(const TMsgBuf &aMsg, const TInetAddr &aFrom);
 	// Handle send completed, keep sender active (if work to do)
@@ -130,6 +130,13 @@ public:
 	inline void ResetErrorCount() { iErrorCount = 0;}
 	// A link chain used by the CDnsSocket to keep track of multiple writers
 	CDnsSocketWriter *iNext;
+#ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY 
+		RConnection iAttachedConn;	//< The connection on which the DNS socket may be opened on
+#endif	
+
+	// Network ID associated with the writer;
+	TInt   iNetworkIdofWriter;
+	inline void SetDeferredDelete() { iDeferredDelete = ETrue; }
 	
 private:
 	void RunL();
@@ -140,9 +147,7 @@ private:
 
 	CDnsSocket &iMaster;		//< The connection to the CDnsSocket owning this
 	RSocket iSocket;			//< The DNS socket
-#ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY 
-	RConnection iAttachedConn;	//< The connection on which the DNS socket may be opened on
-#endif		
+	
 	TUint iDeactivateCount;		//< Count number of deactivations (needed in reply processing)
 	TUint iErrorCount;			//< Count number of consecutive errors in RunL (read and write)
 	TUint iListen;				//< = 1, if socket is listening TCP socket, waiting on accept.
@@ -159,6 +164,7 @@ private:
 	TRequestQueue iWaitQueue;	//< Requests waiting for a reply
 	TDnsRequest *iSending;		//< The request currently being sent, if non-NULL
 	CDnsSocketReader *iReader;	//< The reader object
+	TBool iDeferredDelete;
 	};
 
 void TDnsRequest::Cancel()
@@ -193,9 +199,10 @@ private:
 	TPtr8 iBuf;				//< The current receive buffer
 	};
 
-CDnsSocketWriter::CDnsSocketWriter(CDnsSocket &aMaster) : CActive(0), iMaster(aMaster)
+CDnsSocketWriter::CDnsSocketWriter(CDnsSocket &aMaster) : CActive(0), iMaster(aMaster), iDeferredDelete(EFalse)
 	{
 	LOG(Log::Printf(_L("CDnsSocketWriter[%u]::CDnsSocketWriter([%u])"), this, &aMaster));
+	iNetworkIdofWriter = -1;
 	CActiveScheduler::Add(this);
 
 	TTime seed;
@@ -337,6 +344,12 @@ void CDnsSocketWriter::RunReader(const TMsgBuf &aMsg, const TInetAddr &aFrom)
 					rq->iQueueLink.SetWriter(NULL);
 					rq->Abort(iMaster, KErrCancel);
 					}
+        if (iDeferredDelete)
+          {
+          LOG(Log::Printf(_L("CDnsSocketWriter[%u]::RunReader() deleting itself due to deferred delete"), this));
+          delete this;
+          return;
+          }
 				}
 			}
 		else
@@ -558,13 +571,13 @@ TInt CDnsSocketWriter::HandleError(TInt aReason, const TInetAddr *aServer)
 	return (mark != iDeactivateCount);
 	}
 
-void CDnsSocketWriter::DeactivateSocket(TInt aReason)
+TBool CDnsSocketWriter::DeactivateSocket(TInt aReason)
 	{
 	LOG(Log::Printf(_L("CDnsSocketWriter[%u]::DeactivateSocket() Entry"), this));
 	if (!iOpened )
 	    {
 	    LOG(Log::Printf(_L("CDnsSocketWriter[%u]::DeactivateSocket() return without action"), this));
-		return;			// Nothing to do if not open
+		return ETrue;			// Nothing to do if not open
 	    }
 	// Grab current set of requests away, so that
 	// potentially newly entered requests won't
@@ -603,7 +616,13 @@ void CDnsSocketWriter::DeactivateSocket(TInt aReason)
 		rq->iQueueLink.SetWriter(0);
 		rq->Abort(iMaster, aReason);
 		}
-	LOG(Log::Printf(_L("CDnsSocketWriter[%u]::DeactivateSocket() complete"), this));
+    if (iRunReader)
+	  {
+      LOG(Log::Printf(_L("CDnsSocketWriter[%u]::DeactivateSocket() complete and defer delete"), this));
+      return EFalse;
+	  }
+    LOG(Log::Printf(_L("CDnsSocketWriter[%u]::DeactivateSocket() complete and allow delete"), this));
+    return ETrue;
 	}
 
 //
@@ -810,7 +829,8 @@ TBool CDnsSocketWriter::CanUseConnection()
 
             LOG(Log::Printf(_L("CDnsSocketWriter[%u]::CanUseConnection() currentInfo.NetId = %d "), this, currentInfo.iNetId));
             LOG(Log::Printf(_L("CDnsSocketWriter[%u]::CanUseConnection() iMaster.iNetworkId = %d "), this, iMaster.iNetworkId));
-            if(currentInfo.iNetId == iMaster.iNetworkId)
+            //if(currentInfo.iNetId == iMaster.iNetworkId)
+            if(currentInfo.iNetId == this->iNetworkIdofWriter)
                 {
                 foundConnection = ETrue;
                 break;
@@ -932,7 +952,7 @@ void CDnsSocketReader::RunL()
 		iWriter.ResetErrorCount();
 		iWriter.RunReader(TMsgBuf::Cast(iBuf), iFrom);
 		}
-	LOG(Log::Printf(_L("<-- CDnsSocketReader[%u]::RunL() -exit- iStatus=%d"), this, iStatus.Int()));
+	LOG(Log::Printf(_L("<-- CDnsSocketReader[%u]::RunL() -exit-"), this));
 	}
 
 void CDnsSocketReader::DoCancel()
@@ -983,26 +1003,91 @@ RSocket &CDnsSocket::Socket()
 //
 // Leaves, if socket cannot be activated
 */
-void CDnsSocket::ActivateSocketL(TUint aNetworkId)
+CDnsSocketWriter * CDnsSocket::ActivateSocketL(TUint aNetworkId)
 	{
 	LOG(Log::Printf(_L("CDnsSocket[%u]::ActivateSocketL([NetId = %d])"), this, aNetworkId));
-
-	if (iConnected && IsOpened())
-		{
-	   LOG(Log::Printf(_L("CDnsSocket[%u]::ActivateSocketL([NetId = %d]) return without action"), this, aNetworkId));
- 	    return;        // Already connected, nothing to do
- 	    }
-
-	User::LeaveIfError(iSS.Connect());
-	iConnected = 1;
-	iNetworkId = aNetworkId;
-
-	const TInt ret = iWriter->ActivateSocket();
-	if (ret != KErrNone)
-		{
-		DeactivateSocket(ret);
-		User::Leave(ret);
-		}
+    if(!iConnected)
+        {
+        LOG(Log::Printf(_L("CDnsSocket::ActivateSocketL([NetId = %d]) connecting socket server"),aNetworkId));
+        User::LeaveIfError(iSS.Connect());
+        iConnected = 1;
+        }
+    // use default in case of default network ID
+    if(aNetworkId == 0)
+        {
+        LOG(Log::Printf(_L("CDnsSocket::ActivateSocketL([NetId = %d]) using default writer"),aNetworkId));
+        if(iWriter->IsOpened())
+            {
+            return iWriter;
+            }
+        else
+            {
+            const TInt ret = iWriter->ActivateSocket();
+            if(ret != KErrNone)
+                {
+                DeactivateSocket(ret);
+                User::Leave(ret);
+                }
+            else
+                {
+                return iWriter;
+                }
+            }
+        
+        }
+    else
+        {
+        LOG(Log::Printf(_L("CDnsSocket::ActivateSocketL([NetId = %d]) Looking for"),aNetworkId));
+        // Find the appropriate writer for the network Id
+        CDnsSocketWriter *loopWriter = iWriter;
+        while (1)
+            {
+            if(loopWriter->iNetworkIdofWriter == aNetworkId)
+                {
+                LOG(Log::Printf(_L("CDnsSocket::ActivateSocketL([NetId = %d]) found"),aNetworkId));
+                if(loopWriter->IsOpened())
+                    {
+                    return loopWriter;
+                    }
+                else
+                    {
+                    const TInt ret = loopWriter->ActivateSocket();
+                    if(ret != KErrNone)
+                        {
+                        DeactivateSocket(ret);
+                        User::Leave(ret);
+                        }
+                    else
+                        {
+                        return loopWriter;
+                        }
+                    }
+                }
+            if(loopWriter->iNext == NULL)
+                {
+                break;
+                }
+            else
+                {
+                loopWriter = loopWriter->iNext;	            
+                }
+            }
+        LOG(Log::Printf(_L("CDnsSocket::ActivateSocketL([NetId = %d]) Creating new"),aNetworkId));
+         // create a new writer
+        loopWriter->iNext = CDnsSocketWriter::NewL(*this, -1);
+        loopWriter->iNext->iNetworkIdofWriter = aNetworkId;
+        const TInt ret = loopWriter->iNext->ActivateSocket();
+        if(ret != KErrNone)
+            {
+            DeactivateSocket(ret);
+            User::Leave(ret);
+            }
+        else
+            {
+            return loopWriter->iNext;
+            }
+        }
+	return NULL;
 	}
 
 /**
@@ -1027,6 +1112,7 @@ void CDnsSocket::ActivateSocketL(const TInetAddr &aBind)
 	aBind.OutputWithScope(tmp);
 	Log::Printf(_L("CDnsSocket[%u]::ActivateSocketL([%S#%d])"), this, &tmp, aBind.Port());
 #endif
+	LOG(Log::Printf(_L("CDnsSocket::ActivateSocketL with address bind")));
 	iWriter->SetBind(aBind);
 	ActivateSocketL();
 	}
@@ -1106,12 +1192,21 @@ void CDnsSocket::DeactivateSocket(TInt aReason)
 	iWriter->iNext = NULL;
 
 	iWriter->DeactivateSocket(aReason);
+	LOG(Log::Printf(_L("CDnsSocket::DeactivateSocket Deativatuing other writers")));
 	while (writer)
 		{
 		CDnsSocketWriter *tmp = writer;
 		writer = tmp->iNext;
-		tmp->DeactivateSocket(aReason);
+		LOG(Log::Printf(_L("CDnsSocket::DeactivateSocket calling deactivate socket for writer")));
+		TBool allowedToDelete = tmp->DeactivateSocket(aReason);
+		if (allowedToDelete)
+			{
 		delete tmp;
+			}
+		else
+			{
+			tmp->SetDeferredDelete();
+			}
 		}
 	// Oops... Should not close if re-activated ---FIX!
 	if (iListening)
@@ -1170,17 +1265,27 @@ void CDnsSocket::SetHoplimit(const TInt aTTL)
 //	@li >= 0,
 //		16 bits of this value is used as id.		
 */
-void CDnsSocket::Queue(TDnsRequest &aRequest, const TInt aId)
+void CDnsSocket::Queue(TDnsRequest &aRequest,  CDnsSocketWriter * aWriter, const TInt aId)
 	{
-	iWriter->Queue(aRequest, aId);
+    if(aWriter == NULL)
+        {
+        // use default
+        iWriter->Queue(aRequest, aId);
+        }
+    else
+        {
+        aWriter->Queue(aRequest, aId);
+        }
 	}
 
 
 // Queue a request for sending with a specific socket
 //
-TInt CDnsSocket::Queue(TDnsRequest &aRequest, const RSocket &aSocket, const TInt aId)
+// Though the DNS socket writer instance was passed as part of this function, but not being used as this
+// function matches the socket to find the appropriate writer instance
+TInt CDnsSocket::Queue(TDnsRequest &aRequest, const RSocket &aSocket,  CDnsSocketWriter */* aWriter*/, const TInt aId)
 	{
-	for (CDnsSocketWriter *writer = iWriter; writer != NULL; writer = writer->iNext)
+    for (CDnsSocketWriter *writer = iWriter; writer != NULL; writer = writer->iNext)
 		{
 		if (&aSocket == &writer->Socket())
 			{
@@ -1189,6 +1294,7 @@ TInt CDnsSocket::Queue(TDnsRequest &aRequest, const RSocket &aSocket, const TInt
 			return KErrNone;
 			}
 		}
+	
 	return KErrNotFound;
 	}
 
@@ -1204,7 +1310,7 @@ TInt CDnsSocket::Queue(TDnsRequest &aRequest, const RSocket &aSocket, const TInt
 //
 // @return KErrNone, if queued successfully, or error code if failed.
 */
-TInt CDnsSocket::Queue(TDnsRequest &aRequest, const TInetAddr &aServer, const TInt aId,  const TInt aTTL)
+TInt CDnsSocket::Queue(TDnsRequest &aRequest, const TInetAddr &aServer,  CDnsSocketWriter * /*aWriter*/, const TInt aId,  const TInt aTTL)
 	{
 	//
 	// Locate or create connected Socket reader/writer instance
@@ -1248,17 +1354,11 @@ TInt CDnsSocket::Queue(TDnsRequest &aRequest, const TInetAddr &aServer, const TI
 // If a request is not currently queued, this does an implicit
 // Queue. (a new id is generated).
 //
-// Exceptionally, the request assigns new ID when an incomplete query name
-// is iterated to apply multiple domain suffices on
-// the interface being used for sending requests
-//
 // @param aRequest	the request to be resent.
-// @param aRetryWithSuffix	flag set to identify retry requests 
-//							on incomplete query names. Defaulted to FALSE
 */
-void CDnsSocket::ReSend(TDnsRequest &aRequest, TBool aRetryWithSuffix)
+void CDnsSocket::ReSend(TDnsRequest &aRequest, CDnsSocketWriter * aWriter)
 	{
-	Queue(aRequest, (!aRetryWithSuffix && aRequest.IsQueued()) ? aRequest.Id() : -1);
+	Queue(aRequest, aWriter, aRequest.IsQueued() ? aRequest.Id() : -1);
 	}
 
 /**

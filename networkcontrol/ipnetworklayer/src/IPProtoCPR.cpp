@@ -37,6 +37,7 @@
 #include "IPProtoMCpr.h"
 #include "IPProtoMessages.h"
 #include "linkcprextensionapi.h"
+#include "IPProtoCPRFactory.h"
 
 #include <comms-infras/ss_nodemessages_factory.h>
 #include <comms-infras/ss_msgintercept.h>

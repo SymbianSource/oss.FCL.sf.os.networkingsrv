@@ -27,12 +27,10 @@
 #include <f32file.h>
 #include <es_sock.h>
 #include <in_sock.h>
-#include <featdiscovery.h>
 
 #include "ipsecpolapi.h"
 #include "ipsecpol.h"
 #include "autoloadlistitem.h"
-#include "log_ipsecpol.H"
 #ifdef SYMBIAN_IPSEC_VOIP_SUPPORT
 #include "spdb.h"
 #endif // SYMBIAN_IPSEC_VOIP_SUPPORT
@@ -54,7 +52,6 @@ enum direction
 const TInt KDropMode       = 0;          // Drop mode
 const TInt KInboundBypass  = (1 << 0);   // Inbound bypass mode
 const TInt KOutboundBypass = (1 << 1);   // Outbound bypass mode
-const TInt KSymmetricBypass = (KInboundBypass | KOutboundBypass ); // To allow UMA traffic
 
 //
 // Forward declarations
@@ -82,8 +79,6 @@ struct TActivePolicyListEntry
     TBool iActiveState;       // EFalse = loaded, not active; ETrue = active
     TInt iBypassOrDropMode;   // See flags below
     TPolicyType iPolicyType;
-    TBool iException;			// UMA exception
-	
     };
 typedef CArrayFixFlat<TActivePolicyListEntry*> CActivePolicyList;
 
@@ -189,7 +184,7 @@ public:
     TInt DeletePolicyFromList();
 
     TInt SearchPolicyFromListAndActivate();
-  
+    
     TInt GetAvailableSelectors(const RMessage2& aMsg);
     TInt GetSelectorsCount(const RMessage2& aMsg);
 
@@ -345,16 +340,6 @@ public:
     //determines whether the last manual autoload policy has been unloaded
     TBool IsLastManualLoadPolicy(TUint32 aPolicyHandle);
 
-    //Exception Selectors to be loaded.
-     TInt AddExceptionSelectors();
-     
-     //Check for Exception policy loading. Work around done for UMA. Need to check more. 
-     TBool CheckException();
-
-	//Method to set the SID of the application that load policy 
-	 void SetOptL(const RMessage2& aMsg);
- 
-
 private:
     // Read the algorithms.conf file
     void ReadAlgorithmsFileL();
@@ -372,17 +357,6 @@ private:
                                    TBool& aIsTunnelMode);
 
     TInt CalculatePolicyBypassDropMode(CSecurityPolicy& aSp) const;
-
-    //UMA support
-	void SearchIAPIdL( const TUint32& aNetId, TUint32& aIapId );
-    TBool CheckUMAL(TUint32 aIapId);
-	void CheckFeatureSupportL(TUid aFeature);////To check a Feature flag is enabled or not
-
-	/**
-	 *This method to check the exception.
-	 **/
-	void CheckUMAEXception(TUint32 aVpnNetId);
-
 
 public:
 
@@ -469,13 +443,6 @@ private:
     TInetAddr iTunnel;
     
     CArrayFixFlat<TIpsecSelectorInfo>* iSelectorInfoArray;
-	
-    //UMA support
-    TBool iCurrentException;	
-    //This variable holds sid of the application that loads 
-    //exception policies
-    TUint32 iAppSid;
-    TBool iIPSecGANSupported; //To check whether FF_IPSEC_UMA_SUPPORT_ENABLE is defined and UMA supported
-	};
+    };
 
 #endif
