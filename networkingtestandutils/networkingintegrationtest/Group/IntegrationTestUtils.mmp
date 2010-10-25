@@ -34,7 +34,9 @@ USERINCLUDE   ../inc
 OS_LAYER_SYSTEMINCLUDE_SYMBIAN
 
 LIBRARY     	euser.lib efsrv.lib 
-LIBRARY		cinidata.lib
+// darios: cinidata is deprecated, see bug #1894
+//LIBRARY		cinidata.lib
+LIBRARY		IniParser.lib
 
 epocheapsize  1000 6000000
 CAPABILITY All -Tcb

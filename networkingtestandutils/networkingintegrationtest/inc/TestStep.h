@@ -26,7 +26,9 @@
 #if (!defined __TESTSTEP_H__)
 #define __TESTSTEP_H__
 
-#include "cinidata.h"
+// darios: cinidata is deprecated, see bug #1894
+//#include "cinidata.h"
+#include <iniparser.h>
 #include "networking/log.h"
 
 class CTestSuite;
