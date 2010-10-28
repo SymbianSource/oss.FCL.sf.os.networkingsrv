@@ -17,8 +17,10 @@
 #include "../testcontroller/group/bld.inf"
 #include "../exeservice/group/bld.inf"
 #include "../pcapservice/group/bld.inf"
+#if 0 // bug 3738
 #include "../netsteb/group/bld.inf"
 #include "../sockbench/group/bld.inf"
+#endif
 
 #ifdef SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
 #include "../delaymeterlibrary/group/bld.inf"
