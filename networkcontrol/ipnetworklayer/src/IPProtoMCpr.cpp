@@ -47,7 +47,7 @@ using namespace ESock;
 using namespace NetStateMachine;
 using namespace CommsDat;
 using namespace MCprActivities;
-
+using namespace IPProtoMCprStates;
 //
 //CIPProtoMetaConnectionProvider
 CIPProtoMetaConnectionProvider* CIPProtoMetaConnectionProvider::NewL(CMetaConnectionProviderFactoryBase& aFactory,
@@ -191,6 +191,39 @@ Setup the provisioning information for the IPProto layer.
 	CleanupStack::PopAndDestroy(&mec);
     }
 
+// -----------------------------------------------------------------------------
+// TAwaitingControlClientJoinDuringStop::Accept
+// -----------------------------------------------------------------------------
+//
+DEFINE_SMELEMENT( TAwaitingControlClientJoinDuringStop, NetStateMachine::MState, TContext )
+TBool TAwaitingControlClientJoinDuringStop::Accept()
+    {
+    if ( iContext.iMessage.IsMessage<TCFPeer::TJoinRequest>() )
+        {
+        // Check if Stop activity is ongoing
+        if ( iContext.Node().CountActivities( ECFActivityStop ) > 0 )
+            {
+            // We are stopping this IAP, so don't accept new connections
+            // Accept message to trigger special handling, otherwise
+            // let this flow through to core join activity
+            return ETrue;
+            }
+        }
+    return EFalse;
+    }
+
+// -----------------------------------------------------------------------------
+// THandleNoBearerDuringGoneDownRecovery::DoL
+// -----------------------------------------------------------------------------
+//
+DEFINE_SMELEMENT( TRespondErrorToControlClientJoin, NetStateMachine::MStateTransition, TContext )
+void TRespondErrorToControlClientJoin::DoL()
+    {
+    iContext.Node().DecrementBlockingDestroy();
+    // Single triple activity, so live with context info.
+    TEBase::TError errorMsg ( iContext.iMessage.MessageId(), KErrNotReady );
+    iContext.PostToSender( errorMsg );
+    }
 namespace IPProtoMCprSelectConnPrefListActivity
 {
 DECLARE_DEFINE_CUSTOM_NODEACTIVITY(ECFActivitySelect, IPProtoMCprSelectConnPrefList, TCFSelector::TSelect, CSelectNextLayerActivity::NewL)
@@ -213,9 +246,20 @@ DECLARE_DEFINE_CUSTOM_NODEACTIVITY(ECFActivitySelect, IPProtoMCprSelectConnPrefL
 NODEACTIVITY_END()
 }
 
+// An activity to prevent reusage of the IAP when it is being stopped
+namespace IPProtoMCprJoinDuringStopActivity
+{
+// Waiting only join request, as we are handling a case where this
+// node is already created and we want to prevent its reusage
+DECLARE_DEFINE_NODEACTIVITY( ECFActivityNoBearer, IPProtoMCprJoinDuringStop, TCFPeer::TJoinRequest )
+    SINGLE_NODEACTIVITY_ENTRY( IPProtoMCprStates::TRespondErrorToControlClientJoin, 
+                               IPProtoMCprStates::TAwaitingControlClientJoinDuringStop )
+NODEACTIVITY_END()
+}
 namespace IPProtoMCprActivities
 {
 DEFINE_ACTIVITY_MAP(ipProtoActivitiesMCpr)
+	ACTIVITY_MAP_ENTRY(IPProtoMCprJoinDuringStopActivity, IPProtoMCprJoinDuringStop)
 	ACTIVITY_MAP_ENTRY(IPProtoMCprSelectConnPrefListActivity, IPProtoMCprSelectConnPrefList)
 ACTIVITY_MAP_END_BASE(MCprActivities, coreMCprActivities)
 }

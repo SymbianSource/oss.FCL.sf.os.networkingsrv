@@ -160,9 +160,7 @@
 #include <QosIPSCPR.iby>
 #endif // SYMBIAN_NON_SEAMLESS_NETWORK_BEARER_MOBILITY
 
-#ifdef SYMBIAN_INCLUDE_PUNYCODE
 #include <punycodeconverter.iby>
-#endif //SYMBIAN_INCLUDE_PUNYCODE
 
 REM --- DNS Proxy 
 

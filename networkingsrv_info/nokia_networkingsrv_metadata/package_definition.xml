@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SystemDefinition xmlns:sf="http://www.symbian.org/system-definition" schema="3.0.0" id-namespace="http://www.nokia.com/schema/drd/system-definition">
+ <package id="sf:networkingsrv" name="Networking Services" levels="adaptation hw-if plugin framework server app-if">
+    <collection id="sf:networksecurity" name="Network Security" level="framework">
+     <component id="ipsecvpn" name="IPsec VPN" introduced="^2" purpose="development">
+      <unit bldFile="../../networksecurity/ipsecvpn/group" mrp="../../networksecurity/ipsecvpn/group/networking_ipsecvpn.mrp"/>
+     </component>
+    </collection>
+	<collection id="sf:networkingtestandutils" name="Networking Test and Utils" level="app-if">
+	 <component id="networkingconformancetest" name="Networking Conformance Test" introduced="^3" purpose="development" filter="test">
+	  <unit bldFile="../../networkingtestandutils/networkingconformancetest/te_Anvl/group" mrp="../../networkingtestandutils/networkingconformancetest/te_Anvl/group/networking_conformancetest.mrp"/>
+     </component>
+    </collection>
+   <collection id="sf:networkingsrv_info" name="Networking Services Info" level="app-if">
+   <component id="nokia_networkingsrv_metadata" name="Nokia Networking Services Metadata" class="config" introduced="^2" purpose="development" target="desktop">
+    <unit mrp="nokia_networkingsrv_metadata.mrp"/>
+   </component>
+  </collection>
+ </package>
+</SystemDefinition>

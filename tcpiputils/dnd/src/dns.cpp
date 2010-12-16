@@ -29,10 +29,6 @@
 #endif
 #include "dnd_ini.h"
 
-#ifdef EXCLUDE_SYMBIAN_DNS_PUNYCODE
-#undef SYMBIAN_DNS_PUNYCODE
-#endif //EXCLUDE_SYMBIAN_DNS_PUNYCODE
-
 class CDnsService : public CDndDnsclient
 	{
 public:

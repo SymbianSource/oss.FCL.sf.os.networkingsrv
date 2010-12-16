@@ -59,6 +59,23 @@ public:
 	TBool iIapLocked;
     };
 
+//-=========================================================
+// States and transitions
+//-=========================================================
+namespace IPProtoMCprStates
+{
+
+typedef MeshMachine::TNodeContext<CIPProtoMetaConnectionProvider, MCprStates::TContext> TContext;
+
+DECLARE_SMELEMENT_HEADER( TAwaitingControlClientJoinDuringStop, MeshMachine::TState<TContext>, NetStateMachine::MState, TContext)
+    virtual TBool Accept();
+DECLARE_SMELEMENT_FOOTER( TAwaitingControlClientJoinDuringStop )
+
+DECLARE_SMELEMENT_HEADER( TRespondErrorToControlClientJoin, MeshMachine::TStateTransition<TContext>, NetStateMachine::MStateTransition, TContext )
+    void DoL();
+DECLARE_SMELEMENT_FOOTER( TRespondErrorToControlClientJoin )
+
+}
 namespace IPProtoMCprActivities
 {
 	//Activity Map provided by IPProtoMCPr to be used by MCprs.

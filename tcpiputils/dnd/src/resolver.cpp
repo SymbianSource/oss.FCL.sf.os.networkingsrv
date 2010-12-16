@@ -28,10 +28,6 @@
 #include "dnd.hrh"		// EDndFlush
 #endif
 
-#ifdef EXCLUDE_SYMBIAN_DNS_PUNYCODE
-#undef SYMBIAN_DNS_PUNYCODE
-#endif //EXCLUDE_SYMBIAN_DNS_PUNYCODE
-
 struct SQueryStep
 	{
 	EDnsQType iQType;			// the query type

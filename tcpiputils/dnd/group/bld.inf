@@ -48,7 +48,6 @@ PRJ_MMPFILES
 // ignored.
 
 dndexe.mmp
-dndexe_def.mmp
 
 PRJ_TESTMMPFILES
 // specify the .mmp files required for building any test programs here

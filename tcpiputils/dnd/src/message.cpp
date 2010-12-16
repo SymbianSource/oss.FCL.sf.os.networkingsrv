@@ -20,10 +20,6 @@
 #include <networking/dnd_err.h>
 #include "dns_ext.h"
 
-#ifdef EXCLUDE_SYMBIAN_DNS_PUNYCODE
-#undef SYMBIAN_DNS_PUNYCODE
-#endif //EXCLUDE_SYMBIAN_DNS_PUNYCODE
-
 // Constants
 
 _LIT8(KIPv4AddrToHost, ".in-addr.arpa");

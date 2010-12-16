@@ -21,10 +21,6 @@
 #include "inet6log.h"
 #include "engine.h"
 
-#ifdef EXCLUDE_SYMBIAN_DNS_PUNYCODE
-#undef SYMBIAN_DNS_PUNYCODE
-#endif //EXCLUDE_SYMBIAN_DNS_PUNYCODE
-
 const TInt CDndRecord::iOffset = _FOFF(CDndRecord, iDlink);
 const TInt CDndRecord::iOffsetLRU = _FOFF(CDndRecord, iLRU);
 

@@ -23,10 +23,6 @@ REM dependencies
 
 data=EPOCROOT##epoc32\data\z\private\10000882\resolver.ini    private\10000882\resolver.ini
 
-#ifdef SYMBIAN_INCLUDE_PUNYCODE
 file=ABI_DIR\DEBUG_DIR\dnd.exe                sys\bin\dnd.exe
-#else
-file=ABI_DIR\DEBUG_DIR\dnd_def.exe            sys\bin\dnd.exe
-#endif //SYMBIAN_INCLUDE_PUNYCODE
 
 #endif // __DND_IBY__
